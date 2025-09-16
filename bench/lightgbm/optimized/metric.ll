@@ -10580,7 +10580,7 @@ define internal void @_ZNK8LightGBM16RegressionMetricINS_14FairLossMetricEE4Eval
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %13 = load i32, ptr %12, align 8, !tbaa !155
   %14 = icmp sgt i32 %13, 0
-  br i1 %14, label %15, label %54
+  br i1 %14, label %15, label %53
 
 15:                                               ; preds = %5
   %16 = add nsw i32 %13, -1
@@ -10611,62 +10611,62 @@ define internal void @_ZNK8LightGBM16RegressionMetricINS_14FairLossMetricEE4Eval
   %25 = load double, ptr %24, align 8, !tbaa !161
   %26 = fmul double %25, %25
   %27 = sext i32 %20 to i64
-  br label %28
+  %28 = add nsw i32 %19, 1
+  br label %29
 
-28:                                               ; preds = %.lr.ph, %28
-  %indvars.iv = phi i64 [ %27, %.lr.ph ], [ %indvars.iv.next, %28 ]
-  %29 = phi double [ 0.000000e+00, %.lr.ph ], [ %42, %28 ]
-  %30 = getelementptr inbounds float, ptr %22, i64 %indvars.iv
-  %31 = load float, ptr %30, align 4, !tbaa !78
-  %32 = getelementptr inbounds double, ptr %23, i64 %indvars.iv
-  %33 = load double, ptr %32, align 8, !tbaa !84
-  %34 = fpext float %31 to double
-  %35 = fsub double %33, %34
-  %36 = call double @llvm.fabs.f64(double %35)
-  %37 = fdiv double %36, %25
-  %38 = call double @log1p(double noundef %37) #15, !tbaa !127
-  %39 = fneg double %38
-  %40 = fmul double %26, %39
-  %41 = call noundef double @llvm.fmuladd.f64(double %25, double %36, double %40)
-  %42 = fadd double %29, %41
-  store double %42, ptr %10, align 8, !tbaa !84
+29:                                               ; preds = %.lr.ph, %29
+  %indvars.iv = phi i64 [ %27, %.lr.ph ], [ %indvars.iv.next, %29 ]
+  %30 = phi double [ 0.000000e+00, %.lr.ph ], [ %43, %29 ]
+  %31 = getelementptr inbounds float, ptr %22, i64 %indvars.iv
+  %32 = load float, ptr %31, align 4, !tbaa !78
+  %33 = getelementptr inbounds double, ptr %23, i64 %indvars.iv
+  %34 = load double, ptr %33, align 8, !tbaa !84
+  %35 = fpext float %32 to double
+  %36 = fsub double %34, %35
+  %37 = call double @llvm.fabs.f64(double %36)
+  %38 = fdiv double %37, %25
+  %39 = call double @log1p(double noundef %38) #15, !tbaa !127
+  %40 = fneg double %39
+  %41 = fmul double %26, %40
+  %42 = call noundef double @llvm.fmuladd.f64(double %25, double %37, double %41)
+  %43 = fadd double %30, %42
+  store double %43, ptr %10, align 8, !tbaa !84
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %43 = load i32, ptr %7, align 4, !tbaa !127
-  %44 = sext i32 %43 to i64
-  %.not.not = icmp slt i64 %indvars.iv, %44
-  br i1 %.not.not, label %28, label %._crit_edge
+  %lftr.wideiv = trunc i64 %indvars.iv.next to i32
+  %exitcond.not = icmp eq i32 %28, %lftr.wideiv
+  br i1 %exitcond.not, label %._crit_edge, label %29
 
-._crit_edge:                                      ; preds = %28, %15
+._crit_edge:                                      ; preds = %29, %15
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %17)
   store ptr %10, ptr %11, align 8
-  %45 = call i32 @__kmpc_reduce_nowait(ptr nonnull @2, i32 %17, i32 1, i64 8, ptr nonnull %11, ptr nonnull @_ZNK8LightGBM16RegressionMetricINS_14FairLossMetricEE4EvalEPKdPKNS_17ObjectiveFunctionE.omp_outlined.omp.reduction.reduction_func, ptr nonnull @.gomp_critical_user_.reduction.var)
-  switch i32 %45, label %53 [
-    i32 1, label %46
-    i32 2, label %50
+  %44 = call i32 @__kmpc_reduce_nowait(ptr nonnull @2, i32 %17, i32 1, i64 8, ptr nonnull %11, ptr nonnull @_ZNK8LightGBM16RegressionMetricINS_14FairLossMetricEE4EvalEPKdPKNS_17ObjectiveFunctionE.omp_outlined.omp.reduction.reduction_func, ptr nonnull @.gomp_critical_user_.reduction.var)
+  switch i32 %44, label %52 [
+    i32 1, label %45
+    i32 2, label %49
   ]
 
-46:                                               ; preds = %._crit_edge
-  %47 = load double, ptr %3, align 8, !tbaa !84
-  %48 = load double, ptr %10, align 8, !tbaa !84
-  %49 = fadd double %47, %48
-  store double %49, ptr %3, align 8, !tbaa !84
+45:                                               ; preds = %._crit_edge
+  %46 = load double, ptr %3, align 8, !tbaa !84
+  %47 = load double, ptr %10, align 8, !tbaa !84
+  %48 = fadd double %46, %47
+  store double %48, ptr %3, align 8, !tbaa !84
   call void @__kmpc_end_reduce_nowait(ptr nonnull @2, i32 %17, ptr nonnull @.gomp_critical_user_.reduction.var)
-  br label %53
+  br label %52
 
-50:                                               ; preds = %._crit_edge
-  %51 = load double, ptr %10, align 8, !tbaa !84
-  %52 = atomicrmw fadd ptr %3, double %51 monotonic, align 8
-  br label %53
+49:                                               ; preds = %._crit_edge
+  %50 = load double, ptr %10, align 8, !tbaa !84
+  %51 = atomicrmw fadd ptr %3, double %50 monotonic, align 8
+  br label %52
 
-53:                                               ; preds = %50, %46, %._crit_edge
+52:                                               ; preds = %49, %45, %._crit_edge
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %54
+  br label %53
 
-54:                                               ; preds = %53, %5
+53:                                               ; preds = %52, %5
   ret void
 }
 
@@ -10692,7 +10692,7 @@ define internal void @_ZNK8LightGBM16RegressionMetricINS_14FairLossMetricEE4Eval
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %13 = load i32, ptr %12, align 8, !tbaa !155
   %14 = icmp sgt i32 %13, 0
-  br i1 %14, label %15, label %59
+  br i1 %14, label %15, label %58
 
 15:                                               ; preds = %5
   %16 = add nsw i32 %13, -1
@@ -10725,65 +10725,65 @@ define internal void @_ZNK8LightGBM16RegressionMetricINS_14FairLossMetricEE4Eval
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %28 = load ptr, ptr %27, align 8, !tbaa !158
   %29 = sext i32 %20 to i64
-  br label %30
+  %30 = add nsw i32 %19, 1
+  br label %31
 
-30:                                               ; preds = %.lr.ph, %30
-  %indvars.iv = phi i64 [ %29, %.lr.ph ], [ %indvars.iv.next, %30 ]
-  %31 = phi double [ 0.000000e+00, %.lr.ph ], [ %47, %30 ]
-  %32 = getelementptr inbounds float, ptr %22, i64 %indvars.iv
-  %33 = load float, ptr %32, align 4, !tbaa !78
-  %34 = getelementptr inbounds double, ptr %23, i64 %indvars.iv
-  %35 = load double, ptr %34, align 8, !tbaa !84
-  %36 = fpext float %33 to double
-  %37 = fsub double %35, %36
-  %38 = call double @llvm.fabs.f64(double %37)
-  %39 = fdiv double %38, %25
-  %40 = call double @log1p(double noundef %39) #15, !tbaa !127
-  %41 = fneg double %40
-  %42 = fmul double %26, %41
-  %43 = call noundef double @llvm.fmuladd.f64(double %25, double %38, double %42)
-  %44 = getelementptr inbounds float, ptr %28, i64 %indvars.iv
-  %45 = load float, ptr %44, align 4, !tbaa !78
-  %46 = fpext float %45 to double
-  %47 = call double @llvm.fmuladd.f64(double %43, double %46, double %31)
-  store double %47, ptr %10, align 8, !tbaa !84
+31:                                               ; preds = %.lr.ph, %31
+  %indvars.iv = phi i64 [ %29, %.lr.ph ], [ %indvars.iv.next, %31 ]
+  %32 = phi double [ 0.000000e+00, %.lr.ph ], [ %48, %31 ]
+  %33 = getelementptr inbounds float, ptr %22, i64 %indvars.iv
+  %34 = load float, ptr %33, align 4, !tbaa !78
+  %35 = getelementptr inbounds double, ptr %23, i64 %indvars.iv
+  %36 = load double, ptr %35, align 8, !tbaa !84
+  %37 = fpext float %34 to double
+  %38 = fsub double %36, %37
+  %39 = call double @llvm.fabs.f64(double %38)
+  %40 = fdiv double %39, %25
+  %41 = call double @log1p(double noundef %40) #15, !tbaa !127
+  %42 = fneg double %41
+  %43 = fmul double %26, %42
+  %44 = call noundef double @llvm.fmuladd.f64(double %25, double %39, double %43)
+  %45 = getelementptr inbounds float, ptr %28, i64 %indvars.iv
+  %46 = load float, ptr %45, align 4, !tbaa !78
+  %47 = fpext float %46 to double
+  %48 = call double @llvm.fmuladd.f64(double %44, double %47, double %32)
+  store double %48, ptr %10, align 8, !tbaa !84
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %48 = load i32, ptr %7, align 4, !tbaa !127
-  %49 = sext i32 %48 to i64
-  %.not.not = icmp slt i64 %indvars.iv, %49
-  br i1 %.not.not, label %30, label %._crit_edge
+  %lftr.wideiv = trunc i64 %indvars.iv.next to i32
+  %exitcond.not = icmp eq i32 %30, %lftr.wideiv
+  br i1 %exitcond.not, label %._crit_edge, label %31
 
-._crit_edge:                                      ; preds = %30, %15
+._crit_edge:                                      ; preds = %31, %15
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %17)
   store ptr %10, ptr %11, align 8
-  %50 = call i32 @__kmpc_reduce_nowait(ptr nonnull @2, i32 %17, i32 1, i64 8, ptr nonnull %11, ptr nonnull @_ZNK8LightGBM16RegressionMetricINS_14FairLossMetricEE4EvalEPKdPKNS_17ObjectiveFunctionE.omp_outlined.41.omp.reduction.reduction_func, ptr nonnull @.gomp_critical_user_.reduction.var)
-  switch i32 %50, label %58 [
-    i32 1, label %51
-    i32 2, label %55
+  %49 = call i32 @__kmpc_reduce_nowait(ptr nonnull @2, i32 %17, i32 1, i64 8, ptr nonnull %11, ptr nonnull @_ZNK8LightGBM16RegressionMetricINS_14FairLossMetricEE4EvalEPKdPKNS_17ObjectiveFunctionE.omp_outlined.41.omp.reduction.reduction_func, ptr nonnull @.gomp_critical_user_.reduction.var)
+  switch i32 %49, label %57 [
+    i32 1, label %50
+    i32 2, label %54
   ]
 
-51:                                               ; preds = %._crit_edge
-  %52 = load double, ptr %3, align 8, !tbaa !84
-  %53 = load double, ptr %10, align 8, !tbaa !84
-  %54 = fadd double %52, %53
-  store double %54, ptr %3, align 8, !tbaa !84
+50:                                               ; preds = %._crit_edge
+  %51 = load double, ptr %3, align 8, !tbaa !84
+  %52 = load double, ptr %10, align 8, !tbaa !84
+  %53 = fadd double %51, %52
+  store double %53, ptr %3, align 8, !tbaa !84
   call void @__kmpc_end_reduce_nowait(ptr nonnull @2, i32 %17, ptr nonnull @.gomp_critical_user_.reduction.var)
-  br label %58
+  br label %57
 
-55:                                               ; preds = %._crit_edge
-  %56 = load double, ptr %10, align 8, !tbaa !84
-  %57 = atomicrmw fadd ptr %3, double %56 monotonic, align 8
-  br label %58
+54:                                               ; preds = %._crit_edge
+  %55 = load double, ptr %10, align 8, !tbaa !84
+  %56 = atomicrmw fadd ptr %3, double %55 monotonic, align 8
+  br label %57
 
-58:                                               ; preds = %55, %51, %._crit_edge
+57:                                               ; preds = %54, %50, %._crit_edge
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %59
+  br label %58
 
-59:                                               ; preds = %58, %5
+58:                                               ; preds = %57, %5
   ret void
 }
 
@@ -32940,7 +32940,7 @@ define internal void @_ZNK8LightGBM24CrossEntropyLambdaMetric4EvalEPKdPKNS_17Obj
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %13 = load i32, ptr %12, align 8, !tbaa !532
   %14 = icmp sgt i32 %13, 0
-  br i1 %14, label %15, label %66
+  br i1 %14, label %15, label %65
 
 15:                                               ; preds = %5
   %16 = add nsw i32 %13, -1
@@ -32968,92 +32968,92 @@ define internal void @_ZNK8LightGBM24CrossEntropyLambdaMetric4EvalEPKdPKNS_17Obj
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %23 = load ptr, ptr %22, align 8, !tbaa !534
   %24 = sext i32 %20 to i64
-  br label %25
+  %25 = add nsw i32 %19, 1
+  br label %26
 
-25:                                               ; preds = %.lr.ph, %_ZN8LightGBML14XentLambdaLossEffd.exit
+26:                                               ; preds = %.lr.ph, %_ZN8LightGBML14XentLambdaLossEffd.exit
   %indvars.iv = phi i64 [ %24, %.lr.ph ], [ %indvars.iv.next, %_ZN8LightGBML14XentLambdaLossEffd.exit ]
-  %26 = phi double [ 0.000000e+00, %.lr.ph ], [ %54, %_ZN8LightGBML14XentLambdaLossEffd.exit ]
-  %27 = getelementptr inbounds double, ptr %21, i64 %indvars.iv
-  %28 = load double, ptr %27, align 8, !tbaa !84
-  %29 = call double @exp(double noundef %28) #15, !tbaa !127
-  %30 = call double @log1p(double noundef %29) #15, !tbaa !127
-  %31 = getelementptr inbounds float, ptr %23, i64 %indvars.iv
-  %32 = load float, ptr %31, align 4, !tbaa !78
-  %33 = fneg double %30
-  %34 = call double @exp(double noundef %33) #15, !tbaa !127
-  %35 = fsub double 1.000000e+00, %34
-  %36 = fpext float %32 to double
-  %37 = fcmp ogt double %35, 0x3D719799812DEA11
-  br i1 %37, label %38, label %41
+  %27 = phi double [ 0.000000e+00, %.lr.ph ], [ %55, %_ZN8LightGBML14XentLambdaLossEffd.exit ]
+  %28 = getelementptr inbounds double, ptr %21, i64 %indvars.iv
+  %29 = load double, ptr %28, align 8, !tbaa !84
+  %30 = call double @exp(double noundef %29) #15, !tbaa !127
+  %31 = call double @log1p(double noundef %30) #15, !tbaa !127
+  %32 = getelementptr inbounds float, ptr %23, i64 %indvars.iv
+  %33 = load float, ptr %32, align 4, !tbaa !78
+  %34 = fneg double %31
+  %35 = call double @exp(double noundef %34) #15, !tbaa !127
+  %36 = fsub double 1.000000e+00, %35
+  %37 = fpext float %33 to double
+  %38 = fcmp ogt double %36, 0x3D719799812DEA11
+  br i1 %38, label %39, label %42
 
-38:                                               ; preds = %25
-  %39 = call double @llvm.log.f64(double %35), !tbaa !127
-  %40 = fmul double %39, %36
-  br label %43
+39:                                               ; preds = %26
+  %40 = call double @llvm.log.f64(double %36), !tbaa !127
+  %41 = fmul double %40, %37
+  br label %44
 
-41:                                               ; preds = %25
-  %42 = fmul double %36, 0xC03BA18A998FFFA0
-  br label %43
+42:                                               ; preds = %26
+  %43 = fmul double %37, 0xC03BA18A998FFFA0
+  br label %44
 
-43:                                               ; preds = %41, %38
-  %.012.i.i = phi double [ %40, %38 ], [ %42, %41 ]
-  %44 = fsub float 1.000000e+00, %32
-  %45 = fpext float %44 to double
-  %46 = fsub double 1.000000e+00, %35
-  %47 = fcmp ogt double %46, 0x3D719799812DEA11
-  br i1 %47, label %48, label %51
+44:                                               ; preds = %42, %39
+  %.012.i.i = phi double [ %41, %39 ], [ %43, %42 ]
+  %45 = fsub float 1.000000e+00, %33
+  %46 = fpext float %45 to double
+  %47 = fsub double 1.000000e+00, %36
+  %48 = fcmp ogt double %47, 0x3D719799812DEA11
+  br i1 %48, label %49, label %52
 
-48:                                               ; preds = %43
-  %49 = call double @llvm.log.f64(double %46), !tbaa !127
-  %50 = fmul double %49, %45
+49:                                               ; preds = %44
+  %50 = call double @llvm.log.f64(double %47), !tbaa !127
+  %51 = fmul double %50, %46
   br label %_ZN8LightGBML14XentLambdaLossEffd.exit
 
-51:                                               ; preds = %43
-  %52 = fmul double %45, 0xC03BA18A998FFFA0
+52:                                               ; preds = %44
+  %53 = fmul double %46, 0xC03BA18A998FFFA0
   br label %_ZN8LightGBML14XentLambdaLossEffd.exit
 
-_ZN8LightGBML14XentLambdaLossEffd.exit:           ; preds = %48, %51
-  %.0.i.i = phi double [ %50, %48 ], [ %52, %51 ]
-  %53 = fadd double %.012.i.i, %.0.i.i
-  %54 = fsub double %26, %53
-  store double %54, ptr %10, align 8, !tbaa !84
+_ZN8LightGBML14XentLambdaLossEffd.exit:           ; preds = %49, %52
+  %.0.i.i = phi double [ %51, %49 ], [ %53, %52 ]
+  %54 = fadd double %.012.i.i, %.0.i.i
+  %55 = fsub double %27, %54
+  store double %55, ptr %10, align 8, !tbaa !84
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %55 = load i32, ptr %7, align 4, !tbaa !127
-  %56 = sext i32 %55 to i64
-  %.not.not = icmp slt i64 %indvars.iv, %56
-  br i1 %.not.not, label %25, label %._crit_edge
+  %lftr.wideiv = trunc i64 %indvars.iv.next to i32
+  %exitcond.not = icmp eq i32 %25, %lftr.wideiv
+  br i1 %exitcond.not, label %._crit_edge, label %26
 
 ._crit_edge:                                      ; preds = %_ZN8LightGBML14XentLambdaLossEffd.exit, %15
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %17)
   store ptr %10, ptr %11, align 8
-  %57 = call i32 @__kmpc_reduce_nowait(ptr nonnull @2, i32 %17, i32 1, i64 8, ptr nonnull %11, ptr nonnull @_ZNK8LightGBM24CrossEntropyLambdaMetric4EvalEPKdPKNS_17ObjectiveFunctionE.omp_outlined.omp.reduction.reduction_func, ptr nonnull @.gomp_critical_user_.reduction.var)
-  switch i32 %57, label %65 [
-    i32 1, label %58
-    i32 2, label %62
+  %56 = call i32 @__kmpc_reduce_nowait(ptr nonnull @2, i32 %17, i32 1, i64 8, ptr nonnull %11, ptr nonnull @_ZNK8LightGBM24CrossEntropyLambdaMetric4EvalEPKdPKNS_17ObjectiveFunctionE.omp_outlined.omp.reduction.reduction_func, ptr nonnull @.gomp_critical_user_.reduction.var)
+  switch i32 %56, label %64 [
+    i32 1, label %57
+    i32 2, label %61
   ]
 
-58:                                               ; preds = %._crit_edge
-  %59 = load double, ptr %4, align 8, !tbaa !84
-  %60 = load double, ptr %10, align 8, !tbaa !84
-  %61 = fadd double %59, %60
-  store double %61, ptr %4, align 8, !tbaa !84
+57:                                               ; preds = %._crit_edge
+  %58 = load double, ptr %4, align 8, !tbaa !84
+  %59 = load double, ptr %10, align 8, !tbaa !84
+  %60 = fadd double %58, %59
+  store double %60, ptr %4, align 8, !tbaa !84
   call void @__kmpc_end_reduce_nowait(ptr nonnull @2, i32 %17, ptr nonnull @.gomp_critical_user_.reduction.var)
-  br label %65
+  br label %64
 
-62:                                               ; preds = %._crit_edge
-  %63 = load double, ptr %10, align 8, !tbaa !84
-  %64 = atomicrmw fadd ptr %4, double %63 monotonic, align 8
-  br label %65
+61:                                               ; preds = %._crit_edge
+  %62 = load double, ptr %10, align 8, !tbaa !84
+  %63 = atomicrmw fadd ptr %4, double %62 monotonic, align 8
+  br label %64
 
-65:                                               ; preds = %62, %58, %._crit_edge
+64:                                               ; preds = %61, %57, %._crit_edge
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %66
+  br label %65
 
-66:                                               ; preds = %65, %5
+65:                                               ; preds = %64, %5
   ret void
 }
 
@@ -33082,7 +33082,7 @@ define internal void @_ZNK8LightGBM24CrossEntropyLambdaMetric4EvalEPKdPKNS_17Obj
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %13 = load i32, ptr %12, align 8, !tbaa !532
   %14 = icmp sgt i32 %13, 0
-  br i1 %14, label %15, label %72
+  br i1 %14, label %15, label %71
 
 15:                                               ; preds = %5
   %16 = add nsw i32 %13, -1
@@ -33112,96 +33112,96 @@ define internal void @_ZNK8LightGBM24CrossEntropyLambdaMetric4EvalEPKdPKNS_17Obj
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %25 = load ptr, ptr %24, align 8, !tbaa !535
   %26 = sext i32 %20 to i64
-  br label %27
+  %27 = add nsw i32 %19, 1
+  br label %28
 
-27:                                               ; preds = %.lr.ph, %_ZN8LightGBML14XentLambdaLossEffd.exit
+28:                                               ; preds = %.lr.ph, %_ZN8LightGBML14XentLambdaLossEffd.exit
   %indvars.iv = phi i64 [ %26, %.lr.ph ], [ %indvars.iv.next, %_ZN8LightGBML14XentLambdaLossEffd.exit ]
-  %28 = phi double [ 0.000000e+00, %.lr.ph ], [ %60, %_ZN8LightGBML14XentLambdaLossEffd.exit ]
-  %29 = getelementptr inbounds double, ptr %21, i64 %indvars.iv
-  %30 = load double, ptr %29, align 8, !tbaa !84
-  %31 = call double @exp(double noundef %30) #15, !tbaa !127
-  %32 = call double @log1p(double noundef %31) #15, !tbaa !127
-  %33 = getelementptr inbounds float, ptr %23, i64 %indvars.iv
-  %34 = load float, ptr %33, align 4, !tbaa !78
-  %35 = getelementptr inbounds float, ptr %25, i64 %indvars.iv
-  %36 = load float, ptr %35, align 4, !tbaa !78
-  %37 = fneg float %36
-  %38 = fpext float %37 to double
-  %39 = fmul double %32, %38
-  %40 = call double @exp(double noundef %39) #15, !tbaa !127
-  %41 = fsub double 1.000000e+00, %40
-  %42 = fpext float %34 to double
-  %43 = fcmp ogt double %41, 0x3D719799812DEA11
-  br i1 %43, label %44, label %47
+  %29 = phi double [ 0.000000e+00, %.lr.ph ], [ %61, %_ZN8LightGBML14XentLambdaLossEffd.exit ]
+  %30 = getelementptr inbounds double, ptr %21, i64 %indvars.iv
+  %31 = load double, ptr %30, align 8, !tbaa !84
+  %32 = call double @exp(double noundef %31) #15, !tbaa !127
+  %33 = call double @log1p(double noundef %32) #15, !tbaa !127
+  %34 = getelementptr inbounds float, ptr %23, i64 %indvars.iv
+  %35 = load float, ptr %34, align 4, !tbaa !78
+  %36 = getelementptr inbounds float, ptr %25, i64 %indvars.iv
+  %37 = load float, ptr %36, align 4, !tbaa !78
+  %38 = fneg float %37
+  %39 = fpext float %38 to double
+  %40 = fmul double %33, %39
+  %41 = call double @exp(double noundef %40) #15, !tbaa !127
+  %42 = fsub double 1.000000e+00, %41
+  %43 = fpext float %35 to double
+  %44 = fcmp ogt double %42, 0x3D719799812DEA11
+  br i1 %44, label %45, label %48
 
-44:                                               ; preds = %27
-  %45 = call double @llvm.log.f64(double %41), !tbaa !127
-  %46 = fmul double %45, %42
-  br label %49
+45:                                               ; preds = %28
+  %46 = call double @llvm.log.f64(double %42), !tbaa !127
+  %47 = fmul double %46, %43
+  br label %50
 
-47:                                               ; preds = %27
-  %48 = fmul double %42, 0xC03BA18A998FFFA0
-  br label %49
+48:                                               ; preds = %28
+  %49 = fmul double %43, 0xC03BA18A998FFFA0
+  br label %50
 
-49:                                               ; preds = %47, %44
-  %.012.i.i = phi double [ %46, %44 ], [ %48, %47 ]
-  %50 = fsub float 1.000000e+00, %34
-  %51 = fpext float %50 to double
-  %52 = fsub double 1.000000e+00, %41
-  %53 = fcmp ogt double %52, 0x3D719799812DEA11
-  br i1 %53, label %54, label %57
+50:                                               ; preds = %48, %45
+  %.012.i.i = phi double [ %47, %45 ], [ %49, %48 ]
+  %51 = fsub float 1.000000e+00, %35
+  %52 = fpext float %51 to double
+  %53 = fsub double 1.000000e+00, %42
+  %54 = fcmp ogt double %53, 0x3D719799812DEA11
+  br i1 %54, label %55, label %58
 
-54:                                               ; preds = %49
-  %55 = call double @llvm.log.f64(double %52), !tbaa !127
-  %56 = fmul double %55, %51
+55:                                               ; preds = %50
+  %56 = call double @llvm.log.f64(double %53), !tbaa !127
+  %57 = fmul double %56, %52
   br label %_ZN8LightGBML14XentLambdaLossEffd.exit
 
-57:                                               ; preds = %49
-  %58 = fmul double %51, 0xC03BA18A998FFFA0
+58:                                               ; preds = %50
+  %59 = fmul double %52, 0xC03BA18A998FFFA0
   br label %_ZN8LightGBML14XentLambdaLossEffd.exit
 
-_ZN8LightGBML14XentLambdaLossEffd.exit:           ; preds = %54, %57
-  %.0.i.i = phi double [ %56, %54 ], [ %58, %57 ]
-  %59 = fadd double %.012.i.i, %.0.i.i
-  %60 = fsub double %28, %59
-  store double %60, ptr %10, align 8, !tbaa !84
+_ZN8LightGBML14XentLambdaLossEffd.exit:           ; preds = %55, %58
+  %.0.i.i = phi double [ %57, %55 ], [ %59, %58 ]
+  %60 = fadd double %.012.i.i, %.0.i.i
+  %61 = fsub double %29, %60
+  store double %61, ptr %10, align 8, !tbaa !84
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %61 = load i32, ptr %7, align 4, !tbaa !127
-  %62 = sext i32 %61 to i64
-  %.not.not = icmp slt i64 %indvars.iv, %62
-  br i1 %.not.not, label %27, label %._crit_edge
+  %lftr.wideiv = trunc i64 %indvars.iv.next to i32
+  %exitcond.not = icmp eq i32 %27, %lftr.wideiv
+  br i1 %exitcond.not, label %._crit_edge, label %28
 
 ._crit_edge:                                      ; preds = %_ZN8LightGBML14XentLambdaLossEffd.exit, %15
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %17)
   store ptr %10, ptr %11, align 8
-  %63 = call i32 @__kmpc_reduce_nowait(ptr nonnull @2, i32 %17, i32 1, i64 8, ptr nonnull %11, ptr nonnull @_ZNK8LightGBM24CrossEntropyLambdaMetric4EvalEPKdPKNS_17ObjectiveFunctionE.omp_outlined.95.omp.reduction.reduction_func, ptr nonnull @.gomp_critical_user_.reduction.var)
-  switch i32 %63, label %71 [
-    i32 1, label %64
-    i32 2, label %68
+  %62 = call i32 @__kmpc_reduce_nowait(ptr nonnull @2, i32 %17, i32 1, i64 8, ptr nonnull %11, ptr nonnull @_ZNK8LightGBM24CrossEntropyLambdaMetric4EvalEPKdPKNS_17ObjectiveFunctionE.omp_outlined.95.omp.reduction.reduction_func, ptr nonnull @.gomp_critical_user_.reduction.var)
+  switch i32 %62, label %70 [
+    i32 1, label %63
+    i32 2, label %67
   ]
 
-64:                                               ; preds = %._crit_edge
-  %65 = load double, ptr %4, align 8, !tbaa !84
-  %66 = load double, ptr %10, align 8, !tbaa !84
-  %67 = fadd double %65, %66
-  store double %67, ptr %4, align 8, !tbaa !84
+63:                                               ; preds = %._crit_edge
+  %64 = load double, ptr %4, align 8, !tbaa !84
+  %65 = load double, ptr %10, align 8, !tbaa !84
+  %66 = fadd double %64, %65
+  store double %66, ptr %4, align 8, !tbaa !84
   call void @__kmpc_end_reduce_nowait(ptr nonnull @2, i32 %17, ptr nonnull @.gomp_critical_user_.reduction.var)
-  br label %71
+  br label %70
 
-68:                                               ; preds = %._crit_edge
-  %69 = load double, ptr %10, align 8, !tbaa !84
-  %70 = atomicrmw fadd ptr %4, double %69 monotonic, align 8
-  br label %71
+67:                                               ; preds = %._crit_edge
+  %68 = load double, ptr %10, align 8, !tbaa !84
+  %69 = atomicrmw fadd ptr %4, double %68 monotonic, align 8
+  br label %70
 
-71:                                               ; preds = %68, %64, %._crit_edge
+70:                                               ; preds = %67, %63, %._crit_edge
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %72
+  br label %71
 
-72:                                               ; preds = %71, %5
+71:                                               ; preds = %70, %5
   ret void
 }
 
@@ -37577,7 +37577,7 @@ define internal void @_ZNK8LightGBM16RegressionMetricINS_13TweedieMetricEE4EvalE
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %13 = load i32, ptr %12, align 8, !tbaa !589
   %14 = icmp sgt i32 %13, 0
-  br i1 %14, label %15, label %59
+  br i1 %14, label %15, label %58
 
 15:                                               ; preds = %5
   %16 = add nsw i32 %13, -1
@@ -37609,67 +37609,67 @@ define internal void @_ZNK8LightGBM16RegressionMetricINS_13TweedieMetricEE4EvalE
   %26 = fsub double 1.000000e+00, %25
   %27 = fsub double 2.000000e+00, %25
   %28 = sext i32 %20 to i64
-  br label %29
+  %29 = add nsw i32 %19, 1
+  br label %30
 
-29:                                               ; preds = %.lr.ph, %29
-  %indvars.iv = phi i64 [ %28, %.lr.ph ], [ %indvars.iv.next, %29 ]
-  %30 = phi double [ 0.000000e+00, %.lr.ph ], [ %47, %29 ]
-  %31 = getelementptr inbounds float, ptr %22, i64 %indvars.iv
-  %32 = load float, ptr %31, align 4, !tbaa !78
-  %33 = getelementptr inbounds double, ptr %23, i64 %indvars.iv
-  %34 = load double, ptr %33, align 8, !tbaa !84
-  %35 = fcmp olt double %34, 0x3DDB7CDFE0000000
-  %.0.i = select i1 %35, double 0x3DDB7CDFE0000000, double %34
-  %36 = fpext float %32 to double
-  %37 = call double @llvm.log.f64(double %.0.i), !tbaa !127
-  %38 = fmul double %26, %37
-  %39 = call double @exp(double noundef %38) #15, !tbaa !127
-  %40 = fmul double %27, %37
-  %41 = call double @exp(double noundef %40) #15, !tbaa !127
-  %42 = fdiv double %41, %27
-  %43 = fneg double %36
-  %44 = fmul double %39, %43
-  %45 = fdiv double %44, %26
-  %46 = fadd double %45, %42
-  %47 = fadd double %30, %46
-  store double %47, ptr %10, align 8, !tbaa !84
+30:                                               ; preds = %.lr.ph, %30
+  %indvars.iv = phi i64 [ %28, %.lr.ph ], [ %indvars.iv.next, %30 ]
+  %31 = phi double [ 0.000000e+00, %.lr.ph ], [ %48, %30 ]
+  %32 = getelementptr inbounds float, ptr %22, i64 %indvars.iv
+  %33 = load float, ptr %32, align 4, !tbaa !78
+  %34 = getelementptr inbounds double, ptr %23, i64 %indvars.iv
+  %35 = load double, ptr %34, align 8, !tbaa !84
+  %36 = fcmp olt double %35, 0x3DDB7CDFE0000000
+  %.0.i = select i1 %36, double 0x3DDB7CDFE0000000, double %35
+  %37 = fpext float %33 to double
+  %38 = call double @llvm.log.f64(double %.0.i), !tbaa !127
+  %39 = fmul double %26, %38
+  %40 = call double @exp(double noundef %39) #15, !tbaa !127
+  %41 = fmul double %27, %38
+  %42 = call double @exp(double noundef %41) #15, !tbaa !127
+  %43 = fdiv double %42, %27
+  %44 = fneg double %37
+  %45 = fmul double %40, %44
+  %46 = fdiv double %45, %26
+  %47 = fadd double %46, %43
+  %48 = fadd double %31, %47
+  store double %48, ptr %10, align 8, !tbaa !84
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %48 = load i32, ptr %7, align 4, !tbaa !127
-  %49 = sext i32 %48 to i64
-  %.not.not = icmp slt i64 %indvars.iv, %49
-  br i1 %.not.not, label %29, label %._crit_edge
+  %lftr.wideiv = trunc i64 %indvars.iv.next to i32
+  %exitcond.not = icmp eq i32 %29, %lftr.wideiv
+  br i1 %exitcond.not, label %._crit_edge, label %30
 
-._crit_edge:                                      ; preds = %29, %15
+._crit_edge:                                      ; preds = %30, %15
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %17)
   store ptr %10, ptr %11, align 8
-  %50 = call i32 @__kmpc_reduce_nowait(ptr nonnull @2, i32 %17, i32 1, i64 8, ptr nonnull %11, ptr nonnull @_ZNK8LightGBM16RegressionMetricINS_13TweedieMetricEE4EvalEPKdPKNS_17ObjectiveFunctionE.omp_outlined.omp.reduction.reduction_func, ptr nonnull @.gomp_critical_user_.reduction.var)
-  switch i32 %50, label %58 [
-    i32 1, label %51
-    i32 2, label %55
+  %49 = call i32 @__kmpc_reduce_nowait(ptr nonnull @2, i32 %17, i32 1, i64 8, ptr nonnull %11, ptr nonnull @_ZNK8LightGBM16RegressionMetricINS_13TweedieMetricEE4EvalEPKdPKNS_17ObjectiveFunctionE.omp_outlined.omp.reduction.reduction_func, ptr nonnull @.gomp_critical_user_.reduction.var)
+  switch i32 %49, label %57 [
+    i32 1, label %50
+    i32 2, label %54
   ]
 
-51:                                               ; preds = %._crit_edge
-  %52 = load double, ptr %3, align 8, !tbaa !84
-  %53 = load double, ptr %10, align 8, !tbaa !84
-  %54 = fadd double %52, %53
-  store double %54, ptr %3, align 8, !tbaa !84
+50:                                               ; preds = %._crit_edge
+  %51 = load double, ptr %3, align 8, !tbaa !84
+  %52 = load double, ptr %10, align 8, !tbaa !84
+  %53 = fadd double %51, %52
+  store double %53, ptr %3, align 8, !tbaa !84
   call void @__kmpc_end_reduce_nowait(ptr nonnull @2, i32 %17, ptr nonnull @.gomp_critical_user_.reduction.var)
-  br label %58
+  br label %57
 
-55:                                               ; preds = %._crit_edge
-  %56 = load double, ptr %10, align 8, !tbaa !84
-  %57 = atomicrmw fadd ptr %3, double %56 monotonic, align 8
-  br label %58
+54:                                               ; preds = %._crit_edge
+  %55 = load double, ptr %10, align 8, !tbaa !84
+  %56 = atomicrmw fadd ptr %3, double %55 monotonic, align 8
+  br label %57
 
-58:                                               ; preds = %55, %51, %._crit_edge
+57:                                               ; preds = %54, %50, %._crit_edge
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %59
+  br label %58
 
-59:                                               ; preds = %58, %5
+58:                                               ; preds = %57, %5
   ret void
 }
 
@@ -37695,7 +37695,7 @@ define internal void @_ZNK8LightGBM16RegressionMetricINS_13TweedieMetricEE4EvalE
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %13 = load i32, ptr %12, align 8, !tbaa !589
   %14 = icmp sgt i32 %13, 0
-  br i1 %14, label %15, label %64
+  br i1 %14, label %15, label %63
 
 15:                                               ; preds = %5
   %16 = add nsw i32 %13, -1
@@ -37729,70 +37729,70 @@ define internal void @_ZNK8LightGBM16RegressionMetricINS_13TweedieMetricEE4EvalE
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %29 = load ptr, ptr %28, align 8, !tbaa !592
   %30 = sext i32 %20 to i64
-  br label %31
+  %31 = add nsw i32 %19, 1
+  br label %32
 
-31:                                               ; preds = %.lr.ph, %31
-  %indvars.iv = phi i64 [ %30, %.lr.ph ], [ %indvars.iv.next, %31 ]
-  %32 = phi double [ 0.000000e+00, %.lr.ph ], [ %52, %31 ]
-  %33 = getelementptr inbounds float, ptr %22, i64 %indvars.iv
-  %34 = load float, ptr %33, align 4, !tbaa !78
-  %35 = getelementptr inbounds double, ptr %23, i64 %indvars.iv
-  %36 = load double, ptr %35, align 8, !tbaa !84
-  %37 = fcmp olt double %36, 0x3DDB7CDFE0000000
-  %.0.i = select i1 %37, double 0x3DDB7CDFE0000000, double %36
-  %38 = fpext float %34 to double
-  %39 = call double @llvm.log.f64(double %.0.i), !tbaa !127
-  %40 = fmul double %26, %39
-  %41 = call double @exp(double noundef %40) #15, !tbaa !127
-  %42 = fmul double %27, %39
-  %43 = call double @exp(double noundef %42) #15, !tbaa !127
-  %44 = fdiv double %43, %27
-  %45 = fneg double %38
-  %46 = fmul double %41, %45
-  %47 = fdiv double %46, %26
-  %48 = fadd double %47, %44
-  %49 = getelementptr inbounds float, ptr %29, i64 %indvars.iv
-  %50 = load float, ptr %49, align 4, !tbaa !78
-  %51 = fpext float %50 to double
-  %52 = call double @llvm.fmuladd.f64(double %48, double %51, double %32)
-  store double %52, ptr %10, align 8, !tbaa !84
+32:                                               ; preds = %.lr.ph, %32
+  %indvars.iv = phi i64 [ %30, %.lr.ph ], [ %indvars.iv.next, %32 ]
+  %33 = phi double [ 0.000000e+00, %.lr.ph ], [ %53, %32 ]
+  %34 = getelementptr inbounds float, ptr %22, i64 %indvars.iv
+  %35 = load float, ptr %34, align 4, !tbaa !78
+  %36 = getelementptr inbounds double, ptr %23, i64 %indvars.iv
+  %37 = load double, ptr %36, align 8, !tbaa !84
+  %38 = fcmp olt double %37, 0x3DDB7CDFE0000000
+  %.0.i = select i1 %38, double 0x3DDB7CDFE0000000, double %37
+  %39 = fpext float %35 to double
+  %40 = call double @llvm.log.f64(double %.0.i), !tbaa !127
+  %41 = fmul double %26, %40
+  %42 = call double @exp(double noundef %41) #15, !tbaa !127
+  %43 = fmul double %27, %40
+  %44 = call double @exp(double noundef %43) #15, !tbaa !127
+  %45 = fdiv double %44, %27
+  %46 = fneg double %39
+  %47 = fmul double %42, %46
+  %48 = fdiv double %47, %26
+  %49 = fadd double %48, %45
+  %50 = getelementptr inbounds float, ptr %29, i64 %indvars.iv
+  %51 = load float, ptr %50, align 4, !tbaa !78
+  %52 = fpext float %51 to double
+  %53 = call double @llvm.fmuladd.f64(double %49, double %52, double %33)
+  store double %53, ptr %10, align 8, !tbaa !84
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %53 = load i32, ptr %7, align 4, !tbaa !127
-  %54 = sext i32 %53 to i64
-  %.not.not = icmp slt i64 %indvars.iv, %54
-  br i1 %.not.not, label %31, label %._crit_edge
+  %lftr.wideiv = trunc i64 %indvars.iv.next to i32
+  %exitcond.not = icmp eq i32 %31, %lftr.wideiv
+  br i1 %exitcond.not, label %._crit_edge, label %32
 
-._crit_edge:                                      ; preds = %31, %15
+._crit_edge:                                      ; preds = %32, %15
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %17)
   store ptr %10, ptr %11, align 8
-  %55 = call i32 @__kmpc_reduce_nowait(ptr nonnull @2, i32 %17, i32 1, i64 8, ptr nonnull %11, ptr nonnull @_ZNK8LightGBM16RegressionMetricINS_13TweedieMetricEE4EvalEPKdPKNS_17ObjectiveFunctionE.omp_outlined.114.omp.reduction.reduction_func, ptr nonnull @.gomp_critical_user_.reduction.var)
-  switch i32 %55, label %63 [
-    i32 1, label %56
-    i32 2, label %60
+  %54 = call i32 @__kmpc_reduce_nowait(ptr nonnull @2, i32 %17, i32 1, i64 8, ptr nonnull %11, ptr nonnull @_ZNK8LightGBM16RegressionMetricINS_13TweedieMetricEE4EvalEPKdPKNS_17ObjectiveFunctionE.omp_outlined.114.omp.reduction.reduction_func, ptr nonnull @.gomp_critical_user_.reduction.var)
+  switch i32 %54, label %62 [
+    i32 1, label %55
+    i32 2, label %59
   ]
 
-56:                                               ; preds = %._crit_edge
-  %57 = load double, ptr %3, align 8, !tbaa !84
-  %58 = load double, ptr %10, align 8, !tbaa !84
-  %59 = fadd double %57, %58
-  store double %59, ptr %3, align 8, !tbaa !84
+55:                                               ; preds = %._crit_edge
+  %56 = load double, ptr %3, align 8, !tbaa !84
+  %57 = load double, ptr %10, align 8, !tbaa !84
+  %58 = fadd double %56, %57
+  store double %58, ptr %3, align 8, !tbaa !84
   call void @__kmpc_end_reduce_nowait(ptr nonnull @2, i32 %17, ptr nonnull @.gomp_critical_user_.reduction.var)
-  br label %63
+  br label %62
 
-60:                                               ; preds = %._crit_edge
-  %61 = load double, ptr %10, align 8, !tbaa !84
-  %62 = atomicrmw fadd ptr %3, double %61 monotonic, align 8
-  br label %63
+59:                                               ; preds = %._crit_edge
+  %60 = load double, ptr %10, align 8, !tbaa !84
+  %61 = atomicrmw fadd ptr %3, double %60 monotonic, align 8
+  br label %62
 
-63:                                               ; preds = %60, %56, %._crit_edge
+62:                                               ; preds = %59, %55, %._crit_edge
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %64
+  br label %63
 
-64:                                               ; preds = %63, %5
+63:                                               ; preds = %62, %5
   ret void
 }
 

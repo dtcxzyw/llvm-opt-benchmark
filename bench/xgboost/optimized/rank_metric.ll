@@ -3019,6 +3019,7 @@ _ZNK7xgboost6linalg6TensorIfLi2EE4ViewENS_9DeviceOrdE.exit: ; preds = %.noexc81,
 .lr.ph:                                           ; preds = %_ZNK7xgboost6linalg6TensorIfLi2EE4ViewENS_9DeviceOrdE.exit
   %63 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %wide.trip.count = zext i32 %invariant.umin to i64
+  %.pre = load ptr, ptr %6, align 8, !tbaa !102
   br label %68
 
 ._crit_edge.loopexit:                             ; preds = %110
@@ -3039,12 +3040,12 @@ _ZNK7xgboost6linalg6TensorIfLi2EE4ViewENS_9DeviceOrdE.exit: ; preds = %.noexc81,
   br label %163
 
 68:                                               ; preds = %.lr.ph, %110
+  %69 = phi ptr [ %.pre, %.lr.ph ], [ %89, %110 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %110 ]
   %.057101 = phi double [ 0.000000e+00, %.lr.ph ], [ %.158, %110 ]
   %.060100 = phi double [ 0.000000e+00, %.lr.ph ], [ %.161, %110 ]
   %.06299 = phi double [ 0.000000e+00, %.lr.ph ], [ %.163, %110 ]
   %.06498 = phi i32 [ 0, %.lr.ph ], [ %.165, %110 ]
-  %69 = load ptr, ptr %6, align 8, !tbaa !102
   %70 = getelementptr inbounds nuw %"struct.std::pair.131", ptr %69, i64 %indvars.iv
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 4
   %72 = load i32, ptr %71, align 4, !tbaa !123

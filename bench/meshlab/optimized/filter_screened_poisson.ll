@@ -20141,7 +20141,7 @@ define linkonce_odr void @_ZN6OctreeIfE11solveSystemILi2EL12BoundaryType2E16FEMS
   %32 = shl nsw i64 %29, 2
   %33 = select i1 %31, i64 -1, i64 %32
   %34 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %33) #47
-          to label %._crit_edge71 unwind label %100
+          to label %._crit_edge71 unwind label %99
 
 ._crit_edge71:                                    ; preds = %7, %30
   %.pre-phi = phi i64 [ %32, %30 ], [ 0, %7 ]
@@ -20167,7 +20167,7 @@ define linkonce_odr void @_ZN6OctreeIfE11solveSystemILi2EL12BoundaryType2E16FEMS
   %47 = shl nuw nsw i64 %44, 2
   %48 = select i1 %46, i64 -1, i64 %47
   %49 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %48) #47
-          to label %50 unwind label %102
+          to label %50 unwind label %101
 
 50:                                               ; preds = %45, %._crit_edge71
   %.sink.i46 = phi ptr [ null, %._crit_edge71 ], [ %49, %45 ]
@@ -20198,8 +20198,8 @@ define linkonce_odr void @_ZN6OctreeIfE11solveSystemILi2EL12BoundaryType2E16FEMS
   %.str.89..str.90 = select i1 %61, ptr @.str.89, ptr @.str.90
   br label %68
 
-68:                                               ; preds = %.lr.ph68, %150
-  %storemerge66 = phi i32 [ 0, %.lr.ph68 ], [ %152, %150 ]
+68:                                               ; preds = %.lr.ph68, %147
+  %storemerge66 = phi i32 [ 0, %.lr.ph68 ], [ %149, %147 ]
   %69 = load double, ptr %56, align 8
   %70 = sub nsw i32 %.sroa.speculated59, %storemerge66
   %71 = sitofp i32 %70 to double
@@ -20207,215 +20207,212 @@ define linkonce_odr void @_ZN6OctreeIfE11solveSystemILi2EL12BoundaryType2E16FEMS
   %73 = fmul double %72, %55
   %74 = call double @llvm.ceil.f64(double %73)
   %75 = fptosi double %74 to i32
-  %76 = load i32, ptr %10, align 4
-  %.not40 = icmp eq i32 %76, 0
-  br i1 %.not40, label %77, label %107
+  %.not40 = icmp eq i32 %storemerge66, 0
+  br i1 %.not40, label %76, label %106
 
-77:                                               ; preds = %68
-  %78 = load i32, ptr %18, align 8
-  %79 = icmp sgt i32 %78, -1
-  %80 = load i32, ptr %59, align 8
-  %.not.i.i = icmp slt i32 %78, %80
-  %or.cond.i.i = select i1 %79, i1 %.not.i.i, i1 false
-  br i1 %or.cond.i.i, label %82, label %81
+76:                                               ; preds = %68
+  %77 = load i32, ptr %18, align 8
+  %78 = icmp sgt i32 %77, -1
+  %79 = load i32, ptr %59, align 8
+  %.not.i.i = icmp slt i32 %77, %79
+  %or.cond.i.i = select i1 %78, i1 %.not.i.i, i1 false
+  br i1 %or.cond.i.i, label %81, label %80
 
-81:                                               ; preds = %77
+80:                                               ; preds = %76
   %puts.i.i = call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
-  br label %82
+  br label %81
 
-82:                                               ; preds = %81, %77
-  %83 = load ptr, ptr %17, align 8
-  %84 = sext i32 %78 to i64
-  %85 = getelementptr inbounds ptr, ptr %83, i64 %84
-  %86 = load ptr, ptr %85, align 8
-  %87 = zext nneg i32 %78 to i64
-  %88 = shl nuw i64 1, %87
-  %89 = getelementptr inbounds i32, ptr %86, i64 %88
-  %90 = load i32, ptr %89, align 4
-  %91 = load i32, ptr %86, align 4
-  %92 = sub nsw i32 %90, %91
-  %93 = load i8, ptr %57, align 1
-  %94 = trunc i8 %93 to i1
+81:                                               ; preds = %80, %76
+  %82 = load ptr, ptr %17, align 8
+  %83 = sext i32 %77 to i64
+  %84 = getelementptr inbounds ptr, ptr %82, i64 %83
+  %85 = load ptr, ptr %84, align 8
+  %86 = zext nneg i32 %77 to i64
+  %87 = shl nuw i64 1, %86
+  %88 = getelementptr inbounds i32, ptr %85, i64 %87
+  %89 = load i32, ptr %88, align 4
+  %90 = load i32, ptr %85, align 4
+  %91 = sub nsw i32 %89, %90
+  %92 = load i8, ptr %57, align 1
+  %93 = trunc i8 %92 to i1
   br label %.invoke
 
-.invoke:                                          ; preds = %114, %82
-  %95 = phi i32 [ 0, %82 ], [ %76, %114 ]
-  %96 = phi i32 [ %92, %82 ], [ %75, %114 ]
-  %97 = phi i1 [ %94, %82 ], [ %111, %114 ]
-  %98 = phi double [ 0.000000e+00, %82 ], [ %115, %114 ]
-  %99 = invoke noundef i32 @_ZN6OctreeIfE14_solveSystemCGILi2EL12BoundaryType2E16FEMSystemFunctorILi2ELS2_2EELb0EEEiRKT1_RK11BSplineDataIXT_EXT0_EEPNS0_17InterpolationInfoIXT2_EEEiR13DenseNodeDataIfXT_EESH_SH_ibRNS0_12_SolverStatsEbd(ptr noundef nonnull align 8 dereferenceable(76) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef %3, i32 noundef %95, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef %96, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(48) %11, i1 noundef zeroext %97, double noundef %98)
-          to label %116 unwind label %.loopexit
+.invoke:                                          ; preds = %113, %81
+  %94 = phi i32 [ 0, %81 ], [ %storemerge66, %113 ]
+  %95 = phi i32 [ %91, %81 ], [ %75, %113 ]
+  %96 = phi i1 [ %93, %81 ], [ %110, %113 ]
+  %97 = phi double [ 0.000000e+00, %81 ], [ %114, %113 ]
+  %98 = invoke noundef i32 @_ZN6OctreeIfE14_solveSystemCGILi2EL12BoundaryType2E16FEMSystemFunctorILi2ELS2_2EELb0EEEiRKT1_RK11BSplineDataIXT_EXT0_EEPNS0_17InterpolationInfoIXT2_EEEiR13DenseNodeDataIfXT_EESH_SH_ibRNS0_12_SolverStatsEbd(ptr noundef nonnull align 8 dereferenceable(76) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef %3, i32 noundef %94, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef %95, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(48) %11, i1 noundef zeroext %96, double noundef %97)
+          to label %115 unwind label %.loopexit
 
-100:                                              ; preds = %30
-  %101 = landingpad { ptr, i32 }
-          cleanup
-  br label %167
-
-102:                                              ; preds = %45
-  %103 = landingpad { ptr, i32 }
+99:                                               ; preds = %30
+  %100 = landingpad { ptr, i32 }
           cleanup
   br label %164
 
-.loopexit:                                        ; preds = %.invoke, %112
+101:                                              ; preds = %45
+  %102 = landingpad { ptr, i32 }
+          cleanup
+  br label %161
+
+.loopexit:                                        ; preds = %.invoke, %111
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %104
+  br label %103
 
 .loopexit.split-lp:                               ; preds = %._crit_edge69
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %104
+  br label %103
 
-104:                                              ; preds = %.loopexit.split-lp, %.loopexit
+103:                                              ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %105 = load ptr, ptr %51, align 8
-  %.not.i49 = icmp eq ptr %105, null
-  br i1 %.not.i49, label %_ZN13DenseNodeDataIfLi2EED2Ev.exit, label %106
+  %104 = load ptr, ptr %51, align 8
+  %.not.i49 = icmp eq ptr %104, null
+  br i1 %.not.i49, label %_ZN13DenseNodeDataIfLi2EED2Ev.exit, label %105
 
-106:                                              ; preds = %104
-  call void @_ZdaPv(ptr noundef nonnull %105) #44
+105:                                              ; preds = %103
+  call void @_ZdaPv(ptr noundef nonnull %104) #44
   store ptr null, ptr %51, align 8
   br label %_ZN13DenseNodeDataIfLi2EED2Ev.exit
 
-_ZN13DenseNodeDataIfLi2EED2Ev.exit:               ; preds = %104, %106
+_ZN13DenseNodeDataIfLi2EED2Ev.exit:               ; preds = %103, %105
   store i64 0, ptr %9, align 8
   %.pre = load ptr, ptr %35, align 8
-  br label %164
+  br label %161
 
-107:                                              ; preds = %68
-  %108 = load i32, ptr %6, align 8
-  %109 = icmp sgt i32 %76, %108
-  %110 = load i8, ptr %57, align 1
-  %111 = trunc i8 %110 to i1
-  br i1 %109, label %112, label %114
+106:                                              ; preds = %68
+  %107 = load i32, ptr %6, align 8
+  %108 = icmp sgt i32 %storemerge66, %107
+  %109 = load i8, ptr %57, align 1
+  %110 = trunc i8 %109 to i1
+  br i1 %108, label %111, label %113
 
-112:                                              ; preds = %107
-  %113 = invoke noundef i32 @_ZN6OctreeIfE14_solveSystemGSILi2EL12BoundaryType2E16FEMSystemFunctorILi2ELS2_2EELb0EEEiRKT1_RK11BSplineDataIXT_EXT0_EEPNS0_17InterpolationInfoIXT2_EEEiR13DenseNodeDataIfXT_EESH_SH_ibRNS0_12_SolverStatsEb(ptr noundef nonnull align 8 dereferenceable(76) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef %3, i32 noundef %76, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef %75, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(48) %11, i1 noundef zeroext %111)
-          to label %116 unwind label %.loopexit
+111:                                              ; preds = %106
+  %112 = invoke noundef i32 @_ZN6OctreeIfE14_solveSystemGSILi2EL12BoundaryType2E16FEMSystemFunctorILi2ELS2_2EELb0EEEiRKT1_RK11BSplineDataIXT_EXT0_EEPNS0_17InterpolationInfoIXT2_EEEiR13DenseNodeDataIfXT_EESH_SH_ibRNS0_12_SolverStatsEb(ptr noundef nonnull align 8 dereferenceable(76) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef %3, i32 noundef %storemerge66, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef %75, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(48) %11, i1 noundef zeroext %110)
+          to label %115 unwind label %.loopexit
 
-114:                                              ; preds = %107
-  %115 = load double, ptr %58, align 8
+113:                                              ; preds = %106
+  %114 = load double, ptr %58, align 8
   br label %.invoke
 
-116:                                              ; preds = %.invoke, %112
+115:                                              ; preds = %.invoke, %111
   store i32 0, ptr %12, align 4
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 3, ptr nonnull @_ZN6OctreeIfE11solveSystemILi2EL12BoundaryType2E16FEMSystemFunctorILi2ELS2_2EELb0EEE13DenseNodeDataIfXT_EERKT1_PNS0_17InterpolationInfoIXT2_EEERS6_iRKNS0_10SolverInfoE.omp_outlined, ptr nonnull %1, ptr nonnull %10, ptr nonnull %12)
-  %117 = load i8, ptr %60, align 8
-  %118 = trunc i8 %117 to i1
-  br i1 %118, label %119, label %128
+  %116 = load i8, ptr %60, align 8
+  %117 = trunc i8 %116 to i1
+  br i1 %117, label %118, label %127
 
-119:                                              ; preds = %116
-  %120 = load i32, ptr %10, align 4
-  %121 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %.str.89..str.90, i32 noundef %120, i32 noundef %.sroa.speculated59)
-  %122 = load double, ptr %11, align 8
-  %123 = load double, ptr %62, align 8
-  %124 = load double, ptr %63, align 8
-  %125 = load double, ptr %64, align 8
-  %126 = load i32, ptr %12, align 4
-  %127 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.91, double noundef %122, double noundef %123, double noundef %124, double noundef %125, i32 noundef %126)
-  br label %128
+118:                                              ; preds = %115
+  %119 = load i32, ptr %10, align 4
+  %120 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %.str.89..str.90, i32 noundef %119, i32 noundef %.sroa.speculated59)
+  %121 = load double, ptr %11, align 8
+  %122 = load double, ptr %62, align 8
+  %123 = load double, ptr %63, align 8
+  %124 = load double, ptr %64, align 8
+  %125 = load i32, ptr %12, align 4
+  %126 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.91, double noundef %121, double noundef %122, double noundef %123, double noundef %124, i32 noundef %125)
+  br label %127
 
-128:                                              ; preds = %119, %116
-  %129 = load i8, ptr %57, align 1
-  %130 = trunc i8 %129 to i1
-  %131 = icmp ne i32 %75, 0
-  %or.cond = select i1 %130, i1 %131, i1 false
-  br i1 %or.cond, label %.preheader, label %150
+127:                                              ; preds = %118, %115
+  %128 = load i8, ptr %57, align 1
+  %129 = trunc i8 %128 to i1
+  %130 = icmp ne i32 %75, 0
+  %or.cond = select i1 %129, i1 %130, i1 false
+  br i1 %or.cond, label %.preheader, label %147
 
-.preheader:                                       ; preds = %128
-  %132 = load i32, ptr %10, align 4
-  %133 = icmp sgt i32 %132, 0
-  br i1 %133, label %.lr.ph, label %._crit_edge
+.preheader:                                       ; preds = %127
+  %131 = load i32, ptr %10, align 4
+  %132 = icmp sgt i32 %131, 0
+  br i1 %132, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %.064 = phi i32 [ %135, %.lr.ph ], [ 0, %.preheader ]
-  %134 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.92)
-  %135 = add nuw nsw i32 %.064, 1
-  %136 = load i32, ptr %10, align 4
-  %137 = icmp slt i32 %135, %136
-  br i1 %137, label %.lr.ph, label %._crit_edge, !llvm.loop !259
+  %.064 = phi i32 [ %134, %.lr.ph ], [ 0, %.preheader ]
+  %133 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.92)
+  %134 = add nuw nsw i32 %.064, 1
+  %135 = load i32, ptr %10, align 4
+  %136 = icmp slt i32 %134, %135
+  br i1 %136, label %.lr.ph, label %._crit_edge, !llvm.loop !259
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  %.lcssa = phi i32 [ %132, %.preheader ], [ %136, %.lr.ph ]
-  %138 = load i32, ptr %6, align 8
-  %.not43 = icmp sgt i32 %.lcssa, %138
+  %.lcssa = phi i32 [ %131, %.preheader ], [ %135, %.lr.ph ]
+  %137 = load i32, ptr %6, align 8
+  %.not43 = icmp sgt i32 %.lcssa, %137
   %.str.94..str.95 = select i1 %.not43, ptr @.str.95, ptr @.str.94
-  %139 = load double, ptr %65, align 8
-  %140 = call double @sqrt(double noundef %139) #25
-  %141 = load double, ptr %66, align 8
-  %142 = call double @sqrt(double noundef %141) #25
-  %143 = load double, ptr %67, align 8
-  %144 = call double @sqrt(double noundef %143) #25
-  %145 = load double, ptr %67, align 8
-  %146 = load double, ptr %65, align 8
-  %147 = fdiv double %145, %146
-  %148 = call double @sqrt(double noundef %147) #25
-  %149 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.93, ptr noundef nonnull %.str.94..str.95, double noundef %140, double noundef %142, double noundef %144, double noundef %148, i32 noundef %75)
-  br label %150
+  %138 = load double, ptr %65, align 8
+  %139 = call double @sqrt(double noundef %138) #25
+  %140 = load double, ptr %66, align 8
+  %141 = call double @sqrt(double noundef %140) #25
+  %142 = load double, ptr %67, align 8
+  %143 = call double @sqrt(double noundef %142) #25
+  %144 = fdiv double %142, %138
+  %145 = call double @sqrt(double noundef %144) #25
+  %146 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.93, ptr noundef nonnull %.str.94..str.95, double noundef %139, double noundef %141, double noundef %143, double noundef %145, i32 noundef %75)
+  br label %147
 
-150:                                              ; preds = %128, %._crit_edge
-  %151 = load i32, ptr %10, align 4
-  %152 = add nsw i32 %151, 1
-  store i32 %152, ptr %10, align 4
-  %.not.not = icmp slt i32 %151, %.sroa.speculated59
+147:                                              ; preds = %127, %._crit_edge
+  %148 = load i32, ptr %10, align 4
+  %149 = add nsw i32 %148, 1
+  store i32 %149, ptr %10, align 4
+  %.not.not = icmp slt i32 %148, %.sroa.speculated59
   br i1 %.not.not, label %68, label %._crit_edge69, !llvm.loop !260
 
-._crit_edge69:                                    ; preds = %150, %50
-  %153 = invoke noundef double @_ZN6OctreeIfE11memoryUsageEv(ptr noundef nonnull align 8 dereferenceable(76) %1)
-          to label %154 unwind label %.loopexit.split-lp
+._crit_edge69:                                    ; preds = %147, %50
+  %150 = invoke noundef double @_ZN6OctreeIfE11memoryUsageEv(ptr noundef nonnull align 8 dereferenceable(76) %1)
+          to label %151 unwind label %.loopexit.split-lp
 
-154:                                              ; preds = %._crit_edge69
-  %155 = load ptr, ptr %51, align 8
-  %.not.i50 = icmp eq ptr %155, null
-  br i1 %.not.i50, label %_ZN13DenseNodeDataIfLi2EED2Ev.exit51, label %156
+151:                                              ; preds = %._crit_edge69
+  %152 = load ptr, ptr %51, align 8
+  %.not.i50 = icmp eq ptr %152, null
+  br i1 %.not.i50, label %_ZN13DenseNodeDataIfLi2EED2Ev.exit51, label %153
 
-156:                                              ; preds = %154
-  call void @_ZdaPv(ptr noundef nonnull %155) #44
+153:                                              ; preds = %151
+  call void @_ZdaPv(ptr noundef nonnull %152) #44
   store ptr null, ptr %51, align 8
   br label %_ZN13DenseNodeDataIfLi2EED2Ev.exit51
 
-_ZN13DenseNodeDataIfLi2EED2Ev.exit51:             ; preds = %154, %156
+_ZN13DenseNodeDataIfLi2EED2Ev.exit51:             ; preds = %151, %153
   store i64 0, ptr %9, align 8
-  %157 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %158 = load ptr, ptr %157, align 8
-  %.not.i52 = icmp eq ptr %158, null
-  br i1 %.not.i52, label %160, label %159
+  %154 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %155 = load ptr, ptr %154, align 8
+  %.not.i52 = icmp eq ptr %155, null
+  br i1 %.not.i52, label %157, label %156
 
-159:                                              ; preds = %_ZN13DenseNodeDataIfLi2EED2Ev.exit51
-  call void @free(ptr noundef nonnull %158) #25
-  store ptr null, ptr %157, align 8
-  br label %160
+156:                                              ; preds = %_ZN13DenseNodeDataIfLi2EED2Ev.exit51
+  call void @free(ptr noundef nonnull %155) #25
+  store ptr null, ptr %154, align 8
+  br label %157
 
-160:                                              ; preds = %159, %_ZN13DenseNodeDataIfLi2EED2Ev.exit51
-  %161 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %162 = load ptr, ptr %161, align 8
-  %.not2.i = icmp eq ptr %162, null
-  br i1 %.not2.i, label %_ZN11BSplineDataILi2EL12BoundaryType2EED2Ev.exit, label %163
+157:                                              ; preds = %156, %_ZN13DenseNodeDataIfLi2EED2Ev.exit51
+  %158 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %159 = load ptr, ptr %158, align 8
+  %.not2.i = icmp eq ptr %159, null
+  br i1 %.not2.i, label %_ZN11BSplineDataILi2EL12BoundaryType2EED2Ev.exit, label %160
 
-163:                                              ; preds = %160
-  call void @free(ptr noundef nonnull %162) #25
+160:                                              ; preds = %157
+  call void @free(ptr noundef nonnull %159) #25
   br label %_ZN11BSplineDataILi2EL12BoundaryType2EED2Ev.exit
 
-_ZN11BSplineDataILi2EL12BoundaryType2EED2Ev.exit: ; preds = %160, %163
+_ZN11BSplineDataILi2EL12BoundaryType2EED2Ev.exit: ; preds = %157, %160
   ret void
 
-164:                                              ; preds = %_ZN13DenseNodeDataIfLi2EED2Ev.exit, %102
-  %165 = phi ptr [ %.pre, %_ZN13DenseNodeDataIfLi2EED2Ev.exit ], [ %.sink.i, %102 ]
-  %.pn = phi { ptr, i32 } [ %lpad.phi, %_ZN13DenseNodeDataIfLi2EED2Ev.exit ], [ %103, %102 ]
-  %.not.i53 = icmp eq ptr %165, null
-  br i1 %.not.i53, label %_ZN13DenseNodeDataIfLi2EED2Ev.exit54, label %166
+161:                                              ; preds = %_ZN13DenseNodeDataIfLi2EED2Ev.exit, %101
+  %162 = phi ptr [ %.pre, %_ZN13DenseNodeDataIfLi2EED2Ev.exit ], [ %.sink.i, %101 ]
+  %.pn = phi { ptr, i32 } [ %lpad.phi, %_ZN13DenseNodeDataIfLi2EED2Ev.exit ], [ %102, %101 ]
+  %.not.i53 = icmp eq ptr %162, null
+  br i1 %.not.i53, label %_ZN13DenseNodeDataIfLi2EED2Ev.exit54, label %163
 
-166:                                              ; preds = %164
-  call void @_ZdaPv(ptr noundef nonnull %165) #44
+163:                                              ; preds = %161
+  call void @_ZdaPv(ptr noundef nonnull %162) #44
   store ptr null, ptr %35, align 8
   br label %_ZN13DenseNodeDataIfLi2EED2Ev.exit54
 
-_ZN13DenseNodeDataIfLi2EED2Ev.exit54:             ; preds = %164, %166
+_ZN13DenseNodeDataIfLi2EED2Ev.exit54:             ; preds = %161, %163
   store i64 0, ptr %0, align 8
-  br label %167
+  br label %164
 
-167:                                              ; preds = %_ZN13DenseNodeDataIfLi2EED2Ev.exit54, %100
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN13DenseNodeDataIfLi2EED2Ev.exit54 ], [ %101, %100 ]
+164:                                              ; preds = %_ZN13DenseNodeDataIfLi2EED2Ev.exit54, %99
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN13DenseNodeDataIfLi2EED2Ev.exit54 ], [ %100, %99 ]
   call void @_ZN11BSplineDataILi2EL12BoundaryType2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #25
   resume { ptr, i32 } %.pn.pn
 }
@@ -61217,34 +61214,34 @@ _ZNK6OctreeIfE24_getSampleDepthAndWeightILi2E15PointSupportKeyILi2EEEEvRKNS0_16D
 
 85:                                               ; preds = %.lr.ph, %279
   %86 = phi i32 [ %70, %.lr.ph ], [ %286, %279 ]
+  %87 = phi i32 [ %68, %.lr.ph ], [ %284, %279 ]
+  %88 = phi i32 [ %67, %.lr.ph ], [ %283, %279 ]
+  %89 = phi i64 [ %66, %.lr.ph ], [ %282, %279 ]
   %.076 = phi ptr [ %2, %.lr.ph ], [ %281, %279 ]
-  %87 = shl nuw i32 1, %86
-  %88 = sitofp i32 %87 to double
-  %89 = call noundef double @pow(double noundef %88, double noundef %72) #25
-  %90 = fptrunc double %89 to float
-  %91 = fmul float %60, %90
-  %92 = fmul float %61, %90
-  %93 = fmul float %62, %90
-  %94 = fmul float %63, %90
+  %90 = shl nuw i32 1, %86
+  %91 = sitofp i32 %90 to double
+  %92 = call noundef double @pow(double noundef %91, double noundef %72) #25
+  %93 = fptrunc double %92 to float
+  %94 = fmul float %60, %93
+  %95 = fmul float %61, %93
+  %96 = fmul float %62, %93
+  %97 = fmul float %63, %93
   store float 0.000000e+00, ptr %73, align 4
   store float 0.000000e+00, ptr %74, align 4
   store float 0.000000e+00, ptr %17, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %95 = load i64, ptr %.076, align 8
-  %96 = trunc i64 %95 to i32
-  %97 = and i32 %96, 31
-  %98 = lshr i32 %96, 5
+  %98 = lshr i32 %88, 5
   %99 = and i32 %98, 524287
-  %100 = lshr i64 %95, 24
+  %100 = lshr i64 %89, 24
   %101 = trunc i64 %100 to i32
   %102 = and i32 %101, 524287
-  %103 = lshr i64 %95, 43
+  %103 = lshr i64 %89, 43
   %104 = trunc nuw nsw i64 %103 to i32
   %105 = and i32 %104, 524287
   %106 = load i32, ptr %65, align 8
-  %107 = sub nsw i32 %97, %106
+  %107 = sub nsw i32 %87, %106
   %108 = icmp slt i32 %106, 2
-  %109 = add nsw i32 %97, -1
+  %109 = add nsw i32 %87, -1
   %110 = shl nuw nsw i32 1, %109
   %111 = select i1 %108, i32 0, i32 %110
   %112 = sub nsw i32 %99, %111
@@ -61309,7 +61306,7 @@ _ZNK6OctreeIfE14_startAndWidthEPK7OctNodeI12TreeNodeDataER7Point3DIfERf.exit: ; 
 
 143:                                              ; preds = %132
   %144 = load ptr, ptr %77, align 8
-  %145 = and i64 %95, 31
+  %145 = and i64 %89, 31
   %146 = getelementptr inbounds nuw %"struct.OctNode<TreeNodeData>::Neighbors.427", ptr %144, i64 %145
   br label %.preheader
 
@@ -61355,10 +61352,10 @@ _Z12IsActiveNodePK7OctNodeI12TreeNodeDataE.exit:  ; preds = %161
   %170 = load double, ptr %169, align 8
   %171 = fmul double %154, %170
   %172 = fptrunc double %171 to float
-  %173 = fmul float %91, %172
-  %174 = fmul float %92, %172
-  %175 = fmul float %93, %172
-  %176 = fmul float %94, %172
+  %173 = fmul float %94, %172
+  %174 = fmul float %95, %172
+  %175 = fmul float %96, %172
+  %176 = fmul float %97, %172
   %177 = getelementptr inbounds nuw i8, ptr %159, i64 24
   %178 = load i32, ptr %177, align 8
   %179 = load ptr, ptr %80, align 8

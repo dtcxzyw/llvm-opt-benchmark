@@ -2836,8 +2836,7 @@ do.end:                                           ; preds = %invoke.cont169
   %cmp.i = fcmp ogt double %div228, %fneg224
   %89 = select i1 %cmp.i, double %div228, double %fneg224
   %cmp.i250 = fcmp olt double %89, %88
-  %maxRho_.val = load double, ptr %maxRho_, align 8
-  %90 = select i1 %cmp.i250, double %89, double %maxRho_.val
+  %90 = select i1 %cmp.i250, double %89, double %88
   %91 = call double @llvm.fabs.f64(double %90)
   %or.cond1 = fcmp ugt double %91, 1.000000e+00
   br i1 %or.cond1, label %if.then247, label %land.lhs.true240

@@ -303,7 +303,7 @@ define void @dlaqr3_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 
 ._crit_edge680.thread:                            ; preds = %187
   %190 = icmp eq i32 %171, 0
-  %spec.select738 = select i1 %190, double 0.000000e+00, double %.0625
+  %spec.select737 = select i1 %190, double 0.000000e+00, double %.0625
   br label %.loopexit674
 
 .lr.ph679:                                        ; preds = %187
@@ -422,7 +422,6 @@ define void @dlaqr3_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 282:                                              ; preds = %231
   %283 = add nsw i32 %256, -2
   store i32 %283, ptr %12, align 4, !tbaa !3
-  %.pre = load i32, ptr %33, align 4, !tbaa !3
   br label %287
 
 284:                                              ; preds = %231
@@ -434,16 +433,16 @@ define void @dlaqr3_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   br label %287
 
 287:                                              ; preds = %282, %284, %226, %228
-  %288 = phi i32 [ %.pre, %282 ], [ %286, %284 ], [ %196, %226 ], [ %230, %228 ]
+  %288 = phi i32 [ %196, %282 ], [ %286, %284 ], [ %196, %226 ], [ %230, %228 ]
   %.pr = load i32, ptr %12, align 4, !tbaa !3
   %.not657 = icmp sgt i32 %288, %.pr
   br i1 %.not657, label %._crit_edge680, label %195
 
 ._crit_edge680:                                   ; preds = %287
-  %.pre710 = load i32, ptr %41, align 4, !tbaa !3
+  %.pre = load i32, ptr %41, align 4, !tbaa !3
   %289 = icmp eq i32 %.pr, 0
   %spec.select = select i1 %289, double 0.000000e+00, double %.0625
-  %290 = icmp slt i32 %.pr, %.pre710
+  %290 = icmp slt i32 %.pr, %.pre
   br i1 %290, label %291, label %.loopexit674
 
 291:                                              ; preds = %._crit_edge680
@@ -617,12 +616,12 @@ define void @dlaqr3_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   br i1 %.not659.not, label %.lr.ph686, label %.loopexit673
 
 .loopexit674.loopexit:                            ; preds = %311, %.loopexit673
-  %.pre711 = load i32, ptr %41, align 4, !tbaa !3
+  %.pre710 = load i32, ptr %41, align 4, !tbaa !3
   br label %.loopexit674
 
 .loopexit674:                                     ; preds = %._crit_edge680.thread, %.loopexit674.loopexit, %._crit_edge680
-  %spec.select739 = phi double [ %spec.select, %.loopexit674.loopexit ], [ %spec.select, %._crit_edge680 ], [ %spec.select738, %._crit_edge680.thread ]
-  %406 = phi i32 [ %.pre711, %.loopexit674.loopexit ], [ %.pre710, %._crit_edge680 ], [ %171, %._crit_edge680.thread ]
+  %spec.select738 = phi double [ %spec.select, %.loopexit674.loopexit ], [ %spec.select, %._crit_edge680 ], [ %spec.select737, %._crit_edge680.thread ]
+  %406 = phi i32 [ %.pre710, %.loopexit674.loopexit ], [ %.pre, %._crit_edge680 ], [ %171, %._crit_edge680.thread ]
   %407 = load i32, ptr %34, align 4, !tbaa !3
   %.not660.not690 = icmp sgt i32 %406, %407
   br i1 %.not660.not690, label %.lr.ph693, label %._crit_edge694
@@ -704,30 +703,30 @@ define void @dlaqr3_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %462 = getelementptr inbounds double, ptr %53, i64 %460
   call void @dlanv2_(ptr noundef nonnull %35, ptr noundef nonnull %36, ptr noundef nonnull %37, ptr noundef nonnull %38, ptr noundef nonnull %457, ptr noundef nonnull %458, ptr noundef nonnull %461, ptr noundef nonnull %462, ptr noundef nonnull %39, ptr noundef nonnull %40) #6
   %463 = add nsw i32 %.3691, -2
-  %.pre712 = load i32, ptr %34, align 4, !tbaa !3
+  %.pre711 = load i32, ptr %34, align 4, !tbaa !3
   br label %464
 
 464:                                              ; preds = %432, %441, %414
-  %465 = phi i32 [ %411, %414 ], [ %411, %432 ], [ %.pre712, %441 ]
+  %465 = phi i32 [ %411, %414 ], [ %411, %432 ], [ %.pre711, %441 ]
   %.4 = phi i32 [ %423, %414 ], [ %425, %432 ], [ %463, %441 ]
   %.not660.not = icmp sgt i32 %.4, %465
   br i1 %.not660.not, label %410, label %._crit_edge694.loopexit
 
 ._crit_edge694.loopexit:                          ; preds = %464
-  %.pre713 = load i32, ptr %41, align 4, !tbaa !3
+  %.pre712 = load i32, ptr %41, align 4, !tbaa !3
   br label %._crit_edge694
 
 ._crit_edge694:                                   ; preds = %._crit_edge694.loopexit, %.loopexit674
-  %466 = phi i32 [ %.pre713, %._crit_edge694.loopexit ], [ %406, %.loopexit674 ]
+  %466 = phi i32 [ %.pre712, %._crit_edge694.loopexit ], [ %406, %.loopexit674 ]
   %467 = load i32, ptr %12, align 4, !tbaa !3
   %468 = icmp slt i32 %467, %466
-  %469 = fcmp oeq double %spec.select739, 0.000000e+00
+  %469 = fcmp oeq double %spec.select738, 0.000000e+00
   %or.cond = select i1 %468, i1 true, i1 %469
   br i1 %or.cond, label %470, label %.loopexit
 
 470:                                              ; preds = %._crit_edge694
   %471 = icmp sgt i32 %467, 1
-  %472 = fcmp une double %spec.select739, 0.000000e+00
+  %472 = fcmp une double %spec.select738, 0.000000e+00
   %or.cond3 = select i1 %471, i1 %472, i1 false
   br i1 %or.cond3, label %473, label %497
 
@@ -775,7 +774,7 @@ define void @dlaqr3_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 
 499:                                              ; preds = %497
   %500 = load double, ptr %16, align 8, !tbaa !7
-  %501 = fmul double %spec.select739, %500
+  %501 = fmul double %spec.select738, %500
   %502 = mul nsw i32 %108, %46
   %503 = add nsw i32 %109, %502
   %504 = sext i32 %503 to i64
@@ -853,11 +852,11 @@ define void @dlaqr3_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   br i1 %.in, label %.lr.ph698, label %._crit_edge699.loopexit, !llvm.loop !11
 
 ._crit_edge699.loopexit:                          ; preds = %.lr.ph698
-  %.pre714 = load i32, ptr %0, align 4, !tbaa !3
+  %.pre713 = load i32, ptr %0, align 4, !tbaa !3
   br label %._crit_edge699
 
 ._crit_edge699:                                   ; preds = %._crit_edge699.loopexit, %526
-  %543 = phi i32 [ %.pre714, %._crit_edge699.loopexit ], [ %523, %526 ]
+  %543 = phi i32 [ %.pre713, %._crit_edge699.loopexit ], [ %523, %526 ]
   %.not662 = icmp eq i32 %543, 0
   br i1 %.not662, label %.loopexit672, label %544
 

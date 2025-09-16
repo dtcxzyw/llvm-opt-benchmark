@@ -87359,77 +87359,77 @@ _ZN5o3dgc6InsertENS_13SC3DMCTripletERmPNS_15SC3DMCPredictorE.exit398.thread: ; p
 
 .preheader605:                                    ; preds = %._crit_edge662
   %430 = uitofp i64 %.0287683 to double
-  %431 = mul i64 %264, %4
-  %432 = uitofp i64 %.0285684 to double
-  br label %436
+  %431 = load ptr, ptr %253, align 8
+  %432 = mul i64 %264, %4
+  %433 = getelementptr i64, ptr %431, i64 %432
+  %434 = load i64, ptr %255, align 8
+  %435 = uitofp i64 %434 to double
+  %436 = fadd double %435, 1.000000e+00
+  %437 = uitofp i64 %.0285684 to double
+  %438 = fdiv double %436, %437
+  br label %442
 
-433:                                              ; preds = %._crit_edge673
-  %434 = load i32, ptr %36, align 8
-  %435 = icmp eq i32 %434, 1
-  br i1 %435, label %483, label %507
+439:                                              ; preds = %._crit_edge673
+  %440 = load i32, ptr %36, align 8
+  %441 = icmp eq i32 %440, 1
+  br i1 %441, label %483, label %507
 
-436:                                              ; preds = %.preheader605, %._crit_edge673
-  %.0277677 = phi i64 [ 0, %.preheader605 ], [ %447, %._crit_edge673 ]
+442:                                              ; preds = %.preheader605, %._crit_edge673
+  %.0277677 = phi i64 [ 0, %.preheader605 ], [ %453, %._crit_edge673 ]
   %.0280676 = phi double [ 1.797690e+308, %.preheader605 ], [ %.1281, %._crit_edge673 ]
   %.0282675 = phi i64 [ 4294967295, %.preheader605 ], [ %.1283, %._crit_edge673 ]
-  %437 = getelementptr inbounds nuw i64, ptr %35, i64 %.0277677
-  %438 = load i64, ptr %437, align 8
-  %439 = uitofp i64 %438 to double
-  %440 = fadd double %439, 1.000000e+00
-  %441 = fdiv double %440, %430
-  %442 = call double @log(double noundef %441) #32
-  %443 = fdiv double %442, 0xBFE62E42FEFA39EF
+  %443 = getelementptr inbounds nuw i64, ptr %35, i64 %.0277677
+  %444 = load i64, ptr %443, align 8
+  %445 = uitofp i64 %444 to double
+  %446 = fadd double %445, 1.000000e+00
+  %447 = fdiv double %446, %430
+  %448 = call double @log(double noundef %447) #32
+  %449 = fdiv double %448, 0xBFE62E42FEFA39EF
   br i1 %.not699, label %._crit_edge673, label %.lr.ph672
 
-.lr.ph672:                                        ; preds = %436
-  %444 = getelementptr inbounds nuw %"struct.o3dgc::SC3DMCPredictor", ptr %0, i64 %.0277677
-  %445 = getelementptr inbounds nuw i8, ptr %444, i64 624
-  br label %448
+.lr.ph672:                                        ; preds = %442
+  %450 = getelementptr inbounds nuw %"struct.o3dgc::SC3DMCPredictor", ptr %0, i64 %.0277677
+  %451 = getelementptr inbounds nuw i8, ptr %450, i64 624
+  br label %454
 
-._crit_edge673:                                   ; preds = %481, %436
-  %.0278.lcssa = phi double [ %443, %436 ], [ %.1279, %481 ]
-  %446 = fcmp olt double %.0278.lcssa, %.0280676
-  %.1283 = select i1 %446, i64 %.0277677, i64 %.0282675
-  %.1281 = select i1 %446, double %.0278.lcssa, double %.0280676
-  %447 = add nuw i64 %.0277677, 1
-  %exitcond748.not = icmp eq i64 %447, %.6
-  br i1 %exitcond748.not, label %433, label %436, !llvm.loop !916
+._crit_edge673:                                   ; preds = %481, %442
+  %.0278.lcssa = phi double [ %449, %442 ], [ %.1279, %481 ]
+  %452 = fcmp olt double %.0278.lcssa, %.0280676
+  %.1283 = select i1 %452, i64 %.0277677, i64 %.0282675
+  %.1281 = select i1 %452, double %.0278.lcssa, double %.0280676
+  %453 = add nuw i64 %.0277677, 1
+  %exitcond748.not = icmp eq i64 %453, %.6
+  br i1 %exitcond748.not, label %439, label %442, !llvm.loop !916
 
-448:                                              ; preds = %.lr.ph672, %481
+454:                                              ; preds = %.lr.ph672, %481
   %.0276670 = phi i64 [ 0, %.lr.ph672 ], [ %482, %481 ]
-  %.0278669 = phi double [ %443, %.lr.ph672 ], [ %.1279, %481 ]
-  %449 = load ptr, ptr %253, align 8
-  %450 = getelementptr i64, ptr %449, i64 %431
-  %451 = getelementptr i64, ptr %450, i64 %.0276670
-  %452 = load i64, ptr %451, align 8
-  %453 = getelementptr inbounds nuw i64, ptr %445, i64 %.0276670
-  %454 = load i64, ptr %453, align 8
-  %455 = sub nsw i64 %452, %454
-  %456 = shl nsw i64 %455, 1
-  %.lobit.i399 = ashr i64 %455, 63
-  %457 = xor i64 %456, %.lobit.i399
-  %458 = icmp slt i64 %457, 256
-  br i1 %458, label %459, label %468
+  %.0278669 = phi double [ %449, %.lr.ph672 ], [ %.1279, %481 ]
+  %455 = getelementptr i64, ptr %433, i64 %.0276670
+  %456 = load i64, ptr %455, align 8
+  %457 = getelementptr inbounds nuw i64, ptr %451, i64 %.0276670
+  %458 = load i64, ptr %457, align 8
+  %459 = sub nsw i64 %456, %458
+  %460 = shl nsw i64 %459, 1
+  %.lobit.i399 = ashr i64 %459, 63
+  %461 = xor i64 %460, %.lobit.i399
+  %462 = icmp slt i64 %461, 256
+  br i1 %462, label %463, label %472
 
-459:                                              ; preds = %448
-  %460 = getelementptr inbounds i64, ptr %34, i64 %457
-  %461 = load i64, ptr %460, align 8
-  %462 = uitofp i64 %461 to double
-  %463 = fadd double %462, 1.000000e+00
-  %464 = fdiv double %463, %432
-  %465 = call double @log(double noundef %464) #32
-  %466 = fdiv double %465, 0x3FE62E42FEFA39EF
-  %467 = fsub double %.0278669, %466
+463:                                              ; preds = %454
+  %464 = getelementptr inbounds i64, ptr %34, i64 %461
+  %465 = load i64, ptr %464, align 8
+  %466 = uitofp i64 %465 to double
+  %467 = fadd double %466, 1.000000e+00
+  %468 = fdiv double %467, %437
+  %469 = call double @log(double noundef %468) #32
+  %470 = fdiv double %469, 0x3FE62E42FEFA39EF
+  %471 = fsub double %.0278669, %470
   br label %481
 
-468:                                              ; preds = %448
-  %469 = load i64, ptr %255, align 8
-  %470 = uitofp i64 %469 to double
-  %471 = fadd double %470, 1.000000e+00
-  %472 = fdiv double %471, %432
-  %473 = call double @log(double noundef %472) #32
+472:                                              ; preds = %454
+  %473 = call double @log(double noundef %438) #32
   %474 = fdiv double %473, 0x3FE62E42FEFA39EF
-  %475 = add nsw i64 %457, -256
+  %475 = add nsw i64 %461, -256
   %476 = uitofp nneg i64 %475 to double
   %477 = call double @log(double noundef %476) #32
   %478 = fdiv double %477, 0x3FE62E42FEFA39EF
@@ -87437,13 +87437,13 @@ _ZN5o3dgc6InsertENS_13SC3DMCTripletERmPNS_15SC3DMCPredictorE.exit398.thread: ; p
   %480 = fadd double %.0278669, %479
   br label %481
 
-481:                                              ; preds = %459, %468
-  %.1279 = phi double [ %467, %459 ], [ %480, %468 ]
+481:                                              ; preds = %463, %472
+  %.1279 = phi double [ %471, %463 ], [ %480, %472 ]
   %482 = add nuw i64 %.0276670, 1
   %exitcond747.not = icmp eq i64 %482, %3
-  br i1 %exitcond747.not, label %._crit_edge673, label %448, !llvm.loop !917
+  br i1 %exitcond747.not, label %._crit_edge673, label %454, !llvm.loop !917
 
-483:                                              ; preds = %433
+483:                                              ; preds = %439
   %484 = and i64 %.1283, 255
   %485 = load i64, ptr %257, align 8
   %486 = load i64, ptr %258, align 8
@@ -87499,7 +87499,7 @@ _ZN5o3dgc6InsertENS_13SC3DMCTripletERmPNS_15SC3DMCPredictorE.exit398.thread: ; p
           cleanup
   br label %.loopexit.split-lp619
 
-507:                                              ; preds = %433
+507:                                              ; preds = %439
   %508 = trunc i64 %.1283 to i32
   invoke void @_ZN5o3dgc16Arithmetic_Codec6encodeEjRNS_19Adaptive_Data_ModelE(ptr noundef nonnull align 8 dereferenceable(44) %14, i32 noundef %508, ptr noundef nonnull align 8 dereferenceable(52) %18)
           to label %511 unwind label %509
@@ -87529,7 +87529,7 @@ _ZN5o3dgc6InsertENS_13SC3DMCTripletERmPNS_15SC3DMCPredictorE.exit398.thread: ; p
 519:                                              ; preds = %.lr.ph680, %_ZN5o3dgc12BinaryStream13WriteIntASCIIEl.exit406
   %.0275678 = phi i64 [ 0, %.lr.ph680 ], [ %607, %_ZN5o3dgc12BinaryStream13WriteIntASCIIEl.exit406 ]
   %520 = load ptr, ptr %253, align 8
-  %521 = getelementptr i64, ptr %520, i64 %431
+  %521 = getelementptr i64, ptr %520, i64 %432
   %522 = getelementptr i64, ptr %521, i64 %.0275678
   %523 = load i64, ptr %522, align 8
   %524 = getelementptr inbounds nuw i64, ptr %513, i64 %.0275678
@@ -89454,74 +89454,74 @@ _ZN5o3dgc6InsertENS_13SC3DMCTripletERmPNS_15SC3DMCPredictorE.exit.thread: ; pred
   %193 = uitofp i64 %.0179454 to double
   %194 = mul i64 %128, %4
   %195 = getelementptr i64, ptr %1, i64 %194
-  %196 = uitofp i64 %.0177455 to double
-  br label %200
+  %196 = load i64, ptr %119, align 8
+  %197 = uitofp i64 %196 to double
+  %198 = fadd double %197, 1.000000e+00
+  %199 = uitofp i64 %.0177455 to double
+  %200 = fdiv double %198, %199
+  br label %204
 
-197:                                              ; preds = %._crit_edge444
-  %198 = load i32, ptr %28, align 8
-  %199 = icmp eq i32 %198, 1
-  br i1 %199, label %245, label %269
+201:                                              ; preds = %._crit_edge444
+  %202 = load i32, ptr %28, align 8
+  %203 = icmp eq i32 %202, 1
+  br i1 %203, label %245, label %269
 
-200:                                              ; preds = %.preheader399, %._crit_edge444
-  %.0169448 = phi i64 [ 0, %.preheader399 ], [ %211, %._crit_edge444 ]
+204:                                              ; preds = %.preheader399, %._crit_edge444
+  %.0169448 = phi i64 [ 0, %.preheader399 ], [ %215, %._crit_edge444 ]
   %.0172447 = phi double [ 1.797690e+308, %.preheader399 ], [ %.1173, %._crit_edge444 ]
   %.0174446 = phi i64 [ 4294967295, %.preheader399 ], [ %.1175, %._crit_edge444 ]
-  %201 = getelementptr inbounds nuw i64, ptr %27, i64 %.0169448
-  %202 = load i64, ptr %201, align 8
-  %203 = uitofp i64 %202 to double
-  %204 = fadd double %203, 1.000000e+00
-  %205 = fdiv double %204, %193
-  %206 = call double @log(double noundef %205) #32
-  %207 = fdiv double %206, 0xBFE62E42FEFA39EF
+  %205 = getelementptr inbounds nuw i64, ptr %27, i64 %.0169448
+  %206 = load i64, ptr %205, align 8
+  %207 = uitofp i64 %206 to double
+  %208 = fadd double %207, 1.000000e+00
+  %209 = fdiv double %208, %193
+  %210 = call double @log(double noundef %209) #32
+  %211 = fdiv double %210, 0xBFE62E42FEFA39EF
   br i1 %.not465, label %._crit_edge444, label %.lr.ph443
 
-.lr.ph443:                                        ; preds = %200
-  %208 = getelementptr inbounds nuw %"struct.o3dgc::SC3DMCPredictor", ptr %0, i64 %.0169448
-  %209 = getelementptr inbounds nuw i8, ptr %208, i64 624
-  br label %212
+.lr.ph443:                                        ; preds = %204
+  %212 = getelementptr inbounds nuw %"struct.o3dgc::SC3DMCPredictor", ptr %0, i64 %.0169448
+  %213 = getelementptr inbounds nuw i8, ptr %212, i64 624
+  br label %216
 
-._crit_edge444:                                   ; preds = %243, %200
-  %.0170.lcssa = phi double [ %207, %200 ], [ %.1171, %243 ]
-  %210 = fcmp olt double %.0170.lcssa, %.0172447
-  %.1175 = select i1 %210, i64 %.0169448, i64 %.0174446
-  %.1173 = select i1 %210, double %.0170.lcssa, double %.0172447
-  %211 = add nuw i64 %.0169448, 1
-  %exitcond498.not = icmp eq i64 %211, %.3
-  br i1 %exitcond498.not, label %197, label %200, !llvm.loop !930
+._crit_edge444:                                   ; preds = %243, %204
+  %.0170.lcssa = phi double [ %211, %204 ], [ %.1171, %243 ]
+  %214 = fcmp olt double %.0170.lcssa, %.0172447
+  %.1175 = select i1 %214, i64 %.0169448, i64 %.0174446
+  %.1173 = select i1 %214, double %.0170.lcssa, double %.0172447
+  %215 = add nuw i64 %.0169448, 1
+  %exitcond498.not = icmp eq i64 %215, %.3
+  br i1 %exitcond498.not, label %201, label %204, !llvm.loop !930
 
-212:                                              ; preds = %.lr.ph443, %243
+216:                                              ; preds = %.lr.ph443, %243
   %.0168441 = phi i64 [ 0, %.lr.ph443 ], [ %244, %243 ]
-  %.0170440 = phi double [ %207, %.lr.ph443 ], [ %.1171, %243 ]
-  %213 = getelementptr i64, ptr %195, i64 %.0168441
-  %214 = load i64, ptr %213, align 8
-  %215 = getelementptr inbounds nuw i64, ptr %209, i64 %.0168441
-  %216 = load i64, ptr %215, align 8
-  %217 = sub nsw i64 %214, %216
-  %218 = shl nsw i64 %217, 1
-  %.lobit.i = ashr i64 %217, 63
-  %219 = xor i64 %218, %.lobit.i
-  %220 = icmp slt i64 %219, 256
-  br i1 %220, label %221, label %230
+  %.0170440 = phi double [ %211, %.lr.ph443 ], [ %.1171, %243 ]
+  %217 = getelementptr i64, ptr %195, i64 %.0168441
+  %218 = load i64, ptr %217, align 8
+  %219 = getelementptr inbounds nuw i64, ptr %213, i64 %.0168441
+  %220 = load i64, ptr %219, align 8
+  %221 = sub nsw i64 %218, %220
+  %222 = shl nsw i64 %221, 1
+  %.lobit.i = ashr i64 %221, 63
+  %223 = xor i64 %222, %.lobit.i
+  %224 = icmp slt i64 %223, 256
+  br i1 %224, label %225, label %234
 
-221:                                              ; preds = %212
-  %222 = getelementptr inbounds i64, ptr %26, i64 %219
-  %223 = load i64, ptr %222, align 8
-  %224 = uitofp i64 %223 to double
-  %225 = fadd double %224, 1.000000e+00
-  %226 = fdiv double %225, %196
-  %227 = call double @log(double noundef %226) #32
-  %228 = fdiv double %227, 0x3FE62E42FEFA39EF
-  %229 = fsub double %.0170440, %228
+225:                                              ; preds = %216
+  %226 = getelementptr inbounds i64, ptr %26, i64 %223
+  %227 = load i64, ptr %226, align 8
+  %228 = uitofp i64 %227 to double
+  %229 = fadd double %228, 1.000000e+00
+  %230 = fdiv double %229, %199
+  %231 = call double @log(double noundef %230) #32
+  %232 = fdiv double %231, 0x3FE62E42FEFA39EF
+  %233 = fsub double %.0170440, %232
   br label %243
 
-230:                                              ; preds = %212
-  %231 = load i64, ptr %119, align 8
-  %232 = uitofp i64 %231 to double
-  %233 = fadd double %232, 1.000000e+00
-  %234 = fdiv double %233, %196
-  %235 = call double @log(double noundef %234) #32
+234:                                              ; preds = %216
+  %235 = call double @log(double noundef %200) #32
   %236 = fdiv double %235, 0x3FE62E42FEFA39EF
-  %237 = add nsw i64 %219, -256
+  %237 = add nsw i64 %223, -256
   %238 = uitofp nneg i64 %237 to double
   %239 = call double @log(double noundef %238) #32
   %240 = fdiv double %239, 0x3FE62E42FEFA39EF
@@ -89529,13 +89529,13 @@ _ZN5o3dgc6InsertENS_13SC3DMCTripletERmPNS_15SC3DMCPredictorE.exit.thread: ; pred
   %242 = fadd double %.0170440, %241
   br label %243
 
-243:                                              ; preds = %221, %230
-  %.1171 = phi double [ %229, %221 ], [ %242, %230 ]
+243:                                              ; preds = %225, %234
+  %.1171 = phi double [ %233, %225 ], [ %242, %234 ]
   %244 = add nuw i64 %.0168441, 1
   %exitcond497.not = icmp eq i64 %244, %3
-  br i1 %exitcond497.not, label %._crit_edge444, label %212, !llvm.loop !931
+  br i1 %exitcond497.not, label %._crit_edge444, label %216, !llvm.loop !931
 
-245:                                              ; preds = %197
+245:                                              ; preds = %201
   %246 = and i64 %.1175, 255
   %247 = load i64, ptr %121, align 8
   %248 = load i64, ptr %122, align 8
@@ -89591,7 +89591,7 @@ _ZN5o3dgc6InsertENS_13SC3DMCTripletERmPNS_15SC3DMCPredictorE.exit.thread: ; pred
           cleanup
   br label %.loopexit.split-lp410
 
-269:                                              ; preds = %197
+269:                                              ; preds = %201
   %270 = trunc i64 %.1175 to i32
   invoke void @_ZN5o3dgc16Arithmetic_Codec6encodeEjRNS_19Adaptive_Data_ModelE(ptr noundef nonnull align 8 dereferenceable(44) %9, i32 noundef %270, ptr noundef nonnull align 8 dereferenceable(52) %13)
           to label %273 unwind label %271

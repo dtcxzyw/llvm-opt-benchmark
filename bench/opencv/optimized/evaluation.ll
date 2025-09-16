@@ -1647,15 +1647,15 @@ _ZNSt12_Vector_baseI4SIdxSaIS0_EE13_M_deallocateEPS0_m.exit.i.i.i: ; preds = %_Z
           to label %.lr.ph132.i.i unwind label %.loopexit.split-lp.loopexit.split-lp.i
 
 _ZN16EllipticKeyPointC2ERKS_.exit.i.i:            ; preds = %._crit_edge.i.i, %.lr.ph127.i.i
-  %178 = phi ptr [ %133, %.lr.ph127.i.i ], [ %230, %._crit_edge.i.i ]
-  %179 = phi ptr [ %132, %.lr.ph127.i.i ], [ %231, %._crit_edge.i.i ]
-  %180 = phi ptr [ %140, %.lr.ph127.i.i ], [ %232, %._crit_edge.i.i ]
-  %181 = phi ptr [ %139, %.lr.ph127.i.i ], [ %233, %._crit_edge.i.i ]
+  %178 = phi ptr [ %140, %.lr.ph127.i.i ], [ %230, %._crit_edge.i.i ]
+  %179 = phi ptr [ %139, %.lr.ph127.i.i ], [ %231, %._crit_edge.i.i ]
   %.sroa.0.2.i = phi ptr [ %.sroa.0.0.i, %.lr.ph127.i.i ], [ %.sroa.0.3.i, %._crit_edge.i.i ]
   %.sroa.15.4.i = phi ptr [ %.sroa.0.0.i, %.lr.ph127.i.i ], [ %.sroa.15.5.i, %._crit_edge.i.i ]
   %.sroa.28.1.i = phi ptr [ %.sroa.28.0.i, %.lr.ph127.i.i ], [ %.sroa.28.2.i, %._crit_edge.i.i ]
+  %180 = phi ptr [ %133, %.lr.ph127.i.i ], [ %232, %._crit_edge.i.i ]
+  %181 = phi ptr [ %132, %.lr.ph127.i.i ], [ %233, %._crit_edge.i.i ]
   %.066126.i.i = phi i64 [ 0, %.lr.ph127.i.i ], [ %234, %._crit_edge.i.i ]
-  %182 = getelementptr inbounds nuw %class.EllipticKeyPoint, ptr %178, i64 %.066126.i.i
+  %182 = getelementptr inbounds nuw %class.EllipticKeyPoint, ptr %180, i64 %.066126.i.i
   %183 = load float, ptr %182, align 8
   %.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %182, i64 4
   %184 = load float, ptr %.sroa_idx.i.i, align 4
@@ -1733,7 +1733,7 @@ cdce.end26.i:                                     ; preds = %cdce.call55, %cdce.
   %223 = fdiv double %194, %199
   %224 = call double @sqrt(double noundef %223) #25, !tbaa !7
   %225 = fptrunc double %224 to float
-  %.not135.i.i = icmp eq ptr %181, %180
+  %.not135.i.i = icmp eq ptr %179, %178
   br i1 %.not135.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %cdce.end26.i
@@ -1743,35 +1743,35 @@ cdce.end26.i:                                     ; preds = %cdce.call55, %cdce.
   %229 = trunc i64 %.066126.i.i to i32
   br label %_ZN16EllipticKeyPointC2ERKS_.exit88.i.i
 
-._crit_edge.i.loopexit.i:                         ; preds = %348
-  %.pre.i = load ptr, ptr %131, align 8, !tbaa !57
-  %.pre40.i = load ptr, ptr %11, align 8, !tbaa !60
+._crit_edge.loopexit.i.i:                         ; preds = %348
+  %.pre162.i.i = load ptr, ptr %131, align 8, !tbaa !57
+  %.pre163.i.i = load ptr, ptr %11, align 8, !tbaa !60
   br label %._crit_edge.i.i
 
-._crit_edge.i.i:                                  ; preds = %._crit_edge.i.loopexit.i, %cdce.end26.i
-  %230 = phi ptr [ %178, %cdce.end26.i ], [ %.pre40.i, %._crit_edge.i.loopexit.i ]
-  %231 = phi ptr [ %179, %cdce.end26.i ], [ %.pre.i, %._crit_edge.i.loopexit.i ]
-  %232 = phi ptr [ %180, %cdce.end26.i ], [ %349, %._crit_edge.i.loopexit.i ]
-  %233 = phi ptr [ %180, %cdce.end26.i ], [ %350, %._crit_edge.i.loopexit.i ]
-  %.sroa.0.3.i = phi ptr [ %.sroa.0.2.i, %cdce.end26.i ], [ %.sroa.0.6.i, %._crit_edge.i.loopexit.i ]
-  %.sroa.15.5.i = phi ptr [ %.sroa.15.4.i, %cdce.end26.i ], [ %.sroa.15.8.i, %._crit_edge.i.loopexit.i ]
-  %.sroa.28.2.i = phi ptr [ %.sroa.28.1.i, %cdce.end26.i ], [ %.sroa.28.5.i, %._crit_edge.i.loopexit.i ]
+._crit_edge.i.i:                                  ; preds = %._crit_edge.loopexit.i.i, %cdce.end26.i
+  %230 = phi ptr [ %178, %cdce.end26.i ], [ %349, %._crit_edge.loopexit.i.i ]
+  %231 = phi ptr [ %178, %cdce.end26.i ], [ %350, %._crit_edge.loopexit.i.i ]
+  %.sroa.0.3.i = phi ptr [ %.sroa.0.2.i, %cdce.end26.i ], [ %.sroa.0.6.i, %._crit_edge.loopexit.i.i ]
+  %.sroa.15.5.i = phi ptr [ %.sroa.15.4.i, %cdce.end26.i ], [ %.sroa.15.8.i, %._crit_edge.loopexit.i.i ]
+  %.sroa.28.2.i = phi ptr [ %.sroa.28.1.i, %cdce.end26.i ], [ %.sroa.28.5.i, %._crit_edge.loopexit.i.i ]
+  %232 = phi ptr [ %180, %cdce.end26.i ], [ %.pre163.i.i, %._crit_edge.loopexit.i.i ]
+  %233 = phi ptr [ %181, %cdce.end26.i ], [ %.pre162.i.i, %._crit_edge.loopexit.i.i ]
   %234 = add nuw i64 %.066126.i.i, 1
-  %235 = ptrtoint ptr %231 to i64
-  %236 = ptrtoint ptr %230 to i64
+  %235 = ptrtoint ptr %233 to i64
+  %236 = ptrtoint ptr %232 to i64
   %237 = sub i64 %235, %236
   %238 = sdiv exact i64 %237, 56
   %239 = icmp ult i64 %234, %238
   br i1 %239, label %_ZN16EllipticKeyPointC2ERKS_.exit.i.i, label %._crit_edge128.i.i, !llvm.loop !90
 
 _ZN16EllipticKeyPointC2ERKS_.exit88.i.i:          ; preds = %348, %.lr.ph.i.i
-  %240 = phi ptr [ %180, %.lr.ph.i.i ], [ %349, %348 ]
-  %241 = phi ptr [ %181, %.lr.ph.i.i ], [ %350, %348 ]
+  %240 = phi ptr [ %178, %.lr.ph.i.i ], [ %349, %348 ]
+  %241 = phi ptr [ %179, %.lr.ph.i.i ], [ %350, %348 ]
   %.sroa.0.4.i = phi ptr [ %.sroa.0.2.i, %.lr.ph.i.i ], [ %.sroa.0.6.i, %348 ]
   %.sroa.15.6.i = phi ptr [ %.sroa.15.4.i, %.lr.ph.i.i ], [ %.sroa.15.8.i, %348 ]
   %.sroa.28.3.i = phi ptr [ %.sroa.28.1.i, %.lr.ph.i.i ], [ %.sroa.28.5.i, %348 ]
-  %242 = phi ptr [ %180, %.lr.ph.i.i ], [ %351, %348 ]
-  %243 = phi ptr [ %181, %.lr.ph.i.i ], [ %352, %348 ]
+  %242 = phi ptr [ %178, %.lr.ph.i.i ], [ %351, %348 ]
+  %243 = phi ptr [ %179, %.lr.ph.i.i ], [ %352, %348 ]
   %.067124.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %353, %348 ]
   %244 = getelementptr inbounds nuw %class.EllipticKeyPoint, ptr %242, i64 %.067124.i.i
   %245 = load float, ptr %244, align 8
@@ -2017,7 +2017,7 @@ _ZNSt6vectorI4SIdxSaIS0_EE9push_backEOS0_.exit.i.i: ; preds = %_ZNSt6vectorI4SId
   %356 = sub i64 %354, %355
   %357 = sdiv exact i64 %356, 56
   %358 = icmp ult i64 %353, %357
-  br i1 %358, label %_ZN16EllipticKeyPointC2ERKS_.exit88.i.i, label %._crit_edge.i.loopexit.i, !llvm.loop !108
+  br i1 %358, label %_ZN16EllipticKeyPointC2ERKS_.exit88.i.i, label %._crit_edge.loopexit.i.i, !llvm.loop !108
 
 .lr.ph132.i.i:                                    ; preds = %.noexc73.i, %_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIP4SIdxSt6vectorIS2_SaIS2_EEEENS2_10UsedFinderEET_S9_S9_T0_.exit.i.i
   %.sroa.0103.0131.i.i = phi ptr [ %359, %_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIP4SIdxSt6vectorIS2_SaIS2_EEEENS2_10UsedFinderEET_S9_S9_T0_.exit.i.i ], [ %.sroa.0.3.i, %.noexc73.i ]

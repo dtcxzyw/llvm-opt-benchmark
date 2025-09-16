@@ -19267,23 +19267,23 @@ _ZNK7openvdb5v11_04math4Mat4IdE7getMat3Ev.exit:   ; preds = %for.cond2.preheader
 if.else:                                          ; preds = %_ZNK7openvdb5v11_04math4Mat4IdE7getMat3Ev.exit
   %call4 = tail call double @pow(double noundef %19, double noundef 0x3FD5555555555555) #26
   %div = fdiv double 1.000000e+00, %call4
-  %mul.i = fmul double %div, %14
+  %mul.i = fmul double %14, %div
   store double %mul.i, ptr %mat, align 8
-  %mul4.i = fmul double %div, %15
+  %mul4.i = fmul double %15, %div
   store double %mul4.i, ptr %arrayidx32.i, align 8
-  %mul7.i = fmul double %div, %17
+  %mul7.i = fmul double %17, %div
   store double %mul7.i, ptr %arrayidx35.i, align 8
-  %mul10.i = fmul double %div, %9
+  %mul10.i = fmul double %9, %div
   store double %mul10.i, ptr %arrayidx14.i, align 8
-  %mul13.i = fmul double %div, %2
+  %mul13.i = fmul double %2, %div
   store double %mul13.i, ptr %arrayidx.i, align 8
-  %mul16.i = fmul double %div, %4
+  %mul16.i = fmul double %4, %div
   store double %mul16.i, ptr %arrayidx5.i, align 8
-  %mul19.i = fmul double %div, %8
+  %mul19.i = fmul double %8, %div
   store double %mul19.i, ptr %arrayidx12.i, align 8
-  %mul22.i = fmul double %div, %5
+  %mul22.i = fmul double %5, %div
   store double %mul22.i, ptr %arrayidx7.i, align 8
-  %mul25.i = fmul double %div, %3
+  %mul25.i = fmul double %3, %div
   store double %mul25.i, ptr %arrayidx3.i, align 8
   %call6 = call noundef zeroext i1 @_ZN7openvdb5v11_04math9isUnitaryINS1_4Mat3IdEEEEbRKT_(ptr noundef nonnull align 8 dereferenceable(72) %mat)
   br label %return

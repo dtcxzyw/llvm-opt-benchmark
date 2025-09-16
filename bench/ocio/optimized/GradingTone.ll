@@ -2399,7 +2399,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev20GradingTonePreRender6updateERKNS_1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %5 = zext i1 %3 to i8
   store i8 %5, ptr %4, align 8, !tbaa !31
-  br i1 %3, label %61, label %6
+  br i1 %3, label %57, label %6
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 168
@@ -2421,56 +2421,52 @@ define hidden void @_ZN19OpenColorIO_v2_5dev20GradingTonePreRender6updateERKNS_1
   store double %12, ptr %21, align 8, !tbaa !40
   %22 = tail call fastcc noundef double @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_116HighlightFwdEvalEdddd(double noundef %14, double noundef %19, double noundef %12, double noundef %8)
   %23 = fadd double %14, %16
-  %24 = load double, ptr %20, align 8, !tbaa !39
-  %25 = load double, ptr %21, align 8, !tbaa !40
-  %26 = tail call fastcc noundef double @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_116HighlightFwdEvalEdddd(double noundef %23, double noundef %24, double noundef %25, double noundef %8)
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store double %22, ptr %27, align 8, !tbaa !41
-  %28 = fsub double %26, %22
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store double %28, ptr %29, align 8, !tbaa !42
-  %30 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %31 = load double, ptr %30, align 8, !tbaa !43
-  %32 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %33 = load double, ptr %32, align 8, !tbaa !44
-  %34 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %35 = load double, ptr %34, align 8, !tbaa !45
-  %36 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %37 = load double, ptr %36, align 8, !tbaa !46
-  %38 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %39 = load double, ptr %38, align 8, !tbaa !47
-  %40 = fadd double %35, 1.000000e-02
-  %41 = fcmp olt double %33, %40
-  %42 = select i1 %41, double %40, double %33
-  store double %42, ptr %0, align 8, !tbaa !48
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double %35, ptr %43, align 8, !tbaa !49
-  %44 = tail call fastcc noundef double @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_113ShadowFwdEvalEdddd(double noundef %37, double noundef %35, double noundef %42, double noundef %31)
-  %45 = fsub double %37, %39
-  %46 = load double, ptr %43, align 8, !tbaa !49
-  %47 = load double, ptr %0, align 8, !tbaa !48
-  %48 = tail call fastcc noundef double @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_113ShadowFwdEvalEdddd(double noundef %45, double noundef %46, double noundef %47, double noundef %31)
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store double %44, ptr %49, align 8, !tbaa !50
-  %50 = fsub double %44, %48
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store double %50, ptr %51, align 8, !tbaa !51
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 912
-  %53 = load float, ptr %52, align 8, !tbaa !23
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 920
-  %55 = load float, ptr %54, align 8, !tbaa !29
-  tail call void @_ZN19OpenColorIO_v2_5dev20GradingTonePreRender15mids_precomputeERKNS_11GradingToneEff(ptr noundef nonnull align 8 dereferenceable(936) %0, ptr noundef nonnull align 8 dereferenceable(248) %1, float noundef %53, float noundef %55)
+  %24 = tail call fastcc noundef double @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_116HighlightFwdEvalEdddd(double noundef %23, double noundef %19, double noundef %12, double noundef %8)
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store double %22, ptr %25, align 8, !tbaa !41
+  %26 = fsub double %24, %22
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store double %26, ptr %27, align 8, !tbaa !42
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %29 = load double, ptr %28, align 8, !tbaa !43
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %31 = load double, ptr %30, align 8, !tbaa !44
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %33 = load double, ptr %32, align 8, !tbaa !45
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %35 = load double, ptr %34, align 8, !tbaa !46
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %37 = load double, ptr %36, align 8, !tbaa !47
+  %38 = fadd double %33, 1.000000e-02
+  %39 = fcmp olt double %31, %38
+  %40 = select i1 %39, double %38, double %31
+  store double %40, ptr %0, align 8, !tbaa !48
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store double %33, ptr %41, align 8, !tbaa !49
+  %42 = tail call fastcc noundef double @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_113ShadowFwdEvalEdddd(double noundef %35, double noundef %33, double noundef %40, double noundef %29)
+  %43 = fsub double %35, %37
+  %44 = tail call fastcc noundef double @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_113ShadowFwdEvalEdddd(double noundef %43, double noundef %33, double noundef %40, double noundef %29)
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store double %42, ptr %45, align 8, !tbaa !50
+  %46 = fsub double %42, %44
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store double %46, ptr %47, align 8, !tbaa !51
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 912
+  %49 = load float, ptr %48, align 8, !tbaa !23
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 920
+  %51 = load float, ptr %50, align 8, !tbaa !29
+  tail call void @_ZN19OpenColorIO_v2_5dev20GradingTonePreRender15mids_precomputeERKNS_11GradingToneEff(ptr noundef nonnull align 8 dereferenceable(936) %0, ptr noundef nonnull align 8 dereferenceable(248) %1, float noundef %49, float noundef %51)
   tail call void @_ZN19OpenColorIO_v2_5dev20GradingTonePreRender26highlightShadow_precomputeERKNS_11GradingToneE(ptr noundef nonnull align 8 dereferenceable(936) %0, ptr noundef nonnull align 8 dereferenceable(248) %1)
   tail call void @_ZN19OpenColorIO_v2_5dev20GradingTonePreRender21whiteBlack_precomputeERKNS_11GradingToneE(ptr noundef nonnull align 8 dereferenceable(936) %0, ptr noundef nonnull align 8 dereferenceable(248) %1)
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 916
-  %57 = load float, ptr %56, align 4, !tbaa !28
-  %58 = load float, ptr %54, align 8, !tbaa !29
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 924
-  %60 = load float, ptr %59, align 4, !tbaa !30
-  tail call void @_ZN19OpenColorIO_v2_5dev20GradingTonePreRender20scontrast_precomputeERKNS_11GradingToneEfff(ptr noundef nonnull align 8 dereferenceable(936) %0, ptr noundef nonnull align 8 dereferenceable(248) %1, float noundef %57, float noundef %58, float noundef %60)
-  br label %61
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 916
+  %53 = load float, ptr %52, align 4, !tbaa !28
+  %54 = load float, ptr %50, align 8, !tbaa !29
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 924
+  %56 = load float, ptr %55, align 4, !tbaa !30
+  tail call void @_ZN19OpenColorIO_v2_5dev20GradingTonePreRender20scontrast_precomputeERKNS_11GradingToneEfff(ptr noundef nonnull align 8 dereferenceable(936) %0, ptr noundef nonnull align 8 dereferenceable(248) %1, float noundef %53, float noundef %54, float noundef %56)
+  br label %57
 
-61:                                               ; preds = %2, %6
+57:                                               ; preds = %2, %6
   ret void
 }
 

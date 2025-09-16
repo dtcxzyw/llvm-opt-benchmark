@@ -1967,18 +1967,18 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backEOS2_.exit156: ; preds = %160, %13
   %274 = fcmp ole float %271, 0.000000e+00
   %275 = select i1 %274, float 0x3FF921FB60000000, float 0xBFF921FB60000000
   %276 = fadd float %271, %275
-  store float %252, ptr %22, align 4, !tbaa !54
-  store float %251, ptr %23, align 4, !tbaa !54
   br label %277
 
 277:                                              ; preds = %273, %263
+  %278 = phi float [ %251, %273 ], [ %252, %263 ]
+  %279 = phi float [ %252, %273 ], [ %251, %263 ]
   %.0 = phi float [ %276, %273 ], [ %271, %263 ]
-  %278 = fsub float %268, %.0
-  %279 = call noundef float @llvm.fabs.f32(float %278)
-  %280 = fcmp ogt float %279, 0x3FBACEEA00000000
-  %281 = fcmp olt float %279, 0x40084B8400000000
-  %or.cond256 = and i1 %280, %281
-  br i1 %or.cond256, label %_ZNSt6vectorIfSaIfEE9push_backERKf.exit, label %282
+  %280 = fsub float %268, %.0
+  %281 = call noundef float @llvm.fabs.f32(float %280)
+  %282 = fcmp ogt float %281, 0x3FBACEEA00000000
+  %283 = fcmp olt float %281, 0x40084B8400000000
+  %or.cond256 = and i1 %282, %283
+  br i1 %or.cond256, label %_ZNSt6vectorIfSaIfEE9push_backERKf.exit, label %284
 
 .loopexit273:                                     ; preds = %_ZNKSt6vectorIN2cv11RotatedRectESaIS1_EE12_M_check_lenEmPKc.exit.i.i, %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i.i
   %lpad.loopexit275 = landingpad { ptr, i32 }
@@ -1990,15 +1990,13 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backEOS2_.exit156: ; preds = %160, %13
           cleanup
   br label %346
 
-282:                                              ; preds = %277
-  %283 = fmul float %268, 1.800000e+02
-  %284 = fdiv float %283, 0x400921FB60000000
-  store float %284, ptr %26, align 4, !tbaa !124
-  %285 = load float, ptr %22, align 4, !tbaa !126
-  %286 = fmul float %28, %285
-  store float %286, ptr %22, align 4, !tbaa !126
-  %287 = load float, ptr %23, align 4, !tbaa !127
-  %288 = fmul float %287, %27
+284:                                              ; preds = %277
+  %285 = fmul float %268, 1.800000e+02
+  %286 = fdiv float %285, 0x400921FB60000000
+  store float %286, ptr %26, align 4, !tbaa !124
+  %287 = fmul float %28, %279
+  store float %287, ptr %22, align 4, !tbaa !126
+  %288 = fmul float %278, %27
   store float %288, ptr %23, align 4, !tbaa !127
   %289 = load float, ptr %4, align 4, !tbaa !128
   %290 = fadd float %289, 5.000000e-01
@@ -2013,14 +2011,14 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backEOS2_.exit156: ; preds = %160, %13
   %.not.i = icmp eq ptr %295, %296
   br i1 %.not.i, label %300, label %297
 
-297:                                              ; preds = %282
+297:                                              ; preds = %284
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %295, ptr noundef nonnull align 4 dereferenceable(20) %4, i64 20, i1 false), !tbaa.struct !131
   %298 = load ptr, ptr %31, align 8, !tbaa !50
   %299 = getelementptr inbounds nuw i8, ptr %298, i64 20
   store ptr %299, ptr %31, align 8, !tbaa !50
   br label %_ZNSt6vectorIN2cv11RotatedRectESaIS1_EE9push_backERKS1_.exit
 
-300:                                              ; preds = %282
+300:                                              ; preds = %284
   %301 = load ptr, ptr %30, align 8, !tbaa !49
   %302 = ptrtoint ptr %295 to i64
   %303 = ptrtoint ptr %301 to i64

@@ -2833,8 +2833,7 @@ if.else:                                          ; preds = %if.then3.i, %_ZN8Qu
 
 if.else9:                                         ; preds = %entry
   call void @llvm.lifetime.start.p0(ptr nonnull %stv)
-  %call10 = tail call double @sqrt(double noundef %tau) #36, !tbaa !123
-  %div12 = fdiv double %call10, %0
+  %div12 = fdiv double %call, %0
   store double %div12, ptr %stv, align 8, !tbaa !55
   %x_i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %n_.i = getelementptr inbounds nuw i8, ptr %this, i64 16

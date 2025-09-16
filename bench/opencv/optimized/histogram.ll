@@ -1361,6 +1361,7 @@ _ZN2cv4Mat_IiEC2ENS_5Size_IiEE.exit.i:            ; preds = %287
   br label %.preheader.i147
 
 .preheader.i147:                                  ; preds = %._crit_edge141.i, %.preheader.lr.ph.i146
+  %.pre173.i210 = phi i32 [ %.pre168.i, %.preheader.lr.ph.i146 ], [ %.pre173.i211, %._crit_edge141.i ]
   %328 = phi i32 [ %.pre168.i, %.preheader.lr.ph.i146 ], [ %353, %._crit_edge141.i ]
   %indvars.iv162.i = phi i64 [ 1, %.preheader.lr.ph.i146 ], [ %indvars.iv.next163.i, %._crit_edge141.i ]
   %.089143.i = phi i32 [ 0, %.preheader.lr.ph.i146 ], [ %.190.lcssa.i, %._crit_edge141.i ]
@@ -1411,11 +1412,12 @@ _ZN2cv4Mat_IiEC2ENS_5Size_IiEE.exit.i:            ; preds = %287
   %.pre206 = load ptr, ptr %108, align 8, !tbaa !81
   %.pre207 = load ptr, ptr %109, align 8, !tbaa !82
   %.pre208 = load i64, ptr %.pre207, align 8, !tbaa !83
-  %.pre209 = mul i64 %.pre208, %indvars.iv162.i
+  %.pre214 = mul i64 %.pre208, %indvars.iv162.i
   br label %.lr.ph140.i
 
 .lr.ph140.i:                                      ; preds = %.preheader..critedge_crit_edge.i..lr.ph140.i_crit_edge, %._crit_edge124.i
-  %.pre-phi = phi i64 [ %.pre209, %.preheader..critedge_crit_edge.i..lr.ph140.i_crit_edge ], [ %330, %._crit_edge124.i ]
+  %.pre-phi = phi i64 [ %.pre214, %.preheader..critedge_crit_edge.i..lr.ph140.i_crit_edge ], [ %330, %._crit_edge124.i ]
+  %.pre173.i209 = phi i32 [ %.pre172.i, %.preheader..critedge_crit_edge.i..lr.ph140.i_crit_edge ], [ %.pre173.i210, %._crit_edge124.i ]
   %342 = phi i64 [ %.pre208, %.preheader..critedge_crit_edge.i..lr.ph140.i_crit_edge ], [ %.pre171.i, %._crit_edge124.i ]
   %343 = phi ptr [ %.pre206, %.preheader..critedge_crit_edge.i..lr.ph140.i_crit_edge ], [ %.pre169.i, %._crit_edge124.i ]
   %344 = phi i32 [ %.pre172.i, %.preheader..critedge_crit_edge.i..lr.ph140.i_crit_edge ], [ %328, %._crit_edge124.i ]
@@ -1430,6 +1432,7 @@ _ZN2cv4Mat_IiEC2ENS_5Size_IiEE.exit.i:            ; preds = %287
   br label %357
 
 ._crit_edge141.i:                                 ; preds = %417, %.preheader..critedge_crit_edge.i
+  %.pre173.i211 = phi i32 [ %.pre172.i, %.preheader..critedge_crit_edge.i ], [ %.pre173.i213, %417 ]
   %353 = phi i32 [ %.pre172.i, %.preheader..critedge_crit_edge.i ], [ %418, %417 ]
   %.190.lcssa.i = phi i32 [ %.089143.i, %.preheader..critedge_crit_edge.i ], [ %.291.i, %417 ]
   %indvars.iv.next163.i = add nuw nsw i64 %indvars.iv162.i, 1
@@ -1439,6 +1442,7 @@ _ZN2cv4Mat_IiEC2ENS_5Size_IiEE.exit.i:            ; preds = %287
   br i1 %356, label %.preheader.i147, label %._crit_edge145.i, !llvm.loop !90
 
 357:                                              ; preds = %417, %.lr.ph140.i
+  %.pre173.i = phi i32 [ %.pre173.i209, %.lr.ph140.i ], [ %.pre173.i213, %417 ]
   %358 = phi i32 [ %344, %.lr.ph140.i ], [ %418, %417 ]
   %indvars.iv159.i = phi i64 [ 0, %.lr.ph140.i ], [ %indvars.iv.next160.i, %417 ]
   %.190137.i = phi i32 [ %.089143.i, %.lr.ph140.i ], [ %.291.i, %417 ]
@@ -1532,7 +1536,6 @@ _ZN2cvmiIsLi2EEENS_3VecIT_XT0_EEERKS3_S5_.exit.i.i: ; preds = %_ZN2cvmiIsLi2EEEN
   %.184.i = select i1 %411, float %410, float %.083127.i
   %412 = trunc nuw nsw i64 %indvars.iv156.i to i32
   %.181.i = select i1 %411, i32 %412, i32 %.080128.i
-  %.pre173.i = load i32, ptr %107, align 4, !tbaa !84
   br label %413
 
 413:                                              ; preds = %398, %377
@@ -1545,6 +1548,7 @@ _ZN2cvmiIsLi2EEENS_3VecIT_XT0_EEERKS3_S5_.exit.i.i: ; preds = %_ZN2cvmiIsLi2EEEN
   br i1 %416, label %377, label %._crit_edge132.i, !llvm.loop !99
 
 417:                                              ; preds = %._crit_edge132.i, %357
+  %.pre173.i213 = phi i32 [ %.pre174.i, %._crit_edge132.i ], [ %.pre173.i, %357 ]
   %418 = phi i32 [ %.pre174.i, %._crit_edge132.i ], [ %358, %357 ]
   %.291.i = phi i32 [ %376, %._crit_edge132.i ], [ %.190137.i, %357 ]
   %indvars.iv.next160.i = add nuw nsw i64 %indvars.iv159.i, 1

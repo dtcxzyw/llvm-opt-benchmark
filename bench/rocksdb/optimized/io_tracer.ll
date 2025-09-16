@@ -2406,7 +2406,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit99: ; preds = %_ZN
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   %276 = load i64, ptr %122, align 8, !tbaa !51
   %.not146 = icmp eq i64 %276, 0
-  br i1 %.not146, label %._crit_edge, label %.lr.ph
+  br i1 %.not146, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit99.._crit_edge_crit_edge, label %.lr.ph
+
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit99.._crit_edge_crit_edge: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit99
+  %.pre = load i64, ptr %120, align 8, !tbaa !74
+  br label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit99
   %.promoted145 = load ptr, ptr %10, align 8
@@ -2551,8 +2555,8 @@ _ZN7rocksdb6Status10IncompleteERKNS_5SliceES3_.exit111: ; preds = %_ZN7rocksdb10
   %.not = icmp eq i64 %314, 0
   br i1 %.not, label %._crit_edge, label %280, !llvm.loop !104
 
-._crit_edge:                                      ; preds = %310, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit99
-  %315 = load i64, ptr %120, align 8, !tbaa !74
+._crit_edge:                                      ; preds = %310, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit99.._crit_edge_crit_edge
+  %315 = phi i64 [ %.pre, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit99.._crit_edge_crit_edge ], [ %312, %310 ]
   %316 = icmp ugt i64 %315, 7
   br i1 %316, label %321, label %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit113
 

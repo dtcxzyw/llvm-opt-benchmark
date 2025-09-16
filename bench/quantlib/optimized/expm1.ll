@@ -74,10 +74,8 @@ if.then:                                          ; preds = %entry
   %5 = tail call double @llvm.fmuladd.f64(double %1, double %1, double %4)
   %call6 = tail call double @log1p(double noundef %5) #5, !tbaa !3
   %mul = fmul double %call6, 5.000000e-01
-  %retval.sroa.0.0.copyload.i = load double, ptr %z, align 8
-  %retval.sroa.4.0.copyload.i = load double, ptr %_M_value.imagp.i, align 8, !tbaa !9
-  %add.r.i.i = fadd double %retval.sroa.0.0.copyload.i, 1.000000e+00
-  %call.i.i = tail call noundef double @carg(double noundef %add.r.i.i, double noundef %retval.sroa.4.0.copyload.i) #5, !tbaa !3
+  %add.r.i.i = fadd double %0, 1.000000e+00
+  %call.i.i = tail call noundef double @carg(double noundef %add.r.i.i, double noundef %1) #5, !tbaa !3
   %6 = insertvalue { double, double } poison, double %mul, 0
   %7 = insertvalue { double, double } %6, double %call.i.i, 1
   br label %cleanup
@@ -128,4 +126,3 @@ attributes #5 = { nounwind }
 !6 = !{!"Simple C++ TBAA"}
 !7 = !{!8, !8, i64 0}
 !8 = !{!"double", !5, i64 0}
-!9 = !{!5, !5, i64 0}

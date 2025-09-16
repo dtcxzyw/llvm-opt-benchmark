@@ -4278,16 +4278,16 @@ common.resume:                                    ; preds = %3524, %3530, %3590,
   %1489 = fmul float %1488, %1488
   %1490 = fneg float %1487
   %1491 = fmul float %1487, %1490
-  br label %1492
+  %1492 = load i32, ptr %1423, align 4, !tbaa !208
+  %.not338.i.i = icmp eq i32 %1492, 0
+  br label %1493
 
-1492:                                             ; preds = %1509, %.lr.ph428.i.i
-  %1493 = phi i32 [ %1482, %.lr.ph428.i.i ], [ %1510, %1509 ]
+1493:                                             ; preds = %1509, %.lr.ph428.i.i
+  %1494 = phi i32 [ %1482, %.lr.ph428.i.i ], [ %1510, %1509 ]
   %indvars.iv489.i.i = phi i64 [ %indvars.iv487.i.i, %.lr.ph428.i.i ], [ %indvars.iv.next490.i.i, %1509 ]
-  %1494 = load i32, ptr %1423, align 4, !tbaa !208
-  %.not338.i.i = icmp eq i32 %1494, 0
   br i1 %.not338.i.i, label %1500, label %1495
 
-1495:                                             ; preds = %1492
+1495:                                             ; preds = %1493
   %1496 = getelementptr inbounds nuw i32, ptr %1289, i64 %indvars.iv489.i.i
   %1497 = load i32, ptr %1496, align 4, !tbaa !208
   %1498 = sext i32 %1497 to i64
@@ -4295,8 +4295,8 @@ common.resume:                                    ; preds = %3524, %3530, %3590,
   %1499 = load float, ptr %gep.i.i, align 4, !tbaa !209
   br label %1500
 
-1500:                                             ; preds = %1495, %1492
-  %.0310.i.i = phi float [ %1499, %1495 ], [ 0.000000e+00, %1492 ]
+1500:                                             ; preds = %1495, %1493
+  %.0310.i.i = phi float [ %1499, %1495 ], [ 0.000000e+00, %1493 ]
   %1501 = call float @llvm.fmuladd.f32(float %.0310.i.i, float %.0310.i.i, float 1.000000e+00)
   %1502 = call float @llvm.fmuladd.f32(float %1501, float %1489, float %1491)
   %1503 = fcmp ogt float %1502, 0.000000e+00
@@ -4311,14 +4311,14 @@ common.resume:                                    ; preds = %3524, %3530, %3590,
   br label %1509
 
 1509:                                             ; preds = %1504, %1500
-  %1510 = phi i32 [ %.pre536.i.i, %1504 ], [ %1493, %1500 ]
+  %1510 = phi i32 [ %.pre536.i.i, %1504 ], [ %1494, %1500 ]
   %.sink.i.i = phi float [ %1508, %1504 ], [ -1.000000e+00, %1500 ]
   %1511 = getelementptr inbounds nuw float, ptr %79, i64 %indvars.iv489.i.i
   store float %.sink.i.i, ptr %1511, align 4, !tbaa !209
   %indvars.iv.next490.i.i = add nuw nsw i64 %indvars.iv489.i.i, 1
   %1512 = trunc nuw i64 %indvars.iv.next490.i.i to i32
   %1513 = icmp sgt i32 %1510, %1512
-  br i1 %1513, label %1492, label %.loopexit407.i.i, !llvm.loop !523
+  br i1 %1513, label %1493, label %.loopexit407.i.i, !llvm.loop !523
 
 .loopexit407.i.i:                                 ; preds = %1509
   br i1 %1425, label %.lr.ph431.preheader.i.split.i, label %._crit_edge432.i.i

@@ -244,11 +244,11 @@ _ZNSt6vectorIN3ozz9animation7offline12_GLOBAL__N_116HierarchyBuilder4SpecENS0_12
 .lr.ph.preheader.i.i.i.i:                         ; preds = %76
   call void @llvm.memset.p0.i64(ptr align 4 %81, i8 0, i64 %77, i1 false)
   %.val22.i.pre = load i64, ptr %68, align 8, !tbaa !21
-  %.pre264 = trunc i64 %.val22.i.pre to i32
+  %.pre = trunc i64 %.val22.i.pre to i32
   br label %_ZNSt12_Vector_baseIN3ozz9animation7offline12_GLOBAL__N_116HierarchyBuilder4SpecENS0_12StdAllocatorIS5_EEEC2EmRKS7_.exit.thread.i.i
 
 _ZNSt12_Vector_baseIN3ozz9animation7offline12_GLOBAL__N_116HierarchyBuilder4SpecENS0_12StdAllocatorIS5_EEEC2EmRKS7_.exit.thread.i.i: ; preds = %.lr.ph.preheader.i.i.i.i, %_ZNSt6vectorIN3ozz9animation7offline12_GLOBAL__N_116HierarchyBuilder4SpecENS0_12StdAllocatorIS5_EEE17_S_check_init_lenEmRKS7_.exit.i.i
-  %.pre-phi = phi i32 [ %.pre264, %.lr.ph.preheader.i.i.i.i ], [ %70, %_ZNSt6vectorIN3ozz9animation7offline12_GLOBAL__N_116HierarchyBuilder4SpecENS0_12StdAllocatorIS5_EEE17_S_check_init_lenEmRKS7_.exit.i.i ]
+  %.pre-phi = phi i32 [ %.pre, %.lr.ph.preheader.i.i.i.i ], [ %70, %_ZNSt6vectorIN3ozz9animation7offline12_GLOBAL__N_116HierarchyBuilder4SpecENS0_12StdAllocatorIS5_EEE17_S_check_init_lenEmRKS7_.exit.i.i ]
   %.val22.i = phi i64 [ %.val22.i.pre, %.lr.ph.preheader.i.i.i.i ], [ %69, %_ZNSt6vectorIN3ozz9animation7offline12_GLOBAL__N_116HierarchyBuilder4SpecENS0_12StdAllocatorIS5_EEE17_S_check_init_lenEmRKS7_.exit.i.i ]
   %.sroa.0249.0 = phi ptr [ %81, %.lr.ph.preheader.i.i.i.i ], [ null, %_ZNSt6vectorIN3ozz9animation7offline12_GLOBAL__N_116HierarchyBuilder4SpecENS0_12StdAllocatorIS5_EEE17_S_check_init_lenEmRKS7_.exit.i.i ]
   %85 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -562,9 +562,9 @@ _ZNSt6vectorIN3ozz9animation7offline12RawAnimation10JointTrackENS0_12StdAllocato
   %.4..4..4..4..4..4..4..4..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 4
   %.12..12..12..12..12..12..12..12..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 12
   %.8..8..8..8..8..8..8..8..fca.1.gep.sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %.4..4..4..4..4..4..4..4..sroa_idx364 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %.12..12..12..12..12..12..12..12..sroa_idx366 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  %.8..8..8..8..8..8..8..8..fca.1.gep.sroa_idx365 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.4..4..4..4..4..4..4..4..sroa_idx362 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %.12..12..12..12..12..12..12..12..sroa_idx364 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  %.8..8..8..8..8..8..8..8..fca.1.gep.sroa_idx363 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %268
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIN3ozz9animation7offline12RawAnimation8ScaleKeyENS0_12StdAllocatorIS4_EEED2Ev.exit, %_ZNSt6vectorIN3ozz9animation7offline12RawAnimation10JointTrackENS0_12StdAllocatorIS4_EEE6resizeEm.exit
@@ -1968,11 +1968,7 @@ _ZNSt6vectorIN3ozz9animation7offline12RawAnimation11RotationKeyENS0_12StdAllocat
   %929 = fmul float %928, 2.000000e+00
   %930 = fmul float %274, %929
   %931 = fcmp ogt float %930, %286
-  br i1 %931, label %._ZN3ozz9animation7offline8DecimateISt6vectorINS1_12RawAnimation11RotationKeyENS_12StdAllocatorIS5_EEENS1_12_GLOBAL__N_115RotationAdapterEEET_RKSB_RKT0_f.exit.loopexit_crit_edge, label %932
-
-._ZN3ozz9animation7offline8DecimateISt6vectorINS1_12RawAnimation11RotationKeyENS_12StdAllocatorIS5_EEENS1_12_GLOBAL__N_115RotationAdapterEEET_RKSB_RKT0_f.exit.loopexit_crit_edge: ; preds = %911
-  %.pre.pre = load ptr, ptr %245, align 8, !tbaa !116
-  br label %_ZN3ozz9animation7offline8DecimateISt6vectorINS1_12RawAnimation11RotationKeyENS_12StdAllocatorIS5_EEENS1_12_GLOBAL__N_115RotationAdapterEEET_RKSB_RKT0_f.exit
+  br i1 %931, label %_ZN3ozz9animation7offline8DecimateISt6vectorINS1_12RawAnimation11RotationKeyENS_12StdAllocatorIS5_EEENS1_12_GLOBAL__N_115RotationAdapterEEET_RKSB_RKT0_f.exit, label %932
 
 932:                                              ; preds = %911
   store ptr %907, ptr %245, align 8, !tbaa !116, !alias.scope !113
@@ -1985,8 +1981,8 @@ _ZNSt6vectorIN3ozz9animation7offline12RawAnimation11RotationKeyENS0_12StdAllocat
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %1297
 
-_ZN3ozz9animation7offline8DecimateISt6vectorINS1_12RawAnimation11RotationKeyENS_12StdAllocatorIS5_EEENS1_12_GLOBAL__N_115RotationAdapterEEET_RKSB_RKT0_f.exit: ; preds = %932, %._ZN3ozz9animation7offline8DecimateISt6vectorINS1_12RawAnimation11RotationKeyENS_12StdAllocatorIS5_EEENS1_12_GLOBAL__N_115RotationAdapterEEET_RKSB_RKT0_f.exit.loopexit_crit_edge, %898
-  %934 = phi ptr [ %.promoted.i111, %898 ], [ %.pre.pre, %._ZN3ozz9animation7offline8DecimateISt6vectorINS1_12RawAnimation11RotationKeyENS_12StdAllocatorIS5_EEENS1_12_GLOBAL__N_115RotationAdapterEEET_RKSB_RKT0_f.exit.loopexit_crit_edge ], [ %907, %932 ]
+_ZN3ozz9animation7offline8DecimateISt6vectorINS1_12RawAnimation11RotationKeyENS_12StdAllocatorIS5_EEENS1_12_GLOBAL__N_115RotationAdapterEEET_RKSB_RKT0_f.exit: ; preds = %932, %911, %898
+  %934 = phi ptr [ %.promoted.i111, %898 ], [ %907, %932 ], [ %903, %911 ]
   %935 = getelementptr inbounds nuw i8, ptr %272, i64 24
   %936 = load ptr, ptr %935, align 8, !tbaa !119
   %937 = getelementptr inbounds nuw i8, ptr %272, i64 32
@@ -2355,10 +2351,10 @@ _ZNSt5stackISt4pairImmESt5dequeIS1_N3ozz12StdAllocatorIS1_EEEE3popEv.exit.i167: 
 1106:                                             ; preds = %1097
   %.fca.0.extract.i.i214 = extractvalue { <2 x float>, float } %1105, 0
   %.fca.1.extract.i.i215 = extractvalue { <2 x float>, float } %1105, 1
-  store <2 x float> %.fca.0.extract.i.i214, ptr %.4..4..4..4..4..4..4..4..sroa_idx364, align 4, !noalias !139
-  store float %.fca.1.extract.i.i215, ptr %.12..12..12..12..12..12..12..12..sroa_idx366, align 4, !noalias !139
+  store <2 x float> %.fca.0.extract.i.i214, ptr %.4..4..4..4..4..4..4..4..sroa_idx362, align 4, !noalias !139
+  store float %.fca.1.extract.i.i215, ptr %.12..12..12..12..12..12..12..12..sroa_idx364, align 4, !noalias !139
   %.0..0..0..0..0..0..0..0..fca.0.load.i.i216 = load <2 x float>, ptr %5, align 8, !noalias !139
-  %.8..8..8..8..8..8..8..8..fca.1.load.i.i217 = load <2 x float>, ptr %.8..8..8..8..8..8..8..8..fca.1.gep.sroa_idx365, align 8, !noalias !139
+  %.8..8..8..8..8..8..8..8..fca.1.load.i.i217 = load <2 x float>, ptr %.8..8..8..8..8..8..8..8..fca.1.gep.sroa_idx363, align 8, !noalias !139
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %1107 = getelementptr inbounds nuw i8, ptr %1099, i64 4
   %.sroa.04.4.vec.extract.i218 = extractelement <2 x float> %.0..0..0..0..0..0..0..0..fca.0.load.i.i216, i64 1

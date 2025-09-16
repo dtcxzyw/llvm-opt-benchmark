@@ -4583,6 +4583,8 @@ invoke.cont60:                                    ; preds = %for.cond.cleanup
 
 invoke.cont73.lr.ph:                              ; preds = %invoke.cont60
   %impl_.i.i = getelementptr inbounds nuw i8, ptr %payoff, i64 16
+  %25 = load ptr, ptr %impl_.i.i, align 8, !tbaa !180, !nonnull !38, !noundef !38
+  %.pre = load double, ptr %12, align 8, !tbaa !176
   br label %invoke.cont73
 
 for.cond.cleanup71:                               ; preds = %invoke.cont73, %invoke.cont60
@@ -4590,7 +4592,7 @@ for.cond.cleanup71:                               ; preds = %invoke.cont73, %inv
   br i1 %extrapolatePayoff, label %if.then, label %if.end187
 
 lpad57:                                           ; preds = %for.cond.cleanup
-  %25 = landingpad { ptr, i32 }
+  %26 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp56)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp52)
@@ -4598,30 +4600,28 @@ lpad57:                                           ; preds = %for.cond.cleanup
   br label %ehcleanup194
 
 invoke.cont73:                                    ; preds = %invoke.cont73.lr.ph, %invoke.cont73
+  %27 = phi double [ %.pre, %invoke.cont73.lr.ph ], [ %36, %invoke.cont73 ]
   %i64.0248 = phi i64 [ 0, %invoke.cont73.lr.ph ], [ %add, %invoke.cont73 ]
   %price.0247 = phi double [ 0.000000e+00, %invoke.cont73.lr.ph ], [ %add92, %invoke.cont73 ]
-  %26 = load ptr, ptr %impl_.i.i, align 8, !tbaa !180, !nonnull !38, !noundef !38
-  %27 = call noundef nonnull align 8 dereferenceable(152) ptr @__dynamic_cast(ptr nonnull %26, ptr nonnull @_ZTIN8QuantLib13Interpolation4ImplE, ptr nonnull @_ZTIN8QuantLib6detail17CoefficientHolderE, i64 -2) #29
-  %c_.i = getelementptr inbounds nuw i8, ptr %27, i64 88
-  %28 = load ptr, ptr %c_.i, align 8, !tbaa !182
-  %add.ptr.i58 = getelementptr inbounds nuw double, ptr %28, i64 %i64.0248
-  %29 = load double, ptr %add.ptr.i58, align 8, !tbaa !176
-  %b_.i = getelementptr inbounds nuw i8, ptr %27, i64 64
-  %30 = load ptr, ptr %b_.i, align 8, !tbaa !182
-  %add.ptr.i60 = getelementptr inbounds nuw double, ptr %30, i64 %i64.0248
-  %31 = load double, ptr %add.ptr.i60, align 8, !tbaa !176
-  %a_.i = getelementptr inbounds nuw i8, ptr %27, i64 40
-  %32 = load ptr, ptr %a_.i, align 8, !tbaa !182
-  %add.ptr.i62 = getelementptr inbounds nuw double, ptr %32, i64 %i64.0248
-  %33 = load double, ptr %add.ptr.i62, align 8, !tbaa !176
+  %28 = call noundef nonnull align 8 dereferenceable(152) ptr @__dynamic_cast(ptr nonnull %25, ptr nonnull @_ZTIN8QuantLib13Interpolation4ImplE, ptr nonnull @_ZTIN8QuantLib6detail17CoefficientHolderE, i64 -2) #29
+  %c_.i = getelementptr inbounds nuw i8, ptr %28, i64 88
+  %29 = load ptr, ptr %c_.i, align 8, !tbaa !182
+  %add.ptr.i58 = getelementptr inbounds nuw double, ptr %29, i64 %i64.0248
+  %30 = load double, ptr %add.ptr.i58, align 8, !tbaa !176
+  %b_.i = getelementptr inbounds nuw i8, ptr %28, i64 64
+  %31 = load ptr, ptr %b_.i, align 8, !tbaa !182
+  %add.ptr.i60 = getelementptr inbounds nuw double, ptr %31, i64 %i64.0248
+  %32 = load double, ptr %add.ptr.i60, align 8, !tbaa !176
+  %a_.i = getelementptr inbounds nuw i8, ptr %28, i64 40
+  %33 = load ptr, ptr %a_.i, align 8, !tbaa !182
+  %add.ptr.i62 = getelementptr inbounds nuw double, ptr %33, i64 %i64.0248
+  %34 = load double, ptr %add.ptr.i62, align 8, !tbaa !176
   %arrayidx.i63 = getelementptr inbounds nuw double, ptr %cond.i260, i64 %i64.0248
-  %34 = load double, ptr %arrayidx.i63, align 8, !tbaa !176
-  %arrayidx.i64 = getelementptr inbounds nuw double, ptr %12, i64 %i64.0248
-  %35 = load double, ptr %arrayidx.i64, align 8, !tbaa !176
+  %35 = load double, ptr %arrayidx.i63, align 8, !tbaa !176
   %add = add nuw i64 %i64.0248, 1
   %arrayidx.i66 = getelementptr inbounds nuw double, ptr %12, i64 %add
   %36 = load double, ptr %arrayidx.i66, align 8, !tbaa !176
-  %call91 = call noundef double @_ZN8QuantLib15Gaussian1dModel33gaussianShiftedPolynomialIntegralEdddddddd(double noundef 0.000000e+00, double noundef %29, double noundef %31, double noundef %33, double noundef %34, double noundef %35, double noundef %35, double noundef %36)
+  %call91 = call noundef double @_ZN8QuantLib15Gaussian1dModel33gaussianShiftedPolynomialIntegralEdddddddd(double noundef 0.000000e+00, double noundef %30, double noundef %32, double noundef %34, double noundef %35, double noundef %27, double noundef %27, double noundef %36)
   %add92 = fadd double %price.0247, %call91
   %exitcond250.not = icmp eq i64 %add, %sub69
   br i1 %exitcond250.not, label %for.cond.cleanup71, label %invoke.cont73, !llvm.loop !183
@@ -5004,7 +5004,7 @@ _ZN8QuantLib5ArrayD2Ev.exit224:                   ; preds = %_ZN8QuantLib5ArrayD
   ret double %mul190
 
 ehcleanup194:                                     ; preds = %lpad57, %lpad99
-  %.pn.pn = phi { ptr, i32 } [ %86, %lpad99 ], [ %25, %lpad57 ]
+  %.pn.pn = phi { ptr, i32 } [ %86, %lpad99 ], [ %26, %lpad57 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %payoff)
   %cmp.not.i.i225 = icmp eq ptr %cond.i260, null
   br i1 %cmp.not.i.i225, label %ehcleanup195, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i226

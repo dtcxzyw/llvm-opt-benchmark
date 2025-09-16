@@ -2164,7 +2164,7 @@ set_assoc_usage_norm.exit:                        ; preds = %10, %12, %21
   %41 = load i32, ptr @flags, align 4
   %42 = and i32 %41, 8
   %.not.i = icmp eq i32 %42, 0
-  br i1 %.not.i, label %162, label %43
+  br i1 %.not.i, label %158, label %43
 
 43:                                               ; preds = %40
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 304
@@ -2183,7 +2183,7 @@ set_assoc_usage_norm.exit:                        ; preds = %10, %12, %21
   %50 = getelementptr inbounds nuw i8, ptr %22, i64 96
   %51 = load double, ptr %50, align 16
   %52 = fcmp une double %51, 0.000000e+00
-  br i1 %52, label %53, label %141
+  br i1 %52, label %53, label %137
 
 53:                                               ; preds = %49
   %54 = getelementptr inbounds nuw i8, ptr %24, i64 296
@@ -2191,19 +2191,19 @@ set_assoc_usage_norm.exit:                        ; preds = %10, %12, %21
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 96
   %57 = load double, ptr %56, align 16
   %58 = fcmp une double %57, 0.000000e+00
-  br i1 %58, label %59, label %141
+  br i1 %58, label %59, label %137
 
 59:                                               ; preds = %53
   %60 = getelementptr inbounds nuw i8, ptr %55, i64 112
   %61 = load x86_fp80, ptr %60, align 16
   %62 = fcmp une x86_fp80 %61, 0xK00000000000000000000
-  br i1 %62, label %63, label %141
+  br i1 %62, label %63, label %137
 
 63:                                               ; preds = %59
   %64 = getelementptr inbounds nuw i8, ptr %22, i64 128
   %65 = load x86_fp80, ptr %64, align 16
   %66 = fcmp une x86_fp80 %65, 0xK00000000000000000000
-  br i1 %66, label %67, label %141
+  br i1 %66, label %67, label %137
 
 67:                                               ; preds = %63
   %68 = fpext double %57 to x86_fp80
@@ -2280,229 +2280,225 @@ set_assoc_usage_norm.exit:                        ; preds = %10, %12, %21
   %113 = tail call double @pow(double noundef %111, double noundef %112) #14
   %114 = fpext double %113 to x86_fp80
   %115 = fmul x86_fp80 %69, %114
-  %116 = load ptr, ptr %8, align 8
-  %117 = getelementptr inbounds nuw i8, ptr %116, i64 96
-  %118 = load double, ptr %117, align 16
-  %119 = fpext double %118 to x86_fp80
-  %120 = fmul x86_fp80 %115, %119
-  %121 = getelementptr inbounds nuw i8, ptr %116, i64 112
-  store x86_fp80 %120, ptr %121, align 16
-  %122 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
-  %123 = and i64 %122, 2048
-  %.not61.i.i = icmp eq i64 %123, 0
-  br i1 %.not61.i.i, label %_set_assoc_usage_efctv.exit, label %124
+  %116 = fmul x86_fp80 %115, %95
+  %117 = getelementptr inbounds nuw i8, ptr %90, i64 112
+  store x86_fp80 %116, ptr %117, align 16
+  %118 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
+  %119 = and i64 %118, 2048
+  %.not61.i.i = icmp eq i64 %119, 0
+  br i1 %.not61.i.i, label %_set_assoc_usage_efctv.exit, label %120
 
-124:                                              ; preds = %110
-  %125 = tail call i32 @get_log_level() #14
-  %126 = icmp sgt i32 %125, 3
-  br i1 %126, label %127, label %_set_assoc_usage_efctv.exit
+120:                                              ; preds = %110
+  %121 = tail call i32 @get_log_level() #14
+  %122 = icmp sgt i32 %121, 3
+  br i1 %122, label %123, label %_set_assoc_usage_efctv.exit
 
-127:                                              ; preds = %124
-  %128 = load ptr, ptr %8, align 8
-  %129 = getelementptr inbounds nuw i8, ptr %128, i64 72
+123:                                              ; preds = %120
+  %124 = load ptr, ptr %8, align 8
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 72
+  %126 = load ptr, ptr %125, align 8
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 8
+  %128 = load ptr, ptr %127, align 8
+  %129 = getelementptr inbounds nuw i8, ptr %124, i64 88
   %130 = load ptr, ptr %129, align 8
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 8
   %132 = load ptr, ptr %131, align 8
-  %133 = getelementptr inbounds nuw i8, ptr %128, i64 88
-  %134 = load ptr, ptr %133, align 8
-  %135 = getelementptr inbounds nuw i8, ptr %134, i64 8
-  %136 = load ptr, ptr %135, align 8
-  %137 = getelementptr inbounds nuw i8, ptr %128, i64 96
-  %138 = load double, ptr %137, align 16
-  %139 = getelementptr inbounds nuw i8, ptr %128, i64 112
-  %140 = load x86_fp80, ptr %139, align 16
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.77, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._depth_oblivious_set_usage_efctv, ptr noundef nonnull %.050.i.i, ptr noundef %.0.i.i, ptr noundef %132, ptr noundef %136, x86_fp80 noundef %69, x86_fp80 noundef %97, x86_fp80 noundef %.052.i.i, double noundef %138, x86_fp80 noundef %140) #14
+  %133 = getelementptr inbounds nuw i8, ptr %124, i64 96
+  %134 = load double, ptr %133, align 16
+  %135 = getelementptr inbounds nuw i8, ptr %124, i64 112
+  %136 = load x86_fp80, ptr %135, align 16
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.77, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._depth_oblivious_set_usage_efctv, ptr noundef nonnull %.050.i.i, ptr noundef %.0.i.i, ptr noundef %128, ptr noundef %132, x86_fp80 noundef %69, x86_fp80 noundef %97, x86_fp80 noundef %.052.i.i, double noundef %134, x86_fp80 noundef %136) #14
   br label %_set_assoc_usage_efctv.exit
 
-141:                                              ; preds = %63, %59, %53, %49
-  %142 = getelementptr inbounds nuw i8, ptr %22, i64 128
-  %143 = load x86_fp80, ptr %142, align 16
-  %144 = getelementptr inbounds nuw i8, ptr %22, i64 112
-  store x86_fp80 %143, ptr %144, align 16
-  %145 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
-  %146 = and i64 %145, 2048
-  %.not59.i.i = icmp eq i64 %146, 0
-  br i1 %.not59.i.i, label %_set_assoc_usage_efctv.exit, label %147
+137:                                              ; preds = %63, %59, %53, %49
+  %138 = getelementptr inbounds nuw i8, ptr %22, i64 128
+  %139 = load x86_fp80, ptr %138, align 16
+  %140 = getelementptr inbounds nuw i8, ptr %22, i64 112
+  store x86_fp80 %139, ptr %140, align 16
+  %141 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
+  %142 = and i64 %141, 2048
+  %.not59.i.i = icmp eq i64 %142, 0
+  br i1 %.not59.i.i, label %_set_assoc_usage_efctv.exit, label %143
 
-147:                                              ; preds = %141
-  %148 = tail call i32 @get_log_level() #14
-  %149 = icmp sgt i32 %148, 3
-  br i1 %149, label %150, label %_set_assoc_usage_efctv.exit
+143:                                              ; preds = %137
+  %144 = tail call i32 @get_log_level() #14
+  %145 = icmp sgt i32 %144, 3
+  br i1 %145, label %146, label %_set_assoc_usage_efctv.exit
 
-150:                                              ; preds = %147
-  %151 = load ptr, ptr %8, align 8
-  %152 = getelementptr inbounds nuw i8, ptr %151, i64 72
+146:                                              ; preds = %143
+  %147 = load ptr, ptr %8, align 8
+  %148 = getelementptr inbounds nuw i8, ptr %147, i64 72
+  %149 = load ptr, ptr %148, align 8
+  %150 = getelementptr inbounds nuw i8, ptr %149, i64 8
+  %151 = load ptr, ptr %150, align 8
+  %152 = getelementptr inbounds nuw i8, ptr %147, i64 88
   %153 = load ptr, ptr %152, align 8
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 8
   %155 = load ptr, ptr %154, align 8
-  %156 = getelementptr inbounds nuw i8, ptr %151, i64 88
-  %157 = load ptr, ptr %156, align 8
-  %158 = getelementptr inbounds nuw i8, ptr %157, i64 8
-  %159 = load ptr, ptr %158, align 8
-  %160 = getelementptr inbounds nuw i8, ptr %151, i64 112
-  %161 = load x86_fp80, ptr %160, align 16
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.78, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._depth_oblivious_set_usage_efctv, ptr noundef nonnull %.050.i.i, ptr noundef %.0.i.i, ptr noundef %155, ptr noundef %159, x86_fp80 noundef %161) #14
+  %156 = getelementptr inbounds nuw i8, ptr %147, i64 112
+  %157 = load x86_fp80, ptr %156, align 16
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.78, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._depth_oblivious_set_usage_efctv, ptr noundef nonnull %.050.i.i, ptr noundef %.0.i.i, ptr noundef %151, ptr noundef %155, x86_fp80 noundef %157) #14
   br label %_set_assoc_usage_efctv.exit
 
-162:                                              ; preds = %40
-  %163 = getelementptr inbounds nuw i8, ptr %24, i64 296
-  %164 = load ptr, ptr %163, align 8
-  %165 = getelementptr inbounds nuw i8, ptr %164, i64 112
-  %166 = load x86_fp80, ptr %165, align 16
-  %167 = getelementptr inbounds nuw i8, ptr %22, i64 64
-  %168 = load i32, ptr %167, align 16
-  %.not.i9.i = icmp eq i32 %168, 0
-  br i1 %.not.i9.i, label %_set_usage_efctv.exit.i, label %169
+158:                                              ; preds = %40
+  %159 = getelementptr inbounds nuw i8, ptr %24, i64 296
+  %160 = load ptr, ptr %159, align 8
+  %161 = getelementptr inbounds nuw i8, ptr %160, i64 112
+  %162 = load x86_fp80, ptr %161, align 16
+  %163 = getelementptr inbounds nuw i8, ptr %22, i64 64
+  %164 = load i32, ptr %163, align 16
+  %.not.i9.i = icmp eq i32 %164, 0
+  br i1 %.not.i9.i, label %_set_usage_efctv.exit.i, label %165
 
-169:                                              ; preds = %162
-  %170 = getelementptr inbounds nuw i8, ptr %22, i64 128
-  %171 = load x86_fp80, ptr %170, align 16
-  %172 = fsub x86_fp80 %166, %171
-  %173 = uitofp i32 %32 to x86_fp80
-  %174 = uitofp i32 %168 to x86_fp80
-  %175 = fdiv x86_fp80 %173, %174
-  %176 = tail call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %172, x86_fp80 %175, x86_fp80 %171)
+165:                                              ; preds = %158
+  %166 = getelementptr inbounds nuw i8, ptr %22, i64 128
+  %167 = load x86_fp80, ptr %166, align 16
+  %168 = fsub x86_fp80 %162, %167
+  %169 = uitofp i32 %32 to x86_fp80
+  %170 = uitofp i32 %164 to x86_fp80
+  %171 = fdiv x86_fp80 %169, %170
+  %172 = tail call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %168, x86_fp80 %171, x86_fp80 %167)
   br label %_set_usage_efctv.exit.i
 
-_set_usage_efctv.exit.i:                          ; preds = %169, %162
-  %.sink.i.i = phi x86_fp80 [ %176, %169 ], [ %166, %162 ]
-  %177 = getelementptr inbounds nuw i8, ptr %22, i64 112
-  store x86_fp80 %.sink.i.i, ptr %177, align 16
+_set_usage_efctv.exit.i:                          ; preds = %165, %158
+  %.sink.i.i = phi x86_fp80 [ %172, %165 ], [ %162, %158 ]
+  %173 = getelementptr inbounds nuw i8, ptr %22, i64 112
+  store x86_fp80 %.sink.i.i, ptr %173, align 16
   br label %_set_assoc_usage_efctv.exit
 
-_set_assoc_usage_efctv.exit:                      ; preds = %26, %34, %110, %124, %127, %141, %147, %150, %_set_usage_efctv.exit.i
-  %178 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
-  %179 = and i64 %178, 2048
-  %.not = icmp eq i64 %179, 0
-  br i1 %.not, label %_priority_p_set_assoc_usage_debug.exit, label %180
+_set_assoc_usage_efctv.exit:                      ; preds = %26, %34, %110, %120, %123, %137, %143, %146, %_set_usage_efctv.exit.i
+  %174 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
+  %175 = and i64 %174, 2048
+  %.not = icmp eq i64 %175, 0
+  br i1 %.not, label %_priority_p_set_assoc_usage_debug.exit, label %176
 
-180:                                              ; preds = %_set_assoc_usage_efctv.exit
-  %181 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %182 = load ptr, ptr %181, align 8
-  %.not.i3 = icmp eq ptr %182, null
-  br i1 %.not.i3, label %183, label %186
+176:                                              ; preds = %_set_assoc_usage_efctv.exit
+  %177 = getelementptr inbounds nuw i8, ptr %0, i64 304
+  %178 = load ptr, ptr %177, align 8
+  %.not.i3 = icmp eq ptr %178, null
+  br i1 %.not.i3, label %179, label %182
 
-183:                                              ; preds = %180
-  %184 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %185 = load ptr, ptr %184, align 8
-  br label %186
+179:                                              ; preds = %176
+  %180 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %181 = load ptr, ptr %180, align 8
+  br label %182
 
-186:                                              ; preds = %183, %180
-  %.032.i = phi ptr [ %185, %183 ], [ %182, %180 ]
-  %.0.i = phi ptr [ @.str.76, %183 ], [ @.str.75, %180 ]
-  %187 = tail call i32 @get_log_level() #14
-  %188 = icmp sgt i32 %187, 2
-  br i1 %188, label %189, label %208
+182:                                              ; preds = %179, %176
+  %.032.i = phi ptr [ %181, %179 ], [ %178, %176 ]
+  %.0.i = phi ptr [ @.str.76, %179 ], [ @.str.75, %176 ]
+  %183 = tail call i32 @get_log_level() #14
+  %184 = icmp sgt i32 %183, 2
+  br i1 %184, label %185, label %204
 
-189:                                              ; preds = %186
-  %190 = load ptr, ptr %8, align 8
-  %191 = getelementptr inbounds nuw i8, ptr %190, i64 72
+185:                                              ; preds = %182
+  %186 = load ptr, ptr %8, align 8
+  %187 = getelementptr inbounds nuw i8, ptr %186, i64 72
+  %188 = load ptr, ptr %187, align 8
+  %189 = getelementptr inbounds nuw i8, ptr %188, i64 8
+  %190 = load ptr, ptr %189, align 8
+  %191 = getelementptr inbounds nuw i8, ptr %186, i64 88
   %192 = load ptr, ptr %191, align 8
   %193 = getelementptr inbounds nuw i8, ptr %192, i64 8
   %194 = load ptr, ptr %193, align 8
-  %195 = getelementptr inbounds nuw i8, ptr %190, i64 88
-  %196 = load ptr, ptr %195, align 8
-  %197 = getelementptr inbounds nuw i8, ptr %196, i64 8
-  %198 = load ptr, ptr %197, align 8
-  %199 = getelementptr inbounds nuw i8, ptr %190, i64 144
-  %200 = load x86_fp80, ptr %199, align 16
-  %201 = load ptr, ptr @assoc_mgr_root_assoc, align 8
-  %202 = getelementptr inbounds nuw i8, ptr %201, i64 296
-  %203 = load ptr, ptr %202, align 8
-  %204 = getelementptr inbounds nuw i8, ptr %203, i64 144
-  %205 = load x86_fp80, ptr %204, align 16
-  %206 = getelementptr inbounds nuw i8, ptr %190, i64 128
-  %207 = load x86_fp80, ptr %206, align 16
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.79, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._priority_p_set_assoc_usage_debug, ptr noundef nonnull %.0.i, ptr noundef %.032.i, ptr noundef %194, ptr noundef %198, x86_fp80 noundef %200, x86_fp80 noundef %205, x86_fp80 noundef %207) #14
-  br label %208
+  %195 = getelementptr inbounds nuw i8, ptr %186, i64 144
+  %196 = load x86_fp80, ptr %195, align 16
+  %197 = load ptr, ptr @assoc_mgr_root_assoc, align 8
+  %198 = getelementptr inbounds nuw i8, ptr %197, i64 296
+  %199 = load ptr, ptr %198, align 8
+  %200 = getelementptr inbounds nuw i8, ptr %199, i64 144
+  %201 = load x86_fp80, ptr %200, align 16
+  %202 = getelementptr inbounds nuw i8, ptr %186, i64 128
+  %203 = load x86_fp80, ptr %202, align 16
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.79, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._priority_p_set_assoc_usage_debug, ptr noundef nonnull %.0.i, ptr noundef %.032.i, ptr noundef %190, ptr noundef %194, x86_fp80 noundef %196, x86_fp80 noundef %201, x86_fp80 noundef %203) #14
+  br label %204
 
-208:                                              ; preds = %189, %186
-  %209 = load ptr, ptr %8, align 8
-  %210 = getelementptr inbounds nuw i8, ptr %209, i64 88
-  %211 = load ptr, ptr %210, align 8
-  %212 = load ptr, ptr @assoc_mgr_root_assoc, align 8
-  %213 = icmp eq ptr %211, %212
-  br i1 %213, label %214, label %231
+204:                                              ; preds = %185, %182
+  %205 = load ptr, ptr %8, align 8
+  %206 = getelementptr inbounds nuw i8, ptr %205, i64 88
+  %207 = load ptr, ptr %206, align 8
+  %208 = load ptr, ptr @assoc_mgr_root_assoc, align 8
+  %209 = icmp eq ptr %207, %208
+  br i1 %209, label %210, label %227
 
-214:                                              ; preds = %208
-  %215 = tail call i32 @get_log_level() #14
-  %216 = icmp sgt i32 %215, 2
-  br i1 %216, label %217, label %_priority_p_set_assoc_usage_debug.exit
+210:                                              ; preds = %204
+  %211 = tail call i32 @get_log_level() #14
+  %212 = icmp sgt i32 %211, 2
+  br i1 %212, label %213, label %_priority_p_set_assoc_usage_debug.exit
 
-217:                                              ; preds = %214
-  %218 = load ptr, ptr %8, align 8
-  %219 = getelementptr inbounds nuw i8, ptr %218, i64 72
+213:                                              ; preds = %210
+  %214 = load ptr, ptr %8, align 8
+  %215 = getelementptr inbounds nuw i8, ptr %214, i64 72
+  %216 = load ptr, ptr %215, align 8
+  %217 = getelementptr inbounds nuw i8, ptr %216, i64 8
+  %218 = load ptr, ptr %217, align 8
+  %219 = getelementptr inbounds nuw i8, ptr %214, i64 88
   %220 = load ptr, ptr %219, align 8
   %221 = getelementptr inbounds nuw i8, ptr %220, i64 8
   %222 = load ptr, ptr %221, align 8
-  %223 = getelementptr inbounds nuw i8, ptr %218, i64 88
-  %224 = load ptr, ptr %223, align 8
-  %225 = getelementptr inbounds nuw i8, ptr %224, i64 8
-  %226 = load ptr, ptr %225, align 8
-  %227 = getelementptr inbounds nuw i8, ptr %218, i64 112
-  %228 = load x86_fp80, ptr %227, align 16
-  %229 = getelementptr inbounds nuw i8, ptr %218, i64 128
-  %230 = load x86_fp80, ptr %229, align 16
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.80, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._priority_p_set_assoc_usage_debug, ptr noundef nonnull %.0.i, ptr noundef %.032.i, ptr noundef %222, ptr noundef %226, x86_fp80 noundef %228, x86_fp80 noundef %230) #14
+  %223 = getelementptr inbounds nuw i8, ptr %214, i64 112
+  %224 = load x86_fp80, ptr %223, align 16
+  %225 = getelementptr inbounds nuw i8, ptr %214, i64 128
+  %226 = load x86_fp80, ptr %225, align 16
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.80, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._priority_p_set_assoc_usage_debug, ptr noundef nonnull %.0.i, ptr noundef %.032.i, ptr noundef %218, ptr noundef %222, x86_fp80 noundef %224, x86_fp80 noundef %226) #14
   br label %_priority_p_set_assoc_usage_debug.exit
 
-231:                                              ; preds = %208
-  %232 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  %233 = load i32, ptr %232, align 8
-  %234 = icmp eq i32 %233, 2147483647
-  br i1 %234, label %235, label %245
+227:                                              ; preds = %204
+  %228 = getelementptr inbounds nuw i8, ptr %0, i64 288
+  %229 = load i32, ptr %228, align 8
+  %230 = icmp eq i32 %229, 2147483647
+  br i1 %230, label %231, label %241
 
-235:                                              ; preds = %231
-  %236 = tail call i32 @get_log_level() #14
-  %237 = icmp sgt i32 %236, 2
-  br i1 %237, label %238, label %_priority_p_set_assoc_usage_debug.exit
+231:                                              ; preds = %227
+  %232 = tail call i32 @get_log_level() #14
+  %233 = icmp sgt i32 %232, 2
+  br i1 %233, label %234, label %_priority_p_set_assoc_usage_debug.exit
 
-238:                                              ; preds = %235
-  %239 = getelementptr inbounds nuw i8, ptr %211, i64 8
-  %240 = load ptr, ptr %239, align 8
-  %241 = getelementptr inbounds nuw i8, ptr %211, i64 296
-  %242 = load ptr, ptr %241, align 8
-  %243 = getelementptr inbounds nuw i8, ptr %242, i64 112
-  %244 = load x86_fp80, ptr %243, align 16
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.81, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._priority_p_set_assoc_usage_debug, ptr noundef nonnull %.0.i, ptr noundef %.032.i, ptr noundef %240, x86_fp80 noundef %244) #14
+234:                                              ; preds = %231
+  %235 = getelementptr inbounds nuw i8, ptr %207, i64 8
+  %236 = load ptr, ptr %235, align 8
+  %237 = getelementptr inbounds nuw i8, ptr %207, i64 296
+  %238 = load ptr, ptr %237, align 8
+  %239 = getelementptr inbounds nuw i8, ptr %238, i64 112
+  %240 = load x86_fp80, ptr %239, align 16
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.81, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._priority_p_set_assoc_usage_debug, ptr noundef nonnull %.0.i, ptr noundef %.032.i, ptr noundef %236, x86_fp80 noundef %240) #14
   br label %_priority_p_set_assoc_usage_debug.exit
 
-245:                                              ; preds = %231
-  %246 = load i32, ptr @flags, align 4
-  %247 = and i32 %246, 8
-  %.not35.i = icmp eq i32 %247, 0
-  br i1 %.not35.i, label %248, label %_priority_p_set_assoc_usage_debug.exit
+241:                                              ; preds = %227
+  %242 = load i32, ptr @flags, align 4
+  %243 = and i32 %242, 8
+  %.not35.i = icmp eq i32 %243, 0
+  br i1 %.not35.i, label %244, label %_priority_p_set_assoc_usage_debug.exit
 
-248:                                              ; preds = %245
-  %249 = tail call i32 @get_log_level() #14
-  %250 = icmp sgt i32 %249, 2
-  br i1 %250, label %251, label %_priority_p_set_assoc_usage_debug.exit
+244:                                              ; preds = %241
+  %245 = tail call i32 @get_log_level() #14
+  %246 = icmp sgt i32 %245, 2
+  br i1 %246, label %247, label %_priority_p_set_assoc_usage_debug.exit
 
-251:                                              ; preds = %248
-  %252 = load ptr, ptr %8, align 8
-  %253 = getelementptr inbounds nuw i8, ptr %252, i64 72
+247:                                              ; preds = %244
+  %248 = load ptr, ptr %8, align 8
+  %249 = getelementptr inbounds nuw i8, ptr %248, i64 72
+  %250 = load ptr, ptr %249, align 8
+  %251 = getelementptr inbounds nuw i8, ptr %250, i64 8
+  %252 = load ptr, ptr %251, align 8
+  %253 = getelementptr inbounds nuw i8, ptr %248, i64 88
   %254 = load ptr, ptr %253, align 8
   %255 = getelementptr inbounds nuw i8, ptr %254, i64 8
   %256 = load ptr, ptr %255, align 8
-  %257 = getelementptr inbounds nuw i8, ptr %252, i64 88
-  %258 = load ptr, ptr %257, align 8
-  %259 = getelementptr inbounds nuw i8, ptr %258, i64 8
+  %257 = getelementptr inbounds nuw i8, ptr %248, i64 128
+  %258 = load x86_fp80, ptr %257, align 16
+  %259 = getelementptr inbounds nuw i8, ptr %254, i64 296
   %260 = load ptr, ptr %259, align 8
-  %261 = getelementptr inbounds nuw i8, ptr %252, i64 128
+  %261 = getelementptr inbounds nuw i8, ptr %260, i64 112
   %262 = load x86_fp80, ptr %261, align 16
-  %263 = getelementptr inbounds nuw i8, ptr %258, i64 296
-  %264 = load ptr, ptr %263, align 8
-  %265 = getelementptr inbounds nuw i8, ptr %264, i64 112
-  %266 = load x86_fp80, ptr %265, align 16
-  %267 = load i32, ptr %232, align 8
-  %268 = getelementptr inbounds nuw i8, ptr %252, i64 64
-  %269 = load i32, ptr %268, align 16
-  %270 = getelementptr inbounds nuw i8, ptr %252, i64 112
-  %271 = load x86_fp80, ptr %270, align 16
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.82, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._priority_p_set_assoc_usage_debug, ptr noundef nonnull %.0.i, ptr noundef %.032.i, ptr noundef %256, ptr noundef %260, x86_fp80 noundef %262, x86_fp80 noundef %266, x86_fp80 noundef %262, i32 noundef %267, i32 noundef %269, x86_fp80 noundef %271) #14
+  %263 = load i32, ptr %228, align 8
+  %264 = getelementptr inbounds nuw i8, ptr %248, i64 64
+  %265 = load i32, ptr %264, align 16
+  %266 = getelementptr inbounds nuw i8, ptr %248, i64 112
+  %267 = load x86_fp80, ptr %266, align 16
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.82, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._priority_p_set_assoc_usage_debug, ptr noundef nonnull %.0.i, ptr noundef %.032.i, ptr noundef %252, ptr noundef %256, x86_fp80 noundef %258, x86_fp80 noundef %262, x86_fp80 noundef %258, i32 noundef %263, i32 noundef %265, x86_fp80 noundef %267) #14
   br label %_priority_p_set_assoc_usage_debug.exit
 
-_priority_p_set_assoc_usage_debug.exit:           ; preds = %251, %248, %245, %238, %235, %217, %214, %_set_assoc_usage_efctv.exit
+_priority_p_set_assoc_usage_debug.exit:           ; preds = %247, %244, %241, %234, %231, %213, %210, %_set_assoc_usage_efctv.exit
   ret void
 }
 

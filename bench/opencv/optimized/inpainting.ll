@@ -8069,72 +8069,72 @@ define linkonce_odr hidden void @_ZN2cv9videostab17MotionInpaintBodyclEii(ptr no
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 360
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 400
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 456
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 204
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 480
-  br label %23
+  %10 = load ptr, ptr %9, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %12 = load ptr, ptr %11, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 304
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 360
+  %16 = load ptr, ptr %15, align 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 400
+  %18 = load ptr, ptr %17, align 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 456
+  %20 = load ptr, ptr %19, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 204
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  %24 = load ptr, ptr %23, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  %26 = load ptr, ptr %25, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %28 = load ptr, ptr %27, align 8
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %30 = load ptr, ptr %29, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 480
+  br label %33
 
 ._crit_edge205:                                   ; preds = %._crit_edge
-  %22 = fcmp ogt float %.1155.lcssa, 0.000000e+00
-  br i1 %22, label %273, label %._crit_edge205.thread
+  %32 = fcmp ogt float %.1155.lcssa, 0.000000e+00
+  br i1 %32, label %273, label %._crit_edge205.thread
 
-23:                                               ; preds = %.lr.ph204, %._crit_edge
-  %24 = phi i32 [ %5, %.lr.ph204 ], [ %271, %._crit_edge ]
+33:                                               ; preds = %.lr.ph204, %._crit_edge
+  %34 = phi i32 [ %5, %.lr.ph204 ], [ %271, %._crit_edge ]
   %.0202 = phi float [ 0.000000e+00, %.lr.ph204 ], [ %.1.lcssa, %._crit_edge ]
   %.0150201 = phi float [ 0.000000e+00, %.lr.ph204 ], [ %.1151.lcssa, %._crit_edge ]
   %.0154200 = phi float [ 0.000000e+00, %.lr.ph204 ], [ %.1155.lcssa, %._crit_edge ]
   %.0158198 = phi i32 [ %6, %.lr.ph204 ], [ %272, %._crit_edge ]
-  %.not175188 = icmp slt i32 %24, 0
+  %.not175188 = icmp slt i32 %34, 0
   br i1 %.not175188, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %23
-  %25 = add nsw i32 %.0158198, %2
-  %26 = icmp sgt i32 %25, -1
-  %27 = load ptr, ptr %9, align 8
-  %28 = load ptr, ptr %10, align 8
-  %29 = zext nneg i32 %25 to i64
-  %30 = load ptr, ptr %11, align 8
-  %31 = load ptr, ptr %12, align 8
-  %32 = uitofp nneg i32 %25 to float
-  %33 = load ptr, ptr %13, align 8
-  %34 = load ptr, ptr %14, align 8
-  %35 = load ptr, ptr %17, align 8
-  %36 = load ptr, ptr %18, align 8
-  %.not181 = icmp eq i32 %25, 0
-  %37 = add nsw i32 %25, -1
-  %38 = zext nneg i32 %37 to i64
-  %39 = add nuw nsw i32 %25, 1
+.lr.ph:                                           ; preds = %33
+  %35 = add nsw i32 %.0158198, %2
+  %36 = icmp sgt i32 %35, -1
+  %37 = zext nneg i32 %35 to i64
+  %38 = uitofp nneg i32 %35 to float
+  %.not181 = icmp eq i32 %35, 0
+  %39 = add nsw i32 %35, -1
   %40 = zext nneg i32 %39 to i64
-  %41 = load ptr, ptr %19, align 8
-  %42 = load ptr, ptr %20, align 8
+  %41 = add nuw nsw i32 %35, 1
+  %42 = zext nneg i32 %41 to i64
   %43 = mul nsw i32 %.0158198, %.0158198
-  %44 = load float, ptr %21, align 8
+  %44 = load float, ptr %31, align 8
   %45 = sitofp i32 %.0158198 to float
-  br i1 %26, label %.lr.ph.split.us.preheader, label %._crit_edge
+  br i1 %36, label %.lr.ph.split.us.preheader, label %._crit_edge
 
 .lr.ph.split.us.preheader:                        ; preds = %.lr.ph
-  %46 = sub nsw i32 0, %24
+  %46 = sub nsw i32 0, %34
   br label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %267
-  %47 = phi i32 [ %268, %267 ], [ %24, %.lr.ph.split.us.preheader ]
-  %48 = phi i32 [ %269, %267 ], [ %24, %.lr.ph.split.us.preheader ]
+  %47 = phi i32 [ %268, %267 ], [ %34, %.lr.ph.split.us.preheader ]
+  %48 = phi i32 [ %269, %267 ], [ %34, %.lr.ph.split.us.preheader ]
   %.1192.us = phi float [ %.2.us, %267 ], [ %.0202, %.lr.ph.split.us.preheader ]
   %.1151191.us = phi float [ %.2152.us, %267 ], [ %.0150201, %.lr.ph.split.us.preheader ]
   %.1155190.us = phi float [ %.2156.us, %267 ], [ %.0154200, %.lr.ph.split.us.preheader ]
   %.0159189.us = phi i32 [ %270, %267 ], [ %46, %.lr.ph.split.us.preheader ]
   %49 = add nsw i32 %.0159189.us, %1
   %50 = load i32, ptr %7, align 8, !tbaa !73
-  %51 = icmp slt i32 %25, %50
+  %51 = icmp slt i32 %35, %50
   %52 = icmp sgt i32 %49, -1
   %or.cond.us = select i1 %51, i1 %52, i1 false
   br i1 %or.cond.us, label %53, label %267
@@ -8145,9 +8145,9 @@ define linkonce_odr hidden void @_ZN2cv9videostab17MotionInpaintBodyclEii(ptr no
   br i1 %55, label %56, label %267
 
 56:                                               ; preds = %53
-  %57 = load i64, ptr %28, align 8, !tbaa !80
-  %58 = mul i64 %57, %29
-  %59 = getelementptr inbounds nuw i8, ptr %27, i64 %58
+  %57 = load i64, ptr %12, align 8, !tbaa !80
+  %58 = mul i64 %57, %37
+  %59 = getelementptr inbounds nuw i8, ptr %10, i64 %58
   %60 = zext nneg i32 %49 to i64
   %61 = getelementptr inbounds nuw i8, ptr %59, i64 %60
   %62 = load i8, ptr %61, align 1, !tbaa !81
@@ -8156,20 +8156,20 @@ define linkonce_odr hidden void @_ZN2cv9videostab17MotionInpaintBodyclEii(ptr no
 
 63:                                               ; preds = %56
   %64 = uitofp nneg i32 %49 to float
-  %65 = load i64, ptr %31, align 8, !tbaa !80
-  %66 = mul i64 %65, %29
-  %67 = getelementptr inbounds nuw i8, ptr %30, i64 %66
+  %65 = load i64, ptr %16, align 8, !tbaa !80
+  %66 = mul i64 %65, %37
+  %67 = getelementptr inbounds nuw i8, ptr %14, i64 %66
   %68 = getelementptr inbounds nuw float, ptr %67, i64 %60
   %69 = load float, ptr %68, align 4, !tbaa !82
   %70 = fadd float %69, %64
   %71 = insertelement <4 x float> poison, float %70, i64 0
   %72 = tail call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %71)
-  %73 = load i64, ptr %34, align 8, !tbaa !80
-  %74 = mul i64 %73, %29
-  %75 = getelementptr inbounds nuw i8, ptr %33, i64 %74
+  %73 = load i64, ptr %20, align 8, !tbaa !80
+  %74 = mul i64 %73, %37
+  %75 = getelementptr inbounds nuw i8, ptr %18, i64 %74
   %76 = getelementptr inbounds nuw float, ptr %75, i64 %60
   %77 = load float, ptr %76, align 4, !tbaa !82
-  %78 = fadd float %77, %32
+  %78 = fadd float %77, %38
   %79 = insertelement <4 x float> poison, float %78, i64 0
   %80 = tail call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %79)
   %81 = sub nsw i32 %72, %.0159189.us
@@ -8178,22 +8178,22 @@ define linkonce_odr hidden void @_ZN2cv9videostab17MotionInpaintBodyclEii(ptr no
   br i1 %83, label %84, label %267
 
 84:                                               ; preds = %63
-  %85 = load i32, ptr %15, align 4, !tbaa !74
+  %85 = load i32, ptr %21, align 4, !tbaa !74
   %86 = icmp slt i32 %72, %85
   %87 = icmp sgt i32 %80, -1
   %or.cond3.us = and i1 %87, %86
   br i1 %or.cond3.us, label %88, label %267
 
 88:                                               ; preds = %84
-  %89 = load i32, ptr %16, align 8, !tbaa !73
+  %89 = load i32, ptr %22, align 8, !tbaa !73
   %90 = icmp slt i32 %80, %89
   br i1 %90, label %91, label %267
 
 91:                                               ; preds = %88
-  %92 = load i64, ptr %36, align 8, !tbaa !80
+  %92 = load i64, ptr %26, align 8, !tbaa !80
   %93 = zext nneg i32 %80 to i64
   %94 = mul i64 %92, %93
-  %95 = getelementptr inbounds nuw i8, ptr %35, i64 %94
+  %95 = getelementptr inbounds nuw i8, ptr %24, i64 %94
   %96 = zext nneg i32 %72 to i64
   %97 = getelementptr inbounds nuw i8, ptr %95, i64 %96
   %98 = load i8, ptr %97, align 1, !tbaa !81
@@ -8213,7 +8213,7 @@ define linkonce_odr hidden void @_ZN2cv9videostab17MotionInpaintBodyclEii(ptr no
 106:                                              ; preds = %101
   %107 = zext nneg i32 %82 to i64
   %108 = mul i64 %92, %107
-  %109 = getelementptr inbounds nuw i8, ptr %35, i64 %108
+  %109 = getelementptr inbounds nuw i8, ptr %24, i64 %108
   %110 = zext nneg i32 %81 to i64
   %111 = getelementptr inbounds nuw i8, ptr %109, i64 %110
   %112 = load i8, ptr %111, align 1, !tbaa !81
@@ -8295,42 +8295,42 @@ define linkonce_odr hidden void @_ZN2cv9videostab17MotionInpaintBodyclEii(ptr no
   br i1 %.not181, label %205, label %161
 
 161:                                              ; preds = %160
-  %162 = mul i64 %57, %38
-  %163 = getelementptr inbounds nuw i8, ptr %27, i64 %162
+  %162 = mul i64 %57, %40
+  %163 = getelementptr inbounds nuw i8, ptr %10, i64 %162
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 %60
   %165 = load i8, ptr %164, align 1, !tbaa !81
   %.not182.us = icmp eq i8 %165, 0
   br i1 %.not182.us, label %205, label %166
 
 166:                                              ; preds = %161
-  %167 = icmp samesign ult i32 %39, %50
+  %167 = icmp samesign ult i32 %41, %50
   br i1 %167, label %168, label %194
 
 168:                                              ; preds = %166
-  %169 = mul i64 %57, %40
-  %170 = getelementptr inbounds nuw i8, ptr %27, i64 %169
+  %169 = mul i64 %57, %42
+  %170 = getelementptr inbounds nuw i8, ptr %10, i64 %169
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 %60
   %172 = load i8, ptr %171, align 1, !tbaa !81
   %.not184.us = icmp eq i8 %172, 0
   br i1 %.not184.us, label %194, label %173
 
 173:                                              ; preds = %168
-  %174 = mul i64 %65, %40
-  %175 = getelementptr inbounds nuw i8, ptr %30, i64 %174
+  %174 = mul i64 %65, %42
+  %175 = getelementptr inbounds nuw i8, ptr %14, i64 %174
   %176 = getelementptr inbounds nuw float, ptr %175, i64 %60
   %177 = load float, ptr %176, align 4, !tbaa !82
-  %178 = mul i64 %65, %38
-  %179 = getelementptr inbounds nuw i8, ptr %30, i64 %178
+  %178 = mul i64 %65, %40
+  %179 = getelementptr inbounds nuw i8, ptr %14, i64 %178
   %180 = getelementptr inbounds nuw float, ptr %179, i64 %60
   %181 = load float, ptr %180, align 4, !tbaa !82
   %182 = fsub float %177, %181
   %183 = fmul float %182, 5.000000e-01
-  %184 = mul i64 %73, %40
-  %185 = getelementptr inbounds nuw i8, ptr %33, i64 %184
+  %184 = mul i64 %73, %42
+  %185 = getelementptr inbounds nuw i8, ptr %18, i64 %184
   %186 = getelementptr inbounds nuw float, ptr %185, i64 %60
   %187 = load float, ptr %186, align 4, !tbaa !82
-  %188 = mul i64 %73, %38
-  %189 = getelementptr inbounds nuw i8, ptr %33, i64 %188
+  %188 = mul i64 %73, %40
+  %189 = getelementptr inbounds nuw i8, ptr %18, i64 %188
   %190 = getelementptr inbounds nuw float, ptr %189, i64 %60
   %191 = load float, ptr %190, align 4, !tbaa !82
   %192 = fsub float %187, %191
@@ -8338,38 +8338,38 @@ define linkonce_odr hidden void @_ZN2cv9videostab17MotionInpaintBodyclEii(ptr no
   br label %223
 
 194:                                              ; preds = %168, %166
-  %195 = mul i64 %65, %38
-  %196 = getelementptr inbounds nuw i8, ptr %30, i64 %195
+  %195 = mul i64 %65, %40
+  %196 = getelementptr inbounds nuw i8, ptr %14, i64 %195
   %197 = getelementptr inbounds nuw float, ptr %196, i64 %60
   %198 = load float, ptr %197, align 4, !tbaa !82
   %199 = fsub float %69, %198
-  %200 = mul i64 %73, %38
-  %201 = getelementptr inbounds nuw i8, ptr %33, i64 %200
+  %200 = mul i64 %73, %40
+  %201 = getelementptr inbounds nuw i8, ptr %18, i64 %200
   %202 = getelementptr inbounds nuw float, ptr %201, i64 %60
   %203 = load float, ptr %202, align 4, !tbaa !82
   %204 = fsub float %77, %203
   br label %223
 
 205:                                              ; preds = %161, %160
-  %206 = icmp samesign ult i32 %39, %50
+  %206 = icmp samesign ult i32 %41, %50
   br i1 %206, label %207, label %223
 
 207:                                              ; preds = %205
-  %208 = mul i64 %57, %40
-  %209 = getelementptr inbounds nuw i8, ptr %27, i64 %208
+  %208 = mul i64 %57, %42
+  %209 = getelementptr inbounds nuw i8, ptr %10, i64 %208
   %210 = getelementptr inbounds nuw i8, ptr %209, i64 %60
   %211 = load i8, ptr %210, align 1, !tbaa !81
   %.not183.us = icmp eq i8 %211, 0
   br i1 %.not183.us, label %223, label %212
 
 212:                                              ; preds = %207
-  %213 = mul i64 %65, %40
-  %214 = getelementptr inbounds nuw i8, ptr %30, i64 %213
+  %213 = mul i64 %65, %42
+  %214 = getelementptr inbounds nuw i8, ptr %14, i64 %213
   %215 = getelementptr inbounds nuw float, ptr %214, i64 %60
   %216 = load float, ptr %215, align 4, !tbaa !82
   %217 = fsub float %216, %69
-  %218 = mul i64 %73, %40
-  %219 = getelementptr inbounds nuw i8, ptr %33, i64 %218
+  %218 = mul i64 %73, %42
+  %219 = getelementptr inbounds nuw i8, ptr %18, i64 %218
   %220 = getelementptr inbounds nuw float, ptr %219, i64 %60
   %221 = load float, ptr %220, align 4, !tbaa !82
   %222 = fsub float %221, %77
@@ -8378,9 +8378,9 @@ define linkonce_odr hidden void @_ZN2cv9videostab17MotionInpaintBodyclEii(ptr no
 223:                                              ; preds = %212, %207, %205, %194, %173
   %.0163.us = phi float [ %183, %173 ], [ %199, %194 ], [ %217, %212 ], [ 0.000000e+00, %207 ], [ 0.000000e+00, %205 ]
   %.0162.us = phi float [ %193, %173 ], [ %204, %194 ], [ %222, %212 ], [ 0.000000e+00, %207 ], [ 0.000000e+00, %205 ]
-  %224 = load i64, ptr %42, align 8, !tbaa !80
+  %224 = load i64, ptr %30, align 8, !tbaa !80
   %225 = mul i64 %224, %107
-  %226 = getelementptr inbounds nuw i8, ptr %41, i64 %225
+  %226 = getelementptr inbounds nuw i8, ptr %28, i64 %225
   %227 = getelementptr inbounds nuw %"class.cv::Point3_", ptr %226, i64 %110
   %.sroa.011.0.copyload.us = load i8, ptr %227, align 1, !tbaa !81
   %.sroa.412.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %227, i64 1
@@ -8388,7 +8388,7 @@ define linkonce_odr hidden void @_ZN2cv9videostab17MotionInpaintBodyclEii(ptr no
   %.sroa.513.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %227, i64 2
   %.sroa.513.0.copyload.us = load i8, ptr %.sroa.513.0..sroa_idx.us, align 1, !tbaa !81
   %228 = mul i64 %224, %93
-  %229 = getelementptr inbounds nuw i8, ptr %41, i64 %228
+  %229 = getelementptr inbounds nuw i8, ptr %28, i64 %228
   %230 = getelementptr inbounds nuw %"class.cv::Point3_", ptr %229, i64 %96
   %.sroa.0.0.copyload.us = load i8, ptr %230, align 1, !tbaa !81
   %.sroa.4.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %230, i64 1
@@ -8444,14 +8444,14 @@ define linkonce_odr hidden void @_ZN2cv9videostab17MotionInpaintBodyclEii(ptr no
   %.not175.us.not = icmp slt i32 %.0159189.us, %269
   br i1 %.not175.us.not, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !225
 
-._crit_edge:                                      ; preds = %267, %.lr.ph, %23
-  %271 = phi i32 [ %24, %23 ], [ %24, %.lr.ph ], [ %268, %267 ]
-  %.1155.lcssa = phi float [ %.0154200, %23 ], [ %.0154200, %.lr.ph ], [ %.2156.us, %267 ]
-  %.1151.lcssa = phi float [ %.0150201, %23 ], [ %.0150201, %.lr.ph ], [ %.2152.us, %267 ]
-  %.1.lcssa = phi float [ %.0202, %23 ], [ %.0202, %.lr.ph ], [ %.2.us, %267 ]
+._crit_edge:                                      ; preds = %267, %.lr.ph, %33
+  %271 = phi i32 [ %34, %33 ], [ %34, %.lr.ph ], [ %268, %267 ]
+  %.1155.lcssa = phi float [ %.0154200, %33 ], [ %.0154200, %.lr.ph ], [ %.2156.us, %267 ]
+  %.1151.lcssa = phi float [ %.0150201, %33 ], [ %.0150201, %.lr.ph ], [ %.2152.us, %267 ]
+  %.1.lcssa = phi float [ %.0202, %33 ], [ %.0202, %.lr.ph ], [ %.2.us, %267 ]
   %272 = add nsw i32 %.0158198, 1
   %.not.not = icmp slt i32 %.0158198, %271
-  br i1 %.not.not, label %23, label %._crit_edge205, !llvm.loop !226
+  br i1 %.not.not, label %33, label %._crit_edge205, !llvm.loop !226
 
 273:                                              ; preds = %._crit_edge205
   %274 = fdiv float %.1.lcssa, %.1155.lcssa

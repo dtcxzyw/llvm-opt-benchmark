@@ -6538,37 +6538,34 @@ _ZNSt15__allocated_ptrISaISt10_List_nodeIN6Assimp11X3DExporter10SAttributeEEEED2
   %sqrt.i.i = call float @llvm.sqrt.f32(float %63)
   %66 = fdiv float 1.000000e+00, %sqrt.i.i
   %67 = fmul float %56, %66
-  store float %67, ptr %53, align 4
   %68 = fmul float %57, %66
-  store float %68, ptr %54, align 4
   %69 = fmul float %60, %66
-  store float %69, ptr %55, align 4
   %70 = fmul float %62, %66
   br label %71
 
 71:                                               ; preds = %65, %.noexc82
-  %72 = phi float [ %62, %.noexc82 ], [ %70, %65 ]
-  %73 = fneg float %72
-  %74 = call float @llvm.fmuladd.f32(float %73, float %72, float 1.000000e+00)
-  %75 = call noundef float @sqrtf(float noundef %74) #29
-  %76 = call noundef float @acosf(float noundef %72) #29
-  %77 = fmul float %76, 2.000000e+00
-  %78 = call noundef float @llvm.fabs.f32(float %75)
-  %79 = fcmp olt float %78, 0x3F847AE140000000
-  %.0.i = select i1 %79, float 1.000000e+00, float %75
-  %80 = load float, ptr %53, align 4
-  %81 = fdiv float %80, %.0.i
-  %82 = load float, ptr %54, align 4
-  %83 = fdiv float %82, %.0.i
-  %84 = load float, ptr %55, align 4
-  %85 = fdiv float %84, %.0.i
+  %72 = phi float [ %60, %.noexc82 ], [ %69, %65 ]
+  %73 = phi float [ %57, %.noexc82 ], [ %68, %65 ]
+  %74 = phi float [ %56, %.noexc82 ], [ %67, %65 ]
+  %75 = phi float [ %62, %.noexc82 ], [ %70, %65 ]
+  %76 = fneg float %75
+  %77 = call float @llvm.fmuladd.f32(float %76, float %75, float 1.000000e+00)
+  %78 = call noundef float @sqrtf(float noundef %77) #29
+  %79 = call noundef float @acosf(float noundef %75) #29
+  %80 = fmul float %79, 2.000000e+00
+  %81 = call noundef float @llvm.fabs.f32(float %78)
+  %82 = fcmp olt float %81, 0x3F847AE140000000
+  %.0.i = select i1 %82, float 1.000000e+00, float %78
+  %83 = fdiv float %74, %.0.i
+  %84 = fdiv float %73, %.0.i
+  %85 = fdiv float %72, %.0.i
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  %86 = fcmp une float %77, 0.000000e+00
+  %86 = fcmp une float %80, 0.000000e+00
   br i1 %86, label %87, label %483
 
 87:                                               ; preds = %71
-  %88 = fmul float %83, %83
-  %89 = call float @llvm.fmuladd.f32(float %81, float %81, float %88)
+  %88 = fmul float %84, %84
+  %89 = call float @llvm.fmuladd.f32(float %83, float %83, float %88)
   %90 = call noundef float @llvm.fmuladd.f32(float %85, float %85, float %89)
   %91 = fcmp ogt float %90, 0.000000e+00
   br i1 %91, label %92, label %483
@@ -6582,7 +6579,7 @@ _ZNSt15__allocated_ptrISaISt10_List_nodeIN6Assimp11X3DExporter10SAttributeEEEED2
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !99
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !99
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !99
-  %93 = fpext float %81 to double
+  %93 = fpext float %83 to double
   invoke void (ptr, ptr, i64, ptr, ...) @_ZN9__gnu_cxx12__to_xstringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcEET_PFiPT0_mPKS8_P13__va_list_tagEmSB_z(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %9, ptr noundef nonnull @vsnprintf, i64 noundef 58, ptr noundef nonnull @.str.90, double noundef %93)
           to label %.noexc83 unwind label %472
 
@@ -6638,7 +6635,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store i64 0, ptr %111, align 8
   store i8 0, ptr %101, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !99
-  %113 = fpext float %83 to double
+  %113 = fpext float %84 to double
   invoke void (ptr, ptr, i64, ptr, ...) @_ZN9__gnu_cxx12__to_xstringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcEET_PFiPT0_mPKS8_P13__va_list_tagEmSB_z(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %10, ptr noundef nonnull @vsnprintf, i64 noundef 58, ptr noundef nonnull @.str.90, double noundef %113)
           to label %_ZNSt7__cxx119to_stringEf.exit.i unwind label %381
 
@@ -7000,7 +6997,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i51
   store i64 0, ptr %255, align 8
   store i8 0, ptr %245, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !99
-  %257 = fpext float %77 to double
+  %257 = fpext float %80 to double
   invoke void (ptr, ptr, i64, ptr, ...) @_ZN9__gnu_cxx12__to_xstringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcEET_PFiPT0_mPKS8_P13__va_list_tagEmSB_z(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %12, ptr noundef nonnull @vsnprintf, i64 noundef 58, ptr noundef nonnull @.str.90, double noundef %257)
           to label %_ZNSt7__cxx119to_stringEf.exit59.i unwind label %393
 

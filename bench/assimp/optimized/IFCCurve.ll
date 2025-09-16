@@ -5069,20 +5069,19 @@ define internal noundef i64 @_ZNK6Assimp3IFC12_GLOBAL__N_15Conic19EstimateSample
   %9 = fmul double %2, %7
   %10 = tail call double @fmod(double noundef %8, double noundef 0x401921FB54442D18) #32
   %11 = tail call double @fmod(double noundef %9, double noundef 0x401921FB54442D18) #32
-  %12 = load ptr, ptr %4, align 8
-  %13 = getelementptr inbounds nuw i8, ptr %12, i64 320
-  %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
-  %16 = load float, ptr %15, align 4
-  %17 = fpext float %16 to double
-  %18 = fmul double %17, 0x400921FB54442D18
-  %19 = fdiv double %18, 1.800000e+02
-  %20 = fsub double %11, %10
-  %21 = tail call noundef double @llvm.fabs.f64(double %20)
-  %22 = tail call double @llvm.ceil.f64(double %21)
-  %23 = fdiv double %22, %19
-  %24 = fptoui double %23 to i64
-  ret i64 %24
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 320
+  %13 = load ptr, ptr %12, align 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
+  %15 = load float, ptr %14, align 4
+  %16 = fpext float %15 to double
+  %17 = fmul double %16, 0x400921FB54442D18
+  %18 = fdiv double %17, 1.800000e+02
+  %19 = fsub double %11, %10
+  %20 = tail call noundef double @llvm.fabs.f64(double %19)
+  %21 = tail call double @llvm.ceil.f64(double %20)
+  %22 = fdiv double %21, %18
+  %23 = fptoui double %22 to i64
+  ret i64 %23
 }
 
 declare void @_ZN6Assimp3IFC20ConvertAxisPlacementER12aiMatrix4x4tIdERKNS_4STEP7EXPRESS8DataTypeERNS0_14ConversionDataE(ptr noundef nonnull align 8 dereferenceable(128), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(392)) local_unnamed_addr #9
@@ -5140,28 +5139,27 @@ define internal void @_ZNK6Assimp3IFC12_GLOBAL__N_17Ellipse4EvalEd(ptr dead_on_u
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %32 = load double, ptr %31, align 8, !noalias !106
   %33 = fadd double %25, %32
-  %34 = load ptr, ptr %11, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 104
-  %36 = load double, ptr %35, align 8
-  %37 = tail call double @sin(double noundef %9) #32
-  %38 = fmul double %36, %37
-  %39 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %40 = load double, ptr %39, align 8, !noalias !109
-  %41 = fmul double %38, %40
-  %42 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %43 = load double, ptr %42, align 8, !noalias !109
-  %44 = fmul double %38, %43
-  %45 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %46 = load double, ptr %45, align 8, !noalias !109
-  %47 = fmul double %38, %46
-  %48 = fadd double %27, %41
-  %49 = fadd double %30, %44
-  %50 = fadd double %33, %47
-  store double %48, ptr %0, align 8, !alias.scope !112
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %12, i64 104
+  %35 = load double, ptr %34, align 8
+  %36 = tail call double @sin(double noundef %9) #32
+  %37 = fmul double %35, %36
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %39 = load double, ptr %38, align 8, !noalias !109
+  %40 = fmul double %37, %39
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %42 = load double, ptr %41, align 8, !noalias !109
+  %43 = fmul double %37, %42
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %45 = load double, ptr %44, align 8, !noalias !109
+  %46 = fmul double %37, %45
+  %47 = fadd double %27, %40
+  %48 = fadd double %30, %43
+  %49 = fadd double %33, %46
+  store double %47, ptr %0, align 8, !alias.scope !112
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store double %48, ptr %50, align 8, !alias.scope !112
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double %49, ptr %51, align 8, !alias.scope !112
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store double %50, ptr %52, align 8, !alias.scope !112
   ret void
 }
 

@@ -14155,47 +14155,47 @@ define internal void @_ZL12calc_profilePdP16t_UmbrellaWindowiP15UmbrellaOptionsb
   %48 = tail call double @llvm.fmuladd.f64(double %45, double %46, double %47)
   %49 = load i8, ptr %7, align 1, !range !76
   %50 = trunc nuw i8 %49 to i1
+  %51 = load double, ptr %8, align 8
+  %52 = fneg double %51
+  %53 = load double, ptr %9, align 8
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge
-  %51 = phi i32 [ %40, %.preheader.lr.ph ], [ %181, %._crit_edge ]
+  %54 = phi i32 [ %40, %.preheader.lr.ph ], [ %181, %._crit_edge ]
   %indvars.iv102 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next103, %._crit_edge ]
   %.06388 = phi double [ 0.000000e+00, %.preheader.lr.ph ], [ %.164.lcssa, %._crit_edge ]
   %.06587 = phi double [ 0.000000e+00, %.preheader.lr.ph ], [ %.166.lcssa, %._crit_edge ]
-  %52 = getelementptr inbounds nuw %struct.t_UmbrellaWindow, ptr %26, i64 %indvars.iv102
-  %53 = load i32, ptr %52, align 8, !tbaa !125
-  %54 = icmp sgt i32 %53, 0
-  br i1 %54, label %.lr.ph, label %._crit_edge
+  %55 = getelementptr inbounds nuw %struct.t_UmbrellaWindow, ptr %26, i64 %indvars.iv102
+  %56 = load i32, ptr %55, align 8, !tbaa !125
+  %57 = icmp sgt i32 %56, 0
+  br i1 %57, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %55 = getelementptr inbounds nuw i8, ptr %52, i64 72
-  %56 = load ptr, ptr %55, align 8, !tbaa !149
-  %57 = getelementptr inbounds nuw i8, ptr %52, i64 144
-  %58 = load ptr, ptr %57, align 8, !tbaa !209
-  %59 = getelementptr inbounds nuw i8, ptr %52, i64 8
-  %60 = load ptr, ptr %59, align 8, !tbaa !128
-  %61 = getelementptr inbounds nuw i8, ptr %52, i64 104
-  %62 = getelementptr inbounds nuw i8, ptr %52, i64 40
-  %63 = load double, ptr %8, align 8
-  %64 = fneg double %63
-  %65 = load double, ptr %9, align 8
-  %66 = getelementptr inbounds nuw i8, ptr %52, i64 32
-  %67 = getelementptr inbounds nuw i8, ptr %52, i64 56
-  %68 = getelementptr inbounds nuw i8, ptr %52, i64 48
+  %58 = getelementptr inbounds nuw i8, ptr %55, i64 72
+  %59 = load ptr, ptr %58, align 8, !tbaa !149
+  %60 = getelementptr inbounds nuw i8, ptr %55, i64 144
+  %61 = load ptr, ptr %60, align 8, !tbaa !209
+  %62 = getelementptr inbounds nuw i8, ptr %55, i64 8
+  %63 = load ptr, ptr %62, align 8, !tbaa !128
+  %64 = getelementptr inbounds nuw i8, ptr %55, i64 104
+  %65 = getelementptr inbounds nuw i8, ptr %55, i64 40
+  %66 = getelementptr inbounds nuw i8, ptr %55, i64 32
+  %67 = getelementptr inbounds nuw i8, ptr %55, i64 56
+  %68 = getelementptr inbounds nuw i8, ptr %55, i64 48
   br label %69
 
 69:                                               ; preds = %.lr.ph, %177
-  %70 = phi i32 [ %53, %.lr.ph ], [ %178, %177 ]
+  %70 = phi i32 [ %56, %.lr.ph ], [ %178, %177 ]
   %indvars.iv99 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next100, %177 ]
   %.16484 = phi double [ %.06388, %.lr.ph ], [ %.2, %177 ]
   %.16683 = phi double [ %.06587, %.lr.ph ], [ %81, %177 ]
-  %71 = getelementptr inbounds nuw double, ptr %56, i64 %indvars.iv99
+  %71 = getelementptr inbounds nuw double, ptr %59, i64 %indvars.iv99
   %72 = load double, ptr %71, align 8, !tbaa !130
   %73 = fdiv double 1.000000e+00, %72
-  %74 = getelementptr inbounds nuw double, ptr %58, i64 %indvars.iv99
+  %74 = getelementptr inbounds nuw double, ptr %61, i64 %indvars.iv99
   %75 = load double, ptr %74, align 8, !tbaa !130
   %76 = fmul double %73, %75
-  %77 = getelementptr inbounds nuw ptr, ptr %60, i64 %indvars.iv99
+  %77 = getelementptr inbounds nuw ptr, ptr %63, i64 %indvars.iv99
   %78 = load ptr, ptr %77, align 8, !tbaa !129
   %79 = getelementptr inbounds double, ptr %78, i64 %indvars.iv105
   %80 = load double, ptr %79, align 8, !tbaa !130
@@ -14203,7 +14203,7 @@ define internal void @_ZL12calc_profilePdP16t_UmbrellaWindowiP15UmbrellaOptionsb
   br i1 %50, label %93, label %82
 
 82:                                               ; preds = %69
-  %83 = load ptr, ptr %61, align 8, !tbaa !206
+  %83 = load ptr, ptr %64, align 8, !tbaa !206
   %84 = getelementptr inbounds nuw ptr, ptr %83, i64 %indvars.iv99
   %85 = load ptr, ptr %84, align 8, !tbaa !99
   %86 = getelementptr inbounds i8, ptr %85, i64 %indvars.iv105
@@ -14224,7 +14224,7 @@ define internal void @_ZL12calc_profilePdP16t_UmbrellaWindowiP15UmbrellaOptionsb
   br label %.body
 
 93:                                               ; preds = %82, %69
-  %94 = load ptr, ptr %62, align 8, !tbaa !167
+  %94 = load ptr, ptr %65, align 8, !tbaa !167
   %95 = getelementptr inbounds nuw double, ptr %94, i64 %indvars.iv99
   %96 = load double, ptr %95, align 8, !tbaa !130
   %97 = fsub double %48, %96
@@ -14233,19 +14233,19 @@ define internal void @_ZL12calc_profilePdP16t_UmbrellaWindowiP15UmbrellaOptionsb
   br i1 %99, label %100, label %108
 
 100:                                              ; preds = %93
-  %101 = fcmp ogt double %97, %63
+  %101 = fcmp ogt double %97, %51
   br i1 %101, label %102, label %104
 
 102:                                              ; preds = %100
-  %103 = fsub double %97, %65
+  %103 = fsub double %97, %53
   br label %108
 
 104:                                              ; preds = %100
-  %105 = fcmp olt double %97, %64
+  %105 = fcmp olt double %97, %52
   br i1 %105, label %106, label %108
 
 106:                                              ; preds = %104
-  %107 = fadd double %97, %65
+  %107 = fadd double %97, %53
   br label %108
 
 108:                                              ; preds = %102, %106, %104, %93
@@ -14369,7 +14369,7 @@ _ZL13tabulated_potdP15UmbrellaOptions.exit:       ; preds = %127
   %174 = fsub double %172, %173
   %175 = tail call double @exp(double noundef %174) #25, !tbaa !4
   %176 = tail call double @llvm.fmuladd.f64(double %166, double %175, double %.16484)
-  %.pre = load i32, ptr %52, align 8, !tbaa !125
+  %.pre = load i32, ptr %55, align 8, !tbaa !125
   br label %177
 
 177:                                              ; preds = %82, %161
@@ -14385,7 +14385,7 @@ _ZL13tabulated_potdP15UmbrellaOptions.exit:       ; preds = %127
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
-  %181 = phi i32 [ %51, %.preheader ], [ %.pre109, %._crit_edge.loopexit ]
+  %181 = phi i32 [ %54, %.preheader ], [ %.pre109, %._crit_edge.loopexit ]
   %.166.lcssa = phi double [ %.06587, %.preheader ], [ %81, %._crit_edge.loopexit ]
   %.164.lcssa = phi double [ %.06388, %.preheader ], [ %.2, %._crit_edge.loopexit ]
   %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1

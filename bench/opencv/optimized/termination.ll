@@ -419,17 +419,16 @@ _ZNSt12__shared_ptrIN2cv4usac26SPRTPNapsacTerminationImplELN9__gnu_cxx12_Lock_po
   %35 = getelementptr inbounds nuw i8, ptr %8, i64 72
   store double %6, ptr %35, align 8, !tbaa !58, !noalias !53
   %36 = getelementptr inbounds nuw i8, ptr %8, i64 80
-  %37 = tail call double @log(double noundef %30) #21, !tbaa !16, !noalias !53
-  store double %37, ptr %36, align 8, !tbaa !61, !noalias !53
-  %38 = getelementptr inbounds nuw i8, ptr %8, i64 88
-  store i32 %3, ptr %38, align 8, !tbaa !62, !noalias !53
-  %39 = getelementptr inbounds nuw i8, ptr %8, i64 92
-  store i32 %4, ptr %39, align 4, !tbaa !63, !noalias !53
-  %40 = getelementptr inbounds nuw i8, ptr %8, i64 96
-  store i32 %5, ptr %40, align 8, !tbaa !64, !noalias !53
+  store double %31, ptr %36, align 8, !tbaa !61, !noalias !53
+  %37 = getelementptr inbounds nuw i8, ptr %8, i64 88
+  store i32 %3, ptr %37, align 8, !tbaa !62, !noalias !53
+  %38 = getelementptr inbounds nuw i8, ptr %8, i64 92
+  store i32 %4, ptr %38, align 4, !tbaa !63, !noalias !53
+  %39 = getelementptr inbounds nuw i8, ptr %8, i64 96
+  store i32 %5, ptr %39, align 8, !tbaa !64, !noalias !53
   store ptr %11, ptr %0, align 8, !tbaa !65
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %8, ptr %41, align 8, !tbaa !32
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %8, ptr %40, align 8, !tbaa !32
   ret void
 }
 

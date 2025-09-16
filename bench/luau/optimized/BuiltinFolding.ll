@@ -1332,36 +1332,36 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
     i32 15, label %149
     i32 16, label %167
     i32 17, label %178
-    i32 18, label %220
-    i32 19, label %238
-    i32 21, label %256
-    i32 22, label %273
-    i32 23, label %284
-    i32 24, label %295
-    i32 25, label %306
-    i32 26, label %317
-    i32 27, label %328
-    i32 28, label %339
-    i32 29, label %362
-    i32 30, label %384
-    i32 31, label %398
-    i32 32, label %420
-    i32 33, label %442
-    i32 34, label %465
-    i32 35, label %500
-    i32 36, label %521
-    i32 37, label %544
-    i32 38, label %588
-    i32 39, label %609
-    i32 40, label %632
-    i32 41, label %637
-    i32 43, label %676
-    i32 44, label %687
-    i32 46, label %692
-    i32 47, label %720
-    i32 48, label %734
-    i32 54, label %745
-    i32 89, label %815
+    i32 18, label %219
+    i32 19, label %237
+    i32 21, label %255
+    i32 22, label %272
+    i32 23, label %283
+    i32 24, label %294
+    i32 25, label %305
+    i32 26, label %316
+    i32 27, label %327
+    i32 28, label %338
+    i32 29, label %361
+    i32 30, label %383
+    i32 31, label %397
+    i32 32, label %419
+    i32 33, label %441
+    i32 34, label %464
+    i32 35, label %499
+    i32 36, label %520
+    i32 37, label %543
+    i32 38, label %587
+    i32 39, label %608
+    i32 40, label %631
+    i32 41, label %636
+    i32 43, label %675
+    i32 44, label %686
+    i32 46, label %691
+    i32 47, label %719
+    i32 48, label %733
+    i32 54, label %744
+    i32 89, label %814
   ]
 
 5:                                                ; preds = %4
@@ -1382,7 +1382,7 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   store i32 0, ptr %14, align 4, !tbaa !15, !alias.scope !12
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %13, ptr %15, align 8, !tbaa !11, !alias.scope !12
-  br label %845
+  br label %844
 
 16:                                               ; preds = %4
   %17 = icmp eq i64 %3, 1
@@ -1402,7 +1402,7 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   store i32 0, ptr %25, align 4, !tbaa !15, !alias.scope !16
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %24, ptr %26, align 8, !tbaa !11, !alias.scope !16
-  br label %845
+  br label %844
 
 27:                                               ; preds = %4
   %28 = icmp eq i64 %3, 1
@@ -1422,7 +1422,7 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   store i32 0, ptr %36, align 4, !tbaa !15, !alias.scope !19
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %35, ptr %37, align 8, !tbaa !11, !alias.scope !19
-  br label %845
+  br label %844
 
 38:                                               ; preds = %4
   %39 = icmp eq i64 %3, 2
@@ -1450,7 +1450,7 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   store i32 0, ptr %53, align 4, !tbaa !15, !alias.scope !22
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %52, ptr %54, align 8, !tbaa !11, !alias.scope !22
-  br label %845
+  br label %844
 
 55:                                               ; preds = %4
   %56 = icmp eq i64 %3, 1
@@ -1470,7 +1470,7 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   store i32 0, ptr %64, align 4, !tbaa !15, !alias.scope !25
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %63, ptr %65, align 8, !tbaa !11, !alias.scope !25
-  br label %845
+  br label %844
 
 66:                                               ; preds = %4
   %67 = icmp eq i64 %3, 1
@@ -1490,7 +1490,7 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   store i32 0, ptr %75, align 4, !tbaa !15, !alias.scope !28
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %74, ptr %76, align 8, !tbaa !11, !alias.scope !28
-  br label %845
+  br label %844
 
 77:                                               ; preds = %4
   %78 = icmp eq i64 %3, 1
@@ -1510,7 +1510,7 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   store i32 0, ptr %86, align 4, !tbaa !15, !alias.scope !31
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %85, ptr %87, align 8, !tbaa !11, !alias.scope !31
-  br label %845
+  br label %844
 
 88:                                               ; preds = %4
   %89 = icmp eq i64 %3, 1
@@ -1530,7 +1530,7 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   store i32 0, ptr %97, align 4, !tbaa !15, !alias.scope !34
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %96, ptr %98, align 8, !tbaa !11, !alias.scope !34
-  br label %845
+  br label %844
 
 99:                                               ; preds = %4
   %100 = icmp eq i64 %3, 1
@@ -1550,7 +1550,7 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   store i32 0, ptr %108, align 4, !tbaa !15, !alias.scope !37
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %107, ptr %109, align 8, !tbaa !11, !alias.scope !37
-  br label %845
+  br label %844
 
 110:                                              ; preds = %4
   %111 = icmp eq i64 %3, 1
@@ -1570,7 +1570,7 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   store i32 0, ptr %119, align 4, !tbaa !15, !alias.scope !40
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %118, ptr %120, align 8, !tbaa !11, !alias.scope !40
-  br label %845
+  br label %844
 
 121:                                              ; preds = %4
   %122 = icmp eq i64 %3, 1
@@ -1590,7 +1590,7 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   store i32 0, ptr %130, align 4, !tbaa !15, !alias.scope !43
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %129, ptr %131, align 8, !tbaa !11, !alias.scope !43
-  br label %845
+  br label %844
 
 132:                                              ; preds = %4
   %133 = icmp eq i64 %3, 2
@@ -1618,7 +1618,7 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   store i32 0, ptr %147, align 4, !tbaa !15, !alias.scope !46
   %148 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %146, ptr %148, align 8, !tbaa !11, !alias.scope !46
-  br label %845
+  br label %844
 
 149:                                              ; preds = %4
   %150 = icmp eq i64 %3, 2
@@ -1647,7 +1647,7 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   store i32 0, ptr %165, align 4, !tbaa !15, !alias.scope !49
   %166 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %164, ptr %166, align 8, !tbaa !11, !alias.scope !49
-  br label %845
+  br label %844
 
 167:                                              ; preds = %4
   %168 = icmp eq i64 %3, 1
@@ -1667,7 +1667,7 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   store i32 0, ptr %176, align 4, !tbaa !15, !alias.scope !52
   %177 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %175, ptr %177, align 8, !tbaa !11, !alias.scope !52
-  br label %845
+  br label %844
 
 178:                                              ; preds = %4
   switch i64 %3, label %.thread [
@@ -1689,7 +1689,7 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   store i32 0, ptr %186, align 4, !tbaa !15, !alias.scope !55
   %187 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %185, ptr %187, align 8, !tbaa !11, !alias.scope !55
-  br label %845
+  br label %844
 
 188:                                              ; preds = %178
   %189 = load i32, ptr %2, align 8, !tbaa !8
@@ -1717,7 +1717,7 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   store i32 0, ptr %203, align 4, !tbaa !15, !alias.scope !58
   %204 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %202, ptr %204, align 8, !tbaa !11, !alias.scope !58
-  br label %845
+  br label %844
 
 205:                                              ; preds = %195
   %206 = fcmp oeq double %197, 1.000000e+01
@@ -1732,1156 +1732,1155 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   store i32 0, ptr %211, align 4, !tbaa !15, !alias.scope !61
   %212 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %210, ptr %212, align 8, !tbaa !11, !alias.scope !61
-  br label %845
+  br label %844
 
 213:                                              ; preds = %205
   %214 = tail call double @log(double noundef %208) #10, !tbaa !4
-  %215 = load double, ptr %196, align 8, !tbaa !11
-  %216 = tail call double @log(double noundef %215) #10, !tbaa !4
-  %217 = fdiv double %214, %216
+  %215 = tail call double @log(double noundef %197) #10, !tbaa !4
+  %216 = fdiv double %214, %215
   store i32 3, ptr %0, align 8, !tbaa !8, !alias.scope !64
-  %218 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 0, ptr %218, align 4, !tbaa !15, !alias.scope !64
-  %219 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double %217, ptr %219, align 8, !tbaa !11, !alias.scope !64
-  br label %845
+  %217 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 0, ptr %217, align 4, !tbaa !15, !alias.scope !64
+  %218 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store double %216, ptr %218, align 8, !tbaa !11, !alias.scope !64
+  br label %844
 
-220:                                              ; preds = %4
+219:                                              ; preds = %4
   %.not400 = icmp eq i64 %3, 0
-  br i1 %.not400, label %.thread, label %221
+  br i1 %.not400, label %.thread, label %220
 
-221:                                              ; preds = %220
-  %222 = load i32, ptr %2, align 8, !tbaa !8
-  %223 = icmp eq i32 %222, 3
-  br i1 %223, label %224, label %.thread
+220:                                              ; preds = %219
+  %221 = load i32, ptr %2, align 8, !tbaa !8
+  %222 = icmp eq i32 %221, 3
+  br i1 %222, label %223, label %.thread
 
-224:                                              ; preds = %221
-  %225 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %226 = load double, ptr %225, align 8, !tbaa !11
+223:                                              ; preds = %220
+  %224 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %225 = load double, ptr %224, align 8, !tbaa !11
   %.not402481.not = icmp eq i64 %3, 1
   br i1 %.not402481.not, label %.critedge, label %.lr.ph484
 
-.lr.ph484:                                        ; preds = %224, %230
-  %.0483 = phi double [ %234, %230 ], [ %226, %224 ]
-  %.0348482 = phi i64 [ %235, %230 ], [ 1, %224 ]
-  %227 = getelementptr inbounds nuw %"struct.Luau::Compile::Constant", ptr %2, i64 %.0348482
-  %228 = load i32, ptr %227, align 8, !tbaa !8
-  %.not401 = icmp eq i32 %228, 3
-  br i1 %.not401, label %230, label %229
+.lr.ph484:                                        ; preds = %223, %229
+  %.0483 = phi double [ %233, %229 ], [ %225, %223 ]
+  %.0348482 = phi i64 [ %234, %229 ], [ 1, %223 ]
+  %226 = getelementptr inbounds nuw %"struct.Luau::Compile::Constant", ptr %2, i64 %.0348482
+  %227 = load i32, ptr %226, align 8, !tbaa !8
+  %.not401 = icmp eq i32 %227, 3
+  br i1 %.not401, label %229, label %228
+
+228:                                              ; preds = %.lr.ph484
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false), !alias.scope !67
+  br label %844
 
 229:                                              ; preds = %.lr.ph484
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false), !alias.scope !67
-  br label %845
-
-230:                                              ; preds = %.lr.ph484
-  %231 = getelementptr inbounds nuw i8, ptr %227, i64 8
-  %232 = load double, ptr %231, align 8, !tbaa !11
-  %233 = fcmp ogt double %232, %.0483
-  %234 = select i1 %233, double %232, double %.0483
-  %235 = add nuw i64 %.0348482, 1
-  %exitcond495.not = icmp eq i64 %235, %3
+  %230 = getelementptr inbounds nuw i8, ptr %226, i64 8
+  %231 = load double, ptr %230, align 8, !tbaa !11
+  %232 = fcmp ogt double %231, %.0483
+  %233 = select i1 %232, double %231, double %.0483
+  %234 = add nuw i64 %.0348482, 1
+  %exitcond495.not = icmp eq i64 %234, %3
   br i1 %exitcond495.not, label %.critedge, label %.lr.ph484, !llvm.loop !70
 
-.critedge:                                        ; preds = %230, %224
-  %.0.lcssa = phi double [ %226, %224 ], [ %234, %230 ]
+.critedge:                                        ; preds = %229, %223
+  %.0.lcssa = phi double [ %225, %223 ], [ %233, %229 ]
   store i32 3, ptr %0, align 8, !tbaa !8, !alias.scope !72
-  %236 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 0, ptr %236, align 4, !tbaa !15, !alias.scope !72
-  %237 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double %.0.lcssa, ptr %237, align 8, !tbaa !11, !alias.scope !72
-  br label %845
+  %235 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 0, ptr %235, align 4, !tbaa !15, !alias.scope !72
+  %236 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store double %.0.lcssa, ptr %236, align 8, !tbaa !11, !alias.scope !72
+  br label %844
 
-238:                                              ; preds = %4
+237:                                              ; preds = %4
   %.not397 = icmp eq i64 %3, 0
-  br i1 %.not397, label %.thread, label %239
+  br i1 %.not397, label %.thread, label %238
 
-239:                                              ; preds = %238
-  %240 = load i32, ptr %2, align 8, !tbaa !8
-  %241 = icmp eq i32 %240, 3
-  br i1 %241, label %242, label %.thread
+238:                                              ; preds = %237
+  %239 = load i32, ptr %2, align 8, !tbaa !8
+  %240 = icmp eq i32 %239, 3
+  br i1 %240, label %241, label %.thread
 
-242:                                              ; preds = %239
-  %243 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %244 = load double, ptr %243, align 8, !tbaa !11
+241:                                              ; preds = %238
+  %242 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %243 = load double, ptr %242, align 8, !tbaa !11
   %.not399476.not = icmp eq i64 %3, 1
   br i1 %.not399476.not, label %.critedge404, label %.lr.ph479
 
-.lr.ph479:                                        ; preds = %242, %248
-  %.0350478 = phi double [ %252, %248 ], [ %244, %242 ]
-  %.0351477 = phi i64 [ %253, %248 ], [ 1, %242 ]
-  %245 = getelementptr inbounds nuw %"struct.Luau::Compile::Constant", ptr %2, i64 %.0351477
-  %246 = load i32, ptr %245, align 8, !tbaa !8
-  %.not398 = icmp eq i32 %246, 3
-  br i1 %.not398, label %248, label %247
+.lr.ph479:                                        ; preds = %241, %247
+  %.0350478 = phi double [ %251, %247 ], [ %243, %241 ]
+  %.0351477 = phi i64 [ %252, %247 ], [ 1, %241 ]
+  %244 = getelementptr inbounds nuw %"struct.Luau::Compile::Constant", ptr %2, i64 %.0351477
+  %245 = load i32, ptr %244, align 8, !tbaa !8
+  %.not398 = icmp eq i32 %245, 3
+  br i1 %.not398, label %247, label %246
+
+246:                                              ; preds = %.lr.ph479
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false), !alias.scope !75
+  br label %844
 
 247:                                              ; preds = %.lr.ph479
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false), !alias.scope !75
-  br label %845
-
-248:                                              ; preds = %.lr.ph479
-  %249 = getelementptr inbounds nuw i8, ptr %245, i64 8
-  %250 = load double, ptr %249, align 8, !tbaa !11
-  %251 = fcmp olt double %250, %.0350478
-  %252 = select i1 %251, double %250, double %.0350478
-  %253 = add nuw i64 %.0351477, 1
-  %exitcond494.not = icmp eq i64 %253, %3
+  %248 = getelementptr inbounds nuw i8, ptr %244, i64 8
+  %249 = load double, ptr %248, align 8, !tbaa !11
+  %250 = fcmp olt double %249, %.0350478
+  %251 = select i1 %250, double %249, double %.0350478
+  %252 = add nuw i64 %.0351477, 1
+  %exitcond494.not = icmp eq i64 %252, %3
   br i1 %exitcond494.not, label %.critedge404, label %.lr.ph479, !llvm.loop !78
 
-.critedge404:                                     ; preds = %248, %242
-  %.0350.lcssa = phi double [ %244, %242 ], [ %252, %248 ]
+.critedge404:                                     ; preds = %247, %241
+  %.0350.lcssa = phi double [ %243, %241 ], [ %251, %247 ]
   store i32 3, ptr %0, align 8, !tbaa !8, !alias.scope !79
-  %254 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 0, ptr %254, align 4, !tbaa !15, !alias.scope !79
-  %255 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double %.0350.lcssa, ptr %255, align 8, !tbaa !11, !alias.scope !79
-  br label %845
+  %253 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 0, ptr %253, align 4, !tbaa !15, !alias.scope !79
+  %254 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store double %.0350.lcssa, ptr %254, align 8, !tbaa !11, !alias.scope !79
+  br label %844
 
-256:                                              ; preds = %4
-  %257 = icmp eq i64 %3, 2
-  br i1 %257, label %258, label %.thread
+255:                                              ; preds = %4
+  %256 = icmp eq i64 %3, 2
+  br i1 %256, label %257, label %.thread
 
-258:                                              ; preds = %256
-  %259 = load i32, ptr %2, align 8, !tbaa !8
-  %260 = icmp eq i32 %259, 3
-  br i1 %260, label %261, label %.thread
+257:                                              ; preds = %255
+  %258 = load i32, ptr %2, align 8, !tbaa !8
+  %259 = icmp eq i32 %258, 3
+  br i1 %259, label %260, label %.thread
 
-261:                                              ; preds = %258
-  %262 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %263 = load i32, ptr %262, align 8, !tbaa !8
-  %264 = icmp eq i32 %263, 3
-  br i1 %264, label %265, label %.thread
+260:                                              ; preds = %257
+  %261 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %262 = load i32, ptr %261, align 8, !tbaa !8
+  %263 = icmp eq i32 %262, 3
+  br i1 %263, label %264, label %.thread
 
-265:                                              ; preds = %261
-  %266 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %267 = load double, ptr %266, align 8, !tbaa !11
-  %268 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %269 = load double, ptr %268, align 8, !tbaa !11
-  %270 = tail call double @pow(double noundef %267, double noundef %269) #10, !tbaa !4
+264:                                              ; preds = %260
+  %265 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %266 = load double, ptr %265, align 8, !tbaa !11
+  %267 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %268 = load double, ptr %267, align 8, !tbaa !11
+  %269 = tail call double @pow(double noundef %266, double noundef %268) #10, !tbaa !4
   store i32 3, ptr %0, align 8, !tbaa !8, !alias.scope !82
-  %271 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 0, ptr %271, align 4, !tbaa !15, !alias.scope !82
-  %272 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double %270, ptr %272, align 8, !tbaa !11, !alias.scope !82
-  br label %845
+  %270 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 0, ptr %270, align 4, !tbaa !15, !alias.scope !82
+  %271 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store double %269, ptr %271, align 8, !tbaa !11, !alias.scope !82
+  br label %844
 
-273:                                              ; preds = %4
-  %274 = icmp eq i64 %3, 1
-  br i1 %274, label %275, label %.thread
+272:                                              ; preds = %4
+  %273 = icmp eq i64 %3, 1
+  br i1 %273, label %274, label %.thread
 
-275:                                              ; preds = %273
-  %276 = load i32, ptr %2, align 8, !tbaa !8
-  %277 = icmp eq i32 %276, 3
-  br i1 %277, label %278, label %.thread
+274:                                              ; preds = %272
+  %275 = load i32, ptr %2, align 8, !tbaa !8
+  %276 = icmp eq i32 %275, 3
+  br i1 %276, label %277, label %.thread
 
-278:                                              ; preds = %275
-  %279 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %280 = load double, ptr %279, align 8, !tbaa !11
-  %281 = fmul double %280, 0x3F91DF46A2529D39
+277:                                              ; preds = %274
+  %278 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %279 = load double, ptr %278, align 8, !tbaa !11
+  %280 = fmul double %279, 0x3F91DF46A2529D39
   store i32 3, ptr %0, align 8, !tbaa !8, !alias.scope !85
-  %282 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 0, ptr %282, align 4, !tbaa !15, !alias.scope !85
-  %283 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double %281, ptr %283, align 8, !tbaa !11, !alias.scope !85
-  br label %845
+  %281 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 0, ptr %281, align 4, !tbaa !15, !alias.scope !85
+  %282 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store double %280, ptr %282, align 8, !tbaa !11, !alias.scope !85
+  br label %844
 
-284:                                              ; preds = %4
-  %285 = icmp eq i64 %3, 1
-  br i1 %285, label %286, label %.thread
+283:                                              ; preds = %4
+  %284 = icmp eq i64 %3, 1
+  br i1 %284, label %285, label %.thread
 
-286:                                              ; preds = %284
-  %287 = load i32, ptr %2, align 8, !tbaa !8
-  %288 = icmp eq i32 %287, 3
-  br i1 %288, label %289, label %.thread
+285:                                              ; preds = %283
+  %286 = load i32, ptr %2, align 8, !tbaa !8
+  %287 = icmp eq i32 %286, 3
+  br i1 %287, label %288, label %.thread
 
-289:                                              ; preds = %286
-  %290 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %291 = load double, ptr %290, align 8, !tbaa !11
-  %292 = tail call double @sinh(double noundef %291) #10, !tbaa !4
+288:                                              ; preds = %285
+  %289 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %290 = load double, ptr %289, align 8, !tbaa !11
+  %291 = tail call double @sinh(double noundef %290) #10, !tbaa !4
   store i32 3, ptr %0, align 8, !tbaa !8, !alias.scope !88
-  %293 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 0, ptr %293, align 4, !tbaa !15, !alias.scope !88
-  %294 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double %292, ptr %294, align 8, !tbaa !11, !alias.scope !88
-  br label %845
+  %292 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 0, ptr %292, align 4, !tbaa !15, !alias.scope !88
+  %293 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store double %291, ptr %293, align 8, !tbaa !11, !alias.scope !88
+  br label %844
 
-295:                                              ; preds = %4
-  %296 = icmp eq i64 %3, 1
-  br i1 %296, label %297, label %.thread
+294:                                              ; preds = %4
+  %295 = icmp eq i64 %3, 1
+  br i1 %295, label %296, label %.thread
 
-297:                                              ; preds = %295
-  %298 = load i32, ptr %2, align 8, !tbaa !8
-  %299 = icmp eq i32 %298, 3
-  br i1 %299, label %300, label %.thread
+296:                                              ; preds = %294
+  %297 = load i32, ptr %2, align 8, !tbaa !8
+  %298 = icmp eq i32 %297, 3
+  br i1 %298, label %299, label %.thread
 
-300:                                              ; preds = %297
-  %301 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %302 = load double, ptr %301, align 8, !tbaa !11
-  %303 = tail call double @sin(double noundef %302) #10, !tbaa !4
+299:                                              ; preds = %296
+  %300 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %301 = load double, ptr %300, align 8, !tbaa !11
+  %302 = tail call double @sin(double noundef %301) #10, !tbaa !4
   store i32 3, ptr %0, align 8, !tbaa !8, !alias.scope !91
-  %304 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 0, ptr %304, align 4, !tbaa !15, !alias.scope !91
-  %305 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double %303, ptr %305, align 8, !tbaa !11, !alias.scope !91
-  br label %845
+  %303 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 0, ptr %303, align 4, !tbaa !15, !alias.scope !91
+  %304 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store double %302, ptr %304, align 8, !tbaa !11, !alias.scope !91
+  br label %844
 
-306:                                              ; preds = %4
-  %307 = icmp eq i64 %3, 1
-  br i1 %307, label %308, label %.thread
+305:                                              ; preds = %4
+  %306 = icmp eq i64 %3, 1
+  br i1 %306, label %307, label %.thread
 
-308:                                              ; preds = %306
-  %309 = load i32, ptr %2, align 8, !tbaa !8
-  %310 = icmp eq i32 %309, 3
-  br i1 %310, label %311, label %.thread
+307:                                              ; preds = %305
+  %308 = load i32, ptr %2, align 8, !tbaa !8
+  %309 = icmp eq i32 %308, 3
+  br i1 %309, label %310, label %.thread
 
-311:                                              ; preds = %308
-  %312 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %313 = load double, ptr %312, align 8, !tbaa !11
-  %314 = tail call double @sqrt(double noundef %313) #10, !tbaa !4
+310:                                              ; preds = %307
+  %311 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %312 = load double, ptr %311, align 8, !tbaa !11
+  %313 = tail call double @sqrt(double noundef %312) #10, !tbaa !4
   store i32 3, ptr %0, align 8, !tbaa !8, !alias.scope !94
-  %315 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 0, ptr %315, align 4, !tbaa !15, !alias.scope !94
-  %316 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double %314, ptr %316, align 8, !tbaa !11, !alias.scope !94
-  br label %845
+  %314 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 0, ptr %314, align 4, !tbaa !15, !alias.scope !94
+  %315 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store double %313, ptr %315, align 8, !tbaa !11, !alias.scope !94
+  br label %844
 
-317:                                              ; preds = %4
-  %318 = icmp eq i64 %3, 1
-  br i1 %318, label %319, label %.thread
+316:                                              ; preds = %4
+  %317 = icmp eq i64 %3, 1
+  br i1 %317, label %318, label %.thread
 
-319:                                              ; preds = %317
-  %320 = load i32, ptr %2, align 8, !tbaa !8
-  %321 = icmp eq i32 %320, 3
-  br i1 %321, label %322, label %.thread
+318:                                              ; preds = %316
+  %319 = load i32, ptr %2, align 8, !tbaa !8
+  %320 = icmp eq i32 %319, 3
+  br i1 %320, label %321, label %.thread
 
-322:                                              ; preds = %319
-  %323 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %324 = load double, ptr %323, align 8, !tbaa !11
-  %325 = tail call double @tanh(double noundef %324) #10, !tbaa !4
+321:                                              ; preds = %318
+  %322 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %323 = load double, ptr %322, align 8, !tbaa !11
+  %324 = tail call double @tanh(double noundef %323) #10, !tbaa !4
   store i32 3, ptr %0, align 8, !tbaa !8, !alias.scope !97
-  %326 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 0, ptr %326, align 4, !tbaa !15, !alias.scope !97
-  %327 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double %325, ptr %327, align 8, !tbaa !11, !alias.scope !97
-  br label %845
+  %325 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 0, ptr %325, align 4, !tbaa !15, !alias.scope !97
+  %326 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store double %324, ptr %326, align 8, !tbaa !11, !alias.scope !97
+  br label %844
 
-328:                                              ; preds = %4
-  %329 = icmp eq i64 %3, 1
-  br i1 %329, label %330, label %.thread
+327:                                              ; preds = %4
+  %328 = icmp eq i64 %3, 1
+  br i1 %328, label %329, label %.thread
 
-330:                                              ; preds = %328
-  %331 = load i32, ptr %2, align 8, !tbaa !8
-  %332 = icmp eq i32 %331, 3
-  br i1 %332, label %333, label %.thread
+329:                                              ; preds = %327
+  %330 = load i32, ptr %2, align 8, !tbaa !8
+  %331 = icmp eq i32 %330, 3
+  br i1 %331, label %332, label %.thread
 
-333:                                              ; preds = %330
-  %334 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %335 = load double, ptr %334, align 8, !tbaa !11
-  %336 = tail call double @tan(double noundef %335) #10, !tbaa !4
+332:                                              ; preds = %329
+  %333 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %334 = load double, ptr %333, align 8, !tbaa !11
+  %335 = tail call double @tan(double noundef %334) #10, !tbaa !4
   store i32 3, ptr %0, align 8, !tbaa !8, !alias.scope !100
-  %337 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 0, ptr %337, align 4, !tbaa !15, !alias.scope !100
-  %338 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double %336, ptr %338, align 8, !tbaa !11, !alias.scope !100
-  br label %845
+  %336 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 0, ptr %336, align 4, !tbaa !15, !alias.scope !100
+  %337 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store double %335, ptr %337, align 8, !tbaa !11, !alias.scope !100
+  br label %844
 
-339:                                              ; preds = %4
-  %340 = icmp eq i64 %3, 2
-  br i1 %340, label %341, label %.thread
+338:                                              ; preds = %4
+  %339 = icmp eq i64 %3, 2
+  br i1 %339, label %340, label %.thread
 
-341:                                              ; preds = %339
-  %342 = load i32, ptr %2, align 8, !tbaa !8
-  %343 = icmp eq i32 %342, 3
-  br i1 %343, label %344, label %.thread
+340:                                              ; preds = %338
+  %341 = load i32, ptr %2, align 8, !tbaa !8
+  %342 = icmp eq i32 %341, 3
+  br i1 %342, label %343, label %.thread
 
-344:                                              ; preds = %341
-  %345 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %346 = load i32, ptr %345, align 8, !tbaa !8
-  %347 = icmp eq i32 %346, 3
-  br i1 %347, label %348, label %.thread
+343:                                              ; preds = %340
+  %344 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %345 = load i32, ptr %344, align 8, !tbaa !8
+  %346 = icmp eq i32 %345, 3
+  br i1 %346, label %347, label %.thread
 
-348:                                              ; preds = %344
-  %349 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %350 = load double, ptr %349, align 8, !tbaa !11
-  %351 = fptosi double %350 to i32
-  %352 = icmp ult i32 %351, 32
-  br i1 %352, label %353, label %.thread
+347:                                              ; preds = %343
+  %348 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %349 = load double, ptr %348, align 8, !tbaa !11
+  %350 = fptosi double %349 to i32
+  %351 = icmp ult i32 %350, 32
+  br i1 %351, label %352, label %.thread
 
-353:                                              ; preds = %348
-  %354 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %355 = load double, ptr %354, align 8, !tbaa !11
-  %356 = fptosi double %355 to i64
-  %357 = trunc i64 %356 to i32
-  %358 = ashr i32 %357, %351
-  %359 = uitofp i32 %358 to double
+352:                                              ; preds = %347
+  %353 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %354 = load double, ptr %353, align 8, !tbaa !11
+  %355 = fptosi double %354 to i64
+  %356 = trunc i64 %355 to i32
+  %357 = ashr i32 %356, %350
+  %358 = uitofp i32 %357 to double
   store i32 3, ptr %0, align 8, !tbaa !8, !alias.scope !103
-  %360 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 0, ptr %360, align 4, !tbaa !15, !alias.scope !103
-  %361 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double %359, ptr %361, align 8, !tbaa !11, !alias.scope !103
-  br label %845
+  %359 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 0, ptr %359, align 4, !tbaa !15, !alias.scope !103
+  %360 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store double %358, ptr %360, align 8, !tbaa !11, !alias.scope !103
+  br label %844
 
-362:                                              ; preds = %4
+361:                                              ; preds = %4
   %.not394 = icmp eq i64 %3, 0
-  br i1 %.not394, label %.thread, label %363
+  br i1 %.not394, label %.thread, label %362
 
-363:                                              ; preds = %362
-  %364 = load i32, ptr %2, align 8, !tbaa !8
-  %365 = icmp eq i32 %364, 3
-  br i1 %365, label %366, label %.thread
+362:                                              ; preds = %361
+  %363 = load i32, ptr %2, align 8, !tbaa !8
+  %364 = icmp eq i32 %363, 3
+  br i1 %364, label %365, label %.thread
 
-366:                                              ; preds = %363
-  %367 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %368 = load double, ptr %367, align 8, !tbaa !11
-  %369 = fptosi double %368 to i64
-  %370 = trunc i64 %369 to i32
+365:                                              ; preds = %362
+  %366 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %367 = load double, ptr %366, align 8, !tbaa !11
+  %368 = fptosi double %367 to i64
+  %369 = trunc i64 %368 to i32
   %.not396471.not = icmp eq i64 %3, 1
   br i1 %.not396471.not, label %.critedge406, label %.lr.ph474
 
-.lr.ph474:                                        ; preds = %366, %374
-  %.0352473 = phi i32 [ %379, %374 ], [ %370, %366 ]
-  %.0353472 = phi i64 [ %380, %374 ], [ 1, %366 ]
-  %371 = getelementptr inbounds nuw %"struct.Luau::Compile::Constant", ptr %2, i64 %.0353472
-  %372 = load i32, ptr %371, align 8, !tbaa !8
-  %.not395 = icmp eq i32 %372, 3
-  br i1 %.not395, label %374, label %373
+.lr.ph474:                                        ; preds = %365, %373
+  %.0352473 = phi i32 [ %378, %373 ], [ %369, %365 ]
+  %.0353472 = phi i64 [ %379, %373 ], [ 1, %365 ]
+  %370 = getelementptr inbounds nuw %"struct.Luau::Compile::Constant", ptr %2, i64 %.0353472
+  %371 = load i32, ptr %370, align 8, !tbaa !8
+  %.not395 = icmp eq i32 %371, 3
+  br i1 %.not395, label %373, label %372
+
+372:                                              ; preds = %.lr.ph474
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false), !alias.scope !106
+  br label %844
 
 373:                                              ; preds = %.lr.ph474
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false), !alias.scope !106
-  br label %845
-
-374:                                              ; preds = %.lr.ph474
-  %375 = getelementptr inbounds nuw i8, ptr %371, i64 8
-  %376 = load double, ptr %375, align 8, !tbaa !11
-  %377 = fptosi double %376 to i64
-  %378 = trunc i64 %377 to i32
-  %379 = and i32 %.0352473, %378
-  %380 = add nuw i64 %.0353472, 1
-  %exitcond493.not = icmp eq i64 %380, %3
+  %374 = getelementptr inbounds nuw i8, ptr %370, i64 8
+  %375 = load double, ptr %374, align 8, !tbaa !11
+  %376 = fptosi double %375 to i64
+  %377 = trunc i64 %376 to i32
+  %378 = and i32 %.0352473, %377
+  %379 = add nuw i64 %.0353472, 1
+  %exitcond493.not = icmp eq i64 %379, %3
   br i1 %exitcond493.not, label %.critedge406, label %.lr.ph474, !llvm.loop !109
 
-.critedge406:                                     ; preds = %374, %366
-  %.0352.lcssa = phi i32 [ %370, %366 ], [ %379, %374 ]
-  %381 = uitofp i32 %.0352.lcssa to double
+.critedge406:                                     ; preds = %373, %365
+  %.0352.lcssa = phi i32 [ %369, %365 ], [ %378, %373 ]
+  %380 = uitofp i32 %.0352.lcssa to double
   store i32 3, ptr %0, align 8, !tbaa !8, !alias.scope !110
-  %382 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 0, ptr %382, align 4, !tbaa !15, !alias.scope !110
-  %383 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double %381, ptr %383, align 8, !tbaa !11, !alias.scope !110
-  br label %845
+  %381 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 0, ptr %381, align 4, !tbaa !15, !alias.scope !110
+  %382 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store double %380, ptr %382, align 8, !tbaa !11, !alias.scope !110
+  br label %844
 
-384:                                              ; preds = %4
-  %385 = icmp eq i64 %3, 1
-  br i1 %385, label %386, label %.thread
+383:                                              ; preds = %4
+  %384 = icmp eq i64 %3, 1
+  br i1 %384, label %385, label %.thread
 
-386:                                              ; preds = %384
-  %387 = load i32, ptr %2, align 8, !tbaa !8
-  %388 = icmp eq i32 %387, 3
-  br i1 %388, label %389, label %.thread
+385:                                              ; preds = %383
+  %386 = load i32, ptr %2, align 8, !tbaa !8
+  %387 = icmp eq i32 %386, 3
+  br i1 %387, label %388, label %.thread
 
-389:                                              ; preds = %386
-  %390 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %391 = load double, ptr %390, align 8, !tbaa !11
-  %392 = fptosi double %391 to i64
-  %393 = trunc i64 %392 to i32
-  %394 = xor i32 %393, -1
-  %395 = uitofp i32 %394 to double
+388:                                              ; preds = %385
+  %389 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %390 = load double, ptr %389, align 8, !tbaa !11
+  %391 = fptosi double %390 to i64
+  %392 = trunc i64 %391 to i32
+  %393 = xor i32 %392, -1
+  %394 = uitofp i32 %393 to double
   store i32 3, ptr %0, align 8, !tbaa !8, !alias.scope !113
-  %396 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 0, ptr %396, align 4, !tbaa !15, !alias.scope !113
-  %397 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double %395, ptr %397, align 8, !tbaa !11, !alias.scope !113
-  br label %845
+  %395 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 0, ptr %395, align 4, !tbaa !15, !alias.scope !113
+  %396 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store double %394, ptr %396, align 8, !tbaa !11, !alias.scope !113
+  br label %844
 
-398:                                              ; preds = %4
+397:                                              ; preds = %4
   %.not391 = icmp eq i64 %3, 0
-  br i1 %.not391, label %.thread, label %399
+  br i1 %.not391, label %.thread, label %398
 
-399:                                              ; preds = %398
-  %400 = load i32, ptr %2, align 8, !tbaa !8
-  %401 = icmp eq i32 %400, 3
-  br i1 %401, label %402, label %.thread
+398:                                              ; preds = %397
+  %399 = load i32, ptr %2, align 8, !tbaa !8
+  %400 = icmp eq i32 %399, 3
+  br i1 %400, label %401, label %.thread
 
-402:                                              ; preds = %399
-  %403 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %404 = load double, ptr %403, align 8, !tbaa !11
-  %405 = fptosi double %404 to i64
-  %406 = trunc i64 %405 to i32
+401:                                              ; preds = %398
+  %402 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %403 = load double, ptr %402, align 8, !tbaa !11
+  %404 = fptosi double %403 to i64
+  %405 = trunc i64 %404 to i32
   %.not393466.not = icmp eq i64 %3, 1
   br i1 %.not393466.not, label %.critedge408, label %.lr.ph469
 
-.lr.ph469:                                        ; preds = %402, %410
-  %.0354468 = phi i32 [ %415, %410 ], [ %406, %402 ]
-  %.0355467 = phi i64 [ %416, %410 ], [ 1, %402 ]
-  %407 = getelementptr inbounds nuw %"struct.Luau::Compile::Constant", ptr %2, i64 %.0355467
-  %408 = load i32, ptr %407, align 8, !tbaa !8
-  %.not392 = icmp eq i32 %408, 3
-  br i1 %.not392, label %410, label %409
+.lr.ph469:                                        ; preds = %401, %409
+  %.0354468 = phi i32 [ %414, %409 ], [ %405, %401 ]
+  %.0355467 = phi i64 [ %415, %409 ], [ 1, %401 ]
+  %406 = getelementptr inbounds nuw %"struct.Luau::Compile::Constant", ptr %2, i64 %.0355467
+  %407 = load i32, ptr %406, align 8, !tbaa !8
+  %.not392 = icmp eq i32 %407, 3
+  br i1 %.not392, label %409, label %408
+
+408:                                              ; preds = %.lr.ph469
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false), !alias.scope !116
+  br label %844
 
 409:                                              ; preds = %.lr.ph469
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false), !alias.scope !116
-  br label %845
-
-410:                                              ; preds = %.lr.ph469
-  %411 = getelementptr inbounds nuw i8, ptr %407, i64 8
-  %412 = load double, ptr %411, align 8, !tbaa !11
-  %413 = fptosi double %412 to i64
-  %414 = trunc i64 %413 to i32
-  %415 = or i32 %.0354468, %414
-  %416 = add nuw i64 %.0355467, 1
-  %exitcond492.not = icmp eq i64 %416, %3
+  %410 = getelementptr inbounds nuw i8, ptr %406, i64 8
+  %411 = load double, ptr %410, align 8, !tbaa !11
+  %412 = fptosi double %411 to i64
+  %413 = trunc i64 %412 to i32
+  %414 = or i32 %.0354468, %413
+  %415 = add nuw i64 %.0355467, 1
+  %exitcond492.not = icmp eq i64 %415, %3
   br i1 %exitcond492.not, label %.critedge408, label %.lr.ph469, !llvm.loop !119
 
-.critedge408:                                     ; preds = %410, %402
-  %.0354.lcssa = phi i32 [ %406, %402 ], [ %415, %410 ]
-  %417 = uitofp i32 %.0354.lcssa to double
+.critedge408:                                     ; preds = %409, %401
+  %.0354.lcssa = phi i32 [ %405, %401 ], [ %414, %409 ]
+  %416 = uitofp i32 %.0354.lcssa to double
   store i32 3, ptr %0, align 8, !tbaa !8, !alias.scope !120
-  %418 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 0, ptr %418, align 4, !tbaa !15, !alias.scope !120
-  %419 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double %417, ptr %419, align 8, !tbaa !11, !alias.scope !120
-  br label %845
+  %417 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 0, ptr %417, align 4, !tbaa !15, !alias.scope !120
+  %418 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store double %416, ptr %418, align 8, !tbaa !11, !alias.scope !120
+  br label %844
 
-420:                                              ; preds = %4
+419:                                              ; preds = %4
   %.not388 = icmp eq i64 %3, 0
-  br i1 %.not388, label %.thread, label %421
+  br i1 %.not388, label %.thread, label %420
 
-421:                                              ; preds = %420
-  %422 = load i32, ptr %2, align 8, !tbaa !8
-  %423 = icmp eq i32 %422, 3
-  br i1 %423, label %424, label %.thread
+420:                                              ; preds = %419
+  %421 = load i32, ptr %2, align 8, !tbaa !8
+  %422 = icmp eq i32 %421, 3
+  br i1 %422, label %423, label %.thread
 
-424:                                              ; preds = %421
-  %425 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %426 = load double, ptr %425, align 8, !tbaa !11
-  %427 = fptosi double %426 to i64
-  %428 = trunc i64 %427 to i32
+423:                                              ; preds = %420
+  %424 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %425 = load double, ptr %424, align 8, !tbaa !11
+  %426 = fptosi double %425 to i64
+  %427 = trunc i64 %426 to i32
   %.not390461.not = icmp eq i64 %3, 1
   br i1 %.not390461.not, label %.critedge410, label %.lr.ph464
 
-.lr.ph464:                                        ; preds = %424, %432
-  %.0356463 = phi i32 [ %437, %432 ], [ %428, %424 ]
-  %.0357462 = phi i64 [ %438, %432 ], [ 1, %424 ]
-  %429 = getelementptr inbounds nuw %"struct.Luau::Compile::Constant", ptr %2, i64 %.0357462
-  %430 = load i32, ptr %429, align 8, !tbaa !8
-  %.not389 = icmp eq i32 %430, 3
-  br i1 %.not389, label %432, label %431
+.lr.ph464:                                        ; preds = %423, %431
+  %.0356463 = phi i32 [ %436, %431 ], [ %427, %423 ]
+  %.0357462 = phi i64 [ %437, %431 ], [ 1, %423 ]
+  %428 = getelementptr inbounds nuw %"struct.Luau::Compile::Constant", ptr %2, i64 %.0357462
+  %429 = load i32, ptr %428, align 8, !tbaa !8
+  %.not389 = icmp eq i32 %429, 3
+  br i1 %.not389, label %431, label %430
+
+430:                                              ; preds = %.lr.ph464
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false), !alias.scope !123
+  br label %844
 
 431:                                              ; preds = %.lr.ph464
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false), !alias.scope !123
-  br label %845
-
-432:                                              ; preds = %.lr.ph464
-  %433 = getelementptr inbounds nuw i8, ptr %429, i64 8
-  %434 = load double, ptr %433, align 8, !tbaa !11
-  %435 = fptosi double %434 to i64
-  %436 = trunc i64 %435 to i32
-  %437 = xor i32 %.0356463, %436
-  %438 = add nuw i64 %.0357462, 1
-  %exitcond491.not = icmp eq i64 %438, %3
+  %432 = getelementptr inbounds nuw i8, ptr %428, i64 8
+  %433 = load double, ptr %432, align 8, !tbaa !11
+  %434 = fptosi double %433 to i64
+  %435 = trunc i64 %434 to i32
+  %436 = xor i32 %.0356463, %435
+  %437 = add nuw i64 %.0357462, 1
+  %exitcond491.not = icmp eq i64 %437, %3
   br i1 %exitcond491.not, label %.critedge410, label %.lr.ph464, !llvm.loop !126
 
-.critedge410:                                     ; preds = %432, %424
-  %.0356.lcssa = phi i32 [ %428, %424 ], [ %437, %432 ]
-  %439 = uitofp i32 %.0356.lcssa to double
+.critedge410:                                     ; preds = %431, %423
+  %.0356.lcssa = phi i32 [ %427, %423 ], [ %436, %431 ]
+  %438 = uitofp i32 %.0356.lcssa to double
   store i32 3, ptr %0, align 8, !tbaa !8, !alias.scope !127
-  %440 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 0, ptr %440, align 4, !tbaa !15, !alias.scope !127
-  %441 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double %439, ptr %441, align 8, !tbaa !11, !alias.scope !127
-  br label %845
+  %439 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 0, ptr %439, align 4, !tbaa !15, !alias.scope !127
+  %440 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store double %438, ptr %440, align 8, !tbaa !11, !alias.scope !127
+  br label %844
 
-442:                                              ; preds = %4
+441:                                              ; preds = %4
   %.not385 = icmp eq i64 %3, 0
-  br i1 %.not385, label %.thread, label %443
+  br i1 %.not385, label %.thread, label %442
 
-443:                                              ; preds = %442
-  %444 = load i32, ptr %2, align 8, !tbaa !8
-  %445 = icmp eq i32 %444, 3
-  br i1 %445, label %446, label %.thread
+442:                                              ; preds = %441
+  %443 = load i32, ptr %2, align 8, !tbaa !8
+  %444 = icmp eq i32 %443, 3
+  br i1 %444, label %445, label %.thread
 
-446:                                              ; preds = %443
-  %447 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %448 = load double, ptr %447, align 8, !tbaa !11
-  %449 = fptosi double %448 to i64
-  %450 = trunc i64 %449 to i32
+445:                                              ; preds = %442
+  %446 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %447 = load double, ptr %446, align 8, !tbaa !11
+  %448 = fptosi double %447 to i64
+  %449 = trunc i64 %448 to i32
   %.not387458.not = icmp eq i64 %3, 1
   br i1 %.not387458.not, label %.critedge412, label %.lr.ph
 
-.lr.ph:                                           ; preds = %446, %454
-  %.0358460 = phi i32 [ %459, %454 ], [ %450, %446 ]
-  %.0359459 = phi i64 [ %460, %454 ], [ 1, %446 ]
-  %451 = getelementptr inbounds nuw %"struct.Luau::Compile::Constant", ptr %2, i64 %.0359459
-  %452 = load i32, ptr %451, align 8, !tbaa !8
-  %.not386 = icmp eq i32 %452, 3
-  br i1 %.not386, label %454, label %453
+.lr.ph:                                           ; preds = %445, %453
+  %.0358460 = phi i32 [ %458, %453 ], [ %449, %445 ]
+  %.0359459 = phi i64 [ %459, %453 ], [ 1, %445 ]
+  %450 = getelementptr inbounds nuw %"struct.Luau::Compile::Constant", ptr %2, i64 %.0359459
+  %451 = load i32, ptr %450, align 8, !tbaa !8
+  %.not386 = icmp eq i32 %451, 3
+  br i1 %.not386, label %453, label %452
+
+452:                                              ; preds = %.lr.ph
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false), !alias.scope !130
+  br label %844
 
 453:                                              ; preds = %.lr.ph
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false), !alias.scope !130
-  br label %845
-
-454:                                              ; preds = %.lr.ph
-  %455 = getelementptr inbounds nuw i8, ptr %451, i64 8
-  %456 = load double, ptr %455, align 8, !tbaa !11
-  %457 = fptosi double %456 to i64
-  %458 = trunc i64 %457 to i32
-  %459 = and i32 %.0358460, %458
-  %460 = add nuw i64 %.0359459, 1
-  %exitcond.not = icmp eq i64 %460, %3
+  %454 = getelementptr inbounds nuw i8, ptr %450, i64 8
+  %455 = load double, ptr %454, align 8, !tbaa !11
+  %456 = fptosi double %455 to i64
+  %457 = trunc i64 %456 to i32
+  %458 = and i32 %.0358460, %457
+  %459 = add nuw i64 %.0359459, 1
+  %exitcond.not = icmp eq i64 %459, %3
   br i1 %exitcond.not, label %.critedge412, label %.lr.ph, !llvm.loop !133
 
-.critedge412:                                     ; preds = %454, %446
-  %.0358.lcssa = phi i32 [ %450, %446 ], [ %459, %454 ]
-  %461 = icmp ne i32 %.0358.lcssa, 0
-  %462 = zext i1 %461 to i8
+.critedge412:                                     ; preds = %453, %445
+  %.0358.lcssa = phi i32 [ %449, %445 ], [ %458, %453 ]
+  %460 = icmp ne i32 %.0358.lcssa, 0
+  %461 = zext i1 %460 to i8
   store i32 2, ptr %0, align 8, !tbaa !8, !alias.scope !134
-  %463 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 0, ptr %463, align 4, !tbaa !15, !alias.scope !134
-  %464 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr null, ptr %464, align 8, !tbaa !11, !alias.scope !134
-  store i8 %462, ptr %464, align 8, !tbaa !11, !alias.scope !134
-  br label %845
+  %462 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 0, ptr %462, align 4, !tbaa !15, !alias.scope !134
+  %463 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr null, ptr %463, align 8, !tbaa !11, !alias.scope !134
+  store i8 %461, ptr %463, align 8, !tbaa !11, !alias.scope !134
+  br label %844
 
-465:                                              ; preds = %4
-  %466 = icmp ugt i64 %3, 1
-  br i1 %466, label %467, label %.thread
+464:                                              ; preds = %4
+  %465 = icmp ugt i64 %3, 1
+  br i1 %465, label %466, label %.thread
 
-467:                                              ; preds = %465
-  %468 = load i32, ptr %2, align 8, !tbaa !8
-  %469 = icmp eq i32 %468, 3
-  br i1 %469, label %470, label %.thread
+466:                                              ; preds = %464
+  %467 = load i32, ptr %2, align 8, !tbaa !8
+  %468 = icmp eq i32 %467, 3
+  br i1 %468, label %469, label %.thread
 
-470:                                              ; preds = %467
-  %471 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %472 = load i32, ptr %471, align 8, !tbaa !8
-  %473 = icmp eq i32 %472, 3
-  br i1 %473, label %474, label %.thread
+469:                                              ; preds = %466
+  %470 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %471 = load i32, ptr %470, align 8, !tbaa !8
+  %472 = icmp eq i32 %471, 3
+  br i1 %472, label %473, label %.thread
 
-474:                                              ; preds = %470
-  %475 = icmp eq i64 %3, 2
-  br i1 %475, label %.thread431, label %476
+473:                                              ; preds = %469
+  %474 = icmp eq i64 %3, 2
+  br i1 %474, label %.thread431, label %475
 
-476:                                              ; preds = %474
-  %477 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %478 = load i32, ptr %477, align 8, !tbaa !8
-  %479 = icmp eq i32 %478, 3
-  br i1 %479, label %480, label %.thread
+475:                                              ; preds = %473
+  %476 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %477 = load i32, ptr %476, align 8, !tbaa !8
+  %478 = icmp eq i32 %477, 3
+  br i1 %478, label %479, label %.thread
 
-480:                                              ; preds = %476
-  %481 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %482 = load double, ptr %481, align 8, !tbaa !11
-  %483 = fptosi double %482 to i32
+479:                                              ; preds = %475
+  %480 = getelementptr inbounds nuw i8, ptr %2, i64 56
+  %481 = load double, ptr %480, align 8, !tbaa !11
+  %482 = fptosi double %481 to i32
   br label %.thread431
 
-.thread431:                                       ; preds = %474, %480
-  %484 = phi i32 [ %483, %480 ], [ 1, %474 ]
+.thread431:                                       ; preds = %473, %479
+  %483 = phi i32 [ %482, %479 ], [ 1, %473 ]
   %.in450.in = getelementptr inbounds nuw i8, ptr %2, i64 32
   %.in450 = load double, ptr %.in450.in, align 8, !tbaa !11
-  %485 = fptosi double %.in450 to i32
-  %486 = icmp sgt i32 %485, -1
-  %487 = icmp sgt i32 %484, 0
-  %or.cond = select i1 %486, i1 %487, i1 false
-  %488 = add nuw nsw i32 %484, %485
-  %489 = icmp slt i32 %488, 33
-  %or.cond414 = select i1 %or.cond, i1 %489, i1 false
-  br i1 %or.cond414, label %490, label %.thread
+  %484 = fptosi double %.in450 to i32
+  %485 = icmp sgt i32 %484, -1
+  %486 = icmp sgt i32 %483, 0
+  %or.cond = select i1 %485, i1 %486, i1 false
+  %487 = add nuw nsw i32 %483, %484
+  %488 = icmp slt i32 %487, 33
+  %or.cond414 = select i1 %or.cond, i1 %488, i1 false
+  br i1 %or.cond414, label %489, label %.thread
 
-490:                                              ; preds = %.thread431
+489:                                              ; preds = %.thread431
   %.in451.in.in = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.in451.in = load double, ptr %.in451.in.in, align 8, !tbaa !11
   %.in451 = fptosi double %.in451.in to i64
-  %491 = trunc i64 %.in451 to i32
-  %492 = add nsw i32 %484, -1
-  %493 = shl i32 -2, %492
-  %494 = xor i32 %493, -1
-  %495 = lshr i32 %491, %485
-  %496 = and i32 %495, %494
-  %497 = uitofp i32 %496 to double
+  %490 = trunc i64 %.in451 to i32
+  %491 = add nsw i32 %483, -1
+  %492 = shl i32 -2, %491
+  %493 = xor i32 %492, -1
+  %494 = lshr i32 %490, %484
+  %495 = and i32 %494, %493
+  %496 = uitofp i32 %495 to double
   store i32 3, ptr %0, align 8, !tbaa !8, !alias.scope !137
-  %498 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 0, ptr %498, align 4, !tbaa !15, !alias.scope !137
-  %499 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double %497, ptr %499, align 8, !tbaa !11, !alias.scope !137
-  br label %845
+  %497 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 0, ptr %497, align 4, !tbaa !15, !alias.scope !137
+  %498 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store double %496, ptr %498, align 8, !tbaa !11, !alias.scope !137
+  br label %844
 
-500:                                              ; preds = %4
-  %501 = icmp eq i64 %3, 2
-  br i1 %501, label %502, label %.thread
+499:                                              ; preds = %4
+  %500 = icmp eq i64 %3, 2
+  br i1 %500, label %501, label %.thread
 
-502:                                              ; preds = %500
-  %503 = load i32, ptr %2, align 8, !tbaa !8
-  %504 = icmp eq i32 %503, 3
-  br i1 %504, label %505, label %.thread
+501:                                              ; preds = %499
+  %502 = load i32, ptr %2, align 8, !tbaa !8
+  %503 = icmp eq i32 %502, 3
+  br i1 %503, label %504, label %.thread
 
-505:                                              ; preds = %502
-  %506 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %507 = load i32, ptr %506, align 8, !tbaa !8
-  %508 = icmp eq i32 %507, 3
-  br i1 %508, label %509, label %.thread
+504:                                              ; preds = %501
+  %505 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %506 = load i32, ptr %505, align 8, !tbaa !8
+  %507 = icmp eq i32 %506, 3
+  br i1 %507, label %508, label %.thread
 
-509:                                              ; preds = %505
-  %510 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %511 = load double, ptr %510, align 8, !tbaa !11
-  %512 = fptosi double %511 to i64
-  %513 = trunc i64 %512 to i32
-  %514 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %515 = load double, ptr %514, align 8, !tbaa !11
-  %516 = fptosi double %515 to i32
-  %517 = tail call i32 @llvm.fshl.i32(i32 %513, i32 %513, i32 %516)
-  %518 = uitofp i32 %517 to double
+508:                                              ; preds = %504
+  %509 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %510 = load double, ptr %509, align 8, !tbaa !11
+  %511 = fptosi double %510 to i64
+  %512 = trunc i64 %511 to i32
+  %513 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %514 = load double, ptr %513, align 8, !tbaa !11
+  %515 = fptosi double %514 to i32
+  %516 = tail call i32 @llvm.fshl.i32(i32 %512, i32 %512, i32 %515)
+  %517 = uitofp i32 %516 to double
   store i32 3, ptr %0, align 8, !tbaa !8, !alias.scope !140
-  %519 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 0, ptr %519, align 4, !tbaa !15, !alias.scope !140
-  %520 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double %518, ptr %520, align 8, !tbaa !11, !alias.scope !140
-  br label %845
+  %518 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 0, ptr %518, align 4, !tbaa !15, !alias.scope !140
+  %519 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store double %517, ptr %519, align 8, !tbaa !11, !alias.scope !140
+  br label %844
 
-521:                                              ; preds = %4
-  %522 = icmp eq i64 %3, 2
-  br i1 %522, label %523, label %.thread
+520:                                              ; preds = %4
+  %521 = icmp eq i64 %3, 2
+  br i1 %521, label %522, label %.thread
 
-523:                                              ; preds = %521
-  %524 = load i32, ptr %2, align 8, !tbaa !8
-  %525 = icmp eq i32 %524, 3
-  br i1 %525, label %526, label %.thread
+522:                                              ; preds = %520
+  %523 = load i32, ptr %2, align 8, !tbaa !8
+  %524 = icmp eq i32 %523, 3
+  br i1 %524, label %525, label %.thread
 
-526:                                              ; preds = %523
-  %527 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %528 = load i32, ptr %527, align 8, !tbaa !8
-  %529 = icmp eq i32 %528, 3
-  br i1 %529, label %530, label %.thread
+525:                                              ; preds = %522
+  %526 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %527 = load i32, ptr %526, align 8, !tbaa !8
+  %528 = icmp eq i32 %527, 3
+  br i1 %528, label %529, label %.thread
 
-530:                                              ; preds = %526
-  %531 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %532 = load double, ptr %531, align 8, !tbaa !11
-  %533 = fptosi double %532 to i32
-  %534 = icmp ult i32 %533, 32
-  br i1 %534, label %535, label %.thread
+529:                                              ; preds = %525
+  %530 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %531 = load double, ptr %530, align 8, !tbaa !11
+  %532 = fptosi double %531 to i32
+  %533 = icmp ult i32 %532, 32
+  br i1 %533, label %534, label %.thread
 
-535:                                              ; preds = %530
-  %536 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %537 = load double, ptr %536, align 8, !tbaa !11
-  %538 = fptosi double %537 to i64
-  %539 = trunc i64 %538 to i32
-  %540 = shl i32 %539, %533
-  %541 = uitofp i32 %540 to double
+534:                                              ; preds = %529
+  %535 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %536 = load double, ptr %535, align 8, !tbaa !11
+  %537 = fptosi double %536 to i64
+  %538 = trunc i64 %537 to i32
+  %539 = shl i32 %538, %532
+  %540 = uitofp i32 %539 to double
   store i32 3, ptr %0, align 8, !tbaa !8, !alias.scope !143
-  %542 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 0, ptr %542, align 4, !tbaa !15, !alias.scope !143
-  %543 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double %541, ptr %543, align 8, !tbaa !11, !alias.scope !143
-  br label %845
+  %541 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 0, ptr %541, align 4, !tbaa !15, !alias.scope !143
+  %542 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store double %540, ptr %542, align 8, !tbaa !11, !alias.scope !143
+  br label %844
 
-544:                                              ; preds = %4
-  %545 = icmp ugt i64 %3, 2
-  br i1 %545, label %546, label %.thread
+543:                                              ; preds = %4
+  %544 = icmp ugt i64 %3, 2
+  br i1 %544, label %545, label %.thread
 
-546:                                              ; preds = %544
-  %547 = load i32, ptr %2, align 8, !tbaa !8
-  %548 = icmp eq i32 %547, 3
-  br i1 %548, label %549, label %.thread
+545:                                              ; preds = %543
+  %546 = load i32, ptr %2, align 8, !tbaa !8
+  %547 = icmp eq i32 %546, 3
+  br i1 %547, label %548, label %.thread
 
-549:                                              ; preds = %546
-  %550 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %551 = load i32, ptr %550, align 8, !tbaa !8
-  %552 = icmp eq i32 %551, 3
-  br i1 %552, label %553, label %.thread
+548:                                              ; preds = %545
+  %549 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %550 = load i32, ptr %549, align 8, !tbaa !8
+  %551 = icmp eq i32 %550, 3
+  br i1 %551, label %552, label %.thread
 
-553:                                              ; preds = %549
-  %554 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %555 = load i32, ptr %554, align 8, !tbaa !8
-  %556 = icmp eq i32 %555, 3
-  br i1 %556, label %557, label %.thread
+552:                                              ; preds = %548
+  %553 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %554 = load i32, ptr %553, align 8, !tbaa !8
+  %555 = icmp eq i32 %554, 3
+  br i1 %555, label %556, label %.thread
 
-557:                                              ; preds = %553
-  %558 = icmp eq i64 %3, 3
-  br i1 %558, label %.thread437, label %559
+556:                                              ; preds = %552
+  %557 = icmp eq i64 %3, 3
+  br i1 %557, label %.thread437, label %558
 
-559:                                              ; preds = %557
-  %560 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  %561 = load i32, ptr %560, align 8, !tbaa !8
-  %562 = icmp eq i32 %561, 3
-  br i1 %562, label %563, label %.thread
+558:                                              ; preds = %556
+  %559 = getelementptr inbounds nuw i8, ptr %2, i64 72
+  %560 = load i32, ptr %559, align 8, !tbaa !8
+  %561 = icmp eq i32 %560, 3
+  br i1 %561, label %562, label %.thread
 
-563:                                              ; preds = %559
-  %564 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  %565 = load double, ptr %564, align 8, !tbaa !11
-  %566 = fptosi double %565 to i32
+562:                                              ; preds = %558
+  %563 = getelementptr inbounds nuw i8, ptr %2, i64 80
+  %564 = load double, ptr %563, align 8, !tbaa !11
+  %565 = fptosi double %564 to i32
   br label %.thread437
 
-.thread437:                                       ; preds = %557, %563
-  %567 = phi i32 [ %566, %563 ], [ 1, %557 ]
+.thread437:                                       ; preds = %556, %562
+  %566 = phi i32 [ %565, %562 ], [ 1, %556 ]
   %.in.in = getelementptr inbounds nuw i8, ptr %2, i64 56
   %.in = load double, ptr %.in.in, align 8, !tbaa !11
-  %568 = fptosi double %.in to i32
-  %569 = icmp sgt i32 %568, -1
-  %570 = icmp sgt i32 %567, 0
-  %or.cond8 = select i1 %569, i1 %570, i1 false
-  %571 = add nuw nsw i32 %567, %568
-  %572 = icmp slt i32 %571, 33
-  %or.cond420 = select i1 %or.cond8, i1 %572, i1 false
-  br i1 %or.cond420, label %573, label %.thread
+  %567 = fptosi double %.in to i32
+  %568 = icmp sgt i32 %567, -1
+  %569 = icmp sgt i32 %566, 0
+  %or.cond8 = select i1 %568, i1 %569, i1 false
+  %570 = add nuw nsw i32 %566, %567
+  %571 = icmp slt i32 %570, 33
+  %or.cond420 = select i1 %or.cond8, i1 %571, i1 false
+  br i1 %or.cond420, label %572, label %.thread
 
-573:                                              ; preds = %.thread437
+572:                                              ; preds = %.thread437
   %.in449.in.in = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.in449.in = load double, ptr %.in449.in.in, align 8, !tbaa !11
   %.in449 = fptosi double %.in449.in to i64
-  %574 = trunc i64 %.in449 to i32
+  %573 = trunc i64 %.in449 to i32
   %.in448.in.in = getelementptr inbounds nuw i8, ptr %2, i64 32
   %.in448.in = load double, ptr %.in448.in.in, align 8, !tbaa !11
   %.in448 = fptosi double %.in448.in to i64
-  %575 = trunc i64 %.in448 to i32
-  %576 = add nsw i32 %567, -1
-  %577 = shl i32 -2, %576
-  %578 = xor i32 %577, -1
-  %579 = shl i32 %578, %568
-  %580 = xor i32 %579, -1
-  %581 = and i32 %574, %580
-  %582 = and i32 %575, %578
-  %583 = shl i32 %582, %568
-  %584 = or i32 %583, %581
-  %585 = uitofp i32 %584 to double
+  %574 = trunc i64 %.in448 to i32
+  %575 = add nsw i32 %566, -1
+  %576 = shl i32 -2, %575
+  %577 = xor i32 %576, -1
+  %578 = shl i32 %577, %567
+  %579 = xor i32 %578, -1
+  %580 = and i32 %573, %579
+  %581 = and i32 %574, %577
+  %582 = shl i32 %581, %567
+  %583 = or i32 %582, %580
+  %584 = uitofp i32 %583 to double
   store i32 3, ptr %0, align 8, !tbaa !8, !alias.scope !146
-  %586 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 0, ptr %586, align 4, !tbaa !15, !alias.scope !146
-  %587 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double %585, ptr %587, align 8, !tbaa !11, !alias.scope !146
-  br label %845
+  %585 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 0, ptr %585, align 4, !tbaa !15, !alias.scope !146
+  %586 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store double %584, ptr %586, align 8, !tbaa !11, !alias.scope !146
+  br label %844
 
-588:                                              ; preds = %4
-  %589 = icmp eq i64 %3, 2
-  br i1 %589, label %590, label %.thread
+587:                                              ; preds = %4
+  %588 = icmp eq i64 %3, 2
+  br i1 %588, label %589, label %.thread
 
-590:                                              ; preds = %588
-  %591 = load i32, ptr %2, align 8, !tbaa !8
-  %592 = icmp eq i32 %591, 3
-  br i1 %592, label %593, label %.thread
+589:                                              ; preds = %587
+  %590 = load i32, ptr %2, align 8, !tbaa !8
+  %591 = icmp eq i32 %590, 3
+  br i1 %591, label %592, label %.thread
 
-593:                                              ; preds = %590
-  %594 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %595 = load i32, ptr %594, align 8, !tbaa !8
-  %596 = icmp eq i32 %595, 3
-  br i1 %596, label %597, label %.thread
+592:                                              ; preds = %589
+  %593 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %594 = load i32, ptr %593, align 8, !tbaa !8
+  %595 = icmp eq i32 %594, 3
+  br i1 %595, label %596, label %.thread
 
-597:                                              ; preds = %593
-  %598 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %599 = load double, ptr %598, align 8, !tbaa !11
-  %600 = fptosi double %599 to i64
-  %601 = trunc i64 %600 to i32
-  %602 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %603 = load double, ptr %602, align 8, !tbaa !11
-  %604 = fptosi double %603 to i32
-  %605 = tail call i32 @llvm.fshr.i32(i32 %601, i32 %601, i32 %604)
-  %606 = uitofp i32 %605 to double
+596:                                              ; preds = %592
+  %597 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %598 = load double, ptr %597, align 8, !tbaa !11
+  %599 = fptosi double %598 to i64
+  %600 = trunc i64 %599 to i32
+  %601 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %602 = load double, ptr %601, align 8, !tbaa !11
+  %603 = fptosi double %602 to i32
+  %604 = tail call i32 @llvm.fshr.i32(i32 %600, i32 %600, i32 %603)
+  %605 = uitofp i32 %604 to double
   store i32 3, ptr %0, align 8, !tbaa !8, !alias.scope !149
-  %607 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 0, ptr %607, align 4, !tbaa !15, !alias.scope !149
-  %608 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double %606, ptr %608, align 8, !tbaa !11, !alias.scope !149
-  br label %845
+  %606 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 0, ptr %606, align 4, !tbaa !15, !alias.scope !149
+  %607 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store double %605, ptr %607, align 8, !tbaa !11, !alias.scope !149
+  br label %844
 
-609:                                              ; preds = %4
-  %610 = icmp eq i64 %3, 2
-  br i1 %610, label %611, label %.thread
+608:                                              ; preds = %4
+  %609 = icmp eq i64 %3, 2
+  br i1 %609, label %610, label %.thread
 
-611:                                              ; preds = %609
-  %612 = load i32, ptr %2, align 8, !tbaa !8
-  %613 = icmp eq i32 %612, 3
-  br i1 %613, label %614, label %.thread
+610:                                              ; preds = %608
+  %611 = load i32, ptr %2, align 8, !tbaa !8
+  %612 = icmp eq i32 %611, 3
+  br i1 %612, label %613, label %.thread
 
-614:                                              ; preds = %611
-  %615 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %616 = load i32, ptr %615, align 8, !tbaa !8
-  %617 = icmp eq i32 %616, 3
-  br i1 %617, label %618, label %.thread
+613:                                              ; preds = %610
+  %614 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %615 = load i32, ptr %614, align 8, !tbaa !8
+  %616 = icmp eq i32 %615, 3
+  br i1 %616, label %617, label %.thread
 
-618:                                              ; preds = %614
-  %619 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %620 = load double, ptr %619, align 8, !tbaa !11
-  %621 = fptosi double %620 to i32
-  %622 = icmp ult i32 %621, 32
-  br i1 %622, label %623, label %.thread
+617:                                              ; preds = %613
+  %618 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %619 = load double, ptr %618, align 8, !tbaa !11
+  %620 = fptosi double %619 to i32
+  %621 = icmp ult i32 %620, 32
+  br i1 %621, label %622, label %.thread
 
-623:                                              ; preds = %618
-  %624 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %625 = load double, ptr %624, align 8, !tbaa !11
-  %626 = fptosi double %625 to i64
-  %627 = trunc i64 %626 to i32
-  %628 = lshr i32 %627, %621
-  %629 = uitofp i32 %628 to double
+622:                                              ; preds = %617
+  %623 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %624 = load double, ptr %623, align 8, !tbaa !11
+  %625 = fptosi double %624 to i64
+  %626 = trunc i64 %625 to i32
+  %627 = lshr i32 %626, %620
+  %628 = uitofp i32 %627 to double
   store i32 3, ptr %0, align 8, !tbaa !8, !alias.scope !152
-  %630 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 0, ptr %630, align 4, !tbaa !15, !alias.scope !152
-  %631 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double %629, ptr %631, align 8, !tbaa !11, !alias.scope !152
-  br label %845
+  %629 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 0, ptr %629, align 4, !tbaa !15, !alias.scope !152
+  %630 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store double %628, ptr %630, align 8, !tbaa !11, !alias.scope !152
+  br label %844
 
-632:                                              ; preds = %4
-  %633 = icmp eq i64 %3, 1
-  br i1 %633, label %634, label %.thread
+631:                                              ; preds = %4
+  %632 = icmp eq i64 %3, 1
+  br i1 %632, label %633, label %.thread
 
-634:                                              ; preds = %632
-  %635 = load i32, ptr %2, align 8, !tbaa !8
-  %.not384 = icmp eq i32 %635, 0
-  br i1 %.not384, label %.thread, label %636
+633:                                              ; preds = %631
+  %634 = load i32, ptr %2, align 8, !tbaa !8
+  %.not384 = icmp eq i32 %634, 0
+  br i1 %.not384, label %.thread, label %635
 
-636:                                              ; preds = %634
-  tail call fastcc void @_ZN4Luau7CompileL5ctypeERKNS0_8ConstantE(ptr dead_on_unwind noalias writable align 8 %0, i32 %635)
-  br label %845
+635:                                              ; preds = %633
+  tail call fastcc void @_ZN4Luau7CompileL5ctypeERKNS0_8ConstantE(ptr dead_on_unwind noalias writable align 8 %0, i32 %634)
+  br label %844
 
-637:                                              ; preds = %4
+636:                                              ; preds = %4
   switch i64 %3, label %.thread [
-    i64 1, label %638
-    i64 2, label %651
+    i64 1, label %637
+    i64 2, label %650
   ]
 
-638:                                              ; preds = %637
-  %639 = load i32, ptr %2, align 8, !tbaa !8
-  %640 = icmp eq i32 %639, 5
-  br i1 %640, label %641, label %.thread
+637:                                              ; preds = %636
+  %638 = load i32, ptr %2, align 8, !tbaa !8
+  %639 = icmp eq i32 %638, 5
+  br i1 %639, label %640, label %.thread
 
-641:                                              ; preds = %638
-  %642 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %643 = load i32, ptr %642, align 4, !tbaa !15
-  %.not383 = icmp eq i32 %643, 0
-  br i1 %.not383, label %.thread, label %644
+640:                                              ; preds = %637
+  %641 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %642 = load i32, ptr %641, align 4, !tbaa !15
+  %.not383 = icmp eq i32 %642, 0
+  br i1 %.not383, label %.thread, label %643
 
-644:                                              ; preds = %641
-  %645 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %646 = load ptr, ptr %645, align 8, !tbaa !11
-  %647 = load i8, ptr %646, align 1, !tbaa !11
-  %648 = uitofp i8 %647 to double
+643:                                              ; preds = %640
+  %644 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %645 = load ptr, ptr %644, align 8, !tbaa !11
+  %646 = load i8, ptr %645, align 1, !tbaa !11
+  %647 = uitofp i8 %646 to double
   store i32 3, ptr %0, align 8, !tbaa !8, !alias.scope !155
-  %649 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 0, ptr %649, align 4, !tbaa !15, !alias.scope !155
-  %650 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double %648, ptr %650, align 8, !tbaa !11, !alias.scope !155
-  br label %845
+  %648 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 0, ptr %648, align 4, !tbaa !15, !alias.scope !155
+  %649 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store double %647, ptr %649, align 8, !tbaa !11, !alias.scope !155
+  br label %844
 
-651:                                              ; preds = %637
-  %652 = load i32, ptr %2, align 8, !tbaa !8
-  %653 = icmp eq i32 %652, 5
-  br i1 %653, label %654, label %.thread
+650:                                              ; preds = %636
+  %651 = load i32, ptr %2, align 8, !tbaa !8
+  %652 = icmp eq i32 %651, 5
+  br i1 %652, label %653, label %.thread
 
-654:                                              ; preds = %651
-  %655 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %656 = load i32, ptr %655, align 8, !tbaa !8
-  %657 = icmp eq i32 %656, 3
-  br i1 %657, label %658, label %.thread
+653:                                              ; preds = %650
+  %654 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %655 = load i32, ptr %654, align 8, !tbaa !8
+  %656 = icmp eq i32 %655, 3
+  br i1 %656, label %657, label %.thread
 
-658:                                              ; preds = %654
-  %659 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %660 = load double, ptr %659, align 8, !tbaa !11
-  %661 = fptosi double %660 to i32
-  %662 = icmp sgt i32 %661, 0
-  br i1 %662, label %663, label %.thread
+657:                                              ; preds = %653
+  %658 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %659 = load double, ptr %658, align 8, !tbaa !11
+  %660 = fptosi double %659 to i32
+  %661 = icmp sgt i32 %660, 0
+  br i1 %661, label %662, label %.thread
 
-663:                                              ; preds = %658
-  %664 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %665 = load i32, ptr %664, align 4, !tbaa !15
-  %.not382 = icmp ult i32 %665, %661
-  br i1 %.not382, label %.thread, label %666
+662:                                              ; preds = %657
+  %663 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %664 = load i32, ptr %663, align 4, !tbaa !15
+  %.not382 = icmp ult i32 %664, %660
+  br i1 %.not382, label %.thread, label %665
 
-666:                                              ; preds = %663
-  %667 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %668 = load ptr, ptr %667, align 8, !tbaa !11
-  %669 = zext nneg i32 %661 to i64
-  %670 = getelementptr i8, ptr %668, i64 %669
-  %671 = getelementptr i8, ptr %670, i64 -1
-  %672 = load i8, ptr %671, align 1, !tbaa !11
-  %673 = uitofp i8 %672 to double
+665:                                              ; preds = %662
+  %666 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %667 = load ptr, ptr %666, align 8, !tbaa !11
+  %668 = zext nneg i32 %660 to i64
+  %669 = getelementptr i8, ptr %667, i64 %668
+  %670 = getelementptr i8, ptr %669, i64 -1
+  %671 = load i8, ptr %670, align 1, !tbaa !11
+  %672 = uitofp i8 %671 to double
   store i32 3, ptr %0, align 8, !tbaa !8, !alias.scope !158
-  %674 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 0, ptr %674, align 4, !tbaa !15, !alias.scope !158
-  %675 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double %673, ptr %675, align 8, !tbaa !11, !alias.scope !158
-  br label %845
+  %673 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 0, ptr %673, align 4, !tbaa !15, !alias.scope !158
+  %674 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store double %672, ptr %674, align 8, !tbaa !11, !alias.scope !158
+  br label %844
 
-676:                                              ; preds = %4
-  %677 = icmp eq i64 %3, 1
-  br i1 %677, label %678, label %.thread
+675:                                              ; preds = %4
+  %676 = icmp eq i64 %3, 1
+  br i1 %676, label %677, label %.thread
 
-678:                                              ; preds = %676
-  %679 = load i32, ptr %2, align 8, !tbaa !8
-  %680 = icmp eq i32 %679, 5
-  br i1 %680, label %681, label %.thread
+677:                                              ; preds = %675
+  %678 = load i32, ptr %2, align 8, !tbaa !8
+  %679 = icmp eq i32 %678, 5
+  br i1 %679, label %680, label %.thread
 
-681:                                              ; preds = %678
-  %682 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %683 = load i32, ptr %682, align 4, !tbaa !15
-  %684 = uitofp i32 %683 to double
+680:                                              ; preds = %677
+  %681 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %682 = load i32, ptr %681, align 4, !tbaa !15
+  %683 = uitofp i32 %682 to double
   store i32 3, ptr %0, align 8, !tbaa !8, !alias.scope !161
-  %685 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 0, ptr %685, align 4, !tbaa !15, !alias.scope !161
-  %686 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double %684, ptr %686, align 8, !tbaa !11, !alias.scope !161
-  br label %845
+  %684 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 0, ptr %684, align 4, !tbaa !15, !alias.scope !161
+  %685 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store double %683, ptr %685, align 8, !tbaa !11, !alias.scope !161
+  br label %844
 
-687:                                              ; preds = %4
-  %688 = icmp eq i64 %3, 1
-  br i1 %688, label %689, label %.thread
+686:                                              ; preds = %4
+  %687 = icmp eq i64 %3, 1
+  br i1 %687, label %688, label %.thread
 
-689:                                              ; preds = %687
-  %690 = load i32, ptr %2, align 8, !tbaa !8
-  %.not = icmp eq i32 %690, 0
-  br i1 %.not, label %.thread, label %691
+688:                                              ; preds = %686
+  %689 = load i32, ptr %2, align 8, !tbaa !8
+  %.not = icmp eq i32 %689, 0
+  br i1 %.not, label %.thread, label %690
 
-691:                                              ; preds = %689
-  tail call fastcc void @_ZN4Luau7CompileL5ctypeERKNS0_8ConstantE(ptr dead_on_unwind noalias writable align 8 %0, i32 %690)
-  br label %845
+690:                                              ; preds = %688
+  tail call fastcc void @_ZN4Luau7CompileL5ctypeERKNS0_8ConstantE(ptr dead_on_unwind noalias writable align 8 %0, i32 %689)
+  br label %844
 
-692:                                              ; preds = %4
-  %693 = icmp eq i64 %3, 3
-  br i1 %693, label %694, label %.thread
+691:                                              ; preds = %4
+  %692 = icmp eq i64 %3, 3
+  br i1 %692, label %693, label %.thread
 
-694:                                              ; preds = %692
-  %695 = load i32, ptr %2, align 8, !tbaa !8
-  %696 = icmp eq i32 %695, 3
-  br i1 %696, label %697, label %.thread
+693:                                              ; preds = %691
+  %694 = load i32, ptr %2, align 8, !tbaa !8
+  %695 = icmp eq i32 %694, 3
+  br i1 %695, label %696, label %.thread
 
-697:                                              ; preds = %694
-  %698 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %699 = load i32, ptr %698, align 8, !tbaa !8
-  %700 = icmp eq i32 %699, 3
-  br i1 %700, label %701, label %.thread
+696:                                              ; preds = %693
+  %697 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %698 = load i32, ptr %697, align 8, !tbaa !8
+  %699 = icmp eq i32 %698, 3
+  br i1 %699, label %700, label %.thread
 
-701:                                              ; preds = %697
-  %702 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %703 = load i32, ptr %702, align 8, !tbaa !8
-  %704 = icmp eq i32 %703, 3
-  br i1 %704, label %705, label %.thread
+700:                                              ; preds = %696
+  %701 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %702 = load i32, ptr %701, align 8, !tbaa !8
+  %703 = icmp eq i32 %702, 3
+  br i1 %703, label %704, label %.thread
 
-705:                                              ; preds = %701
-  %706 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %707 = load double, ptr %706, align 8, !tbaa !11
-  %708 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %709 = load double, ptr %708, align 8, !tbaa !11
-  %710 = fcmp ugt double %707, %709
-  br i1 %710, label %.thread, label %711
+704:                                              ; preds = %700
+  %705 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %706 = load double, ptr %705, align 8, !tbaa !11
+  %707 = getelementptr inbounds nuw i8, ptr %2, i64 56
+  %708 = load double, ptr %707, align 8, !tbaa !11
+  %709 = fcmp ugt double %706, %708
+  br i1 %709, label %.thread, label %710
 
-711:                                              ; preds = %705
-  %712 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %713 = load double, ptr %712, align 8, !tbaa !11
-  %714 = fcmp olt double %713, %707
-  %715 = select i1 %714, double %707, double %713
-  %716 = fcmp ogt double %715, %709
-  %717 = select i1 %716, double %709, double %715
+710:                                              ; preds = %704
+  %711 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %712 = load double, ptr %711, align 8, !tbaa !11
+  %713 = fcmp olt double %712, %706
+  %714 = select i1 %713, double %706, double %712
+  %715 = fcmp ogt double %714, %708
+  %716 = select i1 %715, double %708, double %714
   store i32 3, ptr %0, align 8, !tbaa !8, !alias.scope !164
-  %718 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 0, ptr %718, align 4, !tbaa !15, !alias.scope !164
-  %719 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double %717, ptr %719, align 8, !tbaa !11, !alias.scope !164
-  br label %845
+  %717 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 0, ptr %717, align 4, !tbaa !15, !alias.scope !164
+  %718 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store double %716, ptr %718, align 8, !tbaa !11, !alias.scope !164
+  br label %844
 
-720:                                              ; preds = %4
-  %721 = icmp eq i64 %3, 1
-  br i1 %721, label %722, label %.thread
+719:                                              ; preds = %4
+  %720 = icmp eq i64 %3, 1
+  br i1 %720, label %721, label %.thread
 
-722:                                              ; preds = %720
-  %723 = load i32, ptr %2, align 8, !tbaa !8
-  %724 = icmp eq i32 %723, 3
-  br i1 %724, label %725, label %.thread
+721:                                              ; preds = %719
+  %722 = load i32, ptr %2, align 8, !tbaa !8
+  %723 = icmp eq i32 %722, 3
+  br i1 %723, label %724, label %.thread
 
-725:                                              ; preds = %722
-  %726 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %727 = load double, ptr %726, align 8, !tbaa !11
-  %728 = fcmp ogt double %727, 0.000000e+00
-  %729 = fcmp olt double %727, 0.000000e+00
-  %730 = select i1 %729, double -1.000000e+00, double 0.000000e+00
-  %731 = select i1 %728, double 1.000000e+00, double %730
+724:                                              ; preds = %721
+  %725 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %726 = load double, ptr %725, align 8, !tbaa !11
+  %727 = fcmp ogt double %726, 0.000000e+00
+  %728 = fcmp olt double %726, 0.000000e+00
+  %729 = select i1 %728, double -1.000000e+00, double 0.000000e+00
+  %730 = select i1 %727, double 1.000000e+00, double %729
   store i32 3, ptr %0, align 8, !tbaa !8, !alias.scope !167
-  %732 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 0, ptr %732, align 4, !tbaa !15, !alias.scope !167
-  %733 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double %731, ptr %733, align 8, !tbaa !11, !alias.scope !167
-  br label %845
+  %731 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 0, ptr %731, align 4, !tbaa !15, !alias.scope !167
+  %732 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store double %730, ptr %732, align 8, !tbaa !11, !alias.scope !167
+  br label %844
 
-734:                                              ; preds = %4
-  %735 = icmp eq i64 %3, 1
-  br i1 %735, label %736, label %.thread
+733:                                              ; preds = %4
+  %734 = icmp eq i64 %3, 1
+  br i1 %734, label %735, label %.thread
 
-736:                                              ; preds = %734
-  %737 = load i32, ptr %2, align 8, !tbaa !8
-  %738 = icmp eq i32 %737, 3
-  br i1 %738, label %739, label %.thread
+735:                                              ; preds = %733
+  %736 = load i32, ptr %2, align 8, !tbaa !8
+  %737 = icmp eq i32 %736, 3
+  br i1 %737, label %738, label %.thread
 
-739:                                              ; preds = %736
-  %740 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %741 = load double, ptr %740, align 8, !tbaa !11
-  %742 = tail call double @llvm.round.f64(double %741)
+738:                                              ; preds = %735
+  %739 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %740 = load double, ptr %739, align 8, !tbaa !11
+  %741 = tail call double @llvm.round.f64(double %740)
   store i32 3, ptr %0, align 8, !tbaa !8, !alias.scope !170
-  %743 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 0, ptr %743, align 4, !tbaa !15, !alias.scope !170
-  %744 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double %742, ptr %744, align 8, !tbaa !11, !alias.scope !170
-  br label %845
+  %742 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 0, ptr %742, align 4, !tbaa !15, !alias.scope !170
+  %743 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store double %741, ptr %743, align 8, !tbaa !11, !alias.scope !170
+  br label %844
 
-745:                                              ; preds = %4
-  %746 = icmp ugt i64 %3, 1
-  br i1 %746, label %747, label %.thread
+744:                                              ; preds = %4
+  %745 = icmp ugt i64 %3, 1
+  br i1 %745, label %746, label %.thread
 
-747:                                              ; preds = %745
-  %748 = load i32, ptr %2, align 8, !tbaa !8
-  %749 = icmp eq i32 %748, 3
-  br i1 %749, label %750, label %.thread
+746:                                              ; preds = %744
+  %747 = load i32, ptr %2, align 8, !tbaa !8
+  %748 = icmp eq i32 %747, 3
+  br i1 %748, label %749, label %.thread
 
-750:                                              ; preds = %747
-  %751 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %752 = load i32, ptr %751, align 8, !tbaa !8
-  %753 = icmp eq i32 %752, 3
-  br i1 %753, label %754, label %.thread
+749:                                              ; preds = %746
+  %750 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %751 = load i32, ptr %750, align 8, !tbaa !8
+  %752 = icmp eq i32 %751, 3
+  br i1 %752, label %753, label %.thread
 
-754:                                              ; preds = %750
+753:                                              ; preds = %749
   switch i64 %3, label %.thread [
-    i64 2, label %755
-    i64 3, label %770
-    i64 4, label %789
+    i64 2, label %754
+    i64 3, label %769
+    i64 4, label %788
   ]
 
-755:                                              ; preds = %754
-  %756 = load i8, ptr @_ZN5FFlag20LuauVector2ConstantsE, align 8, !tbaa !173, !range !179, !noundef !180
-  %757 = trunc nuw i8 %756 to i1
-  br i1 %757, label %758, label %.thread
+754:                                              ; preds = %753
+  %755 = load i8, ptr @_ZN5FFlag20LuauVector2ConstantsE, align 8, !tbaa !173, !range !179, !noundef !180
+  %756 = trunc nuw i8 %755 to i1
+  br i1 %756, label %757, label %.thread
 
-758:                                              ; preds = %755
-  %759 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %760 = load double, ptr %759, align 8, !tbaa !11
-  %761 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %762 = load double, ptr %761, align 8, !tbaa !11
+757:                                              ; preds = %754
+  %758 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %759 = load double, ptr %758, align 8, !tbaa !11
+  %760 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %761 = load double, ptr %760, align 8, !tbaa !11
   store i32 4, ptr %0, align 8, !tbaa !8, !alias.scope !181
-  %763 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 0, ptr %763, align 4, !tbaa !15, !alias.scope !181
-  %764 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %765 = fptrunc double %760 to float
-  store float %765, ptr %764, align 8, !tbaa !11, !alias.scope !181
-  %766 = fptrunc double %762 to float
-  %767 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store float %766, ptr %767, align 4, !tbaa !11, !alias.scope !181
-  %768 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store float 0.000000e+00, ptr %768, align 8, !tbaa !11, !alias.scope !181
-  %769 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store float 0.000000e+00, ptr %769, align 4, !tbaa !11, !alias.scope !181
-  br label %845
+  %762 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 0, ptr %762, align 4, !tbaa !15, !alias.scope !181
+  %763 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %764 = fptrunc double %759 to float
+  store float %764, ptr %763, align 8, !tbaa !11, !alias.scope !181
+  %765 = fptrunc double %761 to float
+  %766 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store float %765, ptr %766, align 4, !tbaa !11, !alias.scope !181
+  %767 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store float 0.000000e+00, ptr %767, align 8, !tbaa !11, !alias.scope !181
+  %768 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store float 0.000000e+00, ptr %768, align 4, !tbaa !11, !alias.scope !181
+  br label %844
 
-770:                                              ; preds = %754
-  %771 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %772 = load i32, ptr %771, align 8, !tbaa !8
-  %773 = icmp eq i32 %772, 3
-  br i1 %773, label %774, label %.thread
+769:                                              ; preds = %753
+  %770 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %771 = load i32, ptr %770, align 8, !tbaa !8
+  %772 = icmp eq i32 %771, 3
+  br i1 %772, label %773, label %.thread
 
-774:                                              ; preds = %770
-  %775 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %776 = load double, ptr %775, align 8, !tbaa !11
-  %777 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %778 = load double, ptr %777, align 8, !tbaa !11
-  %779 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %780 = load double, ptr %779, align 8, !tbaa !11
+773:                                              ; preds = %769
+  %774 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %775 = load double, ptr %774, align 8, !tbaa !11
+  %776 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %777 = load double, ptr %776, align 8, !tbaa !11
+  %778 = getelementptr inbounds nuw i8, ptr %2, i64 56
+  %779 = load double, ptr %778, align 8, !tbaa !11
   store i32 4, ptr %0, align 8, !tbaa !8, !alias.scope !184
-  %781 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 0, ptr %781, align 4, !tbaa !15, !alias.scope !184
-  %782 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %783 = fptrunc double %776 to float
-  store float %783, ptr %782, align 8, !tbaa !11, !alias.scope !184
-  %784 = fptrunc double %778 to float
-  %785 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store float %784, ptr %785, align 4, !tbaa !11, !alias.scope !184
-  %786 = fptrunc double %780 to float
-  %787 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store float %786, ptr %787, align 8, !tbaa !11, !alias.scope !184
-  %788 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store float 0.000000e+00, ptr %788, align 4, !tbaa !11, !alias.scope !184
-  br label %845
+  %780 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 0, ptr %780, align 4, !tbaa !15, !alias.scope !184
+  %781 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %782 = fptrunc double %775 to float
+  store float %782, ptr %781, align 8, !tbaa !11, !alias.scope !184
+  %783 = fptrunc double %777 to float
+  %784 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store float %783, ptr %784, align 4, !tbaa !11, !alias.scope !184
+  %785 = fptrunc double %779 to float
+  %786 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store float %785, ptr %786, align 8, !tbaa !11, !alias.scope !184
+  %787 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store float 0.000000e+00, ptr %787, align 4, !tbaa !11, !alias.scope !184
+  br label %844
 
-789:                                              ; preds = %754
-  %790 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %791 = load i32, ptr %790, align 8, !tbaa !8
-  %792 = icmp eq i32 %791, 3
-  br i1 %792, label %793, label %.thread
+788:                                              ; preds = %753
+  %789 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %790 = load i32, ptr %789, align 8, !tbaa !8
+  %791 = icmp eq i32 %790, 3
+  br i1 %791, label %792, label %.thread
 
-793:                                              ; preds = %789
-  %794 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  %795 = load i32, ptr %794, align 8, !tbaa !8
-  %796 = icmp eq i32 %795, 3
-  br i1 %796, label %797, label %.thread
+792:                                              ; preds = %788
+  %793 = getelementptr inbounds nuw i8, ptr %2, i64 72
+  %794 = load i32, ptr %793, align 8, !tbaa !8
+  %795 = icmp eq i32 %794, 3
+  br i1 %795, label %796, label %.thread
 
-797:                                              ; preds = %793
-  %798 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %799 = load double, ptr %798, align 8, !tbaa !11
-  %800 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %801 = load double, ptr %800, align 8, !tbaa !11
-  %802 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %803 = load double, ptr %802, align 8, !tbaa !11
-  %804 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  %805 = load double, ptr %804, align 8, !tbaa !11
+796:                                              ; preds = %792
+  %797 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %798 = load double, ptr %797, align 8, !tbaa !11
+  %799 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %800 = load double, ptr %799, align 8, !tbaa !11
+  %801 = getelementptr inbounds nuw i8, ptr %2, i64 56
+  %802 = load double, ptr %801, align 8, !tbaa !11
+  %803 = getelementptr inbounds nuw i8, ptr %2, i64 80
+  %804 = load double, ptr %803, align 8, !tbaa !11
   store i32 4, ptr %0, align 8, !tbaa !8, !alias.scope !187
-  %806 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 0, ptr %806, align 4, !tbaa !15, !alias.scope !187
-  %807 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %808 = fptrunc double %799 to float
-  store float %808, ptr %807, align 8, !tbaa !11, !alias.scope !187
-  %809 = fptrunc double %801 to float
-  %810 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store float %809, ptr %810, align 4, !tbaa !11, !alias.scope !187
-  %811 = fptrunc double %803 to float
-  %812 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store float %811, ptr %812, align 8, !tbaa !11, !alias.scope !187
-  %813 = fptrunc double %805 to float
-  %814 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store float %813, ptr %814, align 4, !tbaa !11, !alias.scope !187
-  br label %845
+  %805 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 0, ptr %805, align 4, !tbaa !15, !alias.scope !187
+  %806 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %807 = fptrunc double %798 to float
+  store float %807, ptr %806, align 8, !tbaa !11, !alias.scope !187
+  %808 = fptrunc double %800 to float
+  %809 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store float %808, ptr %809, align 4, !tbaa !11, !alias.scope !187
+  %810 = fptrunc double %802 to float
+  %811 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store float %810, ptr %811, align 8, !tbaa !11, !alias.scope !187
+  %812 = fptrunc double %804 to float
+  %813 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store float %812, ptr %813, align 4, !tbaa !11, !alias.scope !187
+  br label %844
 
-815:                                              ; preds = %4
-  %816 = load i8, ptr @_ZN5FFlag19LuauCompileMathLerpE, align 8, !tbaa !173, !range !179, !noundef !180
-  %817 = trunc nuw i8 %816 to i1
-  %818 = icmp eq i64 %3, 3
-  %or.cond10 = and i1 %818, %817
-  br i1 %or.cond10, label %819, label %.thread
+814:                                              ; preds = %4
+  %815 = load i8, ptr @_ZN5FFlag19LuauCompileMathLerpE, align 8, !tbaa !173, !range !179, !noundef !180
+  %816 = trunc nuw i8 %815 to i1
+  %817 = icmp eq i64 %3, 3
+  %or.cond10 = and i1 %817, %816
+  br i1 %or.cond10, label %818, label %.thread
 
-819:                                              ; preds = %815
-  %820 = load i32, ptr %2, align 8, !tbaa !8
-  %821 = icmp eq i32 %820, 3
-  br i1 %821, label %822, label %.thread
+818:                                              ; preds = %814
+  %819 = load i32, ptr %2, align 8, !tbaa !8
+  %820 = icmp eq i32 %819, 3
+  br i1 %820, label %821, label %.thread
 
-822:                                              ; preds = %819
-  %823 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %824 = load i32, ptr %823, align 8, !tbaa !8
-  %825 = icmp eq i32 %824, 3
-  br i1 %825, label %826, label %.thread
+821:                                              ; preds = %818
+  %822 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %823 = load i32, ptr %822, align 8, !tbaa !8
+  %824 = icmp eq i32 %823, 3
+  br i1 %824, label %825, label %.thread
 
-826:                                              ; preds = %822
-  %827 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %828 = load i32, ptr %827, align 8, !tbaa !8
-  %829 = icmp eq i32 %828, 3
-  br i1 %829, label %830, label %.thread
+825:                                              ; preds = %821
+  %826 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %827 = load i32, ptr %826, align 8, !tbaa !8
+  %828 = icmp eq i32 %827, 3
+  br i1 %828, label %829, label %.thread
 
-830:                                              ; preds = %826
-  %831 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %832 = load double, ptr %831, align 8, !tbaa !11
-  %833 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %834 = load double, ptr %833, align 8, !tbaa !11
-  %835 = fcmp oeq double %834, 1.000000e+00
-  br i1 %835, label %841, label %836
+829:                                              ; preds = %825
+  %830 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %831 = load double, ptr %830, align 8, !tbaa !11
+  %832 = getelementptr inbounds nuw i8, ptr %2, i64 56
+  %833 = load double, ptr %832, align 8, !tbaa !11
+  %834 = fcmp oeq double %833, 1.000000e+00
+  br i1 %834, label %840, label %835
 
-836:                                              ; preds = %830
-  %837 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %838 = load double, ptr %837, align 8, !tbaa !11
-  %839 = fsub double %832, %838
-  %840 = tail call double @llvm.fmuladd.f64(double %839, double %834, double %838)
-  br label %841
+835:                                              ; preds = %829
+  %836 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %837 = load double, ptr %836, align 8, !tbaa !11
+  %838 = fsub double %831, %837
+  %839 = tail call double @llvm.fmuladd.f64(double %838, double %833, double %837)
+  br label %840
 
-841:                                              ; preds = %830, %836
-  %842 = phi double [ %840, %836 ], [ %832, %830 ]
+840:                                              ; preds = %829, %835
+  %841 = phi double [ %839, %835 ], [ %831, %829 ]
   store i32 3, ptr %0, align 8, !tbaa !8, !alias.scope !190
-  %843 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 0, ptr %843, align 4, !tbaa !15, !alias.scope !190
-  %844 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double %842, ptr %844, align 8, !tbaa !11, !alias.scope !190
-  br label %845
+  %842 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 0, ptr %842, align 4, !tbaa !15, !alias.scope !190
+  %843 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store double %841, ptr %843, align 8, !tbaa !11, !alias.scope !190
+  br label %844
 
-.thread:                                          ; preds = %705, %658, %663, %618, %.thread437, %530, %.thread431, %348, %770, %755, %638, %179, %754, %637, %178, %815, %819, %822, %826, %745, %747, %750, %793, %789, %734, %736, %720, %722, %692, %694, %697, %701, %687, %689, %676, %678, %641, %654, %651, %632, %634, %609, %611, %614, %588, %590, %593, %544, %546, %549, %553, %559, %521, %523, %526, %500, %502, %505, %465, %467, %470, %476, %442, %443, %420, %421, %398, %399, %384, %386, %362, %363, %339, %341, %344, %328, %330, %317, %319, %306, %308, %295, %297, %284, %286, %273, %275, %256, %258, %261, %238, %239, %220, %221, %191, %188, %167, %169, %149, %151, %154, %132, %134, %137, %121, %123, %110, %112, %99, %101, %88, %90, %77, %79, %66, %68, %55, %57, %38, %40, %43, %27, %29, %16, %18, %5, %7, %4
+.thread:                                          ; preds = %704, %657, %662, %617, %.thread437, %529, %.thread431, %347, %769, %754, %637, %179, %753, %636, %178, %814, %818, %821, %825, %744, %746, %749, %792, %788, %733, %735, %719, %721, %691, %693, %696, %700, %686, %688, %675, %677, %640, %653, %650, %631, %633, %608, %610, %613, %587, %589, %592, %543, %545, %548, %552, %558, %520, %522, %525, %499, %501, %504, %464, %466, %469, %475, %441, %442, %419, %420, %397, %398, %383, %385, %361, %362, %338, %340, %343, %327, %329, %316, %318, %305, %307, %294, %296, %283, %285, %272, %274, %255, %257, %260, %237, %238, %219, %220, %191, %188, %167, %169, %149, %151, %154, %132, %134, %137, %121, %123, %110, %112, %99, %101, %88, %90, %77, %79, %66, %68, %55, %57, %38, %40, %43, %27, %29, %16, %18, %5, %7, %4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false), !alias.scope !193
-  br label %845
+  br label %844
 
-845:                                              ; preds = %711, %666, %623, %573, %535, %490, %453, %431, %409, %373, %353, %247, %229, %.critedge412, %.critedge410, %.critedge408, %.critedge406, %.critedge404, %.critedge, %.thread, %841, %797, %774, %758, %739, %725, %691, %681, %644, %636, %597, %509, %389, %333, %322, %311, %300, %289, %278, %265, %213, %209, %199, %182, %172, %158, %141, %126, %115, %104, %93, %82, %71, %60, %47, %32, %21, %10
+844:                                              ; preds = %710, %665, %622, %572, %534, %489, %452, %430, %408, %372, %352, %246, %228, %.critedge412, %.critedge410, %.critedge408, %.critedge406, %.critedge404, %.critedge, %.thread, %840, %796, %773, %757, %738, %724, %690, %680, %643, %635, %596, %508, %388, %332, %321, %310, %299, %288, %277, %264, %213, %209, %199, %182, %172, %158, %141, %126, %115, %104, %93, %82, %71, %60, %47, %32, %21, %10
   ret void
 }
 

@@ -489,7 +489,7 @@ define void @_ZN3gmx27AndersenTemperatureCoupling5applyEl(ptr noundef nonnull re
   ret void
 
 99:                                               ; preds = %.lr.ph, %.loopexit
-  %100 = phi ptr [ %91, %.lr.ph ], [ %339, %.loopexit ]
+  %100 = phi ptr [ %91, %.lr.ph ], [ %341, %.loopexit ]
   %indvars.iv46 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next47, %.loopexit ]
   %.sroa.6.043 = phi i64 [ 0, %.lr.ph ], [ %.sroa.6.1, %.loopexit ]
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 448
@@ -641,166 +641,168 @@ _ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit: ; pre
   br i1 %225, label %226, label %.loopexit
 
 226:                                              ; preds = %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit, %133
-  %227 = load float, ptr %114, align 4, !tbaa !32
-  %228 = fpext float %227 to double
-  %229 = fmul double %228, 0x3F81072C483AF26D
-  %230 = getelementptr inbounds nuw i8, ptr %100, i64 120
-  %231 = load ptr, ptr %230, align 8, !tbaa !117
-  %232 = getelementptr inbounds nuw float, ptr %231, i64 %indvars.iv46
-  %233 = load float, ptr %232, align 4, !tbaa !32
-  %234 = fpext float %233 to double
-  %235 = fmul double %229, %234
-  %236 = call double @sqrt(double noundef %235) #29, !tbaa !114
-  %237 = fptrunc double %236 to float
-  %238 = getelementptr inbounds nuw %"class.gmx::BasicVector.85", ptr %89, i64 %indvars.iv46
-  br label %239
+  %227 = phi i32 [ 1, %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit ], [ 0, %133 ]
+  %228 = load float, ptr %114, align 4, !tbaa !32
+  %229 = fpext float %228 to double
+  %230 = fmul double %229, 0x3F81072C483AF26D
+  %231 = getelementptr inbounds nuw i8, ptr %100, i64 120
+  %232 = load ptr, ptr %231, align 8, !tbaa !117
+  %233 = getelementptr inbounds nuw float, ptr %232, i64 %indvars.iv46
+  %234 = load float, ptr %233, align 4, !tbaa !32
+  %235 = fpext float %234 to double
+  %236 = fmul double %230, %235
+  %237 = call double @sqrt(double noundef %236) #29, !tbaa !114
+  %238 = fptrunc double %237 to float
+  %239 = getelementptr inbounds nuw %"class.gmx::BasicVector.85", ptr %89, i64 %indvars.iv46
+  br label %240
 
-239:                                              ; preds = %226, %_ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit
+240:                                              ; preds = %226, %_ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit
+  %241 = phi i32 [ %227, %226 ], [ %331, %_ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit ]
   %indvars.iv = phi i64 [ 0, %226 ], [ %indvars.iv.next, %_ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit ]
-  %.sroa.9.041 = phi i32 [ 0, %226 ], [ %330, %_ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit ]
-  %.sroa.6.240 = phi i64 [ %.sroa.6.043, %226 ], [ %335, %_ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit ]
-  %240 = icmp ult i32 %.sroa.9.041, 14
-  br i1 %240, label %242, label %._crit_edge.i.i
+  %.sroa.9.041 = phi i32 [ 0, %226 ], [ %332, %_ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit ]
+  %.sroa.6.240 = phi i64 [ %.sroa.6.043, %226 ], [ %337, %_ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit ]
+  %242 = icmp ult i32 %.sroa.9.041, 14
+  br i1 %242, label %244, label %._crit_edge.i.i
 
-._crit_edge.i.i:                                  ; preds = %239
-  %241 = add nsw i32 %.sroa.9.041, -14
+._crit_edge.i.i:                                  ; preds = %240
+  %243 = add nsw i32 %.sroa.9.041, -14
   br label %_ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit
 
-242:                                              ; preds = %239
-  %243 = load i32, ptr %83, align 8, !tbaa !48
-  %244 = icmp ugt i32 %243, 1
-  br i1 %244, label %246, label %._crit_edge.i.i.i
+244:                                              ; preds = %240
+  %245 = icmp ugt i32 %241, 1
+  br i1 %245, label %247, label %._crit_edge.i.i.i
 
-._crit_edge.i.i.i:                                ; preds = %242
-  %.phi.trans.insert1.i.i.i = zext nneg i32 %243 to i64
+._crit_edge.i.i.i:                                ; preds = %244
+  %.phi.trans.insert1.i.i.i = zext nneg i32 %241 to i64
   %.phi.trans.insert2.i.i.i = getelementptr inbounds nuw i64, ptr %82, i64 %.phi.trans.insert1.i.i.i
   %.pre.i.i.i = load i64, ptr %.phi.trans.insert2.i.i.i, align 8, !tbaa !22
-  %245 = add nuw nsw i32 %243, 1
+  %246 = add nuw nsw i32 %241, 1
   br label %_ZN3gmx19ThreeFry2x64GeneralILj20ELj0EEclEv.exit.i.i
 
-246:                                              ; preds = %242
+247:                                              ; preds = %244
   call void @_ZN3gmx8internal14highBitCounter9incrementImLm2ELj0EEEvPSt5arrayIT_XT0_EE(ptr noundef nonnull %7)
   %.sroa.024.0.copyload.i31 = load i64, ptr %7, align 8
   %.sroa.74.0.copyload.i33 = load i64, ptr %.sroa.74.0..sroa_idx.i, align 8, !tbaa !47
-  %247 = load i64, ptr %3, align 8, !tbaa !22
-  %248 = add i64 %247, %.sroa.024.0.copyload.i31
-  %249 = load i64, ptr %.sroa.4.0..sroa_idx.i.i.i.i, align 8, !tbaa !22
-  %250 = xor i64 %247, %249
-  %251 = xor i64 %250, 2004413935125273122
-  %252 = add i64 %249, %.sroa.74.0.copyload.i33
-  %253 = add i64 %248, %252
-  %254 = call i64 @llvm.fshl.i64(i64 %252, i64 %252, i64 16)
-  %255 = xor i64 %254, %253
-  %256 = add i64 %255, %253
-  %257 = call i64 @llvm.fshl.i64(i64 %255, i64 %255, i64 42)
-  %258 = xor i64 %257, %256
-  %259 = add i64 %258, %256
-  %260 = call i64 @llvm.fshl.i64(i64 %258, i64 %258, i64 12)
-  %261 = xor i64 %260, %259
-  %262 = add i64 %261, %259
-  %263 = call i64 @llvm.fshl.i64(i64 %261, i64 %261, i64 31)
-  %264 = xor i64 %263, %262
-  %265 = add i64 %262, %249
-  %266 = add i64 %251, 1
-  %267 = add i64 %266, %264
-  %268 = add i64 %265, %267
-  %269 = call i64 @llvm.fshl.i64(i64 %267, i64 %267, i64 16)
-  %270 = xor i64 %269, %268
-  %271 = add i64 %270, %268
-  %272 = call i64 @llvm.fshl.i64(i64 %270, i64 %270, i64 32)
-  %273 = xor i64 %272, %271
-  %274 = add i64 %273, %271
-  %275 = call i64 @llvm.fshl.i64(i64 %273, i64 %273, i64 24)
-  %276 = xor i64 %275, %274
-  %277 = add i64 %276, %274
-  %278 = call i64 @llvm.fshl.i64(i64 %276, i64 %276, i64 21)
-  %279 = xor i64 %278, %277
-  %280 = add i64 %277, %251
-  %281 = add i64 %247, 2
-  %282 = add i64 %281, %279
-  %283 = add i64 %280, %282
-  %284 = call i64 @llvm.fshl.i64(i64 %282, i64 %282, i64 16)
-  %285 = xor i64 %284, %283
-  %286 = add i64 %285, %283
-  %287 = call i64 @llvm.fshl.i64(i64 %285, i64 %285, i64 42)
-  %288 = xor i64 %287, %286
-  %289 = add i64 %288, %286
-  %290 = call i64 @llvm.fshl.i64(i64 %288, i64 %288, i64 12)
-  %291 = xor i64 %290, %289
-  %292 = add i64 %291, %289
-  %293 = call i64 @llvm.fshl.i64(i64 %291, i64 %291, i64 31)
-  %294 = xor i64 %293, %292
-  %295 = add i64 %292, %247
-  %296 = add i64 %249, 3
-  %297 = add i64 %296, %294
-  %298 = add i64 %295, %297
-  %299 = call i64 @llvm.fshl.i64(i64 %297, i64 %297, i64 16)
-  %300 = xor i64 %299, %298
-  %301 = add i64 %300, %298
-  %302 = call i64 @llvm.fshl.i64(i64 %300, i64 %300, i64 32)
-  %303 = xor i64 %302, %301
-  %304 = add i64 %303, %301
-  %305 = call i64 @llvm.fshl.i64(i64 %303, i64 %303, i64 24)
-  %306 = xor i64 %305, %304
-  %307 = add i64 %306, %304
-  %308 = call i64 @llvm.fshl.i64(i64 %306, i64 %306, i64 21)
-  %309 = xor i64 %308, %307
-  %310 = add i64 %307, %249
-  %311 = add i64 %251, 4
-  %312 = add i64 %311, %309
-  %313 = add i64 %310, %312
-  %314 = call i64 @llvm.fshl.i64(i64 %312, i64 %312, i64 16)
-  %315 = xor i64 %314, %313
-  %316 = add i64 %315, %313
-  %317 = call i64 @llvm.fshl.i64(i64 %315, i64 %315, i64 42)
-  %318 = xor i64 %317, %316
-  %319 = add i64 %318, %316
-  %320 = call i64 @llvm.fshl.i64(i64 %318, i64 %318, i64 12)
-  %321 = xor i64 %320, %319
-  %322 = add i64 %321, %319
-  %323 = call i64 @llvm.fshl.i64(i64 %321, i64 %321, i64 31)
-  %324 = xor i64 %323, %322
-  %325 = add i64 %322, %251
-  %326 = add i64 %247, 5
-  %327 = add i64 %326, %324
-  store i64 %325, ptr %82, align 8
-  store i64 %327, ptr %.sroa.4.0..sroa_idx.i.i.i.i.i, align 8, !tbaa !47
+  %248 = load i64, ptr %3, align 8, !tbaa !22
+  %249 = add i64 %248, %.sroa.024.0.copyload.i31
+  %250 = load i64, ptr %.sroa.4.0..sroa_idx.i.i.i.i, align 8, !tbaa !22
+  %251 = xor i64 %248, %250
+  %252 = xor i64 %251, 2004413935125273122
+  %253 = add i64 %250, %.sroa.74.0.copyload.i33
+  %254 = add i64 %249, %253
+  %255 = call i64 @llvm.fshl.i64(i64 %253, i64 %253, i64 16)
+  %256 = xor i64 %255, %254
+  %257 = add i64 %256, %254
+  %258 = call i64 @llvm.fshl.i64(i64 %256, i64 %256, i64 42)
+  %259 = xor i64 %258, %257
+  %260 = add i64 %259, %257
+  %261 = call i64 @llvm.fshl.i64(i64 %259, i64 %259, i64 12)
+  %262 = xor i64 %261, %260
+  %263 = add i64 %262, %260
+  %264 = call i64 @llvm.fshl.i64(i64 %262, i64 %262, i64 31)
+  %265 = xor i64 %264, %263
+  %266 = add i64 %263, %250
+  %267 = add i64 %252, 1
+  %268 = add i64 %267, %265
+  %269 = add i64 %266, %268
+  %270 = call i64 @llvm.fshl.i64(i64 %268, i64 %268, i64 16)
+  %271 = xor i64 %270, %269
+  %272 = add i64 %271, %269
+  %273 = call i64 @llvm.fshl.i64(i64 %271, i64 %271, i64 32)
+  %274 = xor i64 %273, %272
+  %275 = add i64 %274, %272
+  %276 = call i64 @llvm.fshl.i64(i64 %274, i64 %274, i64 24)
+  %277 = xor i64 %276, %275
+  %278 = add i64 %277, %275
+  %279 = call i64 @llvm.fshl.i64(i64 %277, i64 %277, i64 21)
+  %280 = xor i64 %279, %278
+  %281 = add i64 %278, %252
+  %282 = add i64 %248, 2
+  %283 = add i64 %282, %280
+  %284 = add i64 %281, %283
+  %285 = call i64 @llvm.fshl.i64(i64 %283, i64 %283, i64 16)
+  %286 = xor i64 %285, %284
+  %287 = add i64 %286, %284
+  %288 = call i64 @llvm.fshl.i64(i64 %286, i64 %286, i64 42)
+  %289 = xor i64 %288, %287
+  %290 = add i64 %289, %287
+  %291 = call i64 @llvm.fshl.i64(i64 %289, i64 %289, i64 12)
+  %292 = xor i64 %291, %290
+  %293 = add i64 %292, %290
+  %294 = call i64 @llvm.fshl.i64(i64 %292, i64 %292, i64 31)
+  %295 = xor i64 %294, %293
+  %296 = add i64 %293, %248
+  %297 = add i64 %250, 3
+  %298 = add i64 %297, %295
+  %299 = add i64 %296, %298
+  %300 = call i64 @llvm.fshl.i64(i64 %298, i64 %298, i64 16)
+  %301 = xor i64 %300, %299
+  %302 = add i64 %301, %299
+  %303 = call i64 @llvm.fshl.i64(i64 %301, i64 %301, i64 32)
+  %304 = xor i64 %303, %302
+  %305 = add i64 %304, %302
+  %306 = call i64 @llvm.fshl.i64(i64 %304, i64 %304, i64 24)
+  %307 = xor i64 %306, %305
+  %308 = add i64 %307, %305
+  %309 = call i64 @llvm.fshl.i64(i64 %307, i64 %307, i64 21)
+  %310 = xor i64 %309, %308
+  %311 = add i64 %308, %250
+  %312 = add i64 %252, 4
+  %313 = add i64 %312, %310
+  %314 = add i64 %311, %313
+  %315 = call i64 @llvm.fshl.i64(i64 %313, i64 %313, i64 16)
+  %316 = xor i64 %315, %314
+  %317 = add i64 %316, %314
+  %318 = call i64 @llvm.fshl.i64(i64 %316, i64 %316, i64 42)
+  %319 = xor i64 %318, %317
+  %320 = add i64 %319, %317
+  %321 = call i64 @llvm.fshl.i64(i64 %319, i64 %319, i64 12)
+  %322 = xor i64 %321, %320
+  %323 = add i64 %322, %320
+  %324 = call i64 @llvm.fshl.i64(i64 %322, i64 %322, i64 31)
+  %325 = xor i64 %324, %323
+  %326 = add i64 %323, %252
+  %327 = add i64 %248, 5
+  %328 = add i64 %327, %325
+  store i64 %326, ptr %82, align 8
+  store i64 %328, ptr %.sroa.4.0..sroa_idx.i.i.i.i.i, align 8, !tbaa !47
   br label %_ZN3gmx19ThreeFry2x64GeneralILj20ELj0EEclEv.exit.i.i
 
-_ZN3gmx19ThreeFry2x64GeneralILj20ELj0EEclEv.exit.i.i: ; preds = %246, %._crit_edge.i.i.i
-  %328 = phi i64 [ %325, %246 ], [ %.pre.i.i.i, %._crit_edge.i.i.i ]
-  %329 = phi i32 [ 1, %246 ], [ %245, %._crit_edge.i.i.i ]
-  store i32 %329, ptr %83, align 8, !tbaa !48
+_ZN3gmx19ThreeFry2x64GeneralILj20ELj0EEclEv.exit.i.i: ; preds = %247, %._crit_edge.i.i.i
+  %329 = phi i64 [ %326, %247 ], [ %.pre.i.i.i, %._crit_edge.i.i.i ]
+  %330 = phi i32 [ 1, %247 ], [ %246, %._crit_edge.i.i.i ]
+  store i32 %330, ptr %83, align 8, !tbaa !48
   br label %_ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit
 
 _ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit: ; preds = %._crit_edge.i.i, %_ZN3gmx19ThreeFry2x64GeneralILj20ELj0EEclEv.exit.i.i
-  %330 = phi i32 [ %241, %._crit_edge.i.i ], [ 50, %_ZN3gmx19ThreeFry2x64GeneralILj20ELj0EEclEv.exit.i.i ]
-  %331 = phi i64 [ %.sroa.6.240, %._crit_edge.i.i ], [ %328, %_ZN3gmx19ThreeFry2x64GeneralILj20ELj0EEclEv.exit.i.i ]
-  %332 = and i64 %331, 16383
-  %333 = getelementptr inbounds nuw float, ptr @_ZN3gmx27TabulatedNormalDistributionIfLj14EE8c_table_E, i64 %332
-  %334 = load float, ptr %333, align 4, !tbaa !32
-  %335 = lshr i64 %331, 14
-  %336 = fadd float %334, 0.000000e+00
-  %337 = fmul float %336, %237
-  %338 = getelementptr inbounds nuw float, ptr %238, i64 %indvars.iv
-  store float %337, ptr %338, align 4, !tbaa !32
+  %331 = phi i32 [ %241, %._crit_edge.i.i ], [ %330, %_ZN3gmx19ThreeFry2x64GeneralILj20ELj0EEclEv.exit.i.i ]
+  %332 = phi i32 [ %243, %._crit_edge.i.i ], [ 50, %_ZN3gmx19ThreeFry2x64GeneralILj20ELj0EEclEv.exit.i.i ]
+  %333 = phi i64 [ %.sroa.6.240, %._crit_edge.i.i ], [ %329, %_ZN3gmx19ThreeFry2x64GeneralILj20ELj0EEclEv.exit.i.i ]
+  %334 = and i64 %333, 16383
+  %335 = getelementptr inbounds nuw float, ptr @_ZN3gmx27TabulatedNormalDistributionIfLj14EE8c_table_E, i64 %334
+  %336 = load float, ptr %335, align 4, !tbaa !32
+  %337 = lshr i64 %333, 14
+  %338 = fadd float %336, 0.000000e+00
+  %339 = fmul float %338, %238
+  %340 = getelementptr inbounds nuw float, ptr %239, i64 %indvars.iv
+  store float %339, ptr %340, align 4, !tbaa !32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %.loopexit.loopexit, label %239, !llvm.loop !118
+  br i1 %exitcond.not, label %.loopexit.loopexit, label %240, !llvm.loop !118
 
 .loopexit.loopexit:                               ; preds = %_ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit
   %.pre = load ptr, ptr %90, align 8, !tbaa !38
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit, %110, %117
-  %339 = phi ptr [ %100, %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit ], [ %100, %117 ], [ %100, %110 ], [ %.pre, %.loopexit.loopexit ]
-  %.sroa.6.1 = phi i64 [ %.sroa.6.043, %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit ], [ %.sroa.6.043, %117 ], [ %.sroa.6.043, %110 ], [ %335, %.loopexit.loopexit ]
+  %341 = phi ptr [ %100, %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit ], [ %100, %117 ], [ %100, %110 ], [ %.pre, %.loopexit.loopexit ]
+  %.sroa.6.1 = phi i64 [ %.sroa.6.043, %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit ], [ %.sroa.6.043, %117 ], [ %.sroa.6.043, %110 ], [ %337, %.loopexit.loopexit ]
   %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
-  %340 = getelementptr inbounds nuw i8, ptr %339, i64 640
-  %341 = load i32, ptr %340, align 8, !tbaa !72
-  %342 = sext i32 %341 to i64
-  %343 = icmp slt i64 %indvars.iv.next47, %342
-  br i1 %343, label %99, label %._crit_edge, !llvm.loop !120
+  %342 = getelementptr inbounds nuw i8, ptr %341, i64 640
+  %343 = load i32, ptr %342, align 8, !tbaa !72
+  %344 = sext i32 %343 to i64
+  %345 = icmp slt i64 %indvars.iv.next47, %344
+  br i1 %345, label %99, label %._crit_edge, !llvm.loop !120
 }
 
 declare void @_ZN3gmx19StatePropagatorData14velocitiesViewEv(ptr dead_on_unwind writable sret(%"class.gmx::ArrayRefWithPadding") align 8, ptr noundef nonnull align 8 dereferenceable(632)) local_unnamed_addr #12

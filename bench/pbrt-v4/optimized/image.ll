@@ -3267,8 +3267,8 @@ _ZNSt6vectorIN4pbrt14ResampleWeightESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ;
   %wide.trip.count = zext nneg i32 %2 to i64
   br label %23
 
-23:                                               ; preds = %.lr.ph, %74
-  %indvars.iv52 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next53, %74 ]
+23:                                               ; preds = %.lr.ph, %73
+  %indvars.iv52 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next53, %73 ]
   %24 = trunc nuw nsw i64 %indvars.iv52 to i32
   %25 = uitofp nneg i32 %24 to float
   %26 = fadd float %25, 5.000000e-01
@@ -3295,75 +3295,74 @@ _ZNSt6vectorIN4pbrt14ResampleWeightESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ;
   %44 = load float, ptr %43, align 4, !tbaa !68
   %45 = fadd float %42, %44
   %46 = fdiv float 1.000000e+00, %45
-  br label %75
+  br label %74
 
 47:                                               ; preds = %23, %_ZN4pbrt12WindowedSincEfff.exit
   %indvars.iv = phi i64 [ 0, %23 ], [ %indvars.iv.next, %_ZN4pbrt12WindowedSincEfff.exit ]
-  %48 = load i32, ptr %33, align 4, !tbaa !132
-  %49 = trunc nuw nsw i64 %indvars.iv to i32
-  %50 = add nsw i32 %48, %49
-  %51 = sitofp i32 %50 to float
-  %52 = fadd float %51, 5.000000e-01
-  %53 = fsub float %52, %28
-  %54 = tail call noundef float @llvm.fabs.f32(float %53)
-  %55 = fcmp ogt float %54, 2.000000e+00
-  br i1 %55, label %_ZN4pbrt12WindowedSincEfff.exit, label %56
+  %48 = trunc nuw nsw i64 %indvars.iv to i32
+  %49 = add nsw i32 %32, %48
+  %50 = sitofp i32 %49 to float
+  %51 = fadd float %50, 5.000000e-01
+  %52 = fsub float %51, %28
+  %53 = tail call noundef float @llvm.fabs.f32(float %52)
+  %54 = fcmp ogt float %53, 2.000000e+00
+  br i1 %54, label %_ZN4pbrt12WindowedSincEfff.exit, label %55
 
-56:                                               ; preds = %47
-  %57 = fmul float %53, 0x400921FB60000000
-  %58 = fmul float %57, %57
-  %59 = fsub float 1.000000e+00, %58
-  %60 = fcmp oeq float %59, 1.000000e+00
-  br i1 %60, label %_ZN4pbrt4SincEf.exit.i, label %61
+55:                                               ; preds = %47
+  %56 = fmul float %52, 0x400921FB60000000
+  %57 = fmul float %56, %56
+  %58 = fsub float 1.000000e+00, %57
+  %59 = fcmp oeq float %58, 1.000000e+00
+  br i1 %59, label %_ZN4pbrt4SincEf.exit.i, label %60
 
-61:                                               ; preds = %56
-  %62 = tail call noundef float @sinf(float noundef %57) #37, !tbaa !13
-  %63 = fdiv float %62, %57
+60:                                               ; preds = %55
+  %61 = tail call noundef float @sinf(float noundef %56) #37, !tbaa !13
+  %62 = fdiv float %61, %56
   br label %_ZN4pbrt4SincEf.exit.i
 
-_ZN4pbrt4SincEf.exit.i:                           ; preds = %61, %56
-  %.0.i.i.i = phi float [ %63, %61 ], [ 1.000000e+00, %56 ]
-  %64 = fmul float %53, 5.000000e-01
-  %65 = fmul float %64, 0x400921FB60000000
-  %66 = fmul float %65, %65
-  %67 = fsub float 1.000000e+00, %66
-  %68 = fcmp oeq float %67, 1.000000e+00
-  br i1 %68, label %_ZN4pbrt4SincEf.exit7.i, label %69
+_ZN4pbrt4SincEf.exit.i:                           ; preds = %60, %55
+  %.0.i.i.i = phi float [ %62, %60 ], [ 1.000000e+00, %55 ]
+  %63 = fmul float %52, 5.000000e-01
+  %64 = fmul float %63, 0x400921FB60000000
+  %65 = fmul float %64, %64
+  %66 = fsub float 1.000000e+00, %65
+  %67 = fcmp oeq float %66, 1.000000e+00
+  br i1 %67, label %_ZN4pbrt4SincEf.exit7.i, label %68
 
-69:                                               ; preds = %_ZN4pbrt4SincEf.exit.i
-  %70 = tail call noundef float @sinf(float noundef %65) #37, !tbaa !13
-  %71 = fdiv float %70, %65
+68:                                               ; preds = %_ZN4pbrt4SincEf.exit.i
+  %69 = tail call noundef float @sinf(float noundef %64) #37, !tbaa !13
+  %70 = fdiv float %69, %64
   br label %_ZN4pbrt4SincEf.exit7.i
 
-_ZN4pbrt4SincEf.exit7.i:                          ; preds = %69, %_ZN4pbrt4SincEf.exit.i
-  %.0.i.i6.i = phi float [ %71, %69 ], [ 1.000000e+00, %_ZN4pbrt4SincEf.exit.i ]
-  %72 = fmul float %.0.i.i.i, %.0.i.i6.i
+_ZN4pbrt4SincEf.exit7.i:                          ; preds = %68, %_ZN4pbrt4SincEf.exit.i
+  %.0.i.i6.i = phi float [ %70, %68 ], [ 1.000000e+00, %_ZN4pbrt4SincEf.exit.i ]
+  %71 = fmul float %.0.i.i.i, %.0.i.i6.i
   br label %_ZN4pbrt12WindowedSincEfff.exit
 
 _ZN4pbrt12WindowedSincEfff.exit:                  ; preds = %_ZN4pbrt4SincEf.exit7.i, %47
-  %.0.i = phi float [ %72, %_ZN4pbrt4SincEf.exit7.i ], [ 0.000000e+00, %47 ]
-  %73 = getelementptr inbounds nuw float, ptr %34, i64 %indvars.iv
-  store float %.0.i, ptr %73, align 4, !tbaa !68
+  %.0.i = phi float [ %71, %_ZN4pbrt4SincEf.exit7.i ], [ 0.000000e+00, %47 ]
+  %72 = getelementptr inbounds nuw float, ptr %34, i64 %indvars.iv
+  store float %.0.i, ptr %72, align 4, !tbaa !68
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %35, label %47, !llvm.loop !134
 
-74:                                               ; preds = %75
+73:                                               ; preds = %74
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
   %exitcond55.not = icmp eq i64 %indvars.iv.next53, %wide.trip.count
   br i1 %exitcond55.not, label %._crit_edge, label %23, !llvm.loop !135
 
-75:                                               ; preds = %35, %75
-  %indvars.iv48 = phi i64 [ 0, %35 ], [ %indvars.iv.next49, %75 ]
-  %76 = getelementptr inbounds nuw float, ptr %34, i64 %indvars.iv48
-  %77 = load float, ptr %76, align 4, !tbaa !68
-  %78 = fmul float %46, %77
-  store float %78, ptr %76, align 4, !tbaa !68
+74:                                               ; preds = %35, %74
+  %indvars.iv48 = phi i64 [ 0, %35 ], [ %indvars.iv.next49, %74 ]
+  %75 = getelementptr inbounds nuw float, ptr %34, i64 %indvars.iv48
+  %76 = load float, ptr %75, align 4, !tbaa !68
+  %77 = fmul float %46, %76
+  store float %77, ptr %75, align 4, !tbaa !68
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
   %exitcond51.not = icmp eq i64 %indvars.iv.next49, 4
-  br i1 %exitcond51.not, label %74, label %75, !llvm.loop !136
+  br i1 %exitcond51.not, label %73, label %74, !llvm.loop !136
 
-._crit_edge:                                      ; preds = %74, %.loopexit
+._crit_edge:                                      ; preds = %73, %.loopexit
   ret void
 }
 

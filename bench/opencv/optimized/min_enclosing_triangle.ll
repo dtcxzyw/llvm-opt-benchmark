@@ -54,7 +54,7 @@ define noundef double @_ZN2cv20minEnclosingTriangleERKNS_11_InputArrayERKNS_12_O
   %18 = alloca %"class.std::__cxx11::basic_string", align 8
   %19 = alloca %"class.std::allocator", align 1
   %20 = alloca %"class.cv::Point_", align 4
-  %21 = alloca %"class.cv::Point_", align 4
+  %21 = alloca %"class.cv::Point_", align 8
   %22 = alloca %"class.cv::Point_", align 8
   %23 = alloca %"class.cv::Point_", align 8
   %24 = alloca %"class.cv::Point_", align 8
@@ -170,262 +170,266 @@ _ZN20minEnclosingTriangleL10initialiseERSt6vectorIN2cv6Point_IfEESaIS3_EERd.exit
   store float 0.000000e+00, ptr %67, align 4, !tbaa !27
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
   store float 0.000000e+00, ptr %24, align 8, !tbaa !24
+  %68 = getelementptr inbounds nuw i8, ptr %24, i64 4
+  store float 0.000000e+00, ptr %68, align 4, !tbaa !27
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store float 0.000000e+00, ptr %25, align 8, !tbaa !24
+  %69 = getelementptr inbounds nuw i8, ptr %25, i64 4
+  store float 0.000000e+00, ptr %69, align 4, !tbaa !27
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
-  %68 = lshr exact i64 %63, 3
-  %69 = trunc i64 %68 to i32
+  %70 = lshr exact i64 %63, 3
+  %71 = trunc i64 %70 to i32
   store i32 1, ptr %26, align 4, !tbaa !28
-  %.not.i.i.i = icmp eq i32 %69, 0
+  %.not.i.i.i = icmp eq i32 %71, 0
   br i1 %.not.i.i.i, label %_ZN20minEnclosingTriangleL32findMinimumAreaEnclosingTriangleERKSt6vectorIN2cv6Point_IfEESaIS3_EERS5_Rd.exit.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %65
-  %70 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  %71 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  %72 = getelementptr inbounds nuw i8, ptr %21, i64 4
-  %73 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %74 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  %75 = getelementptr inbounds nuw i8, ptr %20, i64 4
-  %76 = getelementptr inbounds nuw i8, ptr %16, i64 4
-  %77 = getelementptr inbounds nuw i8, ptr %17, i64 4
-  %78 = and i64 %68, 4294967295
-  br label %79
+  %72 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  %73 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %74 = getelementptr inbounds nuw i8, ptr %21, i64 4
+  %75 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %76 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %77 = getelementptr inbounds nuw i8, ptr %20, i64 4
+  %78 = getelementptr inbounds nuw i8, ptr %16, i64 4
+  %79 = getelementptr inbounds nuw i8, ptr %17, i64 4
+  %80 = and i64 %70, 4294967295
+  br label %81
 
-79:                                               ; preds = %_ZN20minEnclosingTriangleL34updateMinimumAreaEnclosingTriangleERSt6vectorIN2cv6Point_IfEESaIS3_EERdRKS3_S9_S9_.exit.i.i.i, %.lr.ph.i.i.i
+81:                                               ; preds = %_ZN20minEnclosingTriangleL34updateMinimumAreaEnclosingTriangleERSt6vectorIN2cv6Point_IfEESaIS3_EERdRKS3_S9_S9_.exit.i.i.i, %.lr.ph.i.i.i
   %.1 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph.i.i.i ], [ %.2, %_ZN20minEnclosingTriangleL34updateMinimumAreaEnclosingTriangleERSt6vectorIN2cv6Point_IfEESaIS3_EERdRKS3_S9_S9_.exit.i.i.i ]
   %.sroa.0.5.i = phi ptr [ null, %.lr.ph.i.i.i ], [ %.sroa.0.6.i, %_ZN20minEnclosingTriangleL34updateMinimumAreaEnclosingTriangleERSt6vectorIN2cv6Point_IfEESaIS3_EERdRKS3_S9_S9_.exit.i.i.i ]
   %.sroa.17.3.i = phi ptr [ null, %.lr.ph.i.i.i ], [ %.sroa.17.4.i, %_ZN20minEnclosingTriangleL34updateMinimumAreaEnclosingTriangleERSt6vectorIN2cv6Point_IfEESaIS3_EERdRKS3_S9_S9_.exit.i.i.i ]
   %.sroa.34.2.i = phi ptr [ null, %.lr.ph.i.i.i ], [ %.sroa.34.3.i, %_ZN20minEnclosingTriangleL34updateMinimumAreaEnclosingTriangleERSt6vectorIN2cv6Point_IfEESaIS3_EERdRKS3_S9_S9_.exit.i.i.i ]
-  %.0..0.128247.i.i.i = phi i32 [ 1, %.lr.ph.i.i.i ], [ %.0..0.128.i.i.i, %_ZN20minEnclosingTriangleL34updateMinimumAreaEnclosingTriangleERSt6vectorIN2cv6Point_IfEESaIS3_EERdRKS3_S9_S9_.exit.i.i.i ]
+  %.0..0.125244.i.i.i = phi i32 [ 1, %.lr.ph.i.i.i ], [ %.0..0.125.i.i.i, %_ZN20minEnclosingTriangleL34updateMinimumAreaEnclosingTriangleERSt6vectorIN2cv6Point_IfEESaIS3_EERdRKS3_S9_S9_.exit.i.i.i ]
   %.0..promoted.i.i.i = phi i32 [ 2, %.lr.ph.i.i.i ], [ %.0..0..i.i.i, %_ZN20minEnclosingTriangleL34updateMinimumAreaEnclosingTriangleERSt6vectorIN2cv6Point_IfEESaIS3_EERdRKS3_S9_S9_.exit.i.i.i ]
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %_ZN20minEnclosingTriangleL34updateMinimumAreaEnclosingTriangleERSt6vectorIN2cv6Point_IfEESaIS3_EERdRKS3_S9_S9_.exit.i.i.i ]
   %.val.i.i.i = load ptr, ptr %33, align 8
-  %80 = getelementptr inbounds nuw %"class.cv::Point_", ptr %.val.i.i.i, i64 %indvars.iv.i.i.i
-  %.sroa_idx6.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %80, i64 4
-  %81 = icmp eq i64 %indvars.iv.i.i.i, 0
-  %.v.i.i.i.i.i.i = select i1 %81, i64 %68, i64 %indvars.iv.i.i.i
-  %82 = add nuw i64 %.v.i.i.i.i.i.i, 4294967295
-  %83 = and i64 %82, 4294967295
-  %84 = getelementptr inbounds nuw %"class.cv::Point_", ptr %.val.i.i.i, i64 %83
-  %.sroa_idx2.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %84, i64 4
-  %85 = load float, ptr %80, align 4
-  %86 = load float, ptr %.sroa_idx6.i.i.i.i.i, align 4
-  %87 = load float, ptr %84, align 4
-  %88 = load float, ptr %.sroa_idx2.i.i.i.i.i, align 4
-  %89 = fsub float %87, %85
-  %90 = fpext float %89 to double
-  %91 = fsub float %88, %86
+  %82 = getelementptr inbounds nuw %"class.cv::Point_", ptr %.val.i.i.i, i64 %indvars.iv.i.i.i
+  %.sroa_idx6.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %82, i64 4
+  %83 = icmp eq i64 %indvars.iv.i.i.i, 0
+  %.v.i.i.i.i.i.i = select i1 %83, i64 %70, i64 %indvars.iv.i.i.i
+  %84 = add nuw i64 %.v.i.i.i.i.i.i, 4294967295
+  %85 = and i64 %84, 4294967295
+  %86 = getelementptr inbounds nuw %"class.cv::Point_", ptr %.val.i.i.i, i64 %85
+  %.sroa_idx2.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %86, i64 4
+  %87 = load float, ptr %82, align 4
+  %88 = load float, ptr %.sroa_idx6.i.i.i.i.i, align 4
+  %89 = load float, ptr %86, align 4
+  %90 = load float, ptr %.sroa_idx2.i.i.i.i.i, align 4
+  %91 = fsub float %89, %87
   %92 = fpext float %91 to double
-  %93 = fneg double %92
-  %94 = fmul double %92, %92
-  %95 = call double @llvm.fmuladd.f64(double %90, double %90, double %94)
-  %sqrt.i.i.i.i.i.i = call double @llvm.sqrt.f64(double %95)
-  %96 = fcmp une double %95, 0.000000e+00
+  %93 = fsub float %90, %88
+  %94 = fpext float %93 to double
+  %95 = fneg double %94
+  %96 = fmul double %94, %94
+  %97 = call double @llvm.fmuladd.f64(double %92, double %92, double %96)
+  %sqrt.i.i.i.i.i.i = call double @llvm.sqrt.f64(double %97)
+  %98 = fcmp une double %97, 0.000000e+00
   %.phi.trans.insert.i.i.i = zext i32 %.0..promoted.i.i.i to i64
-  %.phi.trans.insert237.i.i.i = getelementptr inbounds nuw %"class.cv::Point_", ptr %.val.i.i.i, i64 %.phi.trans.insert.i.i.i
-  %.pre.i.i.i = load float, ptr %.phi.trans.insert237.i.i.i, align 4
-  %.sroa_idx.i14.i.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %.phi.trans.insert237.i.i.i, i64 4
-  %.pre238.i.i.i = load float, ptr %.sroa_idx.i14.i.phi.trans.insert.i.i.i, align 4
+  %.phi.trans.insert234.i.i.i = getelementptr inbounds nuw %"class.cv::Point_", ptr %.val.i.i.i, i64 %.phi.trans.insert.i.i.i
+  %.pre.i.i.i = load float, ptr %.phi.trans.insert234.i.i.i, align 4
+  %.sroa_idx.i14.i.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %.phi.trans.insert234.i.i.i, i64 4
+  %.pre235.i.i.i = load float, ptr %.sroa_idx.i14.i.phi.trans.insert.i.i.i, align 4
   br label %_ZN20minEnclosingTriangleL14greaterOrEqualEdd.exit.thread.i.i.i.i
 
-_ZN20minEnclosingTriangleL14greaterOrEqualEdd.exit.thread.i.i.i.i: ; preds = %_ZN20minEnclosingTriangleL14greaterOrEqualEdd.exit.thread.i.i.i.i.backedge, %79
-  %97 = phi float [ %.pre238.i.i.i, %79 ], [ %105, %_ZN20minEnclosingTriangleL14greaterOrEqualEdd.exit.thread.i.i.i.i.backedge ]
-  %98 = phi float [ %.pre.i.i.i, %79 ], [ %104, %_ZN20minEnclosingTriangleL14greaterOrEqualEdd.exit.thread.i.i.i.i.backedge ]
-  %99 = phi i32 [ %.0..promoted.i.i.i, %79 ], [ %101, %_ZN20minEnclosingTriangleL14greaterOrEqualEdd.exit.thread.i.i.i.i.backedge ]
-  %100 = add i32 %99, 1
-  %101 = urem i32 %100, %69
-  %102 = zext i32 %101 to i64
-  %103 = getelementptr inbounds nuw %"class.cv::Point_", ptr %.val.i.i.i, i64 %102
-  %104 = load float, ptr %103, align 4
-  %.sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %103, i64 4
-  %105 = load float, ptr %.sroa_idx.i.i.i.i.i, align 4
-  %106 = fsub float %86, %105
-  %107 = fpext float %106 to double
-  %108 = fsub float %85, %104
+_ZN20minEnclosingTriangleL14greaterOrEqualEdd.exit.thread.i.i.i.i: ; preds = %_ZN20minEnclosingTriangleL14greaterOrEqualEdd.exit.thread.i.i.i.i.backedge, %81
+  %99 = phi float [ %.pre235.i.i.i, %81 ], [ %107, %_ZN20minEnclosingTriangleL14greaterOrEqualEdd.exit.thread.i.i.i.i.backedge ]
+  %100 = phi float [ %.pre.i.i.i, %81 ], [ %106, %_ZN20minEnclosingTriangleL14greaterOrEqualEdd.exit.thread.i.i.i.i.backedge ]
+  %101 = phi i32 [ %.0..promoted.i.i.i, %81 ], [ %103, %_ZN20minEnclosingTriangleL14greaterOrEqualEdd.exit.thread.i.i.i.i.backedge ]
+  %102 = add i32 %101, 1
+  %103 = urem i32 %102, %71
+  %104 = zext i32 %103 to i64
+  %105 = getelementptr inbounds nuw %"class.cv::Point_", ptr %.val.i.i.i, i64 %104
+  %106 = load float, ptr %105, align 4
+  %.sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %105, i64 4
+  %107 = load float, ptr %.sroa_idx.i.i.i.i.i, align 4
+  %108 = fsub float %88, %107
   %109 = fpext float %108 to double
-  %110 = fmul double %93, %109
-  %111 = call double @llvm.fmuladd.f64(double %90, double %107, double %110)
-  %112 = call noundef double @llvm.fabs.f64(double %111)
-  %113 = fdiv double %112, %sqrt.i.i.i.i.i.i
-  %114 = select i1 %96, double %113, double 0.000000e+00
-  %115 = fsub float %86, %97
-  %116 = fpext float %115 to double
-  %117 = fsub float %85, %98
+  %110 = fsub float %87, %106
+  %111 = fpext float %110 to double
+  %112 = fmul double %95, %111
+  %113 = call double @llvm.fmuladd.f64(double %92, double %109, double %112)
+  %114 = call noundef double @llvm.fabs.f64(double %113)
+  %115 = fdiv double %114, %sqrt.i.i.i.i.i.i
+  %116 = select i1 %98, double %115, double 0.000000e+00
+  %117 = fsub float %88, %99
   %118 = fpext float %117 to double
-  %119 = fmul double %93, %118
-  %120 = call double @llvm.fmuladd.f64(double %90, double %116, double %119)
-  %121 = call noundef double @llvm.fabs.f64(double %120)
-  %122 = fdiv double %121, %sqrt.i.i.i.i.i.i
-  %123 = select i1 %96, double %122, double 0.000000e+00
-  %124 = fcmp ogt double %114, %123
-  br i1 %124, label %_ZN20minEnclosingTriangleL14greaterOrEqualEdd.exit.thread.i.i.i.i.backedge, label %_ZN20minEnclosingTriangleL14greaterOrEqualEdd.exit.i.i.i.i
+  %119 = fsub float %87, %100
+  %120 = fpext float %119 to double
+  %121 = fmul double %95, %120
+  %122 = call double @llvm.fmuladd.f64(double %92, double %118, double %121)
+  %123 = call noundef double @llvm.fabs.f64(double %122)
+  %124 = fdiv double %123, %sqrt.i.i.i.i.i.i
+  %125 = select i1 %98, double %124, double 0.000000e+00
+  %126 = fcmp ogt double %116, %125
+  br i1 %126, label %_ZN20minEnclosingTriangleL14greaterOrEqualEdd.exit.thread.i.i.i.i.backedge, label %_ZN20minEnclosingTriangleL14greaterOrEqualEdd.exit.i.i.i.i
 
 _ZN20minEnclosingTriangleL14greaterOrEqualEdd.exit.i.i.i.i: ; preds = %_ZN20minEnclosingTriangleL14greaterOrEqualEdd.exit.thread.i.i.i.i
-  %125 = fsub double %114, %123
-  %126 = call noundef double @llvm.fabs.f64(double %125)
-  %127 = call noundef double @llvm.fabs.f64(double %114)
-  %128 = call noundef double @llvm.fabs.f64(double %123)
-  %129 = fcmp ogt double %127, 1.000000e+00
-  %.sroa.speculated2.i.i.i.i.i.i.i = select i1 %129, double %127, double 1.000000e+00
-  %130 = fcmp olt double %.sroa.speculated2.i.i.i.i.i.i.i, %128
-  %.sroa.speculated.i.i.i.i.i.i.i = select i1 %130, double %128, double %.sroa.speculated2.i.i.i.i.i.i.i
-  %131 = fmul double %.sroa.speculated.i.i.i.i.i.i.i, 1.000000e-05
-  %132 = fcmp ugt double %126, %131
-  br i1 %132, label %_ZN20minEnclosingTriangleL20advanceBToRightChainERKSt6vectorIN2cv6Point_IfEESaIS3_EEjRjj.exit.preheader.i.i.i, label %_ZN20minEnclosingTriangleL14greaterOrEqualEdd.exit.thread.i.i.i.i.backedge
+  %127 = fsub double %116, %125
+  %128 = call noundef double @llvm.fabs.f64(double %127)
+  %129 = call noundef double @llvm.fabs.f64(double %116)
+  %130 = call noundef double @llvm.fabs.f64(double %125)
+  %131 = fcmp ogt double %129, 1.000000e+00
+  %.sroa.speculated2.i.i.i.i.i.i.i = select i1 %131, double %129, double 1.000000e+00
+  %132 = fcmp olt double %.sroa.speculated2.i.i.i.i.i.i.i, %130
+  %.sroa.speculated.i.i.i.i.i.i.i = select i1 %132, double %130, double %.sroa.speculated2.i.i.i.i.i.i.i
+  %133 = fmul double %.sroa.speculated.i.i.i.i.i.i.i, 1.000000e-05
+  %134 = fcmp ugt double %128, %133
+  br i1 %134, label %_ZN20minEnclosingTriangleL20advanceBToRightChainERKSt6vectorIN2cv6Point_IfEESaIS3_EEjRjj.exit.preheader.i.i.i, label %_ZN20minEnclosingTriangleL14greaterOrEqualEdd.exit.thread.i.i.i.i.backedge
 
 _ZN20minEnclosingTriangleL14greaterOrEqualEdd.exit.thread.i.i.i.i.backedge: ; preds = %_ZN20minEnclosingTriangleL14greaterOrEqualEdd.exit.i.i.i.i, %_ZN20minEnclosingTriangleL14greaterOrEqualEdd.exit.thread.i.i.i.i
   br label %_ZN20minEnclosingTriangleL14greaterOrEqualEdd.exit.thread.i.i.i.i, !llvm.loop !29
 
 _ZN20minEnclosingTriangleL20advanceBToRightChainERKSt6vectorIN2cv6Point_IfEESaIS3_EEjRjj.exit.preheader.i.i.i: ; preds = %_ZN20minEnclosingTriangleL14greaterOrEqualEdd.exit.i.i.i.i
-  %133 = trunc nuw i64 %indvars.iv.i.i.i to i32
-  store i32 %99, ptr %27, align 4
+  %135 = trunc nuw i64 %indvars.iv.i.i.i to i32
+  store i32 %101, ptr %27, align 4
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
-  %134 = icmp eq i64 %indvars.iv.next.i.i.i, %78
-  %135 = select i1 %134, i64 0, i64 %indvars.iv.next.i.i.i
+  %136 = icmp eq i64 %indvars.iv.next.i.i.i, %80
+  %137 = select i1 %136, i64 0, i64 %indvars.iv.next.i.i.i
   br label %_ZN20minEnclosingTriangleL20advanceBToRightChainERKSt6vectorIN2cv6Point_IfEESaIS3_EEjRjj.exit.i.i.i
 
-_ZN20minEnclosingTriangleL20advanceBToRightChainERKSt6vectorIN2cv6Point_IfEESaIS3_EEjRjj.exit.i.i.i: ; preds = %268, %_ZN20minEnclosingTriangleL20advanceBToRightChainERKSt6vectorIN2cv6Point_IfEESaIS3_EEjRjj.exit.preheader.i.i.i
-  %.0..0.128.i.i.i = phi i32 [ %.0..0.128247.i.i.i, %_ZN20minEnclosingTriangleL20advanceBToRightChainERKSt6vectorIN2cv6Point_IfEESaIS3_EEjRjj.exit.preheader.i.i.i ], [ %.0..0..0..0..0..0..0..0..0.128.pre.i.i.i, %268 ]
-  %136 = phi float [ %88, %_ZN20minEnclosingTriangleL20advanceBToRightChainERKSt6vectorIN2cv6Point_IfEESaIS3_EEjRjj.exit.preheader.i.i.i ], [ %.pre246.i.i.i, %268 ]
-  %137 = phi float [ %87, %_ZN20minEnclosingTriangleL20advanceBToRightChainERKSt6vectorIN2cv6Point_IfEESaIS3_EEjRjj.exit.preheader.i.i.i ], [ %.pre245.i.i.i, %268 ]
-  %138 = phi float [ %86, %_ZN20minEnclosingTriangleL20advanceBToRightChainERKSt6vectorIN2cv6Point_IfEESaIS3_EEjRjj.exit.preheader.i.i.i ], [ %.pre243.i.i.i, %268 ]
-  %139 = phi float [ %85, %_ZN20minEnclosingTriangleL20advanceBToRightChainERKSt6vectorIN2cv6Point_IfEESaIS3_EEjRjj.exit.preheader.i.i.i ], [ %.pre242.i.i.i, %268 ]
-  %.val.i.i.i.i = phi ptr [ %.val.i.i.i, %_ZN20minEnclosingTriangleL20advanceBToRightChainERKSt6vectorIN2cv6Point_IfEESaIS3_EEjRjj.exit.preheader.i.i.i ], [ %.val.i.pre.i.i.i, %268 ]
-  %.0..promoted215.i.i.i = phi i32 [ %99, %_ZN20minEnclosingTriangleL20advanceBToRightChainERKSt6vectorIN2cv6Point_IfEESaIS3_EEjRjj.exit.preheader.i.i.i ], [ %.0..0..0..0..0..0..0..0..0.117.pre.i.i.i, %268 ]
-  %140 = zext i32 %.0..promoted215.i.i.i to i64
-  %141 = getelementptr inbounds nuw %"class.cv::Point_", ptr %.val.i.i.i.i, i64 %140
-  %142 = load float, ptr %141, align 4
-  %.sroa_idx.i.i32.i.i.i = getelementptr inbounds nuw i8, ptr %141, i64 4
-  %143 = load float, ptr %.sroa_idx.i.i32.i.i.i, align 4
-  %144 = fsub float %137, %139
-  %145 = fpext float %144 to double
-  %146 = fsub float %138, %143
+_ZN20minEnclosingTriangleL20advanceBToRightChainERKSt6vectorIN2cv6Point_IfEESaIS3_EEjRjj.exit.i.i.i: ; preds = %270, %_ZN20minEnclosingTriangleL20advanceBToRightChainERKSt6vectorIN2cv6Point_IfEESaIS3_EEjRjj.exit.preheader.i.i.i
+  %.0..0.125.i.i.i = phi i32 [ %.0..0.125244.i.i.i, %_ZN20minEnclosingTriangleL20advanceBToRightChainERKSt6vectorIN2cv6Point_IfEESaIS3_EEjRjj.exit.preheader.i.i.i ], [ %.0..0..0..0..0..0..0..0..0.125.pre.i.i.i, %270 ]
+  %138 = phi float [ %90, %_ZN20minEnclosingTriangleL20advanceBToRightChainERKSt6vectorIN2cv6Point_IfEESaIS3_EEjRjj.exit.preheader.i.i.i ], [ %.pre243.i.i.i, %270 ]
+  %139 = phi float [ %89, %_ZN20minEnclosingTriangleL20advanceBToRightChainERKSt6vectorIN2cv6Point_IfEESaIS3_EEjRjj.exit.preheader.i.i.i ], [ %.pre242.i.i.i, %270 ]
+  %140 = phi float [ %88, %_ZN20minEnclosingTriangleL20advanceBToRightChainERKSt6vectorIN2cv6Point_IfEESaIS3_EEjRjj.exit.preheader.i.i.i ], [ %.pre240.i.i.i, %270 ]
+  %141 = phi float [ %87, %_ZN20minEnclosingTriangleL20advanceBToRightChainERKSt6vectorIN2cv6Point_IfEESaIS3_EEjRjj.exit.preheader.i.i.i ], [ %.pre239.i.i.i, %270 ]
+  %.val.i.i.i.i = phi ptr [ %.val.i.i.i, %_ZN20minEnclosingTriangleL20advanceBToRightChainERKSt6vectorIN2cv6Point_IfEESaIS3_EEjRjj.exit.preheader.i.i.i ], [ %.val.i.pre.i.i.i, %270 ]
+  %.0..promoted212.i.i.i = phi i32 [ %101, %_ZN20minEnclosingTriangleL20advanceBToRightChainERKSt6vectorIN2cv6Point_IfEESaIS3_EEjRjj.exit.preheader.i.i.i ], [ %.0..0..0..0..0..0..0..0..0.114.pre.i.i.i, %270 ]
+  %142 = zext i32 %.0..promoted212.i.i.i to i64
+  %143 = getelementptr inbounds nuw %"class.cv::Point_", ptr %.val.i.i.i.i, i64 %142
+  %144 = load float, ptr %143, align 4
+  %.sroa_idx.i.i32.i.i.i = getelementptr inbounds nuw i8, ptr %143, i64 4
+  %145 = load float, ptr %.sroa_idx.i.i32.i.i.i, align 4
+  %146 = fsub float %139, %141
   %147 = fpext float %146 to double
-  %148 = fsub float %139, %142
+  %148 = fsub float %140, %145
   %149 = fpext float %148 to double
-  %150 = fsub float %136, %138
+  %150 = fsub float %141, %144
   %151 = fpext float %150 to double
-  %152 = fneg double %151
-  %153 = fmul double %152, %149
-  %154 = call double @llvm.fmuladd.f64(double %145, double %147, double %153)
-  %155 = call noundef double @llvm.fabs.f64(double %154)
-  %156 = fmul double %151, %151
-  %157 = call double @llvm.fmuladd.f64(double %145, double %145, double %156)
-  %sqrt.i.i.i33.i.i.i = call double @llvm.sqrt.f64(double %157)
-  %158 = fcmp une double %157, 0.000000e+00
-  %159 = fdiv double %155, %sqrt.i.i.i33.i.i.i
-  %160 = select i1 %158, double %159, double 0.000000e+00
-  %161 = zext i32 %.0..0.128.i.i.i to i64
-  %162 = getelementptr inbounds nuw %"class.cv::Point_", ptr %.val.i.i.i.i, i64 %161
-  %163 = load float, ptr %162, align 4
-  %.sroa_idx.i27.i.i.i.i = getelementptr inbounds nuw i8, ptr %162, i64 4
-  %164 = load float, ptr %.sroa_idx.i27.i.i.i.i, align 4
-  %165 = fsub float %138, %164
-  %166 = fpext float %165 to double
-  %167 = fsub float %139, %163
+  %152 = fsub float %138, %140
+  %153 = fpext float %152 to double
+  %154 = fneg double %153
+  %155 = fmul double %154, %151
+  %156 = call double @llvm.fmuladd.f64(double %147, double %149, double %155)
+  %157 = call noundef double @llvm.fabs.f64(double %156)
+  %158 = fmul double %153, %153
+  %159 = call double @llvm.fmuladd.f64(double %147, double %147, double %158)
+  %sqrt.i.i.i33.i.i.i = call double @llvm.sqrt.f64(double %159)
+  %160 = fcmp une double %159, 0.000000e+00
+  %161 = fdiv double %157, %sqrt.i.i.i33.i.i.i
+  %162 = select i1 %160, double %161, double 0.000000e+00
+  %163 = zext i32 %.0..0.125.i.i.i to i64
+  %164 = getelementptr inbounds nuw %"class.cv::Point_", ptr %.val.i.i.i.i, i64 %163
+  %165 = load float, ptr %164, align 4
+  %.sroa_idx.i27.i.i.i.i = getelementptr inbounds nuw i8, ptr %164, i64 4
+  %166 = load float, ptr %.sroa_idx.i27.i.i.i.i, align 4
+  %167 = fsub float %140, %166
   %168 = fpext float %167 to double
-  %169 = fmul double %152, %168
-  %170 = call double @llvm.fmuladd.f64(double %145, double %166, double %169)
-  %171 = call noundef double @llvm.fabs.f64(double %170)
-  %172 = fdiv double %171, %sqrt.i.i.i33.i.i.i
-  %173 = select i1 %158, double %172, double 0.000000e+00
-  %174 = fcmp ogt double %160, %173
-  br i1 %174, label %175, label %_ZN20minEnclosingTriangleL20moveAIfLowAndBIfHighERKSt6vectorIN2cv6Point_IfEESaIS3_EEjRjS8_j.exit.i.i.i
+  %169 = fsub float %141, %165
+  %170 = fpext float %169 to double
+  %171 = fmul double %154, %170
+  %172 = call double @llvm.fmuladd.f64(double %147, double %168, double %171)
+  %173 = call noundef double @llvm.fabs.f64(double %172)
+  %174 = fdiv double %173, %sqrt.i.i.i33.i.i.i
+  %175 = select i1 %160, double %174, double 0.000000e+00
+  %176 = fcmp ogt double %162, %175
+  br i1 %176, label %177, label %_ZN20minEnclosingTriangleL20moveAIfLowAndBIfHighERKSt6vectorIN2cv6Point_IfEESaIS3_EEjRjS8_j.exit.i.i.i
 
-175:                                              ; preds = %_ZN20minEnclosingTriangleL20advanceBToRightChainERKSt6vectorIN2cv6Point_IfEESaIS3_EEjRjj.exit.i.i.i
-  %176 = getelementptr inbounds nuw %"class.cv::Point_", ptr %.val.i.i.i.i, i64 %83
-  %177 = getelementptr inbounds nuw %"class.cv::Point_", ptr %.val.i.i.i.i, i64 %indvars.iv.i.i.i
+177:                                              ; preds = %_ZN20minEnclosingTriangleL20advanceBToRightChainERKSt6vectorIN2cv6Point_IfEESaIS3_EEjRjj.exit.i.i.i
+  %178 = getelementptr inbounds nuw %"class.cv::Point_", ptr %.val.i.i.i.i, i64 %85
+  %179 = getelementptr inbounds nuw %"class.cv::Point_", ptr %.val.i.i.i.i, i64 %indvars.iv.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store float 0.000000e+00, ptr %9, align 8, !tbaa !24
-  store float 0.000000e+00, ptr %70, align 4, !tbaa !27
+  store float 0.000000e+00, ptr %72, align 4, !tbaa !27
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store float 0.000000e+00, ptr %10, align 8, !tbaa !24
-  store float 0.000000e+00, ptr %71, align 4, !tbaa !27
-  %178 = icmp eq i32 %.0..0.128.i.i.i, 0
-  %.v.i.i84.i.i.i = select i1 %178, i32 %69, i32 %.0..0.128.i.i.i
-  %179 = add i32 %.v.i.i84.i.i.i, -1
-  %180 = zext i32 %179 to i64
-  %181 = getelementptr inbounds nuw %"class.cv::Point_", ptr %.val.i.i.i.i, i64 %180
-  %182 = invoke fastcc noundef zeroext i1 @_ZN20minEnclosingTriangleL27findGammaIntersectionPointsERKSt6vectorIN2cv6Point_IfEESaIS3_EEjjjRKS3_S9_S9_S9_RS3_SA_(ptr noundef nonnull readonly align 8 dereferenceable(24) %33, i32 noundef %69, i32 noundef %133, i32 noundef %.0..0.128.i.i.i, ptr noundef nonnull align 4 dereferenceable(8) %162, ptr noundef nonnull align 4 dereferenceable(8) %181, ptr noundef nonnull align 4 dereferenceable(8) %177, ptr noundef nonnull align 4 dereferenceable(8) %176, ptr noundef nonnull align 4 dereferenceable(8) %9, ptr noundef nonnull align 4 dereferenceable(8) %10)
+  store float 0.000000e+00, ptr %73, align 4, !tbaa !27
+  %180 = icmp eq i32 %.0..0.125.i.i.i, 0
+  %.v.i.i81.i.i.i = select i1 %180, i32 %71, i32 %.0..0.125.i.i.i
+  %181 = add i32 %.v.i.i81.i.i.i, -1
+  %182 = zext i32 %181 to i64
+  %183 = getelementptr inbounds nuw %"class.cv::Point_", ptr %.val.i.i.i.i, i64 %182
+  %184 = invoke fastcc noundef zeroext i1 @_ZN20minEnclosingTriangleL27findGammaIntersectionPointsERKSt6vectorIN2cv6Point_IfEESaIS3_EEjjjRKS3_S9_S9_S9_RS3_SA_(ptr noundef nonnull readonly align 8 dereferenceable(24) %33, i32 noundef %71, i32 noundef %135, i32 noundef %.0..0.125.i.i.i, ptr noundef nonnull align 4 dereferenceable(8) %164, ptr noundef nonnull align 4 dereferenceable(8) %183, ptr noundef nonnull align 4 dereferenceable(8) %179, ptr noundef nonnull align 4 dereferenceable(8) %178, ptr noundef nonnull align 4 dereferenceable(8) %9, ptr noundef nonnull align 4 dereferenceable(8) %10)
           to label %.noexc.i unwind label %.loopexit.split-lp.loopexit.i
 
-.noexc.i:                                         ; preds = %175
-  br i1 %182, label %183, label %_ZN20minEnclosingTriangleL5gammaEjRN2cv6Point_IfEERKSt6vectorIS2_SaIS2_EEjjj.exit.i.i.i
+.noexc.i:                                         ; preds = %177
+  br i1 %184, label %185, label %_ZN20minEnclosingTriangleL5gammaEjRN2cv6Point_IfEERKSt6vectorIS2_SaIS2_EEjjj.exit.i.i.i
 
-183:                                              ; preds = %.noexc.i
-  %184 = load ptr, ptr %33, align 8, !tbaa !20
-  %185 = getelementptr inbounds nuw %"class.cv::Point_", ptr %184, i64 %135
-  %186 = getelementptr inbounds nuw %"class.cv::Point_", ptr %184, i64 %indvars.iv.i.i.i
-  %187 = getelementptr inbounds nuw %"class.cv::Point_", ptr %184, i64 %83
-  %.val.i85.i.i.i = load float, ptr %186, align 4, !tbaa !24
-  %188 = getelementptr i8, ptr %186, i64 4
-  %.val24.i.i.i.i = load float, ptr %188, align 4
-  %.val25.i.i.i.i = load float, ptr %187, align 4, !tbaa !24
-  %189 = getelementptr i8, ptr %187, i64 4
-  %.val26.i.i.i.i = load float, ptr %189, align 4
-  %190 = fpext float %.val.i85.i.i.i to double
-  %191 = fpext float %.val25.i.i.i.i to double
-  %192 = fsub double %190, %191
-  %193 = call noundef double @llvm.fabs.f64(double %192)
-  %194 = call noundef double @llvm.fabs.f64(double %190)
-  %195 = call noundef double @llvm.fabs.f64(double %191)
-  %196 = fcmp ogt double %194, 1.000000e+00
-  %.sroa.speculated2.i.i.i.i100.i.i.i = select i1 %196, double %194, double 1.000000e+00
-  %197 = fcmp olt double %.sroa.speculated2.i.i.i.i100.i.i.i, %195
-  %.sroa.speculated.i.i.i.i101.i.i.i = select i1 %197, double %195, double %.sroa.speculated2.i.i.i.i100.i.i.i
-  %198 = fmul double %.sroa.speculated.i.i.i.i101.i.i.i, 1.000000e-05
-  %199 = fcmp ugt double %193, %198
-  br i1 %199, label %220, label %_ZN20minEnclosingTriangleL14areEqualPointsERKN2cv6Point_IfEES4_.exit.i.i.i.i
+185:                                              ; preds = %.noexc.i
+  %186 = load ptr, ptr %33, align 8, !tbaa !20
+  %187 = getelementptr inbounds nuw %"class.cv::Point_", ptr %186, i64 %137
+  %188 = getelementptr inbounds nuw %"class.cv::Point_", ptr %186, i64 %indvars.iv.i.i.i
+  %189 = getelementptr inbounds nuw %"class.cv::Point_", ptr %186, i64 %85
+  %.val.i82.i.i.i = load float, ptr %188, align 4, !tbaa !24
+  %190 = getelementptr i8, ptr %188, i64 4
+  %.val24.i.i.i.i = load float, ptr %190, align 4
+  %.val25.i.i.i.i = load float, ptr %189, align 4, !tbaa !24
+  %191 = getelementptr i8, ptr %189, i64 4
+  %.val26.i.i.i.i = load float, ptr %191, align 4
+  %192 = fpext float %.val.i82.i.i.i to double
+  %193 = fpext float %.val25.i.i.i.i to double
+  %194 = fsub double %192, %193
+  %195 = call noundef double @llvm.fabs.f64(double %194)
+  %196 = call noundef double @llvm.fabs.f64(double %192)
+  %197 = call noundef double @llvm.fabs.f64(double %193)
+  %198 = fcmp ogt double %196, 1.000000e+00
+  %.sroa.speculated2.i.i.i.i97.i.i.i = select i1 %198, double %196, double 1.000000e+00
+  %199 = fcmp olt double %.sroa.speculated2.i.i.i.i97.i.i.i, %197
+  %.sroa.speculated.i.i.i.i98.i.i.i = select i1 %199, double %197, double %.sroa.speculated2.i.i.i.i97.i.i.i
+  %200 = fmul double %.sroa.speculated.i.i.i.i98.i.i.i, 1.000000e-05
+  %201 = fcmp ugt double %195, %200
+  br i1 %201, label %222, label %_ZN20minEnclosingTriangleL14areEqualPointsERKN2cv6Point_IfEES4_.exit.i.i.i.i
 
-_ZN20minEnclosingTriangleL14areEqualPointsERKN2cv6Point_IfEES4_.exit.i.i.i.i: ; preds = %183
-  %200 = fpext float %.val24.i.i.i.i to double
-  %201 = fpext float %.val26.i.i.i.i to double
-  %202 = fsub double %200, %201
-  %203 = call noundef double @llvm.fabs.f64(double %202)
-  %204 = call noundef double @llvm.fabs.f64(double %200)
-  %205 = call noundef double @llvm.fabs.f64(double %201)
-  %206 = fcmp ogt double %204, 1.000000e+00
-  %.sroa.speculated2.i.i4.i.i.i.i.i = select i1 %206, double %204, double 1.000000e+00
-  %207 = fcmp olt double %.sroa.speculated2.i.i4.i.i.i.i.i, %205
-  %.sroa.speculated.i.i5.i.i.i.i.i = select i1 %207, double %205, double %.sroa.speculated2.i.i4.i.i.i.i.i
-  %208 = fmul double %.sroa.speculated.i.i5.i.i.i.i.i, 1.000000e-05
-  %209 = fcmp ugt double %203, %208
-  br i1 %209, label %220, label %210
+_ZN20minEnclosingTriangleL14areEqualPointsERKN2cv6Point_IfEES4_.exit.i.i.i.i: ; preds = %185
+  %202 = fpext float %.val24.i.i.i.i to double
+  %203 = fpext float %.val26.i.i.i.i to double
+  %204 = fsub double %202, %203
+  %205 = call noundef double @llvm.fabs.f64(double %204)
+  %206 = call noundef double @llvm.fabs.f64(double %202)
+  %207 = call noundef double @llvm.fabs.f64(double %203)
+  %208 = fcmp ogt double %206, 1.000000e+00
+  %.sroa.speculated2.i.i4.i.i.i.i.i = select i1 %208, double %206, double 1.000000e+00
+  %209 = fcmp olt double %.sroa.speculated2.i.i4.i.i.i.i.i, %207
+  %.sroa.speculated.i.i5.i.i.i.i.i = select i1 %209, double %207, double %.sroa.speculated2.i.i4.i.i.i.i.i
+  %210 = fmul double %.sroa.speculated.i.i5.i.i.i.i.i, 1.000000e-05
+  %211 = fcmp ugt double %205, %210
+  br i1 %211, label %222, label %212
 
-210:                                              ; preds = %_ZN20minEnclosingTriangleL14areEqualPointsERKN2cv6Point_IfEES4_.exit.i.i.i.i
+212:                                              ; preds = %_ZN20minEnclosingTriangleL14areEqualPointsERKN2cv6Point_IfEES4_.exit.i.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.3, ptr noundef nonnull align 1 dereferenceable(1) %6)
           to label %.noexc21.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
-.noexc21.i:                                       ; preds = %210
+.noexc21.i:                                       ; preds = %212
   invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @__func__._ZN20minEnclosingTriangleL30lineEquationDeterminedByPointsERKN2cv6Point_IfEES4_RdS5_S5_, ptr noundef nonnull @.str.1, i32 noundef 1411) #17
-          to label %211 unwind label %212
+          to label %213 unwind label %214
 
-211:                                              ; preds = %.noexc21.i
+213:                                              ; preds = %.noexc21.i
   unreachable
 
-212:                                              ; preds = %.noexc21.i
-  %213 = landingpad { ptr, i32 }
+214:                                              ; preds = %.noexc21.i
+  %215 = landingpad { ptr, i32 }
           cleanup
-  %214 = load ptr, ptr %5, align 8, !tbaa !3
-  %215 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %216 = icmp eq ptr %214, %215
-  br i1 %216, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i104.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i102.i.i.i
+  %216 = load ptr, ptr %5, align 8, !tbaa !3
+  %217 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %218 = icmp eq ptr %216, %217
+  br i1 %218, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i101.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i99.i.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i104.i.i.i: ; preds = %212
-  %217 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %218 = load i64, ptr %217, align 8, !tbaa !11
-  %219 = icmp ult i64 %218, 16
-  call void @llvm.assume(i1 %219)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i103.i.i.i
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i101.i.i.i: ; preds = %214
+  %219 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %220 = load i64, ptr %219, align 8, !tbaa !11
+  %221 = icmp ult i64 %220, 16
+  call void @llvm.assume(i1 %221)
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i100.i.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i102.i.i.i: ; preds = %212
-  call void @_ZdlPv(ptr noundef %214) #18
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i103.i.i.i
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i99.i.i.i: ; preds = %214
+  call void @_ZdlPv(ptr noundef %216) #18
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i100.i.i.i
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i103.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i102.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i104.i.i.i
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i100.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i99.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i101.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.body22.i
@@ -433,478 +437,472 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i103.i.i.i: ; pre
 _ZN20minEnclosingTriangleL5gammaEjRN2cv6Point_IfEERKSt6vectorIS2_SaIS2_EEjjj.exit.i.i.i: ; preds = %.noexc.i
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %268
+  %.val.i.pre.pre.i.i.i = load ptr, ptr %33, align 8, !tbaa !20
+  br label %270
 
-220:                                              ; preds = %_ZN20minEnclosingTriangleL14areEqualPointsERKN2cv6Point_IfEES4_.exit.i.i.i.i, %183
-  %221 = fsub float %.val26.i.i.i.i, %.val24.i.i.i.i
-  %222 = fpext float %221 to double
-  %223 = fsub float %.val.i85.i.i.i, %.val25.i.i.i.i
+222:                                              ; preds = %_ZN20minEnclosingTriangleL14areEqualPointsERKN2cv6Point_IfEES4_.exit.i.i.i.i, %185
+  %223 = fsub float %.val26.i.i.i.i, %.val24.i.i.i.i
   %224 = fpext float %223 to double
-  %225 = fneg float %.val24.i.i.i.i
+  %225 = fsub float %.val.i82.i.i.i, %.val25.i.i.i.i
   %226 = fpext float %225 to double
-  %227 = fneg double %190
-  %228 = fmul double %227, %222
-  %229 = call double @llvm.fmuladd.f64(double %226, double %224, double %228)
-  %230 = load float, ptr %9, align 8, !tbaa !24
-  %231 = fpext float %230 to double
-  %232 = load float, ptr %70, align 4, !tbaa !27
+  %227 = fneg float %.val24.i.i.i.i
+  %228 = fpext float %227 to double
+  %229 = fneg double %192
+  %230 = fmul double %229, %224
+  %231 = call double @llvm.fmuladd.f64(double %228, double %226, double %230)
+  %232 = load float, ptr %9, align 8, !tbaa !24
   %233 = fpext float %232 to double
-  %234 = fmul double %224, %233
-  %235 = call double @llvm.fmuladd.f64(double %222, double %231, double %234)
-  %236 = fadd double %229, %235
-  %237 = load float, ptr %185, align 4, !tbaa !24
-  %238 = fpext float %237 to double
-  %239 = getelementptr inbounds nuw i8, ptr %185, i64 4
-  %240 = load float, ptr %239, align 4, !tbaa !27
-  %241 = fpext float %240 to double
-  %242 = fmul double %224, %241
-  %243 = call double @llvm.fmuladd.f64(double %222, double %238, double %242)
-  %244 = fadd double %229, %243
-  %245 = fcmp ogt double %236, 0.000000e+00
-  %246 = fcmp ogt double %244, 0.000000e+00
-  %247 = fcmp olt double %244, 0.000000e+00
-  %248 = fcmp uge double %236, 0.000000e+00
-  %249 = xor i1 %248, %247
-  %not..i.i.i.i.i = xor i1 %246, true
-  %250 = and i1 %249, %not..i.i.i.i.i
-  %251 = select i1 %245, i1 %246, i1 %250
-  %.val29.i86.i.i.i = load i64, ptr %9, align 8
-  %.val30.i87.i.i.i = load i64, ptr %10, align 8
-  %storemerge.i88.i.i.i = select i1 %251, i64 %.val29.i86.i.i.i, i64 %.val30.i87.i.i.i
-  %.sroa.0170.0.extract.trunc.i.i.i = trunc i64 %storemerge.i88.i.i.i to i32
-  %252 = bitcast i32 %.sroa.0170.0.extract.trunc.i.i.i to float
-  %.sroa.5.0.extract.shift.i.i.i = lshr i64 %storemerge.i88.i.i.i, 32
+  %234 = load float, ptr %72, align 4, !tbaa !27
+  %235 = fpext float %234 to double
+  %236 = fmul double %226, %235
+  %237 = call double @llvm.fmuladd.f64(double %224, double %233, double %236)
+  %238 = fadd double %231, %237
+  %239 = load float, ptr %187, align 4, !tbaa !24
+  %240 = fpext float %239 to double
+  %241 = getelementptr inbounds nuw i8, ptr %187, i64 4
+  %242 = load float, ptr %241, align 4, !tbaa !27
+  %243 = fpext float %242 to double
+  %244 = fmul double %226, %243
+  %245 = call double @llvm.fmuladd.f64(double %224, double %240, double %244)
+  %246 = fadd double %231, %245
+  %247 = fcmp ogt double %238, 0.000000e+00
+  %248 = fcmp ogt double %246, 0.000000e+00
+  %249 = fcmp olt double %246, 0.000000e+00
+  %250 = fcmp uge double %238, 0.000000e+00
+  %251 = xor i1 %250, %249
+  %not..i.i.i.i.i = xor i1 %248, true
+  %252 = and i1 %251, %not..i.i.i.i.i
+  %253 = select i1 %247, i1 %248, i1 %252
+  %.val29.i83.i.i.i = load i64, ptr %9, align 8
+  %.val30.i84.i.i.i = load i64, ptr %10, align 8
+  %storemerge.i85.i.i.i = select i1 %253, i64 %.val29.i83.i.i.i, i64 %.val30.i84.i.i.i
+  %.sroa.0167.0.extract.trunc.i.i.i = trunc i64 %storemerge.i85.i.i.i to i32
+  %254 = bitcast i32 %.sroa.0167.0.extract.trunc.i.i.i to float
+  %.sroa.5.0.extract.shift.i.i.i = lshr i64 %storemerge.i85.i.i.i, 32
   %.sroa.5.0.extract.trunc.i.i.i = trunc nuw i64 %.sroa.5.0.extract.shift.i.i.i to i32
-  %253 = bitcast i32 %.sroa.5.0.extract.trunc.i.i.i to float
+  %255 = bitcast i32 %.sroa.5.0.extract.trunc.i.i.i to float
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %254 = getelementptr inbounds nuw %"class.cv::Point_", ptr %184, i64 %140
-  %.val.i.i.i.i.i = load float, ptr %254, align 4, !tbaa !24
-  %255 = getelementptr i8, ptr %254, i64 4
-  %.val7.i.i.i.i.i = load float, ptr %255, align 4, !tbaa !27
-  %256 = fsub float %253, %.val7.i.i.i.i.i
-  %257 = fpext float %256 to double
-  %258 = fsub float %252, %.val.i.i.i.i.i
+  %256 = getelementptr inbounds nuw %"class.cv::Point_", ptr %186, i64 %142
+  %.val.i.i.i.i.i = load float, ptr %256, align 4, !tbaa !24
+  %257 = getelementptr i8, ptr %256, i64 4
+  %.val7.i.i.i.i.i = load float, ptr %257, align 4, !tbaa !27
+  %258 = fsub float %255, %.val7.i.i.i.i.i
   %259 = fpext float %258 to double
-  %260 = call double @atan2(double noundef %257, double noundef %259) #19, !tbaa !28
-  %261 = fmul double %260, 1.800000e+02
-  %262 = fdiv double %261, 0x400921FB54442D18
-  %263 = fcmp olt double %262, 0.000000e+00
-  %264 = fadd double %262, 3.600000e+02
-  %265 = select i1 %263, double %264, double %262
-  %266 = call fastcc noundef i32 @_ZN20minEnclosingTriangleL10intersectsEdjRKSt6vectorIN2cv6Point_IfEESaIS3_EEjj(double noundef %265, i32 noundef %.0..promoted215.i.i.i, ptr nonnull readonly %184, i32 noundef %69, i32 noundef %133)
-  %267 = icmp eq i32 %266, 1
-  %spec.select.i.i.i = select i1 %267, ptr %27, ptr %26
-  %.pre259.i.i.i = load i32, ptr %spec.select.i.i.i, align 4, !tbaa !28
-  br label %268
+  %260 = fsub float %254, %.val.i.i.i.i.i
+  %261 = fpext float %260 to double
+  %262 = call double @atan2(double noundef %259, double noundef %261) #19, !tbaa !28
+  %263 = fmul double %262, 1.800000e+02
+  %264 = fdiv double %263, 0x400921FB54442D18
+  %265 = fcmp olt double %264, 0.000000e+00
+  %266 = fadd double %264, 3.600000e+02
+  %267 = select i1 %265, double %266, double %264
+  %268 = call fastcc noundef i32 @_ZN20minEnclosingTriangleL10intersectsEdjRKSt6vectorIN2cv6Point_IfEESaIS3_EEjj(double noundef %267, i32 noundef %.0..promoted212.i.i.i, ptr nonnull readonly %186, i32 noundef %71, i32 noundef %135)
+  %269 = icmp eq i32 %268, 1
+  %spec.select.i.i.i = select i1 %269, ptr %27, ptr %26
+  %.pre256.i.i.i = load i32, ptr %spec.select.i.i.i, align 4, !tbaa !28
+  br label %270
 
-268:                                              ; preds = %220, %_ZN20minEnclosingTriangleL5gammaEjRN2cv6Point_IfEERKSt6vectorIS2_SaIS2_EEjjj.exit.i.i.i
-  %269 = phi i32 [ %.0..0.128.i.i.i, %_ZN20minEnclosingTriangleL5gammaEjRN2cv6Point_IfEERKSt6vectorIS2_SaIS2_EEjjj.exit.i.i.i ], [ %.pre259.i.i.i, %220 ]
-  %.sink31.i.i.i.i = phi ptr [ %26, %_ZN20minEnclosingTriangleL5gammaEjRN2cv6Point_IfEERKSt6vectorIS2_SaIS2_EEjjj.exit.i.i.i ], [ %spec.select.i.i.i, %220 ]
-  %270 = add i32 %269, 1
-  %271 = urem i32 %270, %69
-  store i32 %271, ptr %.sink31.i.i.i.i, align 4, !tbaa !28
-  %.0..0..0..0..0..0..0..0..0.117.pre.i.i.i = load i32, ptr %27, align 4, !tbaa !28
-  %.val.i.pre.i.i.i = load ptr, ptr %33, align 8, !tbaa !20
-  %.phi.trans.insert241.i.i.i = getelementptr inbounds nuw %"class.cv::Point_", ptr %.val.i.pre.i.i.i, i64 %indvars.iv.i.i.i
+270:                                              ; preds = %222, %_ZN20minEnclosingTriangleL5gammaEjRN2cv6Point_IfEERKSt6vectorIS2_SaIS2_EEjjj.exit.i.i.i
+  %.val.i.pre.i.i.i = phi ptr [ %.val.i.pre.pre.i.i.i, %_ZN20minEnclosingTriangleL5gammaEjRN2cv6Point_IfEERKSt6vectorIS2_SaIS2_EEjjj.exit.i.i.i ], [ %186, %222 ]
+  %271 = phi i32 [ %.0..0.125.i.i.i, %_ZN20minEnclosingTriangleL5gammaEjRN2cv6Point_IfEERKSt6vectorIS2_SaIS2_EEjjj.exit.i.i.i ], [ %.pre256.i.i.i, %222 ]
+  %.sink31.i.i.i.i = phi ptr [ %26, %_ZN20minEnclosingTriangleL5gammaEjRN2cv6Point_IfEERKSt6vectorIS2_SaIS2_EEjjj.exit.i.i.i ], [ %spec.select.i.i.i, %222 ]
+  %272 = add i32 %271, 1
+  %273 = urem i32 %272, %71
+  store i32 %273, ptr %.sink31.i.i.i.i, align 4, !tbaa !28
+  %.0..0..0..0..0..0..0..0..0.114.pre.i.i.i = load i32, ptr %27, align 4, !tbaa !28
+  %.phi.trans.insert238.i.i.i = getelementptr inbounds nuw %"class.cv::Point_", ptr %.val.i.pre.i.i.i, i64 %indvars.iv.i.i.i
+  %.pre239.i.i.i = load float, ptr %.phi.trans.insert238.i.i.i, align 4
+  %.sroa_idx6.i.i30.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %.phi.trans.insert238.i.i.i, i64 4
+  %.pre240.i.i.i = load float, ptr %.sroa_idx6.i.i30.phi.trans.insert.i.i.i, align 4
+  %.phi.trans.insert241.i.i.i = getelementptr inbounds nuw %"class.cv::Point_", ptr %.val.i.pre.i.i.i, i64 %85
   %.pre242.i.i.i = load float, ptr %.phi.trans.insert241.i.i.i, align 4
-  %.sroa_idx6.i.i30.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %.phi.trans.insert241.i.i.i, i64 4
-  %.pre243.i.i.i = load float, ptr %.sroa_idx6.i.i30.phi.trans.insert.i.i.i, align 4
-  %.phi.trans.insert244.i.i.i = getelementptr inbounds nuw %"class.cv::Point_", ptr %.val.i.pre.i.i.i, i64 %83
-  %.pre245.i.i.i = load float, ptr %.phi.trans.insert244.i.i.i, align 4
-  %.sroa_idx2.i.i31.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %.phi.trans.insert244.i.i.i, i64 4
-  %.pre246.i.i.i = load float, ptr %.sroa_idx2.i.i31.phi.trans.insert.i.i.i, align 4
-  %.0..0..0..0..0..0..0..0..0.128.pre.i.i.i = load i32, ptr %26, align 4, !tbaa !28
+  %.sroa_idx2.i.i31.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %.phi.trans.insert241.i.i.i, i64 4
+  %.pre243.i.i.i = load float, ptr %.sroa_idx2.i.i31.phi.trans.insert.i.i.i, align 4
+  %.0..0..0..0..0..0..0..0..0.125.pre.i.i.i = load i32, ptr %26, align 4, !tbaa !28
   br label %_ZN20minEnclosingTriangleL20advanceBToRightChainERKSt6vectorIN2cv6Point_IfEESaIS3_EEjRjj.exit.i.i.i, !llvm.loop !31
 
 _ZN20minEnclosingTriangleL20moveAIfLowAndBIfHighERKSt6vectorIN2cv6Point_IfEESaIS3_EEjRjS8_j.exit.i.i.i: ; preds = %_ZN20minEnclosingTriangleL20advanceBToRightChainERKSt6vectorIN2cv6Point_IfEESaIS3_EEjRjj.exit.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
-  store float 0.000000e+00, ptr %21, align 4, !tbaa !24
-  store float 0.000000e+00, ptr %72, align 4, !tbaa !27
-  %272 = invoke fastcc noundef zeroext i1 @_ZN20minEnclosingTriangleL5gammaEjRN2cv6Point_IfEERKSt6vectorIS2_SaIS2_EEjjj(i32 noundef %.0..promoted215.i.i.i, ptr noundef nonnull align 4 dereferenceable(8) %21, ptr noundef nonnull readonly align 8 dereferenceable(24) %33, i32 noundef %69, i32 noundef %.0..0.128.i.i.i, i32 noundef %133)
+  store float 0.000000e+00, ptr %21, align 8, !tbaa !24
+  store float 0.000000e+00, ptr %74, align 4, !tbaa !27
+  %274 = invoke fastcc noundef zeroext i1 @_ZN20minEnclosingTriangleL5gammaEjRN2cv6Point_IfEERKSt6vectorIS2_SaIS2_EEjjj(i32 noundef %.0..promoted212.i.i.i, ptr noundef nonnull align 4 dereferenceable(8) %21, ptr noundef nonnull readonly align 8 dereferenceable(24) %33, i32 noundef %71, i32 noundef %.0..0.125.i.i.i, i32 noundef %135)
           to label %.noexc24.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 .noexc24.i:                                       ; preds = %_ZN20minEnclosingTriangleL20moveAIfLowAndBIfHighERKSt6vectorIN2cv6Point_IfEESaIS3_EEjRjS8_j.exit.i.i.i
-  br i1 %272, label %.lr.ph.i.i.i.i, label %_ZN20minEnclosingTriangleL18searchForBTangencyERKSt6vectorIN2cv6Point_IfEESaIS3_EEjjRjj.exit.i.i.i
+  %.pre250.i.i.i = load ptr, ptr %33, align 8, !tbaa !20
+  br i1 %274, label %.lr.ph.i.i.i.i, label %_ZN20minEnclosingTriangleL18searchForBTangencyERKSt6vectorIN2cv6Point_IfEESaIS3_EEjjRjj.exit.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.noexc24.i
-  %273 = icmp eq i32 %.0..0.128.i.i.i, 0
-  %.v.i.i.i.i.i = select i1 %273, i32 %69, i32 %.0..0.128.i.i.i
-  %274 = add i32 %.v.i.i.i.i.i, -1
-  %275 = zext i32 %274 to i64
-  %.val20.i.pre.i.i.i = load float, ptr %21, align 4, !tbaa !24
-  %.val21.i35.pre.i.i.i = load float, ptr %72, align 4, !tbaa !27
-  %.val22.i36.pre.i.i.i = load ptr, ptr %33, align 8, !tbaa !20
-  br label %276
+  %275 = icmp eq i32 %.0..0.125.i.i.i, 0
+  %.v.i.i.i.i.i = select i1 %275, i32 %71, i32 %.0..0.125.i.i.i
+  %276 = add i32 %.v.i.i.i.i.i, -1
+  %277 = zext i32 %276 to i64
+  %.val20.i.pre.i.i.i = load float, ptr %21, align 8, !tbaa !24
+  %.val21.i35.pre.i.i.i = load float, ptr %74, align 4, !tbaa !27
+  br label %278
 
-276:                                              ; preds = %_ZN20minEnclosingTriangleL5gammaEjRN2cv6Point_IfEERKSt6vectorIS2_SaIS2_EEjjj.exit99.i.i.i, %.lr.ph.i.i.i.i
-  %.val22.i36.i.i.i = phi ptr [ %346, %_ZN20minEnclosingTriangleL5gammaEjRN2cv6Point_IfEERKSt6vectorIS2_SaIS2_EEjjj.exit99.i.i.i ], [ %.val22.i36.pre.i.i.i, %.lr.ph.i.i.i.i ]
-  %.val21.i35.i.i.i = phi float [ %417, %_ZN20minEnclosingTriangleL5gammaEjRN2cv6Point_IfEERKSt6vectorIS2_SaIS2_EEjjj.exit99.i.i.i ], [ %.val21.i35.pre.i.i.i, %.lr.ph.i.i.i.i ]
-  %.val20.i.i.i.i = phi float [ %414, %_ZN20minEnclosingTriangleL5gammaEjRN2cv6Point_IfEERKSt6vectorIS2_SaIS2_EEjjj.exit99.i.i.i ], [ %.val20.i.pre.i.i.i, %.lr.ph.i.i.i.i ]
-  %277 = phi i32 [ %342, %_ZN20minEnclosingTriangleL5gammaEjRN2cv6Point_IfEERKSt6vectorIS2_SaIS2_EEjjj.exit99.i.i.i ], [ %.0..promoted215.i.i.i, %.lr.ph.i.i.i.i ]
-  %278 = zext i32 %277 to i64
-  %279 = getelementptr inbounds nuw %"class.cv::Point_", ptr %.val22.i36.i.i.i, i64 %278
-  %.val.i.i37.i.i.i = load float, ptr %279, align 4, !tbaa !24
-  %280 = getelementptr i8, ptr %279, i64 4
-  %.val7.i.i38.i.i.i = load float, ptr %280, align 4, !tbaa !27
-  %281 = fsub float %.val21.i35.i.i.i, %.val7.i.i38.i.i.i
-  %282 = fpext float %281 to double
-  %283 = fsub float %.val20.i.i.i.i, %.val.i.i37.i.i.i
+278:                                              ; preds = %_ZN20minEnclosingTriangleL5gammaEjRN2cv6Point_IfEERKSt6vectorIS2_SaIS2_EEjjj.exit96.i.i.i, %.lr.ph.i.i.i.i
+  %.val22.i36.i.i.i = phi ptr [ %347, %_ZN20minEnclosingTriangleL5gammaEjRN2cv6Point_IfEERKSt6vectorIS2_SaIS2_EEjjj.exit96.i.i.i ], [ %.pre250.i.i.i, %.lr.ph.i.i.i.i ]
+  %.val21.i35.i.i.i = phi float [ %418, %_ZN20minEnclosingTriangleL5gammaEjRN2cv6Point_IfEERKSt6vectorIS2_SaIS2_EEjjj.exit96.i.i.i ], [ %.val21.i35.pre.i.i.i, %.lr.ph.i.i.i.i ]
+  %.val20.i.i.i.i = phi float [ %415, %_ZN20minEnclosingTriangleL5gammaEjRN2cv6Point_IfEERKSt6vectorIS2_SaIS2_EEjjj.exit96.i.i.i ], [ %.val20.i.pre.i.i.i, %.lr.ph.i.i.i.i ]
+  %279 = phi i32 [ %343, %_ZN20minEnclosingTriangleL5gammaEjRN2cv6Point_IfEERKSt6vectorIS2_SaIS2_EEjjj.exit96.i.i.i ], [ %.0..promoted212.i.i.i, %.lr.ph.i.i.i.i ]
+  %280 = zext i32 %279 to i64
+  %281 = getelementptr inbounds nuw %"class.cv::Point_", ptr %.val22.i36.i.i.i, i64 %280
+  %.val.i.i37.i.i.i = load float, ptr %281, align 4, !tbaa !24
+  %282 = getelementptr i8, ptr %281, i64 4
+  %.val7.i.i38.i.i.i = load float, ptr %282, align 4, !tbaa !27
+  %283 = fsub float %.val21.i35.i.i.i, %.val7.i.i38.i.i.i
   %284 = fpext float %283 to double
-  %285 = call double @atan2(double noundef %282, double noundef %284) #19, !tbaa !28
-  %286 = fmul double %285, 1.800000e+02
-  %287 = fdiv double %286, 0x400921FB54442D18
-  %288 = fcmp olt double %287, 0.000000e+00
-  %289 = fadd double %287, 3.600000e+02
-  %290 = select i1 %288, double %289, double %287
-  %291 = call fastcc noundef i32 @_ZN20minEnclosingTriangleL10intersectsEdjRKSt6vectorIN2cv6Point_IfEESaIS3_EEjj(double noundef %290, i32 noundef %277, ptr readonly %.val22.i36.i.i.i, i32 noundef %69, i32 noundef %133)
-  %292 = icmp eq i32 %291, 1
-  br i1 %292, label %293, label %_ZN20minEnclosingTriangleL18searchForBTangencyERKSt6vectorIN2cv6Point_IfEESaIS3_EEjjRjj.exit.loopexit.i.i.i
+  %285 = fsub float %.val20.i.i.i.i, %.val.i.i37.i.i.i
+  %286 = fpext float %285 to double
+  %287 = call double @atan2(double noundef %284, double noundef %286) #19, !tbaa !28
+  %288 = fmul double %287, 1.800000e+02
+  %289 = fdiv double %288, 0x400921FB54442D18
+  %290 = fcmp olt double %289, 0.000000e+00
+  %291 = fadd double %289, 3.600000e+02
+  %292 = select i1 %290, double %291, double %289
+  %293 = call fastcc noundef i32 @_ZN20minEnclosingTriangleL10intersectsEdjRKSt6vectorIN2cv6Point_IfEESaIS3_EEjj(double noundef %292, i32 noundef %279, ptr readonly %.val22.i36.i.i.i, i32 noundef %71, i32 noundef %135)
+  %294 = icmp eq i32 %293, 1
+  br i1 %294, label %295, label %_ZN20minEnclosingTriangleL18searchForBTangencyERKSt6vectorIN2cv6Point_IfEESaIS3_EEjjRjj.exit.loopexit.i.i.i
 
-293:                                              ; preds = %276
-  %.val.i39.i.i.i = load ptr, ptr %33, align 8, !tbaa !20
-  %294 = getelementptr inbounds nuw %"class.cv::Point_", ptr %.val.i39.i.i.i, i64 %indvars.iv.i.i.i
-  %295 = load float, ptr %294, align 4
-  %.sroa_idx6.i.i40.i.i.i = getelementptr inbounds nuw i8, ptr %294, i64 4
-  %296 = load float, ptr %.sroa_idx6.i.i40.i.i.i, align 4
-  %297 = getelementptr inbounds nuw %"class.cv::Point_", ptr %.val.i39.i.i.i, i64 %83
-  %298 = load float, ptr %297, align 4
-  %.sroa_idx2.i.i41.i.i.i = getelementptr inbounds nuw i8, ptr %297, i64 4
-  %299 = load float, ptr %.sroa_idx2.i.i41.i.i.i, align 4
-  %300 = getelementptr inbounds nuw %"class.cv::Point_", ptr %.val.i39.i.i.i, i64 %278
-  %301 = load float, ptr %300, align 4
-  %.sroa_idx.i.i42.i.i.i = getelementptr inbounds nuw i8, ptr %300, i64 4
-  %302 = load float, ptr %.sroa_idx.i.i42.i.i.i, align 4
-  %303 = fsub float %298, %295
-  %304 = fpext float %303 to double
-  %305 = fsub float %296, %302
-  %306 = fpext float %305 to double
-  %307 = fsub float %295, %301
-  %308 = fpext float %307 to double
-  %309 = fsub float %299, %296
-  %310 = fpext float %309 to double
-  %311 = fneg double %310
-  %312 = fmul double %311, %308
-  %313 = call double @llvm.fmuladd.f64(double %304, double %306, double %312)
-  %314 = call noundef double @llvm.fabs.f64(double %313)
-  %315 = fmul double %310, %310
-  %316 = call double @llvm.fmuladd.f64(double %304, double %304, double %315)
-  %sqrt.i.i.i43.i.i.i = call double @llvm.sqrt.f64(double %316)
-  %317 = fcmp une double %316, 0.000000e+00
-  %318 = fdiv double %314, %sqrt.i.i.i43.i.i.i
-  %319 = select i1 %317, double %318, double 0.000000e+00
-  %320 = getelementptr inbounds nuw %"class.cv::Point_", ptr %.val.i39.i.i.i, i64 %275
-  %321 = load float, ptr %320, align 4
-  %.sroa_idx.i26.i.i.i.i = getelementptr inbounds nuw i8, ptr %320, i64 4
-  %322 = load float, ptr %.sroa_idx.i26.i.i.i.i, align 4
-  %323 = fsub float %296, %322
-  %324 = fpext float %323 to double
-  %325 = fsub float %295, %321
-  %326 = fpext float %325 to double
-  %327 = fmul double %311, %326
-  %328 = call double @llvm.fmuladd.f64(double %304, double %324, double %327)
-  %329 = call noundef double @llvm.fabs.f64(double %328)
-  %330 = fdiv double %329, %sqrt.i.i.i43.i.i.i
-  %331 = select i1 %317, double %330, double 0.000000e+00
-  %332 = fcmp ogt double %319, %331
-  br i1 %332, label %_ZN20minEnclosingTriangleL14greaterOrEqualEdd.exit.thread.i47.i.i.i, label %_ZN20minEnclosingTriangleL14greaterOrEqualEdd.exit.i44.i.i.i
+295:                                              ; preds = %278
+  %296 = getelementptr inbounds nuw %"class.cv::Point_", ptr %.val22.i36.i.i.i, i64 %indvars.iv.i.i.i
+  %297 = load float, ptr %296, align 4
+  %.sroa_idx6.i.i39.i.i.i = getelementptr inbounds nuw i8, ptr %296, i64 4
+  %298 = load float, ptr %.sroa_idx6.i.i39.i.i.i, align 4
+  %299 = getelementptr inbounds nuw %"class.cv::Point_", ptr %.val22.i36.i.i.i, i64 %85
+  %300 = load float, ptr %299, align 4
+  %.sroa_idx2.i.i40.i.i.i = getelementptr inbounds nuw i8, ptr %299, i64 4
+  %301 = load float, ptr %.sroa_idx2.i.i40.i.i.i, align 4
+  %302 = load float, ptr %281, align 4
+  %303 = load float, ptr %282, align 4
+  %304 = fsub float %300, %297
+  %305 = fpext float %304 to double
+  %306 = fsub float %298, %303
+  %307 = fpext float %306 to double
+  %308 = fsub float %297, %302
+  %309 = fpext float %308 to double
+  %310 = fsub float %301, %298
+  %311 = fpext float %310 to double
+  %312 = fneg double %311
+  %313 = fmul double %312, %309
+  %314 = call double @llvm.fmuladd.f64(double %305, double %307, double %313)
+  %315 = call noundef double @llvm.fabs.f64(double %314)
+  %316 = fmul double %311, %311
+  %317 = call double @llvm.fmuladd.f64(double %305, double %305, double %316)
+  %sqrt.i.i.i42.i.i.i = call double @llvm.sqrt.f64(double %317)
+  %318 = fcmp une double %317, 0.000000e+00
+  %319 = fdiv double %315, %sqrt.i.i.i42.i.i.i
+  %320 = select i1 %318, double %319, double 0.000000e+00
+  %321 = getelementptr inbounds nuw %"class.cv::Point_", ptr %.val22.i36.i.i.i, i64 %277
+  %322 = load float, ptr %321, align 4
+  %.sroa_idx.i26.i.i.i.i = getelementptr inbounds nuw i8, ptr %321, i64 4
+  %323 = load float, ptr %.sroa_idx.i26.i.i.i.i, align 4
+  %324 = fsub float %298, %323
+  %325 = fpext float %324 to double
+  %326 = fsub float %297, %322
+  %327 = fpext float %326 to double
+  %328 = fmul double %312, %327
+  %329 = call double @llvm.fmuladd.f64(double %305, double %325, double %328)
+  %330 = call noundef double @llvm.fabs.f64(double %329)
+  %331 = fdiv double %330, %sqrt.i.i.i42.i.i.i
+  %332 = select i1 %318, double %331, double 0.000000e+00
+  %333 = fcmp ogt double %320, %332
+  br i1 %333, label %_ZN20minEnclosingTriangleL14greaterOrEqualEdd.exit.thread.i46.i.i.i, label %_ZN20minEnclosingTriangleL14greaterOrEqualEdd.exit.i43.i.i.i
 
-_ZN20minEnclosingTriangleL14greaterOrEqualEdd.exit.i44.i.i.i: ; preds = %293
-  %333 = fsub double %319, %331
-  %334 = call noundef double @llvm.fabs.f64(double %333)
-  %335 = call noundef double @llvm.fabs.f64(double %319)
-  %336 = call noundef double @llvm.fabs.f64(double %331)
-  %337 = fcmp ogt double %335, 1.000000e+00
-  %.sroa.speculated2.i.i.i.i45.i.i.i = select i1 %337, double %335, double 1.000000e+00
-  %338 = fcmp olt double %.sroa.speculated2.i.i.i.i45.i.i.i, %336
-  %.sroa.speculated.i.i.i.i46.i.i.i = select i1 %338, double %336, double %.sroa.speculated2.i.i.i.i45.i.i.i
-  %339 = fmul double %.sroa.speculated.i.i.i.i46.i.i.i, 1.000000e-05
-  %340 = fcmp ugt double %334, %339
-  br i1 %340, label %_ZN20minEnclosingTriangleL18searchForBTangencyERKSt6vectorIN2cv6Point_IfEESaIS3_EEjjRjj.exit.loopexit.i.i.i, label %_ZN20minEnclosingTriangleL14greaterOrEqualEdd.exit.thread.i47.i.i.i
+_ZN20minEnclosingTriangleL14greaterOrEqualEdd.exit.i43.i.i.i: ; preds = %295
+  %334 = fsub double %320, %332
+  %335 = call noundef double @llvm.fabs.f64(double %334)
+  %336 = call noundef double @llvm.fabs.f64(double %320)
+  %337 = call noundef double @llvm.fabs.f64(double %332)
+  %338 = fcmp ogt double %336, 1.000000e+00
+  %.sroa.speculated2.i.i.i.i44.i.i.i = select i1 %338, double %336, double 1.000000e+00
+  %339 = fcmp olt double %.sroa.speculated2.i.i.i.i44.i.i.i, %337
+  %.sroa.speculated.i.i.i.i45.i.i.i = select i1 %339, double %337, double %.sroa.speculated2.i.i.i.i44.i.i.i
+  %340 = fmul double %.sroa.speculated.i.i.i.i45.i.i.i, 1.000000e-05
+  %341 = fcmp ugt double %335, %340
+  br i1 %341, label %_ZN20minEnclosingTriangleL18searchForBTangencyERKSt6vectorIN2cv6Point_IfEESaIS3_EEjjRjj.exit.loopexit.i.i.i, label %_ZN20minEnclosingTriangleL14greaterOrEqualEdd.exit.thread.i46.i.i.i
 
-_ZN20minEnclosingTriangleL14greaterOrEqualEdd.exit.thread.i47.i.i.i: ; preds = %_ZN20minEnclosingTriangleL14greaterOrEqualEdd.exit.i44.i.i.i, %293
-  %341 = add i32 %277, 1
-  %342 = urem i32 %341, %69
+_ZN20minEnclosingTriangleL14greaterOrEqualEdd.exit.thread.i46.i.i.i: ; preds = %_ZN20minEnclosingTriangleL14greaterOrEqualEdd.exit.i43.i.i.i, %295
+  %342 = add i32 %279, 1
+  %343 = urem i32 %342, %71
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store float 0.000000e+00, ptr %7, align 8, !tbaa !24
-  store float 0.000000e+00, ptr %73, align 4, !tbaa !27
+  store float 0.000000e+00, ptr %75, align 4, !tbaa !27
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store float 0.000000e+00, ptr %8, align 8, !tbaa !24
-  store float 0.000000e+00, ptr %74, align 4, !tbaa !27
-  %343 = getelementptr inbounds nuw %"class.cv::Point_", ptr %.val.i39.i.i.i, i64 %161
-  %344 = invoke fastcc noundef zeroext i1 @_ZN20minEnclosingTriangleL27findGammaIntersectionPointsERKSt6vectorIN2cv6Point_IfEESaIS3_EEjjjRKS3_S9_S9_S9_RS3_SA_(ptr noundef nonnull readonly align 8 dereferenceable(24) %33, i32 noundef %69, i32 noundef %133, i32 noundef %342, ptr noundef nonnull align 4 dereferenceable(8) %343, ptr noundef nonnull align 4 dereferenceable(8) %320, ptr noundef nonnull align 4 dereferenceable(8) %294, ptr noundef nonnull align 4 dereferenceable(8) %297, ptr noundef nonnull align 4 dereferenceable(8) %7, ptr noundef nonnull align 4 dereferenceable(8) %8)
+  store float 0.000000e+00, ptr %76, align 4, !tbaa !27
+  %344 = getelementptr inbounds nuw %"class.cv::Point_", ptr %.val22.i36.i.i.i, i64 %163
+  %345 = invoke fastcc noundef zeroext i1 @_ZN20minEnclosingTriangleL27findGammaIntersectionPointsERKSt6vectorIN2cv6Point_IfEESaIS3_EEjjjRKS3_S9_S9_S9_RS3_SA_(ptr noundef nonnull readonly align 8 dereferenceable(24) %33, i32 noundef %71, i32 noundef %135, i32 noundef %343, ptr noundef nonnull align 4 dereferenceable(8) %344, ptr noundef nonnull align 4 dereferenceable(8) %321, ptr noundef nonnull align 4 dereferenceable(8) %296, ptr noundef nonnull align 4 dereferenceable(8) %299, ptr noundef nonnull align 4 dereferenceable(8) %7, ptr noundef nonnull align 4 dereferenceable(8) %8)
           to label %.noexc25.i unwind label %.loopexit.i
 
-.noexc25.i:                                       ; preds = %_ZN20minEnclosingTriangleL14greaterOrEqualEdd.exit.thread.i47.i.i.i
-  br i1 %344, label %345, label %_ZN20minEnclosingTriangleL5gammaEjRN2cv6Point_IfEERKSt6vectorIS2_SaIS2_EEjjj.exit99.thread.i.i.i
+.noexc25.i:                                       ; preds = %_ZN20minEnclosingTriangleL14greaterOrEqualEdd.exit.thread.i46.i.i.i
+  br i1 %345, label %346, label %_ZN20minEnclosingTriangleL5gammaEjRN2cv6Point_IfEERKSt6vectorIS2_SaIS2_EEjjj.exit96.thread.i.i.i
 
-_ZN20minEnclosingTriangleL5gammaEjRN2cv6Point_IfEERKSt6vectorIS2_SaIS2_EEjjj.exit99.thread.i.i.i: ; preds = %.noexc25.i
-  store i32 %342, ptr %27, align 4
+_ZN20minEnclosingTriangleL5gammaEjRN2cv6Point_IfEERKSt6vectorIS2_SaIS2_EEjjj.exit96.thread.i.i.i: ; preds = %.noexc25.i
+  store i32 %343, ptr %27, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  %.pre249.i.i.i = load ptr, ptr %33, align 8, !tbaa !20
   br label %_ZN20minEnclosingTriangleL18searchForBTangencyERKSt6vectorIN2cv6Point_IfEESaIS3_EEjjRjj.exit.i.i.i
 
-345:                                              ; preds = %.noexc25.i
-  %346 = load ptr, ptr %33, align 8, !tbaa !20
-  %347 = getelementptr inbounds nuw %"class.cv::Point_", ptr %346, i64 %135
-  %348 = getelementptr inbounds nuw %"class.cv::Point_", ptr %346, i64 %indvars.iv.i.i.i
-  %349 = getelementptr inbounds nuw %"class.cv::Point_", ptr %346, i64 %83
-  %.val.i91.i.i.i = load float, ptr %348, align 4, !tbaa !24
-  %350 = getelementptr i8, ptr %348, i64 4
-  %.val24.i92.i.i.i = load float, ptr %350, align 4
-  %.val25.i93.i.i.i = load float, ptr %349, align 4, !tbaa !24
+346:                                              ; preds = %.noexc25.i
+  %347 = load ptr, ptr %33, align 8, !tbaa !20
+  %348 = getelementptr inbounds nuw %"class.cv::Point_", ptr %347, i64 %137
+  %349 = getelementptr inbounds nuw %"class.cv::Point_", ptr %347, i64 %indvars.iv.i.i.i
+  %350 = getelementptr inbounds nuw %"class.cv::Point_", ptr %347, i64 %85
+  %.val.i88.i.i.i = load float, ptr %349, align 4, !tbaa !24
   %351 = getelementptr i8, ptr %349, i64 4
-  %.val26.i94.i.i.i = load float, ptr %351, align 4
-  %352 = fpext float %.val.i91.i.i.i to double
-  %353 = fpext float %.val25.i93.i.i.i to double
-  %354 = fsub double %352, %353
-  %355 = call noundef double @llvm.fabs.f64(double %354)
-  %356 = call noundef double @llvm.fabs.f64(double %352)
+  %.val24.i89.i.i.i = load float, ptr %351, align 4
+  %.val25.i90.i.i.i = load float, ptr %350, align 4, !tbaa !24
+  %352 = getelementptr i8, ptr %350, i64 4
+  %.val26.i91.i.i.i = load float, ptr %352, align 4
+  %353 = fpext float %.val.i88.i.i.i to double
+  %354 = fpext float %.val25.i90.i.i.i to double
+  %355 = fsub double %353, %354
+  %356 = call noundef double @llvm.fabs.f64(double %355)
   %357 = call noundef double @llvm.fabs.f64(double %353)
-  %358 = fcmp ogt double %356, 1.000000e+00
-  %.sroa.speculated2.i.i.i.i105.i.i.i = select i1 %358, double %356, double 1.000000e+00
-  %359 = fcmp olt double %.sroa.speculated2.i.i.i.i105.i.i.i, %357
-  %.sroa.speculated.i.i.i.i106.i.i.i = select i1 %359, double %357, double %.sroa.speculated2.i.i.i.i105.i.i.i
-  %360 = fmul double %.sroa.speculated.i.i.i.i106.i.i.i, 1.000000e-05
-  %361 = fcmp ugt double %355, %360
-  br i1 %361, label %_ZN20minEnclosingTriangleL5gammaEjRN2cv6Point_IfEERKSt6vectorIS2_SaIS2_EEjjj.exit99.i.i.i, label %_ZN20minEnclosingTriangleL14areEqualPointsERKN2cv6Point_IfEES4_.exit.i107.i.i.i
+  %358 = call noundef double @llvm.fabs.f64(double %354)
+  %359 = fcmp ogt double %357, 1.000000e+00
+  %.sroa.speculated2.i.i.i.i102.i.i.i = select i1 %359, double %357, double 1.000000e+00
+  %360 = fcmp olt double %.sroa.speculated2.i.i.i.i102.i.i.i, %358
+  %.sroa.speculated.i.i.i.i103.i.i.i = select i1 %360, double %358, double %.sroa.speculated2.i.i.i.i102.i.i.i
+  %361 = fmul double %.sroa.speculated.i.i.i.i103.i.i.i, 1.000000e-05
+  %362 = fcmp ugt double %356, %361
+  br i1 %362, label %_ZN20minEnclosingTriangleL5gammaEjRN2cv6Point_IfEERKSt6vectorIS2_SaIS2_EEjjj.exit96.i.i.i, label %_ZN20minEnclosingTriangleL14areEqualPointsERKN2cv6Point_IfEES4_.exit.i104.i.i.i
 
-_ZN20minEnclosingTriangleL14areEqualPointsERKN2cv6Point_IfEES4_.exit.i107.i.i.i: ; preds = %345
-  %362 = fpext float %.val24.i92.i.i.i to double
-  %363 = fpext float %.val26.i94.i.i.i to double
-  %364 = fsub double %362, %363
-  %365 = call noundef double @llvm.fabs.f64(double %364)
-  %366 = call noundef double @llvm.fabs.f64(double %362)
+_ZN20minEnclosingTriangleL14areEqualPointsERKN2cv6Point_IfEES4_.exit.i104.i.i.i: ; preds = %346
+  %363 = fpext float %.val24.i89.i.i.i to double
+  %364 = fpext float %.val26.i91.i.i.i to double
+  %365 = fsub double %363, %364
+  %366 = call noundef double @llvm.fabs.f64(double %365)
   %367 = call noundef double @llvm.fabs.f64(double %363)
-  %368 = fcmp ogt double %366, 1.000000e+00
-  %.sroa.speculated2.i.i4.i.i108.i.i.i = select i1 %368, double %366, double 1.000000e+00
-  %369 = fcmp olt double %.sroa.speculated2.i.i4.i.i108.i.i.i, %367
-  %.sroa.speculated.i.i5.i.i109.i.i.i = select i1 %369, double %367, double %.sroa.speculated2.i.i4.i.i108.i.i.i
-  %370 = fmul double %.sroa.speculated.i.i5.i.i109.i.i.i, 1.000000e-05
-  %371 = fcmp ugt double %365, %370
-  br i1 %371, label %_ZN20minEnclosingTriangleL5gammaEjRN2cv6Point_IfEERKSt6vectorIS2_SaIS2_EEjjj.exit99.i.i.i, label %372
+  %368 = call noundef double @llvm.fabs.f64(double %364)
+  %369 = fcmp ogt double %367, 1.000000e+00
+  %.sroa.speculated2.i.i4.i.i105.i.i.i = select i1 %369, double %367, double 1.000000e+00
+  %370 = fcmp olt double %.sroa.speculated2.i.i4.i.i105.i.i.i, %368
+  %.sroa.speculated.i.i5.i.i106.i.i.i = select i1 %370, double %368, double %.sroa.speculated2.i.i4.i.i105.i.i.i
+  %371 = fmul double %.sroa.speculated.i.i5.i.i106.i.i.i, 1.000000e-05
+  %372 = fcmp ugt double %366, %371
+  br i1 %372, label %_ZN20minEnclosingTriangleL5gammaEjRN2cv6Point_IfEERKSt6vectorIS2_SaIS2_EEjjj.exit96.i.i.i, label %373
 
-372:                                              ; preds = %_ZN20minEnclosingTriangleL14areEqualPointsERKN2cv6Point_IfEES4_.exit.i107.i.i.i
+373:                                              ; preds = %_ZN20minEnclosingTriangleL14areEqualPointsERKN2cv6Point_IfEES4_.exit.i104.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.3, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %.noexc26.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
-.noexc26.i:                                       ; preds = %372
+.noexc26.i:                                       ; preds = %373
   invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @__func__._ZN20minEnclosingTriangleL30lineEquationDeterminedByPointsERKN2cv6Point_IfEES4_RdS5_S5_, ptr noundef nonnull @.str.1, i32 noundef 1411) #17
-          to label %373 unwind label %374
-
-373:                                              ; preds = %.noexc26.i
-  unreachable
+          to label %374 unwind label %375
 
 374:                                              ; preds = %.noexc26.i
-  %375 = landingpad { ptr, i32 }
+  unreachable
+
+375:                                              ; preds = %.noexc26.i
+  %376 = landingpad { ptr, i32 }
           cleanup
-  %376 = load ptr, ptr %3, align 8, !tbaa !3
-  %377 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %378 = icmp eq ptr %376, %377
-  br i1 %378, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i112.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i110.i.i.i
+  %377 = load ptr, ptr %3, align 8, !tbaa !3
+  %378 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %379 = icmp eq ptr %377, %378
+  br i1 %379, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i109.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i107.i.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i112.i.i.i: ; preds = %374
-  %379 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %380 = load i64, ptr %379, align 8, !tbaa !11
-  %381 = icmp ult i64 %380, 16
-  call void @llvm.assume(i1 %381)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i111.i.i.i
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i109.i.i.i: ; preds = %375
+  %380 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %381 = load i64, ptr %380, align 8, !tbaa !11
+  %382 = icmp ult i64 %381, 16
+  call void @llvm.assume(i1 %382)
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i108.i.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i110.i.i.i: ; preds = %374
-  call void @_ZdlPv(ptr noundef %376) #18
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i111.i.i.i
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i107.i.i.i: ; preds = %375
+  call void @_ZdlPv(ptr noundef %377) #18
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i108.i.i.i
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i111.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i110.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i112.i.i.i
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i108.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i107.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i109.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.body22.i
 
-_ZN20minEnclosingTriangleL5gammaEjRN2cv6Point_IfEERKSt6vectorIS2_SaIS2_EEjjj.exit99.i.i.i: ; preds = %_ZN20minEnclosingTriangleL14areEqualPointsERKN2cv6Point_IfEES4_.exit.i107.i.i.i, %345
-  %382 = fsub float %.val26.i94.i.i.i, %.val24.i92.i.i.i
-  %383 = fpext float %382 to double
-  %384 = fsub float %.val.i91.i.i.i, %.val25.i93.i.i.i
-  %385 = fpext float %384 to double
-  %386 = fneg float %.val24.i92.i.i.i
-  %387 = fpext float %386 to double
-  %388 = fneg double %352
-  %389 = fmul double %388, %383
-  %390 = call double @llvm.fmuladd.f64(double %387, double %385, double %389)
-  %391 = load float, ptr %7, align 8, !tbaa !24
-  %392 = fpext float %391 to double
-  %393 = load float, ptr %73, align 4, !tbaa !27
-  %394 = fpext float %393 to double
-  %395 = fmul double %385, %394
-  %396 = call double @llvm.fmuladd.f64(double %383, double %392, double %395)
-  %397 = fadd double %390, %396
-  %398 = load float, ptr %347, align 4, !tbaa !24
-  %399 = fpext float %398 to double
-  %400 = getelementptr inbounds nuw i8, ptr %347, i64 4
-  %401 = load float, ptr %400, align 4, !tbaa !27
-  %402 = fpext float %401 to double
-  %403 = fmul double %385, %402
-  %404 = call double @llvm.fmuladd.f64(double %383, double %399, double %403)
-  %405 = fadd double %390, %404
-  %406 = fcmp ogt double %397, 0.000000e+00
-  %407 = fcmp ogt double %405, 0.000000e+00
-  %408 = fcmp olt double %405, 0.000000e+00
-  %409 = fcmp uge double %397, 0.000000e+00
-  %410 = xor i1 %409, %408
-  %not..i.i95.i.i.i = xor i1 %407, true
-  %411 = and i1 %410, %not..i.i95.i.i.i
-  %412 = select i1 %406, i1 %407, i1 %411
-  %.val29.i96.i.i.i = load i64, ptr %7, align 8
-  %.val30.i97.i.i.i = load i64, ptr %8, align 8
-  %storemerge.i98.i.i.i = select i1 %412, i64 %.val29.i96.i.i.i, i64 %.val30.i97.i.i.i
+_ZN20minEnclosingTriangleL5gammaEjRN2cv6Point_IfEERKSt6vectorIS2_SaIS2_EEjjj.exit96.i.i.i: ; preds = %_ZN20minEnclosingTriangleL14areEqualPointsERKN2cv6Point_IfEES4_.exit.i104.i.i.i, %346
+  %383 = fsub float %.val26.i91.i.i.i, %.val24.i89.i.i.i
+  %384 = fpext float %383 to double
+  %385 = fsub float %.val.i88.i.i.i, %.val25.i90.i.i.i
+  %386 = fpext float %385 to double
+  %387 = fneg float %.val24.i89.i.i.i
+  %388 = fpext float %387 to double
+  %389 = fneg double %353
+  %390 = fmul double %389, %384
+  %391 = call double @llvm.fmuladd.f64(double %388, double %386, double %390)
+  %392 = load float, ptr %7, align 8, !tbaa !24
+  %393 = fpext float %392 to double
+  %394 = load float, ptr %75, align 4, !tbaa !27
+  %395 = fpext float %394 to double
+  %396 = fmul double %386, %395
+  %397 = call double @llvm.fmuladd.f64(double %384, double %393, double %396)
+  %398 = fadd double %391, %397
+  %399 = load float, ptr %348, align 4, !tbaa !24
+  %400 = fpext float %399 to double
+  %401 = getelementptr inbounds nuw i8, ptr %348, i64 4
+  %402 = load float, ptr %401, align 4, !tbaa !27
+  %403 = fpext float %402 to double
+  %404 = fmul double %386, %403
+  %405 = call double @llvm.fmuladd.f64(double %384, double %400, double %404)
+  %406 = fadd double %391, %405
+  %407 = fcmp ogt double %398, 0.000000e+00
+  %408 = fcmp ogt double %406, 0.000000e+00
+  %409 = fcmp olt double %406, 0.000000e+00
+  %410 = fcmp uge double %398, 0.000000e+00
+  %411 = xor i1 %410, %409
+  %not..i.i92.i.i.i = xor i1 %408, true
+  %412 = and i1 %411, %not..i.i92.i.i.i
+  %413 = select i1 %407, i1 %408, i1 %412
+  %.val29.i93.i.i.i = load i64, ptr %7, align 8
+  %.val30.i94.i.i.i = load i64, ptr %8, align 8
+  %storemerge.i95.i.i.i = select i1 %413, i64 %.val29.i93.i.i.i, i64 %.val30.i94.i.i.i
+  store i64 %storemerge.i95.i.i.i, ptr %21, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %413 = trunc i64 %storemerge.i98.i.i.i to i32
-  %414 = bitcast i32 %413 to float
-  %415 = lshr i64 %storemerge.i98.i.i.i, 32
-  %416 = trunc nuw i64 %415 to i32
-  %417 = bitcast i32 %416 to float
-  br label %276
+  %414 = trunc i64 %storemerge.i95.i.i.i to i32
+  %415 = bitcast i32 %414 to float
+  %416 = lshr i64 %storemerge.i95.i.i.i, 32
+  %417 = trunc nuw i64 %416 to i32
+  %418 = bitcast i32 %417 to float
+  br label %278
 
-_ZN20minEnclosingTriangleL18searchForBTangencyERKSt6vectorIN2cv6Point_IfEESaIS3_EEjjRjj.exit.loopexit.i.i.i: ; preds = %_ZN20minEnclosingTriangleL14greaterOrEqualEdd.exit.i44.i.i.i, %276
-  store i32 %277, ptr %27, align 4
+_ZN20minEnclosingTriangleL18searchForBTangencyERKSt6vectorIN2cv6Point_IfEESaIS3_EEjjRjj.exit.loopexit.i.i.i: ; preds = %_ZN20minEnclosingTriangleL14greaterOrEqualEdd.exit.i43.i.i.i, %278
+  store i32 %279, ptr %27, align 4
   br label %_ZN20minEnclosingTriangleL18searchForBTangencyERKSt6vectorIN2cv6Point_IfEESaIS3_EEjjRjj.exit.i.i.i
 
-_ZN20minEnclosingTriangleL18searchForBTangencyERKSt6vectorIN2cv6Point_IfEESaIS3_EEjjRjj.exit.i.i.i: ; preds = %.noexc24.i, %_ZN20minEnclosingTriangleL18searchForBTangencyERKSt6vectorIN2cv6Point_IfEESaIS3_EEjjRjj.exit.loopexit.i.i.i, %_ZN20minEnclosingTriangleL5gammaEjRN2cv6Point_IfEERKSt6vectorIS2_SaIS2_EEjjj.exit99.thread.i.i.i
-  %.0..0..i.i.i = phi i32 [ %277, %_ZN20minEnclosingTriangleL18searchForBTangencyERKSt6vectorIN2cv6Point_IfEESaIS3_EEjjRjj.exit.loopexit.i.i.i ], [ %342, %_ZN20minEnclosingTriangleL5gammaEjRN2cv6Point_IfEERKSt6vectorIS2_SaIS2_EEjjj.exit99.thread.i.i.i ], [ %.0..promoted215.i.i.i, %.noexc24.i ]
+_ZN20minEnclosingTriangleL18searchForBTangencyERKSt6vectorIN2cv6Point_IfEESaIS3_EEjjRjj.exit.i.i.i: ; preds = %.noexc24.i, %_ZN20minEnclosingTriangleL18searchForBTangencyERKSt6vectorIN2cv6Point_IfEESaIS3_EEjjRjj.exit.loopexit.i.i.i, %_ZN20minEnclosingTriangleL5gammaEjRN2cv6Point_IfEERKSt6vectorIS2_SaIS2_EEjjj.exit96.thread.i.i.i
+  %.0..0..i.i.i = phi i32 [ %279, %_ZN20minEnclosingTriangleL18searchForBTangencyERKSt6vectorIN2cv6Point_IfEESaIS3_EEjjRjj.exit.loopexit.i.i.i ], [ %343, %_ZN20minEnclosingTriangleL5gammaEjRN2cv6Point_IfEERKSt6vectorIS2_SaIS2_EEjjj.exit96.thread.i.i.i ], [ %.0..promoted212.i.i.i, %.noexc24.i ]
+  %419 = phi ptr [ %.val22.i36.i.i.i, %_ZN20minEnclosingTriangleL18searchForBTangencyERKSt6vectorIN2cv6Point_IfEESaIS3_EEjjRjj.exit.loopexit.i.i.i ], [ %.pre249.i.i.i, %_ZN20minEnclosingTriangleL5gammaEjRN2cv6Point_IfEERKSt6vectorIS2_SaIS2_EEjjj.exit96.thread.i.i.i ], [ %.pre250.i.i.i, %.noexc24.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
-  %418 = load ptr, ptr %33, align 8, !tbaa !20
-  %419 = getelementptr inbounds nuw %"class.cv::Point_", ptr %418, i64 %83
-  %420 = load i64, ptr %419, align 4
-  store i64 %420, ptr %24, align 8
-  %421 = getelementptr inbounds nuw %"class.cv::Point_", ptr %418, i64 %indvars.iv.i.i.i
-  %422 = load i64, ptr %421, align 4
-  store i64 %422, ptr %25, align 8
-  %423 = icmp eq i32 %.0..0.128.i.i.i, 0
-  %.v.i13.i.i.i.i = select i1 %423, i32 %69, i32 %.0..0.128.i.i.i
-  %424 = add i32 %.v.i13.i.i.i.i, -1
-  %425 = zext i32 %424 to i64
-  %426 = getelementptr inbounds nuw %"class.cv::Point_", ptr %418, i64 %425
-  %427 = load float, ptr %426, align 4
-  %.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %426, i64 4
-  %428 = load float, ptr %.sroa_idx.i.i.i, align 4
-  %429 = getelementptr inbounds nuw %"class.cv::Point_", ptr %418, i64 %161
-  %430 = load <2 x float>, ptr %429, align 4
+  %420 = getelementptr inbounds nuw %"class.cv::Point_", ptr %419, i64 %85
+  %421 = load i64, ptr %420, align 4
+  store i64 %421, ptr %24, align 8
+  %422 = getelementptr inbounds nuw %"class.cv::Point_", ptr %419, i64 %indvars.iv.i.i.i
+  %423 = load i64, ptr %422, align 4
+  store i64 %423, ptr %25, align 8
+  %424 = icmp eq i32 %.0..0.125.i.i.i, 0
+  %.v.i13.i.i.i.i = select i1 %424, i32 %71, i32 %.0..0.125.i.i.i
+  %425 = add i32 %.v.i13.i.i.i.i, -1
+  %426 = zext i32 %425 to i64
+  %427 = getelementptr inbounds nuw %"class.cv::Point_", ptr %419, i64 %426
+  %428 = load float, ptr %427, align 4
+  %.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %427, i64 4
+  %429 = load float, ptr %.sroa_idx.i.i.i, align 4
+  %430 = getelementptr inbounds nuw %"class.cv::Point_", ptr %419, i64 %163
+  %431 = load <2 x float>, ptr %430, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store float 0.000000e+00, ptr %20, align 4, !tbaa !24
-  store float 0.000000e+00, ptr %75, align 4, !tbaa !27
-  %431 = invoke fastcc noundef zeroext i1 @_ZN20minEnclosingTriangleL5gammaEjRN2cv6Point_IfEERKSt6vectorIS2_SaIS2_EEjjj(i32 noundef %.0..0..i.i.i, ptr noundef nonnull align 4 dereferenceable(8) %20, ptr noundef nonnull readonly align 8 dereferenceable(24) %33, i32 noundef %69, i32 noundef %.0..0.128.i.i.i, i32 noundef %133)
+  store float 0.000000e+00, ptr %77, align 4, !tbaa !27
+  %432 = invoke fastcc noundef zeroext i1 @_ZN20minEnclosingTriangleL5gammaEjRN2cv6Point_IfEERKSt6vectorIS2_SaIS2_EEjjj(i32 noundef %.0..0..i.i.i, ptr noundef nonnull align 4 dereferenceable(8) %20, ptr noundef nonnull readonly align 8 dereferenceable(24) %33, i32 noundef %71, i32 noundef %.0..0.125.i.i.i, i32 noundef %135)
           to label %.noexc27.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 .noexc27.i:                                       ; preds = %_ZN20minEnclosingTriangleL18searchForBTangencyERKSt6vectorIN2cv6Point_IfEESaIS3_EEjjRjj.exit.i.i.i
-  %432 = trunc i64 %420 to i32
-  %433 = bitcast i32 %432 to float
-  %434 = lshr i64 %420, 32
-  %435 = trunc nuw i64 %434 to i32
-  %436 = bitcast i32 %435 to float
-  %437 = trunc i64 %422 to i32
-  %438 = bitcast i32 %437 to float
-  %439 = lshr i64 %422, 32
-  %440 = trunc nuw i64 %439 to i32
-  %441 = bitcast i32 %440 to float
-  br i1 %431, label %442, label %._crit_edge.i.i.i.i
+  %.val.pre.i.i.i.i = load ptr, ptr %33, align 8, !tbaa !20
+  %433 = trunc i64 %421 to i32
+  %434 = bitcast i32 %433 to float
+  %435 = lshr i64 %421, 32
+  %436 = trunc nuw i64 %435 to i32
+  %437 = bitcast i32 %436 to float
+  %438 = trunc i64 %423 to i32
+  %439 = bitcast i32 %438 to float
+  %440 = lshr i64 %423, 32
+  %441 = trunc nuw i64 %440 to i32
+  %442 = bitcast i32 %441 to float
+  br i1 %432, label %443, label %._crit_edge.i.i.i.i
 
 ._crit_edge.i.i.i.i:                              ; preds = %.noexc27.i
-  %.pre.i49.i.i.i = zext i32 %.0..0..i.i.i to i64
-  br label %458
+  %.pre.i48.i.i.i = zext i32 %.0..0..i.i.i to i64
+  br label %459
 
-442:                                              ; preds = %.noexc27.i
+443:                                              ; preds = %.noexc27.i
   %.val19.i.i.i.i = load float, ptr %20, align 4, !tbaa !24
-  %.val20.i57.i.i.i = load float, ptr %75, align 4, !tbaa !27
-  %.val21.i58.i.i.i = load ptr, ptr %33, align 8, !tbaa !20
-  %443 = zext i32 %.0..0..i.i.i to i64
-  %444 = getelementptr inbounds nuw %"class.cv::Point_", ptr %.val21.i58.i.i.i, i64 %443
-  %.val8.i.i.i.i.i = load float, ptr %444, align 4, !tbaa !24
-  %445 = getelementptr i8, ptr %444, i64 4
-  %.val9.i.i.i.i.i = load float, ptr %445, align 4, !tbaa !27
-  %446 = fsub float %.val9.i.i.i.i.i, %.val20.i57.i.i.i
-  %447 = fpext float %446 to double
-  %448 = fsub float %.val8.i.i.i.i.i, %.val19.i.i.i.i
-  %449 = fpext float %448 to double
-  %450 = call double @atan2(double noundef %447, double noundef %449) #19, !tbaa !28
-  %451 = fmul double %450, 1.800000e+02
-  %452 = fdiv double %451, 0x400921FB54442D18
-  %453 = fcmp olt double %452, 0.000000e+00
-  %454 = fadd double %452, 3.600000e+02
-  %455 = select i1 %453, double %454, double %452
-  %456 = call fastcc noundef i32 @_ZN20minEnclosingTriangleL10intersectsEdjRKSt6vectorIN2cv6Point_IfEESaIS3_EEjj(double noundef %455, i32 noundef %.0..0..i.i.i, ptr readonly %.val21.i58.i.i.i, i32 noundef %69, i32 noundef %133)
-  %457 = icmp eq i32 %456, 2
-  br i1 %457, label %._crit_edge253.i.i.i, label %458
+  %.val20.i55.i.i.i = load float, ptr %77, align 4, !tbaa !27
+  %444 = zext i32 %.0..0..i.i.i to i64
+  %445 = getelementptr inbounds nuw %"class.cv::Point_", ptr %.val.pre.i.i.i.i, i64 %444
+  %.val8.i.i.i.i.i = load float, ptr %445, align 4, !tbaa !24
+  %446 = getelementptr i8, ptr %445, i64 4
+  %.val9.i.i.i.i.i = load float, ptr %446, align 4, !tbaa !27
+  %447 = fsub float %.val9.i.i.i.i.i, %.val20.i55.i.i.i
+  %448 = fpext float %447 to double
+  %449 = fsub float %.val8.i.i.i.i.i, %.val19.i.i.i.i
+  %450 = fpext float %449 to double
+  %451 = call double @atan2(double noundef %448, double noundef %450) #19, !tbaa !28
+  %452 = fmul double %451, 1.800000e+02
+  %453 = fdiv double %452, 0x400921FB54442D18
+  %454 = fcmp olt double %453, 0.000000e+00
+  %455 = fadd double %453, 3.600000e+02
+  %456 = select i1 %454, double %455, double %453
+  %457 = call fastcc noundef i32 @_ZN20minEnclosingTriangleL10intersectsEdjRKSt6vectorIN2cv6Point_IfEESaIS3_EEjj(double noundef %456, i32 noundef %.0..0..i.i.i, ptr readonly %.val.pre.i.i.i.i, i32 noundef %71, i32 noundef %135)
+  %458 = icmp eq i32 %457, 2
+  br i1 %458, label %499, label %459
 
-._crit_edge253.i.i.i:                             ; preds = %442
-  %.pre254.i.i.i = load ptr, ptr %33, align 8, !tbaa !20
-  br label %498
+459:                                              ; preds = %443, %._crit_edge.i.i.i.i
+  %.pre-phi.i.i.i.i = phi i64 [ %.pre.i48.i.i.i, %._crit_edge.i.i.i.i ], [ %444, %443 ]
+  %460 = getelementptr inbounds nuw %"class.cv::Point_", ptr %.val.pre.i.i.i.i, i64 %indvars.iv.i.i.i
+  %461 = load float, ptr %460, align 4
+  %.sroa_idx6.i.i49.i.i.i = getelementptr inbounds nuw i8, ptr %460, i64 4
+  %462 = load float, ptr %.sroa_idx6.i.i49.i.i.i, align 4
+  %463 = getelementptr inbounds nuw %"class.cv::Point_", ptr %.val.pre.i.i.i.i, i64 %85
+  %464 = load float, ptr %463, align 4
+  %.sroa_idx2.i.i51.i.i.i = getelementptr inbounds nuw i8, ptr %463, i64 4
+  %465 = load float, ptr %.sroa_idx2.i.i51.i.i.i, align 4
+  %466 = getelementptr inbounds nuw %"class.cv::Point_", ptr %.val.pre.i.i.i.i, i64 %.pre-phi.i.i.i.i
+  %467 = load float, ptr %466, align 4
+  %.sroa_idx.i.i52.i.i.i = getelementptr inbounds nuw i8, ptr %466, i64 4
+  %468 = load float, ptr %.sroa_idx.i.i52.i.i.i, align 4
+  %469 = fsub float %464, %461
+  %470 = fpext float %469 to double
+  %471 = fsub float %462, %468
+  %472 = fpext float %471 to double
+  %473 = fsub float %461, %467
+  %474 = fpext float %473 to double
+  %475 = fsub float %465, %462
+  %476 = fpext float %475 to double
+  %477 = fneg double %476
+  %478 = fmul double %477, %474
+  %479 = call double @llvm.fmuladd.f64(double %470, double %472, double %478)
+  %480 = call noundef double @llvm.fabs.f64(double %479)
+  %481 = fmul double %476, %476
+  %482 = call double @llvm.fmuladd.f64(double %470, double %470, double %481)
+  %sqrt.i.i.i53.i.i.i = call double @llvm.sqrt.f64(double %482)
+  %483 = fcmp une double %482, 0.000000e+00
+  %484 = fdiv double %480, %sqrt.i.i.i53.i.i.i
+  %485 = select i1 %483, double %484, double 0.000000e+00
+  %486 = getelementptr inbounds nuw %"class.cv::Point_", ptr %.val.pre.i.i.i.i, i64 %426
+  %487 = load float, ptr %486, align 4
+  %.sroa_idx.i25.i.i.i.i = getelementptr inbounds nuw i8, ptr %486, i64 4
+  %488 = load float, ptr %.sroa_idx.i25.i.i.i.i, align 4
+  %489 = fsub float %462, %488
+  %490 = fpext float %489 to double
+  %491 = fsub float %461, %487
+  %492 = fpext float %491 to double
+  %493 = fmul double %477, %492
+  %494 = call double @llvm.fmuladd.f64(double %470, double %490, double %493)
+  %495 = call noundef double @llvm.fabs.f64(double %494)
+  %496 = fdiv double %495, %sqrt.i.i.i53.i.i.i
+  %497 = select i1 %483, double %496, double 0.000000e+00
+  %498 = fcmp olt double %485, %497
+  br i1 %498, label %._crit_edge265.i.i.i, label %657
 
-458:                                              ; preds = %442, %._crit_edge.i.i.i.i
-  %.pre-phi.i.i.i.i = phi i64 [ %.pre.i49.i.i.i, %._crit_edge.i.i.i.i ], [ %443, %442 ]
-  %.val.i50.i.i.i = load ptr, ptr %33, align 8, !tbaa !20
-  %459 = getelementptr inbounds nuw %"class.cv::Point_", ptr %.val.i50.i.i.i, i64 %indvars.iv.i.i.i
-  %460 = load float, ptr %459, align 4
-  %.sroa_idx6.i.i51.i.i.i = getelementptr inbounds nuw i8, ptr %459, i64 4
-  %461 = load float, ptr %.sroa_idx6.i.i51.i.i.i, align 4
-  %462 = getelementptr inbounds nuw %"class.cv::Point_", ptr %.val.i50.i.i.i, i64 %83
-  %463 = load float, ptr %462, align 4
-  %.sroa_idx2.i.i53.i.i.i = getelementptr inbounds nuw i8, ptr %462, i64 4
-  %464 = load float, ptr %.sroa_idx2.i.i53.i.i.i, align 4
-  %465 = getelementptr inbounds nuw %"class.cv::Point_", ptr %.val.i50.i.i.i, i64 %.pre-phi.i.i.i.i
-  %466 = load float, ptr %465, align 4
-  %.sroa_idx.i.i54.i.i.i = getelementptr inbounds nuw i8, ptr %465, i64 4
-  %467 = load float, ptr %.sroa_idx.i.i54.i.i.i, align 4
-  %468 = fsub float %463, %460
-  %469 = fpext float %468 to double
-  %470 = fsub float %461, %467
-  %471 = fpext float %470 to double
-  %472 = fsub float %460, %466
-  %473 = fpext float %472 to double
-  %474 = fsub float %464, %461
-  %475 = fpext float %474 to double
-  %476 = fneg double %475
-  %477 = fmul double %476, %473
-  %478 = call double @llvm.fmuladd.f64(double %469, double %471, double %477)
-  %479 = call noundef double @llvm.fabs.f64(double %478)
-  %480 = fmul double %475, %475
-  %481 = call double @llvm.fmuladd.f64(double %469, double %469, double %480)
-  %sqrt.i.i.i55.i.i.i = call double @llvm.sqrt.f64(double %481)
-  %482 = fcmp une double %481, 0.000000e+00
-  %483 = fdiv double %479, %sqrt.i.i.i55.i.i.i
-  %484 = select i1 %482, double %483, double 0.000000e+00
-  %485 = getelementptr inbounds nuw %"class.cv::Point_", ptr %.val.i50.i.i.i, i64 %425
-  %486 = load float, ptr %485, align 4
-  %.sroa_idx.i25.i.i.i.i = getelementptr inbounds nuw i8, ptr %485, i64 4
-  %487 = load float, ptr %.sroa_idx.i25.i.i.i.i, align 4
-  %488 = fsub float %461, %487
-  %489 = fpext float %488 to double
-  %490 = fsub float %460, %486
-  %491 = fpext float %490 to double
-  %492 = fmul double %476, %491
-  %493 = call double @llvm.fmuladd.f64(double %469, double %489, double %492)
-  %494 = call noundef double @llvm.fabs.f64(double %493)
-  %495 = fdiv double %494, %sqrt.i.i.i55.i.i.i
-  %496 = select i1 %482, double %495, double 0.000000e+00
-  %497 = fcmp olt double %484, %496
-  br i1 %497, label %._crit_edge267.i.i.i, label %657
+._crit_edge265.i.i.i:                             ; preds = %459
+  %.pre266.i.i.i = zext i32 %.0..0..i.i.i to i64
+  br label %499
 
-._crit_edge267.i.i.i:                             ; preds = %458
-  %.pre268.i.i.i = zext i32 %.0..0..i.i.i to i64
-  br label %498
-
-498:                                              ; preds = %._crit_edge267.i.i.i, %._crit_edge253.i.i.i
-  %.pre-phi269.i.i.i = phi i64 [ %.pre268.i.i.i, %._crit_edge267.i.i.i ], [ %443, %._crit_edge253.i.i.i ]
-  %499 = phi ptr [ %.val.i50.i.i.i, %._crit_edge267.i.i.i ], [ %.pre254.i.i.i, %._crit_edge253.i.i.i ]
+499:                                              ; preds = %._crit_edge265.i.i.i, %443
+  %.pre-phi267.i.i.i = phi i64 [ %.pre266.i.i.i, %._crit_edge265.i.i.i ], [ %444, %443 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   %500 = icmp eq i32 %.0..0..i.i.i, 0
-  %.v.i.i59.i.i.i = select i1 %500, i32 %69, i32 %.0..0..i.i.i
-  %501 = add i32 %.v.i.i59.i.i.i, -1
+  %.v.i.i56.i.i.i = select i1 %500, i32 %71, i32 %.0..0..i.i.i
+  %501 = add i32 %.v.i.i56.i.i.i, -1
   %502 = zext i32 %501 to i64
-  %503 = getelementptr inbounds nuw %"class.cv::Point_", ptr %499, i64 %502
+  %503 = getelementptr inbounds nuw %"class.cv::Point_", ptr %.val.pre.i.i.i.i, i64 %502
   %504 = load i64, ptr %503, align 4
   store i64 %504, ptr %22, align 8
-  %505 = getelementptr inbounds nuw %"class.cv::Point_", ptr %499, i64 %.pre-phi269.i.i.i
+  %505 = getelementptr inbounds nuw %"class.cv::Point_", ptr %.val.pre.i.i.i.i, i64 %.pre-phi267.i.i.i
   %506 = load i64, ptr %505, align 4
   store i64 %506, ptr %23, align 8
   %507 = trunc i64 %504 to i32
@@ -921,9 +919,9 @@ _ZN20minEnclosingTriangleL18searchForBTangencyERKSt6vectorIN2cv6Point_IfEESaIS3_
   %518 = fpext float %517 to double
   %519 = fsub float %508, %513
   %520 = fpext float %519 to double
-  %521 = fsub float %441, %436
+  %521 = fsub float %442, %437
   %522 = fpext float %521 to double
-  %523 = fsub float %433, %438
+  %523 = fsub float %434, %439
   %524 = fpext float %523 to double
   %525 = fneg double %520
   %526 = fmul double %522, %525
@@ -935,12 +933,12 @@ _ZN20minEnclosingTriangleL18searchForBTangencyERKSt6vectorIN2cv6Point_IfEESaIS3_
   %531 = fcmp ugt double %528, %530
   br i1 %531, label %532, label %_ZN20minEnclosingTriangleL13updateSidesBAERKSt6vectorIN2cv6Point_IfEESaIS3_EEjjjjRjRS3_S9_S9_S9_RKS3_SB_.exit.i.i.i
 
-532:                                              ; preds = %498
-  %.sroa.0.4.vec.extract.i.i.i = extractelement <2 x float> %430, i64 1
-  %.sroa.0.0.vec.extract.i.i.i = extractelement <2 x float> %430, i64 0
-  %533 = fsub float %.sroa.0.4.vec.extract.i.i.i, %428
+532:                                              ; preds = %499
+  %.sroa.0.4.vec.extract.i.i.i = extractelement <2 x float> %431, i64 1
+  %.sroa.0.0.vec.extract.i.i.i = extractelement <2 x float> %431, i64 0
+  %533 = fsub float %.sroa.0.4.vec.extract.i.i.i, %429
   %534 = fpext float %533 to double
-  %535 = fsub float %427, %.sroa.0.0.vec.extract.i.i.i
+  %535 = fsub float %428, %.sroa.0.0.vec.extract.i.i.i
   %536 = fpext float %535 to double
   %537 = fmul double %534, %525
   %538 = call double @llvm.fmuladd.f64(double %518, double %536, double %537)
@@ -952,8 +950,8 @@ _ZN20minEnclosingTriangleL18searchForBTangencyERKSt6vectorIN2cv6Point_IfEESaIS3_
   br i1 %542, label %543, label %_ZN20minEnclosingTriangleL13updateSidesBAERKSt6vectorIN2cv6Point_IfEESaIS3_EEjjjjRjRS3_S9_S9_S9_RKS3_SB_.exit.i.i.i
 
 543:                                              ; preds = %532
-  %544 = fpext float %433 to double
-  %545 = fpext float %436 to double
+  %544 = fpext float %434 to double
+  %545 = fpext float %437 to double
   %546 = fmul double %545, %524
   %547 = call double @llvm.fmuladd.f64(double %544, double %522, double %546)
   %548 = fpext float %508 to double
@@ -969,8 +967,8 @@ _ZN20minEnclosingTriangleL18searchForBTangencyERKSt6vectorIN2cv6Point_IfEESaIS3_
   %558 = call double @llvm.fmuladd.f64(double %551, double %524, double %557)
   %559 = fdiv double %558, %527
   %560 = fptrunc double %559 to float
-  %561 = fpext float %427 to double
-  %562 = fpext float %428 to double
+  %561 = fpext float %428 to double
+  %562 = fpext float %429 to double
   %563 = fmul double %562, %536
   %564 = call double @llvm.fmuladd.f64(double %561, double %534, double %563)
   %565 = fmul double %564, %525
@@ -986,14 +984,14 @@ _ZN20minEnclosingTriangleL18searchForBTangencyERKSt6vectorIN2cv6Point_IfEESaIS3_
   %575 = fmul float %574, 5.000000e-01
   %576 = fadd float %573, %556
   %577 = fmul float %576, 5.000000e-01
-  %578 = getelementptr inbounds nuw %"class.cv::Point_", ptr %499, i64 %indvars.iv.i.i.i
+  %578 = getelementptr inbounds nuw %"class.cv::Point_", ptr %.val.pre.i.i.i.i, i64 %indvars.iv.i.i.i
   %579 = load float, ptr %578, align 4
   %.sroa_idx4.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %578, i64 4
   %580 = load float, ptr %.sroa_idx4.i.i.i.i.i, align 4
-  %581 = getelementptr inbounds nuw %"class.cv::Point_", ptr %499, i64 %83
+  %581 = getelementptr inbounds nuw %"class.cv::Point_", ptr %.val.pre.i.i.i.i, i64 %85
   %582 = load float, ptr %581, align 4
-  %.sroa_idx.i.i61.i.i.i = getelementptr inbounds nuw i8, ptr %581, i64 4
-  %583 = load float, ptr %.sroa_idx.i.i61.i.i.i, align 4
+  %.sroa_idx.i.i58.i.i.i = getelementptr inbounds nuw i8, ptr %581, i64 4
+  %583 = load float, ptr %.sroa_idx.i.i58.i.i.i, align 4
   %584 = fsub float %582, %579
   %585 = fpext float %584 to double
   %586 = fsub float %580, %577
@@ -1008,11 +1006,11 @@ _ZN20minEnclosingTriangleL18searchForBTangencyERKSt6vectorIN2cv6Point_IfEESaIS3_
   %595 = call noundef double @llvm.fabs.f64(double %594)
   %596 = fmul double %591, %591
   %597 = call double @llvm.fmuladd.f64(double %585, double %585, double %596)
-  %sqrt.i.i.i62.i.i.i = call double @llvm.sqrt.f64(double %597)
+  %sqrt.i.i.i59.i.i.i = call double @llvm.sqrt.f64(double %597)
   %598 = fcmp une double %597, 0.000000e+00
-  %599 = fdiv double %595, %sqrt.i.i.i62.i.i.i
+  %599 = fdiv double %595, %sqrt.i.i.i59.i.i.i
   %600 = select i1 %598, double %599, double 0.000000e+00
-  %601 = getelementptr inbounds nuw %"class.cv::Point_", ptr %499, i64 %425
+  %601 = getelementptr inbounds nuw %"class.cv::Point_", ptr %.val.pre.i.i.i.i, i64 %426
   %602 = load float, ptr %601, align 4
   %.sroa_idx.i52.i.i.i.i = getelementptr inbounds nuw i8, ptr %601, i64 4
   %603 = load float, ptr %.sroa_idx.i52.i.i.i.i, align 4
@@ -1023,7 +1021,7 @@ _ZN20minEnclosingTriangleL18searchForBTangencyERKSt6vectorIN2cv6Point_IfEESaIS3_
   %608 = fmul double %592, %607
   %609 = call double @llvm.fmuladd.f64(double %585, double %605, double %608)
   %610 = call noundef double @llvm.fabs.f64(double %609)
-  %611 = fdiv double %610, %sqrt.i.i.i62.i.i.i
+  %611 = fdiv double %610, %sqrt.i.i.i59.i.i.i
   %612 = select i1 %598, double %611, double 0.000000e+00
   %613 = fcmp olt double %600, %612
   br i1 %613, label %614, label %_ZN20minEnclosingTriangleL13updateSidesBAERKSt6vectorIN2cv6Point_IfEESaIS3_EEjjjjRjRS3_S9_S9_S9_RKS3_SB_.exit.i.i.i
@@ -1031,11 +1029,11 @@ _ZN20minEnclosingTriangleL18searchForBTangencyERKSt6vectorIN2cv6Point_IfEESaIS3_
 614:                                              ; preds = %543
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store float 0.000000e+00, ptr %16, align 8, !tbaa !24
-  store float 0.000000e+00, ptr %76, align 4, !tbaa !27
+  store float 0.000000e+00, ptr %78, align 4, !tbaa !27
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store float 0.000000e+00, ptr %17, align 8, !tbaa !24
-  store float 0.000000e+00, ptr %77, align 4, !tbaa !27
-  %615 = invoke fastcc noundef zeroext i1 @_ZN20minEnclosingTriangleL27findGammaIntersectionPointsERKSt6vectorIN2cv6Point_IfEESaIS3_EEjjjRKS3_S9_S9_S9_RS3_SA_(ptr noundef nonnull readonly align 8 dereferenceable(24) %33, i32 noundef %69, i32 noundef %133, i32 noundef %424, ptr noundef nonnull readonly align 4 dereferenceable(8) %22, ptr noundef nonnull readonly align 4 dereferenceable(8) %23, ptr noundef nonnull readonly align 4 dereferenceable(8) %24, ptr noundef nonnull readonly align 4 dereferenceable(8) %25, ptr noundef nonnull align 4 dereferenceable(8) %16, ptr noundef nonnull align 4 dereferenceable(8) %17)
+  store float 0.000000e+00, ptr %79, align 4, !tbaa !27
+  %615 = invoke fastcc noundef zeroext i1 @_ZN20minEnclosingTriangleL27findGammaIntersectionPointsERKSt6vectorIN2cv6Point_IfEESaIS3_EEjjjRKS3_S9_S9_S9_RS3_SA_(ptr noundef nonnull readonly align 8 dereferenceable(24) %33, i32 noundef %71, i32 noundef %135, i32 noundef %425, ptr noundef nonnull readonly align 4 dereferenceable(8) %22, ptr noundef nonnull readonly align 4 dereferenceable(8) %23, ptr noundef nonnull readonly align 4 dereferenceable(8) %24, ptr noundef nonnull readonly align 4 dereferenceable(8) %25, ptr noundef nonnull align 4 dereferenceable(8) %16, ptr noundef nonnull align 4 dereferenceable(8) %17)
           to label %.noexc28.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 .noexc28.i:                                       ; preds = %614
@@ -1083,8 +1081,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i.i.i: ; pred
 _ZN20minEnclosingTriangleL18findVertexCOnSideBERKSt6vectorIN2cv6Point_IfEESaIS3_EEjjjRKS3_S9_S9_S9_.exit.i.i.i.i: ; preds = %.noexc28.i
   %626 = load ptr, ptr %33, align 8, !tbaa !20
   %627 = getelementptr inbounds nuw %"class.cv::Point_", ptr %626, i64 %indvars.iv.i.i.i
-  %628 = getelementptr inbounds nuw %"class.cv::Point_", ptr %626, i64 %83
-  %.val.i.i63.i.i.i = load float, ptr %627, align 4, !tbaa !24
+  %628 = getelementptr inbounds nuw %"class.cv::Point_", ptr %626, i64 %85
+  %.val.i.i60.i.i.i = load float, ptr %627, align 4, !tbaa !24
   %629 = getelementptr i8, ptr %627, i64 4
   %.val21.i.i.i.i.i = load float, ptr %629, align 4
   %.val22.i.i.i.i.i = load float, ptr %628, align 4, !tbaa !24
@@ -1093,16 +1091,16 @@ _ZN20minEnclosingTriangleL18findVertexCOnSideBERKSt6vectorIN2cv6Point_IfEESaIS3_
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  invoke fastcc void @_ZN20minEnclosingTriangleL30lineEquationDeterminedByPointsERKN2cv6Point_IfEES4_RdS5_S5_(float %.val.i.i63.i.i.i, float %.val21.i.i.i.i.i, float %.val22.i.i.i.i.i, float %.val23.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %15)
+  invoke fastcc void @_ZN20minEnclosingTriangleL30lineEquationDeterminedByPointsERKN2cv6Point_IfEES4_RdS5_S5_(float %.val.i.i60.i.i.i, float %.val21.i.i.i.i.i, float %.val22.i.i.i.i.i, float %.val23.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %15)
           to label %.noexc30.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 .noexc30.i:                                       ; preds = %_ZN20minEnclosingTriangleL18findVertexCOnSideBERKSt6vectorIN2cv6Point_IfEESaIS3_EEjjjRKS3_S9_S9_S9_.exit.i.i.i.i
-  %631 = getelementptr inbounds nuw %"class.cv::Point_", ptr %626, i64 %135
+  %631 = getelementptr inbounds nuw %"class.cv::Point_", ptr %626, i64 %137
   %632 = load double, ptr %13, align 8, !tbaa !32
   %633 = load float, ptr %16, align 8, !tbaa !24
   %634 = fpext float %633 to double
   %635 = load double, ptr %14, align 8, !tbaa !32
-  %636 = load float, ptr %76, align 4, !tbaa !27
+  %636 = load float, ptr %78, align 4, !tbaa !27
   %637 = fpext float %636 to double
   %638 = fmul double %635, %637
   %639 = call double @llvm.fmuladd.f64(double %632, double %634, double %638)
@@ -1134,9 +1132,9 @@ _ZN20minEnclosingTriangleL18findVertexCOnSideBERKSt6vectorIN2cv6Point_IfEESaIS3_
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %_ZN20minEnclosingTriangleL13updateSidesBAERKSt6vectorIN2cv6Point_IfEESaIS3_EEjjjjRjRS3_S9_S9_S9_RKS3_SB_.exit.i.i.i
 
-657:                                              ; preds = %458
+657:                                              ; preds = %459
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
-  %658 = invoke fastcc noundef zeroext i1 @_ZN20minEnclosingTriangleL5gammaEjRN2cv6Point_IfEERKSt6vectorIS2_SaIS2_EEjjj(i32 noundef %.0..0..i.i.i, ptr noundef nonnull align 4 dereferenceable(8) %22, ptr noundef nonnull readonly align 8 dereferenceable(24) %33, i32 noundef %69, i32 noundef %.0..0.128.i.i.i, i32 noundef %133)
+  %658 = invoke fastcc noundef zeroext i1 @_ZN20minEnclosingTriangleL5gammaEjRN2cv6Point_IfEERKSt6vectorIS2_SaIS2_EEjjj(i32 noundef %.0..0..i.i.i, ptr noundef nonnull align 4 dereferenceable(8) %22, ptr noundef nonnull readonly align 8 dereferenceable(24) %33, i32 noundef %71, i32 noundef %.0..0.125.i.i.i, i32 noundef %135)
           to label %.noexc31.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 .noexc31.i:                                       ; preds = %657
@@ -1192,62 +1190,62 @@ _ZN20minEnclosingTriangleL11updateSideBERKSt6vectorIN2cv6Point_IfEESaIS3_EEjjjjR
   %675 = lshr i64 %672, 32
   %676 = trunc nuw i64 %675 to i32
   %677 = bitcast i32 %676 to float
-  %.pre260.i.i.i = fsub float %677, %.val33.i.pre.i.i.i
-  %.pre261.i.i.i = fpext float %.pre260.i.i.i to double
-  %.pre263.i.i.i = fsub float %.val32.i.pre.i.i.i, %674
-  %.pre265.i.i.i = fpext float %.pre263.i.i.i to double
+  %.pre258.i.i.i = fsub float %677, %.val33.i.pre.i.i.i
+  %.pre259.i.i.i = fpext float %.pre258.i.i.i to double
+  %.pre261.i.i.i = fsub float %.val32.i.pre.i.i.i, %674
+  %.pre263.i.i.i = fpext float %.pre261.i.i.i to double
   br label %_ZN20minEnclosingTriangleL13updateSidesBAERKSt6vectorIN2cv6Point_IfEESaIS3_EEjjjjRjRS3_S9_S9_S9_RKS3_SB_.exit.i.i.i
 
-_ZN20minEnclosingTriangleL13updateSidesBAERKSt6vectorIN2cv6Point_IfEESaIS3_EEjjjjRjRS3_S9_S9_S9_RKS3_SB_.exit.i.i.i: ; preds = %_ZN20minEnclosingTriangleL11updateSideBERKSt6vectorIN2cv6Point_IfEESaIS3_EEjjjjRjRS3_S9_.exit.i.i.i, %.noexc30.i, %543, %532, %498
-  %.pre-phi266.i.i.i = phi double [ %520, %.noexc30.i ], [ %520, %543 ], [ %520, %532 ], [ %520, %498 ], [ %.pre265.i.i.i, %_ZN20minEnclosingTriangleL11updateSideBERKSt6vectorIN2cv6Point_IfEESaIS3_EEjjjjRjRS3_S9_.exit.i.i.i ]
-  %.pre-phi262.i.i.i = phi double [ %518, %.noexc30.i ], [ %518, %543 ], [ %518, %532 ], [ %518, %498 ], [ %.pre261.i.i.i, %_ZN20minEnclosingTriangleL11updateSideBERKSt6vectorIN2cv6Point_IfEESaIS3_EEjjjjRjRS3_S9_.exit.i.i.i ]
-  %.val35.i65.i.i.i = phi float [ %516, %.noexc30.i ], [ %516, %543 ], [ %516, %532 ], [ %516, %498 ], [ %677, %_ZN20minEnclosingTriangleL11updateSideBERKSt6vectorIN2cv6Point_IfEESaIS3_EEjjjjRjRS3_S9_.exit.i.i.i ]
-  %.val34.i.i.i.i = phi float [ %513, %.noexc30.i ], [ %513, %543 ], [ %513, %532 ], [ %513, %498 ], [ %674, %_ZN20minEnclosingTriangleL11updateSideBERKSt6vectorIN2cv6Point_IfEESaIS3_EEjjjjRjRS3_S9_.exit.i.i.i ]
-  %.val33.i.i.i.i = phi float [ %511, %.noexc30.i ], [ %511, %543 ], [ %511, %532 ], [ %511, %498 ], [ %.val33.i.pre.i.i.i, %_ZN20minEnclosingTriangleL11updateSideBERKSt6vectorIN2cv6Point_IfEESaIS3_EEjjjjRjRS3_S9_.exit.i.i.i ]
-  %.val32.i.i.i.i = phi float [ %508, %.noexc30.i ], [ %508, %543 ], [ %508, %532 ], [ %508, %498 ], [ %.val32.i.pre.i.i.i, %_ZN20minEnclosingTriangleL11updateSideBERKSt6vectorIN2cv6Point_IfEESaIS3_EEjjjjRjRS3_S9_.exit.i.i.i ]
-  %678 = phi i1 [ true, %.noexc30.i ], [ false, %543 ], [ false, %532 ], [ false, %498 ], [ false, %_ZN20minEnclosingTriangleL11updateSideBERKSt6vectorIN2cv6Point_IfEESaIS3_EEjjjjRjRS3_S9_.exit.i.i.i ]
-  %679 = phi i1 [ false, %.noexc30.i ], [ false, %543 ], [ false, %532 ], [ false, %498 ], [ true, %_ZN20minEnclosingTriangleL11updateSideBERKSt6vectorIN2cv6Point_IfEESaIS3_EEjjjjRjRS3_S9_.exit.i.i.i ]
-  %680 = phi i1 [ false, %.noexc30.i ], [ true, %543 ], [ true, %532 ], [ true, %498 ], [ false, %_ZN20minEnclosingTriangleL11updateSideBERKSt6vectorIN2cv6Point_IfEESaIS3_EEjjjjRjRS3_S9_.exit.i.i.i ]
-  %.sroa.9.0.i.i.i = phi float [ %603, %.noexc30.i ], [ %428, %543 ], [ %428, %532 ], [ %428, %498 ], [ %428, %_ZN20minEnclosingTriangleL11updateSideBERKSt6vectorIN2cv6Point_IfEESaIS3_EEjjjjRjRS3_S9_.exit.i.i.i ]
-  %.sroa.0147.0.i.i.i = phi float [ %602, %.noexc30.i ], [ %427, %543 ], [ %427, %532 ], [ %427, %498 ], [ %427, %_ZN20minEnclosingTriangleL11updateSideBERKSt6vectorIN2cv6Point_IfEESaIS3_EEjjjjRjRS3_S9_.exit.i.i.i ]
-  %.sroa.0.1.i.i.i = phi <2 x float> [ %.sroa.0.0.i.i.i.i.i, %.noexc30.i ], [ %430, %543 ], [ %430, %532 ], [ %430, %498 ], [ %430, %_ZN20minEnclosingTriangleL11updateSideBERKSt6vectorIN2cv6Point_IfEESaIS3_EEjjjjRjRS3_S9_.exit.i.i.i ]
-  %.sroa.0.0.vec.extract131.i.i.i = extractelement <2 x float> %.sroa.0.1.i.i.i, i64 0
-  %.sroa.0.4.vec.extract139.i.i.i = extractelement <2 x float> %.sroa.0.1.i.i.i, i64 1
-  %681 = fsub float %.sroa.0.4.vec.extract139.i.i.i, %.sroa.9.0.i.i.i
+_ZN20minEnclosingTriangleL13updateSidesBAERKSt6vectorIN2cv6Point_IfEESaIS3_EEjjjjRjRS3_S9_S9_S9_RKS3_SB_.exit.i.i.i: ; preds = %_ZN20minEnclosingTriangleL11updateSideBERKSt6vectorIN2cv6Point_IfEESaIS3_EEjjjjRjRS3_S9_.exit.i.i.i, %.noexc30.i, %543, %532, %499
+  %.pre-phi264.i.i.i = phi double [ %520, %.noexc30.i ], [ %520, %543 ], [ %520, %532 ], [ %520, %499 ], [ %.pre263.i.i.i, %_ZN20minEnclosingTriangleL11updateSideBERKSt6vectorIN2cv6Point_IfEESaIS3_EEjjjjRjRS3_S9_.exit.i.i.i ]
+  %.pre-phi260.i.i.i = phi double [ %518, %.noexc30.i ], [ %518, %543 ], [ %518, %532 ], [ %518, %499 ], [ %.pre259.i.i.i, %_ZN20minEnclosingTriangleL11updateSideBERKSt6vectorIN2cv6Point_IfEESaIS3_EEjjjjRjRS3_S9_.exit.i.i.i ]
+  %.val35.i62.i.i.i = phi float [ %516, %.noexc30.i ], [ %516, %543 ], [ %516, %532 ], [ %516, %499 ], [ %677, %_ZN20minEnclosingTriangleL11updateSideBERKSt6vectorIN2cv6Point_IfEESaIS3_EEjjjjRjRS3_S9_.exit.i.i.i ]
+  %.val34.i.i.i.i = phi float [ %513, %.noexc30.i ], [ %513, %543 ], [ %513, %532 ], [ %513, %499 ], [ %674, %_ZN20minEnclosingTriangleL11updateSideBERKSt6vectorIN2cv6Point_IfEESaIS3_EEjjjjRjRS3_S9_.exit.i.i.i ]
+  %.val33.i.i.i.i = phi float [ %511, %.noexc30.i ], [ %511, %543 ], [ %511, %532 ], [ %511, %499 ], [ %.val33.i.pre.i.i.i, %_ZN20minEnclosingTriangleL11updateSideBERKSt6vectorIN2cv6Point_IfEESaIS3_EEjjjjRjRS3_S9_.exit.i.i.i ]
+  %.val32.i.i.i.i = phi float [ %508, %.noexc30.i ], [ %508, %543 ], [ %508, %532 ], [ %508, %499 ], [ %.val32.i.pre.i.i.i, %_ZN20minEnclosingTriangleL11updateSideBERKSt6vectorIN2cv6Point_IfEESaIS3_EEjjjjRjRS3_S9_.exit.i.i.i ]
+  %678 = phi i1 [ true, %.noexc30.i ], [ false, %543 ], [ false, %532 ], [ false, %499 ], [ false, %_ZN20minEnclosingTriangleL11updateSideBERKSt6vectorIN2cv6Point_IfEESaIS3_EEjjjjRjRS3_S9_.exit.i.i.i ]
+  %679 = phi i1 [ false, %.noexc30.i ], [ false, %543 ], [ false, %532 ], [ false, %499 ], [ true, %_ZN20minEnclosingTriangleL11updateSideBERKSt6vectorIN2cv6Point_IfEESaIS3_EEjjjjRjRS3_S9_.exit.i.i.i ]
+  %680 = phi i1 [ false, %.noexc30.i ], [ true, %543 ], [ true, %532 ], [ true, %499 ], [ false, %_ZN20minEnclosingTriangleL11updateSideBERKSt6vectorIN2cv6Point_IfEESaIS3_EEjjjjRjRS3_S9_.exit.i.i.i ]
+  %.sroa.9.0.i.i.i = phi float [ %603, %.noexc30.i ], [ %429, %543 ], [ %429, %532 ], [ %429, %499 ], [ %429, %_ZN20minEnclosingTriangleL11updateSideBERKSt6vectorIN2cv6Point_IfEESaIS3_EEjjjjRjRS3_S9_.exit.i.i.i ]
+  %.sroa.0144.0.i.i.i = phi float [ %602, %.noexc30.i ], [ %428, %543 ], [ %428, %532 ], [ %428, %499 ], [ %428, %_ZN20minEnclosingTriangleL11updateSideBERKSt6vectorIN2cv6Point_IfEESaIS3_EEjjjjRjRS3_S9_.exit.i.i.i ]
+  %.sroa.0.1.i.i.i = phi <2 x float> [ %.sroa.0.0.i.i.i.i.i, %.noexc30.i ], [ %431, %543 ], [ %431, %532 ], [ %431, %499 ], [ %431, %_ZN20minEnclosingTriangleL11updateSideBERKSt6vectorIN2cv6Point_IfEESaIS3_EEjjjjRjRS3_S9_.exit.i.i.i ]
+  %.sroa.0.0.vec.extract128.i.i.i = extractelement <2 x float> %.sroa.0.1.i.i.i, i64 0
+  %.sroa.0.4.vec.extract136.i.i.i = extractelement <2 x float> %.sroa.0.1.i.i.i, i64 1
+  %681 = fsub float %.sroa.0.4.vec.extract136.i.i.i, %.sroa.9.0.i.i.i
   %682 = fpext float %681 to double
-  %683 = fsub float %.sroa.0147.0.i.i.i, %.sroa.0.0.vec.extract131.i.i.i
+  %683 = fsub float %.sroa.0144.0.i.i.i, %.sroa.0.0.vec.extract128.i.i.i
   %684 = fpext float %683 to double
   %685 = fneg double %684
-  %686 = fmul double %.pre-phi262.i.i.i, %685
-  %687 = call double @llvm.fmuladd.f64(double %682, double %.pre-phi266.i.i.i, double %686)
+  %686 = fmul double %.pre-phi260.i.i.i, %685
+  %687 = call double @llvm.fmuladd.f64(double %682, double %.pre-phi264.i.i.i, double %686)
   %688 = call noundef double @llvm.fabs.f64(double %687)
   %689 = fcmp ogt double %688, 1.000000e+00
-  %.sroa.speculated2.i.i.i.i66.i.i.i = select i1 %689, double %688, double 1.000000e+00
-  %690 = fmul double %.sroa.speculated2.i.i.i.i66.i.i.i, 1.000000e-05
+  %.sroa.speculated2.i.i.i.i63.i.i.i = select i1 %689, double %688, double 1.000000e+00
+  %690 = fmul double %.sroa.speculated2.i.i.i.i63.i.i.i, 1.000000e-05
   %691 = fcmp ugt double %688, %690
   br i1 %691, label %692, label %_ZN20minEnclosingTriangleL34updateMinimumAreaEnclosingTriangleERSt6vectorIN2cv6Point_IfEESaIS3_EERdRKS3_S9_S9_.exit.i.i.i
 
 692:                                              ; preds = %_ZN20minEnclosingTriangleL13updateSidesBAERKSt6vectorIN2cv6Point_IfEESaIS3_EEjjjjRjRS3_S9_S9_S9_RKS3_SB_.exit.i.i.i
   %693 = fpext float %.val32.i.i.i.i to double
   %694 = fpext float %.val33.i.i.i.i to double
-  %695 = fmul double %.pre-phi266.i.i.i, %694
-  %696 = call double @llvm.fmuladd.f64(double %693, double %.pre-phi262.i.i.i, double %695)
-  %697 = fpext float %.sroa.0147.0.i.i.i to double
+  %695 = fmul double %.pre-phi264.i.i.i, %694
+  %696 = call double @llvm.fmuladd.f64(double %693, double %.pre-phi260.i.i.i, double %695)
+  %697 = fpext float %.sroa.0144.0.i.i.i to double
   %698 = fpext float %.sroa.9.0.i.i.i to double
   %699 = fmul double %698, %684
   %700 = call double @llvm.fmuladd.f64(double %697, double %682, double %699)
   %701 = fmul double %696, %685
-  %702 = call double @llvm.fmuladd.f64(double %700, double %.pre-phi266.i.i.i, double %701)
+  %702 = call double @llvm.fmuladd.f64(double %700, double %.pre-phi264.i.i.i, double %701)
   %703 = fdiv double %702, %687
   %704 = fptrunc double %703 to float
-  %705 = fneg double %.pre-phi262.i.i.i
+  %705 = fneg double %.pre-phi260.i.i.i
   %706 = fmul double %700, %705
   %707 = call double @llvm.fmuladd.f64(double %696, double %682, double %706)
   %708 = fdiv double %707, %687
   %709 = fptrunc double %708 to float
-  %710 = fsub float %441, %436
+  %710 = fsub float %442, %437
   %711 = fpext float %710 to double
-  %712 = fsub float %433, %438
+  %712 = fsub float %434, %439
   %713 = fpext float %712 to double
   %714 = fmul double %711, %685
   %715 = call double @llvm.fmuladd.f64(double %682, double %713, double %714)
@@ -1259,8 +1257,8 @@ _ZN20minEnclosingTriangleL13updateSidesBAERKSt6vectorIN2cv6Point_IfEESaIS3_EEjjj
   br i1 %719, label %720, label %_ZN20minEnclosingTriangleL34updateMinimumAreaEnclosingTriangleERSt6vectorIN2cv6Point_IfEESaIS3_EERdRKS3_S9_S9_.exit.i.i.i
 
 720:                                              ; preds = %692
-  %721 = fpext float %433 to double
-  %722 = fpext float %436 to double
+  %721 = fpext float %434 to double
+  %722 = fpext float %437 to double
   %723 = fmul double %722, %713
   %724 = call double @llvm.fmuladd.f64(double %721, double %711, double %723)
   %725 = fmul double %724, %685
@@ -1272,9 +1270,9 @@ _ZN20minEnclosingTriangleL13updateSidesBAERKSt6vectorIN2cv6Point_IfEESaIS3_EEjjj
   %731 = call double @llvm.fmuladd.f64(double %724, double %682, double %730)
   %732 = fdiv double %731, %715
   %733 = fptrunc double %732 to float
-  %734 = fneg double %.pre-phi266.i.i.i
+  %734 = fneg double %.pre-phi264.i.i.i
   %735 = fmul double %711, %734
-  %736 = call double @llvm.fmuladd.f64(double %.pre-phi262.i.i.i, double %713, double %735)
+  %736 = call double @llvm.fmuladd.f64(double %.pre-phi260.i.i.i, double %713, double %735)
   %737 = call noundef double @llvm.fabs.f64(double %736)
   %738 = fcmp ogt double %737, 1.000000e+00
   %.sroa.speculated2.i.i.i73.i.i.i.i = select i1 %738, double %737, double 1.000000e+00
@@ -1288,7 +1286,7 @@ _ZN20minEnclosingTriangleL13updateSidesBAERKSt6vectorIN2cv6Point_IfEESaIS3_EEjjj
   %744 = fdiv double %743, %736
   %745 = fptrunc double %744 to float
   %746 = fmul double %696, %729
-  %747 = call double @llvm.fmuladd.f64(double %724, double %.pre-phi262.i.i.i, double %746)
+  %747 = call double @llvm.fmuladd.f64(double %724, double %.pre-phi260.i.i.i, double %746)
   %748 = fdiv double %747, %736
   %749 = fptrunc double %748 to float
   %.val58.i.i.i.i = load ptr, ptr %33, align 8
@@ -1307,7 +1305,7 @@ _ZN20minEnclosingTriangleL13updateSidesBAERKSt6vectorIN2cv6Point_IfEESaIS3_EEjjj
   br i1 %678, label %762, label %_ZN20minEnclosingTriangleL14areEqualPointsERKN2cv6Point_IfEES4_.exit.i.i.i.i.i
 
 762:                                              ; preds = %741
-  %763 = getelementptr inbounds nuw %"class.cv::Point_", ptr %.val58.i.i.i.i, i64 %425
+  %763 = getelementptr inbounds nuw %"class.cv::Point_", ptr %.val58.i.i.i.i, i64 %426
   %.val28.i.i.i.i.i = load float, ptr %763, align 4, !tbaa !24
   %764 = fpext float %751 to double
   %765 = fpext float %.val28.i.i.i.i.i to double
@@ -1316,9 +1314,9 @@ _ZN20minEnclosingTriangleL13updateSidesBAERKSt6vectorIN2cv6Point_IfEESaIS3_EEjjj
   %768 = call noundef double @llvm.fabs.f64(double %764)
   %769 = call noundef double @llvm.fabs.f64(double %765)
   %770 = fcmp ogt double %768, 1.000000e+00
-  %.sroa.speculated2.i.i.i.i.i80.i.i.i = select i1 %770, double %768, double 1.000000e+00
-  %771 = fcmp olt double %.sroa.speculated2.i.i.i.i.i80.i.i.i, %769
-  %.sroa.speculated.i.i.i.i.i.i.i.i = select i1 %771, double %769, double %.sroa.speculated2.i.i.i.i.i80.i.i.i
+  %.sroa.speculated2.i.i.i.i.i77.i.i.i = select i1 %770, double %768, double 1.000000e+00
+  %771 = fcmp olt double %.sroa.speculated2.i.i.i.i.i77.i.i.i, %769
+  %.sroa.speculated.i.i.i.i.i.i.i.i = select i1 %771, double %769, double %.sroa.speculated2.i.i.i.i.i77.i.i.i
   %772 = fmul double %.sroa.speculated.i.i.i.i.i.i.i.i, 1.000000e-05
   %773 = fcmp ugt double %767, %772
   br i1 %773, label %_ZN20minEnclosingTriangleL14areEqualPointsERKN2cv6Point_IfEES4_.exit70.i.i.i.i.i, label %774
@@ -1341,21 +1339,21 @@ _ZN20minEnclosingTriangleL13updateSidesBAERKSt6vectorIN2cv6Point_IfEESaIS3_EEjjj
   br label %_ZN20minEnclosingTriangleL14areEqualPointsERKN2cv6Point_IfEES4_.exit70.i.i.i.i.i
 
 _ZN20minEnclosingTriangleL14areEqualPointsERKN2cv6Point_IfEES4_.exit.i.i.i.i.i: ; preds = %741
-  %786 = fsub float %751, %.sroa.0147.0.i.i.i
+  %786 = fsub float %751, %.sroa.0144.0.i.i.i
   %787 = fpext float %786 to double
   %788 = fsub float %753, %.sroa.9.0.i.i.i
   %789 = fpext float %788 to double
   %790 = fmul double %789, %789
   %791 = call double @llvm.fmuladd.f64(double %787, double %787, double %790)
   %sqrt.i.i.i.i.i.i.i = call noundef double @llvm.sqrt.f64(double %791)
-  %792 = fsub float %751, %.sroa.0.0.vec.extract131.i.i.i
+  %792 = fsub float %751, %.sroa.0.0.vec.extract128.i.i.i
   %793 = fpext float %792 to double
-  %794 = fsub float %753, %.sroa.0.4.vec.extract139.i.i.i
+  %794 = fsub float %753, %.sroa.0.4.vec.extract136.i.i.i
   %795 = fpext float %794 to double
   %796 = fmul double %795, %795
   %797 = call double @llvm.fmuladd.f64(double %793, double %793, double %796)
   %sqrt.i20.i.i.i.i.i.i = call noundef double @llvm.sqrt.f64(double %797)
-  %798 = fsub float %.sroa.9.0.i.i.i, %.sroa.0.4.vec.extract139.i.i.i
+  %798 = fsub float %.sroa.9.0.i.i.i, %.sroa.0.4.vec.extract136.i.i.i
   %799 = fpext float %798 to double
   %800 = fmul double %799, %799
   %801 = call double @llvm.fmuladd.f64(double %684, double %684, double %800)
@@ -1393,9 +1391,9 @@ _ZN20minEnclosingTriangleL14areEqualPointsERKN2cv6Point_IfEES4_.exit.i.i.i.i.i: 
 
 824:                                              ; preds = %811
   %825 = getelementptr i8, ptr %813, i64 4
-  %.val25.i.i78.i.i.i = load float, ptr %825, align 4
+  %.val25.i.i75.i.i.i = load float, ptr %825, align 4
   %826 = fpext float %757 to double
-  %827 = fpext float %.val25.i.i78.i.i.i to double
+  %827 = fpext float %.val25.i.i75.i.i.i to double
   %828 = fsub double %826, %827
   %829 = call noundef double @llvm.fabs.f64(double %828)
   %830 = call noundef double @llvm.fabs.f64(double %826)
@@ -1419,15 +1417,15 @@ _ZN20minEnclosingTriangleL14areEqualPointsERKN2cv6Point_IfEES4_.exit70.i.i.i.i.i
   %sqrt.i.i71.i.i.i.i.i = call noundef double @llvm.sqrt.f64(double %842)
   %843 = fsub float %755, %.val34.i.i.i.i
   %844 = fpext float %843 to double
-  %845 = fsub float %757, %.val35.i65.i.i.i
+  %845 = fsub float %757, %.val35.i62.i.i.i
   %846 = fpext float %845 to double
   %847 = fmul double %846, %846
   %848 = call double @llvm.fmuladd.f64(double %844, double %844, double %847)
   %sqrt.i20.i72.i.i.i.i.i = call noundef double @llvm.sqrt.f64(double %848)
-  %849 = fsub float %.val33.i.i.i.i, %.val35.i65.i.i.i
+  %849 = fsub float %.val33.i.i.i.i, %.val35.i62.i.i.i
   %850 = fpext float %849 to double
   %851 = fmul double %850, %850
-  %852 = call double @llvm.fmuladd.f64(double %.pre-phi266.i.i.i, double %.pre-phi266.i.i.i, double %851)
+  %852 = call double @llvm.fmuladd.f64(double %.pre-phi264.i.i.i, double %.pre-phi264.i.i.i, double %851)
   %sqrt.i21.i73.i.i.i.i.i = call noundef double @llvm.sqrt.f64(double %852)
   %853 = fadd double %sqrt.i.i71.i.i.i.i.i, %sqrt.i20.i72.i.i.i.i.i
   %854 = fsub double %853, %sqrt.i21.i73.i.i.i.i.i
@@ -1445,21 +1443,21 @@ _ZN20minEnclosingTriangleL14areEqualPointsERKN2cv6Point_IfEES4_.exit70.i.i.i.i.i
 _ZN20minEnclosingTriangleL14areEqualPointsERKN2cv6Point_IfEES4_.exit70.thread.i.i.i.i.i: ; preds = %_ZN20minEnclosingTriangleL14areEqualPointsERKN2cv6Point_IfEES4_.exit70.i.i.i.i.i, %824, %811
   %862 = phi i1 [ %861, %_ZN20minEnclosingTriangleL14areEqualPointsERKN2cv6Point_IfEES4_.exit70.i.i.i.i.i ], [ %835, %824 ], [ false, %811 ]
   %863 = phi i1 [ %836, %_ZN20minEnclosingTriangleL14areEqualPointsERKN2cv6Point_IfEES4_.exit70.i.i.i.i.i ], [ %810, %824 ], [ %810, %811 ]
-  %864 = fsub float %759, %433
+  %864 = fsub float %759, %434
   %865 = fpext float %864 to double
-  %866 = fsub float %761, %436
+  %866 = fsub float %761, %437
   %867 = fpext float %866 to double
   %868 = fmul double %867, %867
   %869 = call double @llvm.fmuladd.f64(double %865, double %865, double %868)
   %sqrt.i.i76.i.i.i.i.i = call noundef double @llvm.sqrt.f64(double %869)
-  %870 = fsub float %759, %438
+  %870 = fsub float %759, %439
   %871 = fpext float %870 to double
-  %872 = fsub float %761, %441
+  %872 = fsub float %761, %442
   %873 = fpext float %872 to double
   %874 = fmul double %873, %873
   %875 = call double @llvm.fmuladd.f64(double %871, double %871, double %874)
   %sqrt.i20.i77.i.i.i.i.i = call noundef double @llvm.sqrt.f64(double %875)
-  %876 = fsub float %436, %441
+  %876 = fsub float %437, %442
   %877 = fpext float %876 to double
   %878 = fmul double %877, %877
   %879 = call double @llvm.fmuladd.f64(double %713, double %713, double %878)
@@ -1506,8 +1504,8 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE5clearEv.exit.i.i.i.i: ; preds = %892
 
 905:                                              ; preds = %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE5clearEv.exit.i.i.i.i
   store float %745, ptr %.sroa.0.5.i, align 4
-  %.sroa_idx164.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.0.5.i, i64 4
-  store float %749, ptr %.sroa_idx164.i.i.i, align 4
+  %.sroa_idx161.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.0.5.i, i64 4
+  store float %749, ptr %.sroa_idx161.i.i.i, align 4
   br label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backERKS2_.exit.i.i.i.i
 
 _ZNKSt6vectorIN2cv6Point_IfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i: ; preds = %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE5clearEv.exit.i.i.i.i
@@ -1516,8 +1514,8 @@ _ZNKSt6vectorIN2cv6Point_IfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i: ; pre
 
 .noexc34.i:                                       ; preds = %_ZNKSt6vectorIN2cv6Point_IfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i
   store float %745, ptr %906, align 4
-  %.sroa_idx166.i.i.i = getelementptr inbounds nuw i8, ptr %906, i64 4
-  store float %749, ptr %.sroa_idx166.i.i.i, align 4
+  %.sroa_idx163.i.i.i = getelementptr inbounds nuw i8, ptr %906, i64 4
+  store float %749, ptr %.sroa_idx163.i.i.i, align 4
   %.not.i23.i.i.i.i.i.i = icmp eq ptr %.sroa.0.5.i, null
   br i1 %.not.i23.i.i.i.i.i.i, label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i.i.i, label %907
 
@@ -1538,8 +1536,8 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backERKS2_.exit.i.i.i.i: ; preds = %_Z
 
 909:                                              ; preds = %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backERKS2_.exit.i.i.i.i
   store float %728, ptr %.sroa.17.7.i, align 4
-  %.sroa_idx156.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.0.8.i, i64 12
-  store float %733, ptr %.sroa_idx156.i.i.i, align 4
+  %.sroa_idx153.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.0.8.i, i64 12
+  store float %733, ptr %.sroa_idx153.i.i.i, align 4
   br label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backERKS2_.exit32.i.i.i.i
 
 910:                                              ; preds = %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backERKS2_.exit.i.i.i.i
@@ -1572,8 +1570,8 @@ _ZNKSt6vectorIN2cv6Point_IfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i20.i.i.i.i: ; p
 .noexc36.i:                                       ; preds = %_ZNKSt6vectorIN2cv6Point_IfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i20.i.i.i.i
   %923 = getelementptr inbounds nuw i8, ptr %922, i64 %913
   store float %728, ptr %923, align 4
-  %.sroa_idx158.i.i.i = getelementptr inbounds nuw i8, ptr %923, i64 4
-  store float %733, ptr %.sroa_idx158.i.i.i, align 4
+  %.sroa_idx155.i.i.i = getelementptr inbounds nuw i8, ptr %923, i64 4
+  store float %733, ptr %.sroa_idx155.i.i.i, align 4
   br label %.lr.ph.i.i.i.i.i.i24.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i24.i.i.i.i:                     ; preds = %.lr.ph.i.i.i.i.i.i24.i.i.i.i, %.noexc36.i
@@ -1603,8 +1601,8 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backERKS2_.exit32.i.i.i.i: ; preds = %
 
 928:                                              ; preds = %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backERKS2_.exit32.i.i.i.i
   store float %704, ptr %.sroa.17.8.i, align 4
-  %.sroa_idx149.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i25.i.i.i.pn.i, i64 20
-  store float %709, ptr %.sroa_idx149.i.i.i, align 4
+  %.sroa_idx146.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i25.i.i.i.pn.i, i64 20
+  store float %709, ptr %.sroa_idx146.i.i.i, align 4
   br label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backERKS2_.exit46.i.i.i.i
 
 929:                                              ; preds = %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backERKS2_.exit32.i.i.i.i
@@ -1637,8 +1635,8 @@ _ZNKSt6vectorIN2cv6Point_IfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i34.i.i.i.i: ; p
 .noexc38.i:                                       ; preds = %_ZNKSt6vectorIN2cv6Point_IfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i34.i.i.i.i
   %942 = getelementptr inbounds nuw i8, ptr %941, i64 %932
   store float %704, ptr %942, align 4
-  %.sroa_idx151.i.i.i = getelementptr inbounds nuw i8, ptr %942, i64 4
-  store float %709, ptr %.sroa_idx151.i.i.i, align 4
+  %.sroa_idx148.i.i.i = getelementptr inbounds nuw i8, ptr %942, i64 4
+  store float %709, ptr %.sroa_idx148.i.i.i, align 4
   %.not10.i.i.i.i.i.i37.i.i.i.i = icmp eq ptr %.sroa.0.9.i, %.sroa.34.5.i
   br i1 %.not10.i.i.i.i.i.i37.i.i.i.i, label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i42.i.i.i.i, label %.lr.ph.i.i.i.i.i.i38.i.i.i.i
 
@@ -1672,7 +1670,7 @@ _ZN20minEnclosingTriangleL34updateMinimumAreaEnclosingTriangleERSt6vectorIN2cv6P
   %.sroa.0.6.i = phi ptr [ %.sroa.0.10.i, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backERKS2_.exit46.i.i.i.i ], [ %.sroa.0.5.i, %892 ], [ %.sroa.0.5.i, %_ZN20minEnclosingTriangleL22isLocalMinimalTriangleERN2cv6Point_IfEES3_S3_RKSt6vectorIS2_SaIS2_EEjjjjRKS2_SA_SA_SA_SA_SA_.exit.i.i.i ], [ %.sroa.0.5.i, %720 ], [ %.sroa.0.5.i, %692 ], [ %.sroa.0.5.i, %_ZN20minEnclosingTriangleL13updateSidesBAERKSt6vectorIN2cv6Point_IfEESaIS3_EEjjjjRjRS3_S9_S9_S9_RKS3_SB_.exit.i.i.i ]
   %.sroa.17.4.i = phi ptr [ %.sroa.17.9.i, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backERKS2_.exit46.i.i.i.i ], [ %.sroa.17.3.i, %892 ], [ %.sroa.17.3.i, %_ZN20minEnclosingTriangleL22isLocalMinimalTriangleERN2cv6Point_IfEES3_S3_RKSt6vectorIS2_SaIS2_EEjjjjRKS2_SA_SA_SA_SA_SA_.exit.i.i.i ], [ %.sroa.17.3.i, %720 ], [ %.sroa.17.3.i, %692 ], [ %.sroa.17.3.i, %_ZN20minEnclosingTriangleL13updateSidesBAERKSt6vectorIN2cv6Point_IfEESaIS3_EEjjjjRjRS3_S9_S9_S9_RKS3_SB_.exit.i.i.i ]
   %.sroa.34.3.i = phi ptr [ %.sroa.34.6.i, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backERKS2_.exit46.i.i.i.i ], [ %.sroa.34.2.i, %892 ], [ %.sroa.34.2.i, %_ZN20minEnclosingTriangleL22isLocalMinimalTriangleERN2cv6Point_IfEES3_S3_RKSt6vectorIS2_SaIS2_EEjjjjRKS2_SA_SA_SA_SA_SA_.exit.i.i.i ], [ %.sroa.34.2.i, %720 ], [ %.sroa.34.2.i, %692 ], [ %.sroa.34.2.i, %_ZN20minEnclosingTriangleL13updateSidesBAERKSt6vectorIN2cv6Point_IfEESaIS3_EEjjjjRjRS3_S9_S9_S9_RKS3_SB_.exit.i.i.i ]
-  br i1 %134, label %_ZN20minEnclosingTriangleL32findMinimumAreaEnclosingTriangleERKSt6vectorIN2cv6Point_IfEESaIS3_EERS5_Rd.exit.i.i, label %79, !llvm.loop !45
+  br i1 %136, label %_ZN20minEnclosingTriangleL32findMinimumAreaEnclosingTriangleERKSt6vectorIN2cv6Point_IfEESaIS3_EERS5_Rd.exit.i.i, label %81, !llvm.loop !45
 
 _ZN20minEnclosingTriangleL32findMinimumAreaEnclosingTriangleERKSt6vectorIN2cv6Point_IfEESaIS3_EERS5_Rd.exit.i.i: ; preds = %_ZN20minEnclosingTriangleL34updateMinimumAreaEnclosingTriangleERSt6vectorIN2cv6Point_IfEESaIS3_EERdRKS3_S9_S9_.exit.i.i.i, %65
   %.3 = phi double [ 0x7FEFFFFFFFFFFFFF, %65 ], [ %.2, %_ZN20minEnclosingTriangleL34updateMinimumAreaEnclosingTriangleERSt6vectorIN2cv6Point_IfEESaIS3_EERdRKS3_S9_S9_.exit.i.i.i ]
@@ -1880,12 +1878,12 @@ _ZN2cv3MatC2INS_6Point_IfEEEERKSt6vectorIT_SaIS5_EEb.exit.i: ; preds = %1010, %_
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   br label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit47.i
 
-.loopexit.i:                                      ; preds = %_ZN20minEnclosingTriangleL14greaterOrEqualEdd.exit.thread.i47.i.i.i
+.loopexit.i:                                      ; preds = %_ZN20minEnclosingTriangleL14greaterOrEqualEdd.exit.thread.i46.i.i.i
   %lpad.loopexit.i = landingpad { ptr, i32 }
           cleanup
   br label %.body22.i
 
-.loopexit.split-lp.loopexit.i:                    ; preds = %175
+.loopexit.split-lp.loopexit.i:                    ; preds = %177
   %lpad.loopexit68.i = landingpad { ptr, i32 }
           cleanup
   br label %.body22.i
@@ -1901,15 +1899,15 @@ _ZN2cv3MatC2INS_6Point_IfEEEERKSt6vectorIT_SaIS5_EEb.exit.i: ; preds = %1010, %_
           cleanup
   br label %.body22.i
 
-.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i: ; preds = %963, %934, %915, %659, %616, %372, %210
-  %.sroa.0.0.ph.ph.ph71.ph.i = phi ptr [ %.sroa.0.5.i, %210 ], [ %.sroa.0.5.i, %372 ], [ %.sroa.0.8.i, %915 ], [ %.sroa.0.9.i, %934 ], [ %.sroa.0.5.i, %616 ], [ %.sroa.0.5.i, %659 ], [ %.sroa.0.3.i, %963 ]
+.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i: ; preds = %963, %934, %915, %659, %616, %373, %212
+  %.sroa.0.0.ph.ph.ph71.ph.i = phi ptr [ %.sroa.0.5.i, %212 ], [ %.sroa.0.5.i, %373 ], [ %.sroa.0.8.i, %915 ], [ %.sroa.0.9.i, %934 ], [ %.sroa.0.5.i, %616 ], [ %.sroa.0.5.i, %659 ], [ %.sroa.0.3.i, %963 ]
   %lpad.loopexit.split-lp75.i = landingpad { ptr, i32 }
           cleanup
   br label %.body22.i
 
-.body22.i:                                        ; preds = %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.i, %.loopexit.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i111.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i103.i.i.i
-  %.sroa.0.11.i = phi ptr [ %.sroa.0.5.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i.i ], [ %.sroa.0.5.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i.i.i ], [ %.sroa.0.5.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i111.i.i.i ], [ %.sroa.0.5.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i103.i.i.i ], [ %.sroa.0.5.i, %.loopexit.i ], [ %.sroa.0.5.i, %.loopexit.split-lp.loopexit.i ], [ %.sroa.0.0.ph.ph.ph.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %.sroa.0.3.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %.sroa.0.0.ph.ph.ph71.ph.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ]
-  %eh.lpad-body23.i = phi { ptr, i32 } [ %662, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i.i ], [ %619, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i.i.i ], [ %375, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i111.i.i.i ], [ %213, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i103.i.i.i ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit68.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit72.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit74.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp75.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ]
+.body22.i:                                        ; preds = %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.loopexit.i, %.loopexit.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i108.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i100.i.i.i
+  %.sroa.0.11.i = phi ptr [ %.sroa.0.5.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i.i ], [ %.sroa.0.5.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i.i.i ], [ %.sroa.0.5.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i108.i.i.i ], [ %.sroa.0.5.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i100.i.i.i ], [ %.sroa.0.5.i, %.loopexit.i ], [ %.sroa.0.5.i, %.loopexit.split-lp.loopexit.i ], [ %.sroa.0.0.ph.ph.ph.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %.sroa.0.3.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %.sroa.0.0.ph.ph.ph71.ph.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ]
+  %eh.lpad-body23.i = phi { ptr, i32 } [ %662, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i.i ], [ %619, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i.i.i ], [ %376, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i108.i.i.i ], [ %215, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i100.i.i.i ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit68.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit72.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit74.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp75.i, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ]
   %1021 = load ptr, ptr %33, align 8, !tbaa !20
   %.not.i.i.i44.i = icmp eq ptr %1021, null
   br i1 %.not.i.i.i44.i, label %.body.i, label %.body.sink.split.i

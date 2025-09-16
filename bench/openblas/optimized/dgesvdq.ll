@@ -919,7 +919,6 @@ define void @dgesvdq_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   br i1 %.not18102003, label %.loopexit1951, label %.lr.ph2006
 
 .lr.ph2006:                                       ; preds = %454
-  %.promoted2002 = load i32, ptr %30, align 4
   %460 = load double, ptr %7, align 8, !tbaa !7
   %461 = fcmp oge double %460, 0.000000e+00
   %462 = fneg double %460
@@ -932,7 +931,7 @@ define void @dgesvdq_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
 
 466:                                              ; preds = %.lr.ph2006, %475
   %indvars.iv2252 = phi i64 [ 2, %.lr.ph2006 ], [ %indvars.iv.next2253, %475 ]
-  %467 = phi i32 [ %.promoted2002, %.lr.ph2006 ], [ %476, %475 ]
+  %467 = phi i32 [ 1, %.lr.ph2006 ], [ %476, %475 ]
   %468 = trunc nuw nsw i64 %indvars.iv2252 to i32
   %469 = mul i32 %459, %468
   %470 = sext i32 %469 to i64
@@ -943,7 +942,7 @@ define void @dgesvdq_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   br i1 %474, label %.loopexit1951.sink.split, label %475
 
 475:                                              ; preds = %466
-  %476 = add nsw i32 %467, 1
+  %476 = add nuw nsw i32 %467, 1
   store i32 %476, ptr %30, align 4, !tbaa !3
   %indvars.iv.next2253 = add nuw nsw i64 %indvars.iv2252, 1
   %exitcond2256.not = icmp eq i64 %indvars.iv.next2253, %wide.trip.count2255

@@ -4240,7 +4240,7 @@ _ZNSt6vectorIPN10open_spiel10algorithms10SearchNodeESaIS3_EE9push_backERKS3_.exi
           cleanup
   br label %_ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit
 
-.loopexit.split-lp111:                            ; preds = %346
+.loopexit.split-lp111:                            ; preds = %345
   %lpad.loopexit.split-lp113 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit
@@ -4560,23 +4560,23 @@ _ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit55:      ; preds = %237, %240
   %261 = load ptr, ptr %76, align 8
   %.not107124 = icmp ne ptr %260, %261
   call void @llvm.assume(i1 %.not107124)
-  %262 = getelementptr inbounds nuw i8, ptr %.0105, i64 20
-  br label %263
+  %262 = load double, ptr %50, align 8
+  %263 = getelementptr inbounds nuw i8, ptr %.0105, i64 20
+  br label %264
 
-263:                                              ; preds = %.lr.ph130, %_ZNK10open_spiel10algorithms10SearchNode8UCTValueEid.exit
+264:                                              ; preds = %.lr.ph130, %_ZNK10open_spiel10algorithms10SearchNode8UCTValueEid.exit
   %.3128 = phi double [ %.0, %.lr.ph130 ], [ %.4, %_ZNK10open_spiel10algorithms10SearchNode8UCTValueEid.exit ]
   %.037127 = phi double [ 0xFFF0000000000000, %.lr.ph130 ], [ %.138, %_ZNK10open_spiel10algorithms10SearchNode8UCTValueEid.exit ]
   %.143126 = phi ptr [ null, %.lr.ph130 ], [ %.244, %_ZNK10open_spiel10algorithms10SearchNode8UCTValueEid.exit ]
-  %.sroa.073.0125 = phi ptr [ %260, %.lr.ph130 ], [ %329, %_ZNK10open_spiel10algorithms10SearchNode8UCTValueEid.exit ]
-  %264 = load i32, ptr %49, align 8
-  switch i32 %264, label %_ZNK10open_spiel10algorithms10SearchNode8UCTValueEid.exit [
-    i32 0, label %265
+  %.sroa.073.0125 = phi ptr [ %260, %.lr.ph130 ], [ %328, %_ZNK10open_spiel10algorithms10SearchNode8UCTValueEid.exit ]
+  %265 = load i32, ptr %49, align 8
+  switch i32 %265, label %_ZNK10open_spiel10algorithms10SearchNode8UCTValueEid.exit [
+    i32 0, label %266
     i32 1, label %295
   ]
 
-265:                                              ; preds = %263
-  %266 = load i32, ptr %262, align 4
-  %267 = load double, ptr %50, align 8
+266:                                              ; preds = %264
+  %267 = load i32, ptr %263, align 4
   %268 = getelementptr inbounds nuw i8, ptr %.sroa.073.0125, i64 32
   %269 = load ptr, ptr %268, align 8
   %270 = getelementptr inbounds nuw i8, ptr %.sroa.073.0125, i64 40
@@ -4584,7 +4584,7 @@ _ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit55:      ; preds = %237, %240
   %272 = icmp eq ptr %269, %271
   br i1 %272, label %279, label %273
 
-273:                                              ; preds = %265
+273:                                              ; preds = %266
   %274 = getelementptr inbounds nuw i8, ptr %.sroa.073.0125, i64 16
   %275 = load i32, ptr %274, align 8
   %276 = sext i32 %275 to i64
@@ -4592,7 +4592,7 @@ _ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit55:      ; preds = %237, %240
   %278 = load double, ptr %277, align 8
   br label %_ZNK10open_spiel10algorithms10SearchNode8UCTValueEid.exit
 
-279:                                              ; preds = %265
+279:                                              ; preds = %266
   %280 = getelementptr inbounds nuw i8, ptr %.sroa.073.0125, i64 20
   %281 = load i32, ptr %280, align 4
   %282 = icmp eq i32 %281, 0
@@ -4603,16 +4603,16 @@ _ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit55:      ; preds = %237, %240
   %285 = load double, ptr %284, align 8
   %286 = sitofp i32 %281 to double
   %287 = fdiv double %285, %286
-  %288 = sitofp i32 %266 to double
+  %288 = sitofp i32 %267 to double
   %289 = call noundef double @log(double noundef %288) #29
   %290 = load i32, ptr %280, align 4
   %291 = sitofp i32 %290 to double
   %292 = fdiv double %289, %291
   %293 = call double @sqrt(double noundef %292) #29
-  %294 = call double @llvm.fmuladd.f64(double %267, double %293, double %287)
+  %294 = call double @llvm.fmuladd.f64(double %262, double %293, double %287)
   br label %_ZNK10open_spiel10algorithms10SearchNode8UCTValueEid.exit
 
-295:                                              ; preds = %263
+295:                                              ; preds = %264
   %296 = getelementptr inbounds nuw i8, ptr %.sroa.073.0125, i64 32
   %297 = load ptr, ptr %296, align 8
   %298 = getelementptr inbounds nuw i8, ptr %.sroa.073.0125, i64 40
@@ -4629,37 +4629,36 @@ _ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit55:      ; preds = %237, %240
   br label %_ZNK10open_spiel10algorithms10SearchNode8UCTValueEid.exit
 
 307:                                              ; preds = %295
-  %308 = load double, ptr %50, align 8
-  %309 = load i32, ptr %262, align 4
-  %310 = getelementptr inbounds nuw i8, ptr %.sroa.073.0125, i64 20
-  %311 = load i32, ptr %310, align 4
-  %.not.i59 = icmp eq i32 %311, 0
-  %312 = getelementptr inbounds nuw i8, ptr %.sroa.073.0125, i64 24
-  %313 = load double, ptr %312, align 8
-  %314 = sitofp i32 %311 to double
-  %315 = fdiv double %313, %314
-  %316 = select i1 %.not.i59, double 0.000000e+00, double %315
-  %317 = getelementptr inbounds nuw i8, ptr %.sroa.073.0125, i64 8
-  %318 = load double, ptr %317, align 8
-  %319 = fmul double %308, %318
-  %320 = sitofp i32 %309 to double
-  %321 = call noundef double @sqrt(double noundef %320) #29
-  %322 = fmul double %319, %321
-  %323 = load i32, ptr %310, align 4
-  %324 = add nsw i32 %323, 1
-  %325 = sitofp i32 %324 to double
-  %326 = fdiv double %322, %325
-  %327 = fadd double %316, %326
+  %308 = load i32, ptr %263, align 4
+  %309 = getelementptr inbounds nuw i8, ptr %.sroa.073.0125, i64 20
+  %310 = load i32, ptr %309, align 4
+  %.not.i59 = icmp eq i32 %310, 0
+  %311 = getelementptr inbounds nuw i8, ptr %.sroa.073.0125, i64 24
+  %312 = load double, ptr %311, align 8
+  %313 = sitofp i32 %310 to double
+  %314 = fdiv double %312, %313
+  %315 = select i1 %.not.i59, double 0.000000e+00, double %314
+  %316 = getelementptr inbounds nuw i8, ptr %.sroa.073.0125, i64 8
+  %317 = load double, ptr %316, align 8
+  %318 = fmul double %262, %317
+  %319 = sitofp i32 %308 to double
+  %320 = call noundef double @sqrt(double noundef %319) #29
+  %321 = fmul double %318, %320
+  %322 = load i32, ptr %309, align 4
+  %323 = add nsw i32 %322, 1
+  %324 = sitofp i32 %323 to double
+  %325 = fdiv double %321, %324
+  %326 = fadd double %315, %325
   br label %_ZNK10open_spiel10algorithms10SearchNode8UCTValueEid.exit
 
-_ZNK10open_spiel10algorithms10SearchNode8UCTValueEid.exit: ; preds = %307, %301, %283, %279, %273, %263
-  %.4 = phi double [ %.3128, %263 ], [ %294, %283 ], [ %278, %273 ], [ 0x7FF0000000000000, %279 ], [ %327, %307 ], [ %306, %301 ]
-  %328 = fcmp ogt double %.4, %.037127
-  %.244 = select i1 %328, ptr %.sroa.073.0125, ptr %.143126
-  %.138 = select i1 %328, double %.4, double %.037127
-  %329 = getelementptr inbounds nuw i8, ptr %.sroa.073.0125, i64 80
-  %.not107 = icmp eq ptr %329, %261
-  br i1 %.not107, label %.loopexit.loopexit133, label %263
+_ZNK10open_spiel10algorithms10SearchNode8UCTValueEid.exit: ; preds = %307, %301, %283, %279, %273, %264
+  %.4 = phi double [ %.3128, %264 ], [ %294, %283 ], [ %278, %273 ], [ 0x7FF0000000000000, %279 ], [ %326, %307 ], [ %306, %301 ]
+  %327 = fcmp ogt double %.4, %.037127
+  %.244 = select i1 %327, ptr %.sroa.073.0125, ptr %.143126
+  %.138 = select i1 %327, double %.4, double %.037127
+  %328 = getelementptr inbounds nuw i8, ptr %.sroa.073.0125, i64 80
+  %.not107 = icmp eq ptr %328, %261
+  br i1 %.not107, label %.loopexit.loopexit133, label %264
 
 .loopexit.loopexit133:                            ; preds = %_ZNK10open_spiel10algorithms10SearchNode8UCTValueEid.exit
   %.pre137 = load i64, ptr %.244, align 8
@@ -4669,81 +4668,81 @@ _ZNK10open_spiel10algorithms10SearchNode8UCTValueEid.exit: ; preds = %307, %301,
   %.1106 = phi ptr [ %.0105, %220 ], [ %.244, %.loopexit.loopexit133 ], [ %.sroa.077.0, %247 ]
   %.041 = phi i64 [ %222, %220 ], [ %.pre137, %.loopexit.loopexit133 ], [ %238, %247 ]
   %.1 = phi double [ %.0, %220 ], [ %.4, %.loopexit.loopexit133 ], [ %.0, %247 ]
-  %330 = load ptr, ptr %0, align 8
-  %331 = load ptr, ptr %330, align 8
-  %332 = getelementptr inbounds nuw i8, ptr %331, i64 24
-  %333 = load ptr, ptr %332, align 8
-  invoke void %333(ptr noundef nonnull align 8 dereferenceable(60) %330, i64 noundef %.041)
-          to label %334 unwind label %.loopexit110
+  %329 = load ptr, ptr %0, align 8
+  %330 = load ptr, ptr %329, align 8
+  %331 = getelementptr inbounds nuw i8, ptr %330, i64 24
+  %332 = load ptr, ptr %331, align 8
+  invoke void %332(ptr noundef nonnull align 8 dereferenceable(60) %329, i64 noundef %.041)
+          to label %333 unwind label %.loopexit110
 
-334:                                              ; preds = %.loopexit
-  %335 = load ptr, ptr %10, align 8
-  %336 = load ptr, ptr %12, align 8
-  %.not.i60 = icmp eq ptr %335, %336
-  br i1 %.not.i60, label %340, label %337
+333:                                              ; preds = %.loopexit
+  %334 = load ptr, ptr %10, align 8
+  %335 = load ptr, ptr %12, align 8
+  %.not.i60 = icmp eq ptr %334, %335
+  br i1 %.not.i60, label %339, label %336
 
-337:                                              ; preds = %334
-  store ptr %.1106, ptr %335, align 8
-  %338 = load ptr, ptr %10, align 8
-  %339 = getelementptr inbounds nuw i8, ptr %338, i64 8
-  store ptr %339, ptr %10, align 8
+336:                                              ; preds = %333
+  store ptr %.1106, ptr %334, align 8
+  %337 = load ptr, ptr %10, align 8
+  %338 = getelementptr inbounds nuw i8, ptr %337, i64 8
+  store ptr %338, ptr %10, align 8
   br label %_ZNSt6vectorIPN10open_spiel10algorithms10SearchNodeESaIS3_EE9push_backERKS3_.exit69.backedge
 
-_ZNSt6vectorIPN10open_spiel10algorithms10SearchNodeESaIS3_EE9push_backERKS3_.exit69.backedge: ; preds = %337, %_ZNSt6vectorIPN10open_spiel10algorithms10SearchNodeESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i66
+_ZNSt6vectorIPN10open_spiel10algorithms10SearchNodeESaIS3_EE9push_backERKS3_.exit69.backedge: ; preds = %336, %_ZNSt6vectorIPN10open_spiel10algorithms10SearchNodeESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i66
   br label %_ZNSt6vectorIPN10open_spiel10algorithms10SearchNodeESaIS3_EE9push_backERKS3_.exit69
 
-340:                                              ; preds = %334
-  %341 = load ptr, ptr %4, align 8
-  %342 = ptrtoint ptr %335 to i64
-  %343 = ptrtoint ptr %341 to i64
-  %344 = sub i64 %342, %343
-  %345 = icmp eq i64 %344, 9223372036854775800
-  br i1 %345, label %346, label %_ZNKSt6vectorIPN10open_spiel10algorithms10SearchNodeESaIS3_EE12_M_check_lenEmPKc.exit.i.i61
+339:                                              ; preds = %333
+  %340 = load ptr, ptr %4, align 8
+  %341 = ptrtoint ptr %334 to i64
+  %342 = ptrtoint ptr %340 to i64
+  %343 = sub i64 %341, %342
+  %344 = icmp eq i64 %343, 9223372036854775800
+  br i1 %344, label %345, label %_ZNKSt6vectorIPN10open_spiel10algorithms10SearchNodeESaIS3_EE12_M_check_lenEmPKc.exit.i.i61
 
-346:                                              ; preds = %340
+345:                                              ; preds = %339
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.30) #28
           to label %.noexc67 unwind label %.loopexit.split-lp111
 
-.noexc67:                                         ; preds = %346
+.noexc67:                                         ; preds = %345
   unreachable
 
-_ZNKSt6vectorIPN10open_spiel10algorithms10SearchNodeESaIS3_EE12_M_check_lenEmPKc.exit.i.i61: ; preds = %340
-  %347 = ashr exact i64 %344, 3
-  %.sroa.speculated.i.i.i62 = call i64 @llvm.umax.i64(i64 %347, i64 1)
-  %348 = add nsw i64 %.sroa.speculated.i.i.i62, %347
-  %349 = icmp ult i64 %348, %347
-  %350 = call i64 @llvm.umin.i64(i64 %348, i64 1152921504606846975)
-  %351 = select i1 %349, i64 1152921504606846975, i64 %350
-  %.not.i.i.i63 = icmp ne i64 %351, 0
+_ZNKSt6vectorIPN10open_spiel10algorithms10SearchNodeESaIS3_EE12_M_check_lenEmPKc.exit.i.i61: ; preds = %339
+  %346 = ashr exact i64 %343, 3
+  %.sroa.speculated.i.i.i62 = call i64 @llvm.umax.i64(i64 %346, i64 1)
+  %347 = add nsw i64 %.sroa.speculated.i.i.i62, %346
+  %348 = icmp ult i64 %347, %346
+  %349 = call i64 @llvm.umin.i64(i64 %347, i64 1152921504606846975)
+  %350 = select i1 %348, i64 1152921504606846975, i64 %349
+  %.not.i.i.i63 = icmp ne i64 %350, 0
   call void @llvm.assume(i1 %.not.i.i.i63)
-  %352 = shl nuw nsw i64 %351, 3
-  %353 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %352) #30
+  %351 = shl nuw nsw i64 %350, 3
+  %352 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %351) #30
           to label %.noexc68 unwind label %.loopexit110
 
 .noexc68:                                         ; preds = %_ZNKSt6vectorIPN10open_spiel10algorithms10SearchNodeESaIS3_EE12_M_check_lenEmPKc.exit.i.i61
-  %354 = getelementptr inbounds i8, ptr %353, i64 %344
-  store ptr %.1106, ptr %354, align 8
-  %355 = icmp sgt i64 %344, 0
-  br i1 %355, label %356, label %_ZNSt6vectorIPN10open_spiel10algorithms10SearchNodeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i64
+  %353 = getelementptr inbounds i8, ptr %352, i64 %343
+  store ptr %.1106, ptr %353, align 8
+  %354 = icmp sgt i64 %343, 0
+  br i1 %354, label %355, label %_ZNSt6vectorIPN10open_spiel10algorithms10SearchNodeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i64
 
-356:                                              ; preds = %.noexc68
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %353, ptr align 8 %341, i64 %344, i1 false)
+355:                                              ; preds = %.noexc68
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %352, ptr align 8 %340, i64 %343, i1 false)
   br label %_ZNSt6vectorIPN10open_spiel10algorithms10SearchNodeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i64
 
-_ZNSt6vectorIPN10open_spiel10algorithms10SearchNodeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i64: ; preds = %356, %.noexc68
-  %357 = getelementptr inbounds nuw i8, ptr %354, i64 8
-  %.not.i17.i.i65 = icmp eq ptr %341, null
-  br i1 %.not.i17.i.i65, label %_ZNSt6vectorIPN10open_spiel10algorithms10SearchNodeESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i66, label %358
+_ZNSt6vectorIPN10open_spiel10algorithms10SearchNodeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i64: ; preds = %355, %.noexc68
+  %356 = getelementptr inbounds nuw i8, ptr %353, i64 8
+  %.not.i17.i.i65 = icmp eq ptr %340, null
+  br i1 %.not.i17.i.i65, label %_ZNSt6vectorIPN10open_spiel10algorithms10SearchNodeESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i66, label %357
 
-358:                                              ; preds = %_ZNSt6vectorIPN10open_spiel10algorithms10SearchNodeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i64
-  call void @_ZdlPvm(ptr noundef nonnull %341, i64 noundef %344) #27
+357:                                              ; preds = %_ZNSt6vectorIPN10open_spiel10algorithms10SearchNodeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i64
+  call void @_ZdlPvm(ptr noundef nonnull %340, i64 noundef %343) #27
   br label %_ZNSt6vectorIPN10open_spiel10algorithms10SearchNodeESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i66
 
-_ZNSt6vectorIPN10open_spiel10algorithms10SearchNodeESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i66: ; preds = %358, %_ZNSt6vectorIPN10open_spiel10algorithms10SearchNodeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i64
-  store ptr %353, ptr %4, align 8
-  store ptr %357, ptr %10, align 8
-  %359 = getelementptr inbounds nuw ptr, ptr %353, i64 %351
-  store ptr %359, ptr %12, align 8
+_ZNSt6vectorIPN10open_spiel10algorithms10SearchNodeESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i66: ; preds = %357, %_ZNSt6vectorIPN10open_spiel10algorithms10SearchNodeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i64
+  store ptr %352, ptr %4, align 8
+  store ptr %356, ptr %10, align 8
+  %358 = getelementptr inbounds nuw ptr, ptr %352, i64 %350
+  store ptr %358, ptr %12, align 8
   br label %_ZNSt6vectorIPN10open_spiel10algorithms10SearchNodeESaIS3_EE9push_backERKS3_.exit69.backedge
 
 .critedge2:                                       ; preds = %71
@@ -4751,15 +4750,15 @@ _ZNSt6vectorIPN10open_spiel10algorithms10SearchNodeESaIS3_EE17_M_realloc_insertI
 
 _ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit:        ; preds = %.loopexit110, %.loopexit.split-lp111, %255, %252, %118, %.loopexit.split-lp
   %.pn = phi { ptr, i32 } [ %lpad.phi, %.loopexit.split-lp ], [ %lpad.phi, %118 ], [ %253, %252 ], [ %253, %255 ], [ %lpad.loopexit112, %.loopexit110 ], [ %lpad.loopexit.split-lp113, %.loopexit.split-lp111 ]
-  %360 = load ptr, ptr %0, align 8
-  %.not.i70 = icmp eq ptr %360, null
+  %359 = load ptr, ptr %0, align 8
+  %.not.i70 = icmp eq ptr %359, null
   br i1 %.not.i70, label %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN10open_spiel5StateEEclEPS1_.exit.i
 
 _ZNKSt14default_deleteIN10open_spiel5StateEEclEPS1_.exit.i: ; preds = %_ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit
-  %361 = load ptr, ptr %360, align 8
-  %362 = getelementptr inbounds nuw i8, ptr %361, i64 8
-  %363 = load ptr, ptr %362, align 8
-  call void %363(ptr noundef nonnull align 8 dereferenceable(60) %360) #29
+  %360 = load ptr, ptr %359, align 8
+  %361 = getelementptr inbounds nuw i8, ptr %360, i64 8
+  %362 = load ptr, ptr %361, align 8
+  call void %362(ptr noundef nonnull align 8 dereferenceable(60) %359) #29
   br label %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit, %_ZNKSt14default_deleteIN10open_spiel5StateEEclEPS1_.exit.i

@@ -51278,12 +51278,9 @@ define linkonce_odr dso_local void @_ZN15btSoftColliders12CollideVF_DD7ProcessEP
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val27 = load float, ptr %20, align 8, !tbaa !234
   %21 = call fastcc noundef zeroext i1 @_ZL13proximityTestRK9btVector3S1_S1_S1_S1_RKfRS_(ptr noundef nonnull align 4 dereferenceable(16) %11, ptr noundef nonnull align 4 dereferenceable(16) %14, ptr noundef nonnull align 4 dereferenceable(16) %17, ptr noundef nonnull align 4 dereferenceable(16) %18, ptr noundef nonnull align 4 dereferenceable(16) %19, float %.val27, ptr noundef nonnull align 4 dereferenceable(16) %4)
-  br i1 %21, label %22, label %112
+  br i1 %21, label %22, label %108
 
 22:                                               ; preds = %3
-  %23 = load ptr, ptr %9, align 8, !tbaa !344
-  %24 = load ptr, ptr %12, align 8, !tbaa !344
-  %25 = load ptr, ptr %15, align 8, !tbaa !344
   %.sroa.042.0.copyload = load float, ptr %4, align 4
   %.sroa.544.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 4
   %.sroa.544.0.copyload = load float, ptr %.sroa.544.0..sroa_idx, align 4
@@ -51291,189 +51288,188 @@ define linkonce_odr dso_local void @_ZN15btSoftColliders12CollideVF_DD7ProcessEP
   %.sroa.646.0.copyload = load float, ptr %.sroa.646.0..sroa_idx, align 4
   %.sroa.748.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 12
   %.sroa.748.0.copyload = load float, ptr %.sroa.748.0..sroa_idx, align 4, !tbaa !228
-  %26 = getelementptr inbounds nuw i8, ptr %6, i64 112
-  %27 = load float, ptr %26, align 8, !tbaa !235
-  %28 = getelementptr inbounds nuw i8, ptr %23, i64 112
-  %29 = getelementptr inbounds nuw i8, ptr %24, i64 112
-  %30 = getelementptr inbounds nuw i8, ptr %25, i64 112
-  %.val = load float, ptr %28, align 4, !tbaa !234
-  %.val25 = load float, ptr %29, align 4, !tbaa !234
-  %.val26 = load float, ptr %30, align 4, !tbaa !234
-  %31 = fmul float %.sroa.544.0.copyload, %.val25
-  %32 = tail call float @llvm.fmuladd.f32(float %.val, float %.sroa.042.0.copyload, float %31)
-  %33 = tail call noundef float @llvm.fmuladd.f32(float %.val26, float %.sroa.646.0.copyload, float %32)
-  %34 = fcmp ugt float %.val, 0.000000e+00
-  %35 = fcmp ugt float %.val25, 0.000000e+00
-  %or.cond = select i1 %34, i1 %35, i1 false
-  %36 = fcmp ugt float %.val26, 0.000000e+00
-  %or.cond50 = select i1 %or.cond, i1 %36, i1 false
-  %.0 = select i1 %or.cond50, float %33, float 0.000000e+00
-  %37 = fadd float %27, %.0
-  %38 = fcmp ogt float %37, 0.000000e+00
-  br i1 %38, label %39, label %112
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 112
+  %24 = load float, ptr %23, align 8, !tbaa !235
+  %25 = getelementptr inbounds nuw i8, ptr %10, i64 112
+  %26 = getelementptr inbounds nuw i8, ptr %13, i64 112
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 112
+  %.val = load float, ptr %25, align 4, !tbaa !234
+  %.val25 = load float, ptr %26, align 4, !tbaa !234
+  %.val26 = load float, ptr %27, align 4, !tbaa !234
+  %28 = fmul float %.sroa.544.0.copyload, %.val25
+  %29 = tail call float @llvm.fmuladd.f32(float %.val, float %.sroa.042.0.copyload, float %28)
+  %30 = tail call noundef float @llvm.fmuladd.f32(float %.val26, float %.sroa.646.0.copyload, float %29)
+  %31 = fcmp ugt float %.val, 0.000000e+00
+  %32 = fcmp ugt float %.val25, 0.000000e+00
+  %or.cond = select i1 %31, i1 %32, i1 false
+  %33 = fcmp ugt float %.val26, 0.000000e+00
+  %or.cond50 = select i1 %or.cond, i1 %33, i1 false
+  %.0 = select i1 %or.cond50, float %30, float 0.000000e+00
+  %34 = fadd float %24, %.0
+  %35 = fcmp ogt float %34, 0.000000e+00
+  br i1 %35, label %36, label %108
 
-39:                                               ; preds = %22
+36:                                               ; preds = %22
   %.sroa.10.48.copyload = load <2 x float>, ptr %19, align 8
   %.sroa.14.48..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 48
   %.sroa.14.48.copyload = load <2 x float>, ptr %.sroa.14.48..sroa_idx, align 8
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %41 = load i8, ptr %40, align 4, !tbaa !1037, !range !231, !noundef !298
-  %42 = trunc nuw i8 %41 to i1
-  %43 = extractelement <2 x float> %.sroa.10.48.copyload, i64 0
-  %44 = extractelement <2 x float> %.sroa.14.48.copyload, i64 0
-  br i1 %42, label %.critedge, label %45
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %38 = load i8, ptr %37, align 4, !tbaa !1037, !range !231, !noundef !298
+  %39 = trunc nuw i8 %38 to i1
+  %40 = extractelement <2 x float> %.sroa.10.48.copyload, i64 0
+  %41 = extractelement <2 x float> %.sroa.14.48.copyload, i64 0
+  br i1 %39, label %.critedge, label %42
 
-45:                                               ; preds = %39
-  %46 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  %47 = load float, ptr %18, align 4, !tbaa !234
-  %48 = load float, ptr %46, align 4, !tbaa !234
-  %49 = fsub float %47, %48
-  %50 = getelementptr inbounds nuw i8, ptr %6, i64 20
-  %51 = load float, ptr %50, align 4, !tbaa !234
-  %52 = getelementptr inbounds nuw i8, ptr %25, i64 20
-  %53 = load float, ptr %52, align 4, !tbaa !234
-  %54 = fsub float %51, %53
-  %55 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %56 = load float, ptr %55, align 4, !tbaa !234
-  %57 = getelementptr inbounds nuw i8, ptr %25, i64 24
-  %58 = load float, ptr %57, align 4, !tbaa !234
-  %59 = fsub float %56, %58
+42:                                               ; preds = %36
+  %43 = load float, ptr %18, align 4, !tbaa !234
+  %44 = load float, ptr %17, align 4, !tbaa !234
+  %45 = fsub float %43, %44
+  %46 = getelementptr inbounds nuw i8, ptr %6, i64 20
+  %47 = load float, ptr %46, align 4, !tbaa !234
+  %48 = getelementptr inbounds nuw i8, ptr %16, i64 20
+  %49 = load float, ptr %48, align 4, !tbaa !234
+  %50 = fsub float %47, %49
+  %51 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %52 = load float, ptr %51, align 4, !tbaa !234
+  %53 = getelementptr inbounds nuw i8, ptr %16, i64 24
+  %54 = load float, ptr %53, align 4, !tbaa !234
+  %55 = fsub float %52, %54
   %.sroa.10.48.vec.extract = extractelement <2 x float> %.sroa.10.48.copyload, i64 0
   %.sroa.10.52.vec.extract = extractelement <2 x float> %.sroa.10.48.copyload, i64 1
-  %60 = fmul float %.sroa.10.52.vec.extract, %54
-  %61 = tail call float @llvm.fmuladd.f32(float %.sroa.10.48.vec.extract, float %49, float %60)
+  %56 = fmul float %.sroa.10.52.vec.extract, %50
+  %57 = tail call float @llvm.fmuladd.f32(float %.sroa.10.48.vec.extract, float %45, float %56)
   %.sroa.14.56.vec.extract = extractelement <2 x float> %.sroa.14.48.copyload, i64 0
-  %62 = tail call noundef float @llvm.fmuladd.f32(float %.sroa.14.56.vec.extract, float %59, float %61)
-  %63 = fcmp olt float %62, 0.000000e+00
-  br i1 %63, label %64, label %.critedge
+  %58 = tail call noundef float @llvm.fmuladd.f32(float %.sroa.14.56.vec.extract, float %55, float %57)
+  %59 = fcmp olt float %58, 0.000000e+00
+  br i1 %59, label %60, label %.critedge
 
-64:                                               ; preds = %45
-  %65 = fneg float %43
-  %66 = fneg float %44
-  %67 = fneg <2 x float> %.sroa.10.48.copyload
-  %.sroa.0.4.vec.insert.i29 = insertelement <2 x float> %67, float %65, i64 0
-  %.sroa.3.12.vec.insert.i30 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %66, i64 0
+60:                                               ; preds = %42
+  %61 = fneg float %40
+  %62 = fneg float %41
+  %63 = fneg <2 x float> %.sroa.10.48.copyload
+  %.sroa.0.4.vec.insert.i29 = insertelement <2 x float> %63, float %61, i64 0
+  %.sroa.3.12.vec.insert.i30 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %62, i64 0
   br label %.critedge
 
-.critedge:                                        ; preds = %39, %64, %45
-  %.sroa.10.0 = phi <2 x float> [ %.sroa.0.4.vec.insert.i29, %64 ], [ %.sroa.10.48.copyload, %45 ], [ %.sroa.10.48.copyload, %39 ]
-  %.sroa.14.0 = phi <2 x float> [ %.sroa.3.12.vec.insert.i30, %64 ], [ %.sroa.14.48.copyload, %45 ], [ %.sroa.14.48.copyload, %39 ]
-  %68 = load float, ptr %20, align 8, !tbaa !1035
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 8
+.critedge:                                        ; preds = %36, %60, %42
+  %.sroa.10.0 = phi <2 x float> [ %.sroa.0.4.vec.insert.i29, %60 ], [ %.sroa.10.48.copyload, %42 ], [ %.sroa.10.48.copyload, %36 ]
+  %.sroa.14.0 = phi <2 x float> [ %.sroa.3.12.vec.insert.i30, %60 ], [ %.sroa.14.48.copyload, %42 ], [ %.sroa.14.48.copyload, %36 ]
+  %64 = load float, ptr %20, align 8, !tbaa !1035
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %66 = load ptr, ptr %65, align 8, !tbaa !843
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 444
+  %68 = load float, ptr %67, align 4, !tbaa !251
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %70 = load ptr, ptr %69, align 8, !tbaa !843
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 444
   %72 = load float, ptr %71, align 4, !tbaa !251
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %74 = load ptr, ptr %73, align 8, !tbaa !843
-  %75 = getelementptr inbounds nuw i8, ptr %74, i64 444
-  %76 = load float, ptr %75, align 4, !tbaa !251
-  %77 = fmul float %72, %76
-  %78 = getelementptr inbounds nuw i8, ptr %70, i64 1316
-  %79 = load i32, ptr %78, align 4, !tbaa !182
-  %80 = getelementptr inbounds nuw i8, ptr %70, i64 1320
-  %81 = load i32, ptr %80, align 8, !tbaa !183
-  %82 = icmp eq i32 %79, %81
+  %73 = fmul float %68, %72
+  %74 = getelementptr inbounds nuw i8, ptr %66, i64 1316
+  %75 = load i32, ptr %74, align 4, !tbaa !182
+  %76 = getelementptr inbounds nuw i8, ptr %66, i64 1320
+  %77 = load i32, ptr %76, align 8, !tbaa !183
+  %78 = icmp eq i32 %75, %77
+  br i1 %78, label %79, label %_ZN20btAlignedObjectArrayIN10btSoftBody25DeformableFaceNodeContactEE9push_backERKS1_.exit
+
+79:                                               ; preds = %.critedge
+  %.not.i.i = icmp eq i32 %75, 0
+  %80 = shl nsw i32 %75, 1
+  %81 = select i1 %.not.i.i, i32 1, i32 %80
+  %82 = icmp slt i32 %75, %81
   br i1 %82, label %83, label %_ZN20btAlignedObjectArrayIN10btSoftBody25DeformableFaceNodeContactEE9push_backERKS1_.exit
 
-83:                                               ; preds = %.critedge
-  %.not.i.i = icmp eq i32 %79, 0
-  %84 = shl nsw i32 %79, 1
-  %85 = select i1 %.not.i.i, i32 1, i32 %84
-  %86 = icmp slt i32 %79, %85
-  br i1 %86, label %87, label %_ZN20btAlignedObjectArrayIN10btSoftBody25DeformableFaceNodeContactEE9push_backERKS1_.exit
+83:                                               ; preds = %79
+  %.not.i.i.i = icmp eq i32 %81, 0
+  br i1 %.not.i.i.i, label %_ZN20btAlignedObjectArrayIN10btSoftBody25DeformableFaceNodeContactEE8allocateEi.exit.i.i, label %84
 
-87:                                               ; preds = %83
-  %.not.i.i.i = icmp eq i32 %85, 0
-  br i1 %.not.i.i.i, label %_ZN20btAlignedObjectArrayIN10btSoftBody25DeformableFaceNodeContactEE8allocateEi.exit.i.i, label %88
-
-88:                                               ; preds = %87
-  %89 = sext i32 %85 to i64
-  %90 = mul nsw i64 %89, 88
-  %91 = tail call noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef %90, i32 noundef 16)
-  %.pre.i = load i32, ptr %78, align 4, !tbaa !182
+84:                                               ; preds = %83
+  %85 = sext i32 %81 to i64
+  %86 = mul nsw i64 %85, 88
+  %87 = tail call noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef %86, i32 noundef 16)
+  %.pre.i = load i32, ptr %74, align 4, !tbaa !182
   br label %_ZN20btAlignedObjectArrayIN10btSoftBody25DeformableFaceNodeContactEE8allocateEi.exit.i.i
 
-_ZN20btAlignedObjectArrayIN10btSoftBody25DeformableFaceNodeContactEE8allocateEi.exit.i.i: ; preds = %88, %87
-  %92 = phi i32 [ %.pre.i, %88 ], [ %79, %87 ]
-  %.0.i.i.i = phi ptr [ %91, %88 ], [ null, %87 ]
-  %93 = icmp sgt i32 %92, 0
-  br i1 %93, label %.lr.ph.i.i.i, label %_ZNK20btAlignedObjectArrayIN10btSoftBody25DeformableFaceNodeContactEE4copyEiiPS1_.exit.i.i
+_ZN20btAlignedObjectArrayIN10btSoftBody25DeformableFaceNodeContactEE8allocateEi.exit.i.i: ; preds = %84, %83
+  %88 = phi i32 [ %.pre.i, %84 ], [ %75, %83 ]
+  %.0.i.i.i = phi ptr [ %87, %84 ], [ null, %83 ]
+  %89 = icmp sgt i32 %88, 0
+  br i1 %89, label %.lr.ph.i.i.i, label %_ZNK20btAlignedObjectArrayIN10btSoftBody25DeformableFaceNodeContactEE4copyEiiPS1_.exit.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZN20btAlignedObjectArrayIN10btSoftBody25DeformableFaceNodeContactEE8allocateEi.exit.i.i
-  %94 = getelementptr inbounds nuw i8, ptr %70, i64 1328
-  %wide.trip.count.i.i.i = zext nneg i32 %92 to i64
-  br label %95
+  %90 = getelementptr inbounds nuw i8, ptr %66, i64 1328
+  %wide.trip.count.i.i.i = zext nneg i32 %88 to i64
+  br label %91
 
-95:                                               ; preds = %95, %.lr.ph.i.i.i
-  %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %95 ]
-  %96 = getelementptr inbounds nuw %"struct.btSoftBody::DeformableFaceNodeContact", ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
-  %97 = load ptr, ptr %94, align 8, !tbaa !181
-  %98 = getelementptr inbounds nuw %"struct.btSoftBody::DeformableFaceNodeContact", ptr %97, i64 %indvars.iv.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %96, ptr noundef nonnull align 8 dereferenceable(88) %98, i64 88, i1 false), !tbaa.struct !1307
+91:                                               ; preds = %91, %.lr.ph.i.i.i
+  %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %91 ]
+  %92 = getelementptr inbounds nuw %"struct.btSoftBody::DeformableFaceNodeContact", ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
+  %93 = load ptr, ptr %90, align 8, !tbaa !181
+  %94 = getelementptr inbounds nuw %"struct.btSoftBody::DeformableFaceNodeContact", ptr %93, i64 %indvars.iv.i.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %92, ptr noundef nonnull align 8 dereferenceable(88) %94, i64 88, i1 false), !tbaa.struct !1307
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %_ZNK20btAlignedObjectArrayIN10btSoftBody25DeformableFaceNodeContactEE4copyEiiPS1_.exit.i.i, label %95, !llvm.loop !1308
+  br i1 %exitcond.not.i.i.i, label %_ZNK20btAlignedObjectArrayIN10btSoftBody25DeformableFaceNodeContactEE4copyEiiPS1_.exit.i.i, label %91, !llvm.loop !1308
 
-_ZNK20btAlignedObjectArrayIN10btSoftBody25DeformableFaceNodeContactEE4copyEiiPS1_.exit.i.i: ; preds = %95, %_ZN20btAlignedObjectArrayIN10btSoftBody25DeformableFaceNodeContactEE8allocateEi.exit.i.i
-  %99 = getelementptr inbounds nuw i8, ptr %70, i64 1328
-  %100 = load ptr, ptr %99, align 8, !tbaa !181
-  %.not.i5.i.i = icmp ne ptr %100, null
-  %101 = getelementptr inbounds nuw i8, ptr %70, i64 1336
-  %102 = load i8, ptr %101, align 8, !range !231
-  %103 = trunc nuw i8 %102 to i1
-  %or.cond.i.i = select i1 %.not.i5.i.i, i1 %103, i1 false
-  br i1 %or.cond.i.i, label %104, label %_ZN20btAlignedObjectArrayIN10btSoftBody25DeformableFaceNodeContactEE10deallocateEv.exit.i.i
+_ZNK20btAlignedObjectArrayIN10btSoftBody25DeformableFaceNodeContactEE4copyEiiPS1_.exit.i.i: ; preds = %91, %_ZN20btAlignedObjectArrayIN10btSoftBody25DeformableFaceNodeContactEE8allocateEi.exit.i.i
+  %95 = getelementptr inbounds nuw i8, ptr %66, i64 1328
+  %96 = load ptr, ptr %95, align 8, !tbaa !181
+  %.not.i5.i.i = icmp ne ptr %96, null
+  %97 = getelementptr inbounds nuw i8, ptr %66, i64 1336
+  %98 = load i8, ptr %97, align 8, !range !231
+  %99 = trunc nuw i8 %98 to i1
+  %or.cond.i.i = select i1 %.not.i5.i.i, i1 %99, i1 false
+  br i1 %or.cond.i.i, label %100, label %_ZN20btAlignedObjectArrayIN10btSoftBody25DeformableFaceNodeContactEE10deallocateEv.exit.i.i
 
-104:                                              ; preds = %_ZNK20btAlignedObjectArrayIN10btSoftBody25DeformableFaceNodeContactEE4copyEiiPS1_.exit.i.i
-  tail call void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %100)
+100:                                              ; preds = %_ZNK20btAlignedObjectArrayIN10btSoftBody25DeformableFaceNodeContactEE4copyEiiPS1_.exit.i.i
+  tail call void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %96)
   br label %_ZN20btAlignedObjectArrayIN10btSoftBody25DeformableFaceNodeContactEE10deallocateEv.exit.i.i
 
-_ZN20btAlignedObjectArrayIN10btSoftBody25DeformableFaceNodeContactEE10deallocateEv.exit.i.i: ; preds = %104, %_ZNK20btAlignedObjectArrayIN10btSoftBody25DeformableFaceNodeContactEE4copyEiiPS1_.exit.i.i
-  store i8 1, ptr %101, align 8, !tbaa !180
-  store ptr %.0.i.i.i, ptr %99, align 8, !tbaa !181
-  store i32 %85, ptr %80, align 8, !tbaa !183
-  %.pre2.i = load i32, ptr %78, align 4, !tbaa !182
+_ZN20btAlignedObjectArrayIN10btSoftBody25DeformableFaceNodeContactEE10deallocateEv.exit.i.i: ; preds = %100, %_ZNK20btAlignedObjectArrayIN10btSoftBody25DeformableFaceNodeContactEE4copyEiiPS1_.exit.i.i
+  store i8 1, ptr %97, align 8, !tbaa !180
+  store ptr %.0.i.i.i, ptr %95, align 8, !tbaa !181
+  store i32 %81, ptr %76, align 8, !tbaa !183
+  %.pre2.i = load i32, ptr %74, align 4, !tbaa !182
   br label %_ZN20btAlignedObjectArrayIN10btSoftBody25DeformableFaceNodeContactEE9push_backERKS1_.exit
 
-_ZN20btAlignedObjectArrayIN10btSoftBody25DeformableFaceNodeContactEE9push_backERKS1_.exit: ; preds = %.critedge, %83, %_ZN20btAlignedObjectArrayIN10btSoftBody25DeformableFaceNodeContactEE10deallocateEv.exit.i.i
-  %105 = phi i32 [ %.pre2.i, %_ZN20btAlignedObjectArrayIN10btSoftBody25DeformableFaceNodeContactEE10deallocateEv.exit.i.i ], [ %79, %83 ], [ %79, %.critedge ]
-  %106 = getelementptr inbounds nuw i8, ptr %70, i64 1328
-  %107 = load ptr, ptr %106, align 8, !tbaa !181
-  %108 = sext i32 %105 to i64
-  %109 = getelementptr inbounds %"struct.btSoftBody::DeformableFaceNodeContact", ptr %107, i64 %108
-  store ptr %6, ptr %109, align 8, !tbaa !344
-  %.sroa.439.0..sroa_idx = getelementptr inbounds nuw i8, ptr %109, i64 8
+_ZN20btAlignedObjectArrayIN10btSoftBody25DeformableFaceNodeContactEE9push_backERKS1_.exit: ; preds = %.critedge, %79, %_ZN20btAlignedObjectArrayIN10btSoftBody25DeformableFaceNodeContactEE10deallocateEv.exit.i.i
+  %101 = phi i32 [ %.pre2.i, %_ZN20btAlignedObjectArrayIN10btSoftBody25DeformableFaceNodeContactEE10deallocateEv.exit.i.i ], [ %75, %79 ], [ %75, %.critedge ]
+  %102 = getelementptr inbounds nuw i8, ptr %66, i64 1328
+  %103 = load ptr, ptr %102, align 8, !tbaa !181
+  %104 = sext i32 %101 to i64
+  %105 = getelementptr inbounds %"struct.btSoftBody::DeformableFaceNodeContact", ptr %103, i64 %104
+  store ptr %6, ptr %105, align 8, !tbaa !344
+  %.sroa.439.0..sroa_idx = getelementptr inbounds nuw i8, ptr %105, i64 8
   store ptr %8, ptr %.sroa.439.0..sroa_idx, align 8, !tbaa !1305
-  %.sroa.540.0..sroa_idx = getelementptr inbounds nuw i8, ptr %109, i64 16
+  %.sroa.540.0..sroa_idx = getelementptr inbounds nuw i8, ptr %105, i64 16
   store float %.sroa.042.0.copyload, ptr %.sroa.540.0..sroa_idx, align 8
-  %.sroa.540.sroa.4.0..sroa.540.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %109, i64 20
+  %.sroa.540.sroa.4.0..sroa.540.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %105, i64 20
   store float %.sroa.544.0.copyload, ptr %.sroa.540.sroa.4.0..sroa.540.0..sroa_idx.sroa_idx, align 4
-  %.sroa.540.sroa.5.0..sroa.540.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %109, i64 24
+  %.sroa.540.sroa.5.0..sroa.540.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %105, i64 24
   store float %.sroa.646.0.copyload, ptr %.sroa.540.sroa.5.0..sroa.540.0..sroa_idx.sroa_idx, align 8
-  %.sroa.540.sroa.6.0..sroa.540.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %109, i64 28
+  %.sroa.540.sroa.6.0..sroa.540.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %105, i64 28
   store float %.sroa.748.0.copyload, ptr %.sroa.540.sroa.6.0..sroa.540.0..sroa_idx.sroa_idx, align 4, !tbaa !228
-  %.sroa.641.0..sroa_idx = getelementptr inbounds nuw i8, ptr %109, i64 32
-  %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %109, i64 48
+  %.sroa.641.0..sroa_idx = getelementptr inbounds nuw i8, ptr %105, i64 32
+  %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %105, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.641.0..sroa_idx, i8 0, i64 16, i1 false)
   store <2 x float> %.sroa.10.0, ptr %.sroa.10.0..sroa_idx, align 8
-  %.sroa.14.0..sroa_idx = getelementptr inbounds nuw i8, ptr %109, i64 56
+  %.sroa.14.0..sroa_idx = getelementptr inbounds nuw i8, ptr %105, i64 56
   store <2 x float> %.sroa.14.0, ptr %.sroa.14.0..sroa_idx, align 8, !tbaa !228
-  %.sroa.16.0..sroa_idx = getelementptr inbounds nuw i8, ptr %109, i64 64
-  store float %68, ptr %.sroa.16.0..sroa_idx, align 8, !tbaa !234
-  %.sroa.17.0..sroa_idx = getelementptr inbounds nuw i8, ptr %109, i64 68
-  store float %77, ptr %.sroa.17.0..sroa_idx, align 4, !tbaa !234
-  %.sroa.18.0..sroa_idx = getelementptr inbounds nuw i8, ptr %109, i64 72
+  %.sroa.16.0..sroa_idx = getelementptr inbounds nuw i8, ptr %105, i64 64
+  store float %64, ptr %.sroa.16.0..sroa_idx, align 8, !tbaa !234
+  %.sroa.17.0..sroa_idx = getelementptr inbounds nuw i8, ptr %105, i64 68
+  store float %73, ptr %.sroa.17.0..sroa_idx, align 4, !tbaa !234
+  %.sroa.18.0..sroa_idx = getelementptr inbounds nuw i8, ptr %105, i64 72
   store float 0.000000e+00, ptr %.sroa.18.0..sroa_idx, align 8, !tbaa !234
-  %.sroa.19.0..sroa_idx = getelementptr inbounds nuw i8, ptr %109, i64 76
+  %.sroa.19.0..sroa_idx = getelementptr inbounds nuw i8, ptr %105, i64 76
   store float 0.000000e+00, ptr %.sroa.19.0..sroa_idx, align 4, !tbaa !234
-  %.sroa.20.0..sroa_idx = getelementptr inbounds nuw i8, ptr %109, i64 80
-  store ptr %74, ptr %.sroa.20.0..sroa_idx, align 8, !tbaa !392
-  %110 = load i32, ptr %78, align 4, !tbaa !182
-  %111 = add nsw i32 %110, 1
-  store i32 %111, ptr %78, align 4, !tbaa !182
-  br label %112
+  %.sroa.20.0..sroa_idx = getelementptr inbounds nuw i8, ptr %105, i64 80
+  store ptr %70, ptr %.sroa.20.0..sroa_idx, align 8, !tbaa !392
+  %106 = load i32, ptr %74, align 4, !tbaa !182
+  %107 = add nsw i32 %106, 1
+  store i32 %107, ptr %74, align 4, !tbaa !182
+  br label %108
 
-112:                                              ; preds = %22, %_ZN20btAlignedObjectArrayIN10btSoftBody25DeformableFaceNodeContactEE9push_backERKS1_.exit, %3
+108:                                              ; preds = %22, %_ZN20btAlignedObjectArrayIN10btSoftBody25DeformableFaceNodeContactEE9push_backERKS1_.exit, %3
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
@@ -51670,8 +51666,8 @@ define linkonce_odr dso_local void @_ZN15btSoftColliders12CollideFF_DD5RepelEPN1
   %exitcond60.not = icmp eq i64 %indvars.iv.next58, 3
   br i1 %exitcond60.not, label %.preheader, label %14, !llvm.loop !1311
 
-23:                                               ; preds = %.preheader, %105
-  %indvars.iv61 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next62, %105 ]
+23:                                               ; preds = %.preheader, %103
+  %indvars.iv61 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next62, %103 ]
   %24 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv61
   %25 = load ptr, ptr %24, align 8, !tbaa !344
   %26 = load ptr, ptr %6, align 8, !tbaa !344
@@ -51683,7 +51679,7 @@ define linkonce_odr dso_local void @_ZN15btSoftColliders12CollideFF_DD5RepelEPN1
   %32 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %.val = load float, ptr %10, align 8, !tbaa !234
   %33 = call fastcc noundef zeroext i1 @_ZL13proximityTestRK9btVector3S1_S1_S1_S1_RKfRS_(ptr noundef nonnull align 4 dereferenceable(16) %27, ptr noundef nonnull align 4 dereferenceable(16) %29, ptr noundef nonnull align 4 dereferenceable(16) %31, ptr noundef nonnull align 4 dereferenceable(16) %32, ptr noundef nonnull align 4 dereferenceable(16) %9, float %.val, ptr noundef nonnull align 4 dereferenceable(16) %4)
-  br i1 %33, label %34, label %105
+  br i1 %33, label %34, label %103
 
 34:                                               ; preds = %23
   %.sroa.10.48.copyload = load <2 x float>, ptr %9, align 8
@@ -51695,154 +51691,152 @@ define linkonce_odr dso_local void @_ZN15btSoftColliders12CollideFF_DD5RepelEPN1
   br i1 %36, label %.critedge, label %39
 
 39:                                               ; preds = %34
-  %40 = load ptr, ptr %8, align 8, !tbaa !344
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
-  %42 = load float, ptr %32, align 4, !tbaa !234
-  %43 = load float, ptr %41, align 4, !tbaa !234
-  %44 = fsub float %42, %43
-  %45 = getelementptr inbounds nuw i8, ptr %25, i64 20
+  %40 = load float, ptr %32, align 4, !tbaa !234
+  %41 = load float, ptr %31, align 4, !tbaa !234
+  %42 = fsub float %40, %41
+  %43 = getelementptr inbounds nuw i8, ptr %25, i64 20
+  %44 = load float, ptr %43, align 4, !tbaa !234
+  %45 = getelementptr inbounds nuw i8, ptr %30, i64 20
   %46 = load float, ptr %45, align 4, !tbaa !234
-  %47 = getelementptr inbounds nuw i8, ptr %40, i64 20
-  %48 = load float, ptr %47, align 4, !tbaa !234
-  %49 = fsub float %46, %48
-  %50 = getelementptr inbounds nuw i8, ptr %25, i64 24
+  %47 = fsub float %44, %46
+  %48 = getelementptr inbounds nuw i8, ptr %25, i64 24
+  %49 = load float, ptr %48, align 4, !tbaa !234
+  %50 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %51 = load float, ptr %50, align 4, !tbaa !234
-  %52 = getelementptr inbounds nuw i8, ptr %40, i64 24
-  %53 = load float, ptr %52, align 4, !tbaa !234
-  %54 = fsub float %51, %53
+  %52 = fsub float %49, %51
   %.sroa.10.48.vec.extract = extractelement <2 x float> %.sroa.10.48.copyload, i64 0
   %.sroa.10.52.vec.extract = extractelement <2 x float> %.sroa.10.48.copyload, i64 1
-  %55 = fmul float %.sroa.10.52.vec.extract, %49
-  %56 = tail call float @llvm.fmuladd.f32(float %.sroa.10.48.vec.extract, float %44, float %55)
+  %53 = fmul float %.sroa.10.52.vec.extract, %47
+  %54 = tail call float @llvm.fmuladd.f32(float %.sroa.10.48.vec.extract, float %42, float %53)
   %.sroa.14.56.vec.extract = extractelement <2 x float> %.sroa.14.48.copyload, i64 0
-  %57 = tail call noundef float @llvm.fmuladd.f32(float %.sroa.14.56.vec.extract, float %54, float %56)
-  %58 = fcmp olt float %57, 0.000000e+00
-  br i1 %58, label %59, label %.critedge
+  %55 = tail call noundef float @llvm.fmuladd.f32(float %.sroa.14.56.vec.extract, float %52, float %54)
+  %56 = fcmp olt float %55, 0.000000e+00
+  br i1 %56, label %57, label %.critedge
 
-59:                                               ; preds = %39
-  %60 = fneg float %37
-  %61 = fneg float %38
-  %62 = fneg <2 x float> %.sroa.10.48.copyload
-  %.sroa.0.4.vec.insert.i33 = insertelement <2 x float> %62, float %60, i64 0
-  %.sroa.3.12.vec.insert.i34 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %61, i64 0
+57:                                               ; preds = %39
+  %58 = fneg float %37
+  %59 = fneg float %38
+  %60 = fneg <2 x float> %.sroa.10.48.copyload
+  %.sroa.0.4.vec.insert.i33 = insertelement <2 x float> %60, float %58, i64 0
+  %.sroa.3.12.vec.insert.i34 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %59, i64 0
   br label %.critedge
 
-.critedge:                                        ; preds = %34, %59, %39
-  %.sroa.10.0 = phi <2 x float> [ %.sroa.0.4.vec.insert.i33, %59 ], [ %.sroa.10.48.copyload, %39 ], [ %.sroa.10.48.copyload, %34 ]
-  %.sroa.14.0 = phi <2 x float> [ %.sroa.3.12.vec.insert.i34, %59 ], [ %.sroa.14.48.copyload, %39 ], [ %.sroa.14.48.copyload, %34 ]
-  %63 = load float, ptr %10, align 8, !tbaa !1038
-  %64 = load ptr, ptr %12, align 8, !tbaa !843
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 444
-  %66 = load float, ptr %65, align 4, !tbaa !251
-  %67 = load ptr, ptr %13, align 8, !tbaa !843
-  %68 = getelementptr inbounds nuw i8, ptr %67, i64 444
-  %69 = load float, ptr %68, align 4, !tbaa !251
-  %70 = fmul float %66, %69
-  %71 = getelementptr inbounds nuw i8, ptr %64, i64 1316
-  %72 = load i32, ptr %71, align 4, !tbaa !182
-  %73 = getelementptr inbounds nuw i8, ptr %64, i64 1320
-  %74 = load i32, ptr %73, align 8, !tbaa !183
-  %75 = icmp eq i32 %72, %74
-  br i1 %75, label %76, label %_ZN20btAlignedObjectArrayIN10btSoftBody25DeformableFaceNodeContactEE9push_backERKS1_.exit
+.critedge:                                        ; preds = %34, %57, %39
+  %.sroa.10.0 = phi <2 x float> [ %.sroa.0.4.vec.insert.i33, %57 ], [ %.sroa.10.48.copyload, %39 ], [ %.sroa.10.48.copyload, %34 ]
+  %.sroa.14.0 = phi <2 x float> [ %.sroa.3.12.vec.insert.i34, %57 ], [ %.sroa.14.48.copyload, %39 ], [ %.sroa.14.48.copyload, %34 ]
+  %61 = load float, ptr %10, align 8, !tbaa !1038
+  %62 = load ptr, ptr %12, align 8, !tbaa !843
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 444
+  %64 = load float, ptr %63, align 4, !tbaa !251
+  %65 = load ptr, ptr %13, align 8, !tbaa !843
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 444
+  %67 = load float, ptr %66, align 4, !tbaa !251
+  %68 = fmul float %64, %67
+  %69 = getelementptr inbounds nuw i8, ptr %62, i64 1316
+  %70 = load i32, ptr %69, align 4, !tbaa !182
+  %71 = getelementptr inbounds nuw i8, ptr %62, i64 1320
+  %72 = load i32, ptr %71, align 8, !tbaa !183
+  %73 = icmp eq i32 %70, %72
+  br i1 %73, label %74, label %_ZN20btAlignedObjectArrayIN10btSoftBody25DeformableFaceNodeContactEE9push_backERKS1_.exit
 
-76:                                               ; preds = %.critedge
-  %.not.i.i = icmp eq i32 %72, 0
-  %77 = shl nsw i32 %72, 1
-  %78 = select i1 %.not.i.i, i32 1, i32 %77
-  %79 = icmp slt i32 %72, %78
-  br i1 %79, label %80, label %_ZN20btAlignedObjectArrayIN10btSoftBody25DeformableFaceNodeContactEE9push_backERKS1_.exit
+74:                                               ; preds = %.critedge
+  %.not.i.i = icmp eq i32 %70, 0
+  %75 = shl nsw i32 %70, 1
+  %76 = select i1 %.not.i.i, i32 1, i32 %75
+  %77 = icmp slt i32 %70, %76
+  br i1 %77, label %78, label %_ZN20btAlignedObjectArrayIN10btSoftBody25DeformableFaceNodeContactEE9push_backERKS1_.exit
 
-80:                                               ; preds = %76
-  %.not.i.i.i = icmp eq i32 %78, 0
-  br i1 %.not.i.i.i, label %_ZN20btAlignedObjectArrayIN10btSoftBody25DeformableFaceNodeContactEE8allocateEi.exit.i.i, label %81
+78:                                               ; preds = %74
+  %.not.i.i.i = icmp eq i32 %76, 0
+  br i1 %.not.i.i.i, label %_ZN20btAlignedObjectArrayIN10btSoftBody25DeformableFaceNodeContactEE8allocateEi.exit.i.i, label %79
 
-81:                                               ; preds = %80
-  %82 = sext i32 %78 to i64
-  %83 = mul nsw i64 %82, 88
-  %84 = tail call noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef %83, i32 noundef 16)
-  %.pre.i = load i32, ptr %71, align 4, !tbaa !182
+79:                                               ; preds = %78
+  %80 = sext i32 %76 to i64
+  %81 = mul nsw i64 %80, 88
+  %82 = tail call noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef %81, i32 noundef 16)
+  %.pre.i = load i32, ptr %69, align 4, !tbaa !182
   br label %_ZN20btAlignedObjectArrayIN10btSoftBody25DeformableFaceNodeContactEE8allocateEi.exit.i.i
 
-_ZN20btAlignedObjectArrayIN10btSoftBody25DeformableFaceNodeContactEE8allocateEi.exit.i.i: ; preds = %81, %80
-  %85 = phi i32 [ %.pre.i, %81 ], [ %72, %80 ]
-  %.0.i.i.i = phi ptr [ %84, %81 ], [ null, %80 ]
-  %86 = icmp sgt i32 %85, 0
-  br i1 %86, label %.lr.ph.i.i.i, label %_ZNK20btAlignedObjectArrayIN10btSoftBody25DeformableFaceNodeContactEE4copyEiiPS1_.exit.i.i
+_ZN20btAlignedObjectArrayIN10btSoftBody25DeformableFaceNodeContactEE8allocateEi.exit.i.i: ; preds = %79, %78
+  %83 = phi i32 [ %.pre.i, %79 ], [ %70, %78 ]
+  %.0.i.i.i = phi ptr [ %82, %79 ], [ null, %78 ]
+  %84 = icmp sgt i32 %83, 0
+  br i1 %84, label %.lr.ph.i.i.i, label %_ZNK20btAlignedObjectArrayIN10btSoftBody25DeformableFaceNodeContactEE4copyEiiPS1_.exit.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZN20btAlignedObjectArrayIN10btSoftBody25DeformableFaceNodeContactEE8allocateEi.exit.i.i
-  %87 = getelementptr inbounds nuw i8, ptr %64, i64 1328
-  %wide.trip.count.i.i.i = zext nneg i32 %85 to i64
-  br label %88
+  %85 = getelementptr inbounds nuw i8, ptr %62, i64 1328
+  %wide.trip.count.i.i.i = zext nneg i32 %83 to i64
+  br label %86
 
-88:                                               ; preds = %88, %.lr.ph.i.i.i
-  %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %88 ]
-  %89 = getelementptr inbounds nuw %"struct.btSoftBody::DeformableFaceNodeContact", ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
-  %90 = load ptr, ptr %87, align 8, !tbaa !181
-  %91 = getelementptr inbounds nuw %"struct.btSoftBody::DeformableFaceNodeContact", ptr %90, i64 %indvars.iv.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %89, ptr noundef nonnull align 8 dereferenceable(88) %91, i64 88, i1 false), !tbaa.struct !1307
+86:                                               ; preds = %86, %.lr.ph.i.i.i
+  %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %86 ]
+  %87 = getelementptr inbounds nuw %"struct.btSoftBody::DeformableFaceNodeContact", ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
+  %88 = load ptr, ptr %85, align 8, !tbaa !181
+  %89 = getelementptr inbounds nuw %"struct.btSoftBody::DeformableFaceNodeContact", ptr %88, i64 %indvars.iv.i.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %87, ptr noundef nonnull align 8 dereferenceable(88) %89, i64 88, i1 false), !tbaa.struct !1307
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %_ZNK20btAlignedObjectArrayIN10btSoftBody25DeformableFaceNodeContactEE4copyEiiPS1_.exit.i.i, label %88, !llvm.loop !1308
+  br i1 %exitcond.not.i.i.i, label %_ZNK20btAlignedObjectArrayIN10btSoftBody25DeformableFaceNodeContactEE4copyEiiPS1_.exit.i.i, label %86, !llvm.loop !1308
 
-_ZNK20btAlignedObjectArrayIN10btSoftBody25DeformableFaceNodeContactEE4copyEiiPS1_.exit.i.i: ; preds = %88, %_ZN20btAlignedObjectArrayIN10btSoftBody25DeformableFaceNodeContactEE8allocateEi.exit.i.i
-  %92 = getelementptr inbounds nuw i8, ptr %64, i64 1328
-  %93 = load ptr, ptr %92, align 8, !tbaa !181
-  %.not.i5.i.i = icmp ne ptr %93, null
-  %94 = getelementptr inbounds nuw i8, ptr %64, i64 1336
-  %95 = load i8, ptr %94, align 8, !range !231
-  %96 = trunc nuw i8 %95 to i1
-  %or.cond.i.i = select i1 %.not.i5.i.i, i1 %96, i1 false
-  br i1 %or.cond.i.i, label %97, label %_ZN20btAlignedObjectArrayIN10btSoftBody25DeformableFaceNodeContactEE10deallocateEv.exit.i.i
+_ZNK20btAlignedObjectArrayIN10btSoftBody25DeformableFaceNodeContactEE4copyEiiPS1_.exit.i.i: ; preds = %86, %_ZN20btAlignedObjectArrayIN10btSoftBody25DeformableFaceNodeContactEE8allocateEi.exit.i.i
+  %90 = getelementptr inbounds nuw i8, ptr %62, i64 1328
+  %91 = load ptr, ptr %90, align 8, !tbaa !181
+  %.not.i5.i.i = icmp ne ptr %91, null
+  %92 = getelementptr inbounds nuw i8, ptr %62, i64 1336
+  %93 = load i8, ptr %92, align 8, !range !231
+  %94 = trunc nuw i8 %93 to i1
+  %or.cond.i.i = select i1 %.not.i5.i.i, i1 %94, i1 false
+  br i1 %or.cond.i.i, label %95, label %_ZN20btAlignedObjectArrayIN10btSoftBody25DeformableFaceNodeContactEE10deallocateEv.exit.i.i
 
-97:                                               ; preds = %_ZNK20btAlignedObjectArrayIN10btSoftBody25DeformableFaceNodeContactEE4copyEiiPS1_.exit.i.i
-  tail call void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %93)
+95:                                               ; preds = %_ZNK20btAlignedObjectArrayIN10btSoftBody25DeformableFaceNodeContactEE4copyEiiPS1_.exit.i.i
+  tail call void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %91)
   br label %_ZN20btAlignedObjectArrayIN10btSoftBody25DeformableFaceNodeContactEE10deallocateEv.exit.i.i
 
-_ZN20btAlignedObjectArrayIN10btSoftBody25DeformableFaceNodeContactEE10deallocateEv.exit.i.i: ; preds = %97, %_ZNK20btAlignedObjectArrayIN10btSoftBody25DeformableFaceNodeContactEE4copyEiiPS1_.exit.i.i
-  store i8 1, ptr %94, align 8, !tbaa !180
-  store ptr %.0.i.i.i, ptr %92, align 8, !tbaa !181
-  store i32 %78, ptr %73, align 8, !tbaa !183
-  %.pre2.i = load i32, ptr %71, align 4, !tbaa !182
+_ZN20btAlignedObjectArrayIN10btSoftBody25DeformableFaceNodeContactEE10deallocateEv.exit.i.i: ; preds = %95, %_ZNK20btAlignedObjectArrayIN10btSoftBody25DeformableFaceNodeContactEE4copyEiiPS1_.exit.i.i
+  store i8 1, ptr %92, align 8, !tbaa !180
+  store ptr %.0.i.i.i, ptr %90, align 8, !tbaa !181
+  store i32 %76, ptr %71, align 8, !tbaa !183
+  %.pre2.i = load i32, ptr %69, align 4, !tbaa !182
   br label %_ZN20btAlignedObjectArrayIN10btSoftBody25DeformableFaceNodeContactEE9push_backERKS1_.exit
 
-_ZN20btAlignedObjectArrayIN10btSoftBody25DeformableFaceNodeContactEE9push_backERKS1_.exit: ; preds = %.critedge, %76, %_ZN20btAlignedObjectArrayIN10btSoftBody25DeformableFaceNodeContactEE10deallocateEv.exit.i.i
-  %98 = phi i32 [ %.pre2.i, %_ZN20btAlignedObjectArrayIN10btSoftBody25DeformableFaceNodeContactEE10deallocateEv.exit.i.i ], [ %72, %76 ], [ %72, %.critedge ]
-  %99 = getelementptr inbounds nuw i8, ptr %64, i64 1328
-  %100 = load ptr, ptr %99, align 8, !tbaa !181
-  %101 = sext i32 %98 to i64
-  %102 = getelementptr inbounds %"struct.btSoftBody::DeformableFaceNodeContact", ptr %100, i64 %101
-  store ptr %25, ptr %102, align 8, !tbaa !344
-  %.sroa.443.0..sroa_idx = getelementptr inbounds nuw i8, ptr %102, i64 8
+_ZN20btAlignedObjectArrayIN10btSoftBody25DeformableFaceNodeContactEE9push_backERKS1_.exit: ; preds = %.critedge, %74, %_ZN20btAlignedObjectArrayIN10btSoftBody25DeformableFaceNodeContactEE10deallocateEv.exit.i.i
+  %96 = phi i32 [ %.pre2.i, %_ZN20btAlignedObjectArrayIN10btSoftBody25DeformableFaceNodeContactEE10deallocateEv.exit.i.i ], [ %70, %74 ], [ %70, %.critedge ]
+  %97 = getelementptr inbounds nuw i8, ptr %62, i64 1328
+  %98 = load ptr, ptr %97, align 8, !tbaa !181
+  %99 = sext i32 %96 to i64
+  %100 = getelementptr inbounds %"struct.btSoftBody::DeformableFaceNodeContact", ptr %98, i64 %99
+  store ptr %25, ptr %100, align 8, !tbaa !344
+  %.sroa.443.0..sroa_idx = getelementptr inbounds nuw i8, ptr %100, i64 8
   store ptr %2, ptr %.sroa.443.0..sroa_idx, align 8, !tbaa !1305
-  %.sroa.544.0..sroa_idx = getelementptr inbounds nuw i8, ptr %102, i64 16
+  %.sroa.544.0..sroa_idx = getelementptr inbounds nuw i8, ptr %100, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.544.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
-  %.sroa.645.0..sroa_idx = getelementptr inbounds nuw i8, ptr %102, i64 32
-  %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %102, i64 48
+  %.sroa.645.0..sroa_idx = getelementptr inbounds nuw i8, ptr %100, i64 32
+  %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %100, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.645.0..sroa_idx, i8 0, i64 16, i1 false)
   store <2 x float> %.sroa.10.0, ptr %.sroa.10.0..sroa_idx, align 8
-  %.sroa.14.0..sroa_idx = getelementptr inbounds nuw i8, ptr %102, i64 56
+  %.sroa.14.0..sroa_idx = getelementptr inbounds nuw i8, ptr %100, i64 56
   store <2 x float> %.sroa.14.0, ptr %.sroa.14.0..sroa_idx, align 8, !tbaa !228
-  %.sroa.16.0..sroa_idx = getelementptr inbounds nuw i8, ptr %102, i64 64
-  store float %63, ptr %.sroa.16.0..sroa_idx, align 8, !tbaa !234
-  %.sroa.17.0..sroa_idx = getelementptr inbounds nuw i8, ptr %102, i64 68
-  store float %70, ptr %.sroa.17.0..sroa_idx, align 4, !tbaa !234
-  %.sroa.18.0..sroa_idx = getelementptr inbounds nuw i8, ptr %102, i64 72
+  %.sroa.16.0..sroa_idx = getelementptr inbounds nuw i8, ptr %100, i64 64
+  store float %61, ptr %.sroa.16.0..sroa_idx, align 8, !tbaa !234
+  %.sroa.17.0..sroa_idx = getelementptr inbounds nuw i8, ptr %100, i64 68
+  store float %68, ptr %.sroa.17.0..sroa_idx, align 4, !tbaa !234
+  %.sroa.18.0..sroa_idx = getelementptr inbounds nuw i8, ptr %100, i64 72
   store float 0.000000e+00, ptr %.sroa.18.0..sroa_idx, align 8, !tbaa !234
-  %.sroa.19.0..sroa_idx = getelementptr inbounds nuw i8, ptr %102, i64 76
+  %.sroa.19.0..sroa_idx = getelementptr inbounds nuw i8, ptr %100, i64 76
   store float 0.000000e+00, ptr %.sroa.19.0..sroa_idx, align 4, !tbaa !234
-  %.sroa.20.0..sroa_idx = getelementptr inbounds nuw i8, ptr %102, i64 80
-  store ptr %67, ptr %.sroa.20.0..sroa_idx, align 8, !tbaa !392
-  %103 = load i32, ptr %71, align 4, !tbaa !182
-  %104 = add nsw i32 %103, 1
-  store i32 %104, ptr %71, align 4, !tbaa !182
-  br label %105
+  %.sroa.20.0..sroa_idx = getelementptr inbounds nuw i8, ptr %100, i64 80
+  store ptr %65, ptr %.sroa.20.0..sroa_idx, align 8, !tbaa !392
+  %101 = load i32, ptr %69, align 4, !tbaa !182
+  %102 = add nsw i32 %101, 1
+  store i32 %102, ptr %69, align 4, !tbaa !182
+  br label %103
 
-105:                                              ; preds = %23, %_ZN20btAlignedObjectArrayIN10btSoftBody25DeformableFaceNodeContactEE9push_backERKS1_.exit
+103:                                              ; preds = %23, %_ZN20btAlignedObjectArrayIN10btSoftBody25DeformableFaceNodeContactEE9push_backERKS1_.exit
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
   %exitcond64.not = icmp eq i64 %indvars.iv.next62, 3
   br i1 %exitcond64.not, label %.thread47, label %23, !llvm.loop !1312
 
-.thread47:                                        ; preds = %18, %105
+.thread47:                                        ; preds = %18, %103
   ret void
 }
 

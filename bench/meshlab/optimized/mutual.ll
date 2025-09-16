@@ -214,72 +214,72 @@ define noundef double @_ZN10MutualInfo4infoEiiPhS0_iiii(ptr noundef nonnull read
   br i1 %.not74, label %._crit_edge69, label %.lr.ph68
 
 .lr.ph68:                                         ; preds = %._crit_edge59
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  br label %48
+  %47 = load ptr, ptr %16, align 8
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %49 = load ptr, ptr %48, align 8
+  %50 = load ptr, ptr %10, align 8
+  br label %51
 
-48:                                               ; preds = %.lr.ph68, %.loopexit
-  %49 = phi i32 [ %40, %.lr.ph68 ], [ %84, %.loopexit ]
+51:                                               ; preds = %.lr.ph68, %.loopexit
+  %52 = phi i32 [ %40, %.lr.ph68 ], [ %84, %.loopexit ]
   %indvars.iv92 = phi i64 [ 0, %.lr.ph68 ], [ %indvars.iv.next93, %.loopexit ]
   %.04665 = phi double [ 0.000000e+00, %.lr.ph68 ], [ %.147, %.loopexit ]
-  %50 = load ptr, ptr %16, align 8
-  %51 = getelementptr inbounds nuw i32, ptr %50, i64 %indvars.iv92
-  %52 = load i32, ptr %51, align 4
-  %53 = uitofp i32 %52 to double
-  %54 = icmp ne i32 %52, 0
-  %55 = icmp ne i32 %49, 0
-  %or.cond = and i1 %54, %55
+  %53 = getelementptr inbounds nuw i32, ptr %47, i64 %indvars.iv92
+  %54 = load i32, ptr %53, align 4
+  %55 = uitofp i32 %54 to double
+  %56 = icmp ne i32 %54, 0
+  %57 = icmp ne i32 %52, 0
+  %or.cond = and i1 %56, %57
   br i1 %or.cond, label %.lr.ph63.preheader, label %.loopexit
 
-.lr.ph63.preheader:                               ; preds = %48
-  %56 = trunc nuw i64 %indvars.iv92 to i32
+.lr.ph63.preheader:                               ; preds = %51
+  %58 = trunc nuw i64 %indvars.iv92 to i32
   br label %.lr.ph63
 
 .lr.ph63:                                         ; preds = %.lr.ph63.preheader, %79
-  %57 = phi i32 [ %49, %.lr.ph63.preheader ], [ %80, %79 ]
-  %58 = phi i32 [ %49, %.lr.ph63.preheader ], [ %81, %79 ]
+  %59 = phi i32 [ %52, %.lr.ph63.preheader ], [ %80, %79 ]
+  %60 = phi i32 [ %52, %.lr.ph63.preheader ], [ %81, %79 ]
   %indvars.iv89 = phi i64 [ 0, %.lr.ph63.preheader ], [ %indvars.iv.next90, %79 ]
   %.261 = phi double [ %.04665, %.lr.ph63.preheader ], [ %.3, %79 ]
-  %59 = load ptr, ptr %47, align 8
-  %60 = mul i32 %58, %56
-  %61 = trunc nuw i64 %indvars.iv89 to i32
-  %62 = add i32 %60, %61
-  %63 = zext i32 %62 to i64
-  %64 = getelementptr inbounds nuw i32, ptr %59, i64 %63
-  %65 = load i32, ptr %64, align 4
-  %66 = icmp eq i32 %65, 0
-  br i1 %66, label %79, label %67
+  %61 = mul i32 %60, %58
+  %62 = trunc nuw i64 %indvars.iv89 to i32
+  %63 = add i32 %61, %62
+  %64 = zext i32 %63 to i64
+  %65 = getelementptr inbounds nuw i32, ptr %49, i64 %64
+  %66 = load i32, ptr %65, align 4
+  %67 = icmp eq i32 %66, 0
+  br i1 %67, label %79, label %68
 
-67:                                               ; preds = %.lr.ph63
-  %68 = uitofp i32 %65 to double
-  %69 = load ptr, ptr %10, align 8
-  %70 = getelementptr inbounds nuw i32, ptr %69, i64 %indvars.iv89
+68:                                               ; preds = %.lr.ph63
+  %69 = uitofp i32 %66 to double
+  %70 = getelementptr inbounds nuw i32, ptr %50, i64 %indvars.iv89
   %71 = load i32, ptr %70, align 4
   %72 = uitofp i32 %71 to double
-  %73 = fmul double %.1, %68
-  %74 = fmul double %53, %72
+  %73 = fmul double %.1, %69
+  %74 = fmul double %55, %72
   %75 = fdiv double %73, %74
   %76 = tail call double @log(double noundef %75) #15
-  %77 = fmul double %76, %68
+  %77 = fmul double %76, %69
   %78 = tail call double @llvm.fmuladd.f64(double %77, double 0x3FF71547652B82FE, double %.261)
   %.pre95 = load i32, ptr %12, align 8
   br label %79
 
-79:                                               ; preds = %.lr.ph63, %67
-  %80 = phi i32 [ %57, %.lr.ph63 ], [ %.pre95, %67 ]
-  %81 = phi i32 [ %58, %.lr.ph63 ], [ %.pre95, %67 ]
-  %.3 = phi double [ %.261, %.lr.ph63 ], [ %78, %67 ]
+79:                                               ; preds = %.lr.ph63, %68
+  %80 = phi i32 [ %59, %.lr.ph63 ], [ %.pre95, %68 ]
+  %81 = phi i32 [ %60, %.lr.ph63 ], [ %.pre95, %68 ]
+  %.3 = phi double [ %.261, %.lr.ph63 ], [ %78, %68 ]
   %indvars.iv.next90 = add nuw nsw i64 %indvars.iv89, 1
   %82 = zext i32 %81 to i64
   %83 = icmp samesign ult i64 %indvars.iv.next90, %82
   br i1 %83, label %.lr.ph63, label %.loopexit, !llvm.loop !9
 
-.loopexit:                                        ; preds = %79, %48
-  %84 = phi i32 [ %49, %48 ], [ %80, %79 ]
-  %.147 = phi double [ %.04665, %48 ], [ %.3, %79 ]
+.loopexit:                                        ; preds = %79, %51
+  %84 = phi i32 [ %52, %51 ], [ %80, %79 ]
+  %.147 = phi double [ %.04665, %51 ], [ %.3, %79 ]
   %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
   %85 = zext i32 %84 to i64
   %86 = icmp samesign ult i64 %indvars.iv.next93, %85
-  br i1 %86, label %48, label %._crit_edge69, !llvm.loop !10
+  br i1 %86, label %51, label %._crit_edge69, !llvm.loop !10
 
 ._crit_edge69:                                    ; preds = %.loopexit, %9, %._crit_edge59
   %.1102 = phi double [ %.1, %._crit_edge59 ], [ 1.000000e+00, %9 ], [ %.1, %.loopexit ]

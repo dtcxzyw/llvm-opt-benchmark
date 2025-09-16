@@ -2375,22 +2375,22 @@ define internal double @DefaultEvalParametricFn(i32 noundef %0, ptr noundef read
     i32 -1, label %13
     i32 2, label %26
     i32 -2, label %43
-    i32 3, label %63
-    i32 -3, label %87
-    i32 4, label %116
-    i32 -4, label %134
-    i32 5, label %170
-    i32 -5, label %196
-    i32 6, label %233
-    i32 -6, label %255
-    i32 7, label %277
-    i32 -7, label %296
-    i32 8, label %324
-    i32 -8, label %337
-    i32 108, label %363
-    i32 -108, label %375
-    i32 109, label %382
-    i32 -109, label %397
+    i32 3, label %62
+    i32 -3, label %86
+    i32 4, label %114
+    i32 -4, label %132
+    i32 5, label %164
+    i32 -5, label %190
+    i32 6, label %226
+    i32 -6, label %248
+    i32 7, label %269
+    i32 -7, label %288
+    i32 8, label %314
+    i32 -8, label %327
+    i32 108, label %352
+    i32 -108, label %362
+    i32 109, label %368
+    i32 -109, label %383
   ]
 
 4:                                                ; preds = %3
@@ -2477,491 +2477,476 @@ define internal double @DefaultEvalParametricFn(i32 noundef %0, ptr noundef read
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %57 = load double, ptr %56, align 8
   %58 = fsub double %55, %57
-  %59 = load double, ptr %48, align 8
-  %60 = fdiv double %58, %59
-  %61 = fcmp olt double %60, 0.000000e+00
-  br i1 %61, label %62, label %.thread
+  %59 = fdiv double %58, %49
+  %60 = fcmp olt double %59, 0.000000e+00
+  br i1 %60, label %61, label %.thread
 
-62:                                               ; preds = %53
+61:                                               ; preds = %53
   br label %.thread
 
-63:                                               ; preds = %3
-  %64 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %65 = load double, ptr %64, align 8
-  %66 = tail call double @llvm.fabs.f64(double %65)
-  %67 = fcmp olt double %66, 1.000000e-04
-  br i1 %67, label %.thread, label %68
+62:                                               ; preds = %3
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %64 = load double, ptr %63, align 8
+  %65 = tail call double @llvm.fabs.f64(double %64)
+  %66 = fcmp olt double %65, 1.000000e-04
+  br i1 %66, label %.thread, label %67
 
-68:                                               ; preds = %63
-  %69 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %70 = load double, ptr %69, align 8
-  %71 = fneg double %70
-  %72 = fdiv double %71, %65
-  %73 = fcmp olt double %72, 0.000000e+00
-  %.0 = select i1 %73, double 0.000000e+00, double %72
-  %74 = fcmp ult double %2, %.0
-  br i1 %74, label %84, label %75
+67:                                               ; preds = %62
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %69 = load double, ptr %68, align 8
+  %70 = fneg double %69
+  %71 = fdiv double %70, %64
+  %72 = fcmp olt double %71, 0.000000e+00
+  %.0 = select i1 %72, double 0.000000e+00, double %71
+  %73 = fcmp ult double %2, %.0
+  br i1 %73, label %83, label %74
 
-75:                                               ; preds = %68
-  %76 = tail call double @llvm.fmuladd.f64(double %65, double %2, double %70)
-  %77 = fcmp ogt double %76, 0.000000e+00
-  br i1 %77, label %78, label %.thread
+74:                                               ; preds = %67
+  %75 = tail call double @llvm.fmuladd.f64(double %64, double %2, double %69)
+  %76 = fcmp ogt double %75, 0.000000e+00
+  br i1 %76, label %77, label %.thread
 
-78:                                               ; preds = %75
-  %79 = load double, ptr %1, align 8
-  %80 = tail call double @pow(double noundef %76, double noundef %79) #13
-  %81 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %82 = load double, ptr %81, align 8
-  %83 = fadd double %80, %82
+77:                                               ; preds = %74
+  %78 = load double, ptr %1, align 8
+  %79 = tail call double @pow(double noundef %75, double noundef %78) #13
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %81 = load double, ptr %80, align 8
+  %82 = fadd double %79, %81
   br label %.thread
 
-84:                                               ; preds = %68
-  %85 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %86 = load double, ptr %85, align 8
+83:                                               ; preds = %67
+  %84 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %85 = load double, ptr %84, align 8
   br label %.thread
 
-87:                                               ; preds = %3
-  %88 = load double, ptr %1, align 8
-  %89 = tail call double @llvm.fabs.f64(double %88)
-  %90 = fcmp olt double %89, 1.000000e-04
-  br i1 %90, label %.thread, label %91
+86:                                               ; preds = %3
+  %87 = load double, ptr %1, align 8
+  %88 = tail call double @llvm.fabs.f64(double %87)
+  %89 = fcmp olt double %88, 1.000000e-04
+  br i1 %89, label %.thread, label %90
 
-91:                                               ; preds = %87
-  %92 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %93 = load double, ptr %92, align 8
-  %94 = tail call double @llvm.fabs.f64(double %93)
-  %95 = fcmp olt double %94, 1.000000e-04
-  br i1 %95, label %.thread, label %96
+90:                                               ; preds = %86
+  %91 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %92 = load double, ptr %91, align 8
+  %93 = tail call double @llvm.fabs.f64(double %92)
+  %94 = fcmp olt double %93, 1.000000e-04
+  br i1 %94, label %.thread, label %95
 
-96:                                               ; preds = %91
-  %97 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %98 = load double, ptr %97, align 8
-  %99 = fcmp ult double %2, %98
-  br i1 %99, label %111, label %100
+95:                                               ; preds = %90
+  %96 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %97 = load double, ptr %96, align 8
+  %98 = fcmp ult double %2, %97
+  br i1 %98, label %109, label %99
 
-100:                                              ; preds = %96
-  %101 = fsub double %2, %98
-  %102 = fcmp ogt double %101, 0.000000e+00
-  br i1 %102, label %103, label %.thread
+99:                                               ; preds = %95
+  %100 = fsub double %2, %97
+  %101 = fcmp ogt double %100, 0.000000e+00
+  br i1 %101, label %102, label %.thread
 
-103:                                              ; preds = %100
-  %104 = fdiv double 1.000000e+00, %88
-  %105 = tail call double @pow(double noundef %101, double noundef %104) #13
-  %106 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %107 = load double, ptr %106, align 8
-  %108 = fsub double %105, %107
-  %109 = load double, ptr %92, align 8
-  %110 = fdiv double %108, %109
+102:                                              ; preds = %99
+  %103 = fdiv double 1.000000e+00, %87
+  %104 = tail call double @pow(double noundef %100, double noundef %103) #13
+  %105 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %106 = load double, ptr %105, align 8
+  %107 = fsub double %104, %106
+  %108 = fdiv double %107, %92
   br label %.thread
 
-111:                                              ; preds = %96
-  %112 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %113 = load double, ptr %112, align 8
-  %114 = fneg double %113
-  %115 = fdiv double %114, %93
+109:                                              ; preds = %95
+  %110 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %111 = load double, ptr %110, align 8
+  %112 = fneg double %111
+  %113 = fdiv double %112, %92
   br label %.thread
 
-116:                                              ; preds = %3
-  %117 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %118 = load double, ptr %117, align 8
-  %119 = fcmp ult double %2, %118
-  br i1 %119, label %130, label %120
+114:                                              ; preds = %3
+  %115 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %116 = load double, ptr %115, align 8
+  %117 = fcmp ult double %2, %116
+  br i1 %117, label %128, label %118
 
-120:                                              ; preds = %116
-  %121 = getelementptr inbounds nuw i8, ptr %1, i64 8
+118:                                              ; preds = %114
+  %119 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %120 = load double, ptr %119, align 8
+  %121 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %122 = load double, ptr %121, align 8
-  %123 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %124 = load double, ptr %123, align 8
-  %125 = tail call double @llvm.fmuladd.f64(double %122, double %2, double %124)
-  %126 = fcmp ogt double %125, 0.000000e+00
-  br i1 %126, label %127, label %.thread
+  %123 = tail call double @llvm.fmuladd.f64(double %120, double %2, double %122)
+  %124 = fcmp ogt double %123, 0.000000e+00
+  br i1 %124, label %125, label %.thread
 
-127:                                              ; preds = %120
-  %128 = load double, ptr %1, align 8
-  %129 = tail call double @pow(double noundef %125, double noundef %128) #13
+125:                                              ; preds = %118
+  %126 = load double, ptr %1, align 8
+  %127 = tail call double @pow(double noundef %123, double noundef %126) #13
   br label %.thread
 
-130:                                              ; preds = %116
-  %131 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %132 = load double, ptr %131, align 8
-  %133 = fmul double %2, %132
+128:                                              ; preds = %114
+  %129 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %130 = load double, ptr %129, align 8
+  %131 = fmul double %2, %130
   br label %.thread
 
-134:                                              ; preds = %3
-  %135 = getelementptr inbounds nuw i8, ptr %1, i64 8
+132:                                              ; preds = %3
+  %133 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %134 = load double, ptr %133, align 8
+  %135 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %136 = load double, ptr %135, align 8
-  %137 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %137 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %138 = load double, ptr %137, align 8
-  %139 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %140 = load double, ptr %139, align 8
-  %141 = tail call double @llvm.fmuladd.f64(double %136, double %138, double %140)
-  %142 = fcmp olt double %141, 0.000000e+00
-  br i1 %142, label %146, label %143
+  %139 = tail call double @llvm.fmuladd.f64(double %134, double %136, double %138)
+  %140 = fcmp olt double %139, 0.000000e+00
+  br i1 %140, label %144, label %141
 
-143:                                              ; preds = %134
-  %144 = load double, ptr %1, align 8
-  %145 = tail call double @pow(double noundef %141, double noundef %144) #13
-  br label %146
+141:                                              ; preds = %132
+  %142 = load double, ptr %1, align 8
+  %143 = tail call double @pow(double noundef %139, double noundef %142) #13
+  br label %144
 
-146:                                              ; preds = %134, %143
-  %.1 = phi double [ %145, %143 ], [ 0.000000e+00, %134 ]
-  %147 = fcmp ult double %2, %.1
-  br i1 %147, label %163, label %148
+144:                                              ; preds = %132, %141
+  %.1 = phi double [ %143, %141 ], [ 0.000000e+00, %132 ]
+  %145 = fcmp ult double %2, %.1
+  br i1 %145, label %157, label %146
 
-148:                                              ; preds = %146
-  %149 = load double, ptr %1, align 8
-  %150 = tail call double @llvm.fabs.f64(double %149)
+146:                                              ; preds = %144
+  %147 = load double, ptr %1, align 8
+  %148 = tail call double @llvm.fabs.f64(double %147)
+  %149 = fcmp olt double %148, 1.000000e-04
+  %150 = tail call double @llvm.fabs.f64(double %134)
   %151 = fcmp olt double %150, 1.000000e-04
-  br i1 %151, label %.thread, label %152
+  %or.cond204 = select i1 %149, i1 true, i1 %151
+  br i1 %or.cond204, label %.thread, label %152
 
-152:                                              ; preds = %148
-  %153 = load double, ptr %135, align 8
-  %154 = tail call double @llvm.fabs.f64(double %153)
-  %155 = fcmp olt double %154, 1.000000e-04
-  br i1 %155, label %.thread, label %156
-
-156:                                              ; preds = %152
-  %157 = fdiv double 1.000000e+00, %149
-  %158 = tail call double @pow(double noundef %2, double noundef %157) #13
-  %159 = load double, ptr %139, align 8
-  %160 = fsub double %158, %159
-  %161 = load double, ptr %135, align 8
-  %162 = fdiv double %160, %161
+152:                                              ; preds = %146
+  %153 = fdiv double 1.000000e+00, %147
+  %154 = tail call double @pow(double noundef %2, double noundef %153) #13
+  %155 = fsub double %154, %138
+  %156 = fdiv double %155, %134
   br label %.thread
 
-163:                                              ; preds = %146
-  %164 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %165 = load double, ptr %164, align 8
-  %166 = tail call double @llvm.fabs.f64(double %165)
-  %167 = fcmp olt double %166, 1.000000e-04
-  br i1 %167, label %.thread, label %168
+157:                                              ; preds = %144
+  %158 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %159 = load double, ptr %158, align 8
+  %160 = tail call double @llvm.fabs.f64(double %159)
+  %161 = fcmp olt double %160, 1.000000e-04
+  br i1 %161, label %.thread, label %162
 
-168:                                              ; preds = %163
-  %169 = fdiv double %2, %165
+162:                                              ; preds = %157
+  %163 = fdiv double %2, %159
   br label %.thread
 
-170:                                              ; preds = %3
-  %171 = getelementptr inbounds nuw i8, ptr %1, i64 32
+164:                                              ; preds = %3
+  %165 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %166 = load double, ptr %165, align 8
+  %167 = fcmp ult double %2, %166
+  br i1 %167, label %184, label %168
+
+168:                                              ; preds = %164
+  %169 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %170 = load double, ptr %169, align 8
+  %171 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %172 = load double, ptr %171, align 8
-  %173 = fcmp ult double %2, %172
-  br i1 %173, label %190, label %174
+  %173 = tail call double @llvm.fmuladd.f64(double %170, double %2, double %172)
+  %174 = fcmp ogt double %173, 0.000000e+00
+  br i1 %174, label %175, label %181
 
-174:                                              ; preds = %170
-  %175 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %176 = load double, ptr %175, align 8
-  %177 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %178 = load double, ptr %177, align 8
-  %179 = tail call double @llvm.fmuladd.f64(double %176, double %2, double %178)
-  %180 = fcmp ogt double %179, 0.000000e+00
-  br i1 %180, label %181, label %187
-
-181:                                              ; preds = %174
-  %182 = load double, ptr %1, align 8
-  %183 = tail call double @pow(double noundef %179, double noundef %182) #13
-  %184 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %185 = load double, ptr %184, align 8
-  %186 = fadd double %183, %185
+175:                                              ; preds = %168
+  %176 = load double, ptr %1, align 8
+  %177 = tail call double @pow(double noundef %173, double noundef %176) #13
+  %178 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %179 = load double, ptr %178, align 8
+  %180 = fadd double %177, %179
   br label %.thread
 
-187:                                              ; preds = %174
-  %188 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %189 = load double, ptr %188, align 8
+181:                                              ; preds = %168
+  %182 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %183 = load double, ptr %182, align 8
   br label %.thread
 
-190:                                              ; preds = %170
+184:                                              ; preds = %164
+  %185 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %186 = load double, ptr %185, align 8
+  %187 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %188 = load double, ptr %187, align 8
+  %189 = tail call double @llvm.fmuladd.f64(double %2, double %186, double %188)
+  br label %.thread
+
+190:                                              ; preds = %3
   %191 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %192 = load double, ptr %191, align 8
-  %193 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %193 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %194 = load double, ptr %193, align 8
-  %195 = tail call double @llvm.fmuladd.f64(double %2, double %192, double %194)
+  %195 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %196 = load double, ptr %195, align 8
+  %197 = tail call double @llvm.fmuladd.f64(double %192, double %194, double %196)
+  %198 = fcmp ult double %2, %197
+  br i1 %198, label %220, label %199
+
+199:                                              ; preds = %190
+  %200 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %201 = load double, ptr %200, align 8
+  %202 = fsub double %2, %201
+  %203 = fcmp olt double %202, 0.000000e+00
+  br i1 %203, label %.thread, label %204
+
+204:                                              ; preds = %199
+  %205 = load double, ptr %1, align 8
+  %206 = tail call double @llvm.fabs.f64(double %205)
+  %207 = fcmp olt double %206, 1.000000e-04
+  br i1 %207, label %.thread, label %208
+
+208:                                              ; preds = %204
+  %209 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %210 = load double, ptr %209, align 8
+  %211 = tail call double @llvm.fabs.f64(double %210)
+  %212 = fcmp olt double %211, 1.000000e-04
+  br i1 %212, label %.thread, label %213
+
+213:                                              ; preds = %208
+  %214 = fdiv double 1.000000e+00, %205
+  %215 = tail call double @pow(double noundef %202, double noundef %214) #13
+  %216 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %217 = load double, ptr %216, align 8
+  %218 = fsub double %215, %217
+  %219 = fdiv double %218, %210
   br label %.thread
 
-196:                                              ; preds = %3
-  %197 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %198 = load double, ptr %197, align 8
-  %199 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %200 = load double, ptr %199, align 8
-  %201 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %202 = load double, ptr %201, align 8
-  %203 = tail call double @llvm.fmuladd.f64(double %198, double %200, double %202)
-  %204 = fcmp ult double %2, %203
-  br i1 %204, label %227, label %205
+220:                                              ; preds = %190
+  %221 = tail call double @llvm.fabs.f64(double %192)
+  %222 = fcmp olt double %221, 1.000000e-04
+  br i1 %222, label %.thread, label %223
 
-205:                                              ; preds = %196
-  %206 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %207 = load double, ptr %206, align 8
-  %208 = fsub double %2, %207
-  %209 = fcmp olt double %208, 0.000000e+00
-  br i1 %209, label %.thread, label %210
-
-210:                                              ; preds = %205
-  %211 = load double, ptr %1, align 8
-  %212 = tail call double @llvm.fabs.f64(double %211)
-  %213 = fcmp olt double %212, 1.000000e-04
-  br i1 %213, label %.thread, label %214
-
-214:                                              ; preds = %210
-  %215 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %216 = load double, ptr %215, align 8
-  %217 = tail call double @llvm.fabs.f64(double %216)
-  %218 = fcmp olt double %217, 1.000000e-04
-  br i1 %218, label %.thread, label %219
-
-219:                                              ; preds = %214
-  %220 = fdiv double 1.000000e+00, %211
-  %221 = tail call double @pow(double noundef %208, double noundef %220) #13
-  %222 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %223 = load double, ptr %222, align 8
-  %224 = fsub double %221, %223
-  %225 = load double, ptr %215, align 8
-  %226 = fdiv double %224, %225
+223:                                              ; preds = %220
+  %224 = fsub double %2, %196
+  %225 = fdiv double %224, %192
   br label %.thread
 
-227:                                              ; preds = %196
-  %228 = tail call double @llvm.fabs.f64(double %198)
-  %229 = fcmp olt double %228, 1.000000e-04
-  br i1 %229, label %.thread, label %230
+226:                                              ; preds = %3
+  %227 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %228 = load double, ptr %227, align 8
+  %229 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %230 = load double, ptr %229, align 8
+  %231 = tail call double @llvm.fmuladd.f64(double %228, double %2, double %230)
+  %232 = load double, ptr %1, align 8
+  %233 = fcmp oeq double %232, 1.000000e+00
+  br i1 %233, label %234, label %238
 
-230:                                              ; preds = %227
-  %231 = fsub double %2, %202
-  %232 = fdiv double %231, %198
+234:                                              ; preds = %226
+  %235 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %236 = load double, ptr %235, align 8
+  %237 = fadd double %231, %236
   br label %.thread
 
-233:                                              ; preds = %3
-  %234 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %235 = load double, ptr %234, align 8
-  %236 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %237 = load double, ptr %236, align 8
-  %238 = tail call double @llvm.fmuladd.f64(double %235, double %2, double %237)
-  %239 = load double, ptr %1, align 8
-  %240 = fcmp oeq double %239, 1.000000e+00
-  br i1 %240, label %241, label %245
+238:                                              ; preds = %226
+  %239 = fcmp olt double %231, 0.000000e+00
+  br i1 %239, label %240, label %243
 
-241:                                              ; preds = %233
-  %242 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %243 = load double, ptr %242, align 8
-  %244 = fadd double %238, %243
+240:                                              ; preds = %238
+  %241 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %242 = load double, ptr %241, align 8
   br label %.thread
 
-245:                                              ; preds = %233
-  %246 = fcmp olt double %238, 0.000000e+00
-  br i1 %246, label %247, label %250
-
-247:                                              ; preds = %245
-  %248 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %249 = load double, ptr %248, align 8
+243:                                              ; preds = %238
+  %244 = tail call double @pow(double noundef %231, double noundef %232) #13
+  %245 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %246 = load double, ptr %245, align 8
+  %247 = fadd double %244, %246
   br label %.thread
 
-250:                                              ; preds = %245
-  %251 = tail call double @pow(double noundef %238, double noundef %239) #13
-  %252 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %253 = load double, ptr %252, align 8
-  %254 = fadd double %251, %253
-  br label %.thread
+248:                                              ; preds = %3
+  %249 = load double, ptr %1, align 8
+  %250 = tail call double @llvm.fabs.f64(double %249)
+  %251 = fcmp olt double %250, 1.000000e-04
+  br i1 %251, label %.thread, label %252
 
-255:                                              ; preds = %3
-  %256 = load double, ptr %1, align 8
-  %257 = tail call double @llvm.fabs.f64(double %256)
-  %258 = fcmp olt double %257, 1.000000e-04
-  br i1 %258, label %.thread, label %259
+252:                                              ; preds = %248
+  %253 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %254 = load double, ptr %253, align 8
+  %255 = tail call double @llvm.fabs.f64(double %254)
+  %256 = fcmp olt double %255, 1.000000e-04
+  br i1 %256, label %.thread, label %257
 
-259:                                              ; preds = %255
-  %260 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %261 = load double, ptr %260, align 8
-  %262 = tail call double @llvm.fabs.f64(double %261)
-  %263 = fcmp olt double %262, 1.000000e-04
-  br i1 %263, label %.thread, label %264
+257:                                              ; preds = %252
+  %258 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %259 = load double, ptr %258, align 8
+  %260 = fsub double %2, %259
+  %261 = fcmp olt double %260, 0.000000e+00
+  br i1 %261, label %.thread, label %262
 
-264:                                              ; preds = %259
-  %265 = getelementptr inbounds nuw i8, ptr %1, i64 24
+262:                                              ; preds = %257
+  %263 = fdiv double 1.000000e+00, %249
+  %264 = tail call double @pow(double noundef %260, double noundef %263) #13
+  %265 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %266 = load double, ptr %265, align 8
-  %267 = fsub double %2, %266
-  %268 = fcmp olt double %267, 0.000000e+00
-  br i1 %268, label %.thread, label %269
-
-269:                                              ; preds = %264
-  %270 = fdiv double 1.000000e+00, %256
-  %271 = tail call double @pow(double noundef %267, double noundef %270) #13
-  %272 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %273 = load double, ptr %272, align 8
-  %274 = fsub double %271, %273
-  %275 = load double, ptr %260, align 8
-  %276 = fdiv double %274, %275
+  %267 = fsub double %264, %266
+  %268 = fdiv double %267, %254
   br label %.thread
 
-277:                                              ; preds = %3
-  %278 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %279 = load double, ptr %278, align 8
-  %280 = load double, ptr %1, align 8
-  %281 = tail call double @pow(double noundef %2, double noundef %280) #13
-  %282 = getelementptr inbounds nuw i8, ptr %1, i64 24
+269:                                              ; preds = %3
+  %270 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %271 = load double, ptr %270, align 8
+  %272 = load double, ptr %1, align 8
+  %273 = tail call double @pow(double noundef %2, double noundef %272) #13
+  %274 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %275 = load double, ptr %274, align 8
+  %276 = tail call double @llvm.fmuladd.f64(double %271, double %273, double %275)
+  %277 = fcmp ugt double %276, 0.000000e+00
+  br i1 %277, label %281, label %278
+
+278:                                              ; preds = %269
+  %279 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %280 = load double, ptr %279, align 8
+  br label %.thread
+
+281:                                              ; preds = %269
+  %282 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %283 = load double, ptr %282, align 8
-  %284 = tail call double @llvm.fmuladd.f64(double %279, double %281, double %283)
-  %285 = fcmp ugt double %284, 0.000000e+00
-  br i1 %285, label %289, label %286
-
-286:                                              ; preds = %277
-  %287 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %288 = load double, ptr %287, align 8
+  %284 = tail call double @llvm.log10.f64(double %276)
+  %285 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %286 = load double, ptr %285, align 8
+  %287 = tail call double @llvm.fmuladd.f64(double %283, double %284, double %286)
   br label %.thread
 
-289:                                              ; preds = %277
-  %290 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %291 = load double, ptr %290, align 8
-  %292 = tail call double @llvm.log10.f64(double %284)
-  %293 = getelementptr inbounds nuw i8, ptr %1, i64 32
+288:                                              ; preds = %3
+  %289 = load double, ptr %1, align 8
+  %290 = tail call double @llvm.fabs.f64(double %289)
+  %291 = fcmp olt double %290, 1.000000e-04
+  br i1 %291, label %.thread, label %292
+
+292:                                              ; preds = %288
+  %293 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %294 = load double, ptr %293, align 8
-  %295 = tail call double @llvm.fmuladd.f64(double %291, double %292, double %294)
+  %295 = tail call double @llvm.fabs.f64(double %294)
+  %296 = fcmp olt double %295, 1.000000e-04
+  br i1 %296, label %.thread, label %297
+
+297:                                              ; preds = %292
+  %298 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %299 = load double, ptr %298, align 8
+  %300 = tail call double @llvm.fabs.f64(double %299)
+  %301 = fcmp olt double %300, 1.000000e-04
+  br i1 %301, label %.thread, label %302
+
+302:                                              ; preds = %297
+  %303 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %304 = load double, ptr %303, align 8
+  %305 = fsub double %2, %304
+  %306 = fdiv double %305, %294
+  %307 = tail call double @pow(double noundef 1.000000e+01, double noundef %306) #13
+  %308 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %309 = load double, ptr %308, align 8
+  %310 = fsub double %307, %309
+  %311 = fdiv double %310, %299
+  %312 = fdiv double 1.000000e+00, %289
+  %313 = tail call double @pow(double noundef %311, double noundef %312) #13
   br label %.thread
 
-296:                                              ; preds = %3
-  %297 = load double, ptr %1, align 8
-  %298 = tail call double @llvm.fabs.f64(double %297)
-  %299 = fcmp olt double %298, 1.000000e-04
-  br i1 %299, label %.thread, label %300
-
-300:                                              ; preds = %296
-  %301 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %302 = load double, ptr %301, align 8
-  %303 = tail call double @llvm.fabs.f64(double %302)
-  %304 = fcmp olt double %303, 1.000000e-04
-  br i1 %304, label %.thread, label %305
-
-305:                                              ; preds = %300
-  %306 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %307 = load double, ptr %306, align 8
-  %308 = tail call double @llvm.fabs.f64(double %307)
-  %309 = fcmp olt double %308, 1.000000e-04
-  br i1 %309, label %.thread, label %310
-
-310:                                              ; preds = %305
-  %311 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %312 = load double, ptr %311, align 8
-  %313 = fsub double %2, %312
-  %314 = fdiv double %313, %302
-  %315 = tail call double @pow(double noundef 1.000000e+01, double noundef %314) #13
-  %316 = getelementptr inbounds nuw i8, ptr %1, i64 24
+314:                                              ; preds = %3
+  %315 = load double, ptr %1, align 8
+  %316 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %317 = load double, ptr %316, align 8
-  %318 = fsub double %315, %317
-  %319 = load double, ptr %306, align 8
-  %320 = fdiv double %318, %319
-  %321 = load double, ptr %1, align 8
-  %322 = fdiv double 1.000000e+00, %321
-  %323 = tail call double @pow(double noundef %320, double noundef %322) #13
+  %318 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %319 = load double, ptr %318, align 8
+  %320 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %321 = load double, ptr %320, align 8
+  %322 = tail call double @llvm.fmuladd.f64(double %319, double %2, double %321)
+  %323 = tail call double @pow(double noundef %317, double noundef %322) #13
+  %324 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %325 = load double, ptr %324, align 8
+  %326 = tail call double @llvm.fmuladd.f64(double %315, double %323, double %325)
   br label %.thread
 
-324:                                              ; preds = %3
-  %325 = load double, ptr %1, align 8
-  %326 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %327 = load double, ptr %326, align 8
-  %328 = getelementptr inbounds nuw i8, ptr %1, i64 16
+327:                                              ; preds = %3
+  %328 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %329 = load double, ptr %328, align 8
-  %330 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %331 = load double, ptr %330, align 8
-  %332 = tail call double @llvm.fmuladd.f64(double %329, double %2, double %331)
-  %333 = tail call double @pow(double noundef %327, double noundef %332) #13
-  %334 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %335 = load double, ptr %334, align 8
-  %336 = tail call double @llvm.fmuladd.f64(double %325, double %333, double %335)
+  %330 = fsub double %2, %329
+  %331 = fcmp olt double %330, 0.000000e+00
+  br i1 %331, label %.thread, label %332
+
+332:                                              ; preds = %327
+  %333 = load double, ptr %1, align 8
+  %334 = tail call double @llvm.fabs.f64(double %333)
+  %335 = fcmp olt double %334, 1.000000e-04
+  br i1 %335, label %.thread, label %336
+
+336:                                              ; preds = %332
+  %337 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %338 = load double, ptr %337, align 8
+  %339 = tail call double @llvm.fabs.f64(double %338)
+  %340 = fcmp olt double %339, 1.000000e-04
+  br i1 %340, label %.thread, label %341
+
+341:                                              ; preds = %336
+  %342 = fdiv double %330, %333
+  %343 = tail call double @log(double noundef %342) #13
+  %344 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %345 = load double, ptr %344, align 8
+  %346 = tail call double @log(double noundef %345) #13
+  %347 = fdiv double %343, %346
+  %348 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %349 = load double, ptr %348, align 8
+  %350 = fsub double %347, %349
+  %351 = fdiv double %350, %338
   br label %.thread
 
-337:                                              ; preds = %3
-  %338 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %339 = load double, ptr %338, align 8
-  %340 = fsub double %2, %339
-  %341 = fcmp olt double %340, 0.000000e+00
-  br i1 %341, label %.thread, label %342
+352:                                              ; preds = %3
+  %353 = load double, ptr %1, align 8
+  %354 = tail call double @llvm.fabs.f64(double %353)
+  %355 = fcmp olt double %354, 1.000000e-04
+  br i1 %355, label %.thread, label %356
 
-342:                                              ; preds = %337
-  %343 = load double, ptr %1, align 8
-  %344 = tail call double @llvm.fabs.f64(double %343)
-  %345 = fcmp olt double %344, 1.000000e-04
-  br i1 %345, label %.thread, label %346
-
-346:                                              ; preds = %342
-  %347 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %348 = load double, ptr %347, align 8
-  %349 = tail call double @llvm.fabs.f64(double %348)
-  %350 = fcmp olt double %349, 1.000000e-04
-  br i1 %350, label %.thread, label %351
-
-351:                                              ; preds = %346
-  %352 = fdiv double %340, %343
-  %353 = tail call double @log(double noundef %352) #13
-  %354 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %355 = load double, ptr %354, align 8
-  %356 = tail call double @log(double noundef %355) #13
-  %357 = fdiv double %353, %356
-  %358 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %359 = load double, ptr %358, align 8
-  %360 = fsub double %357, %359
-  %361 = load double, ptr %347, align 8
-  %362 = fdiv double %360, %361
+356:                                              ; preds = %352
+  %357 = fsub double 1.000000e+00, %2
+  %358 = fdiv double 1.000000e+00, %353
+  %359 = tail call double @pow(double noundef %357, double noundef %358) #13
+  %360 = fsub double 1.000000e+00, %359
+  %361 = tail call double @pow(double noundef %360, double noundef %358) #13
   br label %.thread
 
-363:                                              ; preds = %3
-  %364 = load double, ptr %1, align 8
-  %365 = tail call double @llvm.fabs.f64(double %364)
-  %366 = fcmp olt double %365, 1.000000e-04
-  br i1 %366, label %.thread, label %367
+362:                                              ; preds = %3
+  %363 = load double, ptr %1, align 8
+  %364 = tail call double @pow(double noundef %2, double noundef %363) #13
+  %365 = fsub double 1.000000e+00, %364
+  %366 = tail call double @pow(double noundef %365, double noundef %363) #13
+  %367 = fsub double 1.000000e+00, %366
+  br label %.thread
 
-367:                                              ; preds = %363
-  %368 = fsub double 1.000000e+00, %2
-  %369 = fdiv double 1.000000e+00, %364
-  %370 = tail call double @pow(double noundef %368, double noundef %369) #13
-  %371 = fsub double 1.000000e+00, %370
-  %372 = load double, ptr %1, align 8
+368:                                              ; preds = %3
+  %369 = load double, ptr %1, align 8
+  %370 = fneg double %369
+  %371 = tail call double @exp(double noundef %370) #13
+  %372 = fadd double %371, 1.000000e+00
   %373 = fdiv double 1.000000e+00, %372
-  %374 = tail call double @pow(double noundef %371, double noundef %373) #13
+  %374 = fadd double %373, -5.000000e-01
+  %375 = fdiv double 5.000000e-01, %374
+  %376 = tail call double @llvm.fmuladd.f64(double %2, double 2.000000e+00, double -1.000000e+00)
+  %377 = fmul double %376, %370
+  %378 = tail call double @exp(double noundef %377) #13
+  %379 = fadd double %378, 1.000000e+00
+  %380 = fdiv double 1.000000e+00, %379
+  %381 = fadd double %380, -5.000000e-01
+  %382 = tail call double @llvm.fmuladd.f64(double %375, double %381, double 5.000000e-01)
   br label %.thread
 
-375:                                              ; preds = %3
-  %376 = load double, ptr %1, align 8
-  %377 = tail call double @pow(double noundef %2, double noundef %376) #13
-  %378 = fsub double 1.000000e+00, %377
-  %379 = load double, ptr %1, align 8
-  %380 = tail call double @pow(double noundef %378, double noundef %379) #13
-  %381 = fsub double 1.000000e+00, %380
-  br label %.thread
-
-382:                                              ; preds = %3
-  %383 = load double, ptr %1, align 8
-  %384 = fneg double %383
-  %385 = tail call double @exp(double noundef %384) #13
-  %386 = fadd double %385, 1.000000e+00
-  %387 = fdiv double 1.000000e+00, %386
-  %388 = fadd double %387, -5.000000e-01
-  %389 = fdiv double 5.000000e-01, %388
-  %390 = tail call double @llvm.fmuladd.f64(double %2, double 2.000000e+00, double -1.000000e+00)
-  %391 = fmul double %390, %384
-  %392 = tail call double @exp(double noundef %391) #13
-  %393 = fadd double %392, 1.000000e+00
+383:                                              ; preds = %3
+  %384 = load double, ptr %1, align 8
+  %385 = fneg double %384
+  %386 = tail call double @exp(double noundef %385) #13
+  %387 = fadd double %386, 1.000000e+00
+  %388 = fdiv double 1.000000e+00, %387
+  %389 = fadd double %388, -5.000000e-01
+  %390 = fdiv double 5.000000e-01, %389
+  %391 = fadd double %2, -5.000000e-01
+  %392 = fdiv double %391, %390
+  %393 = fadd double %392, 5.000000e-01
   %394 = fdiv double 1.000000e+00, %393
-  %395 = fadd double %394, -5.000000e-01
-  %396 = tail call double @llvm.fmuladd.f64(double %389, double %395, double 5.000000e-01)
+  %395 = fadd double %394, -1.000000e+00
+  %396 = tail call double @log(double noundef %395) #13
+  %397 = fdiv double %396, %384
+  %398 = fsub double 1.000000e+00, %397
+  %399 = fmul double %398, 5.000000e-01
   br label %.thread
 
-397:                                              ; preds = %3
-  %398 = load double, ptr %1, align 8
-  %399 = fneg double %398
-  %400 = tail call double @exp(double noundef %399) #13
-  %401 = fadd double %400, 1.000000e+00
-  %402 = fdiv double 1.000000e+00, %401
-  %403 = fadd double %402, -5.000000e-01
-  %404 = fdiv double 5.000000e-01, %403
-  %405 = fadd double %2, -5.000000e-01
-  %406 = fdiv double %405, %404
-  %407 = fadd double %406, 5.000000e-01
-  %408 = fdiv double 1.000000e+00, %407
-  %409 = fadd double %408, -1.000000e+00
-  %410 = tail call double @log(double noundef %409) #13
-  %411 = fdiv double %410, %398
-  %412 = fsub double 1.000000e+00, %411
-  %413 = fmul double %412, 5.000000e-01
-  br label %.thread
-
-.thread:                                          ; preds = %324, %375, %382, %397, %11, %23, %40, %53, %62, %84, %78, %111, %103, %127, %130, %168, %156, %181, %187, %190, %230, %219, %247, %250, %241, %269, %289, %286, %310, %351, %367, %7, %16, %20, %26, %37, %31, %47, %43, %63, %75, %91, %87, %100, %120, %152, %148, %163, %205, %214, %210, %227, %259, %255, %264, %305, %300, %296, %337, %346, %342, %363, %3
-  %.0184 = phi double [ 0.000000e+00, %3 ], [ %12, %11 ], [ %25, %23 ], [ %42, %40 ], [ 0.000000e+00, %62 ], [ %60, %53 ], [ %83, %78 ], [ %86, %84 ], [ %110, %103 ], [ %115, %111 ], [ %129, %127 ], [ %133, %130 ], [ %162, %156 ], [ %169, %168 ], [ %186, %181 ], [ %189, %187 ], [ %195, %190 ], [ %226, %219 ], [ %232, %230 ], [ %244, %241 ], [ %249, %247 ], [ %254, %250 ], [ %276, %269 ], [ %288, %286 ], [ %295, %289 ], [ %323, %310 ], [ %336, %324 ], [ %362, %351 ], [ %374, %367 ], [ %381, %375 ], [ %396, %382 ], [ %413, %397 ], [ %., %7 ], [ %.201, %16 ], [ 0x4480F0CF00000000, %20 ], [ 0.000000e+00, %26 ], [ 0.000000e+00, %37 ], [ 0.000000e+00, %31 ], [ 0.000000e+00, %47 ], [ 0.000000e+00, %43 ], [ 0.000000e+00, %63 ], [ 0.000000e+00, %75 ], [ 0.000000e+00, %91 ], [ 0.000000e+00, %87 ], [ 0.000000e+00, %100 ], [ 0.000000e+00, %120 ], [ 0.000000e+00, %152 ], [ 0.000000e+00, %148 ], [ 0.000000e+00, %163 ], [ 0.000000e+00, %205 ], [ 0.000000e+00, %214 ], [ 0.000000e+00, %210 ], [ 0.000000e+00, %227 ], [ 0.000000e+00, %259 ], [ 0.000000e+00, %255 ], [ 0.000000e+00, %264 ], [ 0.000000e+00, %305 ], [ 0.000000e+00, %300 ], [ 0.000000e+00, %296 ], [ 0.000000e+00, %337 ], [ 0.000000e+00, %346 ], [ 0.000000e+00, %342 ], [ 0.000000e+00, %363 ]
+.thread:                                          ; preds = %314, %362, %368, %383, %11, %23, %40, %53, %61, %83, %77, %109, %102, %125, %128, %162, %152, %175, %181, %184, %223, %213, %240, %243, %234, %262, %281, %278, %302, %341, %356, %7, %16, %20, %26, %37, %31, %47, %43, %62, %74, %90, %86, %99, %118, %146, %157, %199, %208, %204, %220, %252, %248, %257, %297, %292, %288, %327, %336, %332, %352, %3
+  %.0184 = phi double [ 0.000000e+00, %3 ], [ %12, %11 ], [ %25, %23 ], [ %42, %40 ], [ 0.000000e+00, %61 ], [ %59, %53 ], [ %82, %77 ], [ %85, %83 ], [ %108, %102 ], [ %113, %109 ], [ %127, %125 ], [ %131, %128 ], [ %156, %152 ], [ %163, %162 ], [ %180, %175 ], [ %183, %181 ], [ %189, %184 ], [ %219, %213 ], [ %225, %223 ], [ %237, %234 ], [ %242, %240 ], [ %247, %243 ], [ %268, %262 ], [ %280, %278 ], [ %287, %281 ], [ %313, %302 ], [ %326, %314 ], [ %351, %341 ], [ %361, %356 ], [ %367, %362 ], [ %382, %368 ], [ %399, %383 ], [ %., %7 ], [ %.201, %16 ], [ 0x4480F0CF00000000, %20 ], [ 0.000000e+00, %26 ], [ 0.000000e+00, %37 ], [ 0.000000e+00, %31 ], [ 0.000000e+00, %47 ], [ 0.000000e+00, %43 ], [ 0.000000e+00, %62 ], [ 0.000000e+00, %74 ], [ 0.000000e+00, %90 ], [ 0.000000e+00, %86 ], [ 0.000000e+00, %99 ], [ 0.000000e+00, %118 ], [ 0.000000e+00, %146 ], [ 0.000000e+00, %157 ], [ 0.000000e+00, %199 ], [ 0.000000e+00, %208 ], [ 0.000000e+00, %204 ], [ 0.000000e+00, %220 ], [ 0.000000e+00, %252 ], [ 0.000000e+00, %248 ], [ 0.000000e+00, %257 ], [ 0.000000e+00, %297 ], [ 0.000000e+00, %292 ], [ 0.000000e+00, %288 ], [ 0.000000e+00, %327 ], [ 0.000000e+00, %336 ], [ 0.000000e+00, %332 ], [ 0.000000e+00, %352 ]
   ret double %.0184
 }
 

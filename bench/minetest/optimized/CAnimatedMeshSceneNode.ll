@@ -4260,8 +4260,8 @@ _ZN3irr4core10quaternion5slerpES1_S1_ff.exit:     ; preds = %if.else.i, %if.then
   %mul7.i = fmul float %QRotation.sroa.0.4.vec.extract, %QRotation.sroa.0.4.vec.extract
   %conv8.i = fpext float %mul7.i to double
   %QRotation.sroa.7.8.vec.extract = extractelement <2 x float> %retval.sroa.3.12.vec.insert.i62.sink.i, i64 0
-  %foldExtExtBinop32 = fmul <2 x float> %retval.sroa.3.12.vec.insert.i62.sink.i, %retval.sroa.3.12.vec.insert.i62.sink.i
-  %mul10.i = extractelement <2 x float> %foldExtExtBinop32, i64 0
+  %foldExtExtBinop31 = fmul <2 x float> %retval.sroa.3.12.vec.insert.i62.sink.i, %retval.sroa.3.12.vec.insert.i62.sink.i
+  %mul10.i = extractelement <2 x float> %foldExtExtBinop31, i64 0
   %conv11.i = fpext float %mul10.i to double
   %195 = fneg float %QRotation.sroa.0.0.vec.extract
   %neg.i = fmul float %QRotation.sroa.7.8.vec.extract, %195
@@ -4278,7 +4278,6 @@ if.then.i10:                                      ; preds = %_ZN3irr4core10quate
   %conv23.i = fpext float %QRotation.sroa.7.12.vec.extract to double
   %call24.i = call double @atan2(double noundef %conv21.i, double noundef %conv23.i) #21
   %mul25.i = fmul double %call24.i, -2.000000e+00
-  %conv26.i = fptrunc double %mul25.i to float
   store float 0.000000e+00, ptr %tmpVector, align 8, !tbaa !171
   br label %_ZNK3irr4core10quaternion7toEulerERNS0_8vector3dIfEE.exit
 
@@ -4293,7 +4292,6 @@ if.then31.i:                                      ; preds = %if.else.i11
   %conv35.i = fpext float %QRotation.sroa.7.12.vec.extract to double
   %call36.i = call double @atan2(double noundef %conv33.i, double noundef %conv35.i) #21
   %mul37.i = fmul double %call36.i, 2.000000e+00
-  %conv38.i = fptrunc double %mul37.i to float
   store float 0.000000e+00, ptr %tmpVector, align 8, !tbaa !171
   br label %_ZNK3irr4core10quaternion7toEulerERNS0_8vector3dIfEE.exit
 
@@ -4306,8 +4304,6 @@ if.else42.i:                                      ; preds = %if.else.i11
   %sub51.i = fsub double %sub.i12, %conv11.i
   %add.i = fadd double %sub51.i, %conv.i7
   %call52.i = call double @atan2(double noundef %mul50.i, double noundef %add.i) #21
-  %conv53.i = fptrunc double %call52.i to float
-  store float %conv53.i, ptr %Z.i219, align 8, !tbaa !170
   %mul60.i = fmul float %QRotation.sroa.0.0.vec.extract, %QRotation.sroa.7.12.vec.extract
   %200 = call float @llvm.fmuladd.f32(float %QRotation.sroa.0.4.vec.extract, float %QRotation.sroa.7.8.vec.extract, float %mul60.i)
   %conv61.i = fpext float %200 to double
@@ -4325,12 +4321,12 @@ if.else42.i:                                      ; preds = %if.else.i11
   %202 = select i1 %cmp.i2.i.i, double %201, double 1.000000e+00
   %call71.i = call double @asin(double noundef %202) #21
   %conv72.i = fptrunc double %call71.i to float
-  %.pre22 = load float, ptr %Z.i219, align 8, !tbaa !170
   br label %_ZNK3irr4core10quaternion7toEulerERNS0_8vector3dIfEE.exit
 
 _ZNK3irr4core10quaternion7toEulerERNS0_8vector3dIfEE.exit: ; preds = %if.then.i10, %if.then31.i, %if.else42.i
-  %203 = phi float [ %conv38.i, %if.then31.i ], [ %.pre22, %if.else42.i ], [ %conv26.i, %if.then.i10 ]
+  %.in = phi double [ %mul37.i, %if.then31.i ], [ %call52.i, %if.else42.i ], [ %mul25.i, %if.then.i10 ]
   %.sink.i = phi float [ 0xBFF921FB60000000, %if.then31.i ], [ %conv72.i, %if.else42.i ], [ 0x3FF921FB60000000, %if.then.i10 ]
+  %203 = fptrunc double %.in to float
   store float %.sink.i, ptr %Y41.i, align 4, !tbaa !172
   %204 = load <2 x float>, ptr %tmpVector, align 8, !tbaa !10
   %205 = fmul <2 x float> %204, splat (float 0x404CA5DC00000000)

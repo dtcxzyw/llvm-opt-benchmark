@@ -523,6 +523,8 @@ define dso_local { <2 x float>, <2 x float> } @_ZN4pbrt5UnionERKNS_13DirectionCo
   %.sroa.039.0.copyload = load <2 x float>, ptr %1, align 4
   %.sroa.240.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.240.0.copyload = load float, ptr %.sroa.240.0..sroa_idx, align 4
+  %.sroa.04.0.vec.extract.i.i = extractelement <2 x float> %.sroa.041.0.copyload, i64 0
+  %.sroa.01.0.vec.extract.i.i = extractelement <2 x float> %.sroa.039.0.copyload, i64 0
   %foldExtExtBinop = fmul <2 x float> %.sroa.041.0.copyload, %.sroa.039.0.copyload
   %20 = extractelement <2 x float> %foldExtExtBinop, i64 0
   %.sroa.04.4.vec.extract.i.i = extractelement <2 x float> %.sroa.041.0.copyload, i64 1
@@ -584,7 +586,6 @@ _ZN4pbrt12AngleBetweenIfEEfNS_7Vector3IT_EES3_.exit: ; preds = %26, %40
   br i1 %55, label %57, label %56
 
 56:                                               ; preds = %_ZN4pbrt12AngleBetweenIfEEfNS_7Vector3IT_EES3_.exit
-  %.sroa.0.0.copyload76 = load <2 x float>, ptr %0, align 4
   %.sroa.8.0.copyload81 = load <2 x float>, ptr %.sroa.242.0..sroa_idx, align 4
   br label %107
 
@@ -596,7 +597,6 @@ _ZN4pbrt12AngleBetweenIfEEfNS_7Vector3IT_EES3_.exit: ; preds = %26, %40
   br i1 %60, label %62, label %61
 
 61:                                               ; preds = %57
-  %.sroa.0.0.copyload77 = load <2 x float>, ptr %1, align 4
   %.sroa.8.0.copyload83 = load <2 x float>, ptr %.sroa.240.0..sroa_idx, align 4
   br label %107
 
@@ -607,31 +607,25 @@ _ZN4pbrt12AngleBetweenIfEEfNS_7Vector3IT_EES3_.exit: ; preds = %26, %40
   br i1 %65, label %66, label %107
 
 66:                                               ; preds = %62
-  %.sroa.028.0.copyload = load <2 x float>, ptr %0, align 4
   %.sroa.229.0.copyload = load float, ptr %.sroa.242.0..sroa_idx, align 4
-  %.sroa.026.0.copyload = load <2 x float>, ptr %1, align 4
   %.sroa.227.0.copyload = load float, ptr %.sroa.240.0..sroa_idx, align 4
-  %.sroa.011.4.vec.extract.i = extractelement <2 x float> %.sroa.028.0.copyload, i64 1
-  %.sroa.03.4.vec.extract.i = extractelement <2 x float> %.sroa.026.0.copyload, i64 1
-  %67 = fmul float %.sroa.229.0.copyload, %.sroa.03.4.vec.extract.i
+  %67 = fmul float %.sroa.01.4.vec.extract.i.i, %.sroa.229.0.copyload
   %68 = fneg float %67
-  %69 = tail call noundef float @llvm.fma.f32(float %.sroa.011.4.vec.extract.i, float %.sroa.227.0.copyload, float %68)
+  %69 = tail call noundef float @llvm.fma.f32(float %.sroa.04.4.vec.extract.i.i, float %.sroa.227.0.copyload, float %68)
   %70 = fneg float %.sroa.229.0.copyload
-  %71 = tail call noundef float @llvm.fma.f32(float %70, float %.sroa.03.4.vec.extract.i, float %67)
+  %71 = tail call noundef float @llvm.fma.f32(float %70, float %.sroa.01.4.vec.extract.i.i, float %67)
   %72 = fadd float %69, %71
-  %.sroa.03.0.vec.extract.i = extractelement <2 x float> %.sroa.026.0.copyload, i64 0
-  %.sroa.011.0.vec.extract.i = extractelement <2 x float> %.sroa.028.0.copyload, i64 0
-  %73 = fmul float %.sroa.011.0.vec.extract.i, %.sroa.227.0.copyload
+  %73 = fmul float %.sroa.04.0.vec.extract.i.i, %.sroa.227.0.copyload
   %74 = fneg float %73
-  %75 = tail call noundef float @llvm.fma.f32(float %.sroa.229.0.copyload, float %.sroa.03.0.vec.extract.i, float %74)
-  %76 = fneg float %.sroa.011.0.vec.extract.i
+  %75 = tail call noundef float @llvm.fma.f32(float %.sroa.229.0.copyload, float %.sroa.01.0.vec.extract.i.i, float %74)
+  %76 = fneg float %.sroa.04.0.vec.extract.i.i
   %77 = tail call noundef float @llvm.fma.f32(float %76, float %.sroa.227.0.copyload, float %73)
   %78 = fadd float %75, %77
-  %79 = fmul float %.sroa.011.4.vec.extract.i, %.sroa.03.0.vec.extract.i
+  %79 = fmul float %.sroa.04.4.vec.extract.i.i, %.sroa.01.0.vec.extract.i.i
   %80 = fneg float %79
-  %81 = tail call noundef float @llvm.fma.f32(float %.sroa.011.0.vec.extract.i, float %.sroa.03.4.vec.extract.i, float %80)
-  %82 = fneg float %.sroa.011.4.vec.extract.i
-  %83 = tail call noundef float @llvm.fma.f32(float %82, float %.sroa.03.0.vec.extract.i, float %79)
+  %81 = tail call noundef float @llvm.fma.f32(float %.sroa.04.0.vec.extract.i.i, float %.sroa.01.4.vec.extract.i.i, float %80)
+  %82 = fneg float %.sroa.04.4.vec.extract.i.i
+  %83 = tail call noundef float @llvm.fma.f32(float %82, float %.sroa.01.0.vec.extract.i.i, float %79)
   %84 = fadd float %81, %83
   %85 = fmul float %72, %72
   %86 = fmul float %78, %78
@@ -677,7 +671,7 @@ _ZN4pbrt12AngleBetweenIfEEfNS_7Vector3IT_EES3_.exit: ; preds = %26, %40
   br label %107
 
 107:                                              ; preds = %66, %62, %56, %61, %91, %12, %7
-  %.sroa.0.0 = phi <2 x float> [ %.sroa.0.0.copyload, %7 ], [ %.sroa.0.0.copyload75, %12 ], [ %.sroa.0.4.vec.insert.i.i.i, %91 ], [ %.sroa.0.0.copyload77, %61 ], [ %.sroa.0.0.copyload76, %56 ], [ zeroinitializer, %62 ], [ zeroinitializer, %66 ]
+  %.sroa.0.0 = phi <2 x float> [ %.sroa.0.0.copyload, %7 ], [ %.sroa.0.0.copyload75, %12 ], [ %.sroa.0.4.vec.insert.i.i.i, %91 ], [ %.sroa.039.0.copyload, %61 ], [ %.sroa.041.0.copyload, %56 ], [ zeroinitializer, %62 ], [ zeroinitializer, %66 ]
   %.sroa.8.0 = phi <2 x float> [ %.sroa.8.0.copyload, %7 ], [ %.sroa.8.0.copyload79, %12 ], [ %.sroa.8.12.vec.insert, %91 ], [ %.sroa.8.0.copyload83, %61 ], [ %.sroa.8.0.copyload81, %56 ], [ <float 1.000000e+00, float -1.000000e+00>, %62 ], [ <float 1.000000e+00, float -1.000000e+00>, %66 ]
   %.fca.0.insert = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { <2 x float>, <2 x float> } %.fca.0.insert, <2 x float> %.sroa.8.0, 1

@@ -600,15 +600,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
   %156 = sub nsw i32 0, %116
   %157 = uitofp nneg i32 %116 to double
   %158 = getelementptr inbounds nuw i8, ptr %22, i64 80
+  %159 = load i64, ptr %158, align 8
+  %160 = trunc i64 %159 to i32
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %._crit_edge.i, %.preheader.lr.ph.i
   %.1139.i = phi i32 [ %156, %.preheader.lr.ph.i ], [ %181, %._crit_edge.i ]
   %.070138.i = phi i32 [ 0, %.preheader.lr.ph.i ], [ %.2.i, %._crit_edge.i ]
-  %159 = sitofp i32 %.1139.i to double
-  %160 = load i64, ptr %158, align 8
-  %161 = trunc i64 %160 to i32
-  %162 = mul i32 %.1139.i, %161
+  %161 = sitofp i32 %.1139.i to double
+  %162 = mul i32 %.1139.i, %160
   br label %163
 
 163:                                              ; preds = %179, %.preheader.i
@@ -616,7 +616,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
   %.171135.i = phi i32 [ %.070138.i, %.preheader.i ], [ %.2.i, %179 ]
   %164 = sitofp i32 %.069136.i to double
   %165 = fmul double %164, %164
-  %166 = call double @llvm.fmuladd.f64(double %159, double %159, double %165)
+  %166 = call double @llvm.fmuladd.f64(double %161, double %161, double %165)
   %sqrt.i = call double @llvm.sqrt.f64(double %166)
   %167 = fcmp ogt double %sqrt.i, %157
   br i1 %167, label %179, label %168
@@ -988,16 +988,16 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i62: ; preds = %_
   %306 = sub nsw i32 0, %228
   %307 = uitofp nneg i32 %228 to double
   %308 = getelementptr inbounds nuw i8, ptr %15, i64 80
+  %309 = load i64, ptr %308, align 8
+  %310 = lshr i64 %309, 2
+  %311 = trunc i64 %310 to i32
   br label %.preheader.i57
 
 .preheader.i57:                                   ; preds = %._crit_edge.i60, %.preheader.lr.ph.i56
   %.1173.i = phi i32 [ %306, %.preheader.lr.ph.i56 ], [ %333, %._crit_edge.i60 ]
   %.089172.i = phi i32 [ 0, %.preheader.lr.ph.i56 ], [ %.2.i59, %._crit_edge.i60 ]
-  %309 = sitofp i32 %.1173.i to double
-  %310 = load i64, ptr %308, align 8
-  %311 = lshr i64 %310, 2
-  %312 = trunc i64 %311 to i32
-  %313 = mul i32 %.1173.i, %312
+  %312 = sitofp i32 %.1173.i to double
+  %313 = mul i32 %.1173.i, %311
   br label %314
 
 314:                                              ; preds = %331, %.preheader.i57
@@ -1005,7 +1005,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i62: ; preds = %_
   %.190169.i = phi i32 [ %.089172.i, %.preheader.i57 ], [ %.2.i59, %331 ]
   %315 = sitofp i32 %.088170.i to double
   %316 = fmul double %315, %315
-  %317 = call double @llvm.fmuladd.f64(double %309, double %309, double %316)
+  %317 = call double @llvm.fmuladd.f64(double %312, double %312, double %316)
   %sqrt.i58 = call double @llvm.sqrt.f64(double %317)
   %318 = fcmp ogt double %sqrt.i58, %307
   %319 = or i32 %.088170.i, %.1173.i

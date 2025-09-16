@@ -9543,14 +9543,14 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Far19GregoryTriConverterIdE10In
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 40
   br label %10
 
-10:                                               ; preds = %2, %86
-  %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %86 ]
-  %.0123 = phi i32 [ 0, %2 ], [ %81, %86 ]
-  %.094122 = phi i32 [ 0, %2 ], [ %.1, %86 ]
-  %.095121 = phi i32 [ -1, %2 ], [ %.196, %86 ]
-  %.098120 = phi i32 [ -1, %2 ], [ %.199, %86 ]
-  %.0100119 = phi i32 [ 0, %2 ], [ %90, %86 ]
-  %.0101118 = phi i32 [ 0, %2 ], [ %94, %86 ]
+10:                                               ; preds = %2, %84
+  %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %84 ]
+  %.0123 = phi i32 [ 0, %2 ], [ %79, %84 ]
+  %.094122 = phi i32 [ 0, %2 ], [ %.1, %84 ]
+  %.095121 = phi i32 [ -1, %2 ], [ %.196, %84 ]
+  %.098120 = phi i32 [ -1, %2 ], [ %.199, %84 ]
+  %.0100119 = phi i32 [ 0, %2 ], [ %88, %84 ]
+  %.0101118 = phi i32 [ 0, %2 ], [ %92, %84 ]
   %11 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Far::SourcePatch::Corner", ptr %1, i64 %indvars.iv
   %.sroa.0.0.copyload = load i16, ptr %11, align 2
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 2
@@ -9594,233 +9594,229 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Far19GregoryTriConverterIdE10In
   %43 = or disjoint i16 %42, %41
   store i16 %43, ptr %12, align 8
   %.not111 = icmp eq i16 %41, 0
-  br i1 %.not111, label %46, label %44
+  br i1 %.not111, label %44, label %49
 
 44:                                               ; preds = %10
-  %45 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store double 0x3FF0C152382D7365, ptr %45, align 8
-  br label %52
-
-46:                                               ; preds = %10
   %.not112 = icmp eq i8 %13, 0
-  %47 = select i1 %.not112, double 0x401921FB54442D18, double 0x400921FB54442D18
-  %48 = uitofp i16 %.sroa.0.0.copyload to double
-  %49 = fdiv double %47, %48
+  %45 = select i1 %.not112, double 0x401921FB54442D18, double 0x400921FB54442D18
+  %46 = uitofp i16 %.sroa.0.0.copyload to double
+  %47 = fdiv double %45, %46
+  %48 = tail call double @cos(double noundef %47) #16
+  br label %49
+
+49:                                               ; preds = %10, %44
+  %.sink133 = phi double [ %47, %44 ], [ 0x3FF0C152382D7365, %10 ]
+  %.sink = phi double [ %48, %44 ], [ 5.000000e-01, %10 ]
   %50 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store double %49, ptr %50, align 8
-  %51 = tail call double @cos(double noundef %49) #16
-  br label %52
+  store double %.sink133, ptr %50, align 8
+  %51 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  store double %.sink, ptr %51, align 8
+  %52 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  %53 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
+  %54 = load i32, ptr %53, align 4
+  %55 = icmp eq i32 %54, 0
+  br i1 %55, label %56, label %61
 
-52:                                               ; preds = %46, %44
-  %.sink = phi double [ %51, %46 ], [ 5.000000e-01, %44 ]
-  %53 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  store double %.sink, ptr %53, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  %55 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
-  %56 = load i32, ptr %55, align 4
-  %57 = icmp eq i32 %56, 0
-  br i1 %57, label %58, label %63
+56:                                               ; preds = %49
+  %57 = getelementptr inbounds nuw i8, ptr %12, i64 168
+  %58 = load ptr, ptr %57, align 8
+  tail call void @_ZdlPv(ptr noundef %58) #16
+  %59 = getelementptr inbounds nuw i8, ptr %12, i64 48
+  store ptr %59, ptr %52, align 8
+  %60 = getelementptr inbounds nuw i8, ptr %12, i64 44
+  store i32 30, ptr %60, align 4
+  br label %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj30ELb1EE7SetSizeEj.exit
 
-58:                                               ; preds = %52
-  %59 = getelementptr inbounds nuw i8, ptr %12, i64 168
-  %60 = load ptr, ptr %59, align 8
-  tail call void @_ZdlPv(ptr noundef %60) #16
-  %61 = getelementptr inbounds nuw i8, ptr %12, i64 48
-  store ptr %61, ptr %54, align 8
+61:                                               ; preds = %49
   %62 = getelementptr inbounds nuw i8, ptr %12, i64 44
+  %63 = load i32, ptr %62, align 4
+  %64 = icmp ugt i32 %54, %63
+  br i1 %64, label %65, label %._ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj30ELb1EE7SetSizeEj.exit_crit_edge
+
+._ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj30ELb1EE7SetSizeEj.exit_crit_edge: ; preds = %61
+  %.pre = load ptr, ptr %52, align 8
+  br label %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj30ELb1EE7SetSizeEj.exit
+
+65:                                               ; preds = %61
+  %66 = getelementptr inbounds nuw i8, ptr %12, i64 168
+  %67 = load ptr, ptr %66, align 8
+  tail call void @_ZdlPv(ptr noundef %67) #16
+  %68 = getelementptr inbounds nuw i8, ptr %12, i64 48
+  store ptr %68, ptr %52, align 8
   store i32 30, ptr %62, align 4
+  %69 = zext i32 %54 to i64
+  %70 = shl nuw nsw i64 %69, 2
+  %71 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %70) #18
+  store ptr %71, ptr %66, align 8
+  store ptr %71, ptr %52, align 8
+  store i32 %54, ptr %62, align 4
   br label %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj30ELb1EE7SetSizeEj.exit
 
-63:                                               ; preds = %52
-  %64 = getelementptr inbounds nuw i8, ptr %12, i64 44
-  %65 = load i32, ptr %64, align 4
-  %66 = icmp ugt i32 %56, %65
-  br i1 %66, label %67, label %._ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj30ELb1EE7SetSizeEj.exit_crit_edge
+_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj30ELb1EE7SetSizeEj.exit: ; preds = %._ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj30ELb1EE7SetSizeEj.exit_crit_edge, %56, %65
+  %72 = phi ptr [ %.pre, %._ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj30ELb1EE7SetSizeEj.exit_crit_edge ], [ %59, %56 ], [ %71, %65 ]
+  %73 = getelementptr inbounds nuw i8, ptr %12, i64 40
+  store i32 %54, ptr %73, align 8
+  %74 = trunc nuw nsw i64 %indvars.iv to i32
+  %75 = tail call noundef i32 @_ZNK10OpenSubdiv6v3_6_03Far11SourcePatch19GetCornerRingPointsEiPi(ptr noundef nonnull align 4 dereferenceable(88) %1, i32 noundef %74, ptr noundef %72)
+  %76 = load i16, ptr %12, align 8
+  %77 = and i16 %76, 1
+  %78 = zext nneg i16 %77 to i32
+  %79 = add nuw nsw i32 %.0123, %78
+  %80 = and i16 %76, 8
+  %.not113 = icmp eq i16 %80, 0
+  br i1 %.not113, label %81, label %84
 
-._ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj30ELb1EE7SetSizeEj.exit_crit_edge: ; preds = %63
-  %.pre = load ptr, ptr %54, align 8
-  br label %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj30ELb1EE7SetSizeEj.exit
+81:                                               ; preds = %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj30ELb1EE7SetSizeEj.exit
+  %82 = add nsw i32 %.094122, 1
+  %83 = load i32, ptr %36, align 4
+  br label %84
 
-67:                                               ; preds = %63
-  %68 = getelementptr inbounds nuw i8, ptr %12, i64 168
-  %69 = load ptr, ptr %68, align 8
-  tail call void @_ZdlPv(ptr noundef %69) #16
-  %70 = getelementptr inbounds nuw i8, ptr %12, i64 48
-  store ptr %70, ptr %54, align 8
-  store i32 30, ptr %64, align 4
-  %71 = zext i32 %56 to i64
-  %72 = shl nuw nsw i64 %71, 2
-  %73 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %72) #18
-  store ptr %73, ptr %68, align 8
-  store ptr %73, ptr %54, align 8
-  store i32 %56, ptr %64, align 4
-  br label %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj30ELb1EE7SetSizeEj.exit
-
-_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj30ELb1EE7SetSizeEj.exit: ; preds = %._ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj30ELb1EE7SetSizeEj.exit_crit_edge, %58, %67
-  %74 = phi ptr [ %.pre, %._ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj30ELb1EE7SetSizeEj.exit_crit_edge ], [ %61, %58 ], [ %73, %67 ]
-  %75 = getelementptr inbounds nuw i8, ptr %12, i64 40
-  store i32 %56, ptr %75, align 8
-  %76 = trunc nuw nsw i64 %indvars.iv to i32
-  %77 = tail call noundef i32 @_ZNK10OpenSubdiv6v3_6_03Far11SourcePatch19GetCornerRingPointsEiPi(ptr noundef nonnull align 4 dereferenceable(88) %1, i32 noundef %76, ptr noundef %74)
-  %78 = load i16, ptr %12, align 8
-  %79 = and i16 %78, 1
-  %80 = zext nneg i16 %79 to i32
-  %81 = add nuw nsw i32 %.0123, %80
-  %82 = and i16 %78, 8
-  %.not113 = icmp eq i16 %82, 0
-  br i1 %.not113, label %83, label %86
-
-83:                                               ; preds = %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj30ELb1EE7SetSizeEj.exit
-  %84 = add nsw i32 %.094122, 1
-  %85 = load i32, ptr %36, align 4
-  br label %86
-
-86:                                               ; preds = %83, %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj30ELb1EE7SetSizeEj.exit
-  %.199 = phi i32 [ %.098120, %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj30ELb1EE7SetSizeEj.exit ], [ %85, %83 ]
-  %.196 = phi i32 [ %.095121, %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj30ELb1EE7SetSizeEj.exit ], [ %76, %83 ]
-  %.1 = phi i32 [ %.094122, %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj30ELb1EE7SetSizeEj.exit ], [ %84, %83 ]
-  %87 = lshr i16 %78, 1
-  %88 = and i16 %87, 1
-  %89 = zext nneg i16 %88 to i32
-  %90 = add nuw nsw i32 %.0100119, %89
-  %91 = lshr i16 %78, 4
-  %92 = and i16 %91, 1
-  %93 = zext nneg i16 %92 to i32
-  %94 = add nuw nsw i32 %.0101118, %93
+84:                                               ; preds = %81, %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj30ELb1EE7SetSizeEj.exit
+  %.199 = phi i32 [ %.098120, %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj30ELb1EE7SetSizeEj.exit ], [ %83, %81 ]
+  %.196 = phi i32 [ %.095121, %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj30ELb1EE7SetSizeEj.exit ], [ %74, %81 ]
+  %.1 = phi i32 [ %.094122, %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj30ELb1EE7SetSizeEj.exit ], [ %82, %81 ]
+  %85 = lshr i16 %76, 1
+  %86 = and i16 %85, 1
+  %87 = zext nneg i16 %86 to i32
+  %88 = add nuw nsw i32 %.0100119, %87
+  %89 = lshr i16 %76, 4
+  %90 = and i16 %89, 1
+  %91 = zext nneg i16 %90 to i32
+  %92 = add nuw nsw i32 %.0101118, %91
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %.preheader, label %10, !llvm.loop !73
 
-.preheader:                                       ; preds = %86, %156
-  %indvars.iv128 = phi i64 [ %indvars.iv.next129, %156 ], [ 0, %86 ]
-  %95 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Far::GregoryTriConverter<double>::CornerTopology", ptr %8, i64 %indvars.iv128
+.preheader:                                       ; preds = %84, %154
+  %indvars.iv128 = phi i64 [ %indvars.iv.next129, %154 ], [ 0, %84 ]
+  %93 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Far::GregoryTriConverter<double>::CornerTopology", ptr %8, i64 %indvars.iv128
   %indvars.iv.next129 = add nuw nsw i64 %indvars.iv128, 1
-  %96 = load i16, ptr %95, align 8
-  %97 = and i16 %96, -193
-  store i16 %97, ptr %95, align 8
-  %98 = and i16 %96, 8
-  %.not = icmp eq i16 %98, 0
-  br i1 %.not, label %.thread, label %100
+  %94 = load i16, ptr %93, align 8
+  %95 = and i16 %94, -193
+  store i16 %95, ptr %93, align 8
+  %96 = and i16 %94, 8
+  %.not = icmp eq i16 %96, 0
+  br i1 %.not, label %.thread, label %98
 
 .thread:                                          ; preds = %.preheader
-  %99 = and i16 %96, -457
-  br label %116
+  %97 = and i16 %94, -457
+  br label %114
 
-100:                                              ; preds = %.preheader
-  %101 = add nuw i64 %indvars.iv128, 4294967295
+98:                                               ; preds = %.preheader
+  %99 = add nuw i64 %indvars.iv128, 4294967295
   %.cmp = icmp eq i64 %indvars.iv128, 0
   %.cmp116.not = icmp eq i64 %indvars.iv128, 2
-  %102 = and i64 %indvars.iv.next129, 4294967295
-  %103 = select i1 %.cmp116.not, i64 0, i64 %102
-  %104 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Far::GregoryTriConverter<double>::CornerTopology", ptr %8, i64 %103
-  %105 = load i16, ptr %104, align 8
-  %106 = shl i16 %105, 5
-  %107 = and i16 %106, 256
-  %108 = and i16 %96, -449
-  %109 = or disjoint i16 %107, %108
-  store i16 %109, ptr %95, align 8
-  %110 = and i64 %101, 4294967295
-  %111 = select i1 %.cmp, i64 2, i64 %110
-  %112 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Far::GregoryTriConverter<double>::CornerTopology", ptr %8, i64 %111
-  %113 = load i16, ptr %112, align 8
-  %114 = shl i16 %113, 6
-  %115 = and i16 %114, 512
-  br label %116
+  %100 = and i64 %indvars.iv.next129, 4294967295
+  %101 = select i1 %.cmp116.not, i64 0, i64 %100
+  %102 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Far::GregoryTriConverter<double>::CornerTopology", ptr %8, i64 %101
+  %103 = load i16, ptr %102, align 8
+  %104 = shl i16 %103, 5
+  %105 = and i16 %104, 256
+  %106 = and i16 %94, -449
+  %107 = or disjoint i16 %105, %106
+  store i16 %107, ptr %93, align 8
+  %108 = and i64 %99, 4294967295
+  %109 = select i1 %.cmp, i64 2, i64 %108
+  %110 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Far::GregoryTriConverter<double>::CornerTopology", ptr %8, i64 %109
+  %111 = load i16, ptr %110, align 8
+  %112 = shl i16 %111, 6
+  %113 = and i16 %112, 512
+  br label %114
 
-116:                                              ; preds = %.thread, %100
-  %117 = phi i16 [ %109, %100 ], [ %99, %.thread ]
-  %118 = phi i16 [ %115, %100 ], [ 0, %.thread ]
-  %119 = and i16 %117, -3777
-  %120 = or disjoint i16 %118, %119
-  store i16 %120, ptr %95, align 8
-  %121 = and i16 %96, 1
-  %.not104 = icmp eq i16 %121, 0
-  br i1 %.not104, label %156, label %122
+114:                                              ; preds = %.thread, %98
+  %115 = phi i16 [ %107, %98 ], [ %97, %.thread ]
+  %116 = phi i16 [ %113, %98 ], [ 0, %.thread ]
+  %117 = and i16 %115, -3777
+  %118 = or disjoint i16 %116, %117
+  store i16 %118, ptr %93, align 8
+  %119 = and i16 %94, 1
+  %.not104 = icmp eq i16 %119, 0
+  br i1 %.not104, label %154, label %120
 
-122:                                              ; preds = %116
-  %123 = getelementptr inbounds nuw i8, ptr %95, i64 12
-  %124 = load i32, ptr %123, align 4
-  %.not106 = icmp eq i32 %124, 0
-  %125 = select i1 %.not106, i16 64, i16 0
-  %126 = getelementptr inbounds nuw i8, ptr %95, i64 8
-  %127 = load i32, ptr %126, align 8
-  %128 = add nsw i32 %127, -1
-  %129 = icmp eq i32 %124, %128
-  %130 = select i1 %129, i16 128, i16 0
-  %131 = or disjoint i16 %125, %130
-  %132 = or disjoint i16 %131, %120
-  store i16 %132, ptr %95, align 8
-  %133 = icmp sgt i32 %127, 1
-  br i1 %133, label %134, label %154
+120:                                              ; preds = %114
+  %121 = getelementptr inbounds nuw i8, ptr %93, i64 12
+  %122 = load i32, ptr %121, align 4
+  %.not106 = icmp eq i32 %122, 0
+  %123 = select i1 %.not106, i16 64, i16 0
+  %124 = getelementptr inbounds nuw i8, ptr %93, i64 8
+  %125 = load i32, ptr %124, align 8
+  %126 = add nsw i32 %125, -1
+  %127 = icmp eq i32 %122, %126
+  %128 = select i1 %127, i16 128, i16 0
+  %129 = or disjoint i16 %123, %128
+  %130 = or disjoint i16 %129, %118
+  store i16 %130, ptr %93, align 8
+  %131 = icmp sgt i32 %125, 1
+  br i1 %131, label %132, label %152
 
-134:                                              ; preds = %122
-  br i1 %.not106, label %135, label %142
+132:                                              ; preds = %120
+  br i1 %.not106, label %133, label %140
 
-135:                                              ; preds = %134
-  %136 = lshr exact i16 %118, 1
-  %137 = and i16 %132, -3329
+133:                                              ; preds = %132
+  %134 = lshr exact i16 %116, 1
+  %135 = and i16 %130, -3329
+  %136 = or disjoint i16 %134, %135
+  %137 = shl nuw nsw i16 %116, 1
   %138 = or disjoint i16 %136, %137
-  %139 = shl nuw nsw i16 %118, 1
-  %140 = or disjoint i16 %138, %139
-  %141 = xor i16 %140, 1024
-  store i16 %141, ptr %95, align 8
-  br label %142
+  %139 = xor i16 %138, 1024
+  store i16 %139, ptr %93, align 8
+  br label %140
 
-142:                                              ; preds = %135, %134
-  %143 = phi i16 [ %141, %135 ], [ %132, %134 ]
-  %144 = and i16 %143, 128
-  %.not108 = icmp eq i16 %144, 0
-  br i1 %.not108, label %156, label %145
+140:                                              ; preds = %133, %132
+  %141 = phi i16 [ %139, %133 ], [ %130, %132 ]
+  %142 = and i16 %141, 128
+  %.not108 = icmp eq i16 %142, 0
+  br i1 %.not108, label %154, label %143
 
-145:                                              ; preds = %142
-  %146 = shl i16 %143, 1
-  %147 = and i16 %146, 512
-  %148 = and i16 %143, -2561
-  %149 = or disjoint i16 %147, %148
-  %150 = shl i16 %143, 3
-  %151 = and i16 %150, 2048
-  %152 = or disjoint i16 %149, %151
-  %153 = xor i16 %152, 2048
+143:                                              ; preds = %140
+  %144 = shl i16 %141, 1
+  %145 = and i16 %144, 512
+  %146 = and i16 %141, -2561
+  %147 = or disjoint i16 %145, %146
+  %148 = shl i16 %141, 3
+  %149 = and i16 %148, 2048
+  %150 = or disjoint i16 %147, %149
+  %151 = xor i16 %150, 2048
   br label %.sink.split
 
-154:                                              ; preds = %122
-  %155 = or i16 %132, 768
+152:                                              ; preds = %120
+  %153 = or i16 %130, 768
   br label %.sink.split
 
-.sink.split:                                      ; preds = %154, %145
-  %.sink135 = phi i16 [ %153, %145 ], [ %155, %154 ]
-  store i16 %.sink135, ptr %95, align 8
-  br label %156
+.sink.split:                                      ; preds = %152, %143
+  %.sink136 = phi i16 [ %151, %143 ], [ %153, %152 ]
+  store i16 %.sink136, ptr %93, align 8
+  br label %154
 
-156:                                              ; preds = %.sink.split, %116, %142
+154:                                              ; preds = %.sink.split, %114, %140
   %exitcond132.not = icmp eq i64 %indvars.iv.next129, 3
-  br i1 %exitcond132.not, label %157, label %.preheader, !llvm.loop !74
+  br i1 %exitcond132.not, label %155, label %.preheader, !llvm.loop !74
 
-157:                                              ; preds = %156
-  %158 = icmp eq i32 %.1, 1
-  %159 = icmp eq i32 %81, 0
-  %or.cond = select i1 %158, i1 %159, i1 false
-  %160 = icmp sgt i32 %.199, 2
-  %or.cond3 = select i1 %or.cond, i1 %160, i1 false
-  %161 = icmp eq i32 %90, 0
-  %spec.select = select i1 %or.cond3, i1 %161, i1 false
-  %162 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %163 = zext i1 %spec.select to i8
-  store i8 %163, ptr %162, align 8
-  br i1 %spec.select, label %164, label %167
+155:                                              ; preds = %154
+  %156 = icmp eq i32 %.1, 1
+  %157 = icmp eq i32 %79, 0
+  %or.cond = select i1 %156, i1 %157, i1 false
+  %158 = icmp sgt i32 %.199, 2
+  %or.cond3 = select i1 %or.cond, i1 %158, i1 false
+  %159 = icmp eq i32 %88, 0
+  %spec.select = select i1 %or.cond3, i1 %159, i1 false
+  %160 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %161 = zext i1 %spec.select to i8
+  store i8 %161, ptr %160, align 8
+  br i1 %spec.select, label %162, label %165
 
-164:                                              ; preds = %157
-  %165 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %.196, ptr %165, align 4
-  %166 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %.199, ptr %166, align 8
-  br label %167
+162:                                              ; preds = %155
+  %163 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i32 %.196, ptr %163, align 4
+  %164 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 %.199, ptr %164, align 8
+  br label %165
 
-167:                                              ; preds = %164, %157
-  %168 = icmp ne i32 %94, 0
-  %169 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %170 = zext i1 %168 to i8
-  store i8 %170, ptr %169, align 1
+165:                                              ; preds = %162, %155
+  %166 = icmp ne i32 %92, 0
+  %167 = getelementptr inbounds nuw i8, ptr %0, i64 9
+  %168 = zext i1 %166 to i8
+  store i8 %168, ptr %167, align 1
   ret void
 }
 

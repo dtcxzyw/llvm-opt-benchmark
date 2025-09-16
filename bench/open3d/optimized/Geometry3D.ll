@@ -2135,8 +2135,8 @@ define void @_ZN6open3d8geometry10Geometry3D30GetRotationMatrixFromAxisAngleERKN
   %38 = fadd double %.sroa.026.0.vec.extract.i, %35
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store double %38, ptr %39, align 8, !tbaa !16, !alias.scope !90
-  %foldExtExtBinop10 = fmul <2 x double> %13, %22
-  %40 = extractelement <2 x double> %foldExtExtBinop10, i64 0
+  %foldExtExtBinop11 = fmul <2 x double> %13, %22
+  %40 = extractelement <2 x double> %foldExtExtBinop11, i64 0
   %41 = fadd double %19, %40
   %42 = fmul double %24, %.sroa.0.8.vec.extract.i
   %43 = fadd double %19, %42
@@ -2152,12 +2152,12 @@ define void @_ZN6open3d8geometry10Geometry3D30GetRotationMatrixFromAxisAngleERKN
   br label %49
 
 49:                                               ; preds = %46, %11
-  %.sink8 = phi double [ %41, %11 ], [ 1.000000e+00, %46 ]
-  %.sink7 = phi double [ %43, %11 ], [ 1.000000e+00, %46 ]
+  %.sink9 = phi double [ %41, %11 ], [ 1.000000e+00, %46 ]
+  %.sink8 = phi double [ %43, %11 ], [ 1.000000e+00, %46 ]
   %.sink = phi double [ %45, %11 ], [ 1.000000e+00, %46 ]
-  store double %.sink8, ptr %0, align 8, !tbaa !16
+  store double %.sink9, ptr %0, align 8, !tbaa !16
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store double %.sink7, ptr %50, align 8, !tbaa !16
+  store double %.sink8, ptr %50, align 8, !tbaa !16
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store double %.sink, ptr %51, align 8, !tbaa !16
   ret void

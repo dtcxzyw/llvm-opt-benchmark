@@ -1845,7 +1845,7 @@ define void @_ZN16WirelessTimeline10wheelEventEP11QWheelEvent(ptr noundef align 
   %4 = sitofp i32 %.sroa.3.0.extract.trunc to double
   %5 = fdiv double %4, 1.200000e+02
   %6 = fcmp une double %5, 0.000000e+00
-  br i1 %6, label %7, label %74
+  br i1 %6, label %7, label %70
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -1904,40 +1904,36 @@ define void @_ZN16WirelessTimeline10wheelEventEP11QWheelEvent(ptr noundef align 
   %57 = tail call double @llvm.fmuladd.f64(double %52, double %56, double %51)
   %58 = fptoui double %57 to i64
   store i64 %58, ptr %39, align 8
-  %59 = load ptr, ptr %31, align 8
-  %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
-  %61 = load i64, ptr %60, align 8
-  %62 = icmp sgt i64 %61, %55
-  br i1 %62, label %63, label %._crit_edge.i.i
+  %59 = load i64, ptr %33, align 8
+  %60 = icmp sgt i64 %59, %55
+  br i1 %60, label %61, label %._crit_edge.i.i
 
-63:                                               ; preds = %7
-  %64 = sub i64 %61, %55
-  store i64 %61, ptr %36, align 8
-  %65 = add i64 %64, %58
-  store i64 %65, ptr %39, align 8
+61:                                               ; preds = %7
+  %62 = sub i64 %59, %55
+  store i64 %59, ptr %36, align 8
+  %63 = add i64 %62, %58
+  store i64 %63, ptr %39, align 8
   br label %._crit_edge.i.i
 
-._crit_edge.i.i:                                  ; preds = %63, %7
-  %66 = phi i64 [ %61, %63 ], [ %55, %7 ]
-  %67 = phi i64 [ %65, %63 ], [ %58, %7 ]
-  %68 = load ptr, ptr %27, align 8
-  %69 = getelementptr inbounds nuw i8, ptr %68, i64 24
-  %70 = load i64, ptr %69, align 8
-  %71 = icmp ugt i64 %67, %70
-  br i1 %71, label %72, label %_ZN16WirelessTimeline4zoomEd.exit
+._crit_edge.i.i:                                  ; preds = %61, %7
+  %64 = phi i64 [ %59, %61 ], [ %55, %7 ]
+  %65 = phi i64 [ %63, %61 ], [ %58, %7 ]
+  %66 = load i64, ptr %29, align 8
+  %67 = icmp ugt i64 %65, %66
+  br i1 %67, label %68, label %_ZN16WirelessTimeline4zoomEd.exit
 
-72:                                               ; preds = %._crit_edge.i.i
-  %.neg.i.i = sub i64 %66, %67
-  %73 = add i64 %.neg.i.i, %70
-  store i64 %73, ptr %36, align 8
-  store i64 %70, ptr %39, align 8
+68:                                               ; preds = %._crit_edge.i.i
+  %.neg.i.i = sub i64 %64, %65
+  %69 = add i64 %.neg.i.i, %66
+  store i64 %69, ptr %36, align 8
+  store i64 %66, ptr %39, align 8
   br label %_ZN16WirelessTimeline4zoomEd.exit
 
-_ZN16WirelessTimeline4zoomEd.exit:                ; preds = %._crit_edge.i.i, %72
+_ZN16WirelessTimeline4zoomEd.exit:                ; preds = %._crit_edge.i.i, %68
   tail call void @_ZN7QWidget6updateEv(ptr noundef align 8 dereferenceable_or_null(896) %0)
-  br label %74
+  br label %70
 
-74:                                               ; preds = %_ZN16WirelessTimeline4zoomEd.exit, %2
+70:                                               ; preds = %_ZN16WirelessTimeline4zoomEd.exit, %2
   ret void
 }
 
@@ -1978,36 +1974,32 @@ define void @_ZN16WirelessTimeline4zoomEd(ptr noundef align 8 dereferenceable_or
   %34 = tail call double @llvm.fmuladd.f64(double %29, double %33, double %28)
   %35 = fptoui double %34 to i64
   store i64 %35, ptr %15, align 8
-  %36 = load ptr, ptr %7, align 8
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
-  %38 = load i64, ptr %37, align 8
-  %39 = icmp sgt i64 %38, %32
-  br i1 %39, label %40, label %._crit_edge.i
+  %36 = load i64, ptr %9, align 8
+  %37 = icmp sgt i64 %36, %32
+  br i1 %37, label %38, label %._crit_edge.i
 
-40:                                               ; preds = %2
-  %41 = sub i64 %38, %32
-  store i64 %38, ptr %12, align 8
-  %42 = add i64 %41, %35
-  store i64 %42, ptr %15, align 8
+38:                                               ; preds = %2
+  %39 = sub i64 %36, %32
+  store i64 %36, ptr %12, align 8
+  %40 = add i64 %39, %35
+  store i64 %40, ptr %15, align 8
   br label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %2, %40
-  %43 = phi i64 [ %38, %40 ], [ %32, %2 ]
-  %44 = phi i64 [ %42, %40 ], [ %35, %2 ]
-  %45 = load ptr, ptr %3, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 24
-  %47 = load i64, ptr %46, align 8
-  %48 = icmp ugt i64 %44, %47
-  br i1 %48, label %49, label %_ZN16WirelessTimeline8clip_tsfEv.exit
+._crit_edge.i:                                    ; preds = %2, %38
+  %41 = phi i64 [ %36, %38 ], [ %32, %2 ]
+  %42 = phi i64 [ %40, %38 ], [ %35, %2 ]
+  %43 = load i64, ptr %5, align 8
+  %44 = icmp ugt i64 %42, %43
+  br i1 %44, label %45, label %_ZN16WirelessTimeline8clip_tsfEv.exit
 
-49:                                               ; preds = %._crit_edge.i
-  %.neg.i = sub i64 %43, %44
-  %50 = add i64 %.neg.i, %47
-  store i64 %50, ptr %12, align 8
-  store i64 %47, ptr %15, align 8
+45:                                               ; preds = %._crit_edge.i
+  %.neg.i = sub i64 %41, %42
+  %46 = add i64 %.neg.i, %43
+  store i64 %46, ptr %12, align 8
+  store i64 %43, ptr %15, align 8
   br label %_ZN16WirelessTimeline8clip_tsfEv.exit
 
-_ZN16WirelessTimeline8clip_tsfEv.exit:            ; preds = %._crit_edge.i, %49
+_ZN16WirelessTimeline8clip_tsfEv.exit:            ; preds = %._crit_edge.i, %45
   tail call void @_ZN7QWidget6updateEv(ptr noundef align 8 dereferenceable_or_null(40) %0)
   ret void
 }

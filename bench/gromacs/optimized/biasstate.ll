@@ -3181,7 +3181,7 @@ _ZNK3gmx9BiasState37getSkippedUpdateHistogramScaleFactorsERKNS_10BiasParamsEPdS4
   ret void
 
 32:                                               ; preds = %.lr.ph, %_ZN3gmx10PointState31performPreviouslySkippedUpdatesERKNS_10BiasParamsEldd.exit.thread
-  %.sroa.07.013 = phi ptr [ %22, %.lr.ph ], [ %95, %_ZN3gmx10PointState31performPreviouslySkippedUpdatesERKNS_10BiasParamsEldd.exit.thread ]
+  %.sroa.07.013 = phi ptr [ %22, %.lr.ph ], [ %92, %_ZN3gmx10PointState31performPreviouslySkippedUpdatesERKNS_10BiasParamsEldd.exit.thread ]
   %33 = getelementptr inbounds nuw i8, ptr %.sroa.07.013, i64 16
   %34 = load double, ptr %33, align 8, !tbaa !11
   %35 = fcmp ogt double %34, 0.000000e+00
@@ -3216,141 +3216,138 @@ _ZNK3gmx9BiasState37getSkippedUpdateHistogramScaleFactorsERKNS_10BiasParamsEPdS4
   br i1 %45, label %.lr.ph.i.split.us, label %.lr.ph.i.split
 
 .lr.ph.i.split.us:                                ; preds = %.lr.ph.i, %_ZN3gmx10PointState16updateFreeEnergyERKNS_10BiasParamsEd.exit.us
-  %47 = phi double [ %54, %_ZN3gmx10PointState16updateFreeEnergyERKNS_10BiasParamsEd.exit.us ], [ %.pre18, %.lr.ph.i ]
-  %48 = phi double [ %57, %_ZN3gmx10PointState16updateFreeEnergyERKNS_10BiasParamsEd.exit.us ], [ %34, %.lr.ph.i ]
-  %49 = phi double [ %61, %_ZN3gmx10PointState16updateFreeEnergyERKNS_10BiasParamsEd.exit.us ], [ %.pre17, %.lr.ph.i ]
-  %.013.i.us = phi i64 [ %64, %_ZN3gmx10PointState16updateFreeEnergyERKNS_10BiasParamsEd.exit.us ], [ 0, %.lr.ph.i ]
+  %47 = phi double [ %53, %_ZN3gmx10PointState16updateFreeEnergyERKNS_10BiasParamsEd.exit.us ], [ %.pre18, %.lr.ph.i ]
+  %48 = phi double [ %59, %_ZN3gmx10PointState16updateFreeEnergyERKNS_10BiasParamsEd.exit.us ], [ %.pre17, %.lr.ph.i ]
+  %.013.i.us = phi i64 [ %62, %_ZN3gmx10PointState16updateFreeEnergyERKNS_10BiasParamsEd.exit.us ], [ 0, %.lr.ph.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %50 = fadd double %49, 0.000000e+00
-  %51 = tail call double @llvm.fmuladd.f64(double %31, double %48, double %49)
-  %52 = fdiv double %50, %51
-  %53 = tail call double @log(double noundef %52) #33, !tbaa !30
-  %54 = fsub double %47, %53
-  store double %54, ptr %43, align 8, !tbaa !99
-  %55 = tail call noundef double @llvm.fabs.f64(double %54)
-  %56 = fcmp ogt double %55, 7.000000e+02
-  br i1 %56, label %.split.us, label %_ZN3gmx10PointState16updateFreeEnergyERKNS_10BiasParamsEd.exit.us
+  %49 = fadd double %48, 0.000000e+00
+  %50 = tail call double @llvm.fmuladd.f64(double %31, double %34, double %48)
+  %51 = fdiv double %49, %50
+  %52 = tail call double @log(double noundef %51) #33, !tbaa !30
+  %53 = fsub double %47, %52
+  store double %53, ptr %43, align 8, !tbaa !99
+  %54 = tail call noundef double @llvm.fabs.f64(double %53)
+  %55 = fcmp ogt double %54, 7.000000e+02
+  br i1 %55, label %.split.us, label %_ZN3gmx10PointState16updateFreeEnergyERKNS_10BiasParamsEd.exit.us
 
 _ZN3gmx10PointState16updateFreeEnergyERKNS_10BiasParamsEd.exit.us: ; preds = %.lr.ph.i.split.us
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %57 = load double, ptr %33, align 8
-  %58 = load double, ptr %29, align 8
-  %59 = fmul double %57, %58
-  %60 = tail call double @llvm.fmuladd.f64(double %59, double %46, double %49)
-  %61 = fmul double %.0, %60
-  store double %61, ptr %41, align 8, !tbaa !102
-  %62 = load double, ptr %42, align 8, !tbaa !15
-  %63 = fadd double %storemerge.i, %62
-  store double %63, ptr %42, align 8, !tbaa !15
-  %64 = add nuw nsw i64 %.013.i.us, 1
-  %exitcond.not.i.us = icmp eq i64 %64, %39
+  %56 = load double, ptr %29, align 8
+  %57 = fmul double %34, %56
+  %58 = tail call double @llvm.fmuladd.f64(double %57, double %46, double %48)
+  %59 = fmul double %.0, %58
+  store double %59, ptr %41, align 8, !tbaa !102
+  %60 = load double, ptr %42, align 8, !tbaa !15
+  %61 = fadd double %storemerge.i, %60
+  store double %61, ptr %42, align 8, !tbaa !15
+  %62 = add nuw nsw i64 %.013.i.us, 1
+  %exitcond.not.i.us = icmp eq i64 %62, %39
   br i1 %exitcond.not.i.us, label %.loopexit, label %.lr.ph.i.split.us, !llvm.loop !181
 
 .lr.ph.i.split:                                   ; preds = %.lr.ph.i, %_ZN3gmx10PointState16updateFreeEnergyERKNS_10BiasParamsEd.exit
-  %65 = phi double [ %71, %_ZN3gmx10PointState16updateFreeEnergyERKNS_10BiasParamsEd.exit ], [ %.pre18, %.lr.ph.i ]
-  %66 = phi double [ %87, %_ZN3gmx10PointState16updateFreeEnergyERKNS_10BiasParamsEd.exit ], [ %.pre17, %.lr.ph.i ]
-  %.013.i = phi i64 [ %90, %_ZN3gmx10PointState16updateFreeEnergyERKNS_10BiasParamsEd.exit ], [ 0, %.lr.ph.i ]
+  %63 = phi double [ %69, %_ZN3gmx10PointState16updateFreeEnergyERKNS_10BiasParamsEd.exit ], [ %.pre18, %.lr.ph.i ]
+  %64 = phi double [ %85, %_ZN3gmx10PointState16updateFreeEnergyERKNS_10BiasParamsEd.exit ], [ %.pre17, %.lr.ph.i ]
+  %.013.i = phi i64 [ %88, %_ZN3gmx10PointState16updateFreeEnergyERKNS_10BiasParamsEd.exit ], [ 0, %.lr.ph.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %67 = fadd double %66, 0.000000e+00
-  %68 = tail call double @llvm.fmuladd.f64(double %31, double %34, double %66)
-  %69 = fdiv double %67, %68
-  %70 = tail call double @log(double noundef %69) #33, !tbaa !30
-  %71 = fsub double %65, %70
-  store double %71, ptr %43, align 8, !tbaa !99
-  %72 = tail call noundef double @llvm.fabs.f64(double %71)
-  %73 = fcmp ogt double %72, 7.000000e+02
-  br i1 %73, label %.split.us, label %_ZN3gmx10PointState16updateFreeEnergyERKNS_10BiasParamsEd.exit
+  %65 = fadd double %64, 0.000000e+00
+  %66 = tail call double @llvm.fmuladd.f64(double %31, double %34, double %64)
+  %67 = fdiv double %65, %66
+  %68 = tail call double @log(double noundef %67) #33, !tbaa !30
+  %69 = fsub double %63, %68
+  store double %69, ptr %43, align 8, !tbaa !99
+  %70 = tail call noundef double @llvm.fabs.f64(double %69)
+  %71 = fcmp ogt double %70, 7.000000e+02
+  br i1 %71, label %.split.us, label %_ZN3gmx10PointState16updateFreeEnergyERKNS_10BiasParamsEd.exit
 
 .split.us:                                        ; preds = %.lr.ph.i.split, %.lr.ph.i.split.us
-  %74 = tail call ptr @__cxa_allocate_exception(i64 24) #33
+  %72 = tail call ptr @__cxa_allocate_exception(i64 24) #33
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   invoke void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull @.str.26)
-          to label %75 unwind label %.thread.i
+          to label %73 unwind label %.thread.i
 
-75:                                               ; preds = %.split.us
+73:                                               ; preds = %.split.us
   invoke void @_ZN3gmx16GromacsExceptionC2ERKNS_20ExceptionInitializerE(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(56) %4)
-          to label %76 unwind label %.thread18.i
+          to label %74 unwind label %.thread18.i
 
-76:                                               ; preds = %75
+74:                                               ; preds = %73
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %3, align 8, !tbaa !45
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %5, align 8, !tbaa !45
-  %77 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr @__PRETTY_FUNCTION__._ZN3gmx10PointState16updateFreeEnergyERKNS_10BiasParamsEd, ptr %77, align 8, !tbaa !53
+  %75 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr @__PRETTY_FUNCTION__._ZN3gmx10PointState16updateFreeEnergyERKNS_10BiasParamsEd, ptr %75, align 8, !tbaa !53
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr @.str.12, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !53
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i32 361, ptr %.sroa.5.0..sroa_idx.i, align 8, !tbaa !30
-  invoke void @_ZN3gmxlsINS_17InvalidInputErrorENS_22ExceptionInfoLocation_ENS_13ThrowLocationEEENSt9enable_ifIXsr3stdE12is_base_of_vINS_16GromacsExceptionET_EES6_E4typeES6_RKNS_13ExceptionInfoIT0_T1_EE(ptr dead_on_unwind writable sret(%"class.gmx::InvalidInputError") align 8 %74, ptr noundef nonnull %3, ptr noundef nonnull align 8 dereferenceable(32) %5)
-          to label %78 unwind label %81
+  invoke void @_ZN3gmxlsINS_17InvalidInputErrorENS_22ExceptionInfoLocation_ENS_13ThrowLocationEEENSt9enable_ifIXsr3stdE12is_base_of_vINS_16GromacsExceptionET_EES6_E4typeES6_RKNS_13ExceptionInfoIT0_T1_EE(ptr dead_on_unwind writable sret(%"class.gmx::InvalidInputError") align 8 %72, ptr noundef nonnull %3, ptr noundef nonnull align 8 dereferenceable(32) %5)
+          to label %76 unwind label %79
 
-78:                                               ; preds = %76
-  invoke void @__cxa_throw(ptr %74, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx16GromacsExceptionD2Ev) #30
-          to label %85 unwind label %81
+76:                                               ; preds = %74
+  invoke void @__cxa_throw(ptr %72, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx16GromacsExceptionD2Ev) #30
+          to label %83 unwind label %79
 
 .thread.i:                                        ; preds = %.split.us
-  %79 = landingpad { ptr, i32 }
+  %77 = landingpad { ptr, i32 }
           cleanup
   br label %.sink.split.i
 
-.thread18.i:                                      ; preds = %75
-  %80 = landingpad { ptr, i32 }
+.thread18.i:                                      ; preds = %73
+  %78 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #33
   br label %.sink.split.i
 
-81:                                               ; preds = %78, %76
-  %.0.i = phi i1 [ false, %78 ], [ true, %76 ]
-  %82 = landingpad { ptr, i32 }
+79:                                               ; preds = %76, %74
+  %.0.i = phi i1 [ false, %76 ], [ true, %74 ]
+  %80 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #33
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #33
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #33
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %.0.i, label %83, label %84
+  br i1 %.0.i, label %81, label %82
 
 .sink.split.i:                                    ; preds = %.thread18.i, %.thread.i
-  %.pn.pn17.ph.i = phi { ptr, i32 } [ %80, %.thread18.i ], [ %79, %.thread.i ]
+  %.pn.pn17.ph.i = phi { ptr, i32 } [ %78, %.thread18.i ], [ %77, %.thread.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %83
+  br label %81
 
-83:                                               ; preds = %.sink.split.i, %81
-  %.pn.pn17.i = phi { ptr, i32 } [ %82, %81 ], [ %.pn.pn17.ph.i, %.sink.split.i ]
-  call void @__cxa_free_exception(ptr %74) #33
-  br label %84
+81:                                               ; preds = %.sink.split.i, %79
+  %.pn.pn17.i = phi { ptr, i32 } [ %80, %79 ], [ %.pn.pn17.ph.i, %.sink.split.i ]
+  call void @__cxa_free_exception(ptr %72) #33
+  br label %82
 
-84:                                               ; preds = %83, %81
-  %.pn.pn16.i = phi { ptr, i32 } [ %.pn.pn17.i, %83 ], [ %82, %81 ]
+82:                                               ; preds = %81, %79
+  %.pn.pn16.i = phi { ptr, i32 } [ %.pn.pn17.i, %81 ], [ %80, %79 ]
   resume { ptr, i32 } %.pn.pn16.i
 
-85:                                               ; preds = %78
+83:                                               ; preds = %76
   unreachable
 
 _ZN3gmx10PointState16updateFreeEnergyERKNS_10BiasParamsEd.exit: ; preds = %.lr.ph.i.split
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %86 = tail call double @llvm.fmuladd.f64(double %46, double 0.000000e+00, double %66)
-  %87 = fmul double %.0, %86
-  store double %87, ptr %41, align 8, !tbaa !102
-  %88 = load double, ptr %42, align 8, !tbaa !15
-  %89 = fadd double %storemerge.i, %88
-  store double %89, ptr %42, align 8, !tbaa !15
-  %90 = add nuw nsw i64 %.013.i, 1
-  %exitcond.not.i = icmp eq i64 %90, %39
+  %84 = tail call double @llvm.fmuladd.f64(double %46, double 0.000000e+00, double %64)
+  %85 = fmul double %.0, %84
+  store double %85, ptr %41, align 8, !tbaa !102
+  %86 = load double, ptr %42, align 8, !tbaa !15
+  %87 = fadd double %storemerge.i, %86
+  store double %87, ptr %42, align 8, !tbaa !15
+  %88 = add nuw nsw i64 %.013.i, 1
+  %exitcond.not.i = icmp eq i64 %88, %39
   br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.i.split, !llvm.loop !181
 
 .loopexit:                                        ; preds = %_ZN3gmx10PointState16updateFreeEnergyERKNS_10BiasParamsEd.exit, %_ZN3gmx10PointState16updateFreeEnergyERKNS_10BiasParamsEd.exit.us, %.preheader.i..loopexit_crit_edge
-  %91 = phi double [ %34, %.preheader.i..loopexit_crit_edge ], [ %57, %_ZN3gmx10PointState16updateFreeEnergyERKNS_10BiasParamsEd.exit.us ], [ %34, %_ZN3gmx10PointState16updateFreeEnergyERKNS_10BiasParamsEd.exit ]
-  %92 = phi double [ %.pre19, %.preheader.i..loopexit_crit_edge ], [ %54, %_ZN3gmx10PointState16updateFreeEnergyERKNS_10BiasParamsEd.exit.us ], [ %71, %_ZN3gmx10PointState16updateFreeEnergyERKNS_10BiasParamsEd.exit ]
+  %89 = phi double [ %.pre19, %.preheader.i..loopexit_crit_edge ], [ %53, %_ZN3gmx10PointState16updateFreeEnergyERKNS_10BiasParamsEd.exit.us ], [ %69, %_ZN3gmx10PointState16updateFreeEnergyERKNS_10BiasParamsEd.exit ]
   store i64 %27, ptr %37, align 8, !tbaa !180
-  %93 = tail call double @log(double noundef %91) #33, !tbaa !30
-  %94 = fadd double %92, %93
-  store double %94, ptr %.sroa.07.013, align 8, !tbaa !182
+  %90 = tail call double @llvm.log.f64(double %34), !tbaa !30
+  %91 = fadd double %89, %90
+  store double %91, ptr %.sroa.07.013, align 8, !tbaa !182
   br label %_ZN3gmx10PointState31performPreviouslySkippedUpdatesERKNS_10BiasParamsEldd.exit.thread
 
 _ZN3gmx10PointState31performPreviouslySkippedUpdatesERKNS_10BiasParamsEldd.exit.thread: ; preds = %36, %32, %.loopexit
-  %95 = getelementptr inbounds nuw i8, ptr %.sroa.07.013, i64 96
-  %.not = icmp eq ptr %95, %24
+  %92 = getelementptr inbounds nuw i8, ptr %.sroa.07.013, i64 96
+  %.not = icmp eq ptr %92, %24
   br i1 %.not, label %._crit_edge, label %32
 }
 
@@ -3685,7 +3682,7 @@ _ZNK3gmx9BiasState37getSkippedUpdateHistogramScaleFactorsERKNS_10BiasParamsEPdS4
   ret void
 
 40:                                               ; preds = %.lr.ph, %_ZN3gmx10PointState31performPreviouslySkippedUpdatesERKNS_10BiasParamsEldd.exit.thread
-  %.sroa.09.015 = phi ptr [ %28, %.lr.ph ], [ %111, %_ZN3gmx10PointState31performPreviouslySkippedUpdatesERKNS_10BiasParamsEldd.exit.thread ]
+  %.sroa.09.015 = phi ptr [ %28, %.lr.ph ], [ %109, %_ZN3gmx10PointState31performPreviouslySkippedUpdatesERKNS_10BiasParamsEldd.exit.thread ]
   %41 = load i32, ptr %.sroa.09.015, align 4, !tbaa !30
   %42 = sext i32 %41 to i64
   %43 = getelementptr inbounds nuw %"class.gmx::PointState", ptr %32, i64 %42
@@ -3718,146 +3715,144 @@ _ZNK3gmx9BiasState37getSkippedUpdateHistogramScaleFactorsERKNS_10BiasParamsEPdS4
   br i1 %56, label %.lr.ph.i.split.us, label %.lr.ph.i.split
 
 .lr.ph.i.split.us:                                ; preds = %.lr.ph.i, %_ZN3gmx10PointState16updateFreeEnergyERKNS_10BiasParamsEd.exit.us
-  %58 = phi double [ %65, %_ZN3gmx10PointState16updateFreeEnergyERKNS_10BiasParamsEd.exit.us ], [ %.pre21, %.lr.ph.i ]
-  %59 = phi double [ %68, %_ZN3gmx10PointState16updateFreeEnergyERKNS_10BiasParamsEd.exit.us ], [ %45, %.lr.ph.i ]
-  %60 = phi double [ %72, %_ZN3gmx10PointState16updateFreeEnergyERKNS_10BiasParamsEd.exit.us ], [ %.pre20, %.lr.ph.i ]
-  %.013.i.us = phi i64 [ %75, %_ZN3gmx10PointState16updateFreeEnergyERKNS_10BiasParamsEd.exit.us ], [ 0, %.lr.ph.i ]
+  %58 = phi double [ %64, %_ZN3gmx10PointState16updateFreeEnergyERKNS_10BiasParamsEd.exit.us ], [ %.pre21, %.lr.ph.i ]
+  %59 = phi double [ %70, %_ZN3gmx10PointState16updateFreeEnergyERKNS_10BiasParamsEd.exit.us ], [ %.pre20, %.lr.ph.i ]
+  %.013.i.us = phi i64 [ %73, %_ZN3gmx10PointState16updateFreeEnergyERKNS_10BiasParamsEd.exit.us ], [ 0, %.lr.ph.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %61 = fadd double %60, 0.000000e+00
-  %62 = tail call double @llvm.fmuladd.f64(double %39, double %59, double %60)
-  %63 = fdiv double %61, %62
-  %64 = tail call double @log(double noundef %63) #33, !tbaa !30
-  %65 = fsub double %58, %64
-  store double %65, ptr %54, align 8, !tbaa !99
-  %66 = tail call noundef double @llvm.fabs.f64(double %65)
-  %67 = fcmp ogt double %66, 7.000000e+02
-  br i1 %67, label %.split.us, label %_ZN3gmx10PointState16updateFreeEnergyERKNS_10BiasParamsEd.exit.us
+  %60 = fadd double %59, 0.000000e+00
+  %61 = tail call double @llvm.fmuladd.f64(double %39, double %45, double %59)
+  %62 = fdiv double %60, %61
+  %63 = tail call double @log(double noundef %62) #33, !tbaa !30
+  %64 = fsub double %58, %63
+  store double %64, ptr %54, align 8, !tbaa !99
+  %65 = tail call noundef double @llvm.fabs.f64(double %64)
+  %66 = fcmp ogt double %65, 7.000000e+02
+  br i1 %66, label %.split.us, label %_ZN3gmx10PointState16updateFreeEnergyERKNS_10BiasParamsEd.exit.us
 
 _ZN3gmx10PointState16updateFreeEnergyERKNS_10BiasParamsEd.exit.us: ; preds = %.lr.ph.i.split.us
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %68 = load double, ptr %44, align 8
-  %69 = load double, ptr %37, align 8
-  %70 = fmul double %68, %69
-  %71 = tail call double @llvm.fmuladd.f64(double %70, double %57, double %60)
-  %72 = fmul double %.0, %71
-  store double %72, ptr %52, align 8, !tbaa !102
-  %73 = load double, ptr %53, align 8, !tbaa !15
-  %74 = fadd double %storemerge.i, %73
-  store double %74, ptr %53, align 8, !tbaa !15
-  %75 = add nuw nsw i64 %.013.i.us, 1
-  %exitcond.not.i.us = icmp eq i64 %75, %50
+  %67 = load double, ptr %37, align 8
+  %68 = fmul double %45, %67
+  %69 = tail call double @llvm.fmuladd.f64(double %68, double %57, double %59)
+  %70 = fmul double %.0, %69
+  store double %70, ptr %52, align 8, !tbaa !102
+  %71 = load double, ptr %53, align 8, !tbaa !15
+  %72 = fadd double %storemerge.i, %71
+  store double %72, ptr %53, align 8, !tbaa !15
+  %73 = add nuw nsw i64 %.013.i.us, 1
+  %exitcond.not.i.us = icmp eq i64 %73, %50
   br i1 %exitcond.not.i.us, label %.loopexit, label %.lr.ph.i.split.us, !llvm.loop !181
 
 .lr.ph.i.split:                                   ; preds = %.lr.ph.i, %_ZN3gmx10PointState16updateFreeEnergyERKNS_10BiasParamsEd.exit
-  %76 = phi double [ %82, %_ZN3gmx10PointState16updateFreeEnergyERKNS_10BiasParamsEd.exit ], [ %.pre21, %.lr.ph.i ]
-  %77 = phi double [ %98, %_ZN3gmx10PointState16updateFreeEnergyERKNS_10BiasParamsEd.exit ], [ %.pre20, %.lr.ph.i ]
-  %.013.i = phi i64 [ %101, %_ZN3gmx10PointState16updateFreeEnergyERKNS_10BiasParamsEd.exit ], [ 0, %.lr.ph.i ]
+  %74 = phi double [ %80, %_ZN3gmx10PointState16updateFreeEnergyERKNS_10BiasParamsEd.exit ], [ %.pre21, %.lr.ph.i ]
+  %75 = phi double [ %96, %_ZN3gmx10PointState16updateFreeEnergyERKNS_10BiasParamsEd.exit ], [ %.pre20, %.lr.ph.i ]
+  %.013.i = phi i64 [ %99, %_ZN3gmx10PointState16updateFreeEnergyERKNS_10BiasParamsEd.exit ], [ 0, %.lr.ph.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %78 = fadd double %77, 0.000000e+00
-  %79 = tail call double @llvm.fmuladd.f64(double %39, double %45, double %77)
-  %80 = fdiv double %78, %79
-  %81 = tail call double @log(double noundef %80) #33, !tbaa !30
-  %82 = fsub double %76, %81
-  store double %82, ptr %54, align 8, !tbaa !99
-  %83 = tail call noundef double @llvm.fabs.f64(double %82)
-  %84 = fcmp ogt double %83, 7.000000e+02
-  br i1 %84, label %.split.us, label %_ZN3gmx10PointState16updateFreeEnergyERKNS_10BiasParamsEd.exit
+  %76 = fadd double %75, 0.000000e+00
+  %77 = tail call double @llvm.fmuladd.f64(double %39, double %45, double %75)
+  %78 = fdiv double %76, %77
+  %79 = tail call double @log(double noundef %78) #33, !tbaa !30
+  %80 = fsub double %74, %79
+  store double %80, ptr %54, align 8, !tbaa !99
+  %81 = tail call noundef double @llvm.fabs.f64(double %80)
+  %82 = fcmp ogt double %81, 7.000000e+02
+  br i1 %82, label %.split.us, label %_ZN3gmx10PointState16updateFreeEnergyERKNS_10BiasParamsEd.exit
 
 .split.us:                                        ; preds = %.lr.ph.i.split, %.lr.ph.i.split.us
-  %85 = tail call ptr @__cxa_allocate_exception(i64 24) #33
+  %83 = tail call ptr @__cxa_allocate_exception(i64 24) #33
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   invoke void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull @.str.26)
-          to label %86 unwind label %.thread.i
+          to label %84 unwind label %.thread.i
 
-86:                                               ; preds = %.split.us
+84:                                               ; preds = %.split.us
   invoke void @_ZN3gmx16GromacsExceptionC2ERKNS_20ExceptionInitializerE(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(56) %5)
-          to label %87 unwind label %.thread18.i
+          to label %85 unwind label %.thread18.i
 
-87:                                               ; preds = %86
+85:                                               ; preds = %84
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %4, align 8, !tbaa !45
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %6, align 8, !tbaa !45
-  %88 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr @__PRETTY_FUNCTION__._ZN3gmx10PointState16updateFreeEnergyERKNS_10BiasParamsEd, ptr %88, align 8, !tbaa !53
+  %86 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store ptr @__PRETTY_FUNCTION__._ZN3gmx10PointState16updateFreeEnergyERKNS_10BiasParamsEd, ptr %86, align 8, !tbaa !53
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr @.str.12, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !53
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i32 361, ptr %.sroa.5.0..sroa_idx.i, align 8, !tbaa !30
-  invoke void @_ZN3gmxlsINS_17InvalidInputErrorENS_22ExceptionInfoLocation_ENS_13ThrowLocationEEENSt9enable_ifIXsr3stdE12is_base_of_vINS_16GromacsExceptionET_EES6_E4typeES6_RKNS_13ExceptionInfoIT0_T1_EE(ptr dead_on_unwind writable sret(%"class.gmx::InvalidInputError") align 8 %85, ptr noundef nonnull %4, ptr noundef nonnull align 8 dereferenceable(32) %6)
-          to label %89 unwind label %92
+  invoke void @_ZN3gmxlsINS_17InvalidInputErrorENS_22ExceptionInfoLocation_ENS_13ThrowLocationEEENSt9enable_ifIXsr3stdE12is_base_of_vINS_16GromacsExceptionET_EES6_E4typeES6_RKNS_13ExceptionInfoIT0_T1_EE(ptr dead_on_unwind writable sret(%"class.gmx::InvalidInputError") align 8 %83, ptr noundef nonnull %4, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %87 unwind label %90
 
-89:                                               ; preds = %87
-  invoke void @__cxa_throw(ptr %85, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx16GromacsExceptionD2Ev) #30
-          to label %96 unwind label %92
+87:                                               ; preds = %85
+  invoke void @__cxa_throw(ptr %83, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx16GromacsExceptionD2Ev) #30
+          to label %94 unwind label %90
 
 .thread.i:                                        ; preds = %.split.us
-  %90 = landingpad { ptr, i32 }
+  %88 = landingpad { ptr, i32 }
           cleanup
   br label %.sink.split.i
 
-.thread18.i:                                      ; preds = %86
-  %91 = landingpad { ptr, i32 }
+.thread18.i:                                      ; preds = %84
+  %89 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #33
   br label %.sink.split.i
 
-92:                                               ; preds = %89, %87
-  %.0.i = phi i1 [ false, %89 ], [ true, %87 ]
-  %93 = landingpad { ptr, i32 }
+90:                                               ; preds = %87, %85
+  %.0.i = phi i1 [ false, %87 ], [ true, %85 ]
+  %91 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #33
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #33
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #33
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %.0.i, label %94, label %95
+  br i1 %.0.i, label %92, label %93
 
 .sink.split.i:                                    ; preds = %.thread18.i, %.thread.i
-  %.pn.pn17.ph.i = phi { ptr, i32 } [ %91, %.thread18.i ], [ %90, %.thread.i ]
+  %.pn.pn17.ph.i = phi { ptr, i32 } [ %89, %.thread18.i ], [ %88, %.thread.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %94
+  br label %92
 
-94:                                               ; preds = %.sink.split.i, %92
-  %.pn.pn17.i = phi { ptr, i32 } [ %93, %92 ], [ %.pn.pn17.ph.i, %.sink.split.i ]
-  call void @__cxa_free_exception(ptr %85) #33
-  br label %95
+92:                                               ; preds = %.sink.split.i, %90
+  %.pn.pn17.i = phi { ptr, i32 } [ %91, %90 ], [ %.pn.pn17.ph.i, %.sink.split.i ]
+  call void @__cxa_free_exception(ptr %83) #33
+  br label %93
 
-95:                                               ; preds = %94, %92
-  %.pn.pn16.i = phi { ptr, i32 } [ %.pn.pn17.i, %94 ], [ %93, %92 ]
+93:                                               ; preds = %92, %90
+  %.pn.pn16.i = phi { ptr, i32 } [ %.pn.pn17.i, %92 ], [ %91, %90 ]
   resume { ptr, i32 } %.pn.pn16.i
 
-96:                                               ; preds = %89
+94:                                               ; preds = %87
   unreachable
 
 _ZN3gmx10PointState16updateFreeEnergyERKNS_10BiasParamsEd.exit: ; preds = %.lr.ph.i.split
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %97 = tail call double @llvm.fmuladd.f64(double %57, double 0.000000e+00, double %77)
-  %98 = fmul double %.0, %97
-  store double %98, ptr %52, align 8, !tbaa !102
-  %99 = load double, ptr %53, align 8, !tbaa !15
-  %100 = fadd double %storemerge.i, %99
-  store double %100, ptr %53, align 8, !tbaa !15
-  %101 = add nuw nsw i64 %.013.i, 1
-  %exitcond.not.i = icmp eq i64 %101, %50
+  %95 = tail call double @llvm.fmuladd.f64(double %57, double 0.000000e+00, double %75)
+  %96 = fmul double %.0, %95
+  store double %96, ptr %52, align 8, !tbaa !102
+  %97 = load double, ptr %53, align 8, !tbaa !15
+  %98 = fadd double %storemerge.i, %97
+  store double %98, ptr %53, align 8, !tbaa !15
+  %99 = add nuw nsw i64 %.013.i, 1
+  %exitcond.not.i = icmp eq i64 %99, %50
   br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.i.split, !llvm.loop !181
 
 .loopexit:                                        ; preds = %_ZN3gmx10PointState16updateFreeEnergyERKNS_10BiasParamsEd.exit, %_ZN3gmx10PointState16updateFreeEnergyERKNS_10BiasParamsEd.exit.us, %.preheader.i
   store i64 %35, ptr %48, align 8, !tbaa !180
-  %102 = load i32, ptr %.sroa.09.015, align 4, !tbaa !30
-  %103 = sext i32 %102 to i64
-  %104 = getelementptr inbounds nuw %"class.gmx::PointState", ptr %32, i64 %103
-  %105 = getelementptr inbounds nuw i8, ptr %104, i64 8
-  %106 = load double, ptr %105, align 8, !tbaa !99
-  %107 = getelementptr inbounds nuw i8, ptr %104, i64 16
-  %108 = load double, ptr %107, align 8, !tbaa !11
-  %109 = tail call double @log(double noundef %108) #33, !tbaa !30
-  %110 = fadd double %106, %109
-  store double %110, ptr %104, align 8, !tbaa !182
+  %100 = load i32, ptr %.sroa.09.015, align 4, !tbaa !30
+  %101 = sext i32 %100 to i64
+  %102 = getelementptr inbounds nuw %"class.gmx::PointState", ptr %32, i64 %101
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 8
+  %104 = load double, ptr %103, align 8, !tbaa !99
+  %105 = getelementptr inbounds nuw i8, ptr %102, i64 16
+  %106 = load double, ptr %105, align 8, !tbaa !11
+  %107 = tail call double @log(double noundef %106) #33, !tbaa !30
+  %108 = fadd double %104, %107
+  store double %108, ptr %102, align 8, !tbaa !182
   br label %_ZN3gmx10PointState31performPreviouslySkippedUpdatesERKNS_10BiasParamsEldd.exit.thread
 
 _ZN3gmx10PointState31performPreviouslySkippedUpdatesERKNS_10BiasParamsEldd.exit.thread: ; preds = %47, %40, %.loopexit
-  %111 = getelementptr inbounds nuw i8, ptr %.sroa.09.015, i64 4
-  %.not = icmp eq ptr %111, %30
+  %109 = getelementptr inbounds nuw i8, ptr %.sroa.09.015, i64 4
+  %.not = icmp eq ptr %109, %30
   br i1 %.not, label %._crit_edge, label %40
 }
 
@@ -5741,8 +5736,8 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit.i77:      ; preds = %_ZNSt6vectorIiSaIiE
   call void @_ZdlPvm(ptr noundef nonnull %158, i64 noundef %164) #32
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit21.i
 
-common.resume:                                    ; preds = %528, %530, %316, %318, %_ZNSt6vectorIiSaIiEED2Ev.exit21.i
-  %common.resume.op = phi { ptr, i32 } [ %.pn.i, %_ZNSt6vectorIiSaIiEED2Ev.exit21.i ], [ %317, %318 ], [ %317, %316 ], [ %.pn.pn17.i, %530 ], [ %529, %528 ]
+common.resume:                                    ; preds = %526, %528, %316, %318, %_ZNSt6vectorIiSaIiEED2Ev.exit21.i
+  %common.resume.op = phi { ptr, i32 } [ %.pn.i, %_ZNSt6vectorIiSaIiEED2Ev.exit21.i ], [ %317, %318 ], [ %317, %316 ], [ %.pn.pn17.i, %528 ], [ %527, %526 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZNSt6vectorIiSaIiEED2Ev.exit21.i:                ; preds = %159, %157
@@ -6313,11 +6308,11 @@ _ZNK3gmx9BiasState37getSkippedUpdateHistogramScaleFactorsERKNS_10BiasParamsEPdS4
 
 ._crit_edge177:                                   ; preds = %_ZN3gmx10PointState21updateWithNewSamplingERKNS_10BiasParamsEldd.exit, %_ZNK3gmx9BiasState37getSkippedUpdateHistogramScaleFactorsERKNS_10BiasParamsEPdS4_.exit
   call void @_ZN3gmx13HistogramSize16setHistogramSizeEdd(ptr noundef nonnull align 8 dereferenceable(57) %369, double noundef %383, double noundef %463)
-  br i1 %.not156.lcssa, label %560, label %_ZN3gmxL28normalizeFreeEnergyAndPmfSumEPSt6vectorINS_10PointStateESaIS1_EE.exit
+  br i1 %.not156.lcssa, label %558, label %_ZN3gmxL28normalizeFreeEnergyAndPmfSumEPSt6vectorINS_10PointStateESaIS1_EE.exit
 
 470:                                              ; preds = %.lr.ph176, %_ZN3gmx10PointState21updateWithNewSamplingERKNS_10BiasParamsEldd.exit
-  %471 = phi double [ %461, %.lr.ph176 ], [ %546, %_ZN3gmx10PointState21updateWithNewSamplingERKNS_10BiasParamsEldd.exit ]
-  %.sroa.0123.0175 = phi ptr [ %467, %.lr.ph176 ], [ %559, %_ZN3gmx10PointState21updateWithNewSamplingERKNS_10BiasParamsEldd.exit ]
+  %471 = phi double [ %461, %.lr.ph176 ], [ %544, %_ZN3gmx10PointState21updateWithNewSamplingERKNS_10BiasParamsEldd.exit ]
+  %.sroa.0123.0175 = phi ptr [ %467, %.lr.ph176 ], [ %557, %_ZN3gmx10PointState21updateWithNewSamplingERKNS_10BiasParamsEldd.exit ]
   %472 = load i32, ptr %.sroa.0123.0175, align 4, !tbaa !30
   %473 = sext i32 %472 to i64
   %474 = load ptr, ptr %20, align 8, !tbaa !10
@@ -6361,34 +6356,32 @@ _ZNK3gmx9BiasState37getSkippedUpdateHistogramScaleFactorsERKNS_10BiasParamsEPdS4
   br i1 %493, label %.lr.ph.i112.split.us, label %.lr.ph.i112.split
 
 .lr.ph.i112.split.us:                             ; preds = %.lr.ph.i112, %_ZN3gmx10PointState16updateFreeEnergyERKNS_10BiasParamsEd.exit.us
-  %494 = phi double [ %501, %_ZN3gmx10PointState16updateFreeEnergyERKNS_10BiasParamsEd.exit.us ], [ %.pre192, %.lr.ph.i112 ]
-  %495 = phi double [ %504, %_ZN3gmx10PointState16updateFreeEnergyERKNS_10BiasParamsEd.exit.us ], [ %482, %.lr.ph.i112 ]
-  %496 = phi double [ %508, %_ZN3gmx10PointState16updateFreeEnergyERKNS_10BiasParamsEd.exit.us ], [ %.pre191, %.lr.ph.i112 ]
-  %.013.i.us = phi i64 [ %511, %_ZN3gmx10PointState16updateFreeEnergyERKNS_10BiasParamsEd.exit.us ], [ 0, %.lr.ph.i112 ]
+  %494 = phi double [ %500, %_ZN3gmx10PointState16updateFreeEnergyERKNS_10BiasParamsEd.exit.us ], [ %.pre192, %.lr.ph.i112 ]
+  %495 = phi double [ %506, %_ZN3gmx10PointState16updateFreeEnergyERKNS_10BiasParamsEd.exit.us ], [ %.pre191, %.lr.ph.i112 ]
+  %.013.i.us = phi i64 [ %509, %_ZN3gmx10PointState16updateFreeEnergyERKNS_10BiasParamsEd.exit.us ], [ 0, %.lr.ph.i112 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %497 = fadd double %496, 0.000000e+00
-  %498 = call double @llvm.fmuladd.f64(double %471, double %495, double %496)
-  %499 = fdiv double %497, %498
-  %500 = call double @log(double noundef %499) #33, !tbaa !30
-  %501 = fsub double %494, %500
-  store double %501, ptr %491, align 8, !tbaa !99
-  %502 = call noundef double @llvm.fabs.f64(double %501)
-  %503 = fcmp ogt double %502, 7.000000e+02
-  br i1 %503, label %.split.us, label %_ZN3gmx10PointState16updateFreeEnergyERKNS_10BiasParamsEd.exit.us
+  %496 = fadd double %495, 0.000000e+00
+  %497 = call double @llvm.fmuladd.f64(double %471, double %482, double %495)
+  %498 = fdiv double %496, %497
+  %499 = call double @log(double noundef %498) #33, !tbaa !30
+  %500 = fsub double %494, %499
+  store double %500, ptr %491, align 8, !tbaa !99
+  %501 = call noundef double @llvm.fabs.f64(double %500)
+  %502 = fcmp ogt double %501, 7.000000e+02
+  br i1 %502, label %.split.us, label %_ZN3gmx10PointState16updateFreeEnergyERKNS_10BiasParamsEd.exit.us
 
 _ZN3gmx10PointState16updateFreeEnergyERKNS_10BiasParamsEd.exit.us: ; preds = %.lr.ph.i112.split.us
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  %504 = load double, ptr %481, align 8
-  %505 = load double, ptr %460, align 8
-  %506 = fmul double %504, %505
-  %507 = fadd double %506, %496
-  %508 = fmul double %.0152, %507
-  store double %508, ptr %489, align 8, !tbaa !102
-  %509 = load double, ptr %490, align 8, !tbaa !15
-  %510 = fadd double %.0154, %509
-  store double %510, ptr %490, align 8, !tbaa !15
-  %511 = add nuw nsw i64 %.013.i.us, 1
-  %exitcond.not.i113.us = icmp eq i64 %511, %487
+  %503 = load double, ptr %460, align 8
+  %504 = fmul double %482, %503
+  %505 = fadd double %504, %495
+  %506 = fmul double %.0152, %505
+  store double %506, ptr %489, align 8, !tbaa !102
+  %507 = load double, ptr %490, align 8, !tbaa !15
+  %508 = fadd double %.0154, %507
+  store double %508, ptr %490, align 8, !tbaa !15
+  %509 = add nuw nsw i64 %.013.i.us, 1
+  %exitcond.not.i113.us = icmp eq i64 %509, %487
   br i1 %exitcond.not.i113.us, label %._crit_edge.i111, label %.lr.ph.i112.split.us, !llvm.loop !181
 
 ._crit_edge.i111:                                 ; preds = %_ZN3gmx10PointState16updateFreeEnergyERKNS_10BiasParamsEd.exit, %_ZN3gmx10PointState16updateFreeEnergyERKNS_10BiasParamsEd.exit.us, %.preheader.i
@@ -6396,224 +6389,224 @@ _ZN3gmx10PointState16updateFreeEnergyERKNS_10BiasParamsEd.exit.us: ; preds = %.l
   br label %_ZN3gmx10PointState31performPreviouslySkippedUpdatesERKNS_10BiasParamsEldd.exit
 
 .lr.ph.i112.split:                                ; preds = %.lr.ph.i112, %_ZN3gmx10PointState16updateFreeEnergyERKNS_10BiasParamsEd.exit
-  %512 = phi double [ %518, %_ZN3gmx10PointState16updateFreeEnergyERKNS_10BiasParamsEd.exit ], [ %.pre192, %.lr.ph.i112 ]
-  %513 = phi double [ %532, %_ZN3gmx10PointState16updateFreeEnergyERKNS_10BiasParamsEd.exit ], [ %.pre191, %.lr.ph.i112 ]
-  %.013.i = phi i64 [ %535, %_ZN3gmx10PointState16updateFreeEnergyERKNS_10BiasParamsEd.exit ], [ 0, %.lr.ph.i112 ]
+  %510 = phi double [ %516, %_ZN3gmx10PointState16updateFreeEnergyERKNS_10BiasParamsEd.exit ], [ %.pre192, %.lr.ph.i112 ]
+  %511 = phi double [ %530, %_ZN3gmx10PointState16updateFreeEnergyERKNS_10BiasParamsEd.exit ], [ %.pre191, %.lr.ph.i112 ]
+  %.013.i = phi i64 [ %533, %_ZN3gmx10PointState16updateFreeEnergyERKNS_10BiasParamsEd.exit ], [ 0, %.lr.ph.i112 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %514 = fadd double %513, 0.000000e+00
-  %515 = call double @llvm.fmuladd.f64(double %471, double %482, double %513)
-  %516 = fdiv double %514, %515
-  %517 = call double @log(double noundef %516) #33, !tbaa !30
-  %518 = fsub double %512, %517
-  store double %518, ptr %491, align 8, !tbaa !99
-  %519 = call noundef double @llvm.fabs.f64(double %518)
-  %520 = fcmp ogt double %519, 7.000000e+02
-  br i1 %520, label %.split.us, label %_ZN3gmx10PointState16updateFreeEnergyERKNS_10BiasParamsEd.exit
+  %512 = fadd double %511, 0.000000e+00
+  %513 = call double @llvm.fmuladd.f64(double %471, double %482, double %511)
+  %514 = fdiv double %512, %513
+  %515 = call double @log(double noundef %514) #33, !tbaa !30
+  %516 = fsub double %510, %515
+  store double %516, ptr %491, align 8, !tbaa !99
+  %517 = call noundef double @llvm.fabs.f64(double %516)
+  %518 = fcmp ogt double %517, 7.000000e+02
+  br i1 %518, label %.split.us, label %_ZN3gmx10PointState16updateFreeEnergyERKNS_10BiasParamsEd.exit
 
 .split.us:                                        ; preds = %.lr.ph.i112.split, %.lr.ph.i112.split.us
-  %521 = call ptr @__cxa_allocate_exception(i64 24) #33
+  %519 = call ptr @__cxa_allocate_exception(i64 24) #33
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   invoke void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnull align 8 dereferenceable(56) %12, ptr noundef nonnull @.str.26)
-          to label %522 unwind label %.thread.i
+          to label %520 unwind label %.thread.i
 
-522:                                              ; preds = %.split.us
+520:                                              ; preds = %.split.us
   invoke void @_ZN3gmx16GromacsExceptionC2ERKNS_20ExceptionInitializerE(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(56) %12)
-          to label %523 unwind label %.thread18.i
+          to label %521 unwind label %.thread18.i
 
-523:                                              ; preds = %522
+521:                                              ; preds = %520
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %11, align 8, !tbaa !45
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %13, align 8, !tbaa !45
-  %524 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store ptr @__PRETTY_FUNCTION__._ZN3gmx10PointState16updateFreeEnergyERKNS_10BiasParamsEd, ptr %524, align 8, !tbaa !53
+  %522 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  store ptr @__PRETTY_FUNCTION__._ZN3gmx10PointState16updateFreeEnergyERKNS_10BiasParamsEd, ptr %522, align 8, !tbaa !53
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr @.str.12, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !53
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %13, i64 24
   store i32 361, ptr %.sroa.5.0..sroa_idx.i, align 8, !tbaa !30
-  invoke void @_ZN3gmxlsINS_17InvalidInputErrorENS_22ExceptionInfoLocation_ENS_13ThrowLocationEEENSt9enable_ifIXsr3stdE12is_base_of_vINS_16GromacsExceptionET_EES6_E4typeES6_RKNS_13ExceptionInfoIT0_T1_EE(ptr dead_on_unwind writable sret(%"class.gmx::InvalidInputError") align 8 %521, ptr noundef nonnull %11, ptr noundef nonnull align 8 dereferenceable(32) %13)
-          to label %525 unwind label %528
+  invoke void @_ZN3gmxlsINS_17InvalidInputErrorENS_22ExceptionInfoLocation_ENS_13ThrowLocationEEENSt9enable_ifIXsr3stdE12is_base_of_vINS_16GromacsExceptionET_EES6_E4typeES6_RKNS_13ExceptionInfoIT0_T1_EE(ptr dead_on_unwind writable sret(%"class.gmx::InvalidInputError") align 8 %519, ptr noundef nonnull %11, ptr noundef nonnull align 8 dereferenceable(32) %13)
+          to label %523 unwind label %526
 
-525:                                              ; preds = %523
-  invoke void @__cxa_throw(ptr %521, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx16GromacsExceptionD2Ev) #30
-          to label %531 unwind label %528
+523:                                              ; preds = %521
+  invoke void @__cxa_throw(ptr %519, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx16GromacsExceptionD2Ev) #30
+          to label %529 unwind label %526
 
 .thread.i:                                        ; preds = %.split.us
-  %526 = landingpad { ptr, i32 }
+  %524 = landingpad { ptr, i32 }
           cleanup
   br label %.sink.split.i
 
-.thread18.i:                                      ; preds = %522
-  %527 = landingpad { ptr, i32 }
+.thread18.i:                                      ; preds = %520
+  %525 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %12) #33
   br label %.sink.split.i
 
-528:                                              ; preds = %525, %523
-  %.0.i = phi i1 [ false, %525 ], [ true, %523 ]
-  %529 = landingpad { ptr, i32 }
+526:                                              ; preds = %523, %521
+  %.0.i = phi i1 [ false, %523 ], [ true, %521 ]
+  %527 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #33
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #33
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %12) #33
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br i1 %.0.i, label %530, label %common.resume
+  br i1 %.0.i, label %528, label %common.resume
 
 .sink.split.i:                                    ; preds = %.thread18.i, %.thread.i
-  %.pn.pn17.ph.i = phi { ptr, i32 } [ %527, %.thread18.i ], [ %526, %.thread.i ]
+  %.pn.pn17.ph.i = phi { ptr, i32 } [ %525, %.thread18.i ], [ %524, %.thread.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br label %530
+  br label %528
 
-530:                                              ; preds = %.sink.split.i, %528
-  %.pn.pn17.i = phi { ptr, i32 } [ %529, %528 ], [ %.pn.pn17.ph.i, %.sink.split.i ]
-  call void @__cxa_free_exception(ptr %521) #33
+528:                                              ; preds = %.sink.split.i, %526
+  %.pn.pn17.i = phi { ptr, i32 } [ %527, %526 ], [ %.pn.pn17.ph.i, %.sink.split.i ]
+  call void @__cxa_free_exception(ptr %519) #33
   br label %common.resume
 
-531:                                              ; preds = %525
+529:                                              ; preds = %523
   unreachable
 
 _ZN3gmx10PointState16updateFreeEnergyERKNS_10BiasParamsEd.exit: ; preds = %.lr.ph.i112.split
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  %532 = fmul double %.0152, %514
-  store double %532, ptr %489, align 8, !tbaa !102
-  %533 = load double, ptr %490, align 8, !tbaa !15
-  %534 = fadd double %.0154, %533
-  store double %534, ptr %490, align 8, !tbaa !15
-  %535 = add nuw nsw i64 %.013.i, 1
-  %exitcond.not.i113 = icmp eq i64 %535, %487
+  %530 = fmul double %.0152, %512
+  store double %530, ptr %489, align 8, !tbaa !102
+  %531 = load double, ptr %490, align 8, !tbaa !15
+  %532 = fadd double %.0154, %531
+  store double %532, ptr %490, align 8, !tbaa !15
+  %533 = add nuw nsw i64 %.013.i, 1
+  %exitcond.not.i113 = icmp eq i64 %533, %487
   br i1 %exitcond.not.i113, label %._crit_edge.i111, label %.lr.ph.i112.split, !llvm.loop !181
 
 _ZN3gmx10PointState31performPreviouslySkippedUpdatesERKNS_10BiasParamsEldd.exit: ; preds = %470, %._crit_edge.i111, %484, %480
-  %536 = getelementptr inbounds nuw i8, ptr %475, i64 56
-  %537 = load i64, ptr %536, align 8, !tbaa !180
-  %538 = icmp eq i64 %537, %.pre201
-  br i1 %538, label %_ZN3gmx10PointState21updateWithNewSamplingERKNS_10BiasParamsEldd.exit, label %539
+  %534 = getelementptr inbounds nuw i8, ptr %475, i64 56
+  %535 = load i64, ptr %534, align 8, !tbaa !180
+  %536 = icmp eq i64 %535, %.pre201
+  br i1 %536, label %_ZN3gmx10PointState21updateWithNewSamplingERKNS_10BiasParamsEldd.exit, label %537
 
-539:                                              ; preds = %_ZN3gmx10PointState31performPreviouslySkippedUpdatesERKNS_10BiasParamsEldd.exit
+537:                                              ; preds = %_ZN3gmx10PointState31performPreviouslySkippedUpdatesERKNS_10BiasParamsEldd.exit
   call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.32, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZN3gmx10PointState21updateWithNewSamplingERKNS_10BiasParamsElddENKUlvE_clEv, ptr noundef nonnull @.str.12, i32 noundef 316) #30
   unreachable
 
 _ZN3gmx10PointState21updateWithNewSamplingERKNS_10BiasParamsEldd.exit: ; preds = %_ZN3gmx10PointState31performPreviouslySkippedUpdatesERKNS_10BiasParamsEldd.exit
-  %540 = getelementptr inbounds nuw i8, ptr %475, i64 32
-  %541 = load double, ptr %540, align 8, !tbaa !223
-  call void @_ZN3gmx10PointState16updateFreeEnergyERKNS_10BiasParamsEd(ptr noundef nonnull align 8 dereferenceable(96) %475, ptr noundef nonnull align 8 dereferenceable(137) %4, double noundef %541)
-  %542 = load i8, ptr %469, align 8, !tbaa !235, !range !37, !noundef !38
-  %543 = trunc nuw i8 %542 to i1
-  %544 = getelementptr inbounds nuw i8, ptr %475, i64 16
-  %545 = load double, ptr %544, align 8
-  %546 = load double, ptr %460, align 8
-  %547 = fmul double %545, %546
-  %.sink.i.i.i114 = select i1 %543, double %547, double %541
-  %548 = load double, ptr %442, align 8, !tbaa !178
-  %549 = getelementptr inbounds nuw i8, ptr %475, i64 48
-  %550 = load double, ptr %549, align 8, !tbaa !102
-  %551 = call double @llvm.fmuladd.f64(double %.sink.i.i.i114, double %548, double %550)
-  %552 = fmul double %463, %551
-  store double %552, ptr %549, align 8, !tbaa !102
-  %553 = getelementptr inbounds nuw i8, ptr %475, i64 64
-  %554 = load double, ptr %553, align 8, !tbaa !15
-  %555 = fadd double %466, %554
-  store double %555, ptr %553, align 8, !tbaa !15
-  %556 = load i64, ptr %536, align 8, !tbaa !180
-  %557 = add nsw i64 %556, 1
-  store i64 %557, ptr %536, align 8, !tbaa !180
-  store double 0.000000e+00, ptr %540, align 8, !tbaa !223
-  %558 = getelementptr inbounds nuw i8, ptr %475, i64 72
-  store double 0.000000e+00, ptr %558, align 8, !tbaa !226
-  %559 = getelementptr inbounds nuw i8, ptr %.sroa.0123.0175, i64 4
-  %.not = icmp eq ptr %559, %468
+  %538 = getelementptr inbounds nuw i8, ptr %475, i64 32
+  %539 = load double, ptr %538, align 8, !tbaa !223
+  call void @_ZN3gmx10PointState16updateFreeEnergyERKNS_10BiasParamsEd(ptr noundef nonnull align 8 dereferenceable(96) %475, ptr noundef nonnull align 8 dereferenceable(137) %4, double noundef %539)
+  %540 = load i8, ptr %469, align 8, !tbaa !235, !range !37, !noundef !38
+  %541 = trunc nuw i8 %540 to i1
+  %542 = getelementptr inbounds nuw i8, ptr %475, i64 16
+  %543 = load double, ptr %542, align 8
+  %544 = load double, ptr %460, align 8
+  %545 = fmul double %543, %544
+  %.sink.i.i.i114 = select i1 %541, double %545, double %539
+  %546 = load double, ptr %442, align 8, !tbaa !178
+  %547 = getelementptr inbounds nuw i8, ptr %475, i64 48
+  %548 = load double, ptr %547, align 8, !tbaa !102
+  %549 = call double @llvm.fmuladd.f64(double %.sink.i.i.i114, double %546, double %548)
+  %550 = fmul double %463, %549
+  store double %550, ptr %547, align 8, !tbaa !102
+  %551 = getelementptr inbounds nuw i8, ptr %475, i64 64
+  %552 = load double, ptr %551, align 8, !tbaa !15
+  %553 = fadd double %466, %552
+  store double %553, ptr %551, align 8, !tbaa !15
+  %554 = load i64, ptr %534, align 8, !tbaa !180
+  %555 = add nsw i64 %554, 1
+  store i64 %555, ptr %534, align 8, !tbaa !180
+  store double 0.000000e+00, ptr %538, align 8, !tbaa !223
+  %556 = getelementptr inbounds nuw i8, ptr %475, i64 72
+  store double 0.000000e+00, ptr %556, align 8, !tbaa !226
+  %557 = getelementptr inbounds nuw i8, ptr %.sroa.0123.0175, i64 4
+  %.not = icmp eq ptr %557, %468
   br i1 %.not, label %._crit_edge177, label %470
 
-560:                                              ; preds = %._crit_edge177
+558:                                              ; preds = %._crit_edge177
   %.val = load ptr, ptr %20, align 8, !tbaa !10
   %.val69 = load ptr, ptr %22, align 8, !tbaa !4
   %.not12.i.i = icmp eq ptr %.val, %.val69
   br i1 %.not12.i.i, label %_ZN3gmxL28normalizeFreeEnergyAndPmfSumEPSt6vectorINS_10PointStateESaIS1_EE.exit, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %560, %569
-  %.014.i.i = phi double [ %.1.i.i, %569 ], [ 0x47EFFFFFE0000000, %560 ]
-  %.sroa.0.013.i.i = phi ptr [ %570, %569 ], [ %.val, %560 ]
-  %561 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i.i, i64 16
-  %562 = load double, ptr %561, align 8, !tbaa !11
-  %563 = fcmp ogt double %562, 0.000000e+00
-  br i1 %563, label %564, label %569
+.lr.ph.i.i:                                       ; preds = %558, %567
+  %.014.i.i = phi double [ %.1.i.i, %567 ], [ 0x47EFFFFFE0000000, %558 ]
+  %.sroa.0.013.i.i = phi ptr [ %568, %567 ], [ %.val, %558 ]
+  %559 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i.i, i64 16
+  %560 = load double, ptr %559, align 8, !tbaa !11
+  %561 = fcmp ogt double %560, 0.000000e+00
+  br i1 %561, label %562, label %567
 
-564:                                              ; preds = %.lr.ph.i.i
-  %565 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i.i, i64 8
-  %566 = load double, ptr %565, align 8, !tbaa !99
-  %567 = fcmp olt double %566, %.014.i.i
-  br i1 %567, label %568, label %569
+562:                                              ; preds = %.lr.ph.i.i
+  %563 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i.i, i64 8
+  %564 = load double, ptr %563, align 8, !tbaa !99
+  %565 = fcmp olt double %564, %.014.i.i
+  br i1 %565, label %566, label %567
 
-568:                                              ; preds = %564
-  br label %569
+566:                                              ; preds = %562
+  br label %567
 
-569:                                              ; preds = %568, %564, %.lr.ph.i.i
-  %.1.i.i = phi double [ %566, %568 ], [ %.014.i.i, %564 ], [ %.014.i.i, %.lr.ph.i.i ]
-  %570 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i.i, i64 96
-  %.not.i.i115 = icmp eq ptr %570, %.val69
+567:                                              ; preds = %566, %562, %.lr.ph.i.i
+  %.1.i.i = phi double [ %564, %566 ], [ %.014.i.i, %562 ], [ %.014.i.i, %.lr.ph.i.i ]
+  %568 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i.i, i64 96
+  %.not.i.i115 = icmp eq ptr %568, %.val69
   br i1 %.not.i.i115, label %.lr.ph.i116, label %.lr.ph.i.i
 
-.lr.ph.i116:                                      ; preds = %569, %_ZN3gmx10PointState28normalizeFreeEnergyAndPmfSumEd.exit.i
-  %.sroa.01.06.i = phi ptr [ %581, %_ZN3gmx10PointState28normalizeFreeEnergyAndPmfSumEd.exit.i ], [ %.val, %569 ]
-  %571 = getelementptr inbounds nuw i8, ptr %.sroa.01.06.i, i64 16
-  %572 = load double, ptr %571, align 8, !tbaa !11
-  %573 = fcmp ogt double %572, 0.000000e+00
-  br i1 %573, label %574, label %_ZN3gmx10PointState28normalizeFreeEnergyAndPmfSumEd.exit.i
+.lr.ph.i116:                                      ; preds = %567, %_ZN3gmx10PointState28normalizeFreeEnergyAndPmfSumEd.exit.i
+  %.sroa.01.06.i = phi ptr [ %579, %_ZN3gmx10PointState28normalizeFreeEnergyAndPmfSumEd.exit.i ], [ %.val, %567 ]
+  %569 = getelementptr inbounds nuw i8, ptr %.sroa.01.06.i, i64 16
+  %570 = load double, ptr %569, align 8, !tbaa !11
+  %571 = fcmp ogt double %570, 0.000000e+00
+  br i1 %571, label %572, label %_ZN3gmx10PointState28normalizeFreeEnergyAndPmfSumEd.exit.i
 
-574:                                              ; preds = %.lr.ph.i116
-  %575 = getelementptr inbounds nuw i8, ptr %.sroa.01.06.i, i64 8
-  %576 = load double, ptr %575, align 8, !tbaa !99
-  %577 = fsub double %576, %.1.i.i
-  store double %577, ptr %575, align 8, !tbaa !99
-  %578 = getelementptr inbounds nuw i8, ptr %.sroa.01.06.i, i64 64
-  %579 = load double, ptr %578, align 8, !tbaa !15
-  %580 = fadd double %.1.i.i, %579
-  store double %580, ptr %578, align 8, !tbaa !15
+572:                                              ; preds = %.lr.ph.i116
+  %573 = getelementptr inbounds nuw i8, ptr %.sroa.01.06.i, i64 8
+  %574 = load double, ptr %573, align 8, !tbaa !99
+  %575 = fsub double %574, %.1.i.i
+  store double %575, ptr %573, align 8, !tbaa !99
+  %576 = getelementptr inbounds nuw i8, ptr %.sroa.01.06.i, i64 64
+  %577 = load double, ptr %576, align 8, !tbaa !15
+  %578 = fadd double %.1.i.i, %577
+  store double %578, ptr %576, align 8, !tbaa !15
   br label %_ZN3gmx10PointState28normalizeFreeEnergyAndPmfSumEd.exit.i
 
-_ZN3gmx10PointState28normalizeFreeEnergyAndPmfSumEd.exit.i: ; preds = %574, %.lr.ph.i116
-  %581 = getelementptr inbounds nuw i8, ptr %.sroa.01.06.i, i64 96
-  %.not.i117 = icmp eq ptr %581, %.val69
+_ZN3gmx10PointState28normalizeFreeEnergyAndPmfSumEd.exit.i: ; preds = %572, %.lr.ph.i116
+  %579 = getelementptr inbounds nuw i8, ptr %.sroa.01.06.i, i64 96
+  %.not.i117 = icmp eq ptr %579, %.val69
   br i1 %.not.i117, label %_ZN3gmxL28normalizeFreeEnergyAndPmfSumEPSt6vectorINS_10PointStateESaIS1_EE.exit, label %.lr.ph.i116
 
-_ZN3gmxL28normalizeFreeEnergyAndPmfSumEPSt6vectorINS_10PointStateESaIS1_EE.exit: ; preds = %_ZN3gmx10PointState28normalizeFreeEnergyAndPmfSumEd.exit.i, %560, %._crit_edge177
-  br i1 %361, label %582, label %583
+_ZN3gmxL28normalizeFreeEnergyAndPmfSumEPSt6vectorINS_10PointStateESaIS1_EE.exit: ; preds = %_ZN3gmx10PointState28normalizeFreeEnergyAndPmfSumEd.exit.i, %558, %._crit_edge177
+  br i1 %361, label %580, label %581
 
-582:                                              ; preds = %_ZN3gmxL28normalizeFreeEnergyAndPmfSumEPSt6vectorINS_10PointStateESaIS1_EE.exit
+580:                                              ; preds = %_ZN3gmxL28normalizeFreeEnergyAndPmfSumEPSt6vectorINS_10PointStateESaIS1_EE.exit
   call void @_ZN3gmx9BiasState24updateTargetDistributionERKNS_10BiasParamsERKNS_15CorrelationGridE(ptr noundef nonnull align 8 dereferenceable(240) %0, ptr noundef nonnull align 8 dereferenceable(137) %4, ptr noundef nonnull align 8 dereferenceable(40) %5)
-  br label %583
+  br label %581
 
-583:                                              ; preds = %582, %_ZN3gmxL28normalizeFreeEnergyAndPmfSumEPSt6vectorINS_10PointStateESaIS1_EE.exit
-  %584 = load ptr, ptr %9, align 8, !tbaa !28
-  %585 = load ptr, ptr %36, align 8, !tbaa !28
-  %.not160178 = icmp eq ptr %584, %585
+581:                                              ; preds = %580, %_ZN3gmxL28normalizeFreeEnergyAndPmfSumEPSt6vectorINS_10PointStateESaIS1_EE.exit
+  %582 = load ptr, ptr %9, align 8, !tbaa !28
+  %583 = load ptr, ptr %36, align 8, !tbaa !28
+  %.not160178 = icmp eq ptr %582, %583
   br i1 %.not160178, label %._crit_edge182, label %.lr.ph181
 
-.lr.ph181:                                        ; preds = %583
-  %586 = load ptr, ptr %20, align 8, !tbaa !10
-  br label %589
+.lr.ph181:                                        ; preds = %581
+  %584 = load ptr, ptr %20, align 8, !tbaa !10
+  br label %587
 
-._crit_edge182:                                   ; preds = %589, %583
-  %587 = load i64, ptr %369, align 8, !tbaa !179
-  %588 = add nsw i64 %587, 1
-  store i64 %588, ptr %369, align 8, !tbaa !179
+._crit_edge182:                                   ; preds = %587, %581
+  %585 = load i64, ptr %369, align 8, !tbaa !179
+  %586 = add nsw i64 %585, 1
+  store i64 %586, ptr %369, align 8, !tbaa !179
   ret void
 
-589:                                              ; preds = %.lr.ph181, %589
-  %.sroa.0119.0179 = phi ptr [ %584, %.lr.ph181 ], [ %599, %589 ]
-  %590 = load i32, ptr %.sroa.0119.0179, align 4, !tbaa !30
-  %591 = sext i32 %590 to i64
-  %592 = getelementptr inbounds nuw %"class.gmx::PointState", ptr %586, i64 %591
-  %593 = getelementptr inbounds nuw i8, ptr %592, i64 8
-  %594 = load double, ptr %593, align 8, !tbaa !99
-  %595 = getelementptr inbounds nuw i8, ptr %592, i64 16
-  %596 = load double, ptr %595, align 8, !tbaa !11
-  %597 = call double @log(double noundef %596) #33, !tbaa !30
-  %598 = fadd double %594, %597
-  store double %598, ptr %592, align 8, !tbaa !182
-  %599 = getelementptr inbounds nuw i8, ptr %.sroa.0119.0179, i64 4
-  %.not160 = icmp eq ptr %599, %585
-  br i1 %.not160, label %._crit_edge182, label %589
+587:                                              ; preds = %.lr.ph181, %587
+  %.sroa.0119.0179 = phi ptr [ %582, %.lr.ph181 ], [ %597, %587 ]
+  %588 = load i32, ptr %.sroa.0119.0179, align 4, !tbaa !30
+  %589 = sext i32 %588 to i64
+  %590 = getelementptr inbounds nuw %"class.gmx::PointState", ptr %584, i64 %589
+  %591 = getelementptr inbounds nuw i8, ptr %590, i64 8
+  %592 = load double, ptr %591, align 8, !tbaa !99
+  %593 = getelementptr inbounds nuw i8, ptr %590, i64 16
+  %594 = load double, ptr %593, align 8, !tbaa !11
+  %595 = call double @log(double noundef %594) #33, !tbaa !30
+  %596 = fadd double %592, %595
+  store double %596, ptr %590, align 8, !tbaa !182
+  %597 = getelementptr inbounds nuw i8, ptr %.sroa.0119.0179, i64 4
+  %.not160 = icmp eq ptr %597, %583
+  br i1 %.not160, label %._crit_edge182, label %587
 }
 
 declare noundef double @_ZN3gmx13HistogramSize16newHistogramSizeERKNS_10BiasParamsEdbNS_8ArrayRefIKNS_10PointStateEEENS4_IdEEP8_IO_FILE(ptr noundef nonnull align 8 dereferenceable(57), ptr noundef nonnull align 8 dereferenceable(137), double noundef, i1 noundef zeroext, ptr, ptr, ptr noundef byval(%"class.gmx::ArrayRef.72") align 8, ptr noundef) local_unnamed_addr #3

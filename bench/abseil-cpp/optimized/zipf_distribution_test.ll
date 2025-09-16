@@ -15743,6 +15743,8 @@ _ZN7testing15AssertionResultD2Ev.exit347:         ; preds = %808, %_ZNKSt14defau
   %830 = load double, ptr %132, align 8
   %831 = fcmp oeq double %830, 2.000000e+00
   %832 = fneg double %830
+  %833 = load i32, ptr %27, align 8, !tbaa !202
+  %834 = sitofp i32 %833 to double
   br label %.split.i.i.i
 
 .split.i.i.i:                                     ; preds = %.split.i.i.i.backedge, %822
@@ -15752,71 +15754,69 @@ _ZN7testing15AssertionResultD2Ev.exit347:         ; preds = %808, %_ZNKSt14defau
   %.sroa.24.0.insert.shift.i.i.i.i.i.i.i.i.i = shl nuw i128 %.sroa.24.0.insert.ext.i.i.i.i.i.i.i.i.i, 64
   %.sroa.03.0.insert.ext.i.i.i.i.i.i.i.i.i = zext i64 %.sroa.0.0.extract.trunc.i17.i.i.i.i.i19.i.i.i to i128
   %.sroa.03.0.insert.insert.i.i.i.i.i.i.i.i.i = or disjoint i128 %.sroa.24.0.insert.shift.i.i.i.i.i.i.i.i.i, %.sroa.03.0.insert.ext.i.i.i.i.i.i.i.i.i
-  %833 = mul i128 %.sroa.03.0.insert.insert.i.i.i.i.i.i.i.i.i, 47026247687942121848144207491837523525
-  %.sroa.03.0.insert.insert.i16.i.i.i.i.i.i.i.i = add i128 %833, 1442695040888963407
+  %835 = mul i128 %.sroa.03.0.insert.insert.i.i.i.i.i.i.i.i.i, 47026247687942121848144207491837523525
+  %.sroa.03.0.insert.insert.i16.i.i.i.i.i.i.i.i = add i128 %835, 1442695040888963407
   %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.i = trunc i128 %.sroa.03.0.insert.insert.i16.i.i.i.i.i.i.i.i to i64
-  %834 = lshr i128 %.sroa.03.0.insert.insert.i16.i.i.i.i.i.i.i.i, 64
-  %.tr.i.i.i.i.i.i.i.i.i = trunc nuw i128 %834 to i64
+  %836 = lshr i128 %.sroa.03.0.insert.insert.i16.i.i.i.i.i.i.i.i, 64
+  %.tr.i.i.i.i.i.i.i.i.i = trunc nuw i128 %836 to i64
   %.narrow.i.i.i.i.i.i.i.i.i = add i64 %.tr.i.i.i.i.i.i.i.i.i, 6364136223846793005
-  %835 = icmp eq i64 %.narrow.i.i.i.i.i.i.i.i.i, %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.i
-  br i1 %835, label %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit.i, label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i
+  %837 = icmp eq i64 %.narrow.i.i.i.i.i.i.i.i.i, %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.i
+  br i1 %837, label %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit.i, label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i
 
 _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i: ; preds = %.split.i.i.i
-  %836 = xor i64 %.narrow.i.i.i.i.i.i.i.i.i, %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.i
+  %838 = xor i64 %.narrow.i.i.i.i.i.i.i.i.i, %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.i
   %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i.i.i = lshr i64 %.narrow.i.i.i.i.i.i.i.i.i, 58
-  %837 = call noundef i64 @llvm.fshr.i64(i64 %836, i64 %836, i64 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i.i.i)
-  %838 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %837, i1 true)
-  %839 = shl i64 %837, %838
-  %840 = lshr i64 %839, 11
-  %841 = and i64 %840, 4503599627370495
-  %842 = shl nuw nsw i64 %838, 52
-  %reass.sub = sub nsw i64 %841, %842
-  %843 = add nsw i64 %reass.sub, 4602678819172646912
-  %844 = bitcast i64 %843 to double
-  %845 = fcmp uge double %844, 1.000000e+00
-  br i1 %845, label %.split.i.i.i.backedge, label %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit.i.split.loop.exit
+  %839 = call noundef i64 @llvm.fshr.i64(i64 %838, i64 %838, i64 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i.i.i)
+  %840 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %839, i1 true)
+  %841 = shl i64 %839, %840
+  %842 = lshr i64 %841, 11
+  %843 = and i64 %842, 4503599627370495
+  %844 = shl nuw nsw i64 %840, 52
+  %reass.sub = sub nsw i64 %843, %844
+  %845 = add nsw i64 %reass.sub, 4602678819172646912
+  %846 = bitcast i64 %845 to double
+  %847 = fcmp uge double %846, 1.000000e+00
+  br i1 %847, label %.split.i.i.i.backedge, label %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit.i.split.loop.exit
 
 .split.i.i.i.backedge:                            ; preds = %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i, %_ZNK4absl17zipf_distributionIiE10param_type14pow_negative_qEd.exit.i, %_ZNK4absl17zipf_distributionIiE10param_type4hinvEd.exit.i
   %.narrow.i.i.i.i.i.i20.i.i.i.be = phi i64 [ %.narrow.i.i.i.i.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i ], [ %.narrow.i.i.i.i.i.i.i.i.i441, %_ZNK4absl17zipf_distributionIiE10param_type14pow_negative_qEd.exit.i ], [ %.narrow.i.i.i.i.i.i.i.i.i441, %_ZNK4absl17zipf_distributionIiE10param_type4hinvEd.exit.i ]
   br label %.split.i.i.i, !llvm.loop !473
 
 _ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit.i.split.loop.exit: ; preds = %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i
-  %846 = fadd double %844, 0.000000e+00
+  %848 = fadd double %846, 0.000000e+00
   br label %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit.i
 
 _ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit.i: ; preds = %.split.i.i.i, %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit.i.split.loop.exit
   %.narrow.i.i.i.i.i.i.i.i.i441 = phi i64 [ %.narrow.i.i.i.i.i.i.i.i.i, %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit.i.split.loop.exit ], [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.i, %.split.i.i.i ]
-  %.0.i.i.i31.i = phi double [ %846, %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit.i.split.loop.exit ], [ 0.000000e+00, %.split.i.i.i ]
-  %847 = call double @llvm.fmuladd.f64(double %.0.i.i.i31.i, double %824, double %823)
-  br i1 %827, label %848, label %850
-
-848:                                              ; preds = %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit.i
-  %849 = fdiv double -1.000000e+00, %847
-  br label %_ZNK4absl17zipf_distributionIiE10param_type4hinvEd.exit.i
+  %.0.i.i.i31.i = phi double [ %848, %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit.i.split.loop.exit ], [ 0.000000e+00, %.split.i.i.i ]
+  %849 = call double @llvm.fmuladd.f64(double %.0.i.i.i31.i, double %824, double %823)
+  br i1 %827, label %850, label %852
 
 850:                                              ; preds = %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit.i
-  %851 = fmul double %826, %847
-  %852 = call double @log(double noundef %851) #36, !tbaa !53
-  %853 = fmul double %828, %852
-  %854 = call double @exp(double noundef %853) #36, !tbaa !53
+  %851 = fdiv double -1.000000e+00, %849
   br label %_ZNK4absl17zipf_distributionIiE10param_type4hinvEd.exit.i
 
-_ZNK4absl17zipf_distributionIiE10param_type4hinvEd.exit.i: ; preds = %850, %848
-  %855 = phi double [ %849, %848 ], [ %854, %850 ]
-  %856 = fsub double %855, %825
-  %857 = call double @llvm.rint.f64(double %856)
-  %858 = load i32, ptr %27, align 8, !tbaa !202
-  %859 = sitofp i32 %858 to double
-  %860 = fcmp ogt double %857, %859
+852:                                              ; preds = %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit.i
+  %853 = fmul double %826, %849
+  %854 = call double @log(double noundef %853) #36, !tbaa !53
+  %855 = fmul double %828, %854
+  %856 = call double @exp(double noundef %855) #36, !tbaa !53
+  br label %_ZNK4absl17zipf_distributionIiE10param_type4hinvEd.exit.i
+
+_ZNK4absl17zipf_distributionIiE10param_type4hinvEd.exit.i: ; preds = %852, %850
+  %857 = phi double [ %851, %850 ], [ %856, %852 ]
+  %858 = fsub double %857, %825
+  %859 = call double @llvm.rint.f64(double %858)
+  %860 = fcmp ogt double %859, %834
   br i1 %860, label %.split.i.i.i.backedge, label %861
 
 861:                                              ; preds = %_ZNK4absl17zipf_distributionIiE10param_type4hinvEd.exit.i
-  %862 = fsub double %857, %856
+  %862 = fsub double %859, %858
   %863 = fcmp ugt double %862, %829
   br i1 %863, label %864, label %886
 
 864:                                              ; preds = %861
-  %865 = fadd double %857, 5.000000e-01
+  %865 = fadd double %859, 5.000000e-01
   %866 = fadd double %825, %865
   br i1 %827, label %867, label %869
 
@@ -15833,7 +15833,7 @@ _ZNK4absl17zipf_distributionIiE10param_type4hinvEd.exit.i: ; preds = %850, %848
 
 _ZNK4absl17zipf_distributionIiE10param_type1hEd.exit.i: ; preds = %869, %867
   %874 = phi double [ %868, %867 ], [ %873, %869 ]
-  %875 = fadd double %825, %857
+  %875 = fadd double %825, %859
   br i1 %831, label %876, label %879
 
 876:                                              ; preds = %_ZNK4absl17zipf_distributionIiE10param_type1hEd.exit.i
@@ -15850,11 +15850,11 @@ _ZNK4absl17zipf_distributionIiE10param_type1hEd.exit.i: ; preds = %869, %867
 _ZNK4absl17zipf_distributionIiE10param_type14pow_negative_qEd.exit.i: ; preds = %879, %876
   %883 = phi double [ %878, %876 ], [ %882, %879 ]
   %884 = fsub double %874, %883
-  %885 = fcmp ult double %847, %884
+  %885 = fcmp ult double %849, %884
   br i1 %885, label %.split.i.i.i.backedge, label %886
 
 886:                                              ; preds = %861, %_ZNK4absl17zipf_distributionIiE10param_type14pow_negative_qEd.exit.i
-  %887 = fptosi double %857 to i32
+  %887 = fptosi double %859 to i32
   store i32 %887, ptr %74, align 4, !tbaa !53
   call void @llvm.lifetime.start.p0(ptr nonnull %75)
   call void @llvm.lifetime.start.p0(ptr nonnull %76)
@@ -57809,6 +57809,8 @@ _ZN7testing15AssertionResultD2Ev.exit347:         ; preds = %807, %_ZNKSt14defau
   %829 = load double, ptr %131, align 8
   %830 = fcmp oeq double %829, 2.000000e+00
   %831 = fneg double %829
+  %832 = load i32, ptr %27, align 8, !tbaa !887
+  %833 = uitofp i32 %832 to double
   br label %.split.i.i.i
 
 .split.i.i.i:                                     ; preds = %.split.i.i.i.backedge, %821
@@ -57818,71 +57820,69 @@ _ZN7testing15AssertionResultD2Ev.exit347:         ; preds = %807, %_ZNKSt14defau
   %.sroa.24.0.insert.shift.i.i.i.i.i.i.i.i.i = shl nuw i128 %.sroa.24.0.insert.ext.i.i.i.i.i.i.i.i.i, 64
   %.sroa.03.0.insert.ext.i.i.i.i.i.i.i.i.i = zext i64 %.sroa.0.0.extract.trunc.i17.i.i.i.i.i19.i.i.i to i128
   %.sroa.03.0.insert.insert.i.i.i.i.i.i.i.i.i = or disjoint i128 %.sroa.24.0.insert.shift.i.i.i.i.i.i.i.i.i, %.sroa.03.0.insert.ext.i.i.i.i.i.i.i.i.i
-  %832 = mul i128 %.sroa.03.0.insert.insert.i.i.i.i.i.i.i.i.i, 47026247687942121848144207491837523525
-  %.sroa.03.0.insert.insert.i16.i.i.i.i.i.i.i.i = add i128 %832, 1442695040888963407
+  %834 = mul i128 %.sroa.03.0.insert.insert.i.i.i.i.i.i.i.i.i, 47026247687942121848144207491837523525
+  %.sroa.03.0.insert.insert.i16.i.i.i.i.i.i.i.i = add i128 %834, 1442695040888963407
   %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.i = trunc i128 %.sroa.03.0.insert.insert.i16.i.i.i.i.i.i.i.i to i64
-  %833 = lshr i128 %.sroa.03.0.insert.insert.i16.i.i.i.i.i.i.i.i, 64
-  %.tr.i.i.i.i.i.i.i.i.i = trunc nuw i128 %833 to i64
+  %835 = lshr i128 %.sroa.03.0.insert.insert.i16.i.i.i.i.i.i.i.i, 64
+  %.tr.i.i.i.i.i.i.i.i.i = trunc nuw i128 %835 to i64
   %.narrow.i.i.i.i.i.i.i.i.i = add i64 %.tr.i.i.i.i.i.i.i.i.i, 6364136223846793005
-  %834 = icmp eq i64 %.narrow.i.i.i.i.i.i.i.i.i, %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.i
-  br i1 %834, label %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit.i, label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i
+  %836 = icmp eq i64 %.narrow.i.i.i.i.i.i.i.i.i, %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.i
+  br i1 %836, label %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit.i, label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i
 
 _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i: ; preds = %.split.i.i.i
-  %835 = xor i64 %.narrow.i.i.i.i.i.i.i.i.i, %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.i
+  %837 = xor i64 %.narrow.i.i.i.i.i.i.i.i.i, %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.i
   %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i.i.i = lshr i64 %.narrow.i.i.i.i.i.i.i.i.i, 58
-  %836 = call noundef i64 @llvm.fshr.i64(i64 %835, i64 %835, i64 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i.i.i)
-  %837 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %836, i1 true)
-  %838 = shl i64 %836, %837
-  %839 = lshr i64 %838, 11
-  %840 = and i64 %839, 4503599627370495
-  %841 = shl nuw nsw i64 %837, 52
-  %reass.sub = sub nsw i64 %840, %841
-  %842 = add nsw i64 %reass.sub, 4602678819172646912
-  %843 = bitcast i64 %842 to double
-  %844 = fcmp uge double %843, 1.000000e+00
-  br i1 %844, label %.split.i.i.i.backedge, label %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit.i.split.loop.exit
+  %838 = call noundef i64 @llvm.fshr.i64(i64 %837, i64 %837, i64 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i.i.i)
+  %839 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %838, i1 true)
+  %840 = shl i64 %838, %839
+  %841 = lshr i64 %840, 11
+  %842 = and i64 %841, 4503599627370495
+  %843 = shl nuw nsw i64 %839, 52
+  %reass.sub = sub nsw i64 %842, %843
+  %844 = add nsw i64 %reass.sub, 4602678819172646912
+  %845 = bitcast i64 %844 to double
+  %846 = fcmp uge double %845, 1.000000e+00
+  br i1 %846, label %.split.i.i.i.backedge, label %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit.i.split.loop.exit
 
 .split.i.i.i.backedge:                            ; preds = %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i, %_ZNK4absl17zipf_distributionIjE10param_type14pow_negative_qEd.exit.i, %_ZNK4absl17zipf_distributionIjE10param_type4hinvEd.exit.i
   %.narrow.i.i.i.i.i.i20.i.i.i.be = phi i64 [ %.narrow.i.i.i.i.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i ], [ %.narrow.i.i.i.i.i.i.i.i.i441, %_ZNK4absl17zipf_distributionIjE10param_type14pow_negative_qEd.exit.i ], [ %.narrow.i.i.i.i.i.i.i.i.i441, %_ZNK4absl17zipf_distributionIjE10param_type4hinvEd.exit.i ]
   br label %.split.i.i.i, !llvm.loop !917
 
 _ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit.i.split.loop.exit: ; preds = %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i
-  %845 = fadd double %843, 0.000000e+00
+  %847 = fadd double %845, 0.000000e+00
   br label %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit.i
 
 _ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit.i: ; preds = %.split.i.i.i, %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit.i.split.loop.exit
   %.narrow.i.i.i.i.i.i.i.i.i441 = phi i64 [ %.narrow.i.i.i.i.i.i.i.i.i, %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit.i.split.loop.exit ], [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.i, %.split.i.i.i ]
-  %.0.i.i.i31.i = phi double [ %845, %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit.i.split.loop.exit ], [ 0.000000e+00, %.split.i.i.i ]
-  %846 = call double @llvm.fmuladd.f64(double %.0.i.i.i31.i, double %823, double %822)
-  br i1 %826, label %847, label %849
-
-847:                                              ; preds = %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit.i
-  %848 = fdiv double -1.000000e+00, %846
-  br label %_ZNK4absl17zipf_distributionIjE10param_type4hinvEd.exit.i
+  %.0.i.i.i31.i = phi double [ %847, %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit.i.split.loop.exit ], [ 0.000000e+00, %.split.i.i.i ]
+  %848 = call double @llvm.fmuladd.f64(double %.0.i.i.i31.i, double %823, double %822)
+  br i1 %826, label %849, label %851
 
 849:                                              ; preds = %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit.i
-  %850 = fmul double %825, %846
-  %851 = call double @log(double noundef %850) #36, !tbaa !53
-  %852 = fmul double %827, %851
-  %853 = call double @exp(double noundef %852) #36, !tbaa !53
+  %850 = fdiv double -1.000000e+00, %848
   br label %_ZNK4absl17zipf_distributionIjE10param_type4hinvEd.exit.i
 
-_ZNK4absl17zipf_distributionIjE10param_type4hinvEd.exit.i: ; preds = %849, %847
-  %854 = phi double [ %848, %847 ], [ %853, %849 ]
-  %855 = fsub double %854, %824
-  %856 = call double @llvm.rint.f64(double %855)
-  %857 = load i32, ptr %27, align 8, !tbaa !887
-  %858 = uitofp i32 %857 to double
-  %859 = fcmp ogt double %856, %858
+851:                                              ; preds = %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit.i
+  %852 = fmul double %825, %848
+  %853 = call double @log(double noundef %852) #36, !tbaa !53
+  %854 = fmul double %827, %853
+  %855 = call double @exp(double noundef %854) #36, !tbaa !53
+  br label %_ZNK4absl17zipf_distributionIjE10param_type4hinvEd.exit.i
+
+_ZNK4absl17zipf_distributionIjE10param_type4hinvEd.exit.i: ; preds = %851, %849
+  %856 = phi double [ %850, %849 ], [ %855, %851 ]
+  %857 = fsub double %856, %824
+  %858 = call double @llvm.rint.f64(double %857)
+  %859 = fcmp ogt double %858, %833
   br i1 %859, label %.split.i.i.i.backedge, label %860
 
 860:                                              ; preds = %_ZNK4absl17zipf_distributionIjE10param_type4hinvEd.exit.i
-  %861 = fsub double %856, %855
+  %861 = fsub double %858, %857
   %862 = fcmp ugt double %861, %828
   br i1 %862, label %863, label %885
 
 863:                                              ; preds = %860
-  %864 = fadd double %856, 5.000000e-01
+  %864 = fadd double %858, 5.000000e-01
   %865 = fadd double %824, %864
   br i1 %826, label %866, label %868
 
@@ -57899,7 +57899,7 @@ _ZNK4absl17zipf_distributionIjE10param_type4hinvEd.exit.i: ; preds = %849, %847
 
 _ZNK4absl17zipf_distributionIjE10param_type1hEd.exit.i: ; preds = %868, %866
   %873 = phi double [ %867, %866 ], [ %872, %868 ]
-  %874 = fadd double %824, %856
+  %874 = fadd double %824, %858
   br i1 %830, label %875, label %878
 
 875:                                              ; preds = %_ZNK4absl17zipf_distributionIjE10param_type1hEd.exit.i
@@ -57916,11 +57916,11 @@ _ZNK4absl17zipf_distributionIjE10param_type1hEd.exit.i: ; preds = %868, %866
 _ZNK4absl17zipf_distributionIjE10param_type14pow_negative_qEd.exit.i: ; preds = %878, %875
   %882 = phi double [ %877, %875 ], [ %881, %878 ]
   %883 = fsub double %873, %882
-  %884 = fcmp ult double %846, %883
+  %884 = fcmp ult double %848, %883
   br i1 %884, label %.split.i.i.i.backedge, label %885
 
 885:                                              ; preds = %_ZNK4absl17zipf_distributionIjE10param_type14pow_negative_qEd.exit.i, %860
-  %886 = fptoui double %856 to i32
+  %886 = fptoui double %858 to i32
   store i32 %886, ptr %74, align 4, !tbaa !53
   call void @llvm.lifetime.start.p0(ptr nonnull %75)
   invoke void @_ZN7testing16AssertionSuccessEv(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %75)

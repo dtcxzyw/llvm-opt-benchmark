@@ -6311,34 +6311,31 @@ define void @aiMatrix4DecomposeIntoScalingAxisAnglePosition(ptr noundef nonnull 
   %sqrt.i.i = call float @llvm.sqrt.f32(float %17)
   %20 = fdiv float 1.000000e+00, %sqrt.i.i
   %21 = fmul float %10, %20
-  store float %21, ptr %7, align 4
   %22 = fmul float %11, %20
-  store float %22, ptr %8, align 4
   %23 = fmul float %14, %20
-  store float %23, ptr %9, align 4
   %24 = fmul float %16, %20
   br label %_ZNK12aiMatrix4x4tIfE9DecomposeER10aiVector3tIfES3_RfS3_.exit
 
 _ZNK12aiMatrix4x4tIfE9DecomposeER10aiVector3tIfES3_RfS3_.exit: ; preds = %5, %19
-  %25 = phi float [ %16, %5 ], [ %24, %19 ]
-  %26 = fneg float %25
-  %27 = call float @llvm.fmuladd.f32(float %26, float %25, float 1.000000e+00)
-  %28 = call noundef float @sqrtf(float noundef %27) #48
-  %29 = call noundef float @acosf(float noundef %25) #48
-  %30 = fmul float %29, 2.000000e+00
-  store float %30, ptr %3, align 4
-  %31 = call noundef float @llvm.fabs.f32(float %28)
-  %32 = fcmp olt float %31, 0x3F847AE140000000
-  %.0.i = select i1 %32, float 1.000000e+00, float %28
-  %33 = load float, ptr %7, align 4
-  %34 = fdiv float %33, %.0.i
-  store float %34, ptr %2, align 4
-  %35 = load float, ptr %8, align 4
-  %36 = fdiv float %35, %.0.i
-  %37 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store float %36, ptr %37, align 4
-  %38 = load float, ptr %9, align 4
-  %39 = fdiv float %38, %.0.i
+  %25 = phi float [ %14, %5 ], [ %23, %19 ]
+  %26 = phi float [ %11, %5 ], [ %22, %19 ]
+  %27 = phi float [ %10, %5 ], [ %21, %19 ]
+  %28 = phi float [ %16, %5 ], [ %24, %19 ]
+  %29 = fneg float %28
+  %30 = call float @llvm.fmuladd.f32(float %29, float %28, float 1.000000e+00)
+  %31 = call noundef float @sqrtf(float noundef %30) #48
+  %32 = call noundef float @acosf(float noundef %28) #48
+  %33 = fmul float %32, 2.000000e+00
+  store float %33, ptr %3, align 4
+  %34 = call noundef float @llvm.fabs.f32(float %31)
+  %35 = fcmp olt float %34, 0x3F847AE140000000
+  %.0.i = select i1 %35, float 1.000000e+00, float %31
+  %36 = fdiv float %27, %.0.i
+  store float %36, ptr %2, align 4
+  %37 = fdiv float %26, %.0.i
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  store float %37, ptr %38, align 4
+  %39 = fdiv float %25, %.0.i
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store float %39, ptr %40, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

@@ -19239,7 +19239,7 @@ define internal void @_ZNK8LightGBM21RegressionPoissonLoss12GetGradientsEPKdPfS3
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %13 = load i32, ptr %12, align 4, !tbaa !147
   %14 = icmp sgt i32 %13, 0
-  br i1 %14, label %15, label %43
+  br i1 %14, label %15, label %42
 
 15:                                               ; preds = %7
   %16 = add nsw i32 %13, -1
@@ -19268,39 +19268,39 @@ define internal void @_ZNK8LightGBM21RegressionPoissonLoss12GetGradientsEPKdPfS3
   %25 = load double, ptr %6, align 8, !tbaa !153
   %26 = load ptr, ptr %5, align 8, !tbaa !150
   %27 = sext i32 %20 to i64
-  br label %28
+  %28 = add nsw i32 %19, 1
+  br label %29
 
-28:                                               ; preds = %.lr.ph, %28
-  %indvars.iv = phi i64 [ %27, %.lr.ph ], [ %indvars.iv.next, %28 ]
-  %29 = getelementptr inbounds double, ptr %21, i64 %indvars.iv
-  %30 = load double, ptr %29, align 8, !tbaa !153
-  %31 = call double @exp(double noundef %30) #14, !tbaa !127
-  %32 = getelementptr inbounds float, ptr %23, i64 %indvars.iv
-  %33 = load float, ptr %32, align 4, !tbaa !175
-  %34 = fpext float %33 to double
-  %35 = fsub double %31, %34
-  %36 = fptrunc double %35 to float
-  %37 = getelementptr inbounds float, ptr %24, i64 %indvars.iv
-  store float %36, ptr %37, align 4, !tbaa !175
-  %38 = fmul double %31, %25
-  %39 = fptrunc double %38 to float
-  %40 = getelementptr inbounds float, ptr %26, i64 %indvars.iv
-  store float %39, ptr %40, align 4, !tbaa !175
+29:                                               ; preds = %.lr.ph, %29
+  %indvars.iv = phi i64 [ %27, %.lr.ph ], [ %indvars.iv.next, %29 ]
+  %30 = getelementptr inbounds double, ptr %21, i64 %indvars.iv
+  %31 = load double, ptr %30, align 8, !tbaa !153
+  %32 = call double @exp(double noundef %31) #14, !tbaa !127
+  %33 = getelementptr inbounds float, ptr %23, i64 %indvars.iv
+  %34 = load float, ptr %33, align 4, !tbaa !175
+  %35 = fpext float %34 to double
+  %36 = fsub double %32, %35
+  %37 = fptrunc double %36 to float
+  %38 = getelementptr inbounds float, ptr %24, i64 %indvars.iv
+  store float %37, ptr %38, align 4, !tbaa !175
+  %39 = fmul double %32, %25
+  %40 = fptrunc double %39 to float
+  %41 = getelementptr inbounds float, ptr %26, i64 %indvars.iv
+  store float %40, ptr %41, align 4, !tbaa !175
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %41 = load i32, ptr %9, align 4, !tbaa !127
-  %42 = sext i32 %41 to i64
-  %.not.not = icmp slt i64 %indvars.iv, %42
-  br i1 %.not.not, label %28, label %._crit_edge
+  %lftr.wideiv = trunc i64 %indvars.iv.next to i32
+  %exitcond.not = icmp eq i32 %28, %lftr.wideiv
+  br i1 %exitcond.not, label %._crit_edge, label %29
 
-._crit_edge:                                      ; preds = %28, %15
+._crit_edge:                                      ; preds = %29, %15
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %43
+  br label %42
 
-43:                                               ; preds = %._crit_edge, %7
+42:                                               ; preds = %._crit_edge, %7
   ret void
 }
 
@@ -19313,7 +19313,7 @@ define internal void @_ZNK8LightGBM21RegressionPoissonLoss12GetGradientsEPKdPfS3
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %13 = load i32, ptr %12, align 4, !tbaa !147
   %14 = icmp sgt i32 %13, 0
-  br i1 %14, label %15, label %52
+  br i1 %14, label %15, label %51
 
 15:                                               ; preds = %7
   %16 = add nsw i32 %13, -1
@@ -19344,46 +19344,46 @@ define internal void @_ZNK8LightGBM21RegressionPoissonLoss12GetGradientsEPKdPfS3
   %27 = load double, ptr %6, align 8, !tbaa !153
   %28 = load ptr, ptr %5, align 8, !tbaa !150
   %29 = sext i32 %20 to i64
-  br label %30
+  %30 = add nsw i32 %19, 1
+  br label %31
 
-30:                                               ; preds = %.lr.ph, %30
-  %indvars.iv = phi i64 [ %29, %.lr.ph ], [ %indvars.iv.next, %30 ]
-  %31 = getelementptr inbounds double, ptr %21, i64 %indvars.iv
-  %32 = load double, ptr %31, align 8, !tbaa !153
-  %33 = call double @exp(double noundef %32) #14, !tbaa !127
-  %34 = getelementptr inbounds float, ptr %23, i64 %indvars.iv
-  %35 = load float, ptr %34, align 4, !tbaa !175
-  %36 = fpext float %35 to double
-  %37 = fsub double %33, %36
-  %38 = getelementptr inbounds float, ptr %25, i64 %indvars.iv
-  %39 = load float, ptr %38, align 4, !tbaa !175
-  %40 = fpext float %39 to double
-  %41 = fmul double %37, %40
-  %42 = fptrunc double %41 to float
-  %43 = getelementptr inbounds float, ptr %26, i64 %indvars.iv
-  store float %42, ptr %43, align 4, !tbaa !175
-  %44 = fmul double %33, %27
-  %45 = load float, ptr %38, align 4, !tbaa !175
-  %46 = fpext float %45 to double
-  %47 = fmul double %44, %46
-  %48 = fptrunc double %47 to float
-  %49 = getelementptr inbounds float, ptr %28, i64 %indvars.iv
-  store float %48, ptr %49, align 4, !tbaa !175
+31:                                               ; preds = %.lr.ph, %31
+  %indvars.iv = phi i64 [ %29, %.lr.ph ], [ %indvars.iv.next, %31 ]
+  %32 = getelementptr inbounds double, ptr %21, i64 %indvars.iv
+  %33 = load double, ptr %32, align 8, !tbaa !153
+  %34 = call double @exp(double noundef %33) #14, !tbaa !127
+  %35 = getelementptr inbounds float, ptr %23, i64 %indvars.iv
+  %36 = load float, ptr %35, align 4, !tbaa !175
+  %37 = fpext float %36 to double
+  %38 = fsub double %34, %37
+  %39 = getelementptr inbounds float, ptr %25, i64 %indvars.iv
+  %40 = load float, ptr %39, align 4, !tbaa !175
+  %41 = fpext float %40 to double
+  %42 = fmul double %38, %41
+  %43 = fptrunc double %42 to float
+  %44 = getelementptr inbounds float, ptr %26, i64 %indvars.iv
+  store float %43, ptr %44, align 4, !tbaa !175
+  %45 = fmul double %34, %27
+  %46 = load float, ptr %39, align 4, !tbaa !175
+  %47 = fpext float %46 to double
+  %48 = fmul double %45, %47
+  %49 = fptrunc double %48 to float
+  %50 = getelementptr inbounds float, ptr %28, i64 %indvars.iv
+  store float %49, ptr %50, align 4, !tbaa !175
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %50 = load i32, ptr %9, align 4, !tbaa !127
-  %51 = sext i32 %50 to i64
-  %.not.not = icmp slt i64 %indvars.iv, %51
-  br i1 %.not.not, label %30, label %._crit_edge
+  %lftr.wideiv = trunc i64 %indvars.iv.next to i32
+  %exitcond.not = icmp eq i32 %30, %lftr.wideiv
+  br i1 %exitcond.not, label %._crit_edge, label %31
 
-._crit_edge:                                      ; preds = %30, %15
+._crit_edge:                                      ; preds = %31, %15
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %52
+  br label %51
 
-52:                                               ; preds = %._crit_edge, %7
+51:                                               ; preds = %._crit_edge, %7
   ret void
 }
 
@@ -27571,7 +27571,7 @@ define internal void @_ZNK8LightGBM12CrossEntropy12GetGradientsEPKdPfS3_.omp_out
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %12 = load i32, ptr %11, align 8, !tbaa !515
   %13 = icmp sgt i32 %12, 0
-  br i1 %13, label %14, label %56
+  br i1 %13, label %14, label %55
 
 14:                                               ; preds = %6
   %15 = add nsw i32 %12, -1
@@ -27598,65 +27598,65 @@ define internal void @_ZNK8LightGBM12CrossEntropy12GetGradientsEPKdPfS3_.omp_out
   %22 = load ptr, ptr %4, align 8
   %23 = load ptr, ptr %5, align 8
   %24 = sext i32 %19 to i64
-  br label %25
+  %25 = add nsw i32 %18, 1
+  br label %26
 
-25:                                               ; preds = %.lr.ph, %51
-  %indvars.iv = phi i64 [ %24, %.lr.ph ], [ %indvars.iv.next, %51 ]
-  %26 = getelementptr inbounds double, ptr %20, i64 %indvars.iv
-  %27 = load double, ptr %26, align 8, !tbaa !153
-  %28 = fcmp ogt double %27, -3.700000e+01
-  br i1 %28, label %29, label %44
+26:                                               ; preds = %.lr.ph, %52
+  %indvars.iv = phi i64 [ %24, %.lr.ph ], [ %indvars.iv.next, %52 ]
+  %27 = getelementptr inbounds double, ptr %20, i64 %indvars.iv
+  %28 = load double, ptr %27, align 8, !tbaa !153
+  %29 = fcmp ogt double %28, -3.700000e+01
+  br i1 %29, label %30, label %45
 
-29:                                               ; preds = %25
-  %30 = fneg double %27
-  %31 = call double @exp(double noundef %30) #14, !tbaa !127
-  %32 = load ptr, ptr %21, align 8, !tbaa !516
-  %33 = getelementptr inbounds float, ptr %32, i64 %indvars.iv
-  %34 = load float, ptr %33, align 4, !tbaa !175
-  %35 = fsub float 1.000000e+00, %34
-  %36 = fpext float %35 to double
-  %37 = fpext float %34 to double
-  %38 = fneg double %37
-  %39 = call double @llvm.fmuladd.f64(double %38, double %31, double %36)
-  %40 = fadd double %31, 1.000000e+00
-  %41 = fdiv double %39, %40
-  %42 = fmul double %40, %40
-  %43 = fdiv double %31, %42
-  br label %51
+30:                                               ; preds = %26
+  %31 = fneg double %28
+  %32 = call double @exp(double noundef %31) #14, !tbaa !127
+  %33 = load ptr, ptr %21, align 8, !tbaa !516
+  %34 = getelementptr inbounds float, ptr %33, i64 %indvars.iv
+  %35 = load float, ptr %34, align 4, !tbaa !175
+  %36 = fsub float 1.000000e+00, %35
+  %37 = fpext float %36 to double
+  %38 = fpext float %35 to double
+  %39 = fneg double %38
+  %40 = call double @llvm.fmuladd.f64(double %39, double %32, double %37)
+  %41 = fadd double %32, 1.000000e+00
+  %42 = fdiv double %40, %41
+  %43 = fmul double %41, %41
+  %44 = fdiv double %32, %43
+  br label %52
 
-44:                                               ; preds = %25
-  %45 = call double @exp(double noundef %27) #14, !tbaa !127
-  %46 = load ptr, ptr %21, align 8, !tbaa !516
-  %47 = getelementptr inbounds float, ptr %46, i64 %indvars.iv
-  %48 = load float, ptr %47, align 4, !tbaa !175
-  %49 = fpext float %48 to double
-  %50 = fsub double %45, %49
-  br label %51
+45:                                               ; preds = %26
+  %46 = call double @exp(double noundef %28) #14, !tbaa !127
+  %47 = load ptr, ptr %21, align 8, !tbaa !516
+  %48 = getelementptr inbounds float, ptr %47, i64 %indvars.iv
+  %49 = load float, ptr %48, align 4, !tbaa !175
+  %50 = fpext float %49 to double
+  %51 = fsub double %46, %50
+  br label %52
 
-51:                                               ; preds = %44, %29
-  %.sink34.in = phi double [ %41, %29 ], [ %50, %44 ]
-  %.sink.in = phi double [ %43, %29 ], [ %45, %44 ]
+52:                                               ; preds = %45, %30
+  %.sink34.in = phi double [ %42, %30 ], [ %51, %45 ]
+  %.sink.in = phi double [ %44, %30 ], [ %46, %45 ]
   %.sink = fptrunc double %.sink.in to float
   %.sink34 = fptrunc double %.sink34.in to float
-  %52 = getelementptr inbounds float, ptr %22, i64 %indvars.iv
-  store float %.sink34, ptr %52, align 4, !tbaa !175
-  %53 = getelementptr inbounds float, ptr %23, i64 %indvars.iv
-  store float %.sink, ptr %53, align 4, !tbaa !175
+  %53 = getelementptr inbounds float, ptr %22, i64 %indvars.iv
+  store float %.sink34, ptr %53, align 4, !tbaa !175
+  %54 = getelementptr inbounds float, ptr %23, i64 %indvars.iv
+  store float %.sink, ptr %54, align 4, !tbaa !175
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %54 = load i32, ptr %8, align 4, !tbaa !127
-  %55 = sext i32 %54 to i64
-  %.not.not = icmp slt i64 %indvars.iv, %55
-  br i1 %.not.not, label %25, label %._crit_edge
+  %lftr.wideiv = trunc i64 %indvars.iv.next to i32
+  %exitcond.not = icmp eq i32 %25, %lftr.wideiv
+  br i1 %exitcond.not, label %._crit_edge, label %26
 
-._crit_edge:                                      ; preds = %51, %14
+._crit_edge:                                      ; preds = %52, %14
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %56
+  br label %55
 
-56:                                               ; preds = %._crit_edge, %6
+55:                                               ; preds = %._crit_edge, %6
   ret void
 }
 
@@ -27669,7 +27669,7 @@ define internal void @_ZNK8LightGBM12CrossEntropy12GetGradientsEPKdPfS3_.omp_out
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %12 = load i32, ptr %11, align 8, !tbaa !515
   %13 = icmp sgt i32 %12, 0
-  br i1 %13, label %14, label %72
+  br i1 %13, label %14, label %71
 
 14:                                               ; preds = %6
   %15 = add nsw i32 %12, -1
@@ -27697,81 +27697,81 @@ define internal void @_ZNK8LightGBM12CrossEntropy12GetGradientsEPKdPfS3_.omp_out
   %23 = load ptr, ptr %4, align 8
   %24 = load ptr, ptr %5, align 8
   %25 = sext i32 %19 to i64
-  br label %26
+  %26 = add nsw i32 %18, 1
+  br label %27
 
-26:                                               ; preds = %.lr.ph, %66
-  %indvars.iv = phi i64 [ %25, %.lr.ph ], [ %indvars.iv.next, %66 ]
-  %27 = getelementptr inbounds double, ptr %20, i64 %indvars.iv
-  %28 = load double, ptr %27, align 8, !tbaa !153
-  %29 = fcmp ogt double %28, -3.700000e+01
-  br i1 %29, label %30, label %52
+27:                                               ; preds = %.lr.ph, %67
+  %indvars.iv = phi i64 [ %25, %.lr.ph ], [ %indvars.iv.next, %67 ]
+  %28 = getelementptr inbounds double, ptr %20, i64 %indvars.iv
+  %29 = load double, ptr %28, align 8, !tbaa !153
+  %30 = fcmp ogt double %29, -3.700000e+01
+  br i1 %30, label %31, label %53
 
-30:                                               ; preds = %26
-  %31 = fneg double %28
-  %32 = call double @exp(double noundef %31) #14, !tbaa !127
-  %33 = load ptr, ptr %21, align 8, !tbaa !516
-  %34 = getelementptr inbounds float, ptr %33, i64 %indvars.iv
-  %35 = load float, ptr %34, align 4, !tbaa !175
-  %36 = fsub float 1.000000e+00, %35
-  %37 = fpext float %36 to double
-  %38 = fpext float %35 to double
-  %39 = fneg double %38
-  %40 = call double @llvm.fmuladd.f64(double %39, double %32, double %37)
-  %41 = fadd double %32, 1.000000e+00
-  %42 = fdiv double %40, %41
-  %43 = load ptr, ptr %22, align 8, !tbaa !517
-  %44 = getelementptr inbounds float, ptr %43, i64 %indvars.iv
-  %45 = load float, ptr %44, align 4, !tbaa !175
-  %46 = fpext float %45 to double
-  %47 = fmul double %42, %46
-  %48 = fptrunc double %47 to float
-  %49 = getelementptr inbounds float, ptr %23, i64 %indvars.iv
-  store float %48, ptr %49, align 4, !tbaa !175
-  %50 = fmul double %41, %41
-  %51 = fdiv double %32, %50
-  br label %66
+31:                                               ; preds = %27
+  %32 = fneg double %29
+  %33 = call double @exp(double noundef %32) #14, !tbaa !127
+  %34 = load ptr, ptr %21, align 8, !tbaa !516
+  %35 = getelementptr inbounds float, ptr %34, i64 %indvars.iv
+  %36 = load float, ptr %35, align 4, !tbaa !175
+  %37 = fsub float 1.000000e+00, %36
+  %38 = fpext float %37 to double
+  %39 = fpext float %36 to double
+  %40 = fneg double %39
+  %41 = call double @llvm.fmuladd.f64(double %40, double %33, double %38)
+  %42 = fadd double %33, 1.000000e+00
+  %43 = fdiv double %41, %42
+  %44 = load ptr, ptr %22, align 8, !tbaa !517
+  %45 = getelementptr inbounds float, ptr %44, i64 %indvars.iv
+  %46 = load float, ptr %45, align 4, !tbaa !175
+  %47 = fpext float %46 to double
+  %48 = fmul double %43, %47
+  %49 = fptrunc double %48 to float
+  %50 = getelementptr inbounds float, ptr %23, i64 %indvars.iv
+  store float %49, ptr %50, align 4, !tbaa !175
+  %51 = fmul double %42, %42
+  %52 = fdiv double %33, %51
+  br label %67
 
-52:                                               ; preds = %26
-  %53 = call double @exp(double noundef %28) #14, !tbaa !127
-  %54 = load ptr, ptr %21, align 8, !tbaa !516
-  %55 = getelementptr inbounds float, ptr %54, i64 %indvars.iv
-  %56 = load float, ptr %55, align 4, !tbaa !175
-  %57 = fpext float %56 to double
-  %58 = fsub double %53, %57
-  %59 = load ptr, ptr %22, align 8, !tbaa !517
-  %60 = getelementptr inbounds float, ptr %59, i64 %indvars.iv
-  %61 = load float, ptr %60, align 4, !tbaa !175
-  %62 = fpext float %61 to double
-  %63 = fmul double %58, %62
-  %64 = fptrunc double %63 to float
-  %65 = getelementptr inbounds float, ptr %23, i64 %indvars.iv
-  store float %64, ptr %65, align 4, !tbaa !175
-  br label %66
+53:                                               ; preds = %27
+  %54 = call double @exp(double noundef %29) #14, !tbaa !127
+  %55 = load ptr, ptr %21, align 8, !tbaa !516
+  %56 = getelementptr inbounds float, ptr %55, i64 %indvars.iv
+  %57 = load float, ptr %56, align 4, !tbaa !175
+  %58 = fpext float %57 to double
+  %59 = fsub double %54, %58
+  %60 = load ptr, ptr %22, align 8, !tbaa !517
+  %61 = getelementptr inbounds float, ptr %60, i64 %indvars.iv
+  %62 = load float, ptr %61, align 4, !tbaa !175
+  %63 = fpext float %62 to double
+  %64 = fmul double %59, %63
+  %65 = fptrunc double %64 to float
+  %66 = getelementptr inbounds float, ptr %23, i64 %indvars.iv
+  store float %65, ptr %66, align 4, !tbaa !175
+  br label %67
 
-66:                                               ; preds = %52, %30
-  %.sink42.in = phi ptr [ %60, %52 ], [ %44, %30 ]
-  %.sink40 = phi double [ %53, %52 ], [ %51, %30 ]
-  %.sink42 = load float, ptr %.sink42.in, align 4, !tbaa !175
-  %67 = fpext float %.sink42 to double
-  %68 = fmul double %.sink40, %67
-  %.sink = fptrunc double %68 to float
-  %69 = getelementptr inbounds float, ptr %24, i64 %indvars.iv
-  store float %.sink, ptr %69, align 4, !tbaa !175
+67:                                               ; preds = %53, %31
+  %.sink43.in = phi ptr [ %61, %53 ], [ %45, %31 ]
+  %.sink41 = phi double [ %54, %53 ], [ %52, %31 ]
+  %.sink43 = load float, ptr %.sink43.in, align 4, !tbaa !175
+  %68 = fpext float %.sink43 to double
+  %69 = fmul double %.sink41, %68
+  %.sink = fptrunc double %69 to float
+  %70 = getelementptr inbounds float, ptr %24, i64 %indvars.iv
+  store float %.sink, ptr %70, align 4, !tbaa !175
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %70 = load i32, ptr %8, align 4, !tbaa !127
-  %71 = sext i32 %70 to i64
-  %.not.not = icmp slt i64 %indvars.iv, %71
-  br i1 %.not.not, label %26, label %._crit_edge
+  %lftr.wideiv = trunc i64 %indvars.iv.next to i32
+  %exitcond.not = icmp eq i32 %26, %lftr.wideiv
+  br i1 %exitcond.not, label %._crit_edge, label %27
 
-._crit_edge:                                      ; preds = %66, %14
+._crit_edge:                                      ; preds = %67, %14
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %72
+  br label %71
 
-72:                                               ; preds = %._crit_edge, %6
+71:                                               ; preds = %._crit_edge, %6
   ret void
 }
 
@@ -28494,7 +28494,7 @@ define internal void @_ZNK8LightGBM18CrossEntropyLambda12GetGradientsEPKdPfS3_.o
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %12 = load i32, ptr %11, align 8, !tbaa !543
   %13 = icmp sgt i32 %12, 0
-  br i1 %13, label %14, label %45
+  br i1 %13, label %14, label %44
 
 14:                                               ; preds = %6
   %15 = add nsw i32 %12, -1
@@ -28522,43 +28522,43 @@ define internal void @_ZNK8LightGBM18CrossEntropyLambda12GetGradientsEPKdPfS3_.o
   %23 = load ptr, ptr %4, align 8, !tbaa !150
   %24 = load ptr, ptr %5, align 8, !tbaa !150
   %25 = sext i32 %19 to i64
-  br label %26
+  %26 = add nsw i32 %18, 1
+  br label %27
 
-26:                                               ; preds = %.lr.ph, %26
-  %indvars.iv = phi i64 [ %25, %.lr.ph ], [ %indvars.iv.next, %26 ]
-  %27 = getelementptr inbounds double, ptr %20, i64 %indvars.iv
-  %28 = load double, ptr %27, align 8, !tbaa !153
-  %29 = fneg double %28
-  %30 = call double @exp(double noundef %29) #14, !tbaa !127
-  %31 = fadd double %30, 1.000000e+00
-  %32 = fdiv double 1.000000e+00, %31
-  %33 = getelementptr inbounds float, ptr %22, i64 %indvars.iv
-  %34 = load float, ptr %33, align 4, !tbaa !175
-  %35 = fpext float %34 to double
-  %36 = fsub double %32, %35
-  %37 = fptrunc double %36 to float
-  %38 = getelementptr inbounds float, ptr %23, i64 %indvars.iv
-  store float %37, ptr %38, align 4, !tbaa !175
-  %39 = fsub double 1.000000e+00, %32
-  %40 = fmul double %32, %39
-  %41 = fptrunc double %40 to float
-  %42 = getelementptr inbounds float, ptr %24, i64 %indvars.iv
-  store float %41, ptr %42, align 4, !tbaa !175
+27:                                               ; preds = %.lr.ph, %27
+  %indvars.iv = phi i64 [ %25, %.lr.ph ], [ %indvars.iv.next, %27 ]
+  %28 = getelementptr inbounds double, ptr %20, i64 %indvars.iv
+  %29 = load double, ptr %28, align 8, !tbaa !153
+  %30 = fneg double %29
+  %31 = call double @exp(double noundef %30) #14, !tbaa !127
+  %32 = fadd double %31, 1.000000e+00
+  %33 = fdiv double 1.000000e+00, %32
+  %34 = getelementptr inbounds float, ptr %22, i64 %indvars.iv
+  %35 = load float, ptr %34, align 4, !tbaa !175
+  %36 = fpext float %35 to double
+  %37 = fsub double %33, %36
+  %38 = fptrunc double %37 to float
+  %39 = getelementptr inbounds float, ptr %23, i64 %indvars.iv
+  store float %38, ptr %39, align 4, !tbaa !175
+  %40 = fsub double 1.000000e+00, %33
+  %41 = fmul double %33, %40
+  %42 = fptrunc double %41 to float
+  %43 = getelementptr inbounds float, ptr %24, i64 %indvars.iv
+  store float %42, ptr %43, align 4, !tbaa !175
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %43 = load i32, ptr %8, align 4, !tbaa !127
-  %44 = sext i32 %43 to i64
-  %.not.not = icmp slt i64 %indvars.iv, %44
-  br i1 %.not.not, label %26, label %._crit_edge
+  %lftr.wideiv = trunc i64 %indvars.iv.next to i32
+  %exitcond.not = icmp eq i32 %26, %lftr.wideiv
+  br i1 %exitcond.not, label %._crit_edge, label %27
 
-._crit_edge:                                      ; preds = %26, %14
+._crit_edge:                                      ; preds = %27, %14
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %45
+  br label %44
 
-45:                                               ; preds = %._crit_edge, %6
+44:                                               ; preds = %._crit_edge, %6
   ret void
 }
 
@@ -28571,7 +28571,7 @@ define internal void @_ZNK8LightGBM18CrossEntropyLambda12GetGradientsEPKdPfS3_.o
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %12 = load i32, ptr %11, align 8, !tbaa !543
   %13 = icmp sgt i32 %12, 0
-  br i1 %13, label %14, label %69
+  br i1 %13, label %14, label %68
 
 14:                                               ; preds = %6
   %15 = add nsw i32 %12, -1
@@ -28601,65 +28601,65 @@ define internal void @_ZNK8LightGBM18CrossEntropyLambda12GetGradientsEPKdPfS3_.o
   %25 = load ptr, ptr %4, align 8, !tbaa !150
   %26 = load ptr, ptr %5, align 8, !tbaa !150
   %27 = sext i32 %19 to i64
-  br label %28
+  %28 = add nsw i32 %18, 1
+  br label %29
 
-28:                                               ; preds = %.lr.ph, %28
-  %indvars.iv = phi i64 [ %27, %.lr.ph ], [ %indvars.iv.next, %28 ]
-  %29 = getelementptr inbounds float, ptr %21, i64 %indvars.iv
-  %30 = load float, ptr %29, align 4, !tbaa !175
-  %31 = fpext float %30 to double
-  %32 = getelementptr inbounds float, ptr %23, i64 %indvars.iv
-  %33 = load float, ptr %32, align 4, !tbaa !175
-  %34 = fpext float %33 to double
-  %35 = getelementptr inbounds double, ptr %24, i64 %indvars.iv
-  %36 = load double, ptr %35, align 8, !tbaa !153
-  %37 = call double @exp(double noundef %36) #14, !tbaa !127
-  %38 = call double @log1p(double noundef %37) #14, !tbaa !127
-  %39 = fneg double %31
-  %40 = fmul double %38, %39
-  %41 = call double @exp(double noundef %40) #14, !tbaa !127
-  %42 = fsub double 1.000000e+00, %41
-  %43 = fdiv double 1.000000e+00, %37
-  %44 = fdiv double %34, %42
-  %45 = fsub double 1.000000e+00, %44
-  %46 = fmul double %45, %31
-  %47 = fadd double %43, 1.000000e+00
-  %48 = fdiv double %46, %47
-  %49 = fptrunc double %48 to float
-  %50 = getelementptr inbounds float, ptr %25, i64 %indvars.iv
-  store float %49, ptr %50, align 4, !tbaa !175
-  %51 = fsub double 1.000000e+00, %42
-  %52 = fdiv double 1.000000e+00, %51
-  %53 = fadd double %37, 1.000000e+00
-  %54 = fmul double %37, %31
-  %55 = fmul double %53, %53
-  %56 = fdiv double %54, %55
-  %57 = fadd double %52, -1.000000e+00
-  %58 = fmul double %57, %57
-  %59 = fdiv double %52, %58
-  %60 = call double @llvm.fmuladd.f64(double %31, double %37, double 1.000000e+00)
-  %61 = fsub double %60, %52
-  %62 = fmul double %61, %59
-  %63 = call double @llvm.fmuladd.f64(double %34, double %62, double 1.000000e+00)
-  %64 = fmul double %56, %63
-  %65 = fptrunc double %64 to float
-  %66 = getelementptr inbounds float, ptr %26, i64 %indvars.iv
-  store float %65, ptr %66, align 4, !tbaa !175
+29:                                               ; preds = %.lr.ph, %29
+  %indvars.iv = phi i64 [ %27, %.lr.ph ], [ %indvars.iv.next, %29 ]
+  %30 = getelementptr inbounds float, ptr %21, i64 %indvars.iv
+  %31 = load float, ptr %30, align 4, !tbaa !175
+  %32 = fpext float %31 to double
+  %33 = getelementptr inbounds float, ptr %23, i64 %indvars.iv
+  %34 = load float, ptr %33, align 4, !tbaa !175
+  %35 = fpext float %34 to double
+  %36 = getelementptr inbounds double, ptr %24, i64 %indvars.iv
+  %37 = load double, ptr %36, align 8, !tbaa !153
+  %38 = call double @exp(double noundef %37) #14, !tbaa !127
+  %39 = call double @log1p(double noundef %38) #14, !tbaa !127
+  %40 = fneg double %32
+  %41 = fmul double %39, %40
+  %42 = call double @exp(double noundef %41) #14, !tbaa !127
+  %43 = fsub double 1.000000e+00, %42
+  %44 = fdiv double 1.000000e+00, %38
+  %45 = fdiv double %35, %43
+  %46 = fsub double 1.000000e+00, %45
+  %47 = fmul double %46, %32
+  %48 = fadd double %44, 1.000000e+00
+  %49 = fdiv double %47, %48
+  %50 = fptrunc double %49 to float
+  %51 = getelementptr inbounds float, ptr %25, i64 %indvars.iv
+  store float %50, ptr %51, align 4, !tbaa !175
+  %52 = fsub double 1.000000e+00, %43
+  %53 = fdiv double 1.000000e+00, %52
+  %54 = fadd double %38, 1.000000e+00
+  %55 = fmul double %38, %32
+  %56 = fmul double %54, %54
+  %57 = fdiv double %55, %56
+  %58 = fadd double %53, -1.000000e+00
+  %59 = fmul double %58, %58
+  %60 = fdiv double %53, %59
+  %61 = call double @llvm.fmuladd.f64(double %32, double %38, double 1.000000e+00)
+  %62 = fsub double %61, %53
+  %63 = fmul double %62, %60
+  %64 = call double @llvm.fmuladd.f64(double %35, double %63, double 1.000000e+00)
+  %65 = fmul double %57, %64
+  %66 = fptrunc double %65 to float
+  %67 = getelementptr inbounds float, ptr %26, i64 %indvars.iv
+  store float %66, ptr %67, align 4, !tbaa !175
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %67 = load i32, ptr %8, align 4, !tbaa !127
-  %68 = sext i32 %67 to i64
-  %.not.not = icmp slt i64 %indvars.iv, %68
-  br i1 %.not.not, label %28, label %._crit_edge
+  %lftr.wideiv = trunc i64 %indvars.iv.next to i32
+  %exitcond.not = icmp eq i32 %28, %lftr.wideiv
+  br i1 %exitcond.not, label %._crit_edge, label %29
 
-._crit_edge:                                      ; preds = %28, %14
+._crit_edge:                                      ; preds = %29, %14
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %69
+  br label %68
 
-69:                                               ; preds = %._crit_edge, %6
+68:                                               ; preds = %._crit_edge, %6
   ret void
 }
 
@@ -35080,7 +35080,7 @@ define internal void @_ZNK8LightGBM19RegressionGammaLoss12GetGradientsEPKdPfS3_.
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %12 = load i32, ptr %11, align 4, !tbaa !147
   %13 = icmp sgt i32 %12, 0
-  br i1 %13, label %14, label %45
+  br i1 %13, label %14, label %44
 
 14:                                               ; preds = %6
   %15 = add nsw i32 %12, -1
@@ -35108,43 +35108,43 @@ define internal void @_ZNK8LightGBM19RegressionGammaLoss12GetGradientsEPKdPfS3_.
   %23 = load ptr, ptr %4, align 8, !tbaa !150
   %24 = load ptr, ptr %5, align 8, !tbaa !150
   %25 = sext i32 %19 to i64
-  br label %26
+  %26 = add nsw i32 %18, 1
+  br label %27
 
-26:                                               ; preds = %.lr.ph, %26
-  %indvars.iv = phi i64 [ %25, %.lr.ph ], [ %indvars.iv.next, %26 ]
-  %27 = getelementptr inbounds double, ptr %20, i64 %indvars.iv
-  %28 = load double, ptr %27, align 8, !tbaa !153
-  %29 = fneg double %28
-  %30 = call double @exp(double noundef %29) #14, !tbaa !127
-  %31 = getelementptr inbounds float, ptr %22, i64 %indvars.iv
-  %32 = load float, ptr %31, align 4, !tbaa !175
-  %33 = fpext float %32 to double
-  %34 = fneg double %33
-  %35 = call double @llvm.fmuladd.f64(double %34, double %30, double 1.000000e+00)
-  %36 = fptrunc double %35 to float
-  %37 = getelementptr inbounds float, ptr %23, i64 %indvars.iv
-  store float %36, ptr %37, align 4, !tbaa !175
-  %38 = load float, ptr %31, align 4, !tbaa !175
-  %39 = fpext float %38 to double
-  %40 = fmul double %30, %39
-  %41 = fptrunc double %40 to float
-  %42 = getelementptr inbounds float, ptr %24, i64 %indvars.iv
-  store float %41, ptr %42, align 4, !tbaa !175
+27:                                               ; preds = %.lr.ph, %27
+  %indvars.iv = phi i64 [ %25, %.lr.ph ], [ %indvars.iv.next, %27 ]
+  %28 = getelementptr inbounds double, ptr %20, i64 %indvars.iv
+  %29 = load double, ptr %28, align 8, !tbaa !153
+  %30 = fneg double %29
+  %31 = call double @exp(double noundef %30) #14, !tbaa !127
+  %32 = getelementptr inbounds float, ptr %22, i64 %indvars.iv
+  %33 = load float, ptr %32, align 4, !tbaa !175
+  %34 = fpext float %33 to double
+  %35 = fneg double %34
+  %36 = call double @llvm.fmuladd.f64(double %35, double %31, double 1.000000e+00)
+  %37 = fptrunc double %36 to float
+  %38 = getelementptr inbounds float, ptr %23, i64 %indvars.iv
+  store float %37, ptr %38, align 4, !tbaa !175
+  %39 = load float, ptr %32, align 4, !tbaa !175
+  %40 = fpext float %39 to double
+  %41 = fmul double %31, %40
+  %42 = fptrunc double %41 to float
+  %43 = getelementptr inbounds float, ptr %24, i64 %indvars.iv
+  store float %42, ptr %43, align 4, !tbaa !175
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %43 = load i32, ptr %8, align 4, !tbaa !127
-  %44 = sext i32 %43 to i64
-  %.not.not = icmp slt i64 %indvars.iv, %44
-  br i1 %.not.not, label %26, label %._crit_edge
+  %lftr.wideiv = trunc i64 %indvars.iv.next to i32
+  %exitcond.not = icmp eq i32 %26, %lftr.wideiv
+  br i1 %exitcond.not, label %._crit_edge, label %27
 
-._crit_edge:                                      ; preds = %26, %14
+._crit_edge:                                      ; preds = %27, %14
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %45
+  br label %44
 
-45:                                               ; preds = %._crit_edge, %6
+44:                                               ; preds = %._crit_edge, %6
   ret void
 }
 
@@ -35157,7 +35157,7 @@ define internal void @_ZNK8LightGBM19RegressionGammaLoss12GetGradientsEPKdPfS3_.
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %12 = load i32, ptr %11, align 4, !tbaa !147
   %13 = icmp sgt i32 %12, 0
-  br i1 %13, label %14, label %54
+  br i1 %13, label %14, label %53
 
 14:                                               ; preds = %6
   %15 = add nsw i32 %12, -1
@@ -35187,50 +35187,50 @@ define internal void @_ZNK8LightGBM19RegressionGammaLoss12GetGradientsEPKdPfS3_.
   %25 = load ptr, ptr %4, align 8, !tbaa !150
   %26 = load ptr, ptr %5, align 8, !tbaa !150
   %27 = sext i32 %19 to i64
-  br label %28
+  %28 = add nsw i32 %18, 1
+  br label %29
 
-28:                                               ; preds = %.lr.ph, %28
-  %indvars.iv = phi i64 [ %27, %.lr.ph ], [ %indvars.iv.next, %28 ]
-  %29 = getelementptr inbounds double, ptr %20, i64 %indvars.iv
-  %30 = load double, ptr %29, align 8, !tbaa !153
-  %31 = fneg double %30
-  %32 = call double @exp(double noundef %31) #14, !tbaa !127
-  %33 = getelementptr inbounds float, ptr %22, i64 %indvars.iv
-  %34 = load float, ptr %33, align 4, !tbaa !175
-  %35 = fpext float %34 to double
-  %36 = fneg double %35
-  %37 = call double @llvm.fmuladd.f64(double %36, double %32, double 1.000000e+00)
-  %38 = getelementptr inbounds float, ptr %24, i64 %indvars.iv
-  %39 = load float, ptr %38, align 4, !tbaa !175
-  %40 = fpext float %39 to double
-  %41 = fmul double %37, %40
-  %42 = fptrunc double %41 to float
-  %43 = getelementptr inbounds float, ptr %25, i64 %indvars.iv
-  store float %42, ptr %43, align 4, !tbaa !175
-  %44 = load float, ptr %33, align 4, !tbaa !175
-  %45 = fpext float %44 to double
-  %46 = fmul double %32, %45
-  %47 = load float, ptr %38, align 4, !tbaa !175
-  %48 = fpext float %47 to double
-  %49 = fmul double %46, %48
-  %50 = fptrunc double %49 to float
-  %51 = getelementptr inbounds float, ptr %26, i64 %indvars.iv
-  store float %50, ptr %51, align 4, !tbaa !175
+29:                                               ; preds = %.lr.ph, %29
+  %indvars.iv = phi i64 [ %27, %.lr.ph ], [ %indvars.iv.next, %29 ]
+  %30 = getelementptr inbounds double, ptr %20, i64 %indvars.iv
+  %31 = load double, ptr %30, align 8, !tbaa !153
+  %32 = fneg double %31
+  %33 = call double @exp(double noundef %32) #14, !tbaa !127
+  %34 = getelementptr inbounds float, ptr %22, i64 %indvars.iv
+  %35 = load float, ptr %34, align 4, !tbaa !175
+  %36 = fpext float %35 to double
+  %37 = fneg double %36
+  %38 = call double @llvm.fmuladd.f64(double %37, double %33, double 1.000000e+00)
+  %39 = getelementptr inbounds float, ptr %24, i64 %indvars.iv
+  %40 = load float, ptr %39, align 4, !tbaa !175
+  %41 = fpext float %40 to double
+  %42 = fmul double %38, %41
+  %43 = fptrunc double %42 to float
+  %44 = getelementptr inbounds float, ptr %25, i64 %indvars.iv
+  store float %43, ptr %44, align 4, !tbaa !175
+  %45 = load float, ptr %34, align 4, !tbaa !175
+  %46 = fpext float %45 to double
+  %47 = fmul double %33, %46
+  %48 = load float, ptr %39, align 4, !tbaa !175
+  %49 = fpext float %48 to double
+  %50 = fmul double %47, %49
+  %51 = fptrunc double %50 to float
+  %52 = getelementptr inbounds float, ptr %26, i64 %indvars.iv
+  store float %51, ptr %52, align 4, !tbaa !175
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %52 = load i32, ptr %8, align 4, !tbaa !127
-  %53 = sext i32 %52 to i64
-  %.not.not = icmp slt i64 %indvars.iv, %53
-  br i1 %.not.not, label %28, label %._crit_edge
+  %lftr.wideiv = trunc i64 %indvars.iv.next to i32
+  %exitcond.not = icmp eq i32 %28, %lftr.wideiv
+  br i1 %exitcond.not, label %._crit_edge, label %29
 
-._crit_edge:                                      ; preds = %28, %14
+._crit_edge:                                      ; preds = %29, %14
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %54
+  br label %53
 
-54:                                               ; preds = %._crit_edge, %6
+53:                                               ; preds = %._crit_edge, %6
   ret void
 }
 
@@ -35300,7 +35300,7 @@ define internal void @_ZNK8LightGBM21RegressionTweedieLoss12GetGradientsEPKdPfS3
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %12 = load i32, ptr %11, align 4, !tbaa !147
   %13 = icmp sgt i32 %12, 0
-  br i1 %13, label %14, label %54
+  br i1 %13, label %14, label %53
 
 14:                                               ; preds = %6
   %15 = add nsw i32 %12, -1
@@ -35332,48 +35332,48 @@ define internal void @_ZNK8LightGBM21RegressionTweedieLoss12GetGradientsEPKdPfS3
   %27 = load ptr, ptr %4, align 8, !tbaa !150
   %28 = load ptr, ptr %5, align 8, !tbaa !150
   %29 = sext i32 %19 to i64
-  br label %30
+  %30 = add nsw i32 %18, 1
+  br label %31
 
-30:                                               ; preds = %.lr.ph, %30
-  %indvars.iv = phi i64 [ %29, %.lr.ph ], [ %indvars.iv.next, %30 ]
-  %31 = getelementptr inbounds double, ptr %23, i64 %indvars.iv
-  %32 = load double, ptr %31, align 8, !tbaa !153
-  %33 = fmul double %22, %32
-  %34 = call double @exp(double noundef %33) #14, !tbaa !127
-  %35 = fmul double %24, %32
-  %36 = call double @exp(double noundef %35) #14, !tbaa !127
-  %37 = getelementptr inbounds float, ptr %26, i64 %indvars.iv
-  %38 = load float, ptr %37, align 4, !tbaa !175
-  %39 = fneg float %38
-  %40 = fpext float %39 to double
-  %41 = call double @llvm.fmuladd.f64(double %40, double %34, double %36)
-  %42 = fptrunc double %41 to float
-  %43 = getelementptr inbounds float, ptr %27, i64 %indvars.iv
-  store float %42, ptr %43, align 4, !tbaa !175
-  %44 = load float, ptr %37, align 4, !tbaa !175
-  %45 = fneg float %44
-  %46 = fpext float %45 to double
-  %47 = fmul double %22, %46
-  %48 = fmul double %24, %36
-  %49 = call double @llvm.fmuladd.f64(double %47, double %34, double %48)
-  %50 = fptrunc double %49 to float
-  %51 = getelementptr inbounds float, ptr %28, i64 %indvars.iv
-  store float %50, ptr %51, align 4, !tbaa !175
+31:                                               ; preds = %.lr.ph, %31
+  %indvars.iv = phi i64 [ %29, %.lr.ph ], [ %indvars.iv.next, %31 ]
+  %32 = getelementptr inbounds double, ptr %23, i64 %indvars.iv
+  %33 = load double, ptr %32, align 8, !tbaa !153
+  %34 = fmul double %22, %33
+  %35 = call double @exp(double noundef %34) #14, !tbaa !127
+  %36 = fmul double %24, %33
+  %37 = call double @exp(double noundef %36) #14, !tbaa !127
+  %38 = getelementptr inbounds float, ptr %26, i64 %indvars.iv
+  %39 = load float, ptr %38, align 4, !tbaa !175
+  %40 = fneg float %39
+  %41 = fpext float %40 to double
+  %42 = call double @llvm.fmuladd.f64(double %41, double %35, double %37)
+  %43 = fptrunc double %42 to float
+  %44 = getelementptr inbounds float, ptr %27, i64 %indvars.iv
+  store float %43, ptr %44, align 4, !tbaa !175
+  %45 = load float, ptr %38, align 4, !tbaa !175
+  %46 = fneg float %45
+  %47 = fpext float %46 to double
+  %48 = fmul double %22, %47
+  %49 = fmul double %24, %37
+  %50 = call double @llvm.fmuladd.f64(double %48, double %35, double %49)
+  %51 = fptrunc double %50 to float
+  %52 = getelementptr inbounds float, ptr %28, i64 %indvars.iv
+  store float %51, ptr %52, align 4, !tbaa !175
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %52 = load i32, ptr %8, align 4, !tbaa !127
-  %53 = sext i32 %52 to i64
-  %.not.not = icmp slt i64 %indvars.iv, %53
-  br i1 %.not.not, label %30, label %._crit_edge
+  %lftr.wideiv = trunc i64 %indvars.iv.next to i32
+  %exitcond.not = icmp eq i32 %30, %lftr.wideiv
+  br i1 %exitcond.not, label %._crit_edge, label %31
 
-._crit_edge:                                      ; preds = %30, %14
+._crit_edge:                                      ; preds = %31, %14
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %54
+  br label %53
 
-54:                                               ; preds = %._crit_edge, %6
+53:                                               ; preds = %._crit_edge, %6
   ret void
 }
 
@@ -35386,7 +35386,7 @@ define internal void @_ZNK8LightGBM21RegressionTweedieLoss12GetGradientsEPKdPfS3
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %12 = load i32, ptr %11, align 4, !tbaa !147
   %13 = icmp sgt i32 %12, 0
-  br i1 %13, label %14, label %63
+  br i1 %13, label %14, label %62
 
 14:                                               ; preds = %6
   %15 = add nsw i32 %12, -1
@@ -35420,55 +35420,55 @@ define internal void @_ZNK8LightGBM21RegressionTweedieLoss12GetGradientsEPKdPfS3
   %29 = load ptr, ptr %4, align 8, !tbaa !150
   %30 = load ptr, ptr %5, align 8, !tbaa !150
   %31 = sext i32 %19 to i64
-  br label %32
+  %32 = add nsw i32 %18, 1
+  br label %33
 
-32:                                               ; preds = %.lr.ph, %32
-  %indvars.iv = phi i64 [ %31, %.lr.ph ], [ %indvars.iv.next, %32 ]
-  %33 = getelementptr inbounds double, ptr %23, i64 %indvars.iv
-  %34 = load double, ptr %33, align 8, !tbaa !153
-  %35 = fmul double %22, %34
-  %36 = call double @exp(double noundef %35) #14, !tbaa !127
-  %37 = fmul double %24, %34
-  %38 = call double @exp(double noundef %37) #14, !tbaa !127
-  %39 = getelementptr inbounds float, ptr %26, i64 %indvars.iv
-  %40 = load float, ptr %39, align 4, !tbaa !175
-  %41 = fneg float %40
-  %42 = fpext float %41 to double
-  %43 = call double @llvm.fmuladd.f64(double %42, double %36, double %38)
-  %44 = getelementptr inbounds float, ptr %28, i64 %indvars.iv
-  %45 = load float, ptr %44, align 4, !tbaa !175
-  %46 = fpext float %45 to double
-  %47 = fmul double %43, %46
-  %48 = fptrunc double %47 to float
-  %49 = getelementptr inbounds float, ptr %29, i64 %indvars.iv
-  store float %48, ptr %49, align 4, !tbaa !175
-  %50 = load float, ptr %39, align 4, !tbaa !175
-  %51 = fneg float %50
-  %52 = fpext float %51 to double
-  %53 = fmul double %22, %52
-  %54 = fmul double %24, %38
-  %55 = call double @llvm.fmuladd.f64(double %53, double %36, double %54)
-  %56 = load float, ptr %44, align 4, !tbaa !175
-  %57 = fpext float %56 to double
-  %58 = fmul double %55, %57
-  %59 = fptrunc double %58 to float
-  %60 = getelementptr inbounds float, ptr %30, i64 %indvars.iv
-  store float %59, ptr %60, align 4, !tbaa !175
+33:                                               ; preds = %.lr.ph, %33
+  %indvars.iv = phi i64 [ %31, %.lr.ph ], [ %indvars.iv.next, %33 ]
+  %34 = getelementptr inbounds double, ptr %23, i64 %indvars.iv
+  %35 = load double, ptr %34, align 8, !tbaa !153
+  %36 = fmul double %22, %35
+  %37 = call double @exp(double noundef %36) #14, !tbaa !127
+  %38 = fmul double %24, %35
+  %39 = call double @exp(double noundef %38) #14, !tbaa !127
+  %40 = getelementptr inbounds float, ptr %26, i64 %indvars.iv
+  %41 = load float, ptr %40, align 4, !tbaa !175
+  %42 = fneg float %41
+  %43 = fpext float %42 to double
+  %44 = call double @llvm.fmuladd.f64(double %43, double %37, double %39)
+  %45 = getelementptr inbounds float, ptr %28, i64 %indvars.iv
+  %46 = load float, ptr %45, align 4, !tbaa !175
+  %47 = fpext float %46 to double
+  %48 = fmul double %44, %47
+  %49 = fptrunc double %48 to float
+  %50 = getelementptr inbounds float, ptr %29, i64 %indvars.iv
+  store float %49, ptr %50, align 4, !tbaa !175
+  %51 = load float, ptr %40, align 4, !tbaa !175
+  %52 = fneg float %51
+  %53 = fpext float %52 to double
+  %54 = fmul double %22, %53
+  %55 = fmul double %24, %39
+  %56 = call double @llvm.fmuladd.f64(double %54, double %37, double %55)
+  %57 = load float, ptr %45, align 4, !tbaa !175
+  %58 = fpext float %57 to double
+  %59 = fmul double %56, %58
+  %60 = fptrunc double %59 to float
+  %61 = getelementptr inbounds float, ptr %30, i64 %indvars.iv
+  store float %60, ptr %61, align 4, !tbaa !175
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %61 = load i32, ptr %8, align 4, !tbaa !127
-  %62 = sext i32 %61 to i64
-  %.not.not = icmp slt i64 %indvars.iv, %62
-  br i1 %.not.not, label %32, label %._crit_edge
+  %lftr.wideiv = trunc i64 %indvars.iv.next to i32
+  %exitcond.not = icmp eq i32 %32, %lftr.wideiv
+  br i1 %exitcond.not, label %._crit_edge, label %33
 
-._crit_edge:                                      ; preds = %32, %14
+._crit_edge:                                      ; preds = %33, %14
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %63
+  br label %62
 
-63:                                               ; preds = %._crit_edge, %6
+62:                                               ; preds = %._crit_edge, %6
   ret void
 }
 

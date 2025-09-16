@@ -79492,7 +79492,7 @@ _ZSt8count_ifIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEZN5Catch9Benc
   %52 = sitofp i64 %46 to double
   %53 = fdiv double %.0.lcssa.i.i, %52
   %54 = fcmp oeq double %53, 0.000000e+00
-  br i1 %54, label %55, label %58
+  br i1 %54, label %55, label %59
 
 55:                                               ; preds = %_ZSt8count_ifIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEZN5Catch9Benchmark6Detail9bootstrapIRPFdS7_S7_EEENS9_8EstimateIdEEdNS1_IPdS6_EESI_RKS6_OT_EUldE_ENSt15iterator_traitsISL_E15difference_typeESL_SL_T0_.exit
   store double %12, ptr %0, align 8
@@ -79500,118 +79500,121 @@ _ZSt8count_ifIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEZN5Catch9Benc
   store double %12, ptr %56, align 8
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double %12, ptr %57, align 8
-  br label %118
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store double %1, ptr %58, align 8
+  br label %120
 
-58:                                               ; preds = %_ZSt8count_ifIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEZN5Catch9Benchmark6Detail9bootstrapIRPFdS7_S7_EEENS9_8EstimateIdEEdNS1_IPdS6_EESI_RKS6_OT_EUldE_ENSt15iterator_traitsISL_E15difference_typeESL_SL_T0_.exit
-  %59 = load atomic i8, ptr @_ZGVZN5Catch9Benchmark6Detail15normal_quantileEdE8ROOT_TWO acquire, align 8
-  %60 = icmp eq i8 %59, 0
-  br i1 %60, label %61, label %64, !prof !9
+59:                                               ; preds = %_ZSt8count_ifIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEZN5Catch9Benchmark6Detail9bootstrapIRPFdS7_S7_EEENS9_8EstimateIdEEdNS1_IPdS6_EESI_RKS6_OT_EUldE_ENSt15iterator_traitsISL_E15difference_typeESL_SL_T0_.exit
+  %60 = load atomic i8, ptr @_ZGVZN5Catch9Benchmark6Detail15normal_quantileEdE8ROOT_TWO acquire, align 8
+  %61 = icmp eq i8 %60, 0
+  br i1 %61, label %62, label %65, !prof !9
 
-61:                                               ; preds = %58
-  %62 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5Catch9Benchmark6Detail15normal_quantileEdE8ROOT_TWO) #56
-  %.not.i57 = icmp eq i32 %62, 0
-  br i1 %.not.i57, label %64, label %63
+62:                                               ; preds = %59
+  %63 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5Catch9Benchmark6Detail15normal_quantileEdE8ROOT_TWO) #56
+  %.not.i57 = icmp eq i32 %63, 0
+  br i1 %.not.i57, label %65, label %64
 
-63:                                               ; preds = %61
+64:                                               ; preds = %62
   store double 0x3FF6A09E667F3BCD, ptr @_ZZN5Catch9Benchmark6Detail15normal_quantileEdE8ROOT_TWO, align 8
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5Catch9Benchmark6Detail15normal_quantileEdE8ROOT_TWO) #56
-  br label %64
+  br label %65
 
-64:                                               ; preds = %63, %61, %58
-  %65 = fcmp olt double %53, 0.000000e+00
-  %66 = fcmp ogt double %53, 1.000000e+00
-  %or.cond.i = or i1 %65, %66
-  br i1 %or.cond.i, label %_ZN5Catch9Benchmark6Detail15normal_quantileEd.exit, label %67
+65:                                               ; preds = %64, %62, %59
+  %66 = fcmp olt double %53, 0.000000e+00
+  %67 = fcmp ogt double %53, 1.000000e+00
+  %or.cond.i = or i1 %66, %67
+  br i1 %or.cond.i, label %_ZN5Catch9Benchmark6Detail15normal_quantileEd.exit, label %68
 
-67:                                               ; preds = %64
-  %68 = fmul double %53, 2.000000e+00
-  %69 = call noundef double @_ZN5Catch9Benchmark6Detail8erfc_invEd(double noundef %68)
-  %70 = fneg double %69
-  %71 = load double, ptr @_ZZN5Catch9Benchmark6Detail15normal_quantileEdE8ROOT_TWO, align 8
-  %72 = fmul double %71, %70
+68:                                               ; preds = %65
+  %69 = fmul double %53, 2.000000e+00
+  %70 = call noundef double @_ZN5Catch9Benchmark6Detail8erfc_invEd(double noundef %69)
+  %71 = fneg double %70
+  %72 = load double, ptr @_ZZN5Catch9Benchmark6Detail15normal_quantileEdE8ROOT_TWO, align 8
+  %73 = fmul double %72, %71
   br label %_ZN5Catch9Benchmark6Detail15normal_quantileEd.exit
 
-_ZN5Catch9Benchmark6Detail15normal_quantileEd.exit: ; preds = %67, %64
-  %.0.i = phi double [ %72, %67 ], [ 0.000000e+00, %64 ]
-  %73 = fsub double 1.000000e+00, %1
-  %74 = fmul double %73, 5.000000e-01
-  %75 = load atomic i8, ptr @_ZGVZN5Catch9Benchmark6Detail15normal_quantileEdE8ROOT_TWO acquire, align 8
-  %76 = icmp eq i8 %75, 0
-  br i1 %76, label %77, label %80, !prof !9
+_ZN5Catch9Benchmark6Detail15normal_quantileEd.exit: ; preds = %68, %65
+  %.0.i = phi double [ %73, %68 ], [ 0.000000e+00, %65 ]
+  %74 = fsub double 1.000000e+00, %1
+  %75 = fmul double %74, 5.000000e-01
+  %76 = load atomic i8, ptr @_ZGVZN5Catch9Benchmark6Detail15normal_quantileEdE8ROOT_TWO acquire, align 8
+  %77 = icmp eq i8 %76, 0
+  br i1 %77, label %78, label %81, !prof !9
 
-77:                                               ; preds = %_ZN5Catch9Benchmark6Detail15normal_quantileEd.exit
-  %78 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5Catch9Benchmark6Detail15normal_quantileEdE8ROOT_TWO) #56
-  %.not.i60 = icmp eq i32 %78, 0
-  br i1 %.not.i60, label %80, label %79
+78:                                               ; preds = %_ZN5Catch9Benchmark6Detail15normal_quantileEd.exit
+  %79 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5Catch9Benchmark6Detail15normal_quantileEdE8ROOT_TWO) #56
+  %.not.i60 = icmp eq i32 %79, 0
+  br i1 %.not.i60, label %81, label %80
 
-79:                                               ; preds = %77
+80:                                               ; preds = %78
   store double 0x3FF6A09E667F3BCD, ptr @_ZZN5Catch9Benchmark6Detail15normal_quantileEdE8ROOT_TWO, align 8
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5Catch9Benchmark6Detail15normal_quantileEdE8ROOT_TWO) #56
-  br label %80
+  br label %81
 
-80:                                               ; preds = %79, %77, %_ZN5Catch9Benchmark6Detail15normal_quantileEd.exit
-  %81 = fcmp olt double %74, 0.000000e+00
-  %82 = fcmp ogt double %74, 1.000000e+00
-  %or.cond.i58 = or i1 %81, %82
-  br i1 %or.cond.i58, label %89, label %83
+81:                                               ; preds = %80, %78, %_ZN5Catch9Benchmark6Detail15normal_quantileEd.exit
+  %82 = fcmp olt double %75, 0.000000e+00
+  %83 = fcmp ogt double %75, 1.000000e+00
+  %or.cond.i58 = or i1 %82, %83
+  br i1 %or.cond.i58, label %90, label %84
 
-83:                                               ; preds = %80
-  %84 = fmul double %74, 2.000000e+00
-  %85 = call noundef double @_ZN5Catch9Benchmark6Detail8erfc_invEd(double noundef %84)
-  %86 = fneg double %85
-  %87 = load double, ptr @_ZZN5Catch9Benchmark6Detail15normal_quantileEdE8ROOT_TWO, align 8
-  %88 = fmul double %87, %86
-  br label %89
+84:                                               ; preds = %81
+  %85 = fmul double %75, 2.000000e+00
+  %86 = call noundef double @_ZN5Catch9Benchmark6Detail8erfc_invEd(double noundef %85)
+  %87 = fneg double %86
+  %88 = load double, ptr @_ZZN5Catch9Benchmark6Detail15normal_quantileEdE8ROOT_TWO, align 8
+  %89 = fmul double %88, %87
+  br label %90
 
-89:                                               ; preds = %83, %80
-  %.0.i59 = phi double [ %88, %83 ], [ 0.000000e+00, %80 ]
-  %90 = fadd double %.0.i, %.0.i59
-  %91 = fsub double %.0.i, %.0.i59
-  %92 = fneg double %.056.lcssa
-  %93 = fdiv double %92, %39
-  %94 = call double @llvm.fmuladd.f64(double %93, double %90, double 1.000000e+00)
-  %95 = fdiv double %90, %94
-  %96 = fadd double %.0.i, %95
-  %97 = call double @llvm.fmuladd.f64(double %93, double %91, double 1.000000e+00)
-  %98 = fdiv double %91, %97
-  %99 = fadd double %.0.i, %98
-  %100 = fdiv double %96, 0xBFF6A09E667F3BCD
-  %101 = call double @erfc(double noundef %100) #56
-  %102 = fmul double %101, 5.000000e-01
-  %103 = fmul double %102, %52
-  %104 = call noundef i64 @lround(double noundef %103) #56
-  %.sroa.speculated68 = call i64 @llvm.smax.i64(i64 %104, i64 0)
-  %105 = fdiv double %99, 0xBFF6A09E667F3BCD
-  %106 = call double @erfc(double noundef %105) #56
-  %107 = fmul double %106, 5.000000e-01
-  %108 = fmul double %107, %52
-  %109 = call noundef i64 @lround(double noundef %108) #56
-  %110 = add nsw i64 %46, -1
-  %.sroa.speculated = call i64 @llvm.smin.i64(i64 %110, i64 %109)
+90:                                               ; preds = %84, %81
+  %.0.i59 = phi double [ %89, %84 ], [ 0.000000e+00, %81 ]
+  %91 = fadd double %.0.i, %.0.i59
+  %92 = fsub double %.0.i, %.0.i59
+  %93 = fneg double %.056.lcssa
+  %94 = fdiv double %93, %39
+  %95 = call double @llvm.fmuladd.f64(double %94, double %91, double 1.000000e+00)
+  %96 = fdiv double %91, %95
+  %97 = fadd double %.0.i, %96
+  %98 = call double @llvm.fmuladd.f64(double %94, double %92, double 1.000000e+00)
+  %99 = fdiv double %92, %98
+  %100 = fadd double %.0.i, %99
+  %101 = fdiv double %97, 0xBFF6A09E667F3BCD
+  %102 = call double @erfc(double noundef %101) #56
+  %103 = fmul double %102, 5.000000e-01
+  %104 = fmul double %103, %52
+  %105 = call noundef i64 @lround(double noundef %104) #56
+  %.sroa.speculated68 = call i64 @llvm.smax.i64(i64 %105, i64 0)
+  %106 = fdiv double %100, 0xBFF6A09E667F3BCD
+  %107 = call double @erfc(double noundef %106) #56
+  %108 = fmul double %107, 5.000000e-01
+  %109 = fmul double %108, %52
+  %110 = call noundef i64 @lround(double noundef %109) #56
+  %111 = add nsw i64 %46, -1
+  %.sroa.speculated = call i64 @llvm.smin.i64(i64 %111, i64 %110)
   store double %12, ptr %0, align 8
-  %111 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %112 = load ptr, ptr %4, align 8
-  %113 = getelementptr inbounds nuw double, ptr %112, i64 %.sroa.speculated68
-  %114 = load double, ptr %113, align 8
-  store double %114, ptr %111, align 8
-  %115 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %116 = getelementptr inbounds double, ptr %112, i64 %.sroa.speculated
-  %117 = load double, ptr %116, align 8
-  store double %117, ptr %115, align 8
-  br label %118
-
-118:                                              ; preds = %89, %55
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %113 = load ptr, ptr %4, align 8
+  %114 = getelementptr inbounds nuw double, ptr %113, i64 %.sroa.speculated68
+  %115 = load double, ptr %114, align 8
+  store double %115, ptr %112, align 8
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %117 = getelementptr inbounds double, ptr %113, i64 %.sroa.speculated
+  %118 = load double, ptr %117, align 8
+  store double %118, ptr %116, align 8
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store double %1, ptr %119, align 8
-  %120 = load ptr, ptr %7, align 8
-  %.not.i.i.i63 = icmp eq ptr %120, null
-  br i1 %.not.i.i.i63, label %_ZNSt6vectorIdSaIdEED2Ev.exit64, label %121
+  %.pre = load ptr, ptr %7, align 8
+  br label %120
 
-121:                                              ; preds = %118
-  call void @_ZdlPv(ptr noundef nonnull %120) #58
+120:                                              ; preds = %90, %55
+  %121 = phi ptr [ %.pre, %90 ], [ %19, %55 ]
+  %.not.i.i.i63 = icmp eq ptr %121, null
+  br i1 %.not.i.i.i63, label %_ZNSt6vectorIdSaIdEED2Ev.exit64, label %122
+
+122:                                              ; preds = %120
+  call void @_ZdlPv(ptr noundef nonnull %121) #58
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit64
 
-_ZNSt6vectorIdSaIdEED2Ev.exit64:                  ; preds = %121, %118, %14
+_ZNSt6vectorIdSaIdEED2Ev.exit64:                  ; preds = %122, %120, %14
   ret void
 }
 

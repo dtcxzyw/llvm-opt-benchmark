@@ -2420,27 +2420,27 @@ _ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor0EEEvfPKfiiPA4_fiPA3_f.
   %40 = fmul float %80, 5.000000e-01
   %41 = fmul float %81, %40
   %42 = fmul float %41, %25
-  %43 = fsub float %.0.ph.us105, %42
+  %43 = fsub float %.0.ph.us107, %42
   %44 = icmp sgt i32 %0, %74
   br i1 %44, label %_ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit.us.us.lr.ph, label %.split, !llvm.loop !51
 
 _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit.us.us.lr.ph: ; preds = %_ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit.us.us.lr.ph.preheader, %_ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor0EEEvfPKfiiPA4_fiPA3_f.exit.us
-  %.0.ph.us105 = phi float [ %43, %_ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor0EEEvfPKfiiPA4_fiPA3_f.exit.us ], [ 0.000000e+00, %_ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit.us.us.lr.ph.preheader ]
-  %.045.ph.us104 = phi i64 [ %indvars.iv.next151, %_ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor0EEEvfPKfiiPA4_fiPA3_f.exit.us ], [ 0, %_ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit.us.us.lr.ph.preheader ]
-  %sext160 = shl i64 %.045.ph.us104, 32
-  %45 = ashr exact i64 %sext160, 32
+  %.0.ph.us107 = phi float [ %43, %_ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor0EEEvfPKfiiPA4_fiPA3_f.exit.us ], [ 0.000000e+00, %_ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit.us.us.lr.ph.preheader ]
+  %.045.ph.us106 = phi i64 [ %indvars.iv.next156, %_ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor0EEEvfPKfiiPA4_fiPA3_f.exit.us ], [ 0, %_ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit.us.us.lr.ph.preheader ]
+  %sext165 = shl i64 %.045.ph.us106, 32
+  %45 = ashr exact i64 %sext165, 32
   br label %_ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit.us.us
 
 46:                                               ; preds = %_ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit.us.us
-  %47 = icmp slt i64 %indvars.iv.next151, %21
+  %47 = icmp slt i64 %indvars.iv.next156, %21
   br i1 %47, label %_ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit.us.us, label %.split, !llvm.loop !51
 
 _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit.us.us: ; preds = %_ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit.us.us.lr.ph, %46
-  %indvars.iv150 = phi i64 [ %45, %_ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit.us.us.lr.ph ], [ %indvars.iv.next151, %46 ]
-  %48 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv150
+  %indvars.iv155 = phi i64 [ %45, %_ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit.us.us.lr.ph ], [ %indvars.iv.next156, %46 ]
+  %48 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv155
   %49 = getelementptr i8, ptr %48, i64 4
   %50 = load i32, ptr %49, align 4, !tbaa !14
-  %indvars.iv.next151 = add nsw i64 %indvars.iv150, 3
+  %indvars.iv.next156 = add nsw i64 %indvars.iv155, 3
   %51 = getelementptr i8, ptr %48, i64 8
   %52 = load i32, ptr %51, align 4, !tbaa !14
   %53 = sext i32 %50 to i64
@@ -2467,7 +2467,7 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit.us.us: ; preds = %_ZN12_GL
   br i1 %73, label %46, label %.split61.us.us, !llvm.loop !51
 
 .split61.us.us:                                   ; preds = %_ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit.us.us
-  %74 = trunc nsw i64 %indvars.iv.next151 to i32
+  %74 = trunc nsw i64 %indvars.iv.next156 to i32
   %75 = load i32, ptr %48, align 4, !tbaa !14
   %76 = sext i32 %75 to i64
   %77 = getelementptr inbounds %union.t_iparams, ptr %2, i64 %76
@@ -2591,7 +2591,7 @@ _ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor0EEEvfPKfiiPA4_fiPA3_f.
   br label %.outer, !llvm.loop !51
 
 .split:                                           ; preds = %84, %_ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor0EEEvfPKfiiPA4_fiPA3_f.exit.us, %46, %.split71.us
-  %.us-phi = phi float [ 0.000000e+00, %.split71.us ], [ %.0.ph.us105, %46 ], [ %43, %_ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor0EEEvfPKfiiPA4_fiPA3_f.exit.us ], [ %.0.ph, %84 ]
+  %.us-phi = phi float [ 0.000000e+00, %.split71.us ], [ %.0.ph.us107, %46 ], [ %43, %_ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor0EEEvfPKfiiPA4_fiPA3_f.exit.us ], [ %.0.ph, %84 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float %.us-phi
 }
@@ -8307,27 +8307,27 @@ _ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor1EEEvfPKfiiPA4_fiPA3_f.
   %40 = fmul float %80, 5.000000e-01
   %41 = fmul float %81, %40
   %42 = fmul float %41, %25
-  %43 = fsub float %.0.ph.us105, %42
+  %43 = fsub float %.0.ph.us107, %42
   %44 = icmp sgt i32 %0, %74
   br i1 %44, label %_ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit.us.us.lr.ph, label %.split, !llvm.loop !106
 
 _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit.us.us.lr.ph: ; preds = %_ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit.us.us.lr.ph.preheader, %_ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor1EEEvfPKfiiPA4_fiPA3_f.exit.us
-  %.0.ph.us105 = phi float [ %43, %_ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor1EEEvfPKfiiPA4_fiPA3_f.exit.us ], [ 0.000000e+00, %_ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit.us.us.lr.ph.preheader ]
-  %.045.ph.us104 = phi i64 [ %indvars.iv.next151, %_ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor1EEEvfPKfiiPA4_fiPA3_f.exit.us ], [ 0, %_ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit.us.us.lr.ph.preheader ]
-  %sext160 = shl i64 %.045.ph.us104, 32
-  %45 = ashr exact i64 %sext160, 32
+  %.0.ph.us107 = phi float [ %43, %_ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor1EEEvfPKfiiPA4_fiPA3_f.exit.us ], [ 0.000000e+00, %_ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit.us.us.lr.ph.preheader ]
+  %.045.ph.us106 = phi i64 [ %indvars.iv.next156, %_ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor1EEEvfPKfiiPA4_fiPA3_f.exit.us ], [ 0, %_ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit.us.us.lr.ph.preheader ]
+  %sext165 = shl i64 %.045.ph.us106, 32
+  %45 = ashr exact i64 %sext165, 32
   br label %_ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit.us.us
 
 46:                                               ; preds = %_ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit.us.us
-  %47 = icmp slt i64 %indvars.iv.next151, %21
+  %47 = icmp slt i64 %indvars.iv.next156, %21
   br i1 %47, label %_ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit.us.us, label %.split, !llvm.loop !106
 
 _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit.us.us: ; preds = %_ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit.us.us.lr.ph, %46
-  %indvars.iv150 = phi i64 [ %45, %_ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit.us.us.lr.ph ], [ %indvars.iv.next151, %46 ]
-  %48 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv150
+  %indvars.iv155 = phi i64 [ %45, %_ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit.us.us.lr.ph ], [ %indvars.iv.next156, %46 ]
+  %48 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv155
   %49 = getelementptr i8, ptr %48, i64 4
   %50 = load i32, ptr %49, align 4, !tbaa !14
-  %indvars.iv.next151 = add nsw i64 %indvars.iv150, 3
+  %indvars.iv.next156 = add nsw i64 %indvars.iv155, 3
   %51 = getelementptr i8, ptr %48, i64 8
   %52 = load i32, ptr %51, align 4, !tbaa !14
   %53 = sext i32 %50 to i64
@@ -8354,7 +8354,7 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit.us.us: ; preds = %_ZN12_GL
   br i1 %73, label %46, label %.split61.us.us, !llvm.loop !106
 
 .split61.us.us:                                   ; preds = %_ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit.us.us
-  %74 = trunc nsw i64 %indvars.iv.next151 to i32
+  %74 = trunc nsw i64 %indvars.iv.next156 to i32
   %75 = load i32, ptr %48, align 4, !tbaa !14
   %76 = sext i32 %75 to i64
   %77 = getelementptr inbounds %union.t_iparams, ptr %2, i64 %76
@@ -8478,7 +8478,7 @@ _ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor1EEEvfPKfiiPA4_fiPA3_f.
   br label %.outer, !llvm.loop !106
 
 .split:                                           ; preds = %84, %_ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor1EEEvfPKfiiPA4_fiPA3_f.exit.us, %46, %.split71.us
-  %.us-phi = phi float [ 0.000000e+00, %.split71.us ], [ %.0.ph.us105, %46 ], [ %43, %_ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor1EEEvfPKfiiPA4_fiPA3_f.exit.us ], [ %.0.ph, %84 ]
+  %.us-phi = phi float [ 0.000000e+00, %.split71.us ], [ %.0.ph.us107, %46 ], [ %43, %_ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor1EEEvfPKfiiPA4_fiPA3_f.exit.us ], [ %.0.ph, %84 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float %.us-phi
 }
@@ -13232,27 +13232,27 @@ _ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor2EEEvfPKfiiPA4_fiPA3_f.
   %45 = fmul float %85, 5.000000e-01
   %46 = fmul float %86, %45
   %47 = fmul float %46, %26
-  %48 = fsub float %.0.ph.us107, %47
+  %48 = fsub float %.0.ph.us109, %47
   %49 = icmp sgt i32 %0, %79
   br i1 %49, label %_ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit.us.us.lr.ph, label %.split, !llvm.loop !154
 
 _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit.us.us.lr.ph: ; preds = %_ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit.us.us.lr.ph.lr.ph, %_ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor2EEEvfPKfiiPA4_fiPA3_f.exit.us
-  %.0.ph.us107 = phi float [ 0.000000e+00, %_ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit.us.us.lr.ph.lr.ph ], [ %48, %_ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor2EEEvfPKfiiPA4_fiPA3_f.exit.us ]
-  %.045.ph.us106 = phi i64 [ 0, %_ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit.us.us.lr.ph.lr.ph ], [ %indvars.iv.next154, %_ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor2EEEvfPKfiiPA4_fiPA3_f.exit.us ]
-  %sext163 = shl i64 %.045.ph.us106, 32
-  %50 = ashr exact i64 %sext163, 32
+  %.0.ph.us109 = phi float [ 0.000000e+00, %_ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit.us.us.lr.ph.lr.ph ], [ %48, %_ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor2EEEvfPKfiiPA4_fiPA3_f.exit.us ]
+  %.045.ph.us108 = phi i64 [ 0, %_ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit.us.us.lr.ph.lr.ph ], [ %indvars.iv.next159, %_ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor2EEEvfPKfiiPA4_fiPA3_f.exit.us ]
+  %sext168 = shl i64 %.045.ph.us108, 32
+  %50 = ashr exact i64 %sext168, 32
   br label %_ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit.us.us
 
 51:                                               ; preds = %_ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit.us.us
-  %52 = icmp slt i64 %indvars.iv.next154, %22
+  %52 = icmp slt i64 %indvars.iv.next159, %22
   br i1 %52, label %_ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit.us.us, label %.split, !llvm.loop !154
 
 _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit.us.us: ; preds = %_ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit.us.us.lr.ph, %51
-  %indvars.iv153 = phi i64 [ %50, %_ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit.us.us.lr.ph ], [ %indvars.iv.next154, %51 ]
-  %53 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv153
+  %indvars.iv158 = phi i64 [ %50, %_ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit.us.us.lr.ph ], [ %indvars.iv.next159, %51 ]
+  %53 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv158
   %54 = getelementptr i8, ptr %53, i64 4
   %55 = load i32, ptr %54, align 4, !tbaa !14
-  %indvars.iv.next154 = add nsw i64 %indvars.iv153, 3
+  %indvars.iv.next159 = add nsw i64 %indvars.iv158, 3
   %56 = getelementptr i8, ptr %53, i64 8
   %57 = load i32, ptr %56, align 4, !tbaa !14
   %58 = sext i32 %55 to i64
@@ -13279,7 +13279,7 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit.us.us: ; preds = %_ZN12_GL
   br i1 %78, label %51, label %.split61.us.us, !llvm.loop !154
 
 .split61.us.us:                                   ; preds = %_ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit.us.us
-  %79 = trunc nsw i64 %indvars.iv.next154 to i32
+  %79 = trunc nsw i64 %indvars.iv.next159 to i32
   %80 = load i32, ptr %53, align 4, !tbaa !14
   %81 = sext i32 %80 to i64
   %82 = getelementptr inbounds %union.t_iparams, ptr %2, i64 %81
@@ -13413,7 +13413,7 @@ _ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor2EEEvfPKfiiPA4_fiPA3_f.
   br label %.outer, !llvm.loop !154
 
 .split:                                           ; preds = %89, %_ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor2EEEvfPKfiiPA4_fiPA3_f.exit.us, %51, %.split73.us
-  %.us-phi = phi float [ 0.000000e+00, %.split73.us ], [ %.0.ph.us107, %51 ], [ %48, %_ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor2EEEvfPKfiiPA4_fiPA3_f.exit.us ], [ %.0.ph, %89 ]
+  %.us-phi = phi float [ 0.000000e+00, %.split73.us ], [ %.0.ph.us109, %51 ], [ %48, %_ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor2EEEvfPKfiiPA4_fiPA3_f.exit.us ], [ %.0.ph, %89 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float %.us-phi
 }
@@ -18929,27 +18929,27 @@ _ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor3EEEvfPKfiiPA4_fiPA3_f.
   %40 = fmul float %80, 5.000000e-01
   %41 = fmul float %81, %40
   %42 = fmul float %41, %25
-  %43 = fsub float %.0.ph.us105, %42
+  %43 = fsub float %.0.ph.us107, %42
   %44 = icmp sgt i32 %0, %74
   br i1 %44, label %_ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit.us.us.lr.ph, label %.split, !llvm.loop !202
 
 _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit.us.us.lr.ph: ; preds = %_ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit.us.us.lr.ph.preheader, %_ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor3EEEvfPKfiiPA4_fiPA3_f.exit.us
-  %.0.ph.us105 = phi float [ %43, %_ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor3EEEvfPKfiiPA4_fiPA3_f.exit.us ], [ 0.000000e+00, %_ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit.us.us.lr.ph.preheader ]
-  %.045.ph.us104 = phi i64 [ %indvars.iv.next151, %_ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor3EEEvfPKfiiPA4_fiPA3_f.exit.us ], [ 0, %_ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit.us.us.lr.ph.preheader ]
-  %sext160 = shl i64 %.045.ph.us104, 32
-  %45 = ashr exact i64 %sext160, 32
+  %.0.ph.us107 = phi float [ %43, %_ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor3EEEvfPKfiiPA4_fiPA3_f.exit.us ], [ 0.000000e+00, %_ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit.us.us.lr.ph.preheader ]
+  %.045.ph.us106 = phi i64 [ %indvars.iv.next156, %_ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor3EEEvfPKfiiPA4_fiPA3_f.exit.us ], [ 0, %_ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit.us.us.lr.ph.preheader ]
+  %sext165 = shl i64 %.045.ph.us106, 32
+  %45 = ashr exact i64 %sext165, 32
   br label %_ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit.us.us
 
 46:                                               ; preds = %_ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit.us.us
-  %47 = icmp slt i64 %indvars.iv.next151, %21
+  %47 = icmp slt i64 %indvars.iv.next156, %21
   br i1 %47, label %_ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit.us.us, label %.split, !llvm.loop !202
 
 _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit.us.us: ; preds = %_ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit.us.us.lr.ph, %46
-  %indvars.iv150 = phi i64 [ %45, %_ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit.us.us.lr.ph ], [ %indvars.iv.next151, %46 ]
-  %48 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv150
+  %indvars.iv155 = phi i64 [ %45, %_ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit.us.us.lr.ph ], [ %indvars.iv.next156, %46 ]
+  %48 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv155
   %49 = getelementptr i8, ptr %48, i64 4
   %50 = load i32, ptr %49, align 4, !tbaa !14
-  %indvars.iv.next151 = add nsw i64 %indvars.iv150, 3
+  %indvars.iv.next156 = add nsw i64 %indvars.iv155, 3
   %51 = getelementptr i8, ptr %48, i64 8
   %52 = load i32, ptr %51, align 4, !tbaa !14
   %53 = sext i32 %50 to i64
@@ -18976,7 +18976,7 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit.us.us: ; preds = %_ZN12_GL
   br i1 %73, label %46, label %.split61.us.us, !llvm.loop !202
 
 .split61.us.us:                                   ; preds = %_ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit.us.us
-  %74 = trunc nsw i64 %indvars.iv.next151 to i32
+  %74 = trunc nsw i64 %indvars.iv.next156 to i32
   %75 = load i32, ptr %48, align 4, !tbaa !14
   %76 = sext i32 %75 to i64
   %77 = getelementptr inbounds %union.t_iparams, ptr %2, i64 %76
@@ -19100,7 +19100,7 @@ _ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor3EEEvfPKfiiPA4_fiPA3_f.
   br label %.outer, !llvm.loop !202
 
 .split:                                           ; preds = %84, %_ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor3EEEvfPKfiiPA4_fiPA3_f.exit.us, %46, %.split71.us
-  %.us-phi = phi float [ 0.000000e+00, %.split71.us ], [ %.0.ph.us105, %46 ], [ %43, %_ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor3EEEvfPKfiiPA4_fiPA3_f.exit.us ], [ %.0.ph, %84 ]
+  %.us-phi = phi float [ 0.000000e+00, %.split71.us ], [ %.0.ph.us107, %46 ], [ %43, %_ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor3EEEvfPKfiiPA4_fiPA3_f.exit.us ], [ %.0.ph, %84 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret float %.us-phi
 }

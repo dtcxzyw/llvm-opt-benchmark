@@ -4281,11 +4281,11 @@ _Z13b3PlaneSpace1I9b3Vector3EvRKT_RS1_S4_.exit:   ; preds = %183, %196
 256:                                              ; preds = %236
   %sqrt = call float @llvm.sqrt.f32(float %252)
   %257 = fdiv float 1.000000e+00, %sqrt
-  %258 = fmul float %257, %245
+  %258 = fmul float %245, %257
   store float %258, ptr %87, align 16, !tbaa !20
-  %259 = fmul float %257, %247
+  %259 = fmul float %247, %257
   store float %259, ptr %88, align 4, !tbaa !20
-  %260 = fmul float %257, %249
+  %260 = fmul float %249, %257
   store float %260, ptr %.sroa.49.0..sroa_idx, align 8, !tbaa !20
   %261 = and i32 %231, 16
   %.not131 = icmp eq i32 %261, 0

@@ -23071,8 +23071,7 @@ define internal fastcc void @nvg__expandStroke(ptr noundef readonly captures(non
   %20 = fcmp oeq float %2, 0.000000e+00
   %.0189 = select i1 %20, float 5.000000e-01, float 0.000000e+00
   %.0188 = select i1 %20, float 5.000000e-01, float 1.000000e+00
-  %.val = load ptr, ptr %7, align 8
-  tail call fastcc void @nvg__calculateJoins(ptr %.val, float noundef %19, i32 noundef %4, float noundef %5)
+  tail call fastcc void @nvg__calculateJoins(ptr %8, float noundef %19, i32 noundef %4, float noundef %5)
   %21 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %22 = load i32, ptr %21, align 8
   %23 = icmp sgt i32 %22, 0

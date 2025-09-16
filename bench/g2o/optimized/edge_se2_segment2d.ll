@@ -615,14 +615,13 @@ define linkonce_odr void @_ZN3g2o16EdgeSE2Segment2D12computeErrorEv(ptr noundef 
   %50 = fadd <2 x double> %49, %47
   %51 = fadd <2 x double> %29, %50
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %53 = load <2 x double>, ptr %7, align 16, !tbaa !77
-  %54 = load <2 x double>, ptr %52, align 16, !tbaa !77
-  %55 = fsub <2 x double> %53, %54
-  store <2 x double> %55, ptr %7, align 16, !tbaa !77
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %57 = load <2 x double>, ptr %56, align 16, !tbaa !77
-  %58 = fsub <2 x double> %51, %57
-  store <2 x double> %58, ptr %8, align 16, !tbaa !77
+  %53 = load <2 x double>, ptr %52, align 16, !tbaa !77
+  %54 = fsub <2 x double> %40, %53
+  store <2 x double> %54, ptr %7, align 16, !tbaa !77
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %56 = load <2 x double>, ptr %55, align 16, !tbaa !77
+  %57 = fsub <2 x double> %51, %56
+  store <2 x double> %57, ptr %8, align 16, !tbaa !77
   ret void
 }
 
