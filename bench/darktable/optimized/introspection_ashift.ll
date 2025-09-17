@@ -501,7 +501,7 @@ define range(i32 0, 2) i32 @legacy_params(ptr noundef readnone captures(none) %0
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @distort_transform(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noalias noundef %2, i64 noundef %3) local_unnamed_addr #5 {
+define noundef i32 @distort_transform(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noalias noundef captures(none) %2, i64 noundef %3) local_unnamed_addr #5 {
   %5 = alloca [3 x [3 x float]], align 64
   %6 = alloca [3 x float], align 16
   %7 = alloca [3 x float], align 16
@@ -1373,7 +1373,7 @@ mat3mul.exit384:                                  ; preds = %215
 declare void @llvm.assume(i1 noundef) #9
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @distort_backtransform(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #5 {
+define noundef i32 @distort_backtransform(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, i64 noundef %3) local_unnamed_addr #5 {
   %5 = alloca [3 x [3 x float]], align 64
   %6 = alloca [3 x float], align 16
   %7 = alloca [3 x float], align 16

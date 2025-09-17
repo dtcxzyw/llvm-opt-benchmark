@@ -149,7 +149,7 @@ _ZN4llvm11SmallVectorIcLj0EED2Ev.exit:            ; preds = %_ZN4llvm15SmallVect
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define dso_local void @_ZNK4llvm18StringTableBuilder5writeEPh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(38) %0, ptr noundef %1) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZNK4llvm18StringTableBuilder5writeEPh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(38) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8, !tbaa !23
   %5 = icmp eq i32 %4, 0

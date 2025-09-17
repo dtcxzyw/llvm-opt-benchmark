@@ -291,7 +291,7 @@ define hidden i64 @_mi_heap_random_next(ptr noundef %0) local_unnamed_addr #0 {
 declare i64 @_mi_random_next(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_mi_heap_destroy_pages(ptr noundef %0) local_unnamed_addr #0 {
+define hidden void @_mi_heap_destroy_pages(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = icmp eq ptr %0, null
   br i1 %3, label %mi_heap_visit_pages.exit, label %4

@@ -4438,7 +4438,7 @@ define internal void @_ZZN4llvm3pdb13NativeSession20parseSectionContribsEvEN7Vis
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN4llvm3pdb13NativeSession20parseSectionContribsEvEN7Visitor5visitERKNS0_14SectionContribE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 1 dereferenceable(28) %1) unnamed_addr #0 align 2 {
+define internal void @_ZZN4llvm3pdb13NativeSession20parseSectionContribsEvEN7Visitor5visitERKNS0_14SectionContribE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(28) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::IntervalMap<unsigned long, unsigned short, 8, llvm::IntervalMapHalfOpenInfo<unsigned long>>::const_iterator", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 1) ]

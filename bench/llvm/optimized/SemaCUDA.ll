@@ -9487,7 +9487,7 @@ declare noundef zeroext i1 @_ZNK5clang4Expr21isConstantInitializerERNS_10ASTCont
 declare noundef ptr @_ZN5clang4Expr25getReferencedDeclOfCalleeEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang8SemaCUDA23maybeAddHostDeviceAttrsEPNS2_12FunctionDeclERKNS2_12LookupResultEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_"(ptr readonly captures(none) %.0.val, ptr readonly captures(none) %.8.val, ptr %0) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang8SemaCUDA23maybeAddHostDeviceAttrsEPNS2_12FunctionDeclERKNS2_12LookupResultEE3$_0EclINS2_21UnresolvedSetIteratorEEEbT_"(ptr readonly captures(none) %.0.val, ptr readonly captures(none) %.8.val, ptr readonly captures(none) %0) unnamed_addr #0 align 2 {
   call void @llvm.assume(i1 true) [ "align"(ptr %0, i64 8) ]
   %.0.copyload.i.i.i.i.i.i = load i64, ptr %0, align 8
   %2 = and i64 %.0.copyload.i.i.i.i.i.i, -8

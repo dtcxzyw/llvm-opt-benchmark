@@ -163,7 +163,7 @@ _ZN12_GLOBAL__N_117RISCVDisassemblerD2Ev.exit:    ; preds = %1, %_ZNKSt14default
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef i32 @_ZNK12_GLOBAL__N_117RISCVDisassembler14getInstructionERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %2, ptr %3, i64 %4, i64 noundef %5, ptr nonnull readnone align 8 captures(none) %6) unnamed_addr #0 align 2 {
+define internal noundef i32 @_ZNK12_GLOBAL__N_117RISCVDisassembler14getInstructionERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %2, ptr readonly captures(none) %3, i64 %4, i64 noundef %5, ptr nonnull readnone align 8 captures(none) %6) unnamed_addr #0 align 2 {
   %8 = alloca i8, align 1
   %9 = alloca %"class.llvm::MCInst", align 8
   %10 = alloca i8, align 1

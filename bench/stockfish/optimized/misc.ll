@@ -521,7 +521,7 @@ define dso_local void @_ZN9Stockfish8prefetchEPv(ptr noundef readonly captures(n
 declare void @llvm.prefetch.p0(ptr readonly captures(none), i32 immarg, i32 immarg, i32 immarg) #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable
-define dso_local noundef ptr @_ZN9Stockfish17std_aligned_allocEmm(i64 noundef %0, i64 noundef %1) local_unnamed_addr #9 {
+define dso_local noalias noundef ptr @_ZN9Stockfish17std_aligned_allocEmm(i64 noundef %0, i64 noundef %1) local_unnamed_addr #9 {
   %3 = tail call noalias ptr @aligned_alloc(i64 noundef %0, i64 noundef %1) #24
   call void @llvm.assume(i1 true) [ "align"(ptr %3, i64 %0) ]
   ret ptr %3

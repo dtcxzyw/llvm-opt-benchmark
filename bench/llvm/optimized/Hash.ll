@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN4llvm30VerifyDisableABIBreakingChecksE = weak hidden local_unnamed_addr global ptr @_ZN4llvm24DisableABIBreakingChecksE, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: read, inaccessiblemem: write) uwtable
-define dso_local noundef i32 @_ZN4llvm3pdb12hashStringV1ENS_9StringRefE(ptr %0, i64 %1) local_unnamed_addr #0 {
+define dso_local noundef i32 @_ZN4llvm3pdb12hashStringV1ENS_9StringRefE(ptr readonly captures(address) %0, i64 %1) local_unnamed_addr #0 {
   %3 = trunc i64 %1 to i32
   %4 = and i64 %1, 4294967292
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 %4

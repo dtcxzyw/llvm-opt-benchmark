@@ -1996,9 +1996,9 @@ find_gradients.exit226.i.i:                       ; preds = %find_gradients.exit
   %643 = add i64 %642, %603
   %644 = shl i64 %643, 4
   %scevgep306.i.i = getelementptr nuw i8, ptr %557, i64 %644
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %scevgep.i.i, ptr noundef nonnull align 16 dereferenceable(16) %scevgep306.i.i, i64 16, i1 false), !tbaa !89, !noalias !184
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %scevgep.i.i, ptr noundef nonnull readonly align 16 dereferenceable(16) %scevgep306.i.i, i64 16, i1 false), !tbaa !89, !noalias !184
   %scevgep308.i.i = getelementptr nuw i8, ptr %.093.i, i64 %644
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %scevgep307.i.i, ptr noundef nonnull align 16 dereferenceable(16) %scevgep308.i.i, i64 16, i1 false), !tbaa !89, !noalias !185
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %scevgep307.i.i, ptr noundef nonnull readonly align 16 dereferenceable(16) %scevgep308.i.i, i64 16, i1 false), !tbaa !89, !noalias !185
   %645 = add nuw nsw i64 %.0205282.i.i, 1
   %exitcond309.not.i.i = icmp eq i64 %645, 3
   br i1 %exitcond309.not.i.i, label %636, label %638

@@ -170,7 +170,7 @@ define dso_local noundef i64 @_ZN4llvm8xxHash64ENS_8ArrayRefIhEE(ptr readonly %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: read, inaccessiblemem: write) uwtable
-define dso_local noundef i64 @_ZN4llvm11xxh3_64bitsENS_8ArrayRefIhEE(ptr %0, i64 %1) local_unnamed_addr #1 {
+define dso_local noundef i64 @_ZN4llvm11xxh3_64bitsENS_8ArrayRefIhEE(ptr readonly captures(none) %0, i64 %1) local_unnamed_addr #1 {
   %3 = icmp ult i64 %1, 17
   br i1 %3, label %4, label %72
 
@@ -451,7 +451,7 @@ _ZL18XXH3_len_0to16_64bPKhmS0_m.exit:             ; preds = %47, %48, %28, %6, %
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(argmem: read, inaccessiblemem: write) uwtable
-define internal fastcc noundef i64 @_ZL21XXH3_len_129to240_64bPKhmS0_m(ptr noundef %0, i64 noundef range(i64 129, 241) %1) unnamed_addr #2 {
+define internal fastcc noundef i64 @_ZL21XXH3_len_129to240_64bPKhmS0_m(ptr noundef readonly captures(none) %0, i64 noundef range(i64 129, 241) %1) unnamed_addr #2 {
   %3 = mul i64 %1, -7046029288634856825
   br label %11
 
@@ -549,7 +549,7 @@ define internal fastcc noundef i64 @_ZL21XXH3_len_129to240_64bPKhmS0_m(ptr nound
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(argmem: read, inaccessiblemem: write) uwtable
-define internal fastcc noundef i64 @_ZL17XXH3_hashLong_64bPKhmS0_m(ptr noundef %0, i64 noundef range(i64 241, 0) %1) unnamed_addr #2 {
+define internal fastcc noundef i64 @_ZL17XXH3_hashLong_64bPKhmS0_m(ptr noundef readonly captures(none) %0, i64 noundef range(i64 241, 0) %1) unnamed_addr #2 {
   %3 = alloca [8 x i64], align 16
   %4 = add i64 %1, -1
   %5 = lshr i64 %4, 10
@@ -739,7 +739,7 @@ _ZL23XXH3_scrambleAcc_scalarPmPKh.exit:           ; preds = %_ZL15XXH3_accumulat
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: read, inaccessiblemem: write) uwtable
-define dso_local { i64, i64 } @_ZN4llvm12xxh3_128bitsENS_8ArrayRefIhEE(ptr %0, i64 %1) local_unnamed_addr #1 {
+define dso_local { i64, i64 } @_ZN4llvm12xxh3_128bitsENS_8ArrayRefIhEE(ptr readonly %0, i64 %1) local_unnamed_addr #1 {
   %3 = alloca [8 x i64], align 16
   %4 = icmp ult i64 %1, 17
   br i1 %4, label %5, label %113
@@ -1345,7 +1345,7 @@ _ZL19XXH3_len_0to16_128bPKhmS0_m.exit:            ; preds = %76, %77, %46, %7, %
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(argmem: read, inaccessiblemem: write) uwtable
-define internal fastcc { i64, i64 } @_ZL22XXH3_len_129to240_128bPKhmS0_mm(ptr noundef %0, i64 noundef range(i64 129, 241) %1) unnamed_addr #2 {
+define internal fastcc { i64, i64 } @_ZL22XXH3_len_129to240_128bPKhmS0_mm(ptr noundef readonly captures(none) %0, i64 noundef range(i64 129, 241) %1) unnamed_addr #2 {
   %3 = mul i64 %1, -7046029288634856825
   br label %4
 

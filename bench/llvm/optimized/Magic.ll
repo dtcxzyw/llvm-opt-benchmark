@@ -46,7 +46,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table._ZN4llvm14identify_magicENS_9StringRefE = private unnamed_addr constant [12 x i32] [i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 22], align 4
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: read, inaccessiblemem: write) uwtable
-define dso_local range(i32 0, 40) i32 @_ZN4llvm14identify_magicENS_9StringRefE(ptr %0, i64 %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, 40) i32 @_ZN4llvm14identify_magicENS_9StringRefE(ptr readonly captures(none) %0, i64 %1) local_unnamed_addr #0 {
   %3 = icmp ult i64 %1, 4
   br i1 %3, label %.thread236, label %4
 

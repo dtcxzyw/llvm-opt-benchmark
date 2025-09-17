@@ -306,7 +306,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6: ; preds = %_ZNK
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read, inaccessiblemem: write) uwtable
-define dso_local noundef zeroext i16 @_ZNK4llvm3pdb26DbiModuleDescriptorBuilder14getStreamIndexEv(ptr noundef nonnull align 8 dereferenceable(256) %0) local_unnamed_addr #2 align 2 {
+define dso_local noundef zeroext i16 @_ZNK4llvm3pdb26DbiModuleDescriptorBuilder14getStreamIndexEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 226
   call void @llvm.assume(i1 true) [ "align"(ptr %2, i64 1) ]
   %.0.copyload.i.i.i = load i16, ptr %2, align 2
@@ -838,7 +838,7 @@ define dso_local noundef range(i32 0, -3) i32 @_ZNK4llvm3pdb26DbiModuleDescripto
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3pdb26DbiModuleDescriptorBuilder8finalizeEv(ptr noundef nonnull align 8 dereferenceable(256) %0) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3pdb26DbiModuleDescriptorBuilder8finalizeEv(ptr noundef nonnull align 8 captures(none) dereferenceable(256) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 244
   call void @llvm.assume(i1 true) [ "align"(ptr %2, i64 1) ]
   store i32 0, ptr %2, align 4
@@ -904,7 +904,7 @@ _ZNK4llvm3pdb26DbiModuleDescriptorBuilder25calculateC13DebugInfoSizeEv.exit: ; p
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3pdb26DbiModuleDescriptorBuilder17finalizeMsfLayoutEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.llvm::Error") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(256) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3pdb26DbiModuleDescriptorBuilder17finalizeMsfLayoutEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.llvm::Error") align 8 captures(none) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(256) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::Expected", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 226
   call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 1) ]
@@ -1036,7 +1036,7 @@ declare void @_ZN4llvm18BinaryStreamWriter12writeCStringENS_9StringRefE(ptr dead
 declare void @_ZN4llvm18BinaryStreamWriter14padToAlignmentEj(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8, ptr noundef nonnull align 8 dereferenceable(64), i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3pdb26DbiModuleDescriptorBuilder18commitSymbolStreamERKNS_3msf9MSFLayoutENS_23WritableBinaryStreamRefE(ptr dead_on_unwind noalias writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(256) %1, ptr noundef nonnull align 8 dereferenceable(136) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3pdb26DbiModuleDescriptorBuilder18commitSymbolStreamERKNS_3msf9MSFLayoutENS_23WritableBinaryStreamRefE(ptr dead_on_unwind noalias writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %1, ptr noundef nonnull align 8 dereferenceable(136) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca [4 x i8], align 4
   %7 = alloca [4 x i8], align 4

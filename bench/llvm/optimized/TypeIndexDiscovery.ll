@@ -98,7 +98,7 @@ _ZNK4llvm8codeview8CVRecordINS0_12TypeLeafKindEE4kindEv.exit: ; preds = %2, %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL19discoverTypeIndicesN4llvm8ArrayRefIhEENS_8codeview12TypeLeafKindERNS_15SmallVectorImplINS2_11TiReferenceEEE(ptr %0, i64 %1, i16 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(16) %3) unnamed_addr #0 {
+define internal fastcc void @_ZL19discoverTypeIndicesN4llvm8ArrayRefIhEENS_8codeview12TypeLeafKindERNS_15SmallVectorImplINS2_11TiReferenceEEE(ptr readonly captures(none) %0, i64 %1, i16 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(16) %3) unnamed_addr #0 {
   switch i16 %2, label %_ZL24handleMethodOverloadListN4llvm8ArrayRefIhEERNS_15SmallVectorImplINS_8codeview11TiReferenceEEE.exit [
     i16 5633, label %5
     i16 5634, label %31
@@ -1304,7 +1304,7 @@ define dso_local void @_ZN4llvm8codeview19discoverTypeIndicesERKNS0_8CVRecordINS
   %.0.copyload.i.i.i.i.i = load i16, ptr %7, align 1
   %8 = add i64 %.sroa.2.0.copyload, -4
   %9 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 4
-  call fastcc void @_ZL19discoverTypeIndicesN4llvm8ArrayRefIhEENS_8codeview12TypeLeafKindERNS_15SmallVectorImplINS2_11TiReferenceEEE(ptr nonnull %9, i64 %8, i16 noundef zeroext %.0.copyload.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3)
+  call fastcc void @_ZL19discoverTypeIndicesN4llvm8ArrayRefIhEENS_8codeview12TypeLeafKindERNS_15SmallVectorImplINS2_11TiReferenceEEE(ptr nonnull readonly %9, i64 %8, i16 noundef zeroext %.0.copyload.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3)
   %10 = load ptr, ptr %3, align 8, !tbaa !16
   %11 = load i32, ptr %5, align 8, !tbaa !11
   %12 = zext i32 %11 to i64
@@ -1337,7 +1337,7 @@ define dso_local void @_ZN4llvm8codeview19discoverTypeIndicesENS_8ArrayRefIhEERN
   %.0.copyload.i.i.i.i = load i16, ptr %8, align 1
   %9 = add i64 %1, -4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  call fastcc void @_ZL19discoverTypeIndicesN4llvm8ArrayRefIhEENS_8codeview12TypeLeafKindERNS_15SmallVectorImplINS2_11TiReferenceEEE(ptr nonnull %10, i64 %9, i16 noundef zeroext %.0.copyload.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4)
+  call fastcc void @_ZL19discoverTypeIndicesN4llvm8ArrayRefIhEENS_8codeview12TypeLeafKindERNS_15SmallVectorImplINS2_11TiReferenceEEE(ptr nonnull readonly %10, i64 %9, i16 noundef zeroext %.0.copyload.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4)
   %11 = load ptr, ptr %4, align 8, !tbaa !16
   %12 = load i32, ptr %6, align 8, !tbaa !11
   %13 = zext i32 %12 to i64
@@ -1359,7 +1359,7 @@ _ZN4llvm11SmallVectorINS_8codeview11TiReferenceELj4EED2Ev.exit: ; preds = %3, %1
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm8codeview19discoverTypeIndicesENS_8ArrayRefIhEERNS_15SmallVectorImplINS0_11TiReferenceEEE(ptr %0, i64 %1, ptr noundef nonnull align 8 dereferenceable(16) %2) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm8codeview19discoverTypeIndicesENS_8ArrayRefIhEERNS_15SmallVectorImplINS0_11TiReferenceEEE(ptr readonly captures(none) %0, i64 %1, ptr noundef nonnull align 8 dereferenceable(16) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2
   call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 1) ]
   %.0.copyload.i.i.i = load i16, ptr %4, align 1
@@ -1730,7 +1730,7 @@ _ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit: ; preds = %2, %6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL19discoverTypeIndicesN4llvm8ArrayRefIhEENS_8codeview10SymbolKindERNS_15SmallVectorImplINS2_11TiReferenceEEE(ptr %0, i16 noundef zeroext %1, ptr noundef nonnull align 8 dereferenceable(16) %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL19discoverTypeIndicesN4llvm8ArrayRefIhEENS_8codeview10SymbolKindERNS_15SmallVectorImplINS2_11TiReferenceEEE(ptr readonly captures(none) %0, i16 noundef zeroext %1, ptr noundef nonnull align 8 dereferenceable(16) %2) unnamed_addr #0 {
   switch i16 %1, label %230 [
     i16 4423, label %4
     i16 4422, label %4
@@ -2225,7 +2225,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8codeview11TiReferenceELb1EE9push_backES2_.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm8codeview27discoverTypeIndicesInSymbolENS_8ArrayRefIhEERNS_15SmallVectorImplINS0_11TiReferenceEEE(ptr %0, i64 %1, ptr noundef nonnull align 8 dereferenceable(16) %2) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN4llvm8codeview27discoverTypeIndicesInSymbolENS_8ArrayRefIhEERNS_15SmallVectorImplINS0_11TiReferenceEEE(ptr readonly captures(none) %0, i64 %1, ptr noundef nonnull align 8 dereferenceable(16) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2
   call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 1) ]
   %.0.copyload.i.i.i = load i16, ptr %4, align 1
@@ -2248,7 +2248,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm8codeview27discoverTypeIndicesInSym
   call void @llvm.assume(i1 true) [ "align"(ptr %8, i64 1) ]
   %.0.copyload.i.i.i.i = load i16, ptr %8, align 1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %10 = call fastcc noundef zeroext i1 @_ZL19discoverTypeIndicesN4llvm8ArrayRefIhEENS_8codeview10SymbolKindERNS_15SmallVectorImplINS2_11TiReferenceEEE(ptr nonnull %9, i16 noundef zeroext %.0.copyload.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4)
+  %10 = call fastcc noundef zeroext i1 @_ZL19discoverTypeIndicesN4llvm8ArrayRefIhEENS_8codeview10SymbolKindERNS_15SmallVectorImplINS2_11TiReferenceEEE(ptr nonnull readonly %9, i16 noundef zeroext %.0.copyload.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4)
   br i1 %10, label %11, label %15
 
 11:                                               ; preds = %3

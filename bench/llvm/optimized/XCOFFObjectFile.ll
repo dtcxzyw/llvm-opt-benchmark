@@ -2350,7 +2350,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm6object26LoaderSectionSymbolEntry6413getSymbolNameEPKNS0_21LoaderSectionHeader64E(ptr dead_on_unwind noalias writable sret(%"class.llvm::Expected.48") align 8 %0, ptr noundef nonnull align 1 dereferenceable(24) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm6object26LoaderSectionSymbolEntry6413getSymbolNameEPKNS0_21LoaderSectionHeader64E(ptr dead_on_unwind noalias writable sret(%"class.llvm::Expected.48") align 8 %0, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(24) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 1) ]
   %.0.copyload.i.i.i = load i32, ptr %4, align 1
@@ -7948,7 +7948,7 @@ define dso_local void @_ZNK4llvm6object15XCOFFObjectFile13tryGetCPUNameEv(ptr de
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read, inaccessiblemem: write) uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm6object28doesXCOFFTracebackTableBeginENS_8ArrayRefIhEE(ptr %0, i64 %1) local_unnamed_addr #13 {
+define dso_local noundef zeroext i1 @_ZN4llvm6object28doesXCOFFTracebackTableBeginENS_8ArrayRefIhEE(ptr readonly captures(none) %0, i64 %1) local_unnamed_addr #13 {
   %3 = icmp ult i64 %1, 4
   br i1 %3, label %6, label %4
 
@@ -8076,7 +8076,7 @@ _ZN4llvm5ErrorD2Ev.exit3:                         ; preds = %_ZN4llvm6object11TB
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm6object11TBVectorExtC2ENS_9StringRefERNS_5ErrorE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %1, i64 %2, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %3) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm6object11TBVectorExtC2ENS_9StringRefERNS_5ErrorE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr readonly captures(none) %1, i64 %2, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::Expected.125", align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32

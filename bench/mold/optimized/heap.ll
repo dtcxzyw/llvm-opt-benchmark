@@ -469,7 +469,7 @@ define hidden ptr @_mi_heap_by_tag(ptr noundef readonly captures(ret: address, p
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_mi_heap_destroy_pages(ptr noundef %0) local_unnamed_addr #0 {
+define hidden void @_mi_heap_destroy_pages(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %mi_heap_visit_pages.exit, label %3
 

@@ -37158,7 +37158,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL22notePlausibleOverloadsRN5clang4SemaENS_14SourceLocationERKNS_17UnresolvedSetImplEPFbNS_8QualTypeEE(ptr noundef nonnull align 8 dereferenceable(17504) %0, i32 %1, ptr %.0.val, i32 %.8.val, ptr noundef readonly captures(address_is_null) %2) unnamed_addr #0 {
+define internal fastcc void @_ZL22notePlausibleOverloadsRN5clang4SemaENS_14SourceLocationERKNS_17UnresolvedSetImplEPFbNS_8QualTypeEE(ptr noundef nonnull align 8 dereferenceable(17504) %0, i32 %1, ptr readonly captures(address) %.0.val, i32 %.8.val, ptr noundef readonly captures(address_is_null) %2) unnamed_addr #0 {
   %4 = alloca %"class.clang::UnresolvedSet.2937", align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %5, label %6
@@ -46535,7 +46535,7 @@ declare noundef ptr @_ZN5clang9NamedDecl21getUnderlyingDeclImplEv(ptr noundef no
 declare noundef ptr @_ZN5clang4Expr14IgnoreImplicitEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL13noteOverloadsRN5clang4SemaERKNS_17UnresolvedSetImplENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr %.0.val, i32 %.8.val, i32 %1) unnamed_addr #0 {
+define internal fastcc void @_ZL13noteOverloadsRN5clang4SemaERKNS_17UnresolvedSetImplENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr readonly captures(address) %.0.val, i32 %.8.val, i32 %1) unnamed_addr #0 {
   %3 = alloca %"class.clang::CanonicalDeclPtr", align 8
   %4 = alloca %"class.llvm::StringRef", align 8
   %5 = alloca %"class.llvm::StringRef", align 8

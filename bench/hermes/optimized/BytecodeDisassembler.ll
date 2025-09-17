@@ -1653,7 +1653,7 @@ while.end:                                        ; preds = %while.cond.loopexit
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN6hermes3hbc12_GLOBAL__N_111SLPToStringB5cxx11EhPKhPi(ptr noalias nonnull align 8 %agg.result, i8 noundef zeroext %tag, ptr noundef %buff, ptr noundef nonnull captures(none) %ind) unnamed_addr #1 {
+define internal fastcc void @_ZN6hermes3hbc12_GLOBAL__N_111SLPToStringB5cxx11EhPKhPi(ptr noalias nonnull align 8 %agg.result, i8 noundef zeroext %tag, ptr noundef readonly captures(none) %buff, ptr noundef nonnull captures(none) %ind) unnamed_addr #1 {
 entry:
   %rBracket = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::allocator", align 1

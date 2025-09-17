@@ -83,7 +83,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.2 = private unnamed_addr constant [104 x i8] c"\0A\0AERROR: the Box2D samples working directory must be the top level Box2D directory (same as README.md)\0A\00", align 1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable
-define dso_local noundef ptr @_Z8AllocFcnji(i32 noundef %0, i32 noundef %1) #0 {
+define dso_local noalias noundef ptr @_Z8AllocFcnji(i32 noundef %0, i32 noundef %1) #0 {
   %3 = add i32 %0, -1
   %4 = add nsw i32 %1, -1
   %5 = or i32 %4, %3

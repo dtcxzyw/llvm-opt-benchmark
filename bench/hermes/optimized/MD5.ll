@@ -952,7 +952,7 @@ _ZN4llvh3MD56updateENS_8ArrayRefIhEE.exit:        ; preds = %if.then13.i, %if.en
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: write) uwtable
-define hidden void @_ZN4llvh3MD55finalERNS0_9MD5ResultE(ptr noundef nonnull align 4 dereferenceable(152) %this, ptr noundef nonnull align 1 dereferenceable(16) %Result) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN4llvh3MD55finalERNS0_9MD5ResultE(ptr noundef nonnull align 4 captures(none) dereferenceable(152) %this, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(16) %Result) local_unnamed_addr #4 align 2 {
 entry:
   %lo = getelementptr inbounds nuw i8, ptr %this, i64 20
   %0 = load i32, ptr %lo, align 4

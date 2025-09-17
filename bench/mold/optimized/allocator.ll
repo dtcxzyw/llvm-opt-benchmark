@@ -65,7 +65,7 @@ declare noalias noundef ptr @malloc(i64 noundef) #2
 declare void @free(ptr allocptr noundef captures(none)) #3
 
 ; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(inaccessiblemem: readwrite) uwtable
-define internal noundef ptr @_ZN3tbb6detail2r1L26std_cache_aligned_allocateEmm(i64 noundef %0, i64 noundef %1) #4 {
+define internal noalias noundef ptr @_ZN3tbb6detail2r1L26std_cache_aligned_allocateEmm(i64 noundef %0, i64 noundef %1) #4 {
   %3 = tail call noalias ptr @memalign(i64 noundef %1, i64 noundef %0) #14
   call void @llvm.assume(i1 true) [ "align"(ptr %3, i64 %1) ]
   ret ptr %3

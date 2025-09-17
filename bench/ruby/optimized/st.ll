@@ -3204,7 +3204,7 @@ st_general_values.exit:                           ; preds = %21, %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local i64 @rb_st_hash(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #2 {
+define dso_local i64 @rb_st_hash(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #2 {
   %4 = icmp ugt i64 %1, 7
   br i1 %4, label %.preheader, label %.loopexit
 

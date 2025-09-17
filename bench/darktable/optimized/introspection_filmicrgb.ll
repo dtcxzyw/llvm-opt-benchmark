@@ -4711,7 +4711,7 @@ init_reconstruct.exit:                            ; preds = %81, %71
 .split.us.preheader.i:                            ; preds = %245
   %246 = shl i64 %indvar.i, 4
   %scevgep.i = getelementptr i8, ptr %.0108, i64 %246
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %9, ptr noundef nonnull align 16 dereferenceable(16) %scevgep.i, i64 16, i1 false), !tbaa !140, !noalias !388
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %9, ptr noundef nonnull readonly align 16 dereferenceable(16) %scevgep.i, i64 16, i1 false), !tbaa !140, !noalias !388
   br label %.preheader.i125
 
 247:                                              ; preds = %247, %214
@@ -11274,7 +11274,7 @@ declare float @llvm.sin.f32(float) #8
 declare void @dt_control_log(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal fastcc void @blur_2D_Bspline(ptr noalias noundef nonnull readonly captures(none) %0, ptr noalias noundef nonnull writeonly captures(none) %1, ptr noalias noundef nonnull %2, i64 noundef range(i64 -2147483648, 2147483648) %3, i64 noundef range(i64 -2147483648, 2147483648) %4, i32 noundef %5) unnamed_addr #22 {
+define internal fastcc void @blur_2D_Bspline(ptr noalias noundef nonnull readonly captures(none) %0, ptr noalias noundef nonnull writeonly captures(none) %1, ptr noalias noundef nonnull captures(none) %2, i64 noundef range(i64 -2147483648, 2147483648) %3, i64 noundef range(i64 -2147483648, 2147483648) %4, i32 noundef %5) unnamed_addr #22 {
   %.not = icmp eq i64 %4, 0
   br i1 %.not, label %._crit_edge42, label %.lr.ph41
 

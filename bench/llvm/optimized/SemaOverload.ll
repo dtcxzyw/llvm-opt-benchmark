@@ -30579,7 +30579,7 @@ _ZNK5clang8QualType19getNonReferenceTypeEv.exit:  ; preds = %75, %_ZNK5clang4Typ
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL33collectViableConversionCandidatesRN5clang4SemaEPNS_4ExprENS_8QualTypeERNS_17UnresolvedSetImplERNS_20OverloadCandidateSetE(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef %1, i64 %2, ptr %.0.val, i32 %.8.val, ptr noundef nonnull align 8 dereferenceable(6628) %3) unnamed_addr #4 {
+define internal fastcc void @_ZL33collectViableConversionCandidatesRN5clang4SemaEPNS_4ExprENS_8QualTypeERNS_17UnresolvedSetImplERNS_20OverloadCandidateSetE(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef %1, i64 %2, ptr readonly captures(address) %.0.val, i32 %.8.val, ptr noundef nonnull align 8 dereferenceable(6628) %3) unnamed_addr #4 {
   %5 = zext i32 %.8.val to i64
   %.idx = shl nuw nsw i64 %5, 3
   %6 = getelementptr inbounds nuw i8, ptr %.0.val, i64 %.idx
@@ -31492,7 +31492,7 @@ _ZN4llvm11SmallVectorIPN5clang17OverloadCandidateELj16EED2Ev.exit: ; preds = %38
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL16recordConversionRN5clang4SemaENS_14SourceLocationERPNS_4ExprERNS0_27ContextualImplicitConverterENS_8QualTypeEbRNS_14DeclAccessPairE(ptr noundef nonnull align 8 dereferenceable(17504) %0, i32 %1, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(10) %3, i64 %4, i1 noundef zeroext %5, ptr noundef nonnull align 8 dereferenceable(8) %6) unnamed_addr #4 {
+define internal fastcc noundef zeroext i1 @_ZL16recordConversionRN5clang4SemaENS_14SourceLocationERPNS_4ExprERNS0_27ContextualImplicitConverterENS_8QualTypeEbRNS_14DeclAccessPairE(ptr noundef nonnull align 8 dereferenceable(17504) %0, i32 %1, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(10) %3, i64 %4, i1 noundef zeroext %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %6) unnamed_addr #4 {
   %8 = alloca %"class.clang::CharSourceRange", align 8
   %9 = alloca %"class.clang::CharSourceRange", align 8
   %10 = alloca %"class.clang::CanonicalDeclPtr", align 8
@@ -49030,7 +49030,7 @@ _ZN5clang9ADLResultD2Ev.exit:                     ; preds = %._crit_edge128, %12
 declare void @_ZN5clang4Sema23ArgumentDependentLookupENS_15DeclarationNameENS_14SourceLocationEN4llvm8ArrayRefIPNS_4ExprEEERNS_9ADLResultE(ptr noundef nonnull align 8 dereferenceable(17504), i64, i32, ptr, i64, ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN5clang25isBetterOverloadCandidateERNS_4SemaERKNS_17OverloadCandidateES4_NS_14SourceLocationENS_20OverloadCandidateSet16CandidateSetKindE(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(168) %2, i32 %3, i32 noundef %4) local_unnamed_addr #4 {
+define dso_local noundef zeroext i1 @_ZN5clang25isBetterOverloadCandidateERNS_4SemaERKNS_17OverloadCandidateES4_NS_14SourceLocationENS_20OverloadCandidateSet16CandidateSetKindE(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %2, i32 %3, i32 noundef %4) local_unnamed_addr #4 {
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %7 = load i16, ptr %6, align 8
   %8 = and i16 %7, 1
@@ -57021,7 +57021,7 @@ _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIPNS_13CXXRecordDeclEvEERKS1_OT_.exi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4Sema25NoteAllOverloadCandidatesEPNS_4ExprENS_8QualTypeEb(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef nonnull %1, i64 %2, i1 noundef zeroext %3) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN5clang4Sema25NoteAllOverloadCandidatesEPNS_4ExprENS_8QualTypeEb(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef nonnull readonly %1, i64 %2, i1 noundef zeroext %3) local_unnamed_addr #4 align 2 {
   %5 = tail call noundef ptr @_ZN5clang4Expr12IgnoreParensEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #31
   %6 = load i16, ptr %5, align 8
   %7 = and i16 %6, 511
@@ -65786,7 +65786,7 @@ declare noundef ptr @_ZN5clang4Sema20ResolveExceptionSpecENS_14SourceLocationEPK
 declare noundef i32 @_ZN5clang4Sema26CheckAddressOfMemberAccessEPNS_4ExprENS_14DeclAccessPairE(ptr noundef nonnull align 8 dereferenceable(17504), ptr noundef, i64) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang4Sema39resolveAddressOfSingleOverloadCandidateEPNS_4ExprERNS_14DeclAccessPairE(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef nonnull %1, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %2) local_unnamed_addr #4 align 2 {
+define dso_local noundef ptr @_ZN5clang4Sema39resolveAddressOfSingleOverloadCandidateEPNS_4ExprERNS_14DeclAccessPairE(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef nonnull readonly %1, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %2) local_unnamed_addr #4 align 2 {
   %4 = alloca %"class.llvm::SmallVector.1534", align 8
   %5 = alloca %"class.llvm::SmallVector.1541", align 8
   %6 = tail call noundef ptr @_ZN5clang4Expr12IgnoreParensEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #31
@@ -96595,7 +96595,7 @@ declare void @_ZNK5clang12TemplateDecl24getAssociatedConstraintsERN4llvm15SmallV
 declare noundef zeroext i1 @_ZN5clang4Sema45MaybeEmitAmbiguousAtomicConstraintsDiagnosticEPNS_9NamedDeclEN4llvm8ArrayRefIPKNS_4ExprEEES2_S8_(ptr noundef nonnull align 8 dereferenceable(17504), ptr noundef, ptr, i64, ptr noundef, ptr noundef byval(%"class.llvm::ArrayRef.1333") align 8) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL21DiagnoseBadConversionRN5clang4SemaEPNS_17OverloadCandidateEjb(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #4 {
+define internal fastcc void @_ZL21DiagnoseBadConversionRN5clang4SemaEPNS_17OverloadCandidateEjb(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) unnamed_addr #4 {
   %4 = alloca %"class.clang::CharSourceRange", align 8
   %5 = alloca %"class.clang::CanonicalDeclPtr", align 8
   %6 = alloca %"class.clang::CanonicalDeclPtr", align 8

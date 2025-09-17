@@ -24097,7 +24097,7 @@ _ZN5clang14TextNodeDumper23dumpNestedNameSpecifierEPKNS_19NestedNameSpecifierE.e
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper25VisitUnresolvedLookupExprEPKNS_20UnresolvedLookupExprE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1168) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper25VisitUnresolvedLookupExprEPKNS_20UnresolvedLookupExprE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1168) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   %4 = load ptr, ptr %3, align 8, !tbaa !414
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24

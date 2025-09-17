@@ -1485,7 +1485,7 @@ dt_get_perf_times.exit:                           ; preds = %67, %70
   %128 = getelementptr inbounds nuw i8, ptr %8, i64 792
   %129 = getelementptr inbounds nuw i8, ptr %8, i64 704
   %130 = load i32, ptr %129, align 64, !tbaa !17, !noalias !152
-  call fastcc void @_apply_tonecurves(ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %121, ptr noundef %123, ptr noundef %125, ptr noundef %126, ptr noundef %127, ptr noundef %128, i32 noundef %130)
+  call fastcc void @_apply_tonecurves(ptr noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %121, ptr noundef %123, ptr noundef %125, ptr noundef %126, ptr noundef %127, ptr noundef %128, i32 noundef %130)
   %.not49.i.i = icmp eq i64 %104, 0
   br i1 %.not49.i.i, label %_transform_matrix.exit, label %.lr.ph.i.i
 
@@ -1897,7 +1897,7 @@ dt_apply_transposed_color_matrix.exit.i25.i:      ; preds = %342
   %368 = getelementptr inbounds nuw i8, ptr %8, i64 840
   %369 = getelementptr inbounds nuw i8, ptr %8, i64 704
   %370 = load i32, ptr %369, align 64, !tbaa !17, !noalias !146
-  call fastcc void @_apply_tonecurves(ptr noundef %2, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %361, ptr noundef %363, ptr noundef %365, ptr noundef %366, ptr noundef %367, ptr noundef %368, i32 noundef %370)
+  call fastcc void @_apply_tonecurves(ptr noundef %2, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %361, ptr noundef %363, ptr noundef %365, ptr noundef %366, ptr noundef %367, ptr noundef %368, i32 noundef %370), !noalias !141
   br label %_transform_matrix.exit
 
 371:                                              ; preds = %275
@@ -2342,7 +2342,7 @@ dt_colormatrix_mul.exit.i:                        ; preds = %91
 .preheader86.preheader.i:                         ; preds = %184
   %187 = shl i64 %indvar.i, 4
   %scevgep.i = getelementptr i8, ptr %0, i64 %187
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %15, ptr noundef nonnull align 4 dereferenceable(16) %scevgep.i, i64 16, i1 false), !tbaa !14, !noalias !158
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %15, ptr noundef nonnull readonly align 4 dereferenceable(16) %scevgep.i, i64 16, i1 false), !tbaa !14, !noalias !158
   br label %.loopexit87.i
 
 .preheader88.i:                                   ; preds = %184, %229
@@ -2378,9 +2378,9 @@ dt_colormatrix_mul.exit.i:                        ; preds = %91
   %210 = fsub reassoc nsz arcp contract afn float %203, %209
   %211 = sext i32 %208 to i64
   %212 = getelementptr inbounds float, ptr %196, i64 %211
-  %213 = load float, ptr %212, align 4, !tbaa !14
+  %213 = load float, ptr %212, align 4, !tbaa !14, !noalias !160
   %214 = getelementptr i8, ptr %212, i64 4
-  %215 = load float, ptr %214, align 4, !tbaa !14
+  %215 = load float, ptr %214, align 4, !tbaa !14, !noalias !160
   %216 = fsub reassoc nsz arcp contract afn float %215, %213
   %217 = fmul reassoc nsz arcp contract afn float %210, %216
   %218 = fadd reassoc nsz arcp contract afn float %217, %213
@@ -2472,9 +2472,9 @@ dt_apply_transposed_color_matrix.exit.preheader.i: ; preds = %237, %dt_apply_tra
   %274 = fsub reassoc nsz arcp contract afn float %267, %273
   %275 = sext i32 %272 to i64
   %276 = getelementptr inbounds float, ptr %260, i64 %275
-  %277 = load float, ptr %276, align 4, !tbaa !14
+  %277 = load float, ptr %276, align 4, !tbaa !14, !noalias !160
   %278 = getelementptr i8, ptr %276, i64 4
-  %279 = load float, ptr %278, align 4, !tbaa !14
+  %279 = load float, ptr %278, align 4, !tbaa !14, !noalias !160
   %280 = fsub reassoc nsz arcp contract afn float %279, %277
   %281 = fmul reassoc nsz arcp contract afn float %274, %280
   %282 = fadd reassoc nsz arcp contract afn float %281, %277

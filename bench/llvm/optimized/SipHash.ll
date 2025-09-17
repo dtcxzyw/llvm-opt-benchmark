@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZZN4llvm27getPointerAuthStableSipHashENS_9StringRefEE1K = internal constant [16 x i8] c"\B5\D4\C9\EBy\10Jyo\EC\8B\1BB\87\81\D4", align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: write) uwtable
-define dso_local void @_ZN4llvm17getSipHash_2_4_64ENS_8ArrayRefIhEERA16_KhRA8_h(ptr readonly captures(address) %0, i64 %1, ptr noundef nonnull align 1 dereferenceable(16) %2, ptr noundef nonnull align 1 dereferenceable(8) %3) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm17getSipHash_2_4_64ENS_8ArrayRefIhEERA16_KhRA8_h(ptr readonly captures(address) %0, i64 %1, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(16) %2, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(8) %3) local_unnamed_addr #0 {
   call void @llvm.assume(i1 true) [ "align"(ptr %2, i64 1) ]
   %.0.copyload.i.i.i.i.i.i.i = load i64, ptr %2, align 1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -209,7 +209,7 @@ _ZN12_GLOBAL__N_17siphashILi2ELi4ELm8EEEvPKhmRA16_S1_RAT1__h.exit: ; preds = %96
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: write) uwtable
-define dso_local void @_ZN4llvm18getSipHash_2_4_128ENS_8ArrayRefIhEERA16_KhRA16_h(ptr readonly captures(address) %0, i64 %1, ptr noundef nonnull align 1 dereferenceable(16) %2, ptr noundef nonnull align 1 dereferenceable(16) %3) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm18getSipHash_2_4_128ENS_8ArrayRefIhEERA16_KhRA16_h(ptr readonly captures(address) %0, i64 %1, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(16) %2, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(16) %3) local_unnamed_addr #0 {
   call void @llvm.assume(i1 true) [ "align"(ptr %2, i64 1) ]
   %.0.copyload.i.i.i.i.i.i.i = load i64, ptr %2, align 1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8

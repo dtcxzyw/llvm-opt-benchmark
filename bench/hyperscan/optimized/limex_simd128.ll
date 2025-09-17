@@ -404,7 +404,7 @@ define hidden noundef signext i8 @nfaExecLimEx128_queueInitState(ptr noundef rea
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define hidden signext range(i8 0, 2) i8 @nfaExecLimEx128_initCompressedState(ptr noundef %0, i64 noundef %1, ptr noundef %2, i8 noundef zeroext %3) local_unnamed_addr #0 {
+define hidden signext range(i8 0, 2) i8 @nfaExecLimEx128_initCompressedState(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef %2, i8 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = alloca <2 x i64>, align 16
   %6 = alloca <2 x i64>, align 16
   %7 = alloca <2 x i64>, align 16
@@ -7006,7 +7006,7 @@ moNfaTestEod128.exit:                             ; preds = %86, %92, %6
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef signext i8 @nfaExecLimEx128_reportCurrent(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
+define hidden noundef signext i8 @nfaExecLimEx128_reportCurrent(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = load <2 x i64>, ptr %4, align 16
@@ -8276,7 +8276,7 @@ moProcessAcceptsImpl128.exit:                     ; preds = %.critedge.i.thread,
 declare i64 @llvm.ctpop.i64(i64) #7
 
 ; Function Attrs: noinline nounwind uwtable
-define internal fastcc signext range(i8 0, 2) i8 @moProcessAccepts128(ptr noundef %0, <2 x i64> %.0.val, <2 x i64> %.0.val1, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4) unnamed_addr #3 {
+define internal fastcc signext range(i8 0, 2) i8 @moProcessAccepts128(ptr noundef readonly captures(none) %0, <2 x i64> %.0.val, <2 x i64> %.0.val1, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4) unnamed_addr #3 {
   %.sroa.0 = alloca <2 x i64>, align 16
   %6 = and <2 x i64> %.0.val1, %.0.val
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)

@@ -1928,7 +1928,7 @@ _ZL20_alloc_scratch_spacemmmmPm.exit:             ; preds = %.lr.ph.i.i, %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal fastcc void @_ZL18_blur_vertical_1chILb1EEvPfmmmS0_m(ptr noalias noundef captures(none) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, ptr noalias noundef nonnull %4) unnamed_addr #2 {
+define internal fastcc void @_ZL18_blur_vertical_1chILb1EEvPfmmmS0_m(ptr noalias noundef captures(none) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, ptr noalias noundef nonnull captures(none) %4) unnamed_addr #2 {
   %6 = alloca [4 x float], align 64
   %7 = alloca [4 x float], align 64
   %8 = alloca [16 x float], align 64
@@ -4079,7 +4079,7 @@ declare float @llvm.minnum.f32(float, float) #7
 declare float @llvm.maxnum.f32(float, float) #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal fastcc void @_ZL18_blur_vertical_1chILb0EEvPfmmmS0_m(ptr noalias noundef captures(none) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, ptr noalias noundef nonnull %4) unnamed_addr #2 {
+define internal fastcc void @_ZL18_blur_vertical_1chILb0EEvPfmmmS0_m(ptr noalias noundef captures(none) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, ptr noalias noundef nonnull captures(none) %4) unnamed_addr #2 {
   %6 = alloca [4 x float], align 64
   %7 = alloca [16 x float], align 64
   %.not122 = icmp eq i64 %2, 0

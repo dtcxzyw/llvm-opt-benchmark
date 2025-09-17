@@ -13255,7 +13255,7 @@ define hidden noundef ptr @_Z15_mi_heap_by_tagP9mi_heap_sh(ptr noundef readonly 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_Z22_mi_heap_destroy_pagesP9mi_heap_s(ptr noundef %0) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define hidden void @_Z22_mi_heap_destroy_pagesP9mi_heap_s(ptr noundef captures(address_is_null) %0) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %_ZL19mi_heap_visit_pagesP9mi_heap_sPFbS0_P15mi_page_queue_sP9mi_page_sPvS5_ES5_S5_.exit, label %3
 
