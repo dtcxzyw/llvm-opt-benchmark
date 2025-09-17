@@ -3257,16 +3257,16 @@ define { ptr, i64 } @_ZN3syn6buffer11TokenBuffer4new217h48194ea9d898e805E(ptr no
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret { ptr, i64 } %25
 
-26:                                               ; preds = %.body.thread
+28:                                               ; preds = %.body.thread
   resume { ptr, i32 } %eh.lpad-body5
 
 .body.thread:                                     ; preds = %16, %.body.thread6
   %eh.lpad-body5 = phi { ptr, i32 } [ %8, %.body.thread6 ], [ %17, %16 ]
   invoke void @"_ZN4core3ptr62drop_in_place$LT$alloc..vec..Vec$LT$syn..buffer..Entry$GT$$GT$17h51fb385fa5a4f628E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5) #36
-          to label %26 unwind label %27
+          to label %26 unwind label %29
 
-27:                                               ; preds = %.body.thread
-  %28 = landingpad { ptr, i32 }
+29:                                               ; preds = %.body.thread
+  %30 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #37
   unreachable

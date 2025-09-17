@@ -18596,11 +18596,11 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$13reserve_exact17h2810835172
     i64 0, label %10
   ]
 
-10:                                               ; preds = %8
+._crit_edge.i:                                    ; preds = %8
   tail call void @_ZN5alloc7raw_vec17capacity_overflow17he455155709b0987cE() #24
   unreachable
 
-11:                                               ; preds = %8
+12:                                               ; preds = %8
   %.fca.1.extract.i = extractvalue { i64, i64 } %9, 1
   tail call void @_ZN5alloc5alloc18handle_alloc_error17hb78d9ab02c2055b6E(i64 noundef %.fca.0.extract.i, i64 noundef %.fca.1.extract.i) #24
   unreachable
@@ -18626,11 +18626,11 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$13reserve_exact17hb14410d4c3
     i64 0, label %10
   ]
 
-10:                                               ; preds = %8
+._crit_edge.i:                                    ; preds = %8
   tail call void @_ZN5alloc7raw_vec17capacity_overflow17he455155709b0987cE() #24
   unreachable
 
-11:                                               ; preds = %8
+12:                                               ; preds = %8
   %.fca.1.extract.i = extractvalue { i64, i64 } %9, 1
   tail call void @_ZN5alloc5alloc18handle_alloc_error17hb78d9ab02c2055b6E(i64 noundef %.fca.0.extract.i, i64 noundef %.fca.1.extract.i) #24
   unreachable

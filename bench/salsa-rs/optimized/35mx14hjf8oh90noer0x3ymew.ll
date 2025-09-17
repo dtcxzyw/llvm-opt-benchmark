@@ -506,7 +506,7 @@ define hidden { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$6shrink17h6080bfe8784c74b1E.exit.i": ; preds = %2
   %7 = invoke { i64, i64 } @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16shrink_unchecked17h588192020c38c39fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef range(i64 0, 9223372036854775807) %5, i64 noundef 4, i64 noundef 12)
-          to label %.noexc unwind label %14
+          to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$6shrink17h6080bfe8784c74b1E.exit.i"
   %8 = extractvalue { i64, i64 } %7, 0
@@ -521,7 +521,7 @@ define hidden { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17
 9:                                                ; preds = %.noexc
   %10 = extractvalue { i64, i64 } %7, 1
   invoke void @_ZN5alloc7raw_vec12handle_error17h84144ef81c430b40E(i64 noundef %8, i64 %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #13
-          to label %.noexc7 unwind label %14
+          to label %.noexc7 unwind label %16
 
 .noexc7:                                          ; preds = %9
   unreachable
@@ -536,17 +536,17 @@ define hidden { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17
   %12 = tail call { ptr, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8into_box17hcbb3c833806a4e27E"(i64 noundef %.sroa.01.0.copyload, ptr noundef nonnull %.sroa.42.0.copyload, i64 noundef %.sroa.53.0.copyload)
   ret { ptr, i64 } %12
 
-13:                                               ; preds = %14
+15:                                               ; preds = %16
   resume { ptr, i32 } %lpad.thr_comm
 
-14:                                               ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$6shrink17h6080bfe8784c74b1E.exit.i", %9
+16:                                               ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$6shrink17h6080bfe8784c74b1E.exit.i", %9
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr73drop_in_place$LT$alloc..vec..Vec$LT$salsa..zalsa_local..QueryEdge$GT$$GT$17h956f2b9e0179d1b9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) #14
-          to label %13 unwind label %15
+          to label %13 unwind label %17
 
-15:                                               ; preds = %14
-  %16 = landingpad { ptr, i32 }
+17:                                               ; preds = %16
+  %18 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #15
   unreachable
@@ -562,7 +562,7 @@ define hidden { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$6shrink17h6080bfe8784c74b1E.exit.i": ; preds = %2
   %7 = invoke { i64, i64 } @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16shrink_unchecked17h588192020c38c39fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef range(i64 0, 9223372036854775807) %5, i64 noundef 4, i64 noundef 4)
-          to label %.noexc unwind label %14
+          to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$6shrink17h6080bfe8784c74b1E.exit.i"
   %8 = extractvalue { i64, i64 } %7, 0
@@ -577,7 +577,7 @@ define hidden { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17
 9:                                                ; preds = %.noexc
   %10 = extractvalue { i64, i64 } %7, 1
   invoke void @_ZN5alloc7raw_vec12handle_error17h84144ef81c430b40E(i64 noundef %8, i64 %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #13
-          to label %.noexc7 unwind label %14
+          to label %.noexc7 unwind label %16
 
 .noexc7:                                          ; preds = %9
   unreachable
@@ -592,17 +592,17 @@ define hidden { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17
   %12 = tail call { ptr, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8into_box17h8271dcd120703114E"(i64 noundef %.sroa.01.0.copyload, ptr noundef nonnull %.sroa.42.0.copyload, i64 noundef %.sroa.53.0.copyload)
   ret { ptr, i64 } %12
 
-13:                                               ; preds = %14
+15:                                               ; preds = %16
   resume { ptr, i32 } %lpad.thr_comm
 
-14:                                               ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$6shrink17h6080bfe8784c74b1E.exit.i", %9
+16:                                               ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$6shrink17h6080bfe8784c74b1E.exit.i", %9
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr77drop_in_place$LT$alloc..vec..Vec$LT$salsa..zalsa..MemoIngredientIndex$GT$$GT$17h9096bcd338f7687eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) #14
-          to label %13 unwind label %15
+          to label %13 unwind label %17
 
-15:                                               ; preds = %14
-  %16 = landingpad { ptr, i32 }
+17:                                               ; preds = %16
+  %18 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #15
   unreachable
@@ -618,7 +618,7 @@ define hidden { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$6shrink17h6080bfe8784c74b1E.exit.i": ; preds = %2
   %7 = invoke { i64, i64 } @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16shrink_unchecked17h588192020c38c39fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef range(i64 0, 9223372036854775807) %5, i64 noundef 8, i64 noundef 32)
-          to label %.noexc unwind label %14
+          to label %.noexc unwind label %16
 
 .noexc:                                           ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$6shrink17h6080bfe8784c74b1E.exit.i"
   %8 = extractvalue { i64, i64 } %7, 0
@@ -633,7 +633,7 @@ define hidden { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17
 9:                                                ; preds = %.noexc
   %10 = extractvalue { i64, i64 } %7, 1
   invoke void @_ZN5alloc7raw_vec12handle_error17h84144ef81c430b40E(i64 noundef %8, i64 %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #13
-          to label %.noexc7 unwind label %14
+          to label %.noexc7 unwind label %16
 
 .noexc7:                                          ; preds = %9
   unreachable
@@ -648,17 +648,17 @@ define hidden { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17
   %12 = tail call { ptr, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8into_box17h9996b098961f7badE"(i64 noundef %.sroa.01.0.copyload, ptr noundef nonnull %.sroa.42.0.copyload, i64 noundef %.sroa.53.0.copyload)
   ret { ptr, i64 } %12
 
-13:                                               ; preds = %14
+15:                                               ; preds = %16
   resume { ptr, i32 } %lpad.thr_comm
 
-14:                                               ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$6shrink17h6080bfe8784c74b1E.exit.i", %9
+16:                                               ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$6shrink17h6080bfe8784c74b1E.exit.i", %9
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr78drop_in_place$LT$alloc..vec..Vec$LT$salsa..active_query..CapturedQuery$GT$$GT$17h54309d6316355cdbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) #14
-          to label %13 unwind label %15
+          to label %13 unwind label %17
 
-15:                                               ; preds = %14
-  %16 = landingpad { ptr, i32 }
+17:                                               ; preds = %16
+  %18 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #15
   unreachable

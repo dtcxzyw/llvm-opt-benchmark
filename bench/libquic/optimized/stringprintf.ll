@@ -26,7 +26,7 @@ define void @_ZN6google8protobuf13StringAppendVEPNSt7__cxx1112basic_stringIcSt11
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.va_copy.p0(ptr nonnull %5, ptr %2)
-  %6 = call i32 @vsnprintf(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef %1, ptr noundef nonnull %5) #10
+  %6 = call i32 @vsnprintf(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef %1, ptr noundef nonnull %5) #11
   call void @llvm.va_end.p0(ptr nonnull %5)
   %7 = icmp slt i32 %6, 1024
   br i1 %7, label %8, label %18
@@ -44,7 +44,7 @@ define void @_ZN6google8protobuf13StringAppendVEPNSt7__cxx1112basic_stringIcSt11
   br i1 %15, label %16, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit
 
 16:                                               ; preds = %10
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #11
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #12
   unreachable
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit: ; preds = %10
@@ -54,9 +54,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit: ; preds 
 18:                                               ; preds = %3
   %19 = add nuw nsw i32 %6, 1
   %20 = zext nneg i32 %19 to i64
-  %21 = call noalias noundef nonnull ptr @_Znam(i64 noundef %20) #12
+  %21 = call noalias noundef nonnull ptr @_Znam(i64 noundef %20) #13
   call void @llvm.va_copy.p0(ptr nonnull %5, ptr %2)
-  %22 = call i32 @vsnprintf(ptr noundef nonnull %21, i64 noundef %20, ptr noundef %1, ptr noundef nonnull %5) #10
+  %22 = call i32 @vsnprintf(ptr noundef nonnull %21, i64 noundef %20, ptr noundef %1, ptr noundef nonnull %5) #11
   call void @llvm.va_end.p0(ptr nonnull %5)
   %or.cond = icmp ugt i32 %22, %6
   br i1 %or.cond, label %31, label %23
@@ -70,7 +70,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit: ; preds 
   br i1 %28, label %29, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit20
 
 29:                                               ; preds = %23
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #11
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #12
   unreachable
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit20: ; preds = %23
@@ -78,7 +78,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit20: ; pred
   br label %31
 
 31:                                               ; preds = %18, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit20
-  call void @_ZdaPv(ptr noundef nonnull %21) #13
+  call void @_ZdaPv(ptr noundef nonnull %21) #14
   br label %32
 
 32:                                               ; preds = %8, %31, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit
@@ -128,7 +128,7 @@ define void @_ZN6google8protobuf12StringPrintfB5cxx11EPKcz(ptr dead_on_unwind no
   br i1 %10, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %7
-  call void @_ZdlPv(ptr noundef %9) #13
+  call void @_ZdlPv(ptr noundef %9) #14
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %7, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -214,7 +214,7 @@ define void @_ZN6google8protobuf18StringPrintfVectorEPKcRKSt6vectorINSt7__cxx111
 
 26:                                               ; preds = %24
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #10
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.pre = load ptr, ptr %7, align 8, !tbaa !14
   %.pre37 = load ptr, ptr %2, align 8, !tbaa !17
@@ -253,7 +253,7 @@ define void @_ZN6google8protobuf18StringPrintfVectorEPKcRKSt6vectorINSt7__cxx111
 
 35:                                               ; preds = %31, %33
   %.pn = phi { ptr, i32 } [ %34, %33 ], [ %32, %31 ]
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #10
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn
 
@@ -371,7 +371,7 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #9
+declare i64 @llvm.umax.i64(i64, i64) #10
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn }

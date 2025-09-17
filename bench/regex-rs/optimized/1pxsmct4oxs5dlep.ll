@@ -5558,7 +5558,7 @@ define hidden noundef zeroext i1 @_ZN12regex_syntax7unicode16SimpleCaseFolder8ov
   %.not.i = icmp eq i64 %8, 0
   br i1 %.not.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h655fb7f6512cc407E.llvm.16611923841924356903.exit", label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %5, %14
+._crit_edge.i.loopexit:                           ; preds = %5, %15
   %.028.i = phi i64 [ %17, %14 ], [ %8, %5 ]
   %.01927.i = phi i64 [ %.022.i, %14 ], [ 0, %5 ]
   %.02026.i = phi i64 [ %.021.i, %14 ], [ %8, %5 ]
@@ -5571,19 +5571,19 @@ define hidden noundef zeroext i1 @_ZN12regex_syntax7unicode16SimpleCaseFolder8ov
   %.not.i.i = icmp samesign ugt i32 %1, %.val24.i
   %.not2.i.i = icmp samesign ule i32 %.val24.i, %2
   %not..not2.i.i = xor i1 %.not2.i.i, true
-  %13 = select i1 %not..not2.i.i, i1 true, i1 %.not.i.i
-  br i1 %13, label %14, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h655fb7f6512cc407E.llvm.16611923841924356903.exit.loopexit"
+  %14 = select i1 %not..not2.i.i, i1 true, i1 %.not.i.i
+  br i1 %14, label %15, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h655fb7f6512cc407E.llvm.16611923841924356903.exit"
 
-14:                                               ; preds = %.lr.ph.i
+15:                                               ; preds = %.lr.ph.i
   %.021.i = select i1 %.not2.i.i, i64 %.02026.i, i64 %10
-  %15 = select i1 %.not2.i.i, i1 %.not.i.i, i1 false
-  %16 = add nuw i64 %10, 1
-  %.022.i = select i1 %15, i64 %16, i64 %.01927.i
-  %17 = sub i64 %.021.i, %.022.i
-  %18 = icmp ult i64 %.022.i, %.021.i
-  br i1 %18, label %.lr.ph.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h655fb7f6512cc407E.llvm.16611923841924356903.exit.loopexit"
+  %16 = select i1 %.not2.i.i, i1 %.not.i.i, i1 false
+  %17 = add nuw i64 %10, 1
+  %.022.i = select i1 %16, i64 %17, i64 %.01927.i
+  %18 = sub i64 %.021.i, %.022.i
+  %19 = icmp ult i64 %.022.i, %.021.i
+  br i1 %19, label %.lr.ph.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h655fb7f6512cc407E.llvm.16611923841924356903.exit.loopexit"
 
-"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h655fb7f6512cc407E.llvm.16611923841924356903.exit.loopexit": ; preds = %14, %.lr.ph.i
+"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h655fb7f6512cc407E.llvm.16611923841924356903.exit": ; preds = %14, %._crit_edge.i.loopexit
   %.ph = xor i1 %13, true
   br label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h655fb7f6512cc407E.llvm.16611923841924356903.exit"
 

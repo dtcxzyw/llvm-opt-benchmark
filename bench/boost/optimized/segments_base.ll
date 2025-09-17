@@ -112,9 +112,9 @@ _ZN5boost4urls12string_token22implementation_defined13return_stringD2Ev.exit: ; 
   br i1 %24, label %_ZN5boost4urls12string_token22implementation_defined13return_stringD2Ev.exit6, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i4
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i4: ; preds = %21
-  %25 = load i64, ptr %9, align 8, !tbaa !24
-  %26 = add i64 %25, 1
-  call void @_ZdlPvm(ptr noundef %23, i64 noundef %26) #13
+  %27 = load i64, ptr %9, align 8, !tbaa !24
+  %28 = add i64 %27, 1
+  call void @_ZdlPvm(ptr noundef %23, i64 noundef %28) #13
   br label %_ZN5boost4urls12string_token22implementation_defined13return_stringD2Ev.exit6
 
 _ZN5boost4urls12string_token22implementation_defined13return_stringD2Ev.exit6: ; preds = %21, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i4
@@ -143,9 +143,9 @@ define linkonce_odr hidden void @_ZN5boost4urls12string_token22implementation_de
   br i1 %5, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %1
-  %6 = load i64, ptr %4, align 8, !tbaa !24
-  %7 = add i64 %6, 1
-  tail call void @_ZdlPvm(ptr noundef %3, i64 noundef %7) #13
+  %9 = load i64, ptr %4, align 8, !tbaa !24
+  %10 = add i64 %9, 1
+  tail call void @_ZdlPvm(ptr noundef %3, i64 noundef %10) #13
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %1, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -265,9 +265,9 @@ define linkonce_odr hidden void @_ZN5boost4urls12string_token22implementation_de
   br i1 %5, label %_ZN5boost4urls12string_token22implementation_defined13return_stringD2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %1
-  %6 = load i64, ptr %4, align 8, !tbaa !24
-  %7 = add i64 %6, 1
-  tail call void @_ZdlPvm(ptr noundef %3, i64 noundef %7) #13
+  %9 = load i64, ptr %4, align 8, !tbaa !24
+  %10 = add i64 %9, 1
+  tail call void @_ZdlPvm(ptr noundef %3, i64 noundef %10) #13
   br label %_ZN5boost4urls12string_token22implementation_defined13return_stringD2Ev.exit
 
 _ZN5boost4urls12string_token22implementation_defined13return_stringD2Ev.exit: ; preds = %1, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i

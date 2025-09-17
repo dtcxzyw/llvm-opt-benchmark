@@ -743,7 +743,7 @@ _ZL34ImGui_ImplGlfw_ShouldChainCallbackP10GLFWwindow.exit.thread: ; preds = %_ZL
   br label %56
 
 48:                                               ; preds = %43
-  %49 = call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %5, i32 noundef %40) #8
+  %49 = call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %5, i32 noundef %40) #9
   %.not31.i = icmp eq ptr %49, null
   br i1 %.not31.i, label %56, label %50
 

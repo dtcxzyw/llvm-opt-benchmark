@@ -34,7 +34,7 @@ define hidden void @_ZN10ODDLParser19StreamFormatterBaseD2Ev(ptr nonnull readnon
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN10ODDLParser19StreamFormatterBaseD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #2 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 8) #12
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 8) #13
   ret void
 }
 
@@ -99,7 +99,7 @@ define hidden void @_ZN10ODDLParser12IOStreamBaseC2EPNS_19StreamFormatterBaseE(p
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %2
-  %7 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #13
+  %7 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #14
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN10ODDLParser19StreamFormatterBaseE, i64 16), ptr %7, align 8
   store ptr %7, ptr %3, align 8
   br label %8
@@ -125,7 +125,7 @@ define hidden void @_ZN10ODDLParser12IOStreamBaseD2Ev(ptr noundef nonnull align 
   %6 = load ptr, ptr %3, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
-  tail call void %8(ptr noundef nonnull align 8 dereferenceable(8) %3) #14
+  tail call void %8(ptr noundef nonnull align 8 dereferenceable(8) %3) #15
   br label %9
 
 9:                                                ; preds = %5, %1
@@ -145,11 +145,11 @@ define hidden void @_ZN10ODDLParser12IOStreamBaseD0Ev(ptr noundef nonnull align 
   %6 = load ptr, ptr %3, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
-  tail call void %8(ptr noundef nonnull align 8 dereferenceable(8) %3) #14
+  tail call void %8(ptr noundef nonnull align 8 dereferenceable(8) %3) #15
   br label %_ZN10ODDLParser12IOStreamBaseD2Ev.exit
 
 _ZN10ODDLParser12IOStreamBaseD2Ev.exit:           ; preds = %1, %5
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #12
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #13
   ret void
 }
 
@@ -221,7 +221,7 @@ define hidden noundef i64 @_ZN10ODDLParser12IOStreamBase5writeERKNSt7__cxx1112ba
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
-  br i1 %6, label %23, label %7
+  br i1 %6, label %25, label %7
 
 7:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -242,16 +242,16 @@ define hidden noundef i64 @_ZN10ODDLParser12IOStreamBase5writeERKNSt7__cxx1112ba
   br i1 %20, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %7
-  %21 = load i64, ptr %19, align 8
-  %22 = add i64 %21, 1
-  call void @_ZdlPvm(ptr noundef %18, i64 noundef %22) #12
+  %23 = load i64, ptr %19, align 8
+  %24 = add i64 %23, 1
+  call void @_ZdlPvm(ptr noundef %18, i64 noundef %24) #13
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %7, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %23
+  br label %25
 
-23:                                               ; preds = %2, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+25:                                               ; preds = %2, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %.0 = phi i64 [ %17, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ 0, %2 ]
   ret i64 %.0
 }

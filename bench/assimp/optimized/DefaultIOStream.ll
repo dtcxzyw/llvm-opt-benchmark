@@ -46,9 +46,9 @@ define void @_ZN6Assimp15DefaultIOStreamD2Ev(ptr noundef nonnull align 8 capture
   br i1 %10, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %6
-  %11 = load i64, ptr %9, align 8
-  %12 = add i64 %11, 1
-  tail call void @_ZdlPvm(ptr noundef %8, i64 noundef %12) #6
+  %14 = load i64, ptr %9, align 8
+  %15 = add i64 %14, 1
+  tail call void @_ZdlPvm(ptr noundef %8, i64 noundef %15) #7
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %6, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -62,8 +62,8 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6Assimp15DefaultIOStreamD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #0 align 2 {
-  tail call void @_ZN6Assimp15DefaultIOStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #7
-  tail call void @_ZN6Assimp6Intern22AllocateFromAssimpHeapdlEPv(ptr noundef nonnull %0) #7
+  tail call void @_ZN6Assimp15DefaultIOStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #8
+  tail call void @_ZN6Assimp6Intern22AllocateFromAssimpHeapdlEPv(ptr noundef nonnull %0) #8
   ret void
 }
 
@@ -170,7 +170,7 @@ define noundef i64 @_ZNK6Assimp15DefaultIOStream8FileSizeEv(ptr noundef nonnull 
 14:                                               ; preds = %10
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %15 = load ptr, ptr %6, align 8
-  %16 = call i32 @stat(ptr noundef %15, ptr noundef nonnull %2) #7
+  %16 = call i32 @stat(ptr noundef %15, ptr noundef nonnull %2) #8
   %.not5.not = icmp eq i32 %16, 0
   br i1 %.not5.not, label %.thread, label %.sink.split
 

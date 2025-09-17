@@ -103,7 +103,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i:              ; preds = %0
   br i1 %.not.i.i, label %_ZN6google8protobuf8internal9call_onceIJRSt9once_flagRFvvEEEEvDpOT_.exit, label %5
 
 5:                                                ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i.i
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %4) #15
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %4) #16
           to label %6 unwind label %7
 
 6:                                                ; preds = %5
@@ -134,9 +134,9 @@ define linkonce_odr void @_ZN6google8protobuf8internal19ImplicitWeakMessageD2Ev(
   br i1 %5, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %1
-  %6 = load i64, ptr %4, align 8, !tbaa !19
-  %7 = add i64 %6, 1
-  tail call void @_ZdlPvm(ptr noundef %3, i64 noundef %7) #16
+  %9 = load i64, ptr %4, align 8, !tbaa !19
+  %10 = add i64 %9, 1
+  tail call void @_ZdlPvm(ptr noundef %3, i64 noundef %10) #17
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %1, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -153,13 +153,13 @@ define linkonce_odr void @_ZN6google8protobuf8internal19ImplicitWeakMessageD0Ev(
   br i1 %5, label %_ZN6google8protobuf8internal19ImplicitWeakMessageD2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %1
-  %6 = load i64, ptr %4, align 8, !tbaa !19
-  %7 = add i64 %6, 1
-  tail call void @_ZdlPvm(ptr noundef %3, i64 noundef %7) #16
+  %9 = load i64, ptr %4, align 8, !tbaa !19
+  %10 = add i64 %9, 1
+  tail call void @_ZdlPvm(ptr noundef %3, i64 noundef %10) #17
   br label %_ZN6google8protobuf8internal19ImplicitWeakMessageD2Ev.exit
 
 _ZN6google8protobuf8internal19ImplicitWeakMessageD2Ev.exit: ; preds = %1, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 48) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 48) #17
   ret void
 }
 
@@ -176,7 +176,7 @@ define linkonce_odr void @_ZNK6google8protobuf8internal19ImplicitWeakMessage11Ge
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZNK6google8protobuf8internal19ImplicitWeakMessage3NewEv(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #17
+  %2 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #18
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr null, ptr %3, align 8, !tbaa !9
   store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVN6google8protobuf8internal19ImplicitWeakMessageE, i64 16), ptr %2, align 8, !tbaa !11
@@ -195,7 +195,7 @@ define linkonce_odr noundef ptr @_ZNK6google8protobuf8internal19ImplicitWeakMess
   br i1 %3, label %4, label %6
 
 4:                                                ; preds = %2
-  %5 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #17
+  %5 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #18
   br label %_ZN6google8protobuf5Arena21CreateMessageInternalINS0_8internal19ImplicitWeakMessageEEEPT_PS1_.exit
 
 6:                                                ; preds = %2
@@ -263,7 +263,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal19ImplicitWeakMessage21Che
   br i1 %8, label %9, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit
 
 9:                                                ; preds = %2
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.3) #15
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.3) #16
   unreachable
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit: ; preds = %2
@@ -364,7 +364,7 @@ thread-pre-split:                                 ; preds = %_ZZN6google8protobu
   br i1 %26, label %27, label %_ZZN6google8protobuf8internal18EpsCopyInputStream12AppendStringEPKcPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlS4_lE_clES4_l.exit
 
 27:                                               ; preds = %.lr.ph
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.3) #15
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.3) #16
   unreachable
 
 _ZZN6google8protobuf8internal18EpsCopyInputStream12AppendStringEPKcPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlS4_lE_clES4_l.exit: ; preds = %.lr.ph
@@ -395,7 +395,7 @@ _ZZN6google8protobuf8internal18EpsCopyInputStream12AppendStringEPKcPNSt7__cxx111
   br i1 %38, label %39, label %_ZZN6google8protobuf8internal18EpsCopyInputStream12AppendStringEPKcPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlS4_lE_clES4_l.exit20
 
 39:                                               ; preds = %._crit_edge
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.3) #15
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.3) #16
   unreachable
 
 _ZZN6google8protobuf8internal18EpsCopyInputStream12AppendStringEPKcPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENKUlS4_lE_clES4_l.exit20: ; preds = %._crit_edge
@@ -435,7 +435,7 @@ declare noundef ptr @_ZN6google8protobuf8internal9ArenaImpl28AllocateAlignedAndA
 define linkonce_odr void @_ZN6google8protobuf8internal21arena_destruct_objectINS1_19ImplicitWeakMessageEEEvPv(ptr noundef %0) #6 comdat {
   %2 = load ptr, ptr %0, align 8, !tbaa !11
   %3 = load ptr, ptr %2, align 8
-  tail call void %3(ptr noundef nonnull align 8 dereferenceable(48) %0) #18
+  tail call void %3(ptr noundef nonnull align 8 dereferenceable(48) %0) #19
   ret void
 }
 
@@ -463,7 +463,7 @@ declare i32 @pthread_once(ptr noundef, ptr noundef) local_unnamed_addr #0
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_implicit_weak_message.cc() #13 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #18
+  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #19
   ret void
 }
 

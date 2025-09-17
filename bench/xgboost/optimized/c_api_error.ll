@@ -127,9 +127,9 @@ define linkonce_odr void @_ZN16XGBAPIErrorEntryD2Ev(ptr noundef nonnull align 8 
   br i1 %4, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %1
-  %5 = load i64, ptr %3, align 8, !tbaa !13
-  %6 = add i64 %5, 1
-  tail call void @_ZdlPvm(ptr noundef %2, i64 noundef %6) #11
+  %8 = load i64, ptr %3, align 8, !tbaa !13
+  %9 = add i64 %8, 1
+  tail call void @_ZdlPvm(ptr noundef %2, i64 noundef %9) #12
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %1, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i

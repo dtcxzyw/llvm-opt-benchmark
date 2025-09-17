@@ -1067,41 +1067,41 @@ ruby_signal.exit:                                 ; preds = %0, %21
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %23 = icmp eq ptr %.0.i, @sighandler
-  br i1 %23, label %ruby_signal.exit4, label %35
+  br i1 %23, label %24, label %39
 
-ruby_signal.exit4:                                ; preds = %ruby_signal.exit
+24:                                               ; preds = %ruby_signal.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %25 = call i32 @sigemptyset(ptr noundef nonnull %24) #16
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %26 = call i32 @sigemptyset(ptr noundef nonnull %25) #16
   store ptr null, ptr %1, align 8, !tbaa !58
-  %26 = getelementptr inbounds nuw i8, ptr %1, i64 136
-  store i32 0, ptr %26, align 8, !tbaa !69
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 136
+  store i32 0, ptr %27, align 8, !tbaa !69
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store volatile i64 1296236546, ptr %3, align 16, !tbaa !20
-  %27 = ptrtoint ptr %2 to i64
-  %28 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store volatile i64 %27, ptr %28, align 8, !tbaa !20
-  %29 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store volatile i64 152, ptr %29, align 16, !tbaa !20
-  %30 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store volatile i64 0, ptr %30, align 8, !tbaa !20
-  %31 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store volatile i64 0, ptr %31, align 16, !tbaa !20
-  %32 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  store volatile i64 0, ptr %32, align 8, !tbaa !20
-  %33 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %3, i64 0) #16, !srcloc !71
-  store volatile i64 %33, ptr %4, align 8, !tbaa !20
+  %28 = ptrtoint ptr %2 to i64
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store volatile i64 %28, ptr %29, align 8, !tbaa !20
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store volatile i64 152, ptr %30, align 16, !tbaa !20
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  store volatile i64 0, ptr %31, align 8, !tbaa !20
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  store volatile i64 0, ptr %32, align 16, !tbaa !20
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  store volatile i64 0, ptr %33, align 8, !tbaa !20
+  %34 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %3, i64 0) #16, !srcloc !71
+  store volatile i64 %34, ptr %4, align 8, !tbaa !20
   %.0..0..0..0..0..0..i1 = load volatile i64, ptr %4, align 8, !tbaa !20
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %34 = call i32 @sigaction(i32 noundef 2, ptr noundef nonnull %1, ptr noundef nonnull %2) #16
+  %35 = call i32 @sigaction(i32 noundef 2, ptr noundef nonnull %1, ptr noundef nonnull %2) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
-  br label %35
+  br label %39
 
-35:                                               ; preds = %ruby_signal.exit4, %ruby_signal.exit
+39:                                               ; preds = %ruby_signal.exit4, %ruby_signal.exit
   ret void
 }
 
@@ -2074,7 +2074,7 @@ define internal fastcc range(i32 -1, 1) i32 @install_sighandler_core(i32 noundef
 ruby_signal.exit.thread:                          ; preds = %17
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %47
+  br label %51
 
 27:                                               ; preds = %17
   %.010.i = load ptr, ptr %9, align 8, !tbaa !58
@@ -2089,11 +2089,11 @@ ruby_signal.exit.thread:                          ; preds = %17
   %30 = icmp eq ptr %.010.i, inttoptr (i64 1 to ptr)
   %31 = select i1 %30, ptr null, ptr %.010.i
   store ptr %31, ptr %2, align 8, !tbaa !99
-  br label %47
+  br label %51
 
 32:                                               ; preds = %27
   %.not14 = icmp eq ptr %.010.i, null
-  br i1 %.not14, label %47, label %33
+  br i1 %.not14, label %51, label %33
 
 33:                                               ; preds = %32
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -2113,34 +2113,34 @@ ruby_signal.exit.thread:                          ; preds = %17
 37:                                               ; preds = %33, %33
   %38 = or disjoint i32 %spec.select.i16, 134217728
   store i32 %38, ptr %36, align 8, !tbaa !69
-  br label %ruby_signal.exit20
+  br label %39
 
-ruby_signal.exit20:                               ; preds = %37, %33
+39:                                               ; preds = %37, %33
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store volatile i64 1296236546, ptr %6, align 16, !tbaa !20
-  %39 = ptrtoint ptr %5 to i64
-  %40 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store volatile i64 %39, ptr %40, align 8, !tbaa !20
-  %41 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store volatile i64 152, ptr %41, align 16, !tbaa !20
-  %42 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store volatile i64 0, ptr %42, align 8, !tbaa !20
-  %43 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store volatile i64 0, ptr %43, align 16, !tbaa !20
-  %44 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  store volatile i64 0, ptr %44, align 8, !tbaa !20
-  %45 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %6, i64 0) #16, !srcloc !71
-  store volatile i64 %45, ptr %7, align 8, !tbaa !20
+  %40 = ptrtoint ptr %5 to i64
+  %41 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store volatile i64 %40, ptr %41, align 8, !tbaa !20
+  %42 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store volatile i64 152, ptr %42, align 16, !tbaa !20
+  %43 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  store volatile i64 0, ptr %43, align 8, !tbaa !20
+  %44 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  store volatile i64 0, ptr %44, align 16, !tbaa !20
+  %45 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  store volatile i64 0, ptr %45, align 8, !tbaa !20
+  %46 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %6, i64 0) #16, !srcloc !71
+  store volatile i64 %46, ptr %7, align 8, !tbaa !20
   %.0..0..0..0..0..0..i17 = load volatile i64, ptr %7, align 8, !tbaa !20
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %46 = call i32 @sigaction(i32 noundef %0, ptr noundef nonnull %4, ptr noundef nonnull %5) #16
+  %47 = call i32 @sigaction(i32 noundef %0, ptr noundef nonnull %4, ptr noundef nonnull %5) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %47
+  br label %51
 
-47:                                               ; preds = %ruby_signal.exit.thread, %29, %ruby_signal.exit20, %32
+51:                                               ; preds = %ruby_signal.exit.thread, %29, %ruby_signal.exit20, %32
   %.0 = phi i32 [ 0, %32 ], [ 0, %ruby_signal.exit20 ], [ 0, %29 ], [ -1, %ruby_signal.exit.thread ]
   ret i32 %.0
 }

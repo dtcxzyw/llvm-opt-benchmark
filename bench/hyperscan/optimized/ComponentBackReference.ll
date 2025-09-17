@@ -99,7 +99,7 @@ define hidden void @_ZN3ue222ComponentBackReferenceC2ERKNSt7__cxx1112basic_strin
 22:                                               ; preds = %.noexc.i
   %23 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3ue29ComponentD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #11
+  call void @_ZN3ue29ComponentD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #12
   resume { ptr, i32 } %23
 }
 
@@ -111,7 +111,7 @@ declare void @_ZN3ue29ComponentD2Ev(ptr noundef nonnull align 8 dereferenceable(
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZNK3ue222ComponentBackReference5cloneEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(52) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca i64, align 8
-  %3 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #12
+  %3 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #13
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
@@ -162,8 +162,8 @@ define hidden noundef nonnull ptr @_ZNK3ue222ComponentBackReference5cloneEv(ptr 
 .body:                                            ; preds = %.noexc.i.i
   %23 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3ue29ComponentD2Ev(ptr noundef nonnull align 8 dereferenceable(52) %3) #11
-  call void @_ZdlPv(ptr noundef nonnull %3) #13
+  call void @_ZN3ue29ComponentD2Ev(ptr noundef nonnull align 8 dereferenceable(52) %3) #12
+  call void @_ZdlPv(ptr noundef nonnull %3) #14
   resume { ptr, i32 } %23
 
 24:                                               ; preds = %22, %20, %._crit_edge.i.i.i
@@ -227,11 +227,11 @@ define linkonce_odr hidden void @_ZN3ue222ComponentBackReferenceD2Ev(ptr noundef
   br i1 %5, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %1
-  tail call void @_ZdlPv(ptr noundef %3) #13
+  tail call void @_ZdlPv(ptr noundef %3) #14
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %1, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  tail call void @_ZN3ue29ComponentD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #11
+  tail call void @_ZN3ue29ComponentD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #12
   ret void
 }
 
@@ -245,12 +245,12 @@ define linkonce_odr hidden void @_ZN3ue222ComponentBackReferenceD0Ev(ptr noundef
   br i1 %5, label %_ZN3ue222ComponentBackReferenceD2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %1
-  tail call void @_ZdlPv(ptr noundef %3) #13
+  tail call void @_ZdlPv(ptr noundef %3) #14
   br label %_ZN3ue222ComponentBackReferenceD2Ev.exit
 
 _ZN3ue222ComponentBackReferenceD2Ev.exit:         ; preds = %1, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
-  tail call void @_ZN3ue29ComponentD2Ev(ptr noundef nonnull align 8 dereferenceable(52) %0) #11
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #13
+  tail call void @_ZN3ue29ComponentD2Ev(ptr noundef nonnull align 8 dereferenceable(52) %0) #12
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #14
   ret void
 }
 

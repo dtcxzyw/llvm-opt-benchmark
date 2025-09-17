@@ -96,7 +96,7 @@ define void @_Z18dtFreeNavMeshQueryP14dtNavMeshQuery(ptr noundef %0) local_unnam
   br i1 %.not, label %3, label %2
 
 2:                                                ; preds = %1
-  tail call void @_ZN14dtNavMeshQueryD1Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #21
+  tail call void @_ZN14dtNavMeshQueryD1Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #22
   tail call void @_Z6dtFreePv(ptr noundef nonnull %0)
   br label %3
 
@@ -113,7 +113,7 @@ define void @_ZN11dtPolyQueryD2Ev(ptr nonnull readnone align 8 captures(none) %0
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define void @_ZN11dtPolyQueryD0Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
-  tail call void @llvm.trap() #22
+  tail call void @llvm.trap() #23
   unreachable
 }
 
@@ -137,7 +137,7 @@ define void @_ZN14dtNavMeshQueryD2Ev(ptr noundef nonnull readonly align 8 captur
   br i1 %.not, label %5, label %4
 
 4:                                                ; preds = %1
-  tail call void @_ZN10dtNodePoolD1Ev(ptr noundef nonnull align 8 dereferenceable(36) %3) #21
+  tail call void @_ZN10dtNodePoolD1Ev(ptr noundef nonnull align 8 dereferenceable(36) %3) #22
   br label %5
 
 5:                                                ; preds = %4, %1
@@ -147,7 +147,7 @@ define void @_ZN14dtNavMeshQueryD2Ev(ptr noundef nonnull readonly align 8 captur
   br i1 %.not3, label %9, label %8
 
 8:                                                ; preds = %5
-  tail call void @_ZN10dtNodePoolD1Ev(ptr noundef nonnull align 8 dereferenceable(36) %7) #21
+  tail call void @_ZN10dtNodePoolD1Ev(ptr noundef nonnull align 8 dereferenceable(36) %7) #22
   br label %9
 
 9:                                                ; preds = %8, %5
@@ -157,7 +157,7 @@ define void @_ZN14dtNavMeshQueryD2Ev(ptr noundef nonnull readonly align 8 captur
   br i1 %.not4, label %13, label %12
 
 12:                                               ; preds = %9
-  tail call void @_ZN11dtNodeQueueD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #21
+  tail call void @_ZN11dtNodeQueueD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #22
   br label %13
 
 13:                                               ; preds = %12, %9
@@ -182,7 +182,7 @@ define void @_ZN14dtNavMeshQueryD2Ev(ptr noundef nonnull readonly align 8 captur
   %21 = landingpad { ptr, i32 }
           catch ptr null
   %22 = extractvalue { ptr, i32 } %21, 0
-  tail call void @__clang_call_terminate(ptr %22) #22
+  tail call void @__clang_call_terminate(ptr %22) #23
   unreachable
 }
 
@@ -196,8 +196,8 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #10 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #21
-  tail call void @_ZSt9terminatev() #22
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #22
+  tail call void @_ZSt9terminatev() #23
   unreachable
 }
 
@@ -225,7 +225,7 @@ define noundef range(i32 1073741824, -2147483639) i32 @_ZN14dtNavMeshQuery4initE
   br i1 %11, label %12, label %28
 
 12:                                               ; preds = %8
-  tail call void @_ZN10dtNodePoolD1Ev(ptr noundef nonnull align 8 dereferenceable(36) %7) #21
+  tail call void @_ZN10dtNodePoolD1Ev(ptr noundef nonnull align 8 dereferenceable(36) %7) #22
   %13 = load ptr, ptr %6, align 8
   tail call void @_Z6dtFreePv(ptr noundef %13)
   store ptr null, ptr %6, align 8
@@ -283,7 +283,7 @@ define noundef range(i32 1073741824, -2147483639) i32 @_ZN14dtNavMeshQuery4initE
   br i1 %41, label %42, label %45
 
 42:                                               ; preds = %38
-  tail call void @_ZN11dtNodeQueueD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %37) #21
+  tail call void @_ZN11dtNodeQueueD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %37) #22
   %43 = load ptr, ptr %36, align 8
   tail call void @_Z6dtFreePv(ptr noundef %43)
   store ptr null, ptr %36, align 8
@@ -1857,8 +1857,8 @@ define void @_ZN22dtFindNearestPolyQueryD2Ev(ptr nonnull readnone align 8 captur
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN22dtFindNearestPolyQueryD0Ev(ptr noundef nonnull align 8 dereferenceable(45) %0) unnamed_addr #8 align 2 {
-  tail call void @_ZN22dtFindNearestPolyQueryD1Ev(ptr noundef nonnull align 8 dereferenceable(45) %0) #21
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #23
+  tail call void @_ZN22dtFindNearestPolyQueryD1Ev(ptr noundef nonnull align 8 dereferenceable(45) %0) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #24
   ret void
 }
 
@@ -1904,7 +1904,7 @@ define noundef range(i32 1073741824, -2147483639) i32 @_ZNK14dtNavMeshQuery15fin
 21:                                               ; preds = %13
   %22 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN22dtFindNearestPolyQueryD1Ev(ptr noundef nonnull align 8 dereferenceable(45) %7) #21
+  call void @_ZN22dtFindNearestPolyQueryD1Ev(ptr noundef nonnull align 8 dereferenceable(45) %7) #22
   resume { ptr, i32 } %22
 
 23:                                               ; preds = %19
@@ -1931,7 +1931,7 @@ define noundef range(i32 1073741824, -2147483639) i32 @_ZNK14dtNavMeshQuery15fin
 
 34:                                               ; preds = %25, %23, %19
   %.1.i = phi i32 [ %18, %19 ], [ 1073741824, %25 ], [ 1073741824, %23 ]
-  call void @_ZN22dtFindNearestPolyQueryD1Ev(ptr noundef nonnull align 8 dereferenceable(45) %7) #21
+  call void @_ZN22dtFindNearestPolyQueryD1Ev(ptr noundef nonnull align 8 dereferenceable(45) %7) #22
   br label %_ZNK14dtNavMeshQuery15findNearestPolyEPKfS1_PK13dtQueryFilterPjPfPb.exit
 
 _ZNK14dtNavMeshQuery15findNearestPolyEPKfS1_PK13dtQueryFilterPjPfPb.exit: ; preds = %12, %34
@@ -1978,7 +1978,7 @@ define noundef range(i32 1073741824, -2147483639) i32 @_ZNK14dtNavMeshQuery15fin
 22:                                               ; preds = %14
   %23 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN22dtFindNearestPolyQueryD1Ev(ptr noundef nonnull align 8 dereferenceable(45) %8) #21
+  call void @_ZN22dtFindNearestPolyQueryD1Ev(ptr noundef nonnull align 8 dereferenceable(45) %8) #22
   resume { ptr, i32 } %23
 
 24:                                               ; preds = %20
@@ -2013,7 +2013,7 @@ define noundef range(i32 1073741824, -2147483639) i32 @_ZNK14dtNavMeshQuery15fin
 
 39:                                               ; preds = %24, %35, %26, %20
   %.1 = phi i32 [ %19, %20 ], [ 1073741824, %26 ], [ 1073741824, %35 ], [ 1073741824, %24 ]
-  call void @_ZN22dtFindNearestPolyQueryD1Ev(ptr noundef nonnull align 8 dereferenceable(45) %8) #21
+  call void @_ZN22dtFindNearestPolyQueryD1Ev(ptr noundef nonnull align 8 dereferenceable(45) %8) #22
   br label %40
 
 40:                                               ; preds = %13, %39
@@ -2601,8 +2601,8 @@ define void @_ZN19dtCollectPolysQueryD2Ev(ptr nonnull readnone align 8 captures(
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN19dtCollectPolysQueryD0Ev(ptr noundef nonnull align 8 dereferenceable(25) %0) unnamed_addr #8 align 2 {
-  tail call void @_ZN19dtCollectPolysQueryD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %0) #21
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #23
+  tail call void @_ZN19dtCollectPolysQueryD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %0) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #24
   ret void
 }
 
@@ -2636,7 +2636,7 @@ define noundef range(i32 1073741824, -2147483639) i32 @_ZNK14dtNavMeshQuery13que
 20:                                               ; preds = %12
   %21 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN19dtCollectPolysQueryD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %8) #21
+  call void @_ZN19dtCollectPolysQueryD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %8) #22
   resume { ptr, i32 } %21
 
 22:                                               ; preds = %18
@@ -2649,7 +2649,7 @@ define noundef range(i32 1073741824, -2147483639) i32 @_ZNK14dtNavMeshQuery13que
 
 27:                                               ; preds = %18, %22
   %.1 = phi i32 [ %26, %22 ], [ %17, %18 ]
-  call void @_ZN19dtCollectPolysQueryD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %8) #21
+  call void @_ZN19dtCollectPolysQueryD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %8) #22
   br label %28
 
 28:                                               ; preds = %7, %27
@@ -5212,13 +5212,13 @@ define noundef range(i32 536870912, 1073741841) i32 @_ZNK14dtNavMeshQuery12appen
   br i1 %18, label %19, label %_Z8dtVequalPKfS0_.exit, !prof !41
 
 19:                                               ; preds = %12
-  %20 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZ8dtVequalPKfS0_E3thr) #21
+  %20 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZ8dtVequalPKfS0_E3thr) #22
   %.not.i = icmp eq i32 %20, 0
   br i1 %.not.i, label %_Z8dtVequalPKfS0_.exit, label %21
 
 21:                                               ; preds = %19
   store float 0x3E30000000000000, ptr @_ZZ8dtVequalPKfS0_E3thr, align 4
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZ8dtVequalPKfS0_E3thr) #21
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZ8dtVequalPKfS0_E3thr) #22
   br label %_Z8dtVequalPKfS0_.exit
 
 _Z8dtVequalPKfS0_.exit:                           ; preds = %12, %19, %21
@@ -5433,13 +5433,13 @@ define noundef range(i32 536870912, -2147483639) i32 @_ZNK14dtNavMeshQuery13appe
   br i1 %85, label %86, label %_Z8dtVequalPKfS0_.exit.i, !prof !41
 
 86:                                               ; preds = %79
-  %87 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZ8dtVequalPKfS0_E3thr) #21
+  %87 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZ8dtVequalPKfS0_E3thr) #22
   %.not.i.i = icmp eq i32 %87, 0
   br i1 %.not.i.i, label %_Z8dtVequalPKfS0_.exit.i, label %88
 
 88:                                               ; preds = %86
   store float 0x3E30000000000000, ptr @_ZZ8dtVequalPKfS0_E3thr, align 4
-  call void @__cxa_guard_release(ptr nonnull @_ZGVZ8dtVequalPKfS0_E3thr) #21
+  call void @__cxa_guard_release(ptr nonnull @_ZGVZ8dtVequalPKfS0_E3thr) #22
   br label %_Z8dtVequalPKfS0_.exit.i
 
 _Z8dtVequalPKfS0_.exit.i:                         ; preds = %88, %86, %79
@@ -5763,13 +5763,13 @@ _Z11dtVisfinitePKf.exit207:                       ; preds = %46
   br i1 %147, label %148, label %_Z8dtVequalPKfS0_.exit, !prof !41
 
 148:                                              ; preds = %145
-  %149 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZ8dtVequalPKfS0_E3thr) #21
+  %149 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZ8dtVequalPKfS0_E3thr) #22
   %.not.i = icmp eq i32 %149, 0
   br i1 %.not.i, label %_Z8dtVequalPKfS0_.exit, label %150
 
 150:                                              ; preds = %148
   store float 0x3E30000000000000, ptr @_ZZ8dtVequalPKfS0_E3thr, align 4
-  call void @__cxa_guard_release(ptr nonnull @_ZGVZ8dtVequalPKfS0_E3thr) #21
+  call void @__cxa_guard_release(ptr nonnull @_ZGVZ8dtVequalPKfS0_E3thr) #22
   br label %_Z8dtVequalPKfS0_.exit
 
 _Z8dtVequalPKfS0_.exit:                           ; preds = %145, %148, %150
@@ -5888,13 +5888,13 @@ _Z8dtVequalPKfS0_.exit:                           ; preds = %145, %148, %150
   br i1 %215, label %216, label %_Z8dtVequalPKfS0_.exit209, !prof !41
 
 216:                                              ; preds = %213
-  %217 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZ8dtVequalPKfS0_E3thr) #21
+  %217 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZ8dtVequalPKfS0_E3thr) #22
   %.not.i208 = icmp eq i32 %217, 0
   br i1 %.not.i208, label %_Z8dtVequalPKfS0_.exit209, label %218
 
 218:                                              ; preds = %216
   store float 0x3E30000000000000, ptr @_ZZ8dtVequalPKfS0_E3thr, align 4
-  call void @__cxa_guard_release(ptr nonnull @_ZGVZ8dtVequalPKfS0_E3thr) #21
+  call void @__cxa_guard_release(ptr nonnull @_ZGVZ8dtVequalPKfS0_E3thr) #22
   br label %_Z8dtVequalPKfS0_.exit209
 
 _Z8dtVequalPKfS0_.exit209:                        ; preds = %213, %216, %218
@@ -9344,7 +9344,7 @@ _ZN11dtNodeQueue6modifyEP6dtNode.exit:            ; preds = %352, %350, %340, %3
   store float %387, ptr %374, align 4
   %388 = fmul float %378, %385
   store float %388, ptr %379, align 4
-  %389 = call noundef float @sqrtf(float noundef %.0135.lcssa) #21
+  %389 = call noundef float @sqrtf(float noundef %.0135.lcssa) #22
   store float %389, ptr %5, align 4
   br label %_Z11dtVisfinitePKf.exit.thread
 
@@ -9615,10 +9615,10 @@ declare float @llvm.fabs.f32(float) #19
 declare float @llvm.sqrt.f32(float) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #20
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #20
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #19
@@ -9643,7 +9643,7 @@ attributes #16 = { nofree nounwind }
 attributes #17 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #18 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #19 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #20 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #20 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #21 = { nounwind }
 attributes #22 = { noreturn nounwind }
 attributes #23 = { builtin nounwind }

@@ -1351,20 +1351,20 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$13reserve_exact17h39b430c5de
   %9 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17ha1249cb69b85f6d6E.llvm.2109527151637625748"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %4, i64 noundef %1)
   %10 = extractvalue { i64, i64 } %9, 0
   switch i64 %10, label %12 [
-    i64 -9223372036854775807, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$17try_reserve_exact17ha79aea677edaf19eE.exit.thread"
-    i64 0, label %11
+    i64 -9223372036854775807, label %._crit_edge.i
+    i64 0, label %12
   ]
 
-"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$17try_reserve_exact17ha79aea677edaf19eE.exit.thread": ; preds = %8, %2
+._crit_edge.i:                                    ; preds = %8, %2
   ret void
 
-11:                                               ; preds = %8
+12:                                               ; preds = %8
   tail call void @_ZN5alloc7raw_vec17capacity_overflow17h2434c0983b86c347E() #20
   unreachable
 
-12:                                               ; preds = %8
-  %13 = extractvalue { i64, i64 } %9, 1
-  tail call void @_ZN5alloc5alloc18handle_alloc_error17h836e982fea7018bdE(i64 noundef %10, i64 noundef %13) #20
+13:                                               ; preds = %8
+  %14 = extractvalue { i64, i64 } %9, 1
+  tail call void @_ZN5alloc5alloc18handle_alloc_error17h836e982fea7018bdE(i64 noundef %10, i64 noundef %14) #20
   unreachable
 }
 

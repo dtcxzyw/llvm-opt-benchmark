@@ -658,23 +658,23 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %invok
   ret void
 
 lpad25:                                           ; preds = %for.cond.cleanup
-  %11 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup30
 
 lpad27:                                           ; preds = %call2.i11.i.noexc
-  %12 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %13 = load ptr, ptr %ref.tmp23, align 8, !tbaa !67
-  %cmp.i.i.i45 = icmp eq ptr %13, %4
+  %14 = load ptr, ptr %ref.tmp23, align 8, !tbaa !67
+  %cmp.i.i.i45 = icmp eq ptr %14, %4
   br i1 %cmp.i.i.i45, label %ehcleanup30, label %if.then.i.i46
 
 if.then.i.i46:                                    ; preds = %lpad27
-  call void @_ZdlPv(ptr noundef %13) #28
+  call void @_ZdlPv(ptr noundef %14) #28
   br label %ehcleanup30
 
 ehcleanup30:                                      ; preds = %lpad27, %if.then.i.i46, %lpad25
-  %.pn = phi { ptr, i32 } [ %11, %lpad25 ], [ %12, %if.then.i.i46 ], [ %12, %lpad27 ]
+  %.pn = phi { ptr, i32 } [ %12, %lpad25 ], [ %12, %if.then.i.i46 ], [ %12, %lpad27 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp23)
   br label %ehcleanup33
 

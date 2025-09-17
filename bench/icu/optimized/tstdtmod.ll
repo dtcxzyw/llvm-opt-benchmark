@@ -552,7 +552,7 @@ define void @_ZN16IcuTestErrorCodeD2Ev(ptr noundef nonnull align 8 captures(addr
 
 .preheader.preheader:                             ; preds = %1
   invoke void @_ZNK16IcuTestErrorCode6errlogEaSt17basic_string_viewIDsSt11char_traitsIDsEEPKc(ptr noundef nonnull align 8 dereferenceable(64) %0, i8 noundef signext 0, i64 28, ptr nonnull @.str, ptr noundef null)
-          to label %5 unwind label %13
+          to label %5 unwind label %16
 
 5:                                                ; preds = %.preheader.preheader, %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -562,20 +562,20 @@ define void @_ZN16IcuTestErrorCodeD2Ev(ptr noundef nonnull align 8 captures(addr
   br i1 %9, label %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE11_M_is_localEv.exit.i.i: ; preds = %5
-  %10 = load i64, ptr %8, align 8, !tbaa !31
-  %11 = shl i64 %10, 1
-  %12 = add i64 %11, 2
-  tail call void @_ZdlPvm(ptr noundef %7, i64 noundef %12) #28
+  %13 = load i64, ptr %8, align 8, !tbaa !31
+  %14 = shl i64 %13, 1
+  %15 = add i64 %14, 2
+  tail call void @_ZdlPvm(ptr noundef %7, i64 noundef %15) #28
   br label %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEED2Ev.exit: ; preds = %5, %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE11_M_is_localEv.exit.i.i
   ret void
 
-13:                                               ; preds = %.preheader.preheader
-  %14 = landingpad { ptr, i32 }
+16:                                               ; preds = %.preheader.preheader
+  %17 = landingpad { ptr, i32 }
           catch ptr null
-  %15 = extractvalue { ptr, i32 } %14, 0
-  tail call void @__clang_call_terminate(ptr %15) #27
+  %18 = extractvalue { ptr, i32 } %17, 0
+  tail call void @__clang_call_terminate(ptr %18) #27
   unreachable
 }
 

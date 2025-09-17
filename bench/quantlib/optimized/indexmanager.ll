@@ -602,8 +602,8 @@ for.body.i.i.i:                                   ; preds = %entry, %_ZSt8_Destr
   br i1 %cmp.i.i.i.i.i.i.i, label %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %for.body.i.i.i
-  %4 = load i64, ptr %3, align 8, !tbaa !15
-  %add.i.i.i.i.i.i.i = add i64 %4, 1
+  %5 = load i64, ptr %3, align 8, !tbaa !15
+  %add.i.i.i.i.i.i.i = add i64 %5, 1
   tail call void @_ZdlPvm(ptr noundef %2, i64 noundef %add.i.i.i.i.i.i.i) #22
   br label %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i
 
@@ -617,17 +617,17 @@ invoke.contthread-pre-split:                      ; preds = %_ZSt8_DestroyINSt7_
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %invoke.contthread-pre-split, %entry
-  %5 = phi ptr [ %.pr, %invoke.contthread-pre-split ], [ %0, %entry ]
-  %tobool.not.i.i = icmp eq ptr %5, null
+  %6 = phi ptr [ %.pr, %invoke.contthread-pre-split ], [ %0, %entry ]
+  %tobool.not.i.i = icmp eq ptr %6, null
   br i1 %tobool.not.i.i, label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont
   %_M_end_of_storage.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %6 = load ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !35
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %6 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %5 to i64
+  %7 = load ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !35
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %7 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef %sub.ptr.sub.i) #22
+  tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef %sub.ptr.sub.i) #22
   br label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
 
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
@@ -1358,26 +1358,26 @@ lpad.i.i.i.i:                                     ; preds = %_ZNSt7__cxx1112basi
   br i1 %cmp.i.i.i.i.i.i.i, label %lpad.body, label %if.then.i.i1.i.i.i.i
 
 if.then.i.i1.i.i.i.i:                             ; preds = %lpad.i.i.i.i
-  %12 = load i64, ptr %2, align 8, !tbaa !15
-  %add.i.i.i.i.i.i.i = add i64 %12, 1
+  %13 = load i64, ptr %2, align 8, !tbaa !15
+  %add.i.i.i.i.i.i.i = add i64 %13, 1
   call void @_ZdlPvm(ptr noundef %11, i64 noundef %add.i.i.i.i.i.i.i) #22
   br label %lpad.body
 
 lpad:                                             ; preds = %if.then.i.i.i.i.i.i
-  %13 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           catch ptr null
   br label %lpad.body
 
 lpad.body:                                        ; preds = %lpad.i.i.i.i, %if.then.i.i1.i.i.i.i, %lpad
-  %eh.lpad-body = phi { ptr, i32 } [ %13, %lpad ], [ %10, %if.then.i.i1.i.i.i.i ], [ %10, %lpad.i.i.i.i ]
-  %14 = extractvalue { ptr, i32 } %eh.lpad-body, 0
-  %15 = call ptr @__cxa_begin_catch(ptr %14) #17
+  %eh.lpad-body = phi { ptr, i32 } [ %14, %lpad ], [ %10, %if.then.i.i1.i.i.i.i ], [ %10, %lpad.i.i.i.i ]
+  %15 = extractvalue { ptr, i32 } %eh.lpad-body, 0
+  %16 = call ptr @__cxa_begin_catch(ptr %15) #17
   call void @_ZdlPvm(ptr noundef nonnull %__node, i64 noundef 128) #22
   invoke void @__cxa_rethrow() #20
           to label %unreachable unwind label %lpad8
 
 lpad8:                                            ; preds = %lpad.body
-  %16 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad
@@ -1386,13 +1386,13 @@ try.cont:                                         ; preds = %_ZNSt7__cxx1112basi
   ret void
 
 eh.resume:                                        ; preds = %lpad8
-  resume { ptr, i32 } %16
+  resume { ptr, i32 } %17
 
 terminate.lpad:                                   ; preds = %lpad8
-  %17 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           catch ptr null
-  %18 = extractvalue { ptr, i32 } %17, 0
-  call void @__clang_call_terminate(ptr %18) #18
+  %19 = extractvalue { ptr, i32 } %18, 0
+  call void @__clang_call_terminate(ptr %19) #18
   unreachable
 
 unreachable:                                      ; preds = %lpad.body
@@ -1851,8 +1851,8 @@ _ZN8QuantLib15ObservableValueINS_10TimeSeriesIdSt3mapINS_4DateEdSt4lessIS3_ESaIS
   br i1 %cmp.i.i.i.i.i.i.i, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N8QuantLib15ObservableValueINS8_10TimeSeriesIdSt3mapINS8_4DateEdSt4lessISC_ESaIS6_IKSC_dEEEEEEEESt10_Select1stISL_ENS8_12IndexManager22CaseInsensitiveCompareESaISL_EE15_M_destroy_nodeEPSt13_Rb_tree_nodeISL_E.exit, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %_ZN8QuantLib15ObservableValueINS_10TimeSeriesIdSt3mapINS_4DateEdSt4lessIS3_ESaISt4pairIKS3_dEEEEEED2Ev.exit.i.i.i.i
-  %12 = load i64, ptr %11, align 8, !tbaa !15
-  %add.i.i.i.i.i.i.i = add i64 %12, 1
+  %13 = load i64, ptr %11, align 8, !tbaa !15
+  %add.i.i.i.i.i.i.i = add i64 %13, 1
   tail call void @_ZdlPvm(ptr noundef %10, i64 noundef %add.i.i.i.i.i.i.i) #22
   br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N8QuantLib15ObservableValueINS8_10TimeSeriesIdSt3mapINS8_4DateEdSt4lessISC_ESaIS6_IKSC_dEEEEEEEESt10_Select1stISL_ENS8_12IndexManager22CaseInsensitiveCompareESaISL_EE15_M_destroy_nodeEPSt13_Rb_tree_nodeISL_E.exit
 

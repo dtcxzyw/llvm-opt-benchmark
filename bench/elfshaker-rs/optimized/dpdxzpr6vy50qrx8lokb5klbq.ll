@@ -913,7 +913,7 @@ _ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i.i.i.i.i.i: ; preds = 
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !295
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5.i.i.i.i)
   %.not.i8.i.i.i = icmp eq ptr %61, null
-  br i1 %.not.i8.i.i.i, label %62, label %_ZN4core4iter6traits8iterator8Iterator8find_map17h2caa1008eefb10c9E.exit
+  br i1 %.not.i8.i.i.i, label %62, label %"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hf568875fe3e6c10dE.exit.i"
 
 62:                                               ; preds = %"_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h4bf35c61c53a7926E.exit.i.i.i", %"_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h4bf35c61c53a7926E.exit.thread.i.i.i"
   %63 = load ptr, ptr %0, align 8, !alias.scope !301, !noalias !258, !nonnull !27, !noundef !27
@@ -921,7 +921,7 @@ _ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i.i.i.i.i.i: ; preds = 
   %65 = icmp eq ptr %63, %64
   br i1 %65, label %_ZN4core4iter6traits8iterator8Iterator8find_map17h2caa1008eefb10c9E.exit, label %15
 
-_ZN4core4iter6traits8iterator8Iterator8find_map17h2caa1008eefb10c9E.exit: ; preds = %62, %"_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h4bf35c61c53a7926E.exit.i.i.i", %1
+"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hf568875fe3e6c10dE.exit.i": ; preds = %62, %"_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h4bf35c61c53a7926E.exit.i.i.i", %1
   %66 = phi { ptr, ptr } [ { ptr null, ptr undef }, %1 ], [ { ptr null, ptr undef }, %62 ], [ %60, %"_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h4bf35c61c53a7926E.exit.i.i.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !247
   ret { ptr, ptr } %66
@@ -1098,7 +1098,7 @@ _ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i.i.i.i.i.i: ; preds = 
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !357
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5.i.i.i.i)
   %.not.i8.i.i.i = icmp eq ptr %61, null
-  br i1 %.not.i8.i.i.i, label %62, label %_ZN4core4iter6traits8iterator8Iterator8find_map17h44fb9565175e0a3aE.exit
+  br i1 %.not.i8.i.i.i, label %62, label %"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h3c321e030352def9E.exit.i"
 
 62:                                               ; preds = %"_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h12f6370d9a7f3839E.exit.i.i.i", %"_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h12f6370d9a7f3839E.exit.thread.i.i.i"
   %63 = load ptr, ptr %0, align 8, !alias.scope !363, !noalias !323, !nonnull !27, !noundef !27
@@ -1106,7 +1106,7 @@ _ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i.i.i.i.i.i: ; preds = 
   %65 = icmp eq ptr %63, %64
   br i1 %65, label %_ZN4core4iter6traits8iterator8Iterator8find_map17h44fb9565175e0a3aE.exit, label %15
 
-_ZN4core4iter6traits8iterator8Iterator8find_map17h44fb9565175e0a3aE.exit: ; preds = %62, %"_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h12f6370d9a7f3839E.exit.i.i.i", %1
+"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h3c321e030352def9E.exit.i": ; preds = %62, %"_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h12f6370d9a7f3839E.exit.i.i.i", %1
   %66 = phi { ptr, ptr } [ { ptr null, ptr undef }, %1 ], [ { ptr null, ptr undef }, %62 ], [ %60, %"_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h12f6370d9a7f3839E.exit.i.i.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !312
   ret { ptr, ptr } %66
@@ -1283,7 +1283,7 @@ _ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i.i.i.i.i.i: ; preds = 
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !419
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5.i.i.i.i)
   %.not.i8.i.i.i = icmp eq ptr %61, null
-  br i1 %.not.i8.i.i.i, label %62, label %_ZN4core4iter6traits8iterator8Iterator8find_map17h53922252181ee673E.exit
+  br i1 %.not.i8.i.i.i, label %62, label %"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h03f51e1ab197ba37E.exit.i"
 
 62:                                               ; preds = %"_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hc31baf1294371fc4E.exit.i.i.i", %"_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hc31baf1294371fc4E.exit.thread.i.i.i"
   %63 = load ptr, ptr %0, align 8, !alias.scope !425, !noalias !385, !nonnull !27, !noundef !27
@@ -1291,7 +1291,7 @@ _ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i.i.i.i.i.i: ; preds = 
   %65 = icmp eq ptr %63, %64
   br i1 %65, label %_ZN4core4iter6traits8iterator8Iterator8find_map17h53922252181ee673E.exit, label %15
 
-_ZN4core4iter6traits8iterator8Iterator8find_map17h53922252181ee673E.exit: ; preds = %62, %"_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hc31baf1294371fc4E.exit.i.i.i", %1
+"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h03f51e1ab197ba37E.exit.i": ; preds = %62, %"_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hc31baf1294371fc4E.exit.i.i.i", %1
   %66 = phi { ptr, ptr } [ { ptr null, ptr undef }, %1 ], [ { ptr null, ptr undef }, %62 ], [ %60, %"_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hc31baf1294371fc4E.exit.i.i.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !374
   ret { ptr, ptr } %66
@@ -1468,7 +1468,7 @@ _ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i.i.i.i.i.i: ; preds = 
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !481
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5.i.i.i.i)
   %.not.i8.i.i.i = icmp eq ptr %61, null
-  br i1 %.not.i8.i.i.i, label %62, label %_ZN4core4iter6traits8iterator8Iterator8find_map17h6808cadde02ba752E.exit
+  br i1 %.not.i8.i.i.i, label %62, label %"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h34e3dad7afa30ec9E.exit.i"
 
 62:                                               ; preds = %"_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h4564a60076ed0b4bE.exit.i.i.i", %"_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h4564a60076ed0b4bE.exit.thread.i.i.i"
   %63 = load ptr, ptr %0, align 8, !alias.scope !487, !noalias !447, !nonnull !27, !noundef !27
@@ -1476,7 +1476,7 @@ _ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i.i.i.i.i.i: ; preds = 
   %65 = icmp eq ptr %63, %64
   br i1 %65, label %_ZN4core4iter6traits8iterator8Iterator8find_map17h6808cadde02ba752E.exit, label %15
 
-_ZN4core4iter6traits8iterator8Iterator8find_map17h6808cadde02ba752E.exit: ; preds = %62, %"_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h4564a60076ed0b4bE.exit.i.i.i", %1
+"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h34e3dad7afa30ec9E.exit.i": ; preds = %62, %"_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h4564a60076ed0b4bE.exit.i.i.i", %1
   %66 = phi { ptr, ptr } [ { ptr null, ptr undef }, %1 ], [ { ptr null, ptr undef }, %62 ], [ %60, %"_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h4564a60076ed0b4bE.exit.i.i.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !436
   ret { ptr, ptr } %66

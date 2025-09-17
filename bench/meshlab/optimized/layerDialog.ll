@@ -9519,25 +9519,25 @@ _ZNK10MainWindow3GLAEv.exit43:                    ; preds = %61
   br i1 %.not.i46, label %_ZNK10MainWindow3GLAEv.exit54, label %_ZNK10MainWindow3GLAEv.exit48.thread
 
 _ZNK10MainWindow3GLAEv.exit48.thread:             ; preds = %._crit_edge90
-  %80 = getelementptr inbounds nuw i8, ptr %79, i64 256
-  %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds nuw i8, ptr %81, i64 1640
-  %83 = load i8, ptr %82, align 8
-  %84 = trunc i8 %83 to i1
-  br i1 %84, label %_ZNK10MainWindow3GLAEv.exit51, label %_ZNK10MainWindow3GLAEv.exit54
+  %83 = getelementptr inbounds nuw i8, ptr %79, i64 256
+  %84 = load ptr, ptr %83, align 8
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 1640
+  %86 = load i8, ptr %85, align 8
+  %87 = trunc i8 %86 to i1
+  br i1 %87, label %_ZNK10MainWindow3GLAEv.exit51, label %_ZNK10MainWindow3GLAEv.exit54
 
 _ZNK10MainWindow3GLAEv.exit51:                    ; preds = %_ZNK10MainWindow3GLAEv.exit48.thread
-  tail call void @_ZN6GLArea10loadRasterEi(ptr noundef nonnull align 8 dereferenceable(1676) %81, i32 noundef %16)
+  tail call void @_ZN6GLArea10loadRasterEi(ptr noundef nonnull align 8 dereferenceable(1676) %84, i32 noundef %16)
   br label %_ZNK10MainWindow3GLAEv.exit54
 
 _ZNK10MainWindow3GLAEv.exit54:                    ; preds = %._crit_edge90, %_ZNK10MainWindow3GLAEv.exit48.thread, %_ZNK10MainWindow3GLAEv.exit43, %_ZNK10MainWindow3GLAEv.exit51, %18
   tail call void @_ZN11LayerDialog34updatePerRasterItemSelectionStatusEv(ptr noundef nonnull align 8 dereferenceable(256) %0)
-  %85 = load ptr, ptr %8, align 8
-  %86 = getelementptr inbounds nuw i8, ptr %85, i64 1368
-  %87 = load ptr, ptr %86, align 8, !nonnull !10, !noundef !10
-  %88 = getelementptr inbounds nuw i8, ptr %87, i64 256
-  %89 = load ptr, ptr %88, align 8
-  tail call void @_ZN7QWidget6updateEv(ptr noundef nonnull align 8 dereferenceable(48) %89)
+  %88 = load ptr, ptr %8, align 8
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 1368
+  %90 = load ptr, ptr %89, align 8, !nonnull !10, !noundef !10
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 256
+  %92 = load ptr, ptr %91, align 8
+  tail call void @_ZN7QWidget6updateEv(ptr noundef nonnull align 8 dereferenceable(48) %92)
   br label %.thread
 
 .thread:                                          ; preds = %3, %13, %_ZNK10MainWindow3GLAEv.exit54, %10, %7, %5

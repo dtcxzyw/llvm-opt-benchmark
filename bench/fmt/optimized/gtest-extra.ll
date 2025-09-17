@@ -64,7 +64,7 @@ define hidden void @_ZN15output_redirectC2EP8_IO_FILEb(ptr noundef nonnull align
   br label %32
 
 11:                                               ; preds = %8, %3
-  %12 = tail call i32 @fileno(ptr noundef %1) #15
+  %12 = tail call i32 @fileno(ptr noundef %1) #16
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   invoke void @_ZN3fmt3v114file3dupEi(ptr dead_on_unwind nonnull writable sret(%"class.fmt::v11::file") align 4 %4, i32 noundef %12)
           to label %13 unwind label %21
@@ -77,7 +77,7 @@ define hidden void @_ZN15output_redirectC2EP8_IO_FILEb(ptr noundef nonnull align
   %15 = load i32, ptr %4, align 4, !tbaa !12
   store i32 %15, ptr %6, align 8, !tbaa !12
   store i32 -1, ptr %4, align 4, !tbaa !12
-  call void @_ZN3fmt3v114fileD1Ev(ptr noundef nonnull align 4 dereferenceable(4) %4) #15
+  call void @_ZN3fmt3v114fileD1Ev(ptr noundef nonnull align 4 dereferenceable(4) %4) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   invoke void @_ZN3fmt3v114pipeC1Ev(ptr noundef nonnull align 4 dereferenceable(8) %5)
@@ -96,8 +96,8 @@ define hidden void @_ZN15output_redirectC2EP8_IO_FILEb(ptr noundef nonnull align
           to label %20 unwind label %28
 
 20:                                               ; preds = %17
-  call void @_ZN3fmt3v114fileD1Ev(ptr noundef nonnull align 4 dereferenceable(4) %19) #15
-  call void @_ZN3fmt3v114fileD1Ev(ptr noundef nonnull align 4 dereferenceable(8) %5) #15
+  call void @_ZN3fmt3v114fileD1Ev(ptr noundef nonnull align 4 dereferenceable(4) %19) #16
+  call void @_ZN3fmt3v114fileD1Ev(ptr noundef nonnull align 4 dereferenceable(8) %5) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
@@ -109,7 +109,7 @@ define hidden void @_ZN15output_redirectC2EP8_IO_FILEb(ptr noundef nonnull align
 23:                                               ; preds = %13
   %24 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3fmt3v114fileD1Ev(ptr noundef nonnull align 4 dereferenceable(4) %4) #15
+  call void @_ZN3fmt3v114fileD1Ev(ptr noundef nonnull align 4 dereferenceable(4) %4) #16
   br label %25
 
 25:                                               ; preds = %23, %21
@@ -126,8 +126,8 @@ define hidden void @_ZN15output_redirectC2EP8_IO_FILEb(ptr noundef nonnull align
   %29 = landingpad { ptr, i32 }
           cleanup
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  call void @_ZN3fmt3v114fileD1Ev(ptr noundef nonnull align 4 dereferenceable(4) %30) #15
-  call void @_ZN3fmt3v114fileD1Ev(ptr noundef nonnull align 4 dereferenceable(8) %5) #15
+  call void @_ZN3fmt3v114fileD1Ev(ptr noundef nonnull align 4 dereferenceable(4) %30) #16
+  call void @_ZN3fmt3v114fileD1Ev(ptr noundef nonnull align 4 dereferenceable(8) %5) #16
   br label %31
 
 31:                                               ; preds = %28, %26
@@ -137,8 +137,8 @@ define hidden void @_ZN15output_redirectC2EP8_IO_FILEb(ptr noundef nonnull align
 
 32:                                               ; preds = %25, %31, %9
   %.pn12.pn.pn = phi { ptr, i32 } [ %10, %9 ], [ %.pn12, %31 ], [ %.pn, %25 ]
-  call void @_ZN3fmt3v114fileD1Ev(ptr noundef nonnull align 4 dereferenceable(4) %7) #15
-  call void @_ZN3fmt3v114fileD1Ev(ptr noundef nonnull align 4 dereferenceable(4) %6) #15
+  call void @_ZN3fmt3v114fileD1Ev(ptr noundef nonnull align 4 dereferenceable(4) %7) #16
+  call void @_ZN3fmt3v114fileD1Ev(ptr noundef nonnull align 4 dereferenceable(4) %6) #16
   resume { ptr, i32 } %.pn12.pn.pn
 }
 
@@ -155,26 +155,26 @@ define hidden void @_ZN15output_redirect5flushEv(ptr noundef nonnull readonly al
   ]
 
 5:                                                ; preds = %2
-  %6 = tail call ptr @__errno_location() #16
+  %6 = tail call ptr @__errno_location() #17
   %7 = load i32, ptr %6, align 4, !tbaa !13
   %8 = icmp eq i32 %7, 4
   br i1 %8, label %2, label %.critedge, !llvm.loop !14
 
 .critedge:                                        ; preds = %5, %2
-  %9 = tail call ptr @__cxa_allocate_exception(i64 32) #15
-  %10 = tail call ptr @__errno_location() #16
+  %9 = tail call ptr @__cxa_allocate_exception(i64 32) #16
+  %10 = tail call ptr @__errno_location() #17
   %11 = load i32, ptr %10, align 4, !tbaa !13
   invoke void @_ZN3fmt3v1112system_errorIJEEESt12system_erroriNS0_7fstringIJDpT_EE1tEDpOS4_(ptr dead_on_unwind writable sret(%"class.std::system_error") align 8 %9, i32 noundef %11, ptr nonnull @.str, i64 19)
           to label %12 unwind label %13
 
 12:                                               ; preds = %.critedge
-  tail call void @__cxa_throw(ptr %9, ptr nonnull @_ZTISt12system_error, ptr nonnull @_ZNSt12system_errorD1Ev) #17
+  tail call void @__cxa_throw(ptr %9, ptr nonnull @_ZTISt12system_error, ptr nonnull @_ZNSt12system_errorD1Ev) #18
   unreachable
 
 13:                                               ; preds = %.critedge
   %14 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %9) #15
+  tail call void @__cxa_free_exception(ptr %9) #16
   resume { ptr, i32 } %14
 
 15:                                               ; preds = %2
@@ -208,7 +208,7 @@ define hidden void @_ZN15output_redirectD2Ev(ptr noundef nonnull align 8 derefer
 
 .noexc:                                           ; preds = %5
   %6 = load ptr, ptr %0, align 8, !tbaa !4
-  %7 = tail call i32 @fileno(ptr noundef %6) #15
+  %7 = tail call i32 @fileno(ptr noundef %6) #16
   invoke void @_ZN3fmt3v114file4dup2Ei(ptr noundef nonnull align 4 dereferenceable(4) %2, i32 noundef %7)
           to label %.noexc4 unwind label %8
 
@@ -222,36 +222,36 @@ define hidden void @_ZN15output_redirectD2Ev(ptr noundef nonnull align 8 derefer
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
   %11 = extractvalue { ptr, i32 } %9, 1
-  %12 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #15
+  %12 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #16
   %13 = icmp eq i32 %11, %12
   br i1 %13, label %14, label %26
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @__cxa_begin_catch(ptr %10) #15
+  %15 = tail call ptr @__cxa_begin_catch(ptr %10) #16
   %16 = load ptr, ptr %15, align 8, !tbaa !16
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load ptr, ptr %17, align 8
-  %19 = tail call noundef ptr %18(ptr noundef nonnull align 8 dereferenceable(8) %15) #15
+  %19 = tail call noundef ptr %18(ptr noundef nonnull align 8 dereferenceable(8) %15) #16
   %20 = load ptr, ptr @stderr, align 8, !tbaa !18
-  %21 = tail call i32 @fputs(ptr noundef %19, ptr noundef %20) #18
+  %21 = tail call i32 @fputs(ptr noundef %19, ptr noundef %20) #19
   invoke void @__cxa_end_catch()
           to label %_ZN15output_redirect7restoreEv.exit unwind label %23
 
 _ZN15output_redirect7restoreEv.exit:              ; preds = %1, %.noexc4, %14
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  tail call void @_ZN3fmt3v114fileD1Ev(ptr noundef nonnull align 4 dereferenceable(4) %22) #15
-  tail call void @_ZN3fmt3v114fileD1Ev(ptr noundef nonnull align 4 dereferenceable(4) %2) #15
+  tail call void @_ZN3fmt3v114fileD1Ev(ptr noundef nonnull align 4 dereferenceable(4) %22) #16
+  tail call void @_ZN3fmt3v114fileD1Ev(ptr noundef nonnull align 4 dereferenceable(4) %2) #16
   ret void
 
 23:                                               ; preds = %14
   %24 = landingpad { ptr, i32 }
           catch ptr null
   %25 = extractvalue { ptr, i32 } %24, 0
-  tail call void @__clang_call_terminate(ptr %25) #19
+  tail call void @__clang_call_terminate(ptr %25) #20
   unreachable
 
 26:                                               ; preds = %8
-  tail call void @__clang_call_terminate(ptr %10) #19
+  tail call void @__clang_call_terminate(ptr %10) #20
   unreachable
 }
 
@@ -265,7 +265,7 @@ define hidden void @_ZN15output_redirect7restoreEv(ptr noundef nonnull align 8 d
 5:                                                ; preds = %1
   tail call void @_ZN15output_redirect5flushEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
   %6 = load ptr, ptr %0, align 8, !tbaa !4
-  %7 = tail call i32 @fileno(ptr noundef %6) #15
+  %7 = tail call i32 @fileno(ptr noundef %6) #16
   tail call void @_ZN3fmt3v114file4dup2Ei(ptr noundef nonnull align 4 dereferenceable(4) %2, i32 noundef %7)
   tail call void @_ZN3fmt3v114file5closeEv(ptr noundef nonnull align 4 dereferenceable(4) %2)
   br label %8
@@ -279,8 +279,8 @@ declare i32 @llvm.eh.typeid.for.p0(ptr) #6
 
 ; Function Attrs: noinline noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #7 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #15
-  tail call void @_ZSt9terminatev() #19
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #16
+  tail call void @_ZSt9terminatev() #20
   unreachable
 }
 
@@ -332,7 +332,7 @@ define hidden void @_ZN15output_redirect16restore_and_readB5cxx11Ev(ptr dead_on_
 7:                                                ; preds = %2
   tail call void @_ZN15output_redirect5flushEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
   %8 = load ptr, ptr %1, align 8, !tbaa !4
-  %9 = tail call i32 @fileno(ptr noundef %8) #15
+  %9 = tail call i32 @fileno(ptr noundef %8) #16
   tail call void @_ZN3fmt3v114file4dup2Ei(ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %9)
   tail call void @_ZN3fmt3v114file5closeEv(ptr noundef nonnull align 4 dereferenceable(4) %4)
   br label %_ZN15output_redirect7restoreEv.exit
@@ -346,7 +346,7 @@ _ZN15output_redirect7restoreEv.exit:              ; preds = %2, %7
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %13 = load i32, ptr %12, align 4, !tbaa !12
   %14 = icmp eq i32 %13, -1
-  br i1 %14, label %31, label %15
+  br i1 %14, label %33, label %15
 
 15:                                               ; preds = %_ZN15output_redirect7restoreEv.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -363,7 +363,7 @@ _ZN15output_redirect7restoreEv.exit:              ; preds = %2, %7
   br i1 %21, label %22, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i
 
 22:                                               ; preds = %18
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.1) #17
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.1) #18
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %22
@@ -383,7 +383,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit: ; preds 
 
 25:                                               ; preds = %24
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %31
+  br label %33
 
 .loopexit:                                        ; preds = %16, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -403,15 +403,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit: ; preds 
   br i1 %28, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %26
-  %29 = load i64, ptr %10, align 8, !tbaa !25
-  %30 = add i64 %29, 1
-  call void @_ZdlPvm(ptr noundef %27, i64 noundef %30) #20
+  %31 = load i64, ptr %10, align 8, !tbaa !25
+  %32 = add i64 %31, 1
+  call void @_ZdlPvm(ptr noundef %27, i64 noundef %32) #21
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %26, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   resume { ptr, i32 } %lpad.phi
 
-31:                                               ; preds = %25, %_ZN15output_redirect7restoreEv.exit
+33:                                               ; preds = %25, %_ZN15output_redirect7restoreEv.exit
   ret void
 }
 
@@ -460,9 +460,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
   br i1 %17, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %15
-  %18 = load i64, ptr %4, align 8, !tbaa !25
-  %19 = add i64 %18, 1
-  tail call void @_ZdlPvm(ptr noundef %16, i64 noundef %19) #20
+  %21 = load i64, ptr %4, align 8, !tbaa !25
+  %22 = add i64 %21, 1
+  tail call void @_ZdlPvm(ptr noundef %16, i64 noundef %22) #21
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit: ; preds = %14
@@ -489,7 +489,7 @@ declare void @_ZN3fmt3v1113vsystem_errorEiNS0_17basic_string_viewIcEENS0_17basic
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_gtest_extra.cc() #13 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #15
+  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #16
   ret void
 }
 

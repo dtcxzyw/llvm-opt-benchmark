@@ -1956,7 +1956,7 @@ land.lhs.true.i638.lr.ph:                         ; preds = %entry
   br label %land.lhs.true.i638
 
 land.lhs.true.i638:                               ; preds = %land.lhs.true.i638.lr.ph, %sw.epilog
-  %pos.promoted = phi i64 [ 0, %land.lhs.true.i638.lr.ph ], [ %100, %sw.epilog ]
+  %pos.promoted = phi i64 [ 0, %land.lhs.true.i638.lr.ph ], [ %101, %sw.epilog ]
   %arrayidx.i639 = getelementptr i8, ptr %data, i64 %pos.promoted
   %2 = load i8, ptr %arrayidx.i639, align 1
   %cmp1.i642 = icmp sgt i8 %2, -1
@@ -3002,8 +3002,8 @@ _ZNSt6vectorIN8tutorial6Person11PhoneNumberESaIS2_EE8pop_backEv.exit: ; preds = 
   br label %return
 
 if.end49:                                         ; preds = %_ZN9struct_pb8internal14deserialize_toIN8tutorial6Person11PhoneNumberEEEbRT_PKcm.exit
-  %99 = load i64, ptr %pos, align 8
-  %add50 = add i64 %99, %sz34.0
+  %100 = load i64, ptr %pos, align 8
+  %add50 = add i64 %100, %sz34.0
   store i64 %add50, ptr %pos, align 8
   br label %sw.epilog
 
@@ -3013,8 +3013,8 @@ sw.default:                                       ; preds = %if.end
   br label %return
 
 sw.epilog:                                        ; preds = %if.end49, %if.end28, %if.end17, %if.end8
-  %100 = phi i64 [ %add50, %if.end49 ], [ %add25, %if.end28 ], [ %50, %if.end17 ], [ %add, %if.end8 ]
-  %cmp = icmp ult i64 %100, %size
+  %101 = phi i64 [ %add50, %if.end49 ], [ %add25, %if.end28 ], [ %50, %if.end17 ], [ %add, %if.end8 ]
+  %cmp = icmp ult i64 %101, %size
   br i1 %cmp, label %land.lhs.true.i638, label %return, !llvm.loop !10
 
 return:                                           ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit422, %sw.epilog, %if.end82.i618, %if.end82.i, %if.end82.i192, %if.end82.i334, %if.end82.i476, %while.cond.i521.preheader, %while.cond.i379.preheader, %while.cond.i237.preheader, %while.cond.i95.preheader, %while.cond.i.preheader, %while.body.i535, %while.body.i393, %while.body.i251, %while.body.i109, %while.body.i, %entry, %sw.default, %_ZNSt6vectorIN8tutorial6Person11PhoneNumberESaIS2_EE8pop_backEv.exit
@@ -4223,34 +4223,34 @@ invoke.contthread-pre-split.i:                    ; preds = %_ZSt8_DestroyIN8tut
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %invoke.contthread-pre-split.i, %entry
-  %4 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %0, %entry ]
-  %tobool.not.i.i.i = icmp eq ptr %4, null
+  %5 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %0, %entry ]
+  %tobool.not.i.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN8tutorial6Person11PhoneNumberESaIS2_EED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont.i
-  tail call void @_ZdlPv(ptr noundef nonnull %4) #16
+  tail call void @_ZdlPv(ptr noundef nonnull %5) #16
   br label %_ZNSt6vectorIN8tutorial6Person11PhoneNumberESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIN8tutorial6Person11PhoneNumberESaIS2_EED2Ev.exit: ; preds = %invoke.cont.i, %if.then.i.i.i
   %email = getelementptr inbounds nuw i8, ptr %this, i64 40
-  %5 = load ptr, ptr %email, align 8
-  %6 = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %cmp.i.i.i = icmp eq ptr %5, %6
+  %6 = load ptr, ptr %email, align 8
+  %7 = getelementptr inbounds nuw i8, ptr %this, i64 56
+  %cmp.i.i.i = icmp eq ptr %6, %7
   br i1 %cmp.i.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZNSt6vectorIN8tutorial6Person11PhoneNumberESaIS2_EED2Ev.exit
-  tail call void @_ZdlPv(ptr noundef %5) #16
+  tail call void @_ZdlPv(ptr noundef %6) #16
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNSt6vectorIN8tutorial6Person11PhoneNumberESaIS2_EED2Ev.exit, %if.then.i.i
   tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %email) #17
-  %7 = load ptr, ptr %this, align 8
-  %8 = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %cmp.i.i.i2 = icmp eq ptr %7, %8
+  %9 = load ptr, ptr %this, align 8
+  %10 = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %cmp.i.i.i2 = icmp eq ptr %9, %10
   br i1 %cmp.i.i.i2, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8, label %if.then.i.i3
 
 if.then.i.i3:                                     ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  tail call void @_ZdlPv(ptr noundef %7) #16
+  tail call void @_ZdlPv(ptr noundef %9) #16
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %if.then.i.i3

@@ -1433,14 +1433,14 @@ define internal void @rpcb_getport_done(ptr noundef %0, ptr noundef captures(non
   tail call void %51(ptr noundef %3, i16 noundef zeroext %52) #10
   %53 = load i16, ptr %17, align 4
   %54 = icmp eq i16 %53, 0
-  br i1 %54, label %58, label %55
+  br i1 %54, label %59, label %55
 
 55:                                               ; preds = %47
   %56 = getelementptr inbounds nuw i8, ptr %3, i64 1032
   %57 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %56, i64 4, ptr nonnull elementtype(i64) %56) #10, !srcloc !29
   br label %58
 
-58:                                               ; preds = %55, %47
+59:                                               ; preds = %55, %47
   ret void
 }
 

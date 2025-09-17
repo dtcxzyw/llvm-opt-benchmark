@@ -40,7 +40,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN11OpenImageIO6v3_1_04SHA1C2EPKvm(ptr noundef nonnull align 8 captures(none) dereferenceable(9) initializes((0, 9)) %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  %4 = tail call noalias noundef nonnull dereferenceable(200) ptr @_Znwm(i64 noundef 200) #18
+  %4 = tail call noalias noundef nonnull dereferenceable(200) ptr @_Znwm(i64 noundef 200) #19
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 128
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 192
   store ptr %5, ptr %6, align 8, !tbaa !3
@@ -78,7 +78,7 @@ define void @_ZN11OpenImageIO6v3_1_04SHA16appendEPKvm(ptr noundef nonnull readon
 
 7:                                                ; preds = %3
   %8 = load ptr, ptr @stderr, align 8, !tbaa !18
-  %9 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 69, ptr noundef nonnull @__FUNCTION__._ZN11OpenImageIO6v3_1_04SHA16appendEPKvm, ptr noundef nonnull @.str.3) #19
+  %9 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 69, ptr noundef nonnull @__FUNCTION__._ZN11OpenImageIO6v3_1_04SHA16appendEPKvm, ptr noundef nonnull @.str.3) #20
   br label %10
 
 10:                                               ; preds = %3, %7
@@ -162,7 +162,7 @@ define void @_ZN11OpenImageIO6v3_1_04SHA1D2Ev(ptr noundef nonnull readonly align
   br i1 %3, label %5, label %4
 
 4:                                                ; preds = %1
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 200) #20
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 200) #21
   br label %5
 
 5:                                                ; preds = %4, %1
@@ -436,11 +436,11 @@ define void @_ZN11OpenImageIO6v3_1_04SHA16digestB5cxx11Ev(ptr dead_on_unwind noa
   %12 = load ptr, ptr %1, align 8, !tbaa !10
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %13 = call noundef zeroext i1 @_ZNK11OpenImageIO6v3_1_05CSHA110ReportHashEPcNS1_11REPORT_TYPEE(ptr noundef nonnull readonly align 8 dereferenceable(200) %12, ptr noundef nonnull %3, i32 noundef 2)
-  br i1 %13, label %14, label %24
+  br i1 %13, label %14, label %26
 
 14:                                               ; preds = %9
   %15 = load i64, ptr %11, align 8, !tbaa !29
-  %16 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #21
+  %16 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #22
   %17 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef 0, i64 noundef %15, ptr noundef nonnull %3, i64 noundef %16)
           to label %24 unwind label %18
 
@@ -452,15 +452,15 @@ define void @_ZN11OpenImageIO6v3_1_04SHA16digestB5cxx11Ev(ptr dead_on_unwind noa
   br i1 %21, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %18
-  %22 = load i64, ptr %10, align 8, !tbaa !22
-  %23 = add i64 %22, 1
-  call void @_ZdlPvm(ptr noundef %20, i64 noundef %23) #20
+  %24 = load i64, ptr %10, align 8, !tbaa !22
+  %25 = add i64 %24, 1
+  call void @_ZdlPvm(ptr noundef %20, i64 noundef %25) #21
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %18, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   resume { ptr, i32 } %19
 
-24:                                               ; preds = %9, %14
+26:                                               ; preds = %9, %14
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -475,7 +475,7 @@ define hidden noundef zeroext i1 @_ZNK11OpenImageIO6v3_1_05CSHA113ReportHashStlE
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i64, ptr %7, align 8, !tbaa !29
-  %9 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #21
+  %9 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #22
   %10 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef 0, i64 noundef %8, ptr noundef nonnull %4, i64 noundef %9)
   br label %11
 
@@ -2228,7 +2228,7 @@ define hidden noundef zeroext i1 @_ZN11OpenImageIO6v3_1_05CSHA18HashFileEPKc(ptr
   br i1 %6, label %53, label %7
 
 7:                                                ; preds = %4
-  %8 = tail call noalias noundef nonnull dereferenceable(524800) ptr @_Znam(i64 noundef 524800) #18
+  %8 = tail call noalias noundef nonnull dereferenceable(524800) ptr @_Znam(i64 noundef 524800) #19
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -2303,10 +2303,10 @@ _ZN11OpenImageIO6v3_1_05CSHA16UpdateEPKhj.exit:   ; preds = %43, %.loopexit.i
   br i1 %49, label %_ZN11OpenImageIO6v3_1_05CSHA16UpdateEPKhj.exit.thread, label %12
 
 _ZN11OpenImageIO6v3_1_05CSHA16UpdateEPKhj.exit.thread: ; preds = %12, %_ZN11OpenImageIO6v3_1_05CSHA16UpdateEPKhj.exit
-  %50 = tail call i32 @feof(ptr noundef nonnull %5) #21
+  %50 = tail call i32 @feof(ptr noundef nonnull %5) #22
   %51 = icmp ne i32 %50, 0
   %52 = tail call i32 @fclose(ptr noundef nonnull %5)
-  tail call void @_ZdaPv(ptr noundef nonnull %8) #20
+  tail call void @_ZdaPv(ptr noundef nonnull %8) #21
   br label %53
 
 53:                                               ; preds = %_ZN11OpenImageIO6v3_1_05CSHA16UpdateEPKhj.exit.thread, %4, %2
@@ -2355,12 +2355,12 @@ define hidden noundef zeroext i1 @_ZNK11OpenImageIO6v3_1_05CSHA110ReportHashEPcN
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %14 = load i8, ptr %13, align 8, !tbaa !22
   %15 = zext i8 %14 to i32
-  %16 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 15, ptr noundef nonnull @.str.7, i32 noundef %15) #21
+  %16 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 15, ptr noundef nonnull @.str.7, i32 noundef %15) #22
   store ptr %4, ptr %5, align 8, !tbaa !33
-  %17 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #21
+  %17 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #22
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %17, ptr %18, align 8, !tbaa !35
-  %19 = call noundef ptr @_ZN11OpenImageIO6v3_1_07Strutil11safe_strcpyEPcNS0_17basic_string_viewIcSt11char_traitsIcEEEm(ptr noundef nonnull %1, ptr noundef nonnull %5, i64 noundef 83) #21
+  %19 = call noundef ptr @_ZN11OpenImageIO6v3_1_07Strutil11safe_strcpyEPcNS0_17basic_string_viewIcSt11char_traitsIcEEEm(ptr noundef nonnull %1, ptr noundef nonnull %5, i64 noundef 83) #22
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br i1 %12, label %.split.us, label %.split
 
@@ -2369,11 +2369,11 @@ define hidden noundef zeroext i1 @_ZNK11OpenImageIO6v3_1_05CSHA110ReportHashEPcN
   %21 = getelementptr inbounds nuw i8, ptr %13, i64 %.01824.us
   %22 = load i8, ptr %21, align 1, !tbaa !22
   %23 = zext i8 %22 to i32
-  %24 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 15, ptr noundef nonnull @.str.8, i32 noundef %23) #21
+  %24 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 15, ptr noundef nonnull @.str.8, i32 noundef %23) #22
   store ptr %4, ptr %6, align 8, !tbaa !33
-  %25 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #21
+  %25 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #22
   store i64 %25, ptr %20, align 8, !tbaa !35
-  %26 = call noundef ptr @_ZN11OpenImageIO6v3_1_07Strutil11safe_strcatEPcNS0_17basic_string_viewIcSt11char_traitsIcEEEm(ptr noundef nonnull %1, ptr noundef nonnull %6, i64 noundef 83) #21
+  %26 = call noundef ptr @_ZN11OpenImageIO6v3_1_07Strutil11safe_strcatEPcNS0_17basic_string_viewIcSt11char_traitsIcEEEm(ptr noundef nonnull %1, ptr noundef nonnull %6, i64 noundef 83) #22
   %27 = add nuw nsw i64 %.01824.us, 1
   %exitcond28.not = icmp eq i64 %27, 20
   br i1 %exitcond28.not, label %.loopexit, label %.split.us, !llvm.loop !36
@@ -2383,11 +2383,11 @@ define hidden noundef zeroext i1 @_ZNK11OpenImageIO6v3_1_05CSHA110ReportHashEPcN
   %28 = getelementptr inbounds nuw i8, ptr %13, i64 %.01824
   %29 = load i8, ptr %28, align 1, !tbaa !22
   %30 = zext i8 %29 to i32
-  %31 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 15, ptr noundef nonnull @.str.7, i32 noundef %30) #21
+  %31 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 15, ptr noundef nonnull @.str.7, i32 noundef %30) #22
   store ptr %4, ptr %6, align 8, !tbaa !33
-  %32 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #21
+  %32 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #22
   store i64 %32, ptr %20, align 8, !tbaa !35
-  %33 = call noundef ptr @_ZN11OpenImageIO6v3_1_07Strutil11safe_strcatEPcNS0_17basic_string_viewIcSt11char_traitsIcEEEm(ptr noundef nonnull %1, ptr noundef nonnull %6, i64 noundef 83) #21
+  %33 = call noundef ptr @_ZN11OpenImageIO6v3_1_07Strutil11safe_strcatEPcNS0_17basic_string_viewIcSt11char_traitsIcEEEm(ptr noundef nonnull %1, ptr noundef nonnull %6, i64 noundef 83) #22
   %34 = add nuw nsw i64 %.01824, 1
   %exitcond27.not = icmp eq i64 %34, 20
   br i1 %exitcond27.not, label %.loopexit, label %.split, !llvm.loop !36
@@ -2396,12 +2396,12 @@ define hidden noundef zeroext i1 @_ZNK11OpenImageIO6v3_1_05CSHA110ReportHashEPcN
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %37 = load i8, ptr %36, align 8, !tbaa !22
   %38 = zext i8 %37 to i32
-  %39 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 15, ptr noundef nonnull @.str.9, i32 noundef %38) #21
+  %39 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 15, ptr noundef nonnull @.str.9, i32 noundef %38) #22
   store ptr %4, ptr %7, align 8, !tbaa !33
-  %40 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #21
+  %40 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #22
   %41 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %40, ptr %41, align 8, !tbaa !35
-  %42 = call noundef ptr @_ZN11OpenImageIO6v3_1_07Strutil11safe_strcpyEPcNS0_17basic_string_viewIcSt11char_traitsIcEEEm(ptr noundef nonnull %1, ptr noundef nonnull %7, i64 noundef 83) #21
+  %42 = call noundef ptr @_ZN11OpenImageIO6v3_1_07Strutil11safe_strcpyEPcNS0_17basic_string_viewIcSt11char_traitsIcEEEm(ptr noundef nonnull %1, ptr noundef nonnull %7, i64 noundef 83) #22
   %43 = getelementptr inbounds nuw i8, ptr %8, i64 8
   br label %44
 
@@ -2410,11 +2410,11 @@ define hidden noundef zeroext i1 @_ZNK11OpenImageIO6v3_1_05CSHA110ReportHashEPcN
   %45 = getelementptr inbounds nuw i8, ptr %36, i64 %.023
   %46 = load i8, ptr %45, align 1, !tbaa !22
   %47 = zext i8 %46 to i32
-  %48 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 15, ptr noundef nonnull @.str.10, i32 noundef %47) #21
+  %48 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 15, ptr noundef nonnull @.str.10, i32 noundef %47) #22
   store ptr %4, ptr %8, align 8, !tbaa !33
-  %49 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #21
+  %49 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #22
   store i64 %49, ptr %43, align 8, !tbaa !35
-  %50 = call noundef ptr @_ZN11OpenImageIO6v3_1_07Strutil11safe_strcatEPcNS0_17basic_string_viewIcSt11char_traitsIcEEEm(ptr noundef nonnull %1, ptr noundef nonnull %8, i64 noundef 83) #21
+  %50 = call noundef ptr @_ZN11OpenImageIO6v3_1_07Strutil11safe_strcatEPcNS0_17basic_string_viewIcSt11char_traitsIcEEEm(ptr noundef nonnull %1, ptr noundef nonnull %8, i64 noundef 83) #22
   %51 = add nuw nsw i64 %.023, 1
   %exitcond.not = icmp eq i64 %51, 20
   br i1 %exitcond.not, label %.loopexit, label %44, !llvm.loop !37
@@ -2446,7 +2446,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_SHA1.cpp() #15 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #21
+  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #22
   ret void
 }
 
@@ -2457,10 +2457,10 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #16
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #17
+declare i32 @llvm.fshl.i32(i32, i32, i32) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.bswap.i32(i32) #17
+declare i32 @llvm.bswap.i32(i32) #18
 
 attributes #0 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

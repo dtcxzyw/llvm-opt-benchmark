@@ -29,11 +29,11 @@ define void @_ZN7Imf_3_47IStreamC2EPKc(ptr noundef nonnull align 8 dereferenceab
   br i1 %6, label %.noexc, label %7
 
 .noexc:                                           ; preds = %2
-  tail call void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.2) #15
+  tail call void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.2) #16
   unreachable
 
 7:                                                ; preds = %2
-  %8 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #16
+  %8 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #17
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %8, ptr %3, align 8, !tbaa !11
   %9 = icmp ugt i64 %8, 15
@@ -85,9 +85,9 @@ define void @_ZN7Imf_3_47IStreamD2Ev(ptr noundef nonnull align 8 captures(addres
   br i1 %5, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %1
-  %6 = load i64, ptr %4, align 8, !tbaa !15
-  %7 = add i64 %6, 1
-  tail call void @_ZdlPvm(ptr noundef %3, i64 noundef %7) #17
+  %9 = load i64, ptr %4, align 8, !tbaa !15
+  %10 = add i64 %9, 1
+  tail call void @_ZdlPvm(ptr noundef %3, i64 noundef %10) #18
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %1, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -96,7 +96,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %1, %_
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define void @_ZN7Imf_3_47IStreamD0Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #2 align 2 {
-  tail call void @llvm.trap() #18
+  tail call void @llvm.trap() #19
   unreachable
 }
 
@@ -110,18 +110,18 @@ define noundef zeroext i1 @_ZNK7Imf_3_47IStream14isMemoryMappedEv(ptr nonnull re
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noalias noundef nonnull ptr @_ZN7Imf_3_47IStream16readMemoryMappedEi(ptr nonnull readnone align 8 captures(none) %0, i32 %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = tail call ptr @__cxa_allocate_exception(i64 72) #16
+  %3 = tail call ptr @__cxa_allocate_exception(i64 72) #17
   invoke void @_ZN7Iex_3_48InputExcC1EPKc(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull @.str)
           to label %4 unwind label %5
 
 4:                                                ; preds = %2
-  tail call void @__cxa_throw(ptr nonnull %3, ptr nonnull @_ZTIN7Iex_3_48InputExcE, ptr nonnull @_ZN7Iex_3_48InputExcD1Ev) #15
+  tail call void @__cxa_throw(ptr nonnull %3, ptr nonnull @_ZTIN7Iex_3_48InputExcE, ptr nonnull @_ZN7Iex_3_48InputExcD1Ev) #16
   unreachable
 
 5:                                                ; preds = %2
   %6 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr nonnull %3) #16
+  tail call void @__cxa_free_exception(ptr nonnull %3) #17
   resume { ptr, i32 } %6
 }
 
@@ -161,18 +161,18 @@ define noundef zeroext i1 @_ZNK7Imf_3_47IStream15isStatelessReadEv(ptr nonnull r
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef i64 @_ZN7Imf_3_47IStream4readEPvmm(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1, i64 %2, i64 %3) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-  %5 = tail call ptr @__cxa_allocate_exception(i64 72) #16
+  %5 = tail call ptr @__cxa_allocate_exception(i64 72) #17
   invoke void @_ZN7Iex_3_48InputExcC1EPKc(ptr noundef nonnull align 8 dereferenceable(72) %5, ptr noundef nonnull @.str.1)
           to label %6 unwind label %7
 
 6:                                                ; preds = %4
-  tail call void @__cxa_throw(ptr nonnull %5, ptr nonnull @_ZTIN7Iex_3_48InputExcE, ptr nonnull @_ZN7Iex_3_48InputExcD1Ev) #15
+  tail call void @__cxa_throw(ptr nonnull %5, ptr nonnull @_ZTIN7Iex_3_48InputExcE, ptr nonnull @_ZN7Iex_3_48InputExcD1Ev) #16
   unreachable
 
 7:                                                ; preds = %4
   %8 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr nonnull %5) #16
+  tail call void @__cxa_free_exception(ptr nonnull %5) #17
   resume { ptr, i32 } %8
 }
 
@@ -187,11 +187,11 @@ define void @_ZN7Imf_3_47OStreamC2EPKc(ptr noundef nonnull align 8 dereferenceab
   br i1 %6, label %.noexc, label %7
 
 .noexc:                                           ; preds = %2
-  tail call void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.2) #15
+  tail call void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.2) #16
   unreachable
 
 7:                                                ; preds = %2
-  %8 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #16
+  %8 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #17
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %8, ptr %3, align 8, !tbaa !11
   %9 = icmp ugt i64 %8, 15
@@ -241,9 +241,9 @@ define void @_ZN7Imf_3_47OStreamD2Ev(ptr noundef nonnull align 8 captures(addres
   br i1 %5, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %1
-  %6 = load i64, ptr %4, align 8, !tbaa !15
-  %7 = add i64 %6, 1
-  tail call void @_ZdlPvm(ptr noundef %3, i64 noundef %7) #17
+  %9 = load i64, ptr %4, align 8, !tbaa !15
+  %10 = add i64 %9, 1
+  tail call void @_ZdlPvm(ptr noundef %3, i64 noundef %10) #18
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %1, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -252,7 +252,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %1, %_
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define void @_ZN7Imf_3_47OStreamD0Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #2 align 2 {
-  tail call void @llvm.trap() #18
+  tail call void @llvm.trap() #19
   unreachable
 }
 

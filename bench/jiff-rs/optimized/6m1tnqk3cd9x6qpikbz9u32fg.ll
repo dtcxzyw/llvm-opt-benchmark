@@ -88,14 +88,14 @@ define internal void @"_ZN3std4sync6poison4once4Once15call_once_force28_$u7b$$u7
   %4 = load ptr, ptr %3, align 8, !align !4, !noundef !3
   store ptr null, ptr %3, align 8
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %7, label %5, !prof !5
+  br i1 %.not, label %10, label %7, !prof !5
 
-5:                                                ; preds = %2
+7:                                                ; preds = %2
   %6 = tail call noalias noundef ptr @_ZN4jiff2tz2db16TimeZoneDatabase8from_env17h770033bef8880845E()
   store ptr %6, ptr %4, align 8
   ret void
 
-7:                                                ; preds = %2
+10:                                               ; preds = %2
   tail call void @_ZN4core6option13unwrap_failed17h1fc5fce77a97a273E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.95a2a2af46fa738d12abe82399562330.3) #31
   unreachable
 }
@@ -306,9 +306,9 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
   %4 = load ptr, ptr %3, align 8, !alias.scope !35, !noalias !38, !align !4, !noundef !3
   store ptr null, ptr %3, align 8, !alias.scope !35, !noalias !38
   %.not.i.i = icmp eq ptr %4, null
-  br i1 %.not.i.i, label %5, label %_ZN4core3ops8function6FnOnce9call_once17h618d3207c370b89bE.exit, !prof !5
+  br i1 %.not.i.i, label %7, label %_ZN4core3ops8function6FnOnce9call_once17h618d3207c370b89bE.exit, !prof !5
 
-5:                                                ; preds = %2
+7:                                                ; preds = %2
   tail call void @_ZN4core6option13unwrap_failed17h1fc5fce77a97a273E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.95a2a2af46fa738d12abe82399562330.3) #31, !noalias !41
   unreachable
 
@@ -7236,24 +7236,24 @@ _ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit62: ; preds = %37, %57
 define { ptr, i64 } @_ZN4jiff2tz8timezone20TimeZoneAbbreviation6as_str17h15348597f6518ac7E(ptr noalias noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #2 {
   %2 = load i8, ptr %0, align 8, !range !457, !noundef !3
   %3 = trunc nuw i8 %2 to i1
-  br i1 %3, label %4, label %7
+  br i1 %3, label %4, label %9
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %6 = tail call { ptr, i64 } @"_ZN4jiff6shared4util9array_str17ArrayStr$LT$_$GT$6as_str17h1f4b20d2a51dc41aE"(ptr noalias noundef nonnull readonly align 1 dereferenceable(10) %5)
-  br label %14
+  br label %16
 
-7:                                                ; preds = %1
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = load ptr, ptr %8, align 8, !nonnull !3, !align !384, !noundef !3
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %11 = load i64, ptr %10, align 8, !noundef !3
-  %12 = insertvalue { ptr, i64 } poison, ptr %9, 0
-  %13 = insertvalue { ptr, i64 } %12, i64 %11, 1
-  br label %14
+9:                                                ; preds = %1
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %11 = load ptr, ptr %10, align 8, !nonnull !3, !align !384, !noundef !3
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %13 = load i64, ptr %12, align 8, !noundef !3
+  %14 = insertvalue { ptr, i64 } poison, ptr %11, 0
+  %15 = insertvalue { ptr, i64 } %14, i64 %13, 1
+  br label %16
 
-14:                                               ; preds = %7, %4
-  %.merged = phi { ptr, i64 } [ %6, %4 ], [ %13, %7 ]
+16:                                               ; preds = %9, %4
+  %.sroa.0.0 = phi { ptr, i64 } [ %6, %4 ], [ %13, %7 ]
   ret { ptr, i64 } %.merged
 }
 

@@ -33,9 +33,9 @@ define void @_ZN8WasmEdge5FaultC2Ev(ptr noundef nonnull align 8 dereferenceable(
   store ptr @_ZN8WasmEdge12_GLOBAL__N_113signalHandlerEiP9siginfo_tPv, ptr %2, align 8
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 136
   store i32 4, ptr %9, align 8
-  %10 = call i32 @sigaction(i32 noundef 8, ptr noundef nonnull %2, ptr noundef null) #7
-  %11 = call i32 @sigaction(i32 noundef 7, ptr noundef nonnull %2, ptr noundef null) #7
-  %12 = call i32 @sigaction(i32 noundef 11, ptr noundef nonnull %2, ptr noundef null) #7
+  %10 = call i32 @sigaction(i32 noundef 8, ptr noundef nonnull %2, ptr noundef null) #8
+  %11 = call i32 @sigaction(i32 noundef 7, ptr noundef nonnull %2, ptr noundef null) #8
+  %12 = call i32 @sigaction(i32 noundef 11, ptr noundef nonnull %2, ptr noundef null) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %_ZN8WasmEdge12_GLOBAL__N_115increaseHandlerEv.exit
 
@@ -53,9 +53,9 @@ define void @_ZN8WasmEdge5FaultD2Ev(ptr noundef nonnull align 8 captures(none) d
   br i1 %3, label %4, label %_ZN8WasmEdge12_GLOBAL__N_115decreaseHandlerEv.exit
 
 4:                                                ; preds = %1
-  %5 = tail call ptr @signal(i32 noundef 8, ptr noundef null) #7
-  %6 = tail call ptr @signal(i32 noundef 7, ptr noundef null) #7
-  %7 = tail call ptr @signal(i32 noundef 11, ptr noundef null) #7
+  %5 = tail call ptr @signal(i32 noundef 8, ptr noundef null) #8
+  %6 = tail call ptr @signal(i32 noundef 7, ptr noundef null) #8
+  %7 = tail call ptr @signal(i32 noundef 11, ptr noundef null) #8
   br label %_ZN8WasmEdge12_GLOBAL__N_115decreaseHandlerEv.exit
 
 _ZN8WasmEdge12_GLOBAL__N_115decreaseHandlerEv.exit: ; preds = %1, %4
@@ -72,7 +72,7 @@ define void @_ZN8WasmEdge5Fault9emitFaultENS_7ErrCodeE(ptr noundef readonly capt
   %3 = load ptr, ptr %2, align 8, !nonnull !4, !noundef !4
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load i32, ptr %0, align 4
-  tail call void @longjmp(ptr noundef nonnull %4, i32 noundef %5) #8
+  tail call void @longjmp(ptr noundef nonnull %4, i32 noundef %5) #9
   unreachable
 }
 
@@ -87,20 +87,20 @@ define internal void @_ZN8WasmEdge12_GLOBAL__N_113signalHandlerEiP9siginfo_tPv(i
   %4 = alloca %struct.__sigset_t, align 8
   %5 = alloca %"class.WasmEdge::ErrCode", align 4
   %6 = alloca %"class.WasmEdge::ErrCode", align 4
-  %7 = call i32 @sigemptyset(ptr noundef nonnull %4) #7
-  %8 = call i32 @sigaddset(ptr noundef nonnull %4, i32 noundef %0) #7
-  %9 = call i32 @pthread_sigmask(i32 noundef 1, ptr noundef nonnull %4, ptr noundef null) #7
+  %7 = call i32 @sigemptyset(ptr noundef nonnull %4) #8
+  %8 = call i32 @sigaddset(ptr noundef nonnull %4, i32 noundef %0) #8
+  %9 = call i32 @pthread_sigmask(i32 noundef 1, ptr noundef nonnull %4, ptr noundef null) #8
   %switch = icmp eq i32 %0, 8
   br i1 %switch, label %11, label %10
 
 10:                                               ; preds = %3
   store i32 1032, ptr %5, align 4
-  call void @_ZN8WasmEdge5Fault9emitFaultENS_7ErrCodeE(ptr noundef nonnull %5) #9
+  call void @_ZN8WasmEdge5Fault9emitFaultENS_7ErrCodeE(ptr noundef nonnull %5) #10
   unreachable
 
 11:                                               ; preds = %3
   store i32 1028, ptr %6, align 4
-  call void @_ZN8WasmEdge5Fault9emitFaultENS_7ErrCodeE(ptr noundef nonnull %6) #9
+  call void @_ZN8WasmEdge5Fault9emitFaultENS_7ErrCodeE(ptr noundef nonnull %6) #10
   unreachable
 }
 
@@ -122,10 +122,10 @@ declare i32 @__gxx_personality_v0(...)
 declare ptr @signal(i32 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
@@ -133,7 +133,7 @@ attributes #2 = { mustprogress noreturn nounwind uwtable "frame-pointer"="all" "
 attributes #3 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #5 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #7 = { nounwind }
 attributes #8 = { noreturn nounwind }
 attributes #9 = { noreturn }

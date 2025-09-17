@@ -6883,8 +6883,8 @@ define dso_local void @tcg_gen_goto_tb(i32 noundef %0) local_unnamed_addr #2 {
   %2 = icmp ult i32 %0, 2
   tail call void @llvm.assume(i1 %2)
   tail call void @plugin_gen_disable_mem_helpers() #6
-  %3 = zext nneg i32 %0 to i64
-  %4 = tail call noundef ptr @tcg_gen_op1(i32 noundef 131, i32 noundef 0, i64 noundef %3)
+  %10 = zext nneg i32 %0 to i64
+  %11 = tail call noundef ptr @tcg_gen_op1(i32 noundef 131, i32 noundef 0, i64 noundef %10)
   ret void
 }
 

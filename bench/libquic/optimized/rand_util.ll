@@ -92,13 +92,13 @@ define void @_ZN4base17RandBytesAsStringB5cxx11Em(ptr dead_on_unwind noalias wri
   br i1 %11, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %8
-  tail call void @_ZdlPv(ptr noundef %10) #6
+  tail call void @_ZdlPv(ptr noundef %10) #7
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %8, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   resume { ptr, i32 } %9
 
-12:                                               ; preds = %7
+14:                                               ; preds = %7
   ret void
 }
 

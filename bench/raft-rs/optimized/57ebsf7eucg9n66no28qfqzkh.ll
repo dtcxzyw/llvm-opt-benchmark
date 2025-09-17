@@ -4122,13 +4122,13 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h300da417
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !6
   %6 = icmp ugt i64 %1, %5
-  br i1 %6, label %7, label %9, !prof !26
+  br i1 %6, label %7, label %11, !prof !26
 
 7:                                                ; preds = %3
   %8 = tail call { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash17he2f4515d2e1d0310E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1, ptr noalias noundef nonnull readonly align 1 %2, i1 noundef zeroext true)
   br label %9
 
-9:                                                ; preds = %3, %7
+11:                                               ; preds = %3, %7
   ret void
 }
 
@@ -4137,13 +4137,13 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17hab290b8b
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !6
   %6 = icmp ugt i64 %1, %5
-  br i1 %6, label %7, label %9, !prof !26
+  br i1 %6, label %7, label %11, !prof !26
 
 7:                                                ; preds = %3
   %8 = tail call { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash17h335b9fca9e2edac3E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1, ptr noalias noundef nonnull readonly align 1 %2, i1 noundef zeroext true)
   br label %9
 
-9:                                                ; preds = %3, %7
+11:                                               ; preds = %3, %7
   ret void
 }
 
@@ -4152,13 +4152,13 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17he0225500
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !6
   %6 = icmp ugt i64 %1, %5
-  br i1 %6, label %7, label %9, !prof !26
+  br i1 %6, label %7, label %11, !prof !26
 
 7:                                                ; preds = %3
   %8 = tail call { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash17h5f823e7ab0720f29E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1, ptr noalias noundef nonnull readonly align 1 %2, i1 noundef zeroext true)
   br label %9
 
-9:                                                ; preds = %3, %7
+11:                                               ; preds = %3, %7
   ret void
 }
 
@@ -4167,13 +4167,13 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17hf732086d
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !6
   %6 = icmp ugt i64 %1, %5
-  br i1 %6, label %7, label %9, !prof !26
+  br i1 %6, label %7, label %11, !prof !26
 
 7:                                                ; preds = %3
   %8 = tail call { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash17hf293427546aeea50E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1, ptr noalias noundef nonnull readonly align 1 %2, i1 noundef zeroext true)
   br label %9
 
-9:                                                ; preds = %3, %7
+11:                                               ; preds = %3, %7
   ret void
 }
 

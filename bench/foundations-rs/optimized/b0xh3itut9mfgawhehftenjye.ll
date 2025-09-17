@@ -16705,18 +16705,18 @@ define noundef ptr @_RNvCshjvJWTf7CV5_7___rustc14___rust_realloc(ptr noundef %0,
   tail call void @llvm.assume(i1 %7)
   %8 = tail call noundef i32 @_ZN17tikv_jemallocator15layout_to_flags17h0b5871a64264a851E(i64 noundef range(i64 1, -9223372036854775807) %2, i64 noundef %3)
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %10, label %12
+  br i1 %9, label %10, label %13
 
-10:                                               ; preds = %4
+10:; preds = %4
   %11 = tail call noundef ptr @_rjem_realloc(ptr noundef %0, i64 noundef %3) #16
   br label %"_ZN80_$LT$tikv_jemallocator..Jemalloc$u20$as$u20$core..alloc..global..GlobalAlloc$GT$7realloc17h0c15d2b845e12aedE.exit"
 
-12:                                               ; preds = %4
-  %13 = tail call noundef ptr @_rjem_rallocx(ptr noundef %0, i64 noundef %3, i32 noundef %8) #16
+13:                                               ; preds = %4
+  %14 = tail call noundef ptr @_rjem_rallocx(ptr noundef %0, i64 noundef %3, i32 noundef %8) #16
   br label %"_ZN80_$LT$tikv_jemallocator..Jemalloc$u20$as$u20$core..alloc..global..GlobalAlloc$GT$7realloc17h0c15d2b845e12aedE.exit"
 
-"_ZN80_$LT$tikv_jemallocator..Jemalloc$u20$as$u20$core..alloc..global..GlobalAlloc$GT$7realloc17h0c15d2b845e12aedE.exit": ; preds = %10, %12
-  %.sroa.0.0.i = phi ptr [ %11, %10 ], [ %13, %12 ]
+"_ZN80_$LT$tikv_jemallocator..Jemalloc$u20$as$u20$core..alloc..global..GlobalAlloc$GT$7realloc17h0c15d2b845e12aedE.exit": ; preds = %10, %13
+  %.sroa.0.0.i = phi ptr [ %11, %10 ], [ %14, %12 ]
   ret ptr %.sroa.0.0.i
 }
 

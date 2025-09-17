@@ -53,7 +53,7 @@ define noundef i32 @_ZN5ZXing6QRCode16CodecModeForBitsEiNS0_4TypeE(i32 noundef %
 
 9:                                                ; preds = %2
   %or.cond = icmp ult i32 %0, 6
-  br i1 %or.cond, label %42, label %10
+  br i1 %or.cond, label %44, label %10
 
 10:                                               ; preds = %9
   %switch.tableidx = add i32 %0, -7
@@ -68,7 +68,7 @@ define noundef i32 @_ZN5ZXing6QRCode16CodecModeForBitsEiNS0_4TypeE(i32 noundef %
   %12 = tail call ptr @__cxa_allocate_exception(i64 48) #11
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.2, ptr noundef nonnull align 1 dereferenceable(1) %4)
-          to label %13 unwind label %36
+          to label %13 unwind label %38
 
 13:                                               ; preds = %.thread
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 16
@@ -120,44 +120,44 @@ _ZN5ZXing5ErrorC2EPKcsNS0_4TypeENSt7__cxx1112basic_stringIcSt11char_traitsIcESaI
   br i1 %33, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i33
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i33: ; preds = %30
-  %34 = load i64, ptr %16, align 8, !tbaa !13
-  %35 = add i64 %34, 1
-  call void @_ZdlPvm(ptr noundef %32, i64 noundef %35) #13
+  %36 = load i64, ptr %16, align 8, !tbaa !13
+  %37 = add i64 %36, 1
+  call void @_ZdlPvm(ptr noundef %32, i64 noundef %37) #13
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds = %30, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i33
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %43
+  br label %45
 
-36:                                               ; preds = %.thread
-  %37 = landingpad { ptr, i32 }
+38:                                               ; preds = %.thread
+  %39 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @__cxa_free_exception(ptr %12) #11
-  br label %43
+  br label %45
 
 .sink.split:                                      ; preds = %7, %5
   %__const._ZN5ZXing6QRCode16CodecModeForBitsEiNS0_4TypeE.Bits2Mode.1.sink = phi ptr [ @__const._ZN5ZXing6QRCode16CodecModeForBitsEiNS0_4TypeE.Bits2Mode, %5 ], [ @__const._ZN5ZXing6QRCode16CodecModeForBitsEiNS0_4TypeE.Bits2Mode.1, %7 ]
-  %38 = sext i32 %0 to i64
-  %39 = getelementptr inbounds i32, ptr %__const._ZN5ZXing6QRCode16CodecModeForBitsEiNS0_4TypeE.Bits2Mode.1.sink, i64 %38
-  %40 = load i32, ptr %39, align 4, !tbaa !20
-  br label %42
+  %40 = sext i32 %0 to i64
+  %41 = getelementptr inbounds i32, ptr %__const._ZN5ZXing6QRCode16CodecModeForBitsEiNS0_4TypeE.Bits2Mode.1.sink, i64 %40
+  %42 = load i32, ptr %41, align 4, !tbaa !20
+  br label %44
 
 switch.lookup:                                    ; preds = %10
-  %41 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5ZXing6QRCode16CodecModeForBitsEiNS0_4TypeE, i64 %41
+  %43 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5ZXing6QRCode16CodecModeForBitsEiNS0_4TypeE, i64 %43
   %switch.load = load i32, ptr %switch.gep, align 4
-  br label %42
+  br label %44
 
-42:                                               ; preds = %switch.lookup, %.sink.split, %9
-  %.126 = phi i32 [ %0, %9 ], [ %40, %.sink.split ], [ %switch.load, %switch.lookup ]
+44:                                               ; preds = %switch.lookup, %.sink.split, %9
+  %.126 = phi i32 [ %0, %9 ], [ %42, %.sink.split ], [ %switch.load, %switch.lookup ]
   ret i32 %.126
 
-43:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %36
-  %.pn41 = phi { ptr, i32 } [ %31, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread ], [ %37, %36 ]
+45:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %38
+  %.pn41 = phi { ptr, i32 } [ %31, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread ], [ %39, %36 ]
   resume { ptr, i32 } %.pn41
 
-44:                                               ; preds = %_ZN5ZXing5ErrorC2EPKcsNS0_4TypeENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
+46:                                               ; preds = %_ZN5ZXing5ErrorC2EPKcsNS0_4TypeENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
   unreachable
 }
 
@@ -239,9 +239,9 @@ define linkonce_odr void @_ZN5ZXing5ErrorD2Ev(ptr noundef nonnull align 8 derefe
   br i1 %4, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %1
-  %5 = load i64, ptr %3, align 8, !tbaa !13
-  %6 = add i64 %5, 1
-  tail call void @_ZdlPvm(ptr noundef %2, i64 noundef %6) #13
+  %8 = load i64, ptr %3, align 8, !tbaa !13
+  %9 = add i64 %8, 1
+  tail call void @_ZdlPvm(ptr noundef %2, i64 noundef %9) #13
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %1, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i

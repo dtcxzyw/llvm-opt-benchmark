@@ -586,12 +586,12 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost4urls6detail13segments_i
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %8 = load i64, ptr %7, align 8, !tbaa !18
   %9 = icmp ne i64 %6, %8
-  br i1 %9, label %10, label %23
+  br i1 %9, label %10, label %25
 
 10:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   invoke void @_ZNK5boost4urls13segments_base8iteratordeB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull align 8 dereferenceable(104) %4)
-          to label %11 unwind label %24
+          to label %11 unwind label %26
 
 11:                                               ; preds = %10
   %12 = load ptr, ptr %3, align 8, !tbaa !23
@@ -607,24 +607,24 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost4urls6detail13segments_i
   br i1 %20, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %11
-  %21 = load i64, ptr %19, align 8, !tbaa !29
-  %22 = add i64 %21, 1
-  call void @_ZdlPvm(ptr noundef %18, i64 noundef %22) #15
+  %23 = load i64, ptr %19, align 8, !tbaa !29
+  %24 = add i64 %23, 1
+  call void @_ZdlPvm(ptr noundef %18, i64 noundef %24) #15
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %11, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZN5boost4urls6detail18segments_iter_impl9incrementEv(ptr noundef nonnull align 8 dereferenceable(104) %4) #13
-  br label %23
+  br label %25
 
-23:                                               ; preds = %2, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+25:                                               ; preds = %2, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   ret i1 %9
 
-24:                                               ; preds = %10
-  %25 = landingpad { ptr, i32 }
+26:                                               ; preds = %10
+  %27 = landingpad { ptr, i32 }
           catch ptr null
-  %26 = extractvalue { ptr, i32 } %25, 0
-  call void @__clang_call_terminate(ptr %26) #14
+  %28 = extractvalue { ptr, i32 } %27, 0
+  call void @__clang_call_terminate(ptr %28) #14
   unreachable
 }
 
@@ -638,7 +638,7 @@ define linkonce_odr hidden void @_ZN5boost4urls6detail13segments_iterINS0_13segm
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %5, ptr noundef nonnull align 8 dereferenceable(104) %6, i64 104, i1 false)
   tail call void @_ZN5boost4urls6detail18segments_iter_impl9incrementEv(ptr noundef nonnull align 8 dereferenceable(104) %6) #13, !noalias !73
   invoke void @_ZNK5boost4urls13segments_base8iteratordeB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull align 8 dereferenceable(104) %5)
-          to label %7 unwind label %19
+          to label %7 unwind label %21
 
 7:                                                ; preds = %3
   %8 = load ptr, ptr %4, align 8, !tbaa !23
@@ -654,9 +654,9 @@ define linkonce_odr hidden void @_ZN5boost4urls6detail13segments_iterINS0_13segm
   br i1 %16, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %7
-  %17 = load i64, ptr %15, align 8, !tbaa !29
-  %18 = add i64 %17, 1
-  call void @_ZdlPvm(ptr noundef %14, i64 noundef %18) #15
+  %19 = load i64, ptr %15, align 8, !tbaa !29
+  %20 = add i64 %19, 1
+  call void @_ZdlPvm(ptr noundef %14, i64 noundef %20) #15
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %7, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -664,11 +664,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %7, %_
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
-19:                                               ; preds = %3
-  %20 = landingpad { ptr, i32 }
+21:                                               ; preds = %3
+  %22 = landingpad { ptr, i32 }
           catch ptr null
-  %21 = extractvalue { ptr, i32 } %20, 0
-  call void @__clang_call_terminate(ptr %21) #14
+  %23 = extractvalue { ptr, i32 } %22, 0
+  call void @__clang_call_terminate(ptr %23) #14
   unreachable
 }
 

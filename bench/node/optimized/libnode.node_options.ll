@@ -15151,8 +15151,8 @@ entry:
   %sub.i47.i.i = add i64 %0, 47
   %1 = inttoptr i64 %sub.i47.i.i to ptr
   %2 = load i64, ptr %1, align 8
-  %sub.i.i = add i64 %2, 271
-  %3 = inttoptr i64 %sub.i.i to ptr
+  %sub.i.i.i = add i64 %2, 271
+  %3 = inttoptr i64 %sub.i.i.i to ptr
   %4 = load i64, ptr %3, align 8
   %5 = inttoptr i64 %4 to ptr
   %isolate_.i = getelementptr inbounds nuw i8, ptr %5, i64 88

@@ -3562,16 +3562,16 @@ define { ptr, i64 } @_ZN4jiff6shared4util5error5Error9from_args17he5a533fe9fe106
   %9 = load i64, ptr %8, align 8, !noundef !3
   switch i64 %7, label %22 [
     i64 0, label %10
-    i64 1, label %24
+    i64 1, label %26
   ]
 
 10:                                               ; preds = %1
   %11 = icmp eq i64 %9, 0
   br i1 %11, label %12, label %22
 
-12:                                               ; preds = %26, %10
-  %.sroa.6.0.ph = phi i64 [ 0, %10 ], [ %29, %26 ]
-  %.sroa.0.0.ph = phi ptr [ inttoptr (i64 1 to ptr), %10 ], [ %27, %26 ]
+12:                                               ; preds = %28, %10
+  %.sroa.6.0.ph = phi i64 [ 0, %10 ], [ %31, %26 ]
+  %.sroa.0.0.ph = phi ptr [ inttoptr (i64 1 to ptr), %10 ], [ %29, %26 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !165
   call void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$15try_allocate_in17h488acd270d0fe261E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %3, i64 noundef %.sroa.6.0.ph, i1 noundef zeroext false, i64 noundef 1, i64 noundef 1), !noalias !165
   %13 = load i64, ptr %3, align 8, !range !20, !noalias !165, !noundef !3
@@ -3599,7 +3599,7 @@ _ZN4core3ops8function6FnOnce9call_once17h5ddeac96cda3c724E.exit.i: ; preds = %12
   store i64 %.sroa.6.0.ph, ptr %.sroa.5.0..sroa_idx.i.i.i, align 8
   br label %"_ZN4core6option15Option$LT$T$GT$11map_or_else17h47084d1093ef176bE.exit"
 
-22:                                               ; preds = %1, %24, %10
+22:                                               ; preds = %1, %26, %10
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !183
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull readonly align 8 dereferenceable(48) %0, i64 48, i1 false), !noalias !187
   call void @_ZN5alloc3fmt6format12format_inner17hbc00c97fd665fffbE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %2)
@@ -3610,14 +3610,14 @@ _ZN4core3ops8function6FnOnce9call_once17h5ddeac96cda3c724E.exit.i: ; preds = %12
   %23 = call { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17hb011d28936faa109E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e144535da28e22b2c0b740002851b875.114)
   ret { ptr, i64 } %23
 
-24:                                               ; preds = %1
-  %25 = icmp eq i64 %9, 0
-  br i1 %25, label %26, label %22
+26:                                               ; preds = %1
+  %27 = icmp eq i64 %9, 0
+  br i1 %27, label %28, label %22
 
-26:                                               ; preds = %24
-  %27 = load ptr, ptr %5, align 8, !nonnull !3, !align !145, !noundef !3
-  %28 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %29 = load i64, ptr %28, align 8, !noundef !3
+28:                                               ; preds = %26
+  %29 = load ptr, ptr %5, align 8, !nonnull !3, !align !145, !noundef !3
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %31 = load i64, ptr %30, align 8, !noundef !3
   br label %12
 }
 

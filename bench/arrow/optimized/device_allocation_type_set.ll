@@ -62,7 +62,7 @@ define void @_ZNK5arrow23DeviceAllocationTypeSet8ToStringB5cxx11Ev(ptr dead_on_u
   br i1 %7, label %8, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
 
 8:                                                ; preds = %5
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.21) #6
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.21) #7
           to label %.noexc13 unwind label %31
 
 .noexc13:                                         ; preds = %8
@@ -109,7 +109,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i: ; preds
   br i1 %21, label %.invoke, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i16
 
 .invoke:                                          ; preds = %_ZN5arrow26DeviceAllocationTypeToCStrENS_20DeviceAllocationTypeE.exit, %19
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.21) #6
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.21) #7
           to label %.cont unwind label %.loopexit.split-lp
 
 .cont:                                            ; preds = %.invoke
@@ -133,7 +133,7 @@ switch.lookup:                                    ; preds = %_ZNSt7__cxx1112basi
 
 _ZN5arrow26DeviceAllocationTypeToCStrENS_20DeviceAllocationTypeE.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit19, %switch.lookup
   %.0.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.14, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit19 ]
-  %26 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i) #7
+  %26 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i) #8
   %27 = load i64, ptr %3, align 8, !tbaa !10
   %28 = sub i64 4611686018427387903, %27
   %29 = icmp ult i64 %28, %26
@@ -163,9 +163,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit: ; preds = %_ZN
   br i1 %35, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %33
-  %36 = load i64, ptr %2, align 8, !tbaa !9
-  %37 = add i64 %36, 1
-  tail call void @_ZdlPvm(ptr noundef %34, i64 noundef %37) #8
+  %38 = load i64, ptr %2, align 8, !tbaa !9
+  %39 = add i64 %38, 1
+  tail call void @_ZdlPvm(ptr noundef %34, i64 noundef %39) #9
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %33, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i

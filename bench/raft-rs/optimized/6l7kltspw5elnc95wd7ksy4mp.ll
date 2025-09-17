@@ -464,7 +464,7 @@ define hidden noundef ptr @_ZN3std2io5Write9write_all17hc37ed08e0655a42cE(ptr no
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %7
 
-7:                                                ; preds = %.lr.ph, %38
+7:                                                ; preds = %.lr.ph, %40
   %.sroa.0.068 = phi ptr [ %1, %.lr.ph ], [ %.sroa.0.127, %38 ]
   %.sroa.4.067 = phi i64 [ %2, %.lr.ph ], [ %.sroa.4.125, %38 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -477,7 +477,7 @@ define hidden noundef ptr @_ZN3std2io5Write9write_all17hc37ed08e0655a42cE(ptr no
   %12 = ptrtoint ptr %10 to i64
   br i1 %11, label %13, label %16
 
-.loopexit:                                        ; preds = %38, %3, %.thread58
+.loopexit:                                        ; preds = %40, %3, %.thread58
   %.sroa.04.0 = phi ptr [ %.sroa.04.1, %.thread58 ], [ null, %3 ], [ null, %38 ]
   ret ptr %.sroa.04.0
 
@@ -523,12 +523,12 @@ default.unreachable:                              ; preds = %13
           cleanup
   %23 = load i64, ptr %4, align 8, !range !11, !noundef !12
   %.not = icmp eq i64 %23, 0
-  br i1 %.not, label %41, label %40
+  br i1 %.not, label %43, label %42
 
 24:                                               ; preds = %18
   %25 = sub nuw i64 %.sroa.4.067, %12
   %26 = getelementptr inbounds nuw i8, ptr %.sroa.0.068, i64 %12
-  br label %38
+  br label %40
 
 27:                                               ; preds = %13
   %.mask60 = and i64 %12, -4294967296
@@ -551,24 +551,24 @@ default.unreachable:                              ; preds = %13
 
 .thread:                                          ; preds = %15, %34, %27, %29
   call void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hdc6a4159a0fc144cE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %6)
-  br label %38
+  br label %40
 
-38:                                               ; preds = %24, %.thread
+40:                                               ; preds = %24, %.thread
   %.sroa.0.127 = phi ptr [ %.sroa.0.068, %.thread ], [ %26, %24 ]
   %.sroa.4.125 = phi i64 [ %.sroa.4.067, %.thread ], [ %25, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %39 = icmp eq i64 %.sroa.4.125, 0
-  br i1 %39, label %.loopexit, label %7
+  %41 = icmp eq i64 %.sroa.4.125, 0
+  br i1 %41, label %.loopexit, label %7
 
-40:                                               ; preds = %21
+42:                                               ; preds = %21
   invoke void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hdc6a4159a0fc144cE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %6) #16
-          to label %41 unwind label %42
+          to label %41 unwind label %44
 
-41:                                               ; preds = %40, %21
+43:                                               ; preds = %42, %21
   resume { ptr, i32 } %22
 
-42:                                               ; preds = %40
-  %43 = landingpad { ptr, i32 }
+44:                                               ; preds = %42
+  %45 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #17
   unreachable

@@ -9419,26 +9419,26 @@ _ZN8nanobind6detail11type_casterINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   br i1 %72, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %_ZN8nanobind6detail11type_casterINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiE8from_cppERKS7_NS_9rv_policyEPNS0_12cleanup_listE.exit
-  %73 = load i64, ptr %71, align 8, !tbaa !41
-  %74 = add i64 %73, 1
-  call void @_ZdlPvm(ptr noundef %70, i64 noundef %74) #29
+  %75 = load i64, ptr %71, align 8, !tbaa !41
+  %76 = add i64 %75, 1
+  call void @_ZdlPvm(ptr noundef %70, i64 noundef %76) #29
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZN8nanobind6detail11type_casterINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiE8from_cppERKS7_NS_9rv_policyEPNS0_12cleanup_listE.exit, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  %75 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %10) #31
+  %77 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %10) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %"_ZZN8nanobind6detail11func_createILb0ELb1EZL32nanobind_init_test_functions_extRNS_7module_EE4$_63NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJNS_8callableEEJLm0EEJNS_5scopeENS_4nameEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENKUlPvPSF_PhNS_9rv_policyEPNS0_12cleanup_listEE_clEST_SU_SV_SW_SY_.exit"
 
 .body:                                            ; preds = %55
-  %76 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %10) #31
+  %78 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %10) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %77 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #31
+  %79 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   resume { ptr, i32 } %.merged.i
 
 "_ZZN8nanobind6detail11func_createILb0ELb1EZL32nanobind_init_test_functions_extRNS_7module_EE4$_63NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJNS_8callableEEJLm0EEJNS_5scopeENS_4nameEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENKUlPvPSF_PhNS_9rv_policyEPNS0_12cleanup_listEE_clEST_SU_SV_SW_SY_.exit": ; preds = %5, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %.0.i = phi ptr [ %66, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ inttoptr (i64 1 to ptr), %5 ]
-  %78 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #31
+  %80 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret ptr %.0.i

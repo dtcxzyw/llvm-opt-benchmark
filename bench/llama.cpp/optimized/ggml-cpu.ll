@@ -794,7 +794,7 @@ define linkonce_odr void @_ZN31ggml_backend_cpu_device_contextC2Ev(ptr noundef n
   store i8 0, ptr %4, align 1, !tbaa !69
   %5 = tail call noalias ptr @fopen(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7)
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %37, label %6
+  br i1 %.not, label %39, label %6
 
 6:                                                ; preds = %._crit_edge.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
@@ -858,22 +858,22 @@ define linkonce_odr void @_ZN31ggml_backend_cpu_device_contextC2Ev(ptr noundef n
   br i1 %32, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %29
-  %33 = load i64, ptr %2, align 8, !tbaa !69
-  %34 = add i64 %33, 1
-  call void @_ZdlPvm(ptr noundef %31, i64 noundef %34) #28
+  %35 = load i64, ptr %2, align 8, !tbaa !69
+  %36 = add i64 %35, 1
+  call void @_ZdlPvm(ptr noundef %31, i64 noundef %36) #28
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit.thread: ; preds = %9, %.lr.ph
-  %35 = call ptr @fgets(ptr noundef nonnull %1, i32 noundef 1024, ptr noundef nonnull %5)
-  %.not20 = icmp eq ptr %35, null
+  %37 = call ptr @fgets(ptr noundef nonnull %1, i32 noundef 1024, ptr noundef nonnull %5)
+  %.not20 = icmp eq ptr %37, null
   br i1 %.not20, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit, label %.lr.ph, !llvm.loop !74
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit.thread, %6, %._crit_edge
-  %36 = call i32 @fclose(ptr noundef nonnull %5)
+  %38 = call i32 @fclose(ptr noundef nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
-  br label %37
+  br label %39
 
-37:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit, %._crit_edge.i.i
+39:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit, %._crit_edge.i.i
   ret void
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %29, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -888,9 +888,9 @@ define linkonce_odr void @_ZN31ggml_backend_cpu_device_contextD2Ev(ptr noundef n
   br i1 %4, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %1
-  %5 = load i64, ptr %3, align 8, !tbaa !69
-  %6 = add i64 %5, 1
-  tail call void @_ZdlPvm(ptr noundef %2, i64 noundef %6) #28
+  %8 = load i64, ptr %3, align 8, !tbaa !69
+  %9 = add i64 %8, 1
+  tail call void @_ZdlPvm(ptr noundef %2, i64 noundef %9) #28
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %1, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i

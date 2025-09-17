@@ -363,16 +363,16 @@ define void @_ZN8UatModelC2EP7QObject7QString(ptr noundef align 8 dereferenceabl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, i8 0, i64 48, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   invoke void @_ZNK7QString11toStdStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef align 8 dereferenceable_or_null(24) %2)
-          to label %7 unwind label %17
+          to label %7 unwind label %20
 
 7:                                                ; preds = %3
   %8 = load ptr, ptr %4, align 8
   %9 = invoke ptr @uat_get_table_by_name(ptr noundef %8)
-          to label %10 unwind label %19
+          to label %10 unwind label %22
 
 10:                                               ; preds = %7
   invoke void @_ZN8UatModel7loadUatEP8epan_uat(ptr noundef align 8 dereferenceable_or_null(80) %0, ptr noundef %9)
-          to label %11 unwind label %19
+          to label %11 unwind label %22
 
 11:                                               ; preds = %10
   %12 = load ptr, ptr %4, align 8
@@ -381,39 +381,39 @@ define void @_ZN8UatModelC2EP7QObject7QString(ptr noundef align 8 dereferenceabl
   br i1 %14, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %11
-  %15 = load i64, ptr %13, align 8
-  %16 = add i64 %15, 1
-  call void @_ZdlPvm(ptr noundef %12, i64 noundef %16) #26
+  %18 = load i64, ptr %13, align 8
+  %19 = add i64 %18, 1
+  call void @_ZdlPvm(ptr noundef %12, i64 noundef %19) #26
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %11, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
-17:                                               ; preds = %3
-  %18 = landingpad { ptr, i32 }
+20:                                               ; preds = %3
+  %21 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7
 
-19:                                               ; preds = %10, %7
-  %20 = landingpad { ptr, i32 }
+22:                                               ; preds = %10, %7
+  %23 = landingpad { ptr, i32 }
           cleanup
-  %21 = load ptr, ptr %4, align 8
-  %22 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %23 = icmp eq ptr %21, %22
-  br i1 %23, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i5
+  %24 = load ptr, ptr %4, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %26 = icmp eq ptr %24, %25
+  br i1 %26, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i5
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i5: ; preds = %19
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i6: ; preds = %22
   %24 = load i64, ptr %22, align 8
   %25 = add i64 %24, 1
   call void @_ZdlPvm(ptr noundef %21, i64 noundef %25) #26
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7: ; preds = %19, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i5, %17
-  %.pn = phi { ptr, i32 } [ %18, %17 ], [ %20, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i5 ], [ %20, %19 ]
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 56
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7: ; preds = %19, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i6, %20
+  %.pn = phi { ptr, i32 } [ %21, %17 ], [ %23, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i5 ], [ %20, %19 ]
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 56
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  call void @_ZN17QArrayDataPointerI4QMapIi7QStringEED2Ev(ptr noundef nonnull align 8 dereferenceable_or_null(24) %26) #24
+  call void @_ZN17QArrayDataPointerI4QMapIi7QStringEED2Ev(ptr noundef nonnull align 8 dereferenceable_or_null(24) %32) #24
   call void @_ZN5QListIbED2Ev(ptr noundef nonnull align 8 dereferenceable_or_null(24) %6) #24
   call void @_ZN19QAbstractTableModelD2Ev(ptr noundef align 8 dereferenceable_or_null(16) %0) #24
   resume { ptr, i32 } %.pn

@@ -65,21 +65,21 @@ declare void @_ZN3zmq20stream_engine_base_tD2Ev(ptr noundef nonnull align 8 dere
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3zmq12raw_engine_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1696) %0) unnamed_addr #3 align 2 {
-  tail call void @_ZN3zmq20stream_engine_base_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1689) %0) #13
+  tail call void @_ZN3zmq20stream_engine_base_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1689) %0) #14
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define void @_ZThn16_N3zmq12raw_engine_tD1Ev(ptr noundef %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
-  tail call void @_ZN3zmq12raw_engine_tD1Ev(ptr noundef nonnull align 8 dereferenceable(1696) %2) #13
+  tail call void @_ZN3zmq12raw_engine_tD1Ev(ptr noundef nonnull align 8 dereferenceable(1696) %2) #14
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3zmq12raw_engine_tD0Ev(ptr noundef nonnull align 8 dereferenceable(1696) %0) unnamed_addr #3 align 2 {
-  tail call void @_ZN3zmq12raw_engine_tD1Ev(ptr noundef nonnull align 8 dereferenceable(1696) %0) #13
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #14
+  tail call void @_ZN3zmq12raw_engine_tD1Ev(ptr noundef nonnull align 8 dereferenceable(1696) %0) #14
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #15
   ret void
 }
 
@@ -89,8 +89,8 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 ; Function Attrs: nounwind uwtable
 define void @_ZThn16_N3zmq12raw_engine_tD0Ev(ptr noundef %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
-  tail call void @_ZN3zmq12raw_engine_tD1Ev(ptr noundef nonnull align 8 dereferenceable(1696) %2) #13
-  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(1696) %2) #14
+  tail call void @_ZN3zmq12raw_engine_tD1Ev(ptr noundef nonnull align 8 dereferenceable(1696) %2) #14
+  tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(1696) %2) #15
   ret void
 }
 
@@ -98,7 +98,7 @@ define void @_ZThn16_N3zmq12raw_engine_tD0Ev(ptr noundef %0) unnamed_addr #4 ali
 define void @_ZN3zmq12raw_engine_t13plug_internalEv(ptr noundef nonnull align 8 dereferenceable(1696) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::map", align 8
   %3 = alloca %"class.zmq::msg_t", align 8
-  %4 = tail call noalias noundef dereferenceable_or_null(72) ptr @_ZnwmRKSt9nothrow_t(i64 noundef 72, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #15
+  %4 = tail call noalias noundef dereferenceable_or_null(72) ptr @_ZnwmRKSt9nothrow_t(i64 noundef 72, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #16
   %5 = icmp eq ptr %4, null
   br i1 %5, label %12, label %6
 
@@ -118,7 +118,7 @@ define void @_ZN3zmq12raw_engine_t13plug_internalEv(ptr noundef nonnull align 8 
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 1400
   store ptr null, ptr %13, align 8, !tbaa !62
   %14 = load ptr, ptr @stderr, align 8, !tbaa !63
-  %15 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 55) #16
+  %15 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 55) #17
   %16 = load ptr, ptr @stderr, align 8, !tbaa !63
   %17 = tail call i32 @fflush(ptr noundef %16)
   tail call void @_ZN3zmq9zmq_abortEPKc(ptr noundef nonnull @.str.2)
@@ -127,11 +127,11 @@ define void @_ZN3zmq12raw_engine_t13plug_internalEv(ptr noundef nonnull align 8 
 18:                                               ; preds = %6
   %19 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvRKSt9nothrow_t(ptr noundef nonnull %4, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #14
+  tail call void @_ZdlPvRKSt9nothrow_t(ptr noundef nonnull %4, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #15
   br label %100
 
 20:                                               ; preds = %10, %12
-  %21 = tail call noalias noundef dereferenceable_or_null(112) ptr @_ZnwmRKSt9nothrow_t(i64 noundef 112, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #15
+  %21 = tail call noalias noundef dereferenceable_or_null(112) ptr @_ZnwmRKSt9nothrow_t(i64 noundef 112, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #16
   %22 = icmp eq ptr %21, null
   br i1 %22, label %29, label %23
 
@@ -151,7 +151,7 @@ define void @_ZN3zmq12raw_engine_t13plug_internalEv(ptr noundef nonnull align 8 
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 1376
   store ptr null, ptr %30, align 8, !tbaa !66
   %31 = load ptr, ptr @stderr, align 8, !tbaa !63
-  %32 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %31, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 58) #16
+  %32 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %31, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 58) #17
   %33 = load ptr, ptr @stderr, align 8, !tbaa !63
   %34 = tail call i32 @fflush(ptr noundef %33)
   tail call void @_ZN3zmq9zmq_abortEPKc(ptr noundef nonnull @.str.2)
@@ -160,7 +160,7 @@ define void @_ZN3zmq12raw_engine_t13plug_internalEv(ptr noundef nonnull align 8 
 35:                                               ; preds = %23
   %36 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvRKSt9nothrow_t(ptr noundef nonnull %21, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #14
+  tail call void @_ZdlPvRKSt9nothrow_t(ptr noundef nonnull %21, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #15
   br label %100
 
 37:                                               ; preds = %27, %29
@@ -197,7 +197,7 @@ define void @_ZN3zmq12raw_engine_t13plug_internalEv(ptr noundef nonnull align 8 
 
 50:                                               ; preds = %47
   %51 = load ptr, ptr @stderr, align 8, !tbaa !63
-  %52 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %51, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, i32 noundef 67) #16
+  %52 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %51, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, i32 noundef 67) #17
   %53 = load ptr, ptr @stderr, align 8, !tbaa !63
   %54 = call i32 @fflush(ptr noundef %53)
   invoke void @_ZN3zmq9zmq_abortEPKc(ptr noundef nonnull @.str.4)
@@ -209,7 +209,7 @@ define void @_ZN3zmq12raw_engine_t13plug_internalEv(ptr noundef nonnull align 8 
   br label %99
 
 57:                                               ; preds = %50, %47
-  %58 = call noalias noundef dereferenceable_or_null(56) ptr @_ZnwmRKSt9nothrow_t(i64 noundef 56, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #15
+  %58 = call noalias noundef dereferenceable_or_null(56) ptr @_ZnwmRKSt9nothrow_t(i64 noundef 56, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #16
   %59 = icmp eq ptr %58, null
   br i1 %59, label %62, label %60
 
@@ -224,7 +224,7 @@ define void @_ZN3zmq12raw_engine_t13plug_internalEv(ptr noundef nonnull align 8 
 62:                                               ; preds = %57
   store ptr null, ptr %48, align 8, !tbaa !74
   %63 = load ptr, ptr @stderr, align 8, !tbaa !63
-  %64 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %63, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 69) #16
+  %64 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %63, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 69) #17
   %65 = load ptr, ptr @stderr, align 8, !tbaa !63
   %66 = call i32 @fflush(ptr noundef %65)
   invoke void @_ZN3zmq9zmq_abortEPKc(ptr noundef nonnull @.str.2)
@@ -233,7 +233,7 @@ define void @_ZN3zmq12raw_engine_t13plug_internalEv(ptr noundef nonnull align 8 
 67:                                               ; preds = %60
   %68 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPvRKSt9nothrow_t(ptr noundef nonnull %58, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #14
+  call void @_ZdlPvRKSt9nothrow_t(ptr noundef nonnull %58, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #15
   br label %99
 
 69:                                               ; preds = %61, %62, %46
@@ -314,7 +314,7 @@ _ZN3zmq20stream_engine_base_t11set_polloutEv.exit: ; preds = %_ZN3zmq20stream_en
   %97 = landingpad { ptr, i32 }
           catch ptr null
   %98 = extractvalue { ptr, i32 } %97, 0
-  call void @__clang_call_terminate(ptr %98) #17
+  call void @__clang_call_terminate(ptr %98) #18
   unreachable
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev.exit: ; preds = %94
@@ -323,7 +323,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaI
 
 99:                                               ; preds = %67, %88, %55
   %.pn = phi { ptr, i32 } [ %56, %55 ], [ %89, %88 ], [ %68, %67 ]
-  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %2) #13
+  call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %2) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %100
 
@@ -399,7 +399,7 @@ define linkonce_odr void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIc
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  tail call void @__clang_call_terminate(ptr %6) #17
+  tail call void @__clang_call_terminate(ptr %6) #18
   unreachable
 
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EED2Ev.exit: ; preds = %1
@@ -538,8 +538,8 @@ declare noundef ptr @_ZThn16_NK3zmq20stream_engine_base_t12get_endpointEv(ptr no
 
 ; Function Attrs: noinline noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #10 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #13
-  tail call void @_ZSt9terminatev() #17
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #14
+  tail call void @_ZSt9terminatev() #18
   unreachable
 }
 
@@ -572,21 +572,21 @@ define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_tra
   br i1 %11, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i: ; preds = %.lr.ph
-  tail call void @_ZdlPv(ptr noundef %9) #14
+  tail call void @_ZdlPv(ptr noundef %9) #15
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i.i.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i.i.i: ; preds = %.lr.ph, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i
-  %12 = load ptr, ptr %7, align 8, !tbaa !85
-  %13 = getelementptr inbounds nuw i8, ptr %.07, i64 48
-  %14 = icmp eq ptr %12, %13
+  %15 = load ptr, ptr %7, align 8, !tbaa !85
+  %16 = getelementptr inbounds nuw i8, ptr %.07, i64 48
+  %17 = icmp eq ptr %15, %16
   br i1 %14, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS8_E.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i.i.i.i.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef %12) #14
+  tail call void @_ZdlPv(ptr noundef %15) #15
   br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS8_E.exit
 
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS8_E.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %.07) #14
+  tail call void @_ZdlPv(ptr noundef nonnull %.07) #15
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !86
 

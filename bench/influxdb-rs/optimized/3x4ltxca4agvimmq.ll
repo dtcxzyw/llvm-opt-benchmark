@@ -2305,13 +2305,13 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h2a30a34f1953b804E(ptr noalia
   tail call void @_ZN4core9panicking19panic_cannot_unwind17hd1f75b4894411f9aE() #29
   unreachable
 
-8:                                                ; preds = %1
+__rust_try.llvm.6305840527560983182.exit:         ; preds = %1
   tail call void asm sideeffect "", "~{memory}"() #30, !noalias !414, !srcloc !421
-  %9 = insertvalue { ptr, ptr } { ptr null, ptr poison }, ptr %.sroa.01.sroa.4.0.copyload, 1
-  br label %__rust_try.llvm.6305840527560983182.exit
+  %13 = insertvalue { ptr, ptr } { ptr null, ptr poison }, ptr %.sroa.01.sroa.4.0.copyload, 1
+  br label %14
 
-__rust_try.llvm.6305840527560983182.exit:         ; preds = %2, %8
-  %.merged = phi { ptr, ptr } [ %9, %8 ], [ %5, %2 ]
+14:                                               ; preds = %2, %__rust_try.llvm.6305840527560983182.exit
+  %.merged = phi { ptr, ptr } [ %13, %8 ], [ %5, %2 ]
   ret { ptr, ptr } %.merged
 }
 

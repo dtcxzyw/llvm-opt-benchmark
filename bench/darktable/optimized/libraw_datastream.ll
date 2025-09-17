@@ -130,8 +130,8 @@ define void @_ZN24LibRaw_buffer_datastreamD2Ev(ptr nonnull readnone align 8 capt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN24LibRaw_buffer_datastreamD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #3 align 2 {
-  tail call void @_ZN24LibRaw_buffer_datastreamD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #21
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #22
+  tail call void @_ZN24LibRaw_buffer_datastreamD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #22
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #23
   ret void
 }
 
@@ -399,7 +399,7 @@ define noundef i32 @_ZN24LibRaw_buffer_datastream9scanf_oneEPKcPv(ptr noundef no
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !57
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 %5
-  %13 = tail call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %12, ptr noundef %1, ptr noundef %2) #21
+  %13 = tail call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %12, ptr noundef %1, ptr noundef %2) #22
   %14 = icmp sgt i32 %13, 0
   br i1 %14, label %.preheader, label %.loopexit
 
@@ -492,11 +492,11 @@ define void @_ZN25LibRaw_bigfile_datastreamC2EPKc(ptr noundef nonnull align 8 de
   br i1 %8, label %.noexc, label %9
 
 .noexc:                                           ; preds = %2
-  tail call void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.1) #23
+  tail call void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.1) #24
   unreachable
 
 9:                                                ; preds = %2
-  %10 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #21
+  %10 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #22
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %10, ptr %3, align 8, !tbaa !68
   %11 = icmp ugt i64 %10, 15
@@ -540,7 +540,7 @@ define void @_ZN25LibRaw_bigfile_datastreamC2EPKc(ptr noundef nonnull align 8 de
 24:                                               ; preds = %18
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %25 = load ptr, ptr %6, align 8, !tbaa !69
-  %26 = call i32 @stat64(ptr noundef %25, ptr noundef nonnull %4) #21
+  %26 = call i32 @stat64(ptr noundef %25, ptr noundef nonnull %4) #22
   %.not4 = icmp eq i32 %26, 0
   br i1 %.not4, label %27, label %31
 
@@ -556,7 +556,7 @@ define void @_ZN25LibRaw_bigfile_datastreamC2EPKc(ptr noundef nonnull align 8 de
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %32, ptr %33, align 8, !tbaa !79
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %43
+  br label %45
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i: ; preds = %18
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -583,18 +583,18 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit: ; preds = %_Z
   br i1 %39, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit
-  %40 = load i64, ptr %34, align 8, !tbaa !64
-  %41 = add i64 %40, 1
-  call void @_ZdlPvm(ptr noundef %38, i64 noundef %41) #22
+  %42 = load i64, ptr %34, align 8, !tbaa !64
+  %43 = add i64 %42, 1
+  call void @_ZdlPvm(ptr noundef %38, i64 noundef %43) #23
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr null, ptr %42, align 8, !tbaa !79
-  br label %43
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr null, ptr %44, align 8, !tbaa !79
+  br label %45
 
-43:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %31
+45:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %31
   ret void
 }
 
@@ -626,9 +626,9 @@ define void @_ZN25LibRaw_bigfile_datastreamD2Ev(ptr noundef nonnull align 8 capt
   br i1 %10, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %6
-  %11 = load i64, ptr %9, align 8, !tbaa !64
-  %12 = add i64 %11, 1
-  tail call void @_ZdlPvm(ptr noundef %8, i64 noundef %12) #22
+  %14 = load i64, ptr %9, align 8, !tbaa !64
+  %15 = add i64 %14, 1
+  tail call void @_ZdlPvm(ptr noundef %8, i64 noundef %15) #23
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %6, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -640,8 +640,8 @@ declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN25LibRaw_bigfile_datastreamD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 align 2 {
-  tail call void @_ZN25LibRaw_bigfile_datastreamD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #21
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 56) #22
+  tail call void @_ZN25LibRaw_bigfile_datastreamD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #22
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 56) #23
   ret void
 }
 
@@ -662,9 +662,9 @@ define noundef i32 @_ZN25LibRaw_bigfile_datastream4readEPvmm(ptr noundef nonnull
   br i1 %.not, label %7, label %9
 
 7:                                                ; preds = %4
-  %8 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %8 = tail call ptr @__cxa_allocate_exception(i64 4) #22
   store i32 4, ptr %8, align 16, !tbaa !81
-  tail call void @__cxa_throw(ptr nonnull %8, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #23
+  tail call void @__cxa_throw(ptr nonnull %8, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 9:                                                ; preds = %4
@@ -689,13 +689,13 @@ define noundef i32 @_ZN25LibRaw_bigfile_datastream3eofEv(ptr noundef nonnull rea
   br i1 %.not, label %4, label %6
 
 4:                                                ; preds = %1
-  %5 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %5 = tail call ptr @__cxa_allocate_exception(i64 4) #22
   store i32 4, ptr %5, align 16, !tbaa !81
-  tail call void @__cxa_throw(ptr nonnull %5, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #23
+  tail call void @__cxa_throw(ptr nonnull %5, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 6:                                                ; preds = %1
-  %7 = tail call i32 @feof(ptr noundef nonnull %3) #21
+  %7 = tail call i32 @feof(ptr noundef nonnull %3) #22
   ret i32 %7
 }
 
@@ -710,9 +710,9 @@ define noundef i32 @_ZN25LibRaw_bigfile_datastream4seekExi(ptr noundef nonnull r
   br i1 %.not, label %6, label %8
 
 6:                                                ; preds = %3
-  %7 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %7 = tail call ptr @__cxa_allocate_exception(i64 4) #22
   store i32 4, ptr %7, align 16, !tbaa !81
-  tail call void @__cxa_throw(ptr nonnull %7, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #23
+  tail call void @__cxa_throw(ptr nonnull %7, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 8:                                                ; preds = %3
@@ -731,9 +731,9 @@ define noundef i64 @_ZN25LibRaw_bigfile_datastream4tellEv(ptr noundef nonnull re
   br i1 %.not, label %4, label %6
 
 4:                                                ; preds = %1
-  %5 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %5 = tail call ptr @__cxa_allocate_exception(i64 4) #22
   store i32 4, ptr %5, align 16, !tbaa !81
-  tail call void @__cxa_throw(ptr nonnull %5, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #23
+  tail call void @__cxa_throw(ptr nonnull %5, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 6:                                                ; preds = %1
@@ -756,9 +756,9 @@ define noundef ptr @_ZN25LibRaw_bigfile_datastream4getsEPci(ptr noundef nonnull 
   br i1 %.not, label %8, label %10
 
 8:                                                ; preds = %5
-  %9 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %9 = tail call ptr @__cxa_allocate_exception(i64 4) #22
   store i32 4, ptr %9, align 16, !tbaa !81
-  tail call void @__cxa_throw(ptr nonnull %9, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #23
+  tail call void @__cxa_throw(ptr nonnull %9, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 10:                                               ; preds = %5
@@ -781,9 +781,9 @@ define noundef i32 @_ZN25LibRaw_bigfile_datastream9scanf_oneEPKcPv(ptr noundef n
   br i1 %.not, label %6, label %8
 
 6:                                                ; preds = %3
-  %7 = tail call ptr @__cxa_allocate_exception(i64 4) #21
+  %7 = tail call ptr @__cxa_allocate_exception(i64 4) #22
   store i32 4, ptr %7, align 16, !tbaa !81
-  tail call void @__cxa_throw(ptr nonnull %7, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #23
+  tail call void @__cxa_throw(ptr nonnull %7, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #24
   unreachable
 
 8:                                                ; preds = %3
@@ -811,7 +811,7 @@ define linkonce_odr void @_ZN26LibRaw_abstract_datastreamD2Ev(ptr noundef nonnul
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN26LibRaw_abstract_datastreamD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #3 comdat align 2 {
-  tail call void @llvm.trap() #24
+  tail call void @llvm.trap() #25
   unreachable
 }
 
@@ -1037,13 +1037,13 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #18
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #19
+declare i64 @llvm.umax.i64(i64, i64) #20
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #20
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #19
+declare i64 @llvm.umin.i64(i64, i64) #20
 
 attributes #0 = { mustprogress uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }

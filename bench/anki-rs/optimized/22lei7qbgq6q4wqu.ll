@@ -702,8 +702,8 @@ default.unreachable:                              ; preds = %1
 
 _ZN3std2io5error5Error4kind17h2040909452a97b57E.exit: ; preds = %5, %6, %7, %10
   %.0.i = phi i8 [ %9, %7 ], [ %12, %10 ], [ %spec.select, %5 ], [ %switch.select, %6 ]
-  %13 = icmp eq i8 %.0.i, 0
-  ret i1 %13
+  %15 = icmp eq i8 %.0.i, 0
+  ret i1 %15
 }
 
 ; Function Attrs: nonlazybind uwtable
