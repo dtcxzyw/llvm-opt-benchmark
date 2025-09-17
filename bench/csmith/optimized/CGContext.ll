@@ -1289,8 +1289,8 @@ define dso_local noundef zeroext i1 @_ZN9CGContext12read_indicesEPK8VariableRKSt
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %tailrecurse._crit_edge, label %.lr.ph
 
-tailrecurse._crit_edge:                           ; preds = %.preheader, %.critedge, %3
-  %.tr45.lcssa = phi ptr [ %1, %3 ], [ null, %.critedge ], [ %.02348, %.preheader ]
+tailrecurse._crit_edge:                           ; preds = %72, %.preheader, %3
+  %.tr45.lcssa = phi ptr [ %1, %3 ], [ null, %72 ], [ %.02348, %.preheader ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !132
@@ -1437,13 +1437,7 @@ _ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit38:          ; preds = %63, %61
   %73 = getelementptr inbounds nuw i8, ptr %.02348, i64 88
   %74 = load ptr, ptr %73, align 8, !tbaa !143
   %.not = icmp eq ptr %74, null
-  br i1 %.not, label %.critedge, label %.preheader, !llvm.loop !144
-
-.critedge:                                        ; preds = %72
-  %.pre = load i8, ptr inttoptr (i64 96 to ptr), align 32, !tbaa !131, !range !86
-  %75 = trunc nuw i8 %.pre to i1
-  tail call void @llvm.assume(i1 %75)
-  br label %tailrecurse._crit_edge
+  br i1 %.not, label %tailrecurse._crit_edge, label %.preheader, !llvm.loop !144
 
 _ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit:        ; preds = %.lr.ph, %_ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit
   %.3 = phi i1 [ %.2, %_ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit ], [ true, %.lr.ph ]

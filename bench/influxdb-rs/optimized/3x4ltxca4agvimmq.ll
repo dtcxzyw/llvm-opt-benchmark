@@ -1711,9 +1711,6 @@ define hidden noundef nonnull align 8 ptr @"_ZN3std3sys6common12thread_local4laz
 
 "_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$core..cell..Cell$LT$core..option..Option$LT$crossbeam_channel..context..Context$GT$$GT$$GT$$GT$17h2d4f74a32102c4d7E.llvm.6305840527560983182.exit": ; preds = %"_ZN17crossbeam_channel7context7Context4with7CONTEXT7__getit28_$u7b$$u7b$closure$u7d$$u7d$17h4ae28bf20e633f95E.llvm.6305840527560983182.exit", %15, %18
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %19 = load i64, ptr %0, align 8, !range !285, !noundef !9
-  %20 = icmp ne i64 %19, 0
-  call void @llvm.assume(i1 %20)
   ret ptr %10
 }
 
@@ -2293,7 +2290,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h2a30a34f1953b804E(ptr noalia
   %.sroa.01.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.sroa.01.sroa.7.0.copyload = load ptr, ptr %.sroa.01.sroa.7.0..sroa_idx, align 8, !nonnull !9, !noundef !9
   invoke void @_ZN15influxdb3_write12write_buffer7flusher12run_io_flush17hcf9109fea453884bE(ptr noundef nonnull %.sroa.01.sroa.7.0.copyload, i64 noundef %.sroa.01.sroa.5.0.copyload, ptr %.sroa.01.sroa.6.0.copyload, i64 noundef %.sroa.01.sroa.0.0.copyload, ptr noundef %.sroa.01.sroa.4.0.copyload)
-          to label %12 unwind label %2
+          to label %8 unwind label %2
 
 2:                                                ; preds = %1
   %3 = landingpad { ptr, i32 }
@@ -2308,22 +2305,13 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h2a30a34f1953b804E(ptr noalia
   tail call void @_ZN4core9panicking19panic_cannot_unwind17hd1f75b4894411f9aE() #29
   unreachable
 
-__rust_try.llvm.6305840527560983182.exit:         ; preds = %2
-  %8 = extractvalue { ptr, ptr } %5, 0
-  %9 = extractvalue { ptr, ptr } %5, 1
-  %10 = icmp ne ptr %8, null
-  tail call void @llvm.assume(i1 %10)
-  %11 = icmp ne ptr %9, null
-  tail call void @llvm.assume(i1 %11)
-  br label %14
-
-12:                                               ; preds = %1
+8:                                                ; preds = %1
   tail call void asm sideeffect "", "~{memory}"() #30, !noalias !414, !srcloc !421
-  %13 = insertvalue { ptr, ptr } { ptr null, ptr poison }, ptr %.sroa.01.sroa.4.0.copyload, 1
-  br label %14
+  %9 = insertvalue { ptr, ptr } { ptr null, ptr poison }, ptr %.sroa.01.sroa.4.0.copyload, 1
+  br label %__rust_try.llvm.6305840527560983182.exit
 
-14:                                               ; preds = %__rust_try.llvm.6305840527560983182.exit, %12
-  %.merged = phi { ptr, ptr } [ %13, %12 ], [ %5, %__rust_try.llvm.6305840527560983182.exit ]
+__rust_try.llvm.6305840527560983182.exit:         ; preds = %2, %8
+  %.merged = phi { ptr, ptr } [ %9, %8 ], [ %5, %2 ]
   ret { ptr, ptr } %.merged
 }
 

@@ -149,11 +149,7 @@ define internal noalias noundef ptr @prof_tdata_count_iter(ptr readnone captures
 ; Function Attrs: noreturn nounwind uwtable
 define noundef i64 @duckdb_je_prof_bt_count() local_unnamed_addr #4 {
   %1 = tail call nonnull align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @duckdb_je_tsd_tls)
-  %2 = getelementptr inbounds nuw i8, ptr %1, i64 824
-  %3 = load i8, ptr %2, align 8, !tbaa !15
-  %.not.i = icmp ne i8 %3, 0
-  tail call void @llvm.assume(i1 %.not.i)
-  %4 = tail call ptr @duckdb_je_tsd_fetch_slow(ptr noundef nonnull %1, i1 noundef zeroext false) #13
+  %2 = tail call ptr @duckdb_je_tsd_fetch_slow(ptr noundef nonnull %1, i1 noundef zeroext false) #13
   unreachable
 }
 
@@ -200,11 +196,7 @@ define void @duckdb_je_prof_dump_impl(ptr noundef readnone captures(none) %0, pt
 ; Function Attrs: noreturn nounwind uwtable
 define void @duckdb_je_prof_cnt_all(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 {
   %2 = tail call nonnull align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @duckdb_je_tsd_tls)
-  %3 = getelementptr inbounds nuw i8, ptr %2, i64 824
-  %4 = load i8, ptr %3, align 8, !tbaa !15
-  %.not.i = icmp ne i8 %4, 0
-  tail call void @llvm.assume(i1 %.not.i)
-  %5 = tail call ptr @duckdb_je_tsd_fetch_slow(ptr noundef nonnull %2, i1 noundef zeroext false) #13
+  %3 = tail call ptr @duckdb_je_tsd_fetch_slow(ptr noundef nonnull %2, i1 noundef zeroext false) #13
   unreachable
 }
 
@@ -345,8 +337,6 @@ define void @duckdb_je_prof_reset(ptr noundef %0, i64 noundef %1) local_unnamed_
 
 malloc_mutex_lock.exit:                           ; preds = %5, %9
   %12 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @duckdb_je_tdatas_mtx, i64 72)) #13
-  %.not.i13 = icmp ne i32 %12, 0
-  tail call void @llvm.assume(i1 %.not.i13)
   tail call void @duckdb_je_malloc_mutex_lock_slow(ptr noundef nonnull @duckdb_je_tdatas_mtx) #13
   unreachable
 }

@@ -867,7 +867,6 @@ _ZNK4llvm8MCSymbol11isInSectionEv.exit270.thread: ; preds = %316, %_ZNK4llvm8MCS
 
 .thread336:                                       ; preds = %324, %_ZNK4llvm8MCSymbol11isInSectionEv.exit270.thread
   %334 = tail call noundef zeroext i1 @_ZNK4llvm8MCSymbol11isInSectionEv(ptr noundef nonnull align 8 dereferenceable(32) %250)
-  tail call void @llvm.assume(i1 %334)
   br i1 %.0.i254, label %350, label %335
 
 335:                                              ; preds = %.thread336

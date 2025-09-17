@@ -1501,7 +1501,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit30: ; preds = 
   %70 = trunc nuw i8 %69 to i1
   %71 = load i64, ptr %14, align 8, !tbaa !15
   %72 = sub i64 4611686018427387903, %71
-  br i1 %70, label %73, label %84
+  br i1 %70, label %73, label %82
 
 73:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit30
   %74 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN4LuauL27kBuiltinDefinitionVectorSrcB5cxx11E, i64 8), align 8, !tbaa !15
@@ -1513,40 +1513,34 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit30: ; preds = 
           cleanup
   %78 = load ptr, ptr %0, align 8, !tbaa !12
   %79 = icmp eq ptr %78, %3
-  br i1 %79, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %76
-  %80 = load i64, ptr %14, align 8, !tbaa !15
-  %81 = icmp ult i64 %80, 16
-  call void @llvm.assume(i1 %81)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  br i1 %79, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %76
-  %82 = load i64, ptr %3, align 8, !tbaa !17
-  %83 = add i64 %82, 1
-  call void @_ZdlPvm(ptr noundef %78, i64 noundef %83) #11
+  %80 = load i64, ptr %3, align 8, !tbaa !17
+  %81 = add i64 %80, 1
+  call void @_ZdlPvm(ptr noundef %78, i64 noundef %81) #10
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %76, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   resume { ptr, i32 } %77
 
-84:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit30
-  %85 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN4LuauL52kBuiltinDefinitionVectorSrc_NoVector2Ctor_DEPRECATEDB5cxx11E, i64 8), align 8, !tbaa !15
-  %86 = icmp ult i64 %72, %85
-  br i1 %86, label %.invoke, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit.i35.invoke
+82:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit30
+  %83 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN4LuauL52kBuiltinDefinitionVectorSrc_NoVector2Ctor_DEPRECATEDB5cxx11E, i64 8), align 8, !tbaa !15
+  %84 = icmp ult i64 %72, %83
+  br i1 %84, label %.invoke, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit.i35.invoke
 
-.invoke:                                          ; preds = %73, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit26, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit22, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit18, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit14, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit10, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit6, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit, %84
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.84) #12
+.invoke:                                          ; preds = %73, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit26, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit22, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit18, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit14, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit10, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit6, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit, %82
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.84) #11
           to label %.cont unwind label %76
 
 .cont:                                            ; preds = %.invoke
   unreachable
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit.i35.invoke: ; preds = %84, %73
-  %_ZN4LuauL27kBuiltinDefinitionVectorSrcB5cxx11E.sink = phi ptr [ @_ZN4LuauL27kBuiltinDefinitionVectorSrcB5cxx11E, %73 ], [ @_ZN4LuauL52kBuiltinDefinitionVectorSrc_NoVector2Ctor_DEPRECATEDB5cxx11E, %84 ]
-  %87 = phi i64 [ %74, %73 ], [ %85, %84 ]
-  %88 = load ptr, ptr %_ZN4LuauL27kBuiltinDefinitionVectorSrcB5cxx11E.sink, align 8, !tbaa !12
-  %89 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %88, i64 noundef %87)
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit.i35.invoke: ; preds = %82, %73
+  %_ZN4LuauL27kBuiltinDefinitionVectorSrcB5cxx11E.sink = phi ptr [ @_ZN4LuauL27kBuiltinDefinitionVectorSrcB5cxx11E, %73 ], [ @_ZN4LuauL52kBuiltinDefinitionVectorSrc_NoVector2Ctor_DEPRECATEDB5cxx11E, %82 ]
+  %85 = phi i64 [ %74, %73 ], [ %83, %82 ]
+  %86 = load ptr, ptr %_ZN4LuauL27kBuiltinDefinitionVectorSrcB5cxx11E.sink, align 8, !tbaa !12
+  %87 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %86, i64 noundef %85)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit34 unwind label %76
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit34: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit.i35.invoke
@@ -1599,7 +1593,7 @@ define internal void @_GLOBAL__sub_I_EmbeddedBuiltinDefinitions.cpp() #9 section
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 %16
   store i8 0, ptr %17, align 1, !tbaa !17
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  %18 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN4LuauL25kBuiltinDefinitionBaseSrcB5cxx11E, ptr nonnull @__dso_handle) #13
+  %18 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN4LuauL25kBuiltinDefinitionBaseSrcB5cxx11E, ptr nonnull @__dso_handle) #12
   store ptr getelementptr inbounds nuw (i8, ptr @_ZN4LuauL26kBuiltinDefinitionBit32SrcB5cxx11E, i64 16), ptr @_ZN4LuauL26kBuiltinDefinitionBit32SrcB5cxx11E, align 8, !tbaa !8
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i64 833, ptr %12, align 8, !tbaa !16
@@ -1612,7 +1606,7 @@ define internal void @_GLOBAL__sub_I_EmbeddedBuiltinDefinitions.cpp() #9 section
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 %20
   store i8 0, ptr %21, align 1, !tbaa !17
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  %22 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN4LuauL26kBuiltinDefinitionBit32SrcB5cxx11E, ptr nonnull @__dso_handle) #13
+  %22 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN4LuauL26kBuiltinDefinitionBit32SrcB5cxx11E, ptr nonnull @__dso_handle) #12
   store ptr getelementptr inbounds nuw (i8, ptr @_ZN4LuauL25kBuiltinDefinitionMathSrcB5cxx11E, i64 16), ptr @_ZN4LuauL25kBuiltinDefinitionMathSrcB5cxx11E, align 8, !tbaa !8
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i64 1730, ptr %11, align 8, !tbaa !16
@@ -1625,7 +1619,7 @@ define internal void @_GLOBAL__sub_I_EmbeddedBuiltinDefinitions.cpp() #9 section
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 %24
   store i8 0, ptr %25, align 1, !tbaa !17
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  %26 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN4LuauL25kBuiltinDefinitionMathSrcB5cxx11E, ptr nonnull @__dso_handle) #13
+  %26 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN4LuauL25kBuiltinDefinitionMathSrcB5cxx11E, ptr nonnull @__dso_handle) #12
   store ptr getelementptr inbounds nuw (i8, ptr @_ZN4LuauL23kBuiltinDefinitionOsSrcB5cxx11E, i64 16), ptr @_ZN4LuauL23kBuiltinDefinitionOsSrcB5cxx11E, align 8, !tbaa !8
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i64 641, ptr %10, align 8, !tbaa !16
@@ -1638,7 +1632,7 @@ define internal void @_GLOBAL__sub_I_EmbeddedBuiltinDefinitions.cpp() #9 section
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 %28
   store i8 0, ptr %29, align 1, !tbaa !17
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %30 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN4LuauL23kBuiltinDefinitionOsSrcB5cxx11E, ptr nonnull @__dso_handle) #13
+  %30 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN4LuauL23kBuiltinDefinitionOsSrcB5cxx11E, ptr nonnull @__dso_handle) #12
   store ptr getelementptr inbounds nuw (i8, ptr @_ZN4LuauL30kBuiltinDefinitionCoroutineSrcB5cxx11E, i64 16), ptr @_ZN4LuauL30kBuiltinDefinitionCoroutineSrcB5cxx11E, align 8, !tbaa !8
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i64 438, ptr %9, align 8, !tbaa !16
@@ -1651,7 +1645,7 @@ define internal void @_GLOBAL__sub_I_EmbeddedBuiltinDefinitions.cpp() #9 section
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 %32
   store i8 0, ptr %33, align 1, !tbaa !17
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %34 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN4LuauL30kBuiltinDefinitionCoroutineSrcB5cxx11E, ptr nonnull @__dso_handle) #13
+  %34 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN4LuauL30kBuiltinDefinitionCoroutineSrcB5cxx11E, ptr nonnull @__dso_handle) #12
   store ptr getelementptr inbounds nuw (i8, ptr @_ZN4LuauL26kBuiltinDefinitionTableSrcB5cxx11E, i64 16), ptr @_ZN4LuauL26kBuiltinDefinitionTableSrcB5cxx11E, align 8, !tbaa !8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 848, ptr %8, align 8, !tbaa !16
@@ -1664,7 +1658,7 @@ define internal void @_GLOBAL__sub_I_EmbeddedBuiltinDefinitions.cpp() #9 section
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 %36
   store i8 0, ptr %37, align 1, !tbaa !17
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %38 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN4LuauL26kBuiltinDefinitionTableSrcB5cxx11E, ptr nonnull @__dso_handle) #13
+  %38 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN4LuauL26kBuiltinDefinitionTableSrcB5cxx11E, ptr nonnull @__dso_handle) #12
   store ptr getelementptr inbounds nuw (i8, ptr @_ZN4LuauL26kBuiltinDefinitionDebugSrcB5cxx11E, i64 16), ptr @_ZN4LuauL26kBuiltinDefinitionDebugSrcB5cxx11E, align 8, !tbaa !8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 337, ptr %7, align 8, !tbaa !16
@@ -1677,7 +1671,7 @@ define internal void @_GLOBAL__sub_I_EmbeddedBuiltinDefinitions.cpp() #9 section
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 %40
   store i8 0, ptr %41, align 1, !tbaa !17
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %42 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN4LuauL26kBuiltinDefinitionDebugSrcB5cxx11E, ptr nonnull @__dso_handle) #13
+  %42 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN4LuauL26kBuiltinDefinitionDebugSrcB5cxx11E, ptr nonnull @__dso_handle) #12
   store ptr getelementptr inbounds nuw (i8, ptr @_ZN4LuauL37kBuiltinDefinitionDebugSrc_DEPRECATEDB5cxx11E, i64 16), ptr @_ZN4LuauL37kBuiltinDefinitionDebugSrc_DEPRECATEDB5cxx11E, align 8, !tbaa !8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 351, ptr %6, align 8, !tbaa !16
@@ -1690,7 +1684,7 @@ define internal void @_GLOBAL__sub_I_EmbeddedBuiltinDefinitions.cpp() #9 section
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 %44
   store i8 0, ptr %45, align 1, !tbaa !17
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %46 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN4LuauL37kBuiltinDefinitionDebugSrc_DEPRECATEDB5cxx11E, ptr nonnull @__dso_handle) #13
+  %46 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN4LuauL37kBuiltinDefinitionDebugSrc_DEPRECATEDB5cxx11E, ptr nonnull @__dso_handle) #12
   store ptr getelementptr inbounds nuw (i8, ptr @_ZN4LuauL25kBuiltinDefinitionUtf8SrcB5cxx11E, i64 16), ptr @_ZN4LuauL25kBuiltinDefinitionUtf8SrcB5cxx11E, align 8, !tbaa !8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 402, ptr %5, align 8, !tbaa !16
@@ -1703,7 +1697,7 @@ define internal void @_GLOBAL__sub_I_EmbeddedBuiltinDefinitions.cpp() #9 section
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 %48
   store i8 0, ptr %49, align 1, !tbaa !17
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %50 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN4LuauL25kBuiltinDefinitionUtf8SrcB5cxx11E, ptr nonnull @__dso_handle) #13
+  %50 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN4LuauL25kBuiltinDefinitionUtf8SrcB5cxx11E, ptr nonnull @__dso_handle) #12
   store ptr getelementptr inbounds nuw (i8, ptr @_ZN4LuauL38kBuiltinDefinitionBufferSrc_DEPRECATEDB5cxx11E, i64 16), ptr @_ZN4LuauL38kBuiltinDefinitionBufferSrc_DEPRECATEDB5cxx11E, align 8, !tbaa !8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 1665, ptr %4, align 8, !tbaa !16
@@ -1716,7 +1710,7 @@ define internal void @_GLOBAL__sub_I_EmbeddedBuiltinDefinitions.cpp() #9 section
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 %52
   store i8 0, ptr %53, align 1, !tbaa !17
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %54 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN4LuauL38kBuiltinDefinitionBufferSrc_DEPRECATEDB5cxx11E, ptr nonnull @__dso_handle) #13
+  %54 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN4LuauL38kBuiltinDefinitionBufferSrc_DEPRECATEDB5cxx11E, ptr nonnull @__dso_handle) #12
   store ptr getelementptr inbounds nuw (i8, ptr @_ZN4LuauL27kBuiltinDefinitionBufferSrcB5cxx11E, i64 16), ptr @_ZN4LuauL27kBuiltinDefinitionBufferSrcB5cxx11E, align 8, !tbaa !8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 1843, ptr %3, align 8, !tbaa !16
@@ -1729,7 +1723,7 @@ define internal void @_GLOBAL__sub_I_EmbeddedBuiltinDefinitions.cpp() #9 section
   %57 = getelementptr inbounds nuw i8, ptr %55, i64 %56
   store i8 0, ptr %57, align 1, !tbaa !17
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %58 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN4LuauL27kBuiltinDefinitionBufferSrcB5cxx11E, ptr nonnull @__dso_handle) #13
+  %58 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN4LuauL27kBuiltinDefinitionBufferSrcB5cxx11E, ptr nonnull @__dso_handle) #12
   store ptr getelementptr inbounds nuw (i8, ptr @_ZN4LuauL52kBuiltinDefinitionVectorSrc_NoVector2Ctor_DEPRECATEDB5cxx11E, i64 16), ptr @_ZN4LuauL52kBuiltinDefinitionVectorSrc_NoVector2Ctor_DEPRECATEDB5cxx11E, align 8, !tbaa !8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 967, ptr %2, align 8, !tbaa !16
@@ -1742,7 +1736,7 @@ define internal void @_GLOBAL__sub_I_EmbeddedBuiltinDefinitions.cpp() #9 section
   %61 = getelementptr inbounds nuw i8, ptr %59, i64 %60
   store i8 0, ptr %61, align 1, !tbaa !17
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %62 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN4LuauL52kBuiltinDefinitionVectorSrc_NoVector2Ctor_DEPRECATEDB5cxx11E, ptr nonnull @__dso_handle) #13
+  %62 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN4LuauL52kBuiltinDefinitionVectorSrc_NoVector2Ctor_DEPRECATEDB5cxx11E, ptr nonnull @__dso_handle) #12
   store ptr getelementptr inbounds nuw (i8, ptr @_ZN4LuauL27kBuiltinDefinitionVectorSrcB5cxx11E, i64 16), ptr @_ZN4LuauL27kBuiltinDefinitionVectorSrcB5cxx11E, align 8, !tbaa !8
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store i64 968, ptr %1, align 8, !tbaa !16
@@ -1755,7 +1749,7 @@ define internal void @_GLOBAL__sub_I_EmbeddedBuiltinDefinitions.cpp() #9 section
   %65 = getelementptr inbounds nuw i8, ptr %63, i64 %64
   store i8 0, ptr %65, align 1, !tbaa !17
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
-  %66 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN4LuauL27kBuiltinDefinitionVectorSrcB5cxx11E, ptr nonnull @__dso_handle) #13
+  %66 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN4LuauL27kBuiltinDefinitionVectorSrcB5cxx11E, ptr nonnull @__dso_handle) #12
   ret void
 }
 
@@ -1764,9 +1758,6 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #1
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #10
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
@@ -1778,10 +1769,9 @@ attributes #6 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "t
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #11 = { builtin nounwind }
-attributes #12 = { noreturn }
-attributes #13 = { nounwind }
+attributes #10 = { builtin nounwind }
+attributes #11 = { noreturn }
+attributes #12 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

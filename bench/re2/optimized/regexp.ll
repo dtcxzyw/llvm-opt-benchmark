@@ -2233,17 +2233,10 @@ sw.epilog36:                                      ; preds = %for.cond, %for.inc,
   br i1 %cmp38, label %cleanup, label %if.end40
 
 if.end40:                                         ; preds = %sw.epilog36
-  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
-  %cmp.i67 = icmp ult i64 %sub.ptr.div.i, 2
+  %cmp.i67 = icmp ult i64 %sub.ptr.sub.i, 9
   br i1 %cmp.i67, label %if.then.i.i, label %_ZNSt6vectorIPN3re26RegexpESaIS2_EE6resizeEm.exit
 
 if.then.i.i:                                      ; preds = %if.end40
-  %sub.ptr.lhs.cast.i83 = ptrtoint ptr %stk.sroa.27.1 to i64
-  %sub.ptr.sub.i84 = sub i64 %sub.ptr.lhs.cast.i83, %sub.ptr.lhs.cast.i
-  %sub.ptr.div.i85 = ashr exact i64 %sub.ptr.sub.i84, 3
-  %sub.i87 = xor i64 %sub.ptr.div.i, 1152921504606846975
-  %cmp6.i = icmp ule i64 %sub.ptr.div.i85, %sub.i87
-  tail call void @llvm.assume(i1 %cmp6.i)
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.29) #31
           to label %.noexc90 unwind label %lpad.thread
 

@@ -309,10 +309,7 @@ define internal { ptr, i64 } @_ZN3std4path7PathBuf15into_boxed_path17h392109c224
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
   %3 = call { ptr, i64 } @_ZN3std3ffi6os_str8OsString17into_boxed_os_str17h3c61cac7f2fcc449E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %2)
-  %4 = extractvalue { ptr, i64 } %3, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %5 = icmp ne ptr %4, null
-  tail call void @llvm.assume(i1 %5)
   ret { ptr, i64 } %3
 }
 
@@ -2022,10 +2019,7 @@ define internal { ptr, i64 } @_ZN5alloc6string6String14into_boxed_str17ha61001e4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
   %3 = call { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17h7ca0859083d49343E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %2)
-  %4 = extractvalue { ptr, i64 } %3, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %5 = icmp ne ptr %4, null
-  tail call void @llvm.assume(i1 %5)
   ret { ptr, i64 } %3
 }
 

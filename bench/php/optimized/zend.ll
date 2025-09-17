@@ -3354,10 +3354,6 @@ define dso_local void @zend_error_zstr(i32 noundef %0, ptr noundef %1) local_unn
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: write) uwtable
 define dso_local void @zend_begin_record_errors() local_unnamed_addr #26 {
-  %1 = load i8, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1792), align 8, !tbaa !149, !range !150, !noundef !43
-  %2 = trunc nuw i8 %1 to i1
-  %3 = xor i1 %2, true
-  tail call void @llvm.assume(i1 %3)
   store i8 1, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1792), align 8, !tbaa !149
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1796), align 4, !tbaa !156
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1800), align 8, !tbaa !157

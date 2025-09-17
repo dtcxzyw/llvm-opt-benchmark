@@ -6880,20 +6880,11 @@ define dso_local void @tcg_gen_exit_tb(ptr noundef %0, i32 noundef %1) local_unn
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @tcg_gen_goto_tb(i32 noundef %0) local_unnamed_addr #2 {
-  %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 112
-  %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds nuw i8, ptr %5, i64 20
-  %7 = load i32, ptr %6, align 4
-  %8 = and i32 %7, 512
-  %.not = icmp eq i32 %8, 0
-  tail call void @llvm.assume(i1 %.not)
-  %9 = icmp ult i32 %0, 2
-  tail call void @llvm.assume(i1 %9)
+  %2 = icmp ult i32 %0, 2
+  tail call void @llvm.assume(i1 %2)
   tail call void @plugin_gen_disable_mem_helpers() #6
-  %10 = zext nneg i32 %0 to i64
-  %11 = tail call noundef ptr @tcg_gen_op1(i32 noundef 131, i32 noundef 0, i64 noundef %10)
+  %3 = zext nneg i32 %0 to i64
+  %4 = tail call noundef ptr @tcg_gen_op1(i32 noundef 131, i32 noundef 0, i64 noundef %3)
   ret void
 }
 

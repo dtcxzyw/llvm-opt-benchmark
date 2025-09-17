@@ -6670,8 +6670,6 @@ define internal fastcc ptr @microseconds_to_delta_ex(ptr noundef %0, ptr noundef
 
 6:                                                ; preds = %2
   %7 = tail call ptr @PyErr_Occurred() #18
-  %.not.i50 = icmp eq ptr %7, null
-  tail call void @llvm.assume(i1 %.not.i50)
   %8 = tail call ptr @PyImport_ImportModule(ptr noundef nonnull @.str) #18
   %9 = icmp ne ptr %8, null
   tail call void @llvm.assume(i1 %9)
@@ -7064,8 +7062,6 @@ define internal ptr @delta_total_seconds(ptr noundef readonly captures(none) %0,
 
 9:                                                ; preds = %5
   %10 = tail call ptr @PyErr_Occurred() #18
-  %.not.i11 = icmp eq ptr %10, null
-  tail call void @llvm.assume(i1 %.not.i11)
   %11 = tail call ptr @PyImport_ImportModule(ptr noundef nonnull @.str) #18
   %12 = icmp ne ptr %11, null
   tail call void @llvm.assume(i1 %12)
@@ -8661,8 +8657,6 @@ ymd_to_ord.exit:                                  ; preds = %2, %is_leap.exit.th
 
 87:                                               ; preds = %83
   %88 = tail call ptr @PyErr_Occurred() #18
-  %.not.i36 = icmp eq ptr %88, null
-  tail call void @llvm.assume(i1 %.not.i36)
   %89 = tail call ptr @PyImport_ImportModule(ptr noundef nonnull @.str) #18
   %90 = icmp ne ptr %89, null
   tail call void @llvm.assume(i1 %90)
@@ -16574,8 +16568,6 @@ define internal ptr @datetime_timestamp(ptr noundef %0, ptr readnone captures(no
 
 12:                                               ; preds = %8
   %13 = tail call ptr @PyErr_Occurred() #18
-  %.not.i38 = icmp eq ptr %13, null
-  tail call void @llvm.assume(i1 %.not.i38)
   %14 = tail call ptr @PyImport_ImportModule(ptr noundef nonnull @.str) #18
   %15 = icmp ne ptr %14, null
   tail call void @llvm.assume(i1 %15)
@@ -18266,8 +18258,6 @@ define internal fastcc ptr @local_timezone(ptr noundef nonnull %0) unnamed_addr 
 
 5:                                                ; preds = %1
   %6 = tail call ptr @PyErr_Occurred() #18
-  %.not.i31 = icmp eq ptr %6, null
-  tail call void @llvm.assume(i1 %.not.i31)
   %7 = tail call ptr @PyImport_ImportModule(ptr noundef nonnull @.str) #18
   %8 = icmp ne ptr %7, null
   tail call void @llvm.assume(i1 %8)

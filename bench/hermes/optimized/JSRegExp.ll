@@ -3353,34 +3353,28 @@ if.end.i.i.i.i:                                   ; preds = %if.end47
   %call5.i = call { i32, i64 } @_ZN6hermes2vm23ExternalStringPrimitiveIDsE6createINSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEEEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEERNS0_7RuntimeEOT_(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
   %65 = load ptr, ptr %ref.tmp.i, align 8
   %cmp.i.i.i3.i = icmp eq ptr %65, %64
-  br i1 %cmp.i.i.i3.i, label %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE11_M_is_localEv.exit.thread.i.i.i, label %if.then.i.i.i218
-
-_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %if.end.i.i.i.i
-  %66 = load i64, ptr %_M_string_length.i.i.i, align 8
-  %cmp3.i.i.i.i = icmp ult i64 %66, 8
-  call void @llvm.assume(i1 %cmp3.i.i.i.i)
-  br label %_ZN6hermes2vm15StringPrimitive6createERNS0_7RuntimeEN4llvh8ArrayRefIDsEE.exit
+  br i1 %cmp.i.i.i3.i, label %_ZN6hermes2vm15StringPrimitive6createERNS0_7RuntimeEN4llvh8ArrayRefIDsEE.exit, label %if.then.i.i.i218
 
 if.then.i.i.i218:                                 ; preds = %if.end.i.i.i.i
   call void @_ZdlPv(ptr noundef %65) #21
   br label %_ZN6hermes2vm15StringPrimitive6createERNS0_7RuntimeEN4llvh8ArrayRefIDsEE.exit
 
-_ZN6hermes2vm15StringPrimitive6createERNS0_7RuntimeEN4llvh8ArrayRefIDsEE.exit: ; preds = %if.then.i219, %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE11_M_is_localEv.exit.thread.i.i.i, %if.then.i.i.i218
-  %call3.pn.i = phi { i32, i64 } [ %call3.i, %if.then.i219 ], [ %call5.i, %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE11_M_is_localEv.exit.thread.i.i.i ], [ %call5.i, %if.then.i.i.i218 ]
+_ZN6hermes2vm15StringPrimitive6createERNS0_7RuntimeEN4llvh8ArrayRefIDsEE.exit: ; preds = %if.end.i.i.i.i, %if.then.i219, %if.then.i.i.i218
+  %call3.pn.i = phi { i32, i64 } [ %call3.i, %if.then.i219 ], [ %call5.i, %if.then.i.i.i218 ], [ %call5.i, %if.end.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
-  %67 = extractvalue { i32, i64 } %call3.pn.i, 0
-  %68 = extractvalue { i32, i64 } %call3.pn.i, 1
+  %66 = extractvalue { i32, i64 } %call3.pn.i, 0
+  %67 = extractvalue { i32, i64 } %call3.pn.i, 1
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZN6hermes2vm15StringPrimitive6createERNS0_7RuntimeEN4llvh8ArrayRefIDsEE.exit, %if.then42
-  %retval.sroa.0.0 = phi i32 [ 1, %if.then42 ], [ %67, %_ZN6hermes2vm15StringPrimitive6createERNS0_7RuntimeEN4llvh8ArrayRefIDsEE.exit ]
-  %retval.sroa.3.0 = phi i64 [ %retval.sroa.0.0.copyload.i, %if.then42 ], [ %68, %_ZN6hermes2vm15StringPrimitive6createERNS0_7RuntimeEN4llvh8ArrayRefIDsEE.exit ]
-  %69 = load ptr, ptr %result, align 8
-  %cmp.i.i.i.i221 = icmp eq ptr %69, %add.ptr.i.i.i.i.i.i
+  %retval.sroa.0.0 = phi i32 [ 1, %if.then42 ], [ %66, %_ZN6hermes2vm15StringPrimitive6createERNS0_7RuntimeEN4llvh8ArrayRefIDsEE.exit ]
+  %retval.sroa.3.0 = phi i64 [ %retval.sroa.0.0.copyload.i, %if.then42 ], [ %67, %_ZN6hermes2vm15StringPrimitive6createERNS0_7RuntimeEN4llvh8ArrayRefIDsEE.exit ]
+  %68 = load ptr, ptr %result, align 8
+  %cmp.i.i.i.i221 = icmp eq ptr %68, %add.ptr.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i221, label %_ZN6hermes2vm12SmallXStringIDsLj32EED2Ev.exit223, label %if.then.i.i.i222
 
 if.then.i.i.i222:                                 ; preds = %cleanup
-  call void @free(ptr noundef %69) #19
+  call void @free(ptr noundef %68) #19
   br label %_ZN6hermes2vm12SmallXStringIDsLj32EED2Ev.exit223
 
 _ZN6hermes2vm12SmallXStringIDsLj32EED2Ev.exit223: ; preds = %cleanup, %if.then.i.i.i222
