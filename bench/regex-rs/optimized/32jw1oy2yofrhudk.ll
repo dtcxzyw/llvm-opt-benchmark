@@ -3140,13 +3140,12 @@ define hidden void @"_ZN105_$LT$regex_automata..meta..strategy..Pre$LT$P$GT$$u20
 
 11:                                               ; preds = %4
   %12 = load i32, ptr %3, align 8, !range !468, !noundef !4
-  %.off = add nsw i32 %12, -1
-  %switch = icmp ult i32 %.off, 2
+  %.not = icmp eq i32 %12, 0
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %14 = load ptr, ptr %13, align 8, !nonnull !4, !align !469, !noundef !4
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %16 = load i64, ptr %15, align 8, !noundef !4
-  br i1 %switch, label %30, label %17
+  br i1 %.not, label %17, label %30
 
 17:                                               ; preds = %11
   tail call void @llvm.experimental.noalias.scope.decl(metadata !470)
@@ -3248,13 +3247,12 @@ define hidden void @"_ZN105_$LT$regex_automata..meta..strategy..Pre$LT$P$GT$$u20
 
 11:                                               ; preds = %4
   %12 = load i32, ptr %3, align 8, !range !468, !noundef !4
-  %.off = add nsw i32 %12, -1
-  %switch = icmp ult i32 %.off, 2
+  %.not = icmp eq i32 %12, 0
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %14 = load ptr, ptr %13, align 8, !nonnull !4, !align !469, !noundef !4
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %16 = load i64, ptr %15, align 8, !noundef !4
-  br i1 %switch, label %28, label %17
+  br i1 %.not, label %17, label %28
 
 17:                                               ; preds = %11
   tail call void @llvm.experimental.noalias.scope.decl(metadata !494)
@@ -3353,9 +3351,8 @@ define hidden void @"_ZN105_$LT$regex_automata..meta..strategy..Pre$LT$P$GT$$u20
 
 14:                                               ; preds = %4
   %15 = load i32, ptr %3, align 8, !range !468, !noundef !4
-  %.off = add nsw i32 %15, -1
-  %switch = icmp ult i32 %.off, 2
-  br i1 %switch, label %23, label %17
+  %.not = icmp eq i32 %15, 0
+  br i1 %.not, label %17, label %23
 
 16:                                               ; preds = %4
   store i64 0, ptr %0, align 8
@@ -3475,13 +3472,12 @@ define hidden void @"_ZN105_$LT$regex_automata..meta..strategy..Pre$LT$P$GT$$u20
 
 12:                                               ; preds = %4
   %13 = load i32, ptr %3, align 8, !range !468, !noundef !4
-  %.off = add nsw i32 %13, -1
-  %switch = icmp ult i32 %.off, 2
+  %.not = icmp eq i32 %13, 0
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %15 = load ptr, ptr %14, align 8, !nonnull !4, !align !469, !noundef !4
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %17 = load i64, ptr %16, align 8, !noundef !4
-  br i1 %switch, label %26, label %18
+  br i1 %.not, label %18, label %26
 
 18:                                               ; preds = %12
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !530
@@ -3584,12 +3580,11 @@ define hidden void @"_ZN105_$LT$regex_automata..meta..strategy..Pre$LT$P$GT$$u20
 
 14:                                               ; preds = %4
   %15 = load i32, ptr %3, align 8, !range !468, !noundef !4
-  %.off = add nsw i32 %15, -1
-  %switch = icmp ult i32 %.off, 2
+  %.not = icmp eq i32 %15, 0
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  br i1 %switch, label %24, label %20
+  br i1 %.not, label %20, label %24
 
 19:                                               ; preds = %4
   store i64 0, ptr %0, align 8
@@ -3705,13 +3700,12 @@ define hidden void @"_ZN105_$LT$regex_automata..meta..strategy..Pre$LT$P$GT$$u20
 
 13:                                               ; preds = %4
   %14 = load i32, ptr %3, align 8, !range !468, !noundef !4
-  %.off = add nsw i32 %14, -1
-  %switch = icmp ult i32 %.off, 2
+  %.not = icmp eq i32 %14, 0
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %16 = load ptr, ptr %15, align 8, !nonnull !4, !align !469, !noundef !4
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = load i64, ptr %17, align 8, !noundef !4
-  br i1 %switch, label %31, label %19
+  br i1 %.not, label %19, label %31
 
 19:                                               ; preds = %13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !557)
@@ -3850,13 +3844,12 @@ define hidden void @"_ZN105_$LT$regex_automata..meta..strategy..Pre$LT$P$GT$$u20
 
 11:                                               ; preds = %4
   %12 = load i32, ptr %3, align 8, !range !468, !noundef !4
-  %.off = add nsw i32 %12, -1
-  %switch = icmp ult i32 %.off, 2
+  %.not = icmp eq i32 %12, 0
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %14 = load ptr, ptr %13, align 8, !nonnull !4, !align !469, !noundef !4
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %16 = load i64, ptr %15, align 8, !noundef !4
-  br i1 %switch, label %26, label %17
+  br i1 %.not, label %17, label %26
 
 17:                                               ; preds = %11
   tail call void @llvm.experimental.noalias.scope.decl(metadata !596)
@@ -3950,12 +3943,11 @@ define hidden void @"_ZN105_$LT$regex_automata..meta..strategy..Pre$LT$P$GT$$u20
 
 14:                                               ; preds = %4
   %15 = load i32, ptr %3, align 8, !range !468, !alias.scope !620, !noalias !623, !noundef !4
-  %.off.i = add nsw i32 %15, -1
-  %switch.i = icmp ult i32 %.off.i, 2
+  %.not = icmp eq i32 %15, 0
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  br i1 %switch.i, label %23, label %19
+  br i1 %.not, label %19, label %23
 
 19:                                               ; preds = %14
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !626
@@ -4065,9 +4057,8 @@ define hidden void @"_ZN105_$LT$regex_automata..meta..strategy..Pre$LT$P$GT$$u20
 
 14:                                               ; preds = %4
   %15 = load i32, ptr %3, align 8, !range !468, !alias.scope !634, !noalias !637, !noundef !4
-  %.off.i = add nsw i32 %15, -1
-  %switch.i = icmp ult i32 %.off.i, 2
-  br i1 %switch.i, label %22, label %16
+  %.not = icmp eq i32 %15, 0
+  br i1 %.not, label %16, label %22
 
 16:                                               ; preds = %14
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -4175,13 +4166,12 @@ define hidden void @"_ZN105_$LT$regex_automata..meta..strategy..Pre$LT$P$GT$$u20
 
 11:                                               ; preds = %4
   %12 = load i32, ptr %3, align 8, !range !468, !alias.scope !654, !noalias !657, !noundef !4
-  %.off.i = add nsw i32 %12, -1
-  %switch.i = icmp ult i32 %.off.i, 2
+  %.not = icmp eq i32 %12, 0
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %14 = load ptr, ptr %13, align 8, !alias.scope !654, !noalias !657, !nonnull !4, !align !469, !noundef !4
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %16 = load i64, ptr %15, align 8, !alias.scope !654, !noalias !657, !noundef !4
-  br i1 %switch.i, label %30, label %17
+  br i1 %.not, label %17, label %30
 
 17:                                               ; preds = %11
   tail call void @llvm.experimental.noalias.scope.decl(metadata !660)
@@ -4284,13 +4274,12 @@ define hidden void @"_ZN105_$LT$regex_automata..meta..strategy..Pre$LT$P$GT$$u20
 
 13:                                               ; preds = %4
   %14 = load i32, ptr %3, align 8, !range !468, !alias.scope !685, !noalias !688, !noundef !4
-  %.off.i = add nsw i32 %14, -1
-  %switch.i = icmp ult i32 %.off.i, 2
+  %.not = icmp eq i32 %14, 0
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %16 = load ptr, ptr %15, align 8, !alias.scope !685, !noalias !688, !nonnull !4, !align !469, !noundef !4
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = load i64, ptr %17, align 8, !alias.scope !685, !noalias !688, !noundef !4
-  br i1 %switch.i, label %31, label %19
+  br i1 %.not, label %19, label %31
 
 19:                                               ; preds = %13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !691)
@@ -4421,13 +4410,12 @@ define hidden void @"_ZN105_$LT$regex_automata..meta..strategy..Pre$LT$P$GT$$u20
 
 12:                                               ; preds = %4
   %13 = load i32, ptr %3, align 8, !range !468, !alias.scope !731, !noalias !734, !noundef !4
-  %.off.i = add nsw i32 %13, -1
-  %switch.i = icmp ult i32 %.off.i, 2
+  %.not = icmp eq i32 %13, 0
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %15 = load ptr, ptr %14, align 8, !alias.scope !731, !noalias !734, !nonnull !4, !align !469, !noundef !4
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %17 = load i64, ptr %16, align 8, !alias.scope !731, !noalias !734, !noundef !4
-  br i1 %switch.i, label %26, label %18
+  br i1 %.not, label %18, label %26
 
 18:                                               ; preds = %12
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !737
@@ -4517,13 +4505,12 @@ define hidden void @"_ZN105_$LT$regex_automata..meta..strategy..Pre$LT$P$GT$$u20
 
 11:                                               ; preds = %4
   %12 = load i32, ptr %3, align 8, !range !468, !alias.scope !757, !noalias !760, !noundef !4
-  %.off.i = add nsw i32 %12, -1
-  %switch.i = icmp ult i32 %.off.i, 2
+  %.not = icmp eq i32 %12, 0
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %14 = load ptr, ptr %13, align 8, !alias.scope !757, !noalias !760, !nonnull !4, !align !469, !noundef !4
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %16 = load i64, ptr %15, align 8, !alias.scope !757, !noalias !760, !noundef !4
-  br i1 %switch.i, label %28, label %17
+  br i1 %.not, label %17, label %28
 
 17:                                               ; preds = %11
   tail call void @llvm.experimental.noalias.scope.decl(metadata !763)
@@ -4618,13 +4605,12 @@ define hidden void @"_ZN105_$LT$regex_automata..meta..strategy..Pre$LT$P$GT$$u20
 
 11:                                               ; preds = %4
   %12 = load i32, ptr %3, align 8, !range !468, !alias.scope !788, !noalias !791, !noundef !4
-  %.off.i = add nsw i32 %12, -1
-  %switch.i = icmp ult i32 %.off.i, 2
+  %.not = icmp eq i32 %12, 0
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %14 = load ptr, ptr %13, align 8, !alias.scope !788, !noalias !791, !nonnull !4, !align !469, !noundef !4
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %16 = load i64, ptr %15, align 8, !alias.scope !788, !noalias !791, !noundef !4
-  br i1 %switch.i, label %26, label %17
+  br i1 %.not, label %17, label %26
 
 17:                                               ; preds = %11
   tail call void @llvm.experimental.noalias.scope.decl(metadata !794)
@@ -4716,9 +4702,8 @@ define hidden noundef zeroext i1 @"_ZN105_$LT$regex_automata..meta..strategy..Pr
 
 13:                                               ; preds = %3
   %14 = load i32, ptr %2, align 8, !range !468, !alias.scope !819, !noalias !822, !noundef !4
-  %.off.i = add nsw i32 %14, -1
-  %switch.i = icmp ult i32 %.off.i, 2
-  br i1 %switch.i, label %21, label %15
+  %.not = icmp eq i32 %14, 0
+  br i1 %.not, label %15, label %21
 
 15:                                               ; preds = %13
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -4816,12 +4801,11 @@ define hidden noundef zeroext i1 @"_ZN105_$LT$regex_automata..meta..strategy..Pr
 
 13:                                               ; preds = %3
   %14 = load i32, ptr %2, align 8, !range !468, !alias.scope !839, !noalias !842, !noundef !4
-  %.off.i = add nsw i32 %14, -1
-  %switch.i = icmp ult i32 %.off.i, 2
+  %.not = icmp eq i32 %14, 0
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  br i1 %switch.i, label %22, label %18
+  br i1 %.not, label %18, label %22
 
 18:                                               ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !845
@@ -4916,13 +4900,12 @@ define hidden noundef zeroext i1 @"_ZN105_$LT$regex_automata..meta..strategy..Pr
 
 12:                                               ; preds = %3
   %13 = load i32, ptr %2, align 8, !range !468, !alias.scope !853, !noalias !856, !noundef !4
-  %.off.i = add nsw i32 %13, -1
-  %switch.i = icmp ult i32 %.off.i, 2
+  %.not = icmp eq i32 %13, 0
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %15 = load ptr, ptr %14, align 8, !alias.scope !853, !noalias !856, !nonnull !4, !align !469, !noundef !4
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %17 = load i64, ptr %16, align 8, !alias.scope !853, !noalias !856, !noundef !4
-  br i1 %switch.i, label %30, label %18
+  br i1 %.not, label %18, label %30
 
 18:                                               ; preds = %12
   tail call void @llvm.experimental.noalias.scope.decl(metadata !859)
@@ -5043,13 +5026,12 @@ define hidden noundef zeroext i1 @"_ZN105_$LT$regex_automata..meta..strategy..Pr
 
 10:                                               ; preds = %3
   %11 = load i32, ptr %2, align 8, !range !468, !alias.scope !899, !noalias !902, !noundef !4
-  %.off.i = add nsw i32 %11, -1
-  %switch.i = icmp ult i32 %.off.i, 2
+  %.not = icmp eq i32 %11, 0
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %13 = load ptr, ptr %12, align 8, !alias.scope !899, !noalias !902, !nonnull !4, !align !469, !noundef !4
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %15 = load i64, ptr %14, align 8, !alias.scope !899, !noalias !902, !noundef !4
-  br i1 %switch.i, label %25, label %16
+  br i1 %.not, label %16, label %25
 
 16:                                               ; preds = %10
   tail call void @llvm.experimental.noalias.scope.decl(metadata !905)
@@ -5128,13 +5110,12 @@ define hidden noundef zeroext i1 @"_ZN105_$LT$regex_automata..meta..strategy..Pr
 
 10:                                               ; preds = %3
   %11 = load i32, ptr %2, align 8, !range !468, !alias.scope !930, !noalias !933, !noundef !4
-  %.off.i = add nsw i32 %11, -1
-  %switch.i = icmp ult i32 %.off.i, 2
+  %.not = icmp eq i32 %11, 0
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %13 = load ptr, ptr %12, align 8, !alias.scope !930, !noalias !933, !nonnull !4, !align !469, !noundef !4
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %15 = load i64, ptr %14, align 8, !alias.scope !930, !noalias !933, !noundef !4
-  br i1 %switch.i, label %29, label %16
+  br i1 %.not, label %16, label %29
 
 16:                                               ; preds = %10
   tail call void @llvm.experimental.noalias.scope.decl(metadata !936)
@@ -5225,13 +5206,12 @@ define hidden noundef zeroext i1 @"_ZN105_$LT$regex_automata..meta..strategy..Pr
 
 10:                                               ; preds = %3
   %11 = load i32, ptr %2, align 8, !range !468, !alias.scope !961, !noalias !964, !noundef !4
-  %.off.i = add nsw i32 %11, -1
-  %switch.i = icmp ult i32 %.off.i, 2
+  %.not = icmp eq i32 %11, 0
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %13 = load ptr, ptr %12, align 8, !alias.scope !961, !noalias !964, !nonnull !4, !align !469, !noundef !4
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %15 = load i64, ptr %14, align 8, !alias.scope !961, !noalias !964, !noundef !4
-  br i1 %switch.i, label %27, label %16
+  br i1 %.not, label %16, label %27
 
 16:                                               ; preds = %10
   tail call void @llvm.experimental.noalias.scope.decl(metadata !967)
@@ -5317,13 +5297,12 @@ define hidden noundef zeroext i1 @"_ZN105_$LT$regex_automata..meta..strategy..Pr
 
 11:                                               ; preds = %3
   %12 = load i32, ptr %2, align 8, !range !468, !alias.scope !992, !noalias !995, !noundef !4
-  %.off.i = add nsw i32 %12, -1
-  %switch.i = icmp ult i32 %.off.i, 2
+  %.not = icmp eq i32 %12, 0
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8, !alias.scope !992, !noalias !995, !nonnull !4, !align !469, !noundef !4
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %16 = load i64, ptr %15, align 8, !alias.scope !992, !noalias !995, !noundef !4
-  br i1 %switch.i, label %25, label %17
+  br i1 %.not, label %17, label %25
 
 17:                                               ; preds = %11
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !998
@@ -5403,13 +5382,12 @@ define hidden { i32, i32 } @"_ZN105_$LT$regex_automata..meta..strategy..Pre$LT$P
 
 12:                                               ; preds = %5
   %13 = load i32, ptr %2, align 8, !range !468, !alias.scope !1018, !noalias !1021, !noundef !4
-  %.off.i = add nsw i32 %13, -1
-  %switch.i = icmp ult i32 %.off.i, 2
+  %.not65 = icmp eq i32 %13, 0
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %15 = load ptr, ptr %14, align 8, !alias.scope !1018, !noalias !1021, !nonnull !4, !align !469, !noundef !4
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %17 = load i64, ptr %16, align 8, !alias.scope !1018, !noalias !1021, !noundef !4
-  br i1 %switch.i, label %29, label %18
+  br i1 %.not65, label %18, label %29
 
 18:                                               ; preds = %12
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1024)
@@ -5515,13 +5493,12 @@ define hidden { i32, i32 } @"_ZN105_$LT$regex_automata..meta..strategy..Pre$LT$P
 
 14:                                               ; preds = %5
   %15 = load i32, ptr %2, align 8, !range !468, !alias.scope !1049, !noalias !1052, !noundef !4
-  %.off.i = add nsw i32 %15, -1
-  %switch.i = icmp ult i32 %.off.i, 2
+  %.not69 = icmp eq i32 %15, 0
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8, !alias.scope !1049, !noalias !1052, !nonnull !4, !align !469, !noundef !4
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %19 = load i64, ptr %18, align 8, !alias.scope !1049, !noalias !1052, !noundef !4
-  br i1 %switch.i, label %32, label %20
+  br i1 %.not69, label %20, label %32
 
 20:                                               ; preds = %14
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1055)
@@ -5663,13 +5640,12 @@ define hidden { i32, i32 } @"_ZN105_$LT$regex_automata..meta..strategy..Pre$LT$P
 
 13:                                               ; preds = %5
   %14 = load i32, ptr %2, align 8, !range !468, !alias.scope !1095, !noalias !1098, !noundef !4
-  %.off.i = add nsw i32 %14, -1
-  %switch.i = icmp ult i32 %.off.i, 2
+  %.not62 = icmp eq i32 %14, 0
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %16 = load ptr, ptr %15, align 8, !alias.scope !1095, !noalias !1098, !nonnull !4, !align !469, !noundef !4
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %18 = load i64, ptr %17, align 8, !alias.scope !1095, !noalias !1098, !noundef !4
-  br i1 %switch.i, label %27, label %19
+  br i1 %.not62, label %19, label %27
 
 19:                                               ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !1101
@@ -5768,13 +5744,12 @@ define hidden { i32, i32 } @"_ZN105_$LT$regex_automata..meta..strategy..Pre$LT$P
 
 12:                                               ; preds = %5
   %13 = load i32, ptr %2, align 8, !range !468, !alias.scope !1121, !noalias !1124, !noundef !4
-  %.off.i = add nsw i32 %13, -1
-  %switch.i = icmp ult i32 %.off.i, 2
+  %.not65 = icmp eq i32 %13, 0
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %15 = load ptr, ptr %14, align 8, !alias.scope !1121, !noalias !1124, !nonnull !4, !align !469, !noundef !4
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %17 = load i64, ptr %16, align 8, !alias.scope !1121, !noalias !1124, !noundef !4
-  br i1 %switch.i, label %31, label %18
+  br i1 %.not65, label %18, label %31
 
 18:                                               ; preds = %12
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1127)
@@ -5884,13 +5859,12 @@ define hidden { i32, i32 } @"_ZN105_$LT$regex_automata..meta..strategy..Pre$LT$P
 
 12:                                               ; preds = %5
   %13 = load i32, ptr %2, align 8, !range !468, !alias.scope !1152, !noalias !1155, !noundef !4
-  %.off.i = add nsw i32 %13, -1
-  %switch.i = icmp ult i32 %.off.i, 2
+  %.not65 = icmp eq i32 %13, 0
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %15 = load ptr, ptr %14, align 8, !alias.scope !1152, !noalias !1155, !nonnull !4, !align !469, !noundef !4
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %17 = load i64, ptr %16, align 8, !alias.scope !1152, !noalias !1155, !noundef !4
-  br i1 %switch.i, label %27, label %18
+  br i1 %.not65, label %18, label %27
 
 18:                                               ; preds = %12
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1158)
@@ -5991,12 +5965,11 @@ define hidden { i32, i32 } @"_ZN105_$LT$regex_automata..meta..strategy..Pre$LT$P
 
 15:                                               ; preds = %5
   %16 = load i32, ptr %2, align 8, !range !468, !alias.scope !1183, !noalias !1186, !noundef !4
-  %.off.i = add nsw i32 %16, -1
-  %switch.i = icmp ult i32 %.off.i, 2
+  %.not46 = icmp eq i32 %16, 0
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  br i1 %switch.i, label %24, label %20
+  br i1 %.not46, label %20, label %24
 
 20:                                               ; preds = %15
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !1189
@@ -6022,9 +5995,9 @@ define hidden { i32, i32 } @"_ZN105_$LT$regex_automata..meta..strategy..Pre$LT$P
   %31 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %32 = load i64, ptr %31, align 8, !noalias !1189, !noundef !4
   %.not.i = icmp ugt i64 %30, %32
-  br i1 %.not.i, label %33, label %"_ZN105_$LT$regex_automata..meta..strategy..Pre$LT$P$GT$$u20$as$u20$regex_automata..meta..strategy..Strategy$GT$6search17h5cf67c13635b244fE.llvm.9705991524997079221.exit.thread48"
+  br i1 %.not.i, label %33, label %"_ZN105_$LT$regex_automata..meta..strategy..Pre$LT$P$GT$$u20$as$u20$regex_automata..meta..strategy..Strategy$GT$6search17h5cf67c13635b244fE.llvm.9705991524997079221.exit.thread49"
 
-"_ZN105_$LT$regex_automata..meta..strategy..Pre$LT$P$GT$$u20$as$u20$regex_automata..meta..strategy..Strategy$GT$6search17h5cf67c13635b244fE.llvm.9705991524997079221.exit.thread48": ; preds = %28
+"_ZN105_$LT$regex_automata..meta..strategy..Pre$LT$P$GT$$u20$as$u20$regex_automata..meta..strategy..Strategy$GT$6search17h5cf67c13635b244fE.llvm.9705991524997079221.exit.thread49": ; preds = %28
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !1189
   br label %48
 
@@ -6076,21 +6049,21 @@ _ZN14regex_automata4util6search5Match3new17hf74dc18bc550bf59E.exit20: ; preds = 
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !1189
   br label %"_ZN105_$LT$regex_automata..meta..strategy..Pre$LT$P$GT$$u20$as$u20$regex_automata..meta..strategy..Strategy$GT$6search17h5cf67c13635b244fE.llvm.9705991524997079221.exit.thread"
 
-48:                                               ; preds = %_ZN14regex_automata4util6search5Match3new17hf74dc18bc550bf59E.exit20.thread, %"_ZN105_$LT$regex_automata..meta..strategy..Pre$LT$P$GT$$u20$as$u20$regex_automata..meta..strategy..Strategy$GT$6search17h5cf67c13635b244fE.llvm.9705991524997079221.exit.thread48"
-  %.sroa.8.247 = phi i64 [ %30, %"_ZN105_$LT$regex_automata..meta..strategy..Pre$LT$P$GT$$u20$as$u20$regex_automata..meta..strategy..Strategy$GT$6search17h5cf67c13635b244fE.llvm.9705991524997079221.exit.thread48" ], [ %40, %_ZN14regex_automata4util6search5Match3new17hf74dc18bc550bf59E.exit20.thread ]
-  %.sroa.11.246 = phi i64 [ %32, %"_ZN105_$LT$regex_automata..meta..strategy..Pre$LT$P$GT$$u20$as$u20$regex_automata..meta..strategy..Strategy$GT$6search17h5cf67c13635b244fE.llvm.9705991524997079221.exit.thread48" ], [ %42, %_ZN14regex_automata4util6search5Match3new17hf74dc18bc550bf59E.exit20.thread ]
+48:                                               ; preds = %_ZN14regex_automata4util6search5Match3new17hf74dc18bc550bf59E.exit20.thread, %"_ZN105_$LT$regex_automata..meta..strategy..Pre$LT$P$GT$$u20$as$u20$regex_automata..meta..strategy..Strategy$GT$6search17h5cf67c13635b244fE.llvm.9705991524997079221.exit.thread49"
+  %.sroa.8.248 = phi i64 [ %30, %"_ZN105_$LT$regex_automata..meta..strategy..Pre$LT$P$GT$$u20$as$u20$regex_automata..meta..strategy..Strategy$GT$6search17h5cf67c13635b244fE.llvm.9705991524997079221.exit.thread49" ], [ %40, %_ZN14regex_automata4util6search5Match3new17hf74dc18bc550bf59E.exit20.thread ]
+  %.sroa.11.247 = phi i64 [ %32, %"_ZN105_$LT$regex_automata..meta..strategy..Pre$LT$P$GT$$u20$as$u20$regex_automata..meta..strategy..Strategy$GT$6search17h5cf67c13635b244fE.llvm.9705991524997079221.exit.thread49" ], [ %42, %_ZN14regex_automata4util6search5Match3new17hf74dc18bc550bf59E.exit20.thread ]
   %.not = icmp eq i64 %4, 0
   br i1 %.not, label %"_ZN105_$LT$regex_automata..meta..strategy..Pre$LT$P$GT$$u20$as$u20$regex_automata..meta..strategy..Strategy$GT$6search17h5cf67c13635b244fE.llvm.9705991524997079221.exit.thread", label %49
 
 49:                                               ; preds = %48
-  %50 = add i64 %.sroa.8.247, 1
+  %50 = add i64 %.sroa.8.248, 1
   store i64 %50, ptr %3, align 8
   %51 = icmp eq i64 %4, 1
   br i1 %51, label %"_ZN105_$LT$regex_automata..meta..strategy..Pre$LT$P$GT$$u20$as$u20$regex_automata..meta..strategy..Strategy$GT$6search17h5cf67c13635b244fE.llvm.9705991524997079221.exit.thread", label %52
 
 52:                                               ; preds = %49
   %53 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %54 = add i64 %.sroa.11.246, 1
+  %54 = add i64 %.sroa.11.247, 1
   store i64 %54, ptr %53, align 8
   br label %"_ZN105_$LT$regex_automata..meta..strategy..Pre$LT$P$GT$$u20$as$u20$regex_automata..meta..strategy..Strategy$GT$6search17h5cf67c13635b244fE.llvm.9705991524997079221.exit.thread"
 
@@ -6117,9 +6090,8 @@ define hidden { i32, i32 } @"_ZN105_$LT$regex_automata..meta..strategy..Pre$LT$P
 
 15:                                               ; preds = %5
   %16 = load i32, ptr %2, align 8, !range !468, !alias.scope !1197, !noalias !1200, !noundef !4
-  %.off.i = add nsw i32 %16, -1
-  %switch.i = icmp ult i32 %.off.i, 2
-  br i1 %switch.i, label %23, label %17
+  %.not75 = icmp eq i32 %16, 0
+  br i1 %.not75, label %17, label %23
 
 17:                                               ; preds = %15
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -6240,13 +6212,12 @@ define hidden void @"_ZN105_$LT$regex_automata..meta..strategy..Pre$LT$P$GT$$u20
 
 13:                                               ; preds = %4
   %14 = load i32, ptr %2, align 8, !range !468, !alias.scope !1217, !noalias !1220, !noundef !4
-  %.off.i = add nsw i32 %14, -1
-  %switch.i = icmp ult i32 %.off.i, 2
+  %.not = icmp eq i32 %14, 0
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %16 = load ptr, ptr %15, align 8, !alias.scope !1217, !noalias !1220, !nonnull !4, !align !469, !noundef !4
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %18 = load i64, ptr %17, align 8, !alias.scope !1217, !noalias !1220, !noundef !4
-  br i1 %switch.i, label %28, label %19
+  br i1 %.not, label %19, label %28
 
 19:                                               ; preds = %13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1223)
@@ -6353,12 +6324,11 @@ define hidden void @"_ZN105_$LT$regex_automata..meta..strategy..Pre$LT$P$GT$$u20
 
 16:                                               ; preds = %4
   %17 = load i32, ptr %2, align 8, !range !468, !alias.scope !1258, !noalias !1261, !noundef !4
-  %.off.i = add nsw i32 %17, -1
-  %switch.i = icmp ult i32 %.off.i, 2
+  %.not10 = icmp eq i32 %17, 0
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  br i1 %switch.i, label %25, label %21
+  br i1 %.not10, label %21, label %25
 
 21:                                               ; preds = %16
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !1264
@@ -6480,13 +6450,12 @@ define hidden void @"_ZN105_$LT$regex_automata..meta..strategy..Pre$LT$P$GT$$u20
 
 13:                                               ; preds = %4
   %14 = load i32, ptr %2, align 8, !range !468, !alias.scope !1282, !noalias !1285, !noundef !4
-  %.off.i = add nsw i32 %14, -1
-  %switch.i = icmp ult i32 %.off.i, 2
+  %.not = icmp eq i32 %14, 0
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %16 = load ptr, ptr %15, align 8, !alias.scope !1282, !noalias !1285, !nonnull !4, !align !469, !noundef !4
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %18 = load i64, ptr %17, align 8, !alias.scope !1282, !noalias !1285, !noundef !4
-  br i1 %switch.i, label %30, label %19
+  br i1 %.not, label %19, label %30
 
 19:                                               ; preds = %13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1288)
@@ -6597,13 +6566,12 @@ define hidden void @"_ZN105_$LT$regex_automata..meta..strategy..Pre$LT$P$GT$$u20
 
 14:                                               ; preds = %4
   %15 = load i32, ptr %2, align 8, !range !468, !alias.scope !1323, !noalias !1326, !noundef !4
-  %.off.i = add nsw i32 %15, -1
-  %switch.i = icmp ult i32 %.off.i, 2
+  %.not = icmp eq i32 %15, 0
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8, !alias.scope !1323, !noalias !1326, !nonnull !4, !align !469, !noundef !4
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %19 = load i64, ptr %18, align 8, !alias.scope !1323, !noalias !1326, !noundef !4
-  br i1 %switch.i, label %28, label %20
+  br i1 %.not, label %20, label %28
 
 20:                                               ; preds = %14
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !1329
@@ -6710,13 +6678,12 @@ define hidden void @"_ZN105_$LT$regex_automata..meta..strategy..Pre$LT$P$GT$$u20
 
 15:                                               ; preds = %4
   %16 = load i32, ptr %2, align 8, !range !468, !alias.scope !1359, !noalias !1362, !noundef !4
-  %.off.i = add nsw i32 %16, -1
-  %switch.i = icmp ult i32 %.off.i, 2
+  %.not = icmp eq i32 %16, 0
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %18 = load ptr, ptr %17, align 8, !alias.scope !1359, !noalias !1362, !nonnull !4, !align !469, !noundef !4
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %20 = load i64, ptr %19, align 8, !alias.scope !1359, !noalias !1362, !noundef !4
-  br i1 %switch.i, label %33, label %21
+  br i1 %.not, label %21, label %33
 
 21:                                               ; preds = %15
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1365)
@@ -6862,13 +6829,12 @@ define hidden void @"_ZN105_$LT$regex_automata..meta..strategy..Pre$LT$P$GT$$u20
 
 13:                                               ; preds = %4
   %14 = load i32, ptr %2, align 8, !range !468, !alias.scope !1415, !noalias !1418, !noundef !4
-  %.off.i = add nsw i32 %14, -1
-  %switch.i = icmp ult i32 %.off.i, 2
+  %.not = icmp eq i32 %14, 0
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %16 = load ptr, ptr %15, align 8, !alias.scope !1415, !noalias !1418, !nonnull !4, !align !469, !noundef !4
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %18 = load i64, ptr %17, align 8, !alias.scope !1415, !noalias !1418, !noundef !4
-  br i1 %switch.i, label %32, label %19
+  br i1 %.not, label %19, label %32
 
 19:                                               ; preds = %13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1421)
@@ -6987,9 +6953,8 @@ define hidden void @"_ZN105_$LT$regex_automata..meta..strategy..Pre$LT$P$GT$$u20
 
 16:                                               ; preds = %4
   %17 = load i32, ptr %2, align 8, !range !468, !alias.scope !1456, !noalias !1459, !noundef !4
-  %.off.i = add nsw i32 %17, -1
-  %switch.i = icmp ult i32 %.off.i, 2
-  br i1 %switch.i, label %24, label %18
+  %.not = icmp eq i32 %17, 0
+  br i1 %.not, label %18, label %24
 
 18:                                               ; preds = %16
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 8

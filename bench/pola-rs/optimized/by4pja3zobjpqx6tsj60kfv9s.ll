@@ -8056,9 +8056,8 @@ define internal fastcc void @_ZN14regex_automata4meta5regex5Regex11search_half17
 
 40:                                               ; preds = %35
   %41 = load i32, ptr %2, align 8, !range !1075, !alias.scope !1072, !noalias !1069, !noundef !37
-  %.off.i = add nsw i32 %41, -1
-  %switch.i = icmp ult i32 %.off.i, 2
-  br i1 %switch.i, label %46, label %42
+  %.not = icmp eq i32 %41, 0
+  br i1 %.not, label %42, label %46
 
 42:                                               ; preds = %40
   %43 = getelementptr inbounds nuw i8, ptr %20, i64 60

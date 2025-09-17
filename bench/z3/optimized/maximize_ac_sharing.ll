@@ -455,9 +455,8 @@ _ZN6bufferIP4exprLb0ELj128EE9push_backERKS1_.exit.i: ; preds = %_ZN6bufferIP4exp
 _ZN10ptr_bufferI4exprLj128EE6appendEjPKPS0_.exit: ; preds = %_ZN6bufferIP4exprLb0ELj128EE9push_backERKS1_.exit.i, %._crit_edge
   %.080 = phi i32 [ %84, %._crit_edge ], [ %2, %_ZN6bufferIP4exprLb0ELj128EE9push_backERKS1_.exit.i ]
   %.074 = phi ptr [ %83, %._crit_edge ], [ null, %_ZN6bufferIP4exprLb0ELj128EE9push_backERKS1_.exit.i ]
-  %133 = add i32 %.080, -2
-  %or.cond214 = icmp ult i32 %133, 126
-  br i1 %or.cond214, label %.preheader176.lr.ph, label %.thread145
+  %133 = icmp ult i32 %.080, 128
+  br i1 %133, label %.preheader176.lr.ph, label %.thread145
 
 .preheader176.lr.ph:                              ; preds = %_ZN10ptr_bufferI4exprLj128EE6appendEjPKPS0_.exit
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 64

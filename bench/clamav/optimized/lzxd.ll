@@ -2780,8 +2780,7 @@ define i32 @lzxd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   br label %1286
 
 1213:                                             ; preds = %1174
-  %.mask = and i32 %.441177.lcssa, -536870912
-  %1214 = icmp eq i32 %.mask, -1073741824
+  %1214 = icmp samesign ult i32 %.441177.lcssa, -536870912
   %1215 = shl i32 %.441177.lcssa, 3
   %1216 = add nsw i32 %.441238.lcssa, -3
   br i1 %1214, label %1217, label %1252

@@ -644,7 +644,7 @@ _match_job_name.exit:                             ; preds = %155, %._crit_edge.i
 
 241:                                              ; preds = %235
   %.old6 = icmp samesign ugt i32 %.0206, 9
-  br i1 %.old6, label %.thread484, label %242
+  br i1 %.old6, label %.thread485, label %242
 
 242:                                              ; preds = %238, %241
   %243 = icmp eq i32 %.0206, 0
@@ -672,11 +672,11 @@ _match_job_name.exit:                             ; preds = %155, %._crit_edge.i
   %.b280291 = load i1, ptr @allocation_interrupted, align 1
   br i1 %.b280291, label %254, label %258
 
-.thread484:                                       ; preds = %241
-  %.b280291485 = load i1, ptr @allocation_interrupted, align 1
-  br i1 %.b280291485, label %254, label %.thread486
+.thread485:                                       ; preds = %241
+  %.b280291486 = load i1, ptr @allocation_interrupted, align 1
+  br i1 %.b280291486, label %254, label %.thread487
 
-254:                                              ; preds = %.thread484, %253
+254:                                              ; preds = %.thread485, %253
   %255 = call i32 @get_log_level() #13
   %256 = icmp sgt i32 %255, 2
   br i1 %256, label %257, label %269
@@ -687,18 +687,18 @@ _match_job_name.exit:                             ; preds = %155, %._crit_edge.i
 
 258:                                              ; preds = %253
   %259 = icmp eq i32 %237, 4
-  br i1 %259, label %260, label %.thread486
+  br i1 %259, label %260, label %.thread487
 
 260:                                              ; preds = %258
   %261 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.12) #13
   br label %269
 
-.thread486:                                       ; preds = %.thread484, %258
+.thread487:                                       ; preds = %.thread485, %258
   %262 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 312), align 8
   %.not292 = icmp eq i32 %262, 0
   br i1 %.not292, label %267, label %263
 
-263:                                              ; preds = %.thread486
+263:                                              ; preds = %.thread487
   switch i32 %237, label %267 [
     i32 110, label %264
     i32 2013, label %264
@@ -712,7 +712,7 @@ _match_job_name.exit:                             ; preds = %155, %._crit_edge.i
   store i32 %266, ptr @error_exit, align 4
   br label %269
 
-267:                                              ; preds = %263, %.thread486
+267:                                              ; preds = %263, %.thread487
   %268 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.14) #13
   br label %269
 
@@ -966,8 +966,8 @@ _ring_terminal_bell.exit:                         ; preds = %329, %327, %_salloc
   br i1 %381, label %.sink.split, label %382
 
 .sink.split:                                      ; preds = %380, %377
-  %.sink500 = phi i32 [ %379, %377 ], [ %376, %380 ]
-  store i32 %.sink500, ptr %372, align 4
+  %.sink501 = phi i32 [ %379, %377 ], [ %376, %380 ]
+  store i32 %.sink501, ptr %372, align 4
   br label %382
 
 382:                                              ; preds = %.sink.split, %380, %367, %366
@@ -1019,18 +1019,18 @@ _ring_terminal_bell.exit:                         ; preds = %329, %327, %_salloc
 404:                                              ; preds = %398
   %405 = zext i16 %388 to i32
   %406 = mul i32 %403, %405
-  br label %.sink.split501
+  br label %.sink.split502
 
 407:                                              ; preds = %398
   %408 = icmp ugt i32 %403, %400
-  br i1 %408, label %.sink.split501, label %409
+  br i1 %408, label %.sink.split502, label %409
 
-.sink.split501:                                   ; preds = %407, %404
-  %.sink502 = phi i32 [ %406, %404 ], [ %403, %407 ]
-  store i32 %.sink502, ptr %399, align 4
+.sink.split502:                                   ; preds = %407, %404
+  %.sink503 = phi i32 [ %406, %404 ], [ %403, %407 ]
+  store i32 %.sink503, ptr %399, align 4
   br label %409
 
-409:                                              ; preds = %.sink.split501, %407, %394, %393
+409:                                              ; preds = %.sink.split502, %407, %394, %393
   %410 = getelementptr inbounds nuw i8, ptr %133, i64 452
   %411 = load i32, ptr %410, align 4
   %.not303 = icmp eq i32 %411, -2
@@ -1066,8 +1066,8 @@ _ring_terminal_bell.exit:                         ; preds = %329, %327, %_salloc
   br label %424
 
 424:                                              ; preds = %419, %422
-  %.sink503 = phi ptr [ %423, %422 ], [ %421, %419 ]
-  %425 = call i32 (ptr, ptr, ptr, ...) @env_array_append_fmt(ptr noundef nonnull %6, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.10, ptr noundef %.sink503) #13
+  %.sink504 = phi ptr [ %423, %422 ], [ %421, %419 ]
+  %425 = call i32 (ptr, ptr, ptr, ...) @env_array_append_fmt(ptr noundef nonnull %6, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.10, ptr noundef %.sink504) #13
   %426 = load ptr, ptr %6, align 8
   call void @env_array_set_environment(ptr noundef %426) #13
   %427 = load ptr, ptr %6, align 8
@@ -1434,39 +1434,37 @@ _fork_command.exit:                               ; preds = %477, %479
   br label %_forward_signal.exit
 
 593:                                              ; preds = %585
-  %594 = shl nuw nsw i32 %580, 24
-  %sext = add nuw i32 %594, 16777216
-  %595 = icmp sgt i32 %sext, 33554431
-  br i1 %595, label %596, label %_forward_signal.exit
+  %.not484 = icmp eq i32 %580, 127
+  br i1 %.not484, label %_forward_signal.exit, label %594
 
-596:                                              ; preds = %593
-  %597 = call i32 @get_log_level() #13
-  %598 = icmp sgt i32 %597, 3
-  br i1 %598, label %599, label %604
+594:                                              ; preds = %593
+  %595 = call i32 @get_log_level() #13
+  %596 = icmp sgt i32 %595, 3
+  br i1 %596, label %597, label %602
 
-599:                                              ; preds = %596
-  %600 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 72), align 8
-  %601 = load ptr, ptr %600, align 8
-  %602 = load i32, ptr %7, align 4
-  %603 = and i32 %602, 127
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.34, ptr noundef %601, i32 noundef %603) #13
-  br label %604
+597:                                              ; preds = %594
+  %598 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 72), align 8
+  %599 = load ptr, ptr %598, align 8
+  %600 = load i32, ptr %7, align 4
+  %601 = and i32 %600, 127
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.34, ptr noundef %599, i32 noundef %601) #13
+  br label %602
 
-604:                                              ; preds = %599, %596
-  %605 = load i32, ptr %7, align 4
-  %606 = and i32 %605, 127
-  %switch.tableidx = add nsw i32 %606, -1
-  %607 = icmp ult i32 %switch.tableidx, 9
-  br i1 %607, label %switch.lookup, label %_forward_signal.exit
+602:                                              ; preds = %597, %594
+  %603 = load i32, ptr %7, align 4
+  %604 = and i32 %603, 127
+  %switch.tableidx = add nsw i32 %604, -1
+  %605 = icmp ult i32 %switch.tableidx, 9
+  br i1 %605, label %switch.lookup, label %_forward_signal.exit
 
-switch.lookup:                                    ; preds = %604
-  %608 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.main, i64 %608
+switch.lookup:                                    ; preds = %602
+  %606 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.main, i64 %606
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_forward_signal.exit
 
-_forward_signal.exit:                             ; preds = %switch.lookup, %604, %591, %588, %577, %593, %582, %445, %449
-  %.0 = phi i32 [ 1, %449 ], [ 1, %445 ], [ %584, %582 ], [ 1, %604 ], [ 1, %593 ], [ 1, %577 ], [ 1, %588 ], [ 1, %591 ], [ %switch.load, %switch.lookup ]
+_forward_signal.exit:                             ; preds = %switch.lookup, %602, %591, %588, %577, %593, %582, %445, %449
+  %.0 = phi i32 [ 1, %449 ], [ 1, %445 ], [ %584, %582 ], [ 1, %602 ], [ 1, %593 ], [ 1, %577 ], [ 1, %588 ], [ 1, %591 ], [ %switch.load, %switch.lookup ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)

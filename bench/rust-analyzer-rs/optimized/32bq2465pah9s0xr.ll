@@ -28246,9 +28246,8 @@ define hidden void @"_ZN3ide16goto_declaration16goto_declaration28_$u7b$$u7b$clo
   %.sroa.579.sroa.4.0..sroa.579.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 12
   %.sroa.579.sroa.4.sroa.0.0.copyload = load i64, ptr %.sroa.579.sroa.4.0..sroa.579.0..sroa_idx.sroa_idx, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  %111 = add nsw i32 %108, -3
-  %switch = icmp ult i32 %111, 2
-  br i1 %switch, label %116, label %113
+  %111 = icmp samesign ugt i32 %108, 2
+  br i1 %111, label %116, label %113
 
 112:                                              ; preds = %107
   call void @llvm.lifetime.end.p0(ptr nonnull %13)

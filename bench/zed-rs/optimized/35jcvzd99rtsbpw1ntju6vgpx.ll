@@ -14385,9 +14385,8 @@ define internal fastcc void @"_ZN4core3ptr211drop_in_place$LT$core..result..Resu
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i8, ptr %5, align 8, !range !3227, !alias.scope !3228, !noundef !4
-  %7 = add nsw i8 %6, -22
-  %or.cond.i = icmp ult i8 %7, 20
-  br i1 %or.cond.i, label %"_ZN4core3ptr160drop_in_place$LT$core..option..Option$LT$language.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$language..LanguageConfig$GT$..deserialize..__Field$GT$$GT$17hf0befe9b67fa365aE.exit", label %8
+  %7 = icmp samesign ugt i8 %6, 21
+  br i1 %7, label %"_ZN4core3ptr160drop_in_place$LT$core..option..Option$LT$language.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$language..LanguageConfig$GT$..deserialize..__Field$GT$$GT$17hf0befe9b67fa365aE.exit", label %8
 
 8:                                                ; preds = %4
   tail call void @"_ZN4core3ptr59drop_in_place$LT$serde..__private..de..content..Content$GT$17h820ec398250451c1E.llvm.15863119600476612186"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5)

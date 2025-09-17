@@ -6288,9 +6288,8 @@ define noundef zeroext i1 @_ZN2ui6styles10appearance21window_is_transparent17h1a
   %4 = load ptr, ptr %3, align 8, !nonnull !4, !noundef !4
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 2344
   %6 = load i8, ptr %5, align 8, !range !12, !noundef !4
-  %.off = add nsw i8 %6, -1
-  %switch = icmp ult i8 %.off, 2
-  ret i1 %switch
+  %7 = icmp ne i8 %6, 0
+  ret i1 %7
 }
 
 ; Function Attrs: nonlazybind uwtable

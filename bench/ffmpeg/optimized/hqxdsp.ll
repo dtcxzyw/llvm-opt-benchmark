@@ -273,9 +273,9 @@ define internal void @hqx_idct_put(ptr noundef writeonly captures(none) %0, i64 
   %exitcond40.not = icmp eq i64 %indvars.iv.next38, 8
   br i1 %exitcond40.not, label %.preheader29, label %.preheader30, !llvm.loop !14
 
-.preheader:                                       ; preds = %.preheader29, %238
-  %indvars.iv45 = phi i64 [ 0, %.preheader29 ], [ %indvars.iv.next46, %238 ]
-  %.035 = phi ptr [ %0, %.preheader29 ], [ %239, %238 ]
+.preheader:                                       ; preds = %.preheader29, %239
+  %indvars.iv45 = phi i64 [ 0, %.preheader29 ], [ %indvars.iv.next46, %239 ]
+  %.035 = phi ptr [ %0, %.preheader29 ], [ %240, %239 ]
   %.idx49 = shl nuw nsw i64 %indvars.iv45, 4
   %invariant.gep = getelementptr inbounds nuw i8, ptr %2, i64 %.idx49
   br label %228
@@ -286,27 +286,27 @@ define internal void @hqx_idct_put(ptr noundef writeonly captures(none) %0, i64 
   %229 = load i16, ptr %gep, align 2, !tbaa !9
   %230 = sext i16 %229 to i32
   %231 = add nsw i32 %230, 2048
-  %.not.i = icmp ult i32 %231, 4096
+  %232 = icmp ugt i32 %231, 4095
   %isnotneg.inv.i = icmp slt i16 %229, -2048
-  %232 = select i1 %isnotneg.inv.i, i32 0, i32 4095
-  %.0.i = select i1 %.not.i, i32 %231, i32 %232
-  %233 = shl nsw i32 %.0.i, 4
-  %234 = lshr i32 %.0.i, 8
-  %235 = or i32 %233, %234
-  %236 = trunc i32 %235 to i16
-  %237 = getelementptr inbounds nuw i16, ptr %.035, i64 %indvars.iv41
-  store i16 %236, ptr %237, align 2, !tbaa !9
+  %233 = select i1 %isnotneg.inv.i, i32 0, i32 4095
+  %.0.i = select i1 %232, i32 %233, i32 %231
+  %234 = shl nsw i32 %.0.i, 4
+  %235 = lshr i32 %.0.i, 8
+  %236 = or i32 %234, %235
+  %237 = trunc i32 %236 to i16
+  %238 = getelementptr inbounds nuw i16, ptr %.035, i64 %indvars.iv41
+  store i16 %237, ptr %238, align 2, !tbaa !9
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
   %exitcond44.not = icmp eq i64 %indvars.iv.next42, 8
-  br i1 %exitcond44.not, label %238, label %228, !llvm.loop !15
+  br i1 %exitcond44.not, label %239, label %228, !llvm.loop !15
 
-238:                                              ; preds = %228
-  %239 = getelementptr inbounds i16, ptr %.035, i64 %127
+239:                                              ; preds = %228
+  %240 = getelementptr inbounds i16, ptr %.035, i64 %127
   %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
   %exitcond48.not = icmp eq i64 %indvars.iv.next46, 8
-  br i1 %exitcond48.not, label %240, label %.preheader, !llvm.loop !16
+  br i1 %exitcond48.not, label %241, label %.preheader, !llvm.loop !16
 
-240:                                              ; preds = %238
+241:                                              ; preds = %239
   ret void
 }
 

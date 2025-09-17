@@ -2605,9 +2605,8 @@ define internal fastcc void @"_ZN4core3ptr90drop_in_place$LT$core..option..Optio
 
 4:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !645)
-  %5 = add i64 %2, 9223372036854775807
-  %switch.i = icmp ult i64 %5, 2
-  br i1 %switch.i, label %"_ZN4core3ptr62drop_in_place$LT$language..language_settings..FormatOnSave$GT$17h47264b4a44251d87E.exit", label %6
+  %5 = icmp ugt i64 %2, -9223372036854775808
+  br i1 %5, label %"_ZN4core3ptr62drop_in_place$LT$language..language_settings..FormatOnSave$GT$17h47264b4a44251d87E.exit", label %6
 
 6:                                                ; preds = %4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !648)

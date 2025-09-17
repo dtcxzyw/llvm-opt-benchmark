@@ -60,7 +60,7 @@ define hidden void @"_ZN4core3ptr102drop_in_place$LT$boxcar..Vec$LT$alloc..boxed
   %17 = icmp ne ptr %.val.i.i.i.i.i.i, null
   tail call void @llvm.assume(i1 %17)
   invoke void %15(ptr noundef nonnull %.val.i.i.i.i.i.i)
-          to label %18 unwind label %28, !noalias !23
+          to label %18 unwind label %27, !noalias !23
 
 18:                                               ; preds = %16, %13
   %19 = icmp ne ptr %.val.i.i.i.i.i.i, null
@@ -69,68 +69,66 @@ define hidden void @"_ZN4core3ptr102drop_in_place$LT$boxcar..Vec$LT$alloc..boxed
   %21 = load i64, ptr %20, align 8, !range !24, !invariant.load !10, !noalias !23
   %22 = getelementptr inbounds nuw i8, ptr %.val1.i.i.i.i.i.i, i64 16
   %23 = load i64, ptr %22, align 8, !range !25, !invariant.load !10, !noalias !23
-  %24 = add i64 %23, -1
-  %25 = icmp sgt i64 %24, -1
-  tail call void @llvm.assume(i1 %25)
-  %26 = icmp eq i64 %21, 0
-  br i1 %26, label %"_ZN4core3ptr109drop_in_place$LT$boxcar..raw..Entry$LT$alloc..boxed..Box$LT$dyn$u20$salsa..ingredient..Ingredient$GT$$GT$$GT$17h0a934da3ab92e3f8E.exit.i.i.i.i", label %27
+  %24 = icmp ult i64 %23, -9223372036854775807
+  tail call void @llvm.assume(i1 %24)
+  %25 = icmp eq i64 %21, 0
+  br i1 %25, label %"_ZN4core3ptr109drop_in_place$LT$boxcar..raw..Entry$LT$alloc..boxed..Box$LT$dyn$u20$salsa..ingredient..Ingredient$GT$$GT$$GT$17h0a934da3ab92e3f8E.exit.i.i.i.i", label %26
 
-27:                                               ; preds = %18
+26:                                               ; preds = %18
   tail call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %.val.i.i.i.i.i.i, i64 noundef range(i64 1, -9223372036854775808) %21, i64 noundef range(i64 1, -9223372036854775807) %23) #15, !noalias !23
   br label %"_ZN4core3ptr109drop_in_place$LT$boxcar..raw..Entry$LT$alloc..boxed..Box$LT$dyn$u20$salsa..ingredient..Ingredient$GT$$GT$$GT$17h0a934da3ab92e3f8E.exit.i.i.i.i"
 
-28:                                               ; preds = %16
-  %29 = landingpad { ptr, i32 }
+27:                                               ; preds = %16
+  %28 = landingpad { ptr, i32 }
           cleanup
-  %30 = getelementptr inbounds nuw i8, ptr %.val1.i.i.i.i.i.i, i64 8
-  %31 = load i64, ptr %30, align 8, !range !24, !invariant.load !10, !noalias !23
-  %32 = getelementptr inbounds nuw i8, ptr %.val1.i.i.i.i.i.i, i64 16
-  %33 = load i64, ptr %32, align 8, !range !25, !invariant.load !10, !noalias !23
-  %34 = add i64 %33, -1
-  %35 = icmp sgt i64 %34, -1
-  tail call void @llvm.assume(i1 %35)
-  %36 = icmp eq i64 %31, 0
-  br i1 %36, label %.body.i.i.i.i.preheader, label %37
+  %29 = getelementptr inbounds nuw i8, ptr %.val1.i.i.i.i.i.i, i64 8
+  %30 = load i64, ptr %29, align 8, !range !24, !invariant.load !10, !noalias !23
+  %31 = getelementptr inbounds nuw i8, ptr %.val1.i.i.i.i.i.i, i64 16
+  %32 = load i64, ptr %31, align 8, !range !25, !invariant.load !10, !noalias !23
+  %33 = icmp ult i64 %32, -9223372036854775807
+  tail call void @llvm.assume(i1 %33)
+  %34 = icmp eq i64 %30, 0
+  br i1 %34, label %.body.i.i.i.i.preheader, label %35
 
-.body.i.i.i.i.preheader:                          ; preds = %37, %28
+.body.i.i.i.i.preheader:                          ; preds = %35, %27
   br label %.body.i.i.i.i
 
-37:                                               ; preds = %28
-  tail call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %.val.i.i.i.i.i.i, i64 noundef range(i64 1, -9223372036854775808) %31, i64 noundef range(i64 1, -9223372036854775807) %33) #15, !noalias !23
+35:                                               ; preds = %27
+  tail call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %.val.i.i.i.i.i.i, i64 noundef range(i64 1, -9223372036854775808) %30, i64 noundef range(i64 1, -9223372036854775807) %32) #15, !noalias !23
   br label %.body.i.i.i.i.preheader
 
-"_ZN4core3ptr109drop_in_place$LT$boxcar..raw..Entry$LT$alloc..boxed..Box$LT$dyn$u20$salsa..ingredient..Ingredient$GT$$GT$$GT$17h0a934da3ab92e3f8E.exit.i.i.i.i": ; preds = %27, %18, %.lr.ph.i.i.i.i
-  %38 = icmp eq i64 %9, %7
-  br i1 %38, label %"_ZN4core3ptr144drop_in_place$LT$alloc..boxed..Box$LT$$u5b$boxcar..raw..Entry$LT$alloc..boxed..Box$LT$dyn$u20$salsa..ingredient..Ingredient$GT$$GT$$u5d$$GT$$GT$17h46ddd401321fb61dE.exit.i.i", label %.lr.ph.i.i.i.i
+"_ZN4core3ptr109drop_in_place$LT$boxcar..raw..Entry$LT$alloc..boxed..Box$LT$dyn$u20$salsa..ingredient..Ingredient$GT$$GT$$GT$17h0a934da3ab92e3f8E.exit.i.i.i.i": ; preds = %26, %18, %.lr.ph.i.i.i.i
+  %36 = icmp eq i64 %9, %7
+  br i1 %36, label %"_ZN4core3ptr144drop_in_place$LT$alloc..boxed..Box$LT$$u5b$boxcar..raw..Entry$LT$alloc..boxed..Box$LT$dyn$u20$salsa..ingredient..Ingredient$GT$$GT$$u5d$$GT$$GT$17h46ddd401321fb61dE.exit.i.i", label %.lr.ph.i.i.i.i
 
-.body.i.i.i.i:                                    ; preds = %.body.i.i.i.i.preheader, %40
-  %.sroa.0.1.i.i.i.i = phi i64 [ %42, %40 ], [ %9, %.body.i.i.i.i.preheader ]
-  %39 = icmp eq i64 %.sroa.0.1.i.i.i.i, %7
-  br i1 %39, label %45, label %40
+.body.i.i.i.i:                                    ; preds = %.body.i.i.i.i.preheader, %38
+  %.sroa.0.1.i.i.i.i = phi i64 [ %40, %38 ], [ %9, %.body.i.i.i.i.preheader ]
+  %37 = icmp eq i64 %.sroa.0.1.i.i.i.i, %7
+  br i1 %37, label %43, label %38
 
-40:                                               ; preds = %.body.i.i.i.i
-  %41 = getelementptr inbounds nuw { { { { [2 x i64] } } }, { i8 }, [7 x i8] }, ptr %4, i64 %.sroa.0.1.i.i.i.i
-  %42 = add i64 %.sroa.0.1.i.i.i.i, 1
-  invoke fastcc void @"_ZN4core3ptr109drop_in_place$LT$boxcar..raw..Entry$LT$alloc..boxed..Box$LT$dyn$u20$salsa..ingredient..Ingredient$GT$$GT$$GT$17h0a934da3ab92e3f8E"(ptr noalias noundef readonly align 8 dereferenceable(24) %41) #16
-          to label %.body.i.i.i.i unwind label %43, !noalias !9
+38:                                               ; preds = %.body.i.i.i.i
+  %39 = getelementptr inbounds nuw { { { { [2 x i64] } } }, { i8 }, [7 x i8] }, ptr %4, i64 %.sroa.0.1.i.i.i.i
+  %40 = add i64 %.sroa.0.1.i.i.i.i, 1
+  invoke fastcc void @"_ZN4core3ptr109drop_in_place$LT$boxcar..raw..Entry$LT$alloc..boxed..Box$LT$dyn$u20$salsa..ingredient..Ingredient$GT$$GT$$GT$17h0a934da3ab92e3f8E"(ptr noalias noundef readonly align 8 dereferenceable(24) %39) #16
+          to label %.body.i.i.i.i unwind label %41, !noalias !9
 
-43:                                               ; preds = %40
-  %44 = landingpad { ptr, i32 }
+41:                                               ; preds = %38
+  %42 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #17, !noalias !26
   unreachable
 
-45:                                               ; preds = %.body.i.i.i.i
-  %46 = shl nuw i64 768, %.sroa.7.014.i.i
-  tail call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %4, i64 noundef range(i64 1, -9223372036854775808) %46, i64 noundef 8) #15, !noalias !9
-  resume { ptr, i32 } %29
+43:                                               ; preds = %.body.i.i.i.i
+  %44 = shl nuw i64 768, %.sroa.7.014.i.i
+  tail call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %4, i64 noundef range(i64 1, -9223372036854775808) %44, i64 noundef 8) #15, !noalias !9
+  resume { ptr, i32 } %28
 
 "_ZN4core3ptr144drop_in_place$LT$alloc..boxed..Box$LT$$u5b$boxcar..raw..Entry$LT$alloc..boxed..Box$LT$dyn$u20$salsa..ingredient..Ingredient$GT$$GT$$u5d$$GT$$GT$17h46ddd401321fb61dE.exit.i.i": ; preds = %"_ZN4core3ptr109drop_in_place$LT$boxcar..raw..Entry$LT$alloc..boxed..Box$LT$dyn$u20$salsa..ingredient..Ingredient$GT$$GT$$GT$17h0a934da3ab92e3f8E.exit.i.i.i.i"
-  %47 = shl nuw i64 768, %.sroa.7.014.i.i
-  tail call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %4, i64 noundef range(i64 1, -9223372036854775808) %47, i64 noundef 8) #15, !noalias !9
+  %45 = shl nuw i64 768, %.sroa.7.014.i.i
+  tail call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %4, i64 noundef range(i64 1, -9223372036854775808) %45, i64 noundef 8) #15, !noalias !9
   %.pn.add.i.i = add nuw nsw i64 %.pn.add15.i.i, 8
-  %48 = icmp eq i64 %.pn.add.i.i, 480
-  br i1 %48, label %"_ZN4core3ptr107drop_in_place$LT$boxcar..raw..Vec$LT$alloc..boxed..Box$LT$dyn$u20$salsa..ingredient..Ingredient$GT$$GT$$GT$17h1d8b966073364005E.exit", label %2
+  %46 = icmp eq i64 %.pn.add.i.i, 480
+  br i1 %46, label %"_ZN4core3ptr107drop_in_place$LT$boxcar..raw..Vec$LT$alloc..boxed..Box$LT$dyn$u20$salsa..ingredient..Ingredient$GT$$GT$$GT$17h1d8b966073364005E.exit", label %2
 
 "_ZN4core3ptr107drop_in_place$LT$boxcar..raw..Vec$LT$alloc..boxed..Box$LT$dyn$u20$salsa..ingredient..Ingredient$GT$$GT$$GT$17h1d8b966073364005E.exit": ; preds = %2, %"_ZN4core3ptr144drop_in_place$LT$alloc..boxed..Box$LT$$u5b$boxcar..raw..Entry$LT$alloc..boxed..Box$LT$dyn$u20$salsa..ingredient..Ingredient$GT$$GT$$u5d$$GT$$GT$17h46ddd401321fb61dE.exit.i.i"
   ret void
@@ -187,7 +185,7 @@ define internal fastcc void @"_ZN4core3ptr109drop_in_place$LT$boxcar..raw..Entry
   %9 = icmp ne ptr %.val.i, null
   tail call void @llvm.assume(i1 %9)
   invoke void %7(ptr noundef nonnull %.val.i)
-          to label %10 unwind label %20, !noalias !27
+          to label %10 unwind label %19, !noalias !27
 
 10:                                               ; preds = %8, %5
   %11 = icmp ne ptr %.val.i, null
@@ -196,37 +194,35 @@ define internal fastcc void @"_ZN4core3ptr109drop_in_place$LT$boxcar..raw..Entry
   %13 = load i64, ptr %12, align 8, !range !24, !invariant.load !10, !noalias !27
   %14 = getelementptr inbounds nuw i8, ptr %.val1.i, i64 16
   %15 = load i64, ptr %14, align 8, !range !25, !invariant.load !10, !noalias !27
-  %16 = add i64 %15, -1
-  %17 = icmp sgt i64 %16, -1
-  tail call void @llvm.assume(i1 %17)
-  %18 = icmp eq i64 %13, 0
-  br i1 %18, label %"_ZN69_$LT$boxcar..raw..Entry$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h53e6ef6b74ca9dd7E.exit", label %19
+  %16 = icmp ult i64 %15, -9223372036854775807
+  tail call void @llvm.assume(i1 %16)
+  %17 = icmp eq i64 %13, 0
+  br i1 %17, label %"_ZN69_$LT$boxcar..raw..Entry$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h53e6ef6b74ca9dd7E.exit", label %18
 
-19:                                               ; preds = %10
+18:                                               ; preds = %10
   tail call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %.val.i, i64 noundef range(i64 1, -9223372036854775808) %13, i64 noundef range(i64 1, -9223372036854775807) %15) #15, !noalias !27
   br label %"_ZN69_$LT$boxcar..raw..Entry$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h53e6ef6b74ca9dd7E.exit"
 
-20:                                               ; preds = %8
-  %21 = landingpad { ptr, i32 }
+19:                                               ; preds = %8
+  %20 = landingpad { ptr, i32 }
           cleanup
-  %22 = getelementptr inbounds nuw i8, ptr %.val1.i, i64 8
-  %23 = load i64, ptr %22, align 8, !range !24, !invariant.load !10, !noalias !27
-  %24 = getelementptr inbounds nuw i8, ptr %.val1.i, i64 16
-  %25 = load i64, ptr %24, align 8, !range !25, !invariant.load !10, !noalias !27
-  %26 = add i64 %25, -1
-  %27 = icmp sgt i64 %26, -1
-  tail call void @llvm.assume(i1 %27)
-  %28 = icmp eq i64 %23, 0
-  br i1 %28, label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he9b536358f146ee5E.exit4.i.i", label %29
+  %21 = getelementptr inbounds nuw i8, ptr %.val1.i, i64 8
+  %22 = load i64, ptr %21, align 8, !range !24, !invariant.load !10, !noalias !27
+  %23 = getelementptr inbounds nuw i8, ptr %.val1.i, i64 16
+  %24 = load i64, ptr %23, align 8, !range !25, !invariant.load !10, !noalias !27
+  %25 = icmp ult i64 %24, -9223372036854775807
+  tail call void @llvm.assume(i1 %25)
+  %26 = icmp eq i64 %22, 0
+  br i1 %26, label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he9b536358f146ee5E.exit4.i.i", label %27
 
-29:                                               ; preds = %20
-  tail call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %.val.i, i64 noundef range(i64 1, -9223372036854775808) %23, i64 noundef range(i64 1, -9223372036854775807) %25) #15, !noalias !27
+27:                                               ; preds = %19
+  tail call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %.val.i, i64 noundef range(i64 1, -9223372036854775808) %22, i64 noundef range(i64 1, -9223372036854775807) %24) #15, !noalias !27
   br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he9b536358f146ee5E.exit4.i.i"
 
-"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he9b536358f146ee5E.exit4.i.i": ; preds = %29, %20
-  resume { ptr, i32 } %21
+"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he9b536358f146ee5E.exit4.i.i": ; preds = %27, %19
+  resume { ptr, i32 } %20
 
-"_ZN69_$LT$boxcar..raw..Entry$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h53e6ef6b74ca9dd7E.exit": ; preds = %1, %10, %19
+"_ZN69_$LT$boxcar..raw..Entry$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h53e6ef6b74ca9dd7E.exit": ; preds = %1, %10, %18
   ret void
 }
 
@@ -537,7 +533,7 @@ define internal fastcc void @"_ZN4core3ptr223drop_in_place$LT$core..option..Opti
   %1 = icmp eq ptr %.0.val, null
   br i1 %1, label %"_ZN4core3ptr195drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..Fn$LT$$LP$salsa..event..Event$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$$LP$$RP$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hc9da838c9205b0b1E.exit", label %2
 
-"_ZN4core3ptr195drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..Fn$LT$$LP$salsa..event..Event$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$$LP$$RP$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hc9da838c9205b0b1E.exit": ; preds = %14, %6, %0
+"_ZN4core3ptr195drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..Fn$LT$$LP$salsa..event..Event$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$$LP$$RP$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hc9da838c9205b0b1E.exit": ; preds = %13, %6, %0
   ret void
 
 2:                                                ; preds = %0
@@ -549,42 +545,40 @@ define internal fastcc void @"_ZN4core3ptr223drop_in_place$LT$core..option..Opti
 
 5:                                                ; preds = %2
   invoke void %4(ptr noundef nonnull %.0.val)
-          to label %6 unwind label %15
+          to label %6 unwind label %14
 
 6:                                                ; preds = %5, %2
   %7 = getelementptr inbounds nuw i8, ptr %.8.val, i64 8
   %8 = load i64, ptr %7, align 8, !range !24, !invariant.load !10
   %9 = getelementptr inbounds nuw i8, ptr %.8.val, i64 16
   %10 = load i64, ptr %9, align 8, !range !25, !invariant.load !10
-  %11 = add i64 %10, -1
-  %12 = icmp sgt i64 %11, -1
-  tail call void @llvm.assume(i1 %12)
-  %13 = icmp eq i64 %8, 0
-  br i1 %13, label %"_ZN4core3ptr195drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..Fn$LT$$LP$salsa..event..Event$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$$LP$$RP$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hc9da838c9205b0b1E.exit", label %14
+  %11 = icmp ult i64 %10, -9223372036854775807
+  tail call void @llvm.assume(i1 %11)
+  %12 = icmp eq i64 %8, 0
+  br i1 %12, label %"_ZN4core3ptr195drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..Fn$LT$$LP$salsa..event..Event$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$$LP$$RP$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hc9da838c9205b0b1E.exit", label %13
 
-14:                                               ; preds = %6
+13:                                               ; preds = %6
   tail call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef range(i64 1, -9223372036854775808) %8, i64 noundef range(i64 1, -9223372036854775807) %10) #15
   br label %"_ZN4core3ptr195drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..Fn$LT$$LP$salsa..event..Event$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$$LP$$RP$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hc9da838c9205b0b1E.exit"
 
-15:                                               ; preds = %5
-  %16 = landingpad { ptr, i32 }
+14:                                               ; preds = %5
+  %15 = landingpad { ptr, i32 }
           cleanup
-  %17 = getelementptr inbounds nuw i8, ptr %.8.val, i64 8
-  %18 = load i64, ptr %17, align 8, !range !24, !invariant.load !10
-  %19 = getelementptr inbounds nuw i8, ptr %.8.val, i64 16
-  %20 = load i64, ptr %19, align 8, !range !25, !invariant.load !10
-  %21 = add i64 %20, -1
-  %22 = icmp sgt i64 %21, -1
-  tail call void @llvm.assume(i1 %22)
-  %23 = icmp eq i64 %18, 0
-  br i1 %23, label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5dd69dbde41a28d8E.exit4.i", label %24
+  %16 = getelementptr inbounds nuw i8, ptr %.8.val, i64 8
+  %17 = load i64, ptr %16, align 8, !range !24, !invariant.load !10
+  %18 = getelementptr inbounds nuw i8, ptr %.8.val, i64 16
+  %19 = load i64, ptr %18, align 8, !range !25, !invariant.load !10
+  %20 = icmp ult i64 %19, -9223372036854775807
+  tail call void @llvm.assume(i1 %20)
+  %21 = icmp eq i64 %17, 0
+  br i1 %21, label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5dd69dbde41a28d8E.exit4.i", label %22
 
-24:                                               ; preds = %15
-  tail call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef range(i64 1, -9223372036854775808) %18, i64 noundef range(i64 1, -9223372036854775807) %20) #15
+22:                                               ; preds = %14
+  tail call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef range(i64 1, -9223372036854775808) %17, i64 noundef range(i64 1, -9223372036854775807) %19) #15
   br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5dd69dbde41a28d8E.exit4.i"
 
-"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5dd69dbde41a28d8E.exit4.i": ; preds = %24, %15
-  resume { ptr, i32 } %16
+"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5dd69dbde41a28d8E.exit4.i": ; preds = %22, %14
+  resume { ptr, i32 } %15
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn uwtable
@@ -876,7 +870,7 @@ define hidden void @"_ZN4core3ptr40drop_in_place$LT$salsa..zalsa..Zalsa$GT$17hfe
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 1208
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 1240
   invoke void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h03c48a78e8b2d8b6E(ptr noalias noundef nonnull align 8 dereferenceable(32) %12, ptr noalias noundef nonnull readonly align 1 %13, i64 noundef 24, i64 noundef 16)
-          to label %"_ZN4core3ptr207drop_in_place$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$std..collections..hash..map..HashMap$LT$core..any..TypeId$C$salsa..zalsa..IngredientIndex$C$rustc_hash..FxBuildHasher$GT$$GT$$GT$17h46b2607ac4c4b165E.exit" unwind label %76
+          to label %"_ZN4core3ptr207drop_in_place$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$std..collections..hash..map..HashMap$LT$core..any..TypeId$C$salsa..zalsa..IngredientIndex$C$rustc_hash..FxBuildHasher$GT$$GT$$GT$17h46b2607ac4c4b165E.exit" unwind label %74
 
 14:                                               ; preds = %"_ZN4core3ptr40drop_in_place$LT$salsa..views..Views$GT$17h0893f0b4f5efdfa1E.exit"
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 1208
@@ -889,7 +883,7 @@ define hidden void @"_ZN4core3ptr40drop_in_place$LT$salsa..zalsa..Zalsa$GT$17hfe
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 1248
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 1280
   invoke void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h60aed0c8bacd443bE(ptr noalias noundef nonnull align 8 dereferenceable(32) %17, ptr noalias noundef nonnull readonly align 1 %18, i64 noundef 24, i64 noundef 16)
-          to label %"_ZN4core3ptr211drop_in_place$LT$lock_api..rwlock..RwLock$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$salsa..zalsa..IngredientIndex$C$core..any..TypeId$C$rustc_hash..FxBuildHasher$GT$$GT$$GT$17h569c390fcb7543daE.exit" unwind label %76
+          to label %"_ZN4core3ptr211drop_in_place$LT$lock_api..rwlock..RwLock$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$salsa..zalsa..IngredientIndex$C$core..any..TypeId$C$rustc_hash..FxBuildHasher$GT$$GT$$GT$17h569c390fcb7543daE.exit" unwind label %74
 
 19:                                               ; preds = %14
   %20 = landingpad { ptr, i32 }
@@ -906,7 +900,7 @@ define hidden void @"_ZN4core3ptr40drop_in_place$LT$salsa..zalsa..Zalsa$GT$17hfe
   %.pn4 = phi { ptr, i32 } [ %25, %24 ], [ %.pn2, %"_ZN4core3ptr207drop_in_place$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$std..collections..hash..map..HashMap$LT$core..any..TypeId$C$salsa..zalsa..IngredientIndex$C$rustc_hash..FxBuildHasher$GT$$GT$$GT$17h46b2607ac4c4b165E.exit" ]
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 1280
   invoke void @"_ZN4core3ptr102drop_in_place$LT$boxcar..Vec$LT$alloc..boxed..Box$LT$dyn$u20$salsa..ingredient..Ingredient$GT$$GT$$GT$17h6dd3cb7e5f073357E"(ptr noalias noundef nonnull align 8 dereferenceable(488) %23) #16
-          to label %26 unwind label %76
+          to label %26 unwind label %74
 
 24:                                               ; preds = %"_ZN4core3ptr207drop_in_place$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$std..collections..hash..map..HashMap$LT$core..any..TypeId$C$salsa..zalsa..IngredientIndex$C$rustc_hash..FxBuildHasher$GT$$GT$$GT$17h46b2607ac4c4b165E.exit15"
   %25 = landingpad { ptr, i32 }
@@ -922,7 +916,7 @@ define hidden void @"_ZN4core3ptr40drop_in_place$LT$salsa..zalsa..Zalsa$GT$17hfe
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 1768
   tail call void @"_ZN4core3ptr69drop_in_place$LT$boxcar..Vec$LT$salsa..zalsa..IngredientIndex$GT$$GT$17h1b4d30d361e214a0E"(ptr noalias noundef nonnull align 8 dereferenceable(488) %27) #16
   invoke fastcc void @"_ZN4core3ptr44drop_in_place$LT$salsa..runtime..Runtime$GT$17h5b029ba154b3400fE"(ptr noalias noundef align 8 dereferenceable(664) %0) #16
-          to label %.body unwind label %76
+          to label %.body unwind label %74
 
 28:                                               ; preds = %"_ZN4core3ptr211drop_in_place$LT$lock_api..rwlock..RwLock$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$salsa..zalsa..IngredientIndex$C$core..any..TypeId$C$rustc_hash..FxBuildHasher$GT$$GT$$GT$17h569c390fcb7543daE.exit16"
   %29 = landingpad { ptr, i32 }
@@ -982,7 +976,7 @@ define hidden void @"_ZN4core3ptr40drop_in_place$LT$salsa..zalsa..Zalsa$GT$17hfe
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 2264
   %.val14 = load ptr, ptr %47, align 8
   invoke fastcc void @"_ZN4core3ptr223drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..Fn$LT$$LP$salsa..event..Event$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$$LP$$RP$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$$GT$17hc9d393e6900d8c45E"(ptr %.val13, ptr %.val14) #16
-          to label %common.resume unwind label %76
+          to label %common.resume unwind label %74
 
 48:                                               ; preds = %42
   %49 = landingpad { ptr, i32 }
@@ -1006,49 +1000,47 @@ define hidden void @"_ZN4core3ptr40drop_in_place$LT$salsa..zalsa..Zalsa$GT$17hfe
 
 56:                                               ; preds = %53
   invoke void %55(ptr noundef nonnull %.val)
-          to label %57 unwind label %66
+          to label %57 unwind label %65
 
 57:                                               ; preds = %56, %53
   %58 = getelementptr inbounds nuw i8, ptr %.val12, i64 8
   %59 = load i64, ptr %58, align 8, !range !24, !invariant.load !10
   %60 = getelementptr inbounds nuw i8, ptr %.val12, i64 16
   %61 = load i64, ptr %60, align 8, !range !25, !invariant.load !10
-  %62 = add i64 %61, -1
-  %63 = icmp sgt i64 %62, -1
-  tail call void @llvm.assume(i1 %63)
-  %64 = icmp eq i64 %59, 0
-  br i1 %64, label %"_ZN4core3ptr223drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..Fn$LT$$LP$salsa..event..Event$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$$LP$$RP$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$$GT$17hc9d393e6900d8c45E.exit", label %65
+  %62 = icmp ult i64 %61, -9223372036854775807
+  tail call void @llvm.assume(i1 %62)
+  %63 = icmp eq i64 %59, 0
+  br i1 %63, label %"_ZN4core3ptr223drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..Fn$LT$$LP$salsa..event..Event$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$$LP$$RP$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$$GT$17hc9d393e6900d8c45E.exit", label %64
 
-65:                                               ; preds = %57
+64:                                               ; preds = %57
   tail call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %.val, i64 noundef range(i64 1, -9223372036854775808) %59, i64 noundef range(i64 1, -9223372036854775807) %61) #15
   br label %"_ZN4core3ptr223drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..Fn$LT$$LP$salsa..event..Event$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$$LP$$RP$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$$GT$17hc9d393e6900d8c45E.exit"
 
-66:                                               ; preds = %56
-  %67 = landingpad { ptr, i32 }
+65:                                               ; preds = %56
+  %66 = landingpad { ptr, i32 }
           cleanup
-  %68 = getelementptr inbounds nuw i8, ptr %.val12, i64 8
-  %69 = load i64, ptr %68, align 8, !range !24, !invariant.load !10
-  %70 = getelementptr inbounds nuw i8, ptr %.val12, i64 16
-  %71 = load i64, ptr %70, align 8, !range !25, !invariant.load !10
-  %72 = add i64 %71, -1
-  %73 = icmp sgt i64 %72, -1
-  tail call void @llvm.assume(i1 %73)
-  %74 = icmp eq i64 %69, 0
-  br i1 %74, label %common.resume, label %75
+  %67 = getelementptr inbounds nuw i8, ptr %.val12, i64 8
+  %68 = load i64, ptr %67, align 8, !range !24, !invariant.load !10
+  %69 = getelementptr inbounds nuw i8, ptr %.val12, i64 16
+  %70 = load i64, ptr %69, align 8, !range !25, !invariant.load !10
+  %71 = icmp ult i64 %70, -9223372036854775807
+  tail call void @llvm.assume(i1 %71)
+  %72 = icmp eq i64 %68, 0
+  br i1 %72, label %common.resume, label %73
 
-75:                                               ; preds = %66
-  tail call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %.val, i64 noundef range(i64 1, -9223372036854775808) %69, i64 noundef range(i64 1, -9223372036854775807) %71) #15
+73:                                               ; preds = %65
+  tail call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %.val, i64 noundef range(i64 1, -9223372036854775808) %68, i64 noundef range(i64 1, -9223372036854775807) %70) #15
   br label %common.resume
 
-common.resume:                                    ; preds = %.body, %66, %75
-  %common.resume.op = phi { ptr, i32 } [ %67, %75 ], [ %67, %66 ], [ %.pn10, %.body ]
+common.resume:                                    ; preds = %.body, %65, %73
+  %common.resume.op = phi { ptr, i32 } [ %66, %73 ], [ %66, %65 ], [ %.pn10, %.body ]
   resume { ptr, i32 } %common.resume.op
 
-"_ZN4core3ptr223drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..Fn$LT$$LP$salsa..event..Event$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$$LP$$RP$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$$GT$17hc9d393e6900d8c45E.exit": ; preds = %"_ZN4core3ptr44drop_in_place$LT$salsa..runtime..Runtime$GT$17h5b029ba154b3400fE.exit", %57, %65
+"_ZN4core3ptr223drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..Fn$LT$$LP$salsa..event..Event$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$$LP$$RP$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$$GT$17hc9d393e6900d8c45E.exit": ; preds = %"_ZN4core3ptr44drop_in_place$LT$salsa..runtime..Runtime$GT$17h5b029ba154b3400fE.exit", %57, %64
   ret void
 
-76:                                               ; preds = %"_ZN4core3ptr207drop_in_place$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$std..collections..hash..map..HashMap$LT$core..any..TypeId$C$salsa..zalsa..IngredientIndex$C$rustc_hash..FxBuildHasher$GT$$GT$$GT$17h46b2607ac4c4b165E.exit", %10, %.body, %26, %"_ZN4core3ptr211drop_in_place$LT$lock_api..rwlock..RwLock$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$salsa..zalsa..IngredientIndex$C$core..any..TypeId$C$rustc_hash..FxBuildHasher$GT$$GT$$GT$17h569c390fcb7543daE.exit"
-  %77 = landingpad { ptr, i32 }
+74:                                               ; preds = %"_ZN4core3ptr207drop_in_place$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$std..collections..hash..map..HashMap$LT$core..any..TypeId$C$salsa..zalsa..IngredientIndex$C$rustc_hash..FxBuildHasher$GT$$GT$$GT$17h46b2607ac4c4b165E.exit", %10, %.body, %26, %"_ZN4core3ptr211drop_in_place$LT$lock_api..rwlock..RwLock$LT$parking_lot..raw_rwlock..RawRwLock$C$std..collections..hash..map..HashMap$LT$salsa..zalsa..IngredientIndex$C$core..any..TypeId$C$rustc_hash..FxBuildHasher$GT$$GT$$GT$17h569c390fcb7543daE.exit"
+  %75 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #17
   unreachable
@@ -1102,7 +1094,7 @@ define hidden void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h
   %10 = icmp ne ptr %.val.i.i.i.i, null
   tail call void @llvm.assume(i1 %10)
   invoke void %8(ptr noundef nonnull %.val.i.i.i.i)
-          to label %11 unwind label %21
+          to label %11 unwind label %20
 
 11:                                               ; preds = %9, %4
   %12 = icmp ne ptr %.val.i.i.i.i, null
@@ -1111,38 +1103,36 @@ define hidden void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h
   %14 = load i64, ptr %13, align 8, !range !24, !invariant.load !10
   %15 = getelementptr inbounds nuw i8, ptr %.val1.i.i.i.i, i64 16
   %16 = load i64, ptr %15, align 8, !range !25, !invariant.load !10
-  %17 = add i64 %16, -1
-  %18 = icmp sgt i64 %17, -1
-  tail call void @llvm.assume(i1 %18)
-  %19 = icmp eq i64 %14, 0
-  br i1 %19, label %"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17hc250e42dde11cfd3E.exit.i.i.i", label %20
+  %17 = icmp ult i64 %16, -9223372036854775807
+  tail call void @llvm.assume(i1 %17)
+  %18 = icmp eq i64 %14, 0
+  br i1 %18, label %"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17hc250e42dde11cfd3E.exit.i.i.i", label %19
 
-20:                                               ; preds = %11
+19:                                               ; preds = %11
   tail call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %.val.i.i.i.i, i64 noundef range(i64 1, -9223372036854775808) %14, i64 noundef range(i64 1, -9223372036854775807) %16) #15
   br label %"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17hc250e42dde11cfd3E.exit.i.i.i"
 
-21:                                               ; preds = %9
-  %22 = landingpad { ptr, i32 }
+20:                                               ; preds = %9
+  %21 = landingpad { ptr, i32 }
           cleanup
-  %23 = getelementptr inbounds nuw i8, ptr %.val1.i.i.i.i, i64 8
-  %24 = load i64, ptr %23, align 8, !range !24, !invariant.load !10
-  %25 = getelementptr inbounds nuw i8, ptr %.val1.i.i.i.i, i64 16
-  %26 = load i64, ptr %25, align 8, !range !25, !invariant.load !10
-  %27 = add i64 %26, -1
-  %28 = icmp sgt i64 %27, -1
-  tail call void @llvm.assume(i1 %28)
-  %29 = icmp eq i64 %24, 0
-  br i1 %29, label %31, label %30
+  %22 = getelementptr inbounds nuw i8, ptr %.val1.i.i.i.i, i64 8
+  %23 = load i64, ptr %22, align 8, !range !24, !invariant.load !10
+  %24 = getelementptr inbounds nuw i8, ptr %.val1.i.i.i.i, i64 16
+  %25 = load i64, ptr %24, align 8, !range !25, !invariant.load !10
+  %26 = icmp ult i64 %25, -9223372036854775807
+  tail call void @llvm.assume(i1 %26)
+  %27 = icmp eq i64 %23, 0
+  br i1 %27, label %29, label %28
 
-30:                                               ; preds = %21
-  tail call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %.val.i.i.i.i, i64 noundef range(i64 1, -9223372036854775808) %24, i64 noundef range(i64 1, -9223372036854775807) %26) #15
-  br label %31
+28:                                               ; preds = %20
+  tail call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %.val.i.i.i.i, i64 noundef range(i64 1, -9223372036854775808) %23, i64 noundef range(i64 1, -9223372036854775807) %25) #15
+  br label %29
 
-31:                                               ; preds = %30, %21
+29:                                               ; preds = %28, %20
   tail call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %5, i64 noundef 24, i64 noundef 8) #15
-  resume { ptr, i32 } %22
+  resume { ptr, i32 } %21
 
-"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17hc250e42dde11cfd3E.exit.i.i.i": ; preds = %20, %11
+"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17hc250e42dde11cfd3E.exit.i.i.i": ; preds = %19, %11
   tail call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %5, i64 noundef 24, i64 noundef 8) #15
   br label %"_ZN4core3ptr57drop_in_place$LT$std..io..error..repr_bitpacked..Repr$GT$17he4713d383c1db6f1E.exit"
 
@@ -2337,44 +2327,42 @@ define void @"_ZN119_$LT$salsa..tracked_struct..IngredientImpl$LT$C$GT$..delete_
 
 53:                                               ; preds = %45
   invoke void %52(ptr noundef nonnull %48)
-          to label %54 unwind label %63
+          to label %54 unwind label %62
 
 54:                                               ; preds = %53, %45
   %55 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %56 = load i64, ptr %55, align 8, !range !24, !invariant.load !10
   %57 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %58 = load i64, ptr %57, align 8, !range !25, !invariant.load !10
-  %59 = add i64 %58, -1
-  %60 = icmp sgt i64 %59, -1
-  tail call void @llvm.assume(i1 %60)
-  %61 = icmp eq i64 %56, 0
-  br i1 %61, label %"_ZN4core3ptr106drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$salsa..table..memo..Memo$GT$$GT$$GT$17h12e3398bbf216595E.exit.i", label %62
+  %59 = icmp ult i64 %58, -9223372036854775807
+  tail call void @llvm.assume(i1 %59)
+  %60 = icmp eq i64 %56, 0
+  br i1 %60, label %"_ZN4core3ptr106drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$salsa..table..memo..Memo$GT$$GT$$GT$17h12e3398bbf216595E.exit.i", label %61
 
-62:                                               ; preds = %54
+61:                                               ; preds = %54
   tail call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %48, i64 noundef range(i64 1, -9223372036854775808) %56, i64 noundef range(i64 1, -9223372036854775807) %58) #15
   br label %"_ZN4core3ptr106drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$salsa..table..memo..Memo$GT$$GT$$GT$17h12e3398bbf216595E.exit.i"
 
-63:                                               ; preds = %53
-  %64 = landingpad { ptr, i32 }
+62:                                               ; preds = %53
+  %63 = landingpad { ptr, i32 }
           cleanup
-  %65 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  %66 = load i64, ptr %65, align 8, !range !24, !invariant.load !10
-  %67 = getelementptr inbounds nuw i8, ptr %49, i64 16
-  %68 = load i64, ptr %67, align 8, !range !25, !invariant.load !10
-  %69 = add i64 %68, -1
-  %70 = icmp sgt i64 %69, -1
-  tail call void @llvm.assume(i1 %70)
-  %71 = icmp eq i64 %66, 0
-  br i1 %71, label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h696fc3cc5d0c1086E.exit4.i.i.i", label %72
+  %64 = getelementptr inbounds nuw i8, ptr %49, i64 8
+  %65 = load i64, ptr %64, align 8, !range !24, !invariant.load !10
+  %66 = getelementptr inbounds nuw i8, ptr %49, i64 16
+  %67 = load i64, ptr %66, align 8, !range !25, !invariant.load !10
+  %68 = icmp ult i64 %67, -9223372036854775807
+  tail call void @llvm.assume(i1 %68)
+  %69 = icmp eq i64 %65, 0
+  br i1 %69, label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h696fc3cc5d0c1086E.exit4.i.i.i", label %70
 
-72:                                               ; preds = %63
-  tail call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %48, i64 noundef range(i64 1, -9223372036854775808) %66, i64 noundef range(i64 1, -9223372036854775807) %68) #15
+70:                                               ; preds = %62
+  tail call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %48, i64 noundef range(i64 1, -9223372036854775808) %65, i64 noundef range(i64 1, -9223372036854775807) %67) #15
   br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h696fc3cc5d0c1086E.exit4.i.i.i"
 
-"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h696fc3cc5d0c1086E.exit4.i.i.i": ; preds = %72, %63
-  resume { ptr, i32 } %64
+"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h696fc3cc5d0c1086E.exit4.i.i.i": ; preds = %70, %62
+  resume { ptr, i32 } %63
 
-"_ZN4core3ptr106drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$salsa..table..memo..Memo$GT$$GT$$GT$17h12e3398bbf216595E.exit.i": ; preds = %62, %54, %42, %39
+"_ZN4core3ptr106drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$salsa..table..memo..Memo$GT$$GT$$GT$17h12e3398bbf216595E.exit.i": ; preds = %61, %54, %42, %39
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.49.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10.i)
   br label %10

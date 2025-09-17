@@ -43,13 +43,12 @@ define internal range(i32 0, 2) i32 @ec2blob_does_selection(ptr readnone capture
   br i1 %exitcond.not.i, label %key2blob_check_selection.exit, label %.preheader.i, !llvm.loop !7
 
 .loopexit.split.loop.exit.i:                      ; preds = %.preheader.i
-  %9 = add nsw i64 %.01117.i, -1
-  %10 = icmp ult i64 %9, 2
-  %11 = zext i1 %10 to i32
+  %9 = icmp ne i64 %.01117.i, 0
+  %10 = zext i1 %9 to i32
   br label %key2blob_check_selection.exit
 
 key2blob_check_selection.exit:                    ; preds = %7, %2, %.loopexit.split.loop.exit.i
-  %.0.i = phi i32 [ 1, %2 ], [ %11, %.loopexit.split.loop.exit.i ], [ 0, %7 ]
+  %.0.i = phi i32 [ 1, %2 ], [ %10, %.loopexit.split.loop.exit.i ], [ 0, %7 ]
   ret i32 %.0.i
 }
 
@@ -128,13 +127,12 @@ define internal range(i32 0, 2) i32 @sm22blob_does_selection(ptr readnone captur
   br i1 %exitcond.not.i, label %key2blob_check_selection.exit, label %.preheader.i, !llvm.loop !7
 
 .loopexit.split.loop.exit.i:                      ; preds = %.preheader.i
-  %9 = add nsw i64 %.01117.i, -1
-  %10 = icmp ult i64 %9, 2
-  %11 = zext i1 %10 to i32
+  %9 = icmp ne i64 %.01117.i, 0
+  %10 = zext i1 %9 to i32
   br label %key2blob_check_selection.exit
 
 key2blob_check_selection.exit:                    ; preds = %7, %2, %.loopexit.split.loop.exit.i
-  %.0.i = phi i32 [ 1, %2 ], [ %11, %.loopexit.split.loop.exit.i ], [ 0, %7 ]
+  %.0.i = phi i32 [ 1, %2 ], [ %10, %.loopexit.split.loop.exit.i ], [ 0, %7 ]
   ret i32 %.0.i
 }
 

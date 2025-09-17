@@ -1530,78 +1530,78 @@ define internal range(i32 -22, 1) i32 @config_input(ptr noundef readonly capture
   %7 = load i32, ptr %6, align 4, !tbaa !92
   %8 = shl i32 %7, 1
   %9 = add i32 %8, -2
-  %.not.i = icmp ult i32 %9, 65536
-  %10 = lshr i32 %9, 16
-  %spec.select.i = select i1 %.not.i, i32 %9, i32 %10
-  %spec.select12.i = select i1 %.not.i, i32 0, i32 16
-  %.not11.i = icmp samesign ult i32 %spec.select.i, 256
-  %11 = lshr i32 %spec.select.i, 8
-  %12 = or disjoint i32 %spec.select12.i, 8
-  %.110.i = select i1 %.not11.i, i32 %spec.select.i, i32 %11
-  %.1.i = select i1 %.not11.i, i32 %spec.select12.i, i32 %12
-  %13 = zext nneg i32 %.110.i to i64
-  %14 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %13
-  %15 = load i8, ptr %14, align 1, !tbaa !96
-  %16 = zext i8 %15 to i32
-  %17 = add nuw nsw i32 %.1.i, %16
-  %18 = getelementptr inbounds nuw i8, ptr %5, i64 272
-  store i32 %17, ptr %18, align 8, !tbaa !58
-  %19 = shl nuw i32 1, %17
-  store i32 %19, ptr %6, align 4, !tbaa !92
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %21 = load i32, ptr %20, align 8, !tbaa !97
-  %22 = ashr i32 %21, %17
-  %23 = getelementptr inbounds nuw i8, ptr %5, i64 260
-  store i32 %22, ptr %23, align 4, !tbaa !57
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %25 = load i32, ptr %24, align 4, !tbaa !98
-  %26 = ashr i32 %25, %17
-  %27 = getelementptr inbounds nuw i8, ptr %5, i64 264
-  store i32 %26, ptr %27, align 8, !tbaa !56
-  %28 = mul nsw i32 %22, %26
-  %29 = getelementptr inbounds nuw i8, ptr %5, i64 268
-  store i32 %28, ptr %29, align 4, !tbaa !48
-  %30 = icmp eq i32 %28, 0
-  br i1 %30, label %.loopexit, label %.preheader
+  %10 = icmp ugt i32 %9, 65535
+  %11 = lshr i32 %9, 16
+  %spec.select.i = select i1 %10, i32 %11, i32 %9
+  %spec.select11.i = select i1 %10, i32 16, i32 0
+  %.not.i = icmp samesign ult i32 %spec.select.i, 256
+  %12 = lshr i32 %spec.select.i, 8
+  %13 = or disjoint i32 %spec.select11.i, 8
+  %.110.i = select i1 %.not.i, i32 %spec.select.i, i32 %12
+  %.1.i = select i1 %.not.i, i32 %spec.select11.i, i32 %13
+  %14 = zext nneg i32 %.110.i to i64
+  %15 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %14
+  %16 = load i8, ptr %15, align 1, !tbaa !96
+  %17 = zext i8 %16 to i32
+  %18 = add nuw nsw i32 %.1.i, %17
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 272
+  store i32 %18, ptr %19, align 8, !tbaa !58
+  %20 = shl nuw i32 1, %18
+  store i32 %20, ptr %6, align 4, !tbaa !92
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %22 = load i32, ptr %21, align 8, !tbaa !97
+  %23 = ashr i32 %22, %18
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 260
+  store i32 %23, ptr %24, align 4, !tbaa !57
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %26 = load i32, ptr %25, align 4, !tbaa !98
+  %27 = ashr i32 %26, %18
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 264
+  store i32 %27, ptr %28, align 8, !tbaa !56
+  %29 = mul nsw i32 %23, %27
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 268
+  store i32 %29, ptr %30, align 4, !tbaa !48
+  %31 = icmp eq i32 %29, 0
+  br i1 %31, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %1
-  %31 = getelementptr inbounds nuw i8, ptr %5, i64 304
-  br label %33
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 304
+  br label %34
 
-32:                                               ; preds = %33
+33:                                               ; preds = %34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %38, label %33, !llvm.loop !99
+  br i1 %exitcond.not, label %39, label %34, !llvm.loop !99
 
-33:                                               ; preds = %.preheader, %32
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %32 ]
-  %34 = load i32, ptr %29, align 4, !tbaa !48
-  %35 = sext i32 %34 to i64
-  %36 = tail call noalias ptr @av_calloc(i64 noundef %35, i64 noundef 16) #6
-  %37 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv
-  store ptr %36, ptr %37, align 8, !tbaa !46
-  %.not = icmp eq ptr %36, null
-  br i1 %.not, label %.loopexit, label %32
+34:                                               ; preds = %.preheader, %33
+  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %33 ]
+  %35 = load i32, ptr %30, align 4, !tbaa !48
+  %36 = sext i32 %35 to i64
+  %37 = tail call noalias ptr @av_calloc(i64 noundef %36, i64 noundef 16) #6
+  %38 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv
+  store ptr %37, ptr %38, align 8, !tbaa !46
+  %.not = icmp eq ptr %37, null
+  br i1 %.not, label %.loopexit, label %33
 
-38:                                               ; preds = %32
-  %39 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %40 = load i32, ptr %6, align 4, !tbaa !92
-  %41 = getelementptr inbounds nuw i8, ptr %5, i64 256
-  %42 = load i32, ptr %41, align 8, !tbaa !100
-  %43 = load i32, ptr %20, align 8, !tbaa !97
-  %44 = load i32, ptr %24, align 4, !tbaa !98
-  %45 = load i32, ptr %23, align 4, !tbaa !57
-  %46 = add nsw i32 %45, -1
-  %47 = load i32, ptr %18, align 8, !tbaa !58
-  %48 = shl i32 %46, %47
-  %49 = load i32, ptr %27, align 8, !tbaa !56
-  %50 = add nsw i32 %49, -1
-  %51 = shl i32 %50, %47
-  tail call void @ff_me_init_context(ptr noundef nonnull %39, i32 noundef %40, i32 noundef %42, i32 noundef %43, i32 noundef %44, i32 noundef 0, i32 noundef %48, i32 noundef 0, i32 noundef %51) #6
+39:                                               ; preds = %33
+  %40 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %41 = load i32, ptr %6, align 4, !tbaa !92
+  %42 = getelementptr inbounds nuw i8, ptr %5, i64 256
+  %43 = load i32, ptr %42, align 8, !tbaa !100
+  %44 = load i32, ptr %21, align 8, !tbaa !97
+  %45 = load i32, ptr %25, align 4, !tbaa !98
+  %46 = load i32, ptr %24, align 4, !tbaa !57
+  %47 = add nsw i32 %46, -1
+  %48 = load i32, ptr %19, align 8, !tbaa !58
+  %49 = shl i32 %47, %48
+  %50 = load i32, ptr %28, align 8, !tbaa !56
+  %51 = add nsw i32 %50, -1
+  %52 = shl i32 %51, %48
+  tail call void @ff_me_init_context(ptr noundef nonnull %40, i32 noundef %41, i32 noundef %43, i32 noundef %44, i32 noundef %45, i32 noundef 0, i32 noundef %49, i32 noundef 0, i32 noundef %52) #6
   br label %.loopexit
 
-.loopexit:                                        ; preds = %33, %1, %38
-  %.031 = phi i32 [ 0, %38 ], [ -22, %1 ], [ -12, %33 ]
+.loopexit:                                        ; preds = %34, %1, %39
+  %.031 = phi i32 [ 0, %39 ], [ -22, %1 ], [ -12, %34 ]
   ret i32 %.031
 }
 

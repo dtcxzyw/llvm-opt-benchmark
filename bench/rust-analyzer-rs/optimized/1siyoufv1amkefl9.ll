@@ -649,12 +649,12 @@ define void @_ZN5paths7AbsPath9normalize17h54d05f3dece16b61E(ptr noalias noundef
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(55) %.sroa.522.0..sroa_idx23.i, ptr noundef nonnull align 1 dereferenceable(55) %.sroa.522.0..sroa_idx.i, i64 55, i1 false), !noalias !58
   br label %32
 
-.loopexit.i:                                      ; preds = %.noexc.invoke.i, %.invoke.i, %45, %43, %29
+.loopexit.i:                                      ; preds = %.noexc.invoke.i, %.invoke.i, %44, %42, %29
   %lpad.loopexit.i = landingpad { ptr, i32 }
           cleanup
   br label %31
 
-.loopexit.split-lp.i:                             ; preds = %42
+.loopexit.split-lp.i:                             ; preds = %41
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %31
@@ -662,7 +662,7 @@ define void @_ZN5paths7AbsPath9normalize17h54d05f3dece16b61E(ptr noalias noundef
 31:                                               ; preds = %.loopexit.split-lp.i, %.loopexit.i
   %lpad.phi.i = phi { ptr, i32 } [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
   invoke void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17haaeb7dae211bd4c7E.llvm.18162065724549059738"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
-          to label %"_ZN4core3ptr40drop_in_place$LT$camino..Utf8PathBuf$GT$17h8eccead1e4641233E.exit.i" unwind label %59, !noalias !62
+          to label %"_ZN4core3ptr40drop_in_place$LT$camino..Utf8PathBuf$GT$17h8eccead1e4641233E.exit.i" unwind label %58, !noalias !62
 
 thread-pre-split.i:                               ; preds = %29
   %.pr.i = load i8, ptr %5, align 8, !noalias !58
@@ -677,62 +677,61 @@ thread-pre-split.i:                               ; preds = %29
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !58
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(56) %5, i64 56, i1 false), !noalias !58
   %36 = load i8, ptr %6, align 8, !range !75, !noalias !58, !noundef !7
-  %37 = add nsw i8 %36, -6
-  %38 = icmp ult i8 %37, 4
-  %39 = zext nneg i8 %36 to i64
-  %40 = add nsw i64 %39, -5
-  %41 = select i1 %38, i64 %40, i64 0
-  switch i64 %41, label %13 [
-    i64 0, label %42
-    i64 1, label %43
+  %37 = icmp samesign ugt i8 %36, 5
+  %38 = zext nneg i8 %36 to i64
+  %39 = add nsw i64 %38, -5
+  %40 = select i1 %37, i64 %39, i64 0
+  switch i64 %40, label %13 [
+    i64 0, label %41
+    i64 1, label %42
     i64 2, label %_ZN6camino11Utf8PathBuf4push17h39a7c64d756f45daE.exit.i
-    i64 3, label %45
-    i64 4, label %47
+    i64 3, label %44
+    i64 4, label %46
   ]
 
-42:                                               ; preds = %35
+41:                                               ; preds = %35
   invoke void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.fe1bb7944afa79976b224b8f2f69f3c4.26, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.fe1bb7944afa79976b224b8f2f69f3c4.27) #10
-          to label %55 unwind label %.loopexit.split-lp.i, !noalias !62
+          to label %54 unwind label %.loopexit.split-lp.i, !noalias !62
 
-43:                                               ; preds = %35
-  %44 = invoke { ptr, i64 } @_ZN6camino13Utf8Component6as_str17h75f0ee6bd6445fc9E(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %6)
-          to label %56 unwind label %.loopexit.i, !noalias !62
+42:                                               ; preds = %35
+  %43 = invoke { ptr, i64 } @_ZN6camino13Utf8Component6as_str17h75f0ee6bd6445fc9E(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %6)
+          to label %55 unwind label %.loopexit.i, !noalias !62
 
-_ZN6camino11Utf8PathBuf4push17h39a7c64d756f45daE.exit.i: ; preds = %.noexc.invoke.i, %45, %35
+_ZN6camino11Utf8PathBuf4push17h39a7c64d756f45daE.exit.i: ; preds = %.noexc.invoke.i, %44, %35
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !58
   br label %27
 
-45:                                               ; preds = %35
-  %46 = invoke noundef zeroext i1 @_ZN6camino11Utf8PathBuf3pop17hceb85ab0ada1cefbE(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
+44:                                               ; preds = %35
+  %45 = invoke noundef zeroext i1 @_ZN6camino11Utf8PathBuf3pop17hceb85ab0ada1cefbE(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
           to label %_ZN6camino11Utf8PathBuf4push17h39a7c64d756f45daE.exit.i unwind label %.loopexit.i, !noalias !62
 
-47:                                               ; preds = %35
-  %48 = load ptr, ptr %25, align 8, !noalias !58, !nonnull !7, !align !76, !noundef !7
-  %49 = load i64, ptr %26, align 8, !noalias !58, !noundef !7
+46:                                               ; preds = %35
+  %47 = load ptr, ptr %25, align 8, !noalias !58, !nonnull !7, !align !76, !noundef !7
+  %48 = load i64, ptr %26, align 8, !noalias !58, !noundef !7
   br label %.invoke.i
 
-.invoke.i:                                        ; preds = %56, %47
-  %50 = phi ptr [ %48, %47 ], [ %57, %56 ]
-  %51 = phi i64 [ %49, %47 ], [ %58, %56 ]
-  %52 = invoke { ptr, i64 } @"_ZN6camino78_$LT$impl$u20$core..convert..AsRef$LT$camino..Utf8Path$GT$$u20$for$u20$str$GT$6as_ref17h02821cf3bf4b2a93E"(ptr noalias noundef nonnull readonly align 1 %50, i64 noundef %51)
+.invoke.i:                                        ; preds = %55, %46
+  %49 = phi ptr [ %47, %46 ], [ %56, %55 ]
+  %50 = phi i64 [ %48, %46 ], [ %57, %55 ]
+  %51 = invoke { ptr, i64 } @"_ZN6camino78_$LT$impl$u20$core..convert..AsRef$LT$camino..Utf8Path$GT$$u20$for$u20$str$GT$6as_ref17h02821cf3bf4b2a93E"(ptr noalias noundef nonnull readonly align 1 %49, i64 noundef %50)
           to label %.noexc.invoke.i unwind label %.loopexit.i, !noalias !62
 
 .noexc.invoke.i:                                  ; preds = %.invoke.i
-  %53 = extractvalue { ptr, i64 } %52, 0
-  %54 = extractvalue { ptr, i64 } %52, 1
-  invoke void @_ZN3std4path7PathBuf5_push17h98f2c6a7c69395cbE(ptr noalias noundef nonnull align 8 dereferenceable(24) %9, ptr noalias noundef nonnull readonly align 1 %53, i64 noundef %54)
+  %52 = extractvalue { ptr, i64 } %51, 0
+  %53 = extractvalue { ptr, i64 } %51, 1
+  invoke void @_ZN3std4path7PathBuf5_push17h98f2c6a7c69395cbE(ptr noalias noundef nonnull align 8 dereferenceable(24) %9, ptr noalias noundef nonnull readonly align 1 %52, i64 noundef %53)
           to label %_ZN6camino11Utf8PathBuf4push17h39a7c64d756f45daE.exit.i unwind label %.loopexit.i, !noalias !62
 
-55:                                               ; preds = %42
+54:                                               ; preds = %41
   unreachable
 
-56:                                               ; preds = %43
-  %57 = extractvalue { ptr, i64 } %44, 0
-  %58 = extractvalue { ptr, i64 } %44, 1
+55:                                               ; preds = %42
+  %56 = extractvalue { ptr, i64 } %43, 0
+  %57 = extractvalue { ptr, i64 } %43, 1
   br label %.invoke.i
 
-59:                                               ; preds = %31
-  %60 = landingpad { ptr, i32 }
+58:                                               ; preds = %31
+  %59 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #11, !noalias !62
   unreachable

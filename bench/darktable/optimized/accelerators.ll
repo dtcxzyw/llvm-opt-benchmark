@@ -7781,9 +7781,8 @@ _shortcut_category.exit107:                       ; preds = %_shortcut_category.
   br label %176
 
 164:                                              ; preds = %158, %149
-  %165 = add nsw i32 %32, -3
-  %or.cond = icmp ult i32 %165, 2
-  br i1 %or.cond, label %166, label %176
+  %165 = icmp samesign ugt i32 %32, 2
+  br i1 %165, label %166, label %176
 
 166:                                              ; preds = %164
   %167 = getelementptr inbounds nuw i8, ptr %0, i64 32

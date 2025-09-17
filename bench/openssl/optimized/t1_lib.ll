@@ -4836,9 +4836,8 @@ ssl_hmac_free.exit:                               ; preds = %159, %.thread202
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 1088
   %163 = load ptr, ptr %162, align 8, !tbaa !266
   %.not184 = icmp ne ptr %163, null
-  %164 = add nsw i32 %.0143224, -3
-  %or.cond5 = icmp ult i32 %164, 4
-  %or.cond192 = and i1 %or.cond5, %.not184
+  %164 = icmp samesign ugt i32 %.0143224, 2
+  %or.cond192 = and i1 %164, %.not184
   br i1 %or.cond192, label %165, label %175
 
 165:                                              ; preds = %ssl_hmac_free.exit

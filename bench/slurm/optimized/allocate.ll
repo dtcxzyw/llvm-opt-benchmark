@@ -187,7 +187,7 @@ define dso_local ptr @allocate_nodes(ptr noundef %0) local_unnamed_addr #0 {
 9:                                                ; preds = %1
   %10 = tail call fastcc ptr @_job_desc_msg_create_from_opts(ptr noundef nonnull @opt)
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %93, label %12
+  br i1 %11, label %94, label %12
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -203,7 +203,7 @@ define dso_local ptr @allocate_nodes(ptr noundef %0) local_unnamed_addr #0 {
 17:                                               ; preds = %15
   %18 = load ptr, ptr %13, align 8
   tail call void @print_db_notok(ptr noundef %18, i1 noundef zeroext false) #9
-  br label %93
+  br label %94
 
 19:                                               ; preds = %15, %12
   %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 248), align 8
@@ -224,8 +224,8 @@ define dso_local ptr @allocate_nodes(ptr noundef %0) local_unnamed_addr #0 {
   store ptr %28, ptr @msg_thr, align 8
   %29 = call i32 @xsignal_unblock(ptr noundef nonnull @sig_array) #9
   %30 = load i32, ptr @sig_array, align 4
-  %.not5797 = icmp eq i32 %30, 0
-  br i1 %.not5797, label %.preheader, label %.lr.ph
+  %.not5796 = icmp eq i32 %30, 0
+  br i1 %.not5796, label %.preheader, label %.lr.ph
 
 .preheader:                                       ; preds = %.lr.ph, %19
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 312
@@ -266,7 +266,7 @@ define dso_local ptr @allocate_nodes(ptr noundef %0) local_unnamed_addr #0 {
 
 48:                                               ; preds = %36
   %cond = icmp eq ptr %39, null
-  br i1 %cond, label %49, label %.thread74
+  br i1 %cond, label %49, label %.thread73
 
 49:                                               ; preds = %48
   %50 = call fastcc zeroext i1 @_retry()
@@ -274,17 +274,17 @@ define dso_local ptr @allocate_nodes(ptr noundef %0) local_unnamed_addr #0 {
 
 51:                                               ; preds = %41, %46, %43
   %.not62 = icmp eq ptr %39, null
-  br i1 %.not62, label %.loopexit, label %.thread74
+  br i1 %.not62, label %.loopexit, label %.thread73
 
-.thread74:                                        ; preds = %48, %51
+.thread73:                                        ; preds = %48, %51
   %52 = getelementptr inbounds nuw i8, ptr %39, i64 88
   %53 = load ptr, ptr %52, align 8
   call void @print_multi_line_string(ptr noundef %53, i32 noundef -1, i32 noundef 3) #9
   %54 = load i32, ptr @destroy_job, align 4
-  %.not93 = icmp eq i32 %54, 0
-  br i1 %.not93, label %55, label %.thread89.thread
+  %.not92 = icmp eq i32 %54, 0
+  br i1 %.not92, label %55, label %.thread88.thread
 
-55:                                               ; preds = %.thread74
+55:                                               ; preds = %.thread73
   %56 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %57 = load i32, ptr %56, align 8
   store i32 %57, ptr @pending_job_id, align 4
@@ -295,96 +295,96 @@ define dso_local ptr @allocate_nodes(ptr noundef %0) local_unnamed_addr #0 {
   %60 = getelementptr inbounds nuw i8, ptr %39, i64 136
   %61 = load i64, ptr %60, align 8
   %.not63 = icmp eq i64 %61, -2
-  br i1 %.not63, label %66, label %62
+  br i1 %.not63, label %67, label %62
 
 62:                                               ; preds = %55
-  %.not64 = icmp sgt i64 %61, -1
-  br i1 %.not64, label %65, label %63
+  %63 = icmp slt i64 %61, 0
+  br i1 %63, label %64, label %66
 
-63:                                               ; preds = %62
-  %64 = and i64 %61, 9223372036854775807
-  store i64 %64, ptr %59, align 8
-  br label %66
+64:                                               ; preds = %62
+  %65 = and i64 %61, 9223372036854775807
+  store i64 %65, ptr %59, align 8
+  br label %67
 
-65:                                               ; preds = %62
+66:                                               ; preds = %62
   store i64 %61, ptr %58, align 8
-  br label %66
+  br label %67
 
-66:                                               ; preds = %63, %65, %55
-  %67 = getelementptr inbounds nuw i8, ptr %39, i64 96
-  %68 = load i32, ptr %67, align 8
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store i32 %68, ptr %69, align 8
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 140
-  store i32 %68, ptr %70, align 4
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 496
-  call void @slurm_xfree(ptr noundef nonnull %71) #9
-  %72 = getelementptr inbounds nuw i8, ptr %39, i64 160
-  %73 = load ptr, ptr %72, align 8
-  %74 = call ptr @xstrdup(ptr noundef %73) #9
-  store ptr %74, ptr %71, align 8
-  %75 = getelementptr inbounds nuw i8, ptr %39, i64 192
-  %76 = load ptr, ptr %75, align 8
-  %.not65 = icmp eq ptr %76, null
-  br i1 %.not65, label %78, label %77
+67:                                               ; preds = %64, %66, %55
+  %68 = getelementptr inbounds nuw i8, ptr %39, i64 96
+  %69 = load i32, ptr %68, align 8
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  store i32 %69, ptr %70, align 8
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 140
+  store i32 %69, ptr %71, align 4
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 496
+  call void @slurm_xfree(ptr noundef nonnull %72) #9
+  %73 = getelementptr inbounds nuw i8, ptr %39, i64 160
+  %74 = load ptr, ptr %73, align 8
+  %75 = call ptr @xstrdup(ptr noundef %74) #9
+  store ptr %75, ptr %72, align 8
+  %76 = getelementptr inbounds nuw i8, ptr %39, i64 192
+  %77 = load ptr, ptr %76, align 8
+  %.not64 = icmp eq ptr %77, null
+  br i1 %.not64, label %79, label %78
 
-77:                                               ; preds = %66
+78:                                               ; preds = %67
   call void @slurm_setup_remote_working_cluster(ptr noundef nonnull %39) #9
-  br label %78
+  br label %79
 
-78:                                               ; preds = %77, %66
-  %79 = call fastcc i32 @_wait_nodes_ready(ptr noundef %39)
-  %.not66 = icmp eq i32 %79, 0
-  br i1 %.not66, label %80, label %job_desc_msg_destroy.exit
+79:                                               ; preds = %78, %67
+  %80 = call fastcc i32 @_wait_nodes_ready(ptr noundef %39)
+  %.not65 = icmp eq i32 %80, 0
+  br i1 %.not65, label %81, label %job_desc_msg_destroy.exit
 
-80:                                               ; preds = %78
-  %81 = load i32, ptr @destroy_job, align 4
-  %.not67 = icmp eq i32 %81, 0
-  br i1 %.not67, label %.thread89, label %.thread89.thread
+81:                                               ; preds = %79
+  %82 = load i32, ptr @destroy_job, align 4
+  %.not66 = icmp eq i32 %82, 0
+  br i1 %.not66, label %.thread88, label %.thread88.thread
 
 .loopexit:                                        ; preds = %49, %51
-  %82 = load i32, ptr @destroy_job, align 4
-  %83 = icmp ne i32 %82, 0
-  %.b5468 = load i1, ptr @revoke_job, align 1
-  %or.cond3 = select i1 %83, i1 true, i1 %.b5468
-  br i1 %or.cond3, label %.thread113, label %job_desc_msg_destroy.exit
+  %83 = load i32, ptr @destroy_job, align 4
+  %84 = icmp ne i32 %83, 0
+  %.b5467 = load i1, ptr @revoke_job, align 1
+  %or.cond3 = select i1 %84, i1 true, i1 %.b5467
+  br i1 %or.cond3, label %.thread112, label %job_desc_msg_destroy.exit
 
-job_desc_msg_destroy.exit:                        ; preds = %.loopexit, %78
-  %.17287 = phi ptr [ null, %.loopexit ], [ %39, %78 ]
-  %84 = call i32 @xsignal_block(ptr noundef nonnull @sig_array) #9
+job_desc_msg_destroy.exit:                        ; preds = %.loopexit, %79
+  %.17186 = phi ptr [ null, %.loopexit ], [ %39, %79 ]
+  %85 = call i32 @xsignal_block(ptr noundef nonnull @sig_array) #9
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %10, ptr %2, align 8
-  %85 = getelementptr inbounds nuw i8, ptr %10, i64 544
-  call void @slurm_xfree(ptr noundef nonnull %85) #9
+  %86 = getelementptr inbounds nuw i8, ptr %10, i64 544
+  call void @slurm_xfree(ptr noundef nonnull %86) #9
   call void @slurm_xfree(ptr noundef nonnull %2) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %93
+  br label %94
 
-.thread89:                                        ; preds = %80
-  %86 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.2) #9
+.thread88:                                        ; preds = %81
+  %87 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.2) #9
   %.pre = load i32, ptr @destroy_job, align 4
-  %87 = icmp ne i32 %.pre, 0
-  %.b69 = load i1, ptr @revoke_job, align 1
-  %or.cond5 = select i1 %87, i1 true, i1 %.b69
-  br i1 %or.cond5, label %.thread89.thread, label %91
+  %88 = icmp ne i32 %.pre, 0
+  %.b68 = load i1, ptr @revoke_job, align 1
+  %or.cond5 = select i1 %88, i1 true, i1 %.b68
+  br i1 %or.cond5, label %.thread88.thread, label %92
 
-.thread89.thread:                                 ; preds = %.thread74, %80, %.thread89
-  %88 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  %89 = load i32, ptr %88, align 8
-  %90 = call i32 @slurm_complete_job(i32 noundef %89, i32 noundef 1) #9
-  br label %91
+.thread88.thread:                                 ; preds = %.thread73, %81, %.thread88
+  %89 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  %90 = load i32, ptr %89, align 8
+  %91 = call i32 @slurm_complete_job(i32 noundef %90, i32 noundef 1) #9
+  br label %92
 
-91:                                               ; preds = %.thread89, %.thread89.thread
+92:                                               ; preds = %.thread88, %.thread88.thread
   call void @slurm_free_resource_allocation_response_msg(ptr noundef nonnull %39) #9
-  br label %.thread113
+  br label %.thread112
 
-.thread113:                                       ; preds = %.loopexit, %91
-  %92 = load i32, ptr @error_exit, align 4
-  call void @exit(i32 noundef %92) #10
+.thread112:                                       ; preds = %.loopexit, %92
+  %93 = load i32, ptr @error_exit, align 4
+  call void @exit(i32 noundef %93) #10
   unreachable
 
-93:                                               ; preds = %9, %job_desc_msg_destroy.exit, %17
-  %.047 = phi ptr [ null, %17 ], [ %.17287, %job_desc_msg_destroy.exit ], [ null, %9 ]
+94:                                               ; preds = %9, %job_desc_msg_destroy.exit, %17
+  %.047 = phi ptr [ null, %17 ], [ %.17186, %job_desc_msg_destroy.exit ], [ null, %9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.047
 }

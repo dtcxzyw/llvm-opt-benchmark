@@ -751,13 +751,13 @@ define internal void @scale_samples_u8_small(ptr noundef writeonly captures(none
   %11 = add nsw i32 %10, 128
   %12 = ashr i32 %11, 8
   %13 = add nsw i32 %12, 128
-  %.not.i = icmp ult i32 %13, 256
+  %14 = icmp ugt i32 %13, 255
   %isnotneg.i = icmp sgt i32 %12, -129
-  %14 = sext i1 %isnotneg.i to i8
-  %15 = trunc nuw i32 %13 to i8
-  %.0.i = select i1 %.not.i, i8 %15, i8 %14
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
-  store i8 %.0.i, ptr %16, align 1, !tbaa !81
+  %15 = sext i1 %isnotneg.i to i8
+  %16 = trunc nuw i32 %13 to i8
+  %.0.i = select i1 %14, i8 %15, i8 %16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
+  store i8 %.0.i, ptr %17, align 1, !tbaa !81
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !82
@@ -787,13 +787,13 @@ define internal void @scale_samples_u8(ptr noundef writeonly captures(none) %0, 
   %14 = lshr i64 %13, 8
   %15 = trunc i64 %14 to i32
   %16 = add i32 %15, 128
-  %.not.i = icmp ult i32 %16, 256
+  %17 = icmp ugt i32 %16, 255
   %isnotneg.i = icmp sgt i32 %16, -1
-  %17 = sext i1 %isnotneg.i to i8
-  %18 = trunc nuw i32 %16 to i8
-  %.0.i = select i1 %.not.i, i8 %18, i8 %17
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
-  store i8 %.0.i, ptr %19, align 1, !tbaa !81
+  %18 = sext i1 %isnotneg.i to i8
+  %19 = trunc nuw i32 %16 to i8
+  %.0.i = select i1 %17, i8 %18, i8 %19
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
+  store i8 %.0.i, ptr %20, align 1, !tbaa !81
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %7, !llvm.loop !83

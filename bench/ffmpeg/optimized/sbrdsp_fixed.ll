@@ -206,43 +206,42 @@ define internal i64 @sbr_sum_square_c(ptr noundef readonly captures(none) %0, i3
   %71 = lshr i64 %69, %70
   %72 = trunc i64 %71 to i32
   %73 = lshr i32 %72, 1
-  %74 = add nuw i32 %73, 1073741824
-  %75 = icmp slt i32 %74, 1
-  %76 = zext i1 %75 to i32
-  %.sroa.0.0.i.i = lshr i32 %73, %76
+  %.lobit = lshr i32 %72, 31
+  %.sroa.0.0.i.i = lshr i32 %73, %.lobit
   %.not.i.i = icmp eq i32 %.sroa.0.0.i.i, 0
   br i1 %.not.i.i, label %av_int2sf.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %.loopexit
-  %.sroa.8.0.extract.trunc.i.v.i = select i1 %75, i32 31, i32 30
+  %74 = icmp slt i32 %72, 0
+  %.sroa.8.0.extract.trunc.i.v.i = select i1 %74, i32 31, i32 30
   %.neg = add i32 %.071.lcssa128, %.4
   %.sroa.8.0.extract.trunc.i.i = add i32 %.neg, %.sroa.8.0.extract.trunc.i.v.i
-  %77 = icmp samesign ult i32 %.sroa.0.0.i.i, 536870912
-  br i1 %77, label %.lr.ph.i.i, label %._crit_edge.i.i
+  %75 = icmp samesign ult i32 %.sroa.0.0.i.i, 536870912
+  br i1 %75, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %.lr.ph.i.i
-  %.sroa.0.08.i.i = phi i32 [ %78, %.lr.ph.i.i ], [ %.sroa.0.0.i.i, %.preheader.i.i ]
-  %.sroa.8.07.i.i = phi i32 [ %79, %.lr.ph.i.i ], [ %.sroa.8.0.extract.trunc.i.i, %.preheader.i.i ]
-  %78 = shl nsw i32 %.sroa.0.08.i.i, 1
-  %79 = add nsw i32 %.sroa.8.07.i.i, -1
-  %80 = add nsw i32 %78, 536870911
-  %81 = icmp ult i32 %80, 1073741823
-  br i1 %81, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !26
+  %.sroa.0.08.i.i = phi i32 [ %76, %.lr.ph.i.i ], [ %.sroa.0.0.i.i, %.preheader.i.i ]
+  %.sroa.8.07.i.i = phi i32 [ %77, %.lr.ph.i.i ], [ %.sroa.8.0.extract.trunc.i.i, %.preheader.i.i ]
+  %76 = shl nsw i32 %.sroa.0.08.i.i, 1
+  %77 = add nsw i32 %.sroa.8.07.i.i, -1
+  %78 = add nsw i32 %76, 536870911
+  %79 = icmp ult i32 %78, 1073741823
+  br i1 %79, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !26
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %.preheader.i.i
-  %.sroa.8.0.lcssa.i.i = phi i32 [ %.sroa.8.0.extract.trunc.i.i, %.preheader.i.i ], [ %79, %.lr.ph.i.i ]
-  %.sroa.0.0.lcssa.i.i = phi i32 [ %.sroa.0.0.i.i, %.preheader.i.i ], [ %78, %.lr.ph.i.i ]
-  %82 = icmp slt i32 %.sroa.8.0.lcssa.i.i, -149
+  %.sroa.8.0.lcssa.i.i = phi i32 [ %.sroa.8.0.extract.trunc.i.i, %.preheader.i.i ], [ %77, %.lr.ph.i.i ]
+  %.sroa.0.0.lcssa.i.i = phi i32 [ %.sroa.0.0.i.i, %.preheader.i.i ], [ %76, %.lr.ph.i.i ]
+  %80 = icmp slt i32 %.sroa.8.0.lcssa.i.i, -149
   %spec.select.i.i = tail call i32 @llvm.smax.i32(i32 %.sroa.8.0.lcssa.i.i, i32 -149)
-  %spec.select6.i.i = select i1 %82, i32 0, i32 %.sroa.0.0.lcssa.i.i
-  %83 = zext i32 %spec.select.i.i to i64
-  %84 = shl nuw i64 %83, 32
-  %85 = zext i32 %spec.select6.i.i to i64
-  %86 = or disjoint i64 %84, %85
+  %spec.select6.i.i = select i1 %80, i32 0, i32 %.sroa.0.0.lcssa.i.i
+  %81 = zext i32 %spec.select.i.i to i64
+  %82 = shl nuw i64 %81, 32
+  %83 = zext i32 %spec.select6.i.i to i64
+  %84 = or disjoint i64 %82, %83
   br label %av_int2sf.exit
 
 av_int2sf.exit:                                   ; preds = %.loopexit, %._crit_edge.i.i
-  %.sroa.05.0.insert.insert.i.i = phi i64 [ %86, %._crit_edge.i.i ], [ -639950127104, %.loopexit ]
+  %.sroa.05.0.insert.insert.i.i = phi i64 [ %84, %._crit_edge.i.i ], [ -639950127104, %.loopexit ]
   ret i64 %.sroa.05.0.insert.insert.i.i
 }
 

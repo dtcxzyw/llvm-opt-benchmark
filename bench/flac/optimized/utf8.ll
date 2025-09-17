@@ -46,27 +46,27 @@ safe_malloc_add_2op_.exit.i:                      ; preds = %10
   %15 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %13, i64 noundef %12, i32 noundef 1, i64 noundef -1, ptr noundef nonnull @.str.1, ptr noundef nonnull %0) #7
   store ptr %13, ptr %1, align 8, !tbaa !4
   %16 = load i8, ptr %13, align 1, !tbaa !9
-  %.not2731.i = icmp eq i8 %16, 0
-  br i1 %.not2731.i, label %convert_string.exit, label %.lr.ph.i
+  %.not2730.i = icmp eq i8 %16, 0
+  br i1 %.not2730.i, label %convert_string.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %14, %19
-  %17 = phi i8 [ %21, %19 ], [ %16, %14 ]
-  %.032.i = phi ptr [ %20, %19 ], [ %13, %14 ]
-  %.not28.i = icmp sgt i8 %17, -1
-  br i1 %.not28.i, label %19, label %18
+.lr.ph.i:                                         ; preds = %14, %20
+  %17 = phi i8 [ %22, %20 ], [ %16, %14 ]
+  %.031.i = phi ptr [ %21, %20 ], [ %13, %14 ]
+  %18 = icmp slt i8 %17, 0
+  br i1 %18, label %19, label %20
 
-18:                                               ; preds = %.lr.ph.i
-  store i8 35, ptr %.032.i, align 1, !tbaa !9
-  br label %19
+19:                                               ; preds = %.lr.ph.i
+  store i8 35, ptr %.031.i, align 1, !tbaa !9
+  br label %20
 
-19:                                               ; preds = %18, %.lr.ph.i
-  %20 = getelementptr inbounds nuw i8, ptr %.032.i, i64 1
-  %21 = load i8, ptr %20, align 1, !tbaa !9
-  %.not27.i = icmp eq i8 %21, 0
+20:                                               ; preds = %19, %.lr.ph.i
+  %21 = getelementptr inbounds nuw i8, ptr %.031.i, i64 1
+  %22 = load i8, ptr %21, align 1, !tbaa !9
+  %.not27.i = icmp eq i8 %22, 0
   br i1 %.not27.i, label %convert_string.exit, label %.lr.ph.i, !llvm.loop !10
 
-convert_string.exit:                              ; preds = %19, %current_charset.exit, %9, %10, %safe_malloc_add_2op_.exit.i, %14
-  %.022.i = phi i32 [ %8, %9 ], [ -1, %current_charset.exit ], [ -1, %safe_malloc_add_2op_.exit.i ], [ -1, %10 ], [ 3, %14 ], [ 3, %19 ]
+convert_string.exit:                              ; preds = %20, %current_charset.exit, %9, %10, %safe_malloc_add_2op_.exit.i, %14
+  %.022.i = phi i32 [ %8, %9 ], [ -1, %current_charset.exit ], [ -1, %safe_malloc_add_2op_.exit.i ], [ -1, %10 ], [ 3, %14 ], [ 3, %20 ]
   ret i32 %.022.i
 }
 
@@ -108,27 +108,27 @@ safe_malloc_add_2op_.exit.i:                      ; preds = %10
   %15 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %13, i64 noundef %12, i32 noundef 1, i64 noundef -1, ptr noundef nonnull @.str.1, ptr noundef nonnull %0) #7
   store ptr %13, ptr %1, align 8, !tbaa !4
   %16 = load i8, ptr %13, align 1, !tbaa !9
-  %.not2731.i = icmp eq i8 %16, 0
-  br i1 %.not2731.i, label %convert_string.exit, label %.lr.ph.i
+  %.not2730.i = icmp eq i8 %16, 0
+  br i1 %.not2730.i, label %convert_string.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %14, %19
-  %17 = phi i8 [ %21, %19 ], [ %16, %14 ]
-  %.032.i = phi ptr [ %20, %19 ], [ %13, %14 ]
-  %.not28.i = icmp sgt i8 %17, -1
-  br i1 %.not28.i, label %19, label %18
+.lr.ph.i:                                         ; preds = %14, %20
+  %17 = phi i8 [ %22, %20 ], [ %16, %14 ]
+  %.031.i = phi ptr [ %21, %20 ], [ %13, %14 ]
+  %18 = icmp slt i8 %17, 0
+  br i1 %18, label %19, label %20
 
-18:                                               ; preds = %.lr.ph.i
-  store i8 63, ptr %.032.i, align 1, !tbaa !9
-  br label %19
+19:                                               ; preds = %.lr.ph.i
+  store i8 63, ptr %.031.i, align 1, !tbaa !9
+  br label %20
 
-19:                                               ; preds = %18, %.lr.ph.i
-  %20 = getelementptr inbounds nuw i8, ptr %.032.i, i64 1
-  %21 = load i8, ptr %20, align 1, !tbaa !9
-  %.not27.i = icmp eq i8 %21, 0
+20:                                               ; preds = %19, %.lr.ph.i
+  %21 = getelementptr inbounds nuw i8, ptr %.031.i, i64 1
+  %22 = load i8, ptr %21, align 1, !tbaa !9
+  %.not27.i = icmp eq i8 %22, 0
   br i1 %.not27.i, label %convert_string.exit, label %.lr.ph.i, !llvm.loop !10
 
-convert_string.exit:                              ; preds = %19, %current_charset.exit, %9, %10, %safe_malloc_add_2op_.exit.i, %14
-  %.022.i = phi i32 [ %8, %9 ], [ -1, %current_charset.exit ], [ -1, %safe_malloc_add_2op_.exit.i ], [ -1, %10 ], [ 3, %14 ], [ 3, %19 ]
+convert_string.exit:                              ; preds = %20, %current_charset.exit, %9, %10, %safe_malloc_add_2op_.exit.i, %14
+  %.022.i = phi i32 [ %8, %9 ], [ -1, %current_charset.exit ], [ -1, %safe_malloc_add_2op_.exit.i ], [ -1, %10 ], [ 3, %14 ], [ 3, %20 ]
   ret i32 %.022.i
 }
 

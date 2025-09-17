@@ -404,18 +404,17 @@ define internal range(i32 0, 522) i32 @dissect_enttec_udp(ptr noundef %0, ptr no
   br i1 %143, label %144, label %152
 
 144:                                              ; preds = %138
-  %145 = zext i8 %141 to i16
-  %146 = mul nuw nsw i16 %145, 100
-  %.off.i = add nsw i16 %146, -25500
-  %147 = icmp ult i16 %.off.i, 255
-  br i1 %147, label %148, label %149
+  %145 = icmp eq i8 %141, -1
+  br i1 %145, label %146, label %147
 
-148:                                              ; preds = %144
+146:                                              ; preds = %144
   tail call void @wmem_strbuf_append(ptr noundef %122, ptr noundef nonnull @.str.75)
   br label %157
 
-149:                                              ; preds = %144
-  %150 = udiv i16 %146, 255
+147:                                              ; preds = %144
+  %148 = zext i8 %141 to i16
+  %149 = mul nuw nsw i16 %148, 100
+  %150 = udiv i16 %149, 255
   %151 = zext nneg i16 %150 to i32
   tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %122, ptr noundef nonnull @.str.69, i32 noundef %151)
   br label %157
@@ -428,7 +427,7 @@ define internal range(i32 0, 522) i32 @dissect_enttec_udp(ptr noundef %0, ptr no
   tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %122, ptr noundef %155, i32 noundef %156)
   br label %157
 
-157:                                              ; preds = %152, %149, %148
+157:                                              ; preds = %152, %147, %146
   %158 = add i16 %.0155180.i, 1
   %159 = zext i16 %158 to i32
   %160 = load i32, ptr @global_disp_col_count, align 4

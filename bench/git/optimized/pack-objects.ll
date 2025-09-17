@@ -3592,19 +3592,19 @@ oe_in_pack.exit.i.i.i:                            ; preds = %1336
   %1346 = getelementptr inbounds i8, ptr %1340, i64 %1345
   %.0.i.i.i.i169 = load ptr, ptr %1346, align 8, !tbaa !20
   %.not.i.i.i170 = icmp eq ptr %.0.i.i.i.i169, null
-  br i1 %.not.i.i.i170, label %1575, label %oe_in_pack.exit111.i.i.i
+  br i1 %.not.i.i.i170, label %1575, label %oe_in_pack.exit110.i.i.i
 
 oe_in_pack.exit.thread.i.i.i:                     ; preds = %1336
   %1347 = getelementptr inbounds nuw i8, ptr %1338, i64 88
   %1348 = load i64, ptr %1347, align 8
   %1349 = and i64 %1348, 1023
   %1350 = getelementptr inbounds nuw ptr, ptr %1339, i64 %1349
-  %.0.i137.i.i.i = load ptr, ptr %1350, align 8, !tbaa !20
-  %.not138.i.i.i = icmp eq ptr %.0.i137.i.i.i, null
-  br i1 %.not138.i.i.i, label %1575, label %oe_in_pack.exit111.i.i.i
+  %.0.i136.i.i.i = load ptr, ptr %1350, align 8, !tbaa !20
+  %.not137.i.i.i = icmp eq ptr %.0.i136.i.i.i, null
+  br i1 %.not137.i.i.i, label %1575, label %oe_in_pack.exit110.i.i.i
 
-oe_in_pack.exit111.i.i.i:                         ; preds = %oe_in_pack.exit.thread.i.i.i, %oe_in_pack.exit.i.i.i
-  %.0.i110.i.i.i = phi ptr [ %.0.i137.i.i.i, %oe_in_pack.exit.thread.i.i.i ], [ %.0.i.i.i.i169, %oe_in_pack.exit.i.i.i ]
+oe_in_pack.exit110.i.i.i:                         ; preds = %oe_in_pack.exit.thread.i.i.i, %oe_in_pack.exit.i.i.i
+  %.0.i109.i.i.i = phi ptr [ %.0.i136.i.i.i, %oe_in_pack.exit.thread.i.i.i ], [ %.0.i.i.i.i169, %oe_in_pack.exit.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
   store ptr null, ptr %30, align 8, !tbaa !22
   call void @llvm.lifetime.start.p0(ptr nonnull %31)
@@ -3613,13 +3613,13 @@ oe_in_pack.exit111.i.i.i:                         ; preds = %oe_in_pack.exit.thr
   call void @llvm.lifetime.start.p0(ptr nonnull %34)
   %1351 = getelementptr inbounds nuw i8, ptr %1338, i64 56
   %1352 = load i64, ptr %1351, align 8, !tbaa !24
-  %1353 = call ptr @use_pack(ptr noundef nonnull %.0.i110.i.i.i, ptr noundef nonnull %30, i64 noundef %1352, ptr noundef nonnull %32) #25
+  %1353 = call ptr @use_pack(ptr noundef nonnull %.0.i109.i.i.i, ptr noundef nonnull %30, i64 noundef %1352, ptr noundef nonnull %32) #25
   %1354 = load i64, ptr %32, align 8, !tbaa !28
   %1355 = call i64 @unpack_object_header_buffer(ptr noundef %1353, i64 noundef %1354, ptr noundef nonnull %33, ptr noundef nonnull %34) #25
   %1356 = icmp eq i64 %1355, 0
   br i1 %1356, label %1574, label %1357
 
-1357:                                             ; preds = %oe_in_pack.exit111.i.i.i
+1357:                                             ; preds = %oe_in_pack.exit110.i.i.i
   %1358 = load i32, ptr %33, align 4, !tbaa !30
   %1359 = icmp slt i32 %1358, 0
   br i1 %1359, label %1360, label %1361
@@ -3666,11 +3666,11 @@ oe_in_pack.exit111.i.i.i:                         ; preds = %oe_in_pack.exit.thr
   %1384 = and i32 %1383, 2147483647
   store i32 %1384, ptr %1382, align 4
   %1385 = call i64 @oe_get_size_slow(ptr noundef nonnull @to_pack, ptr noundef nonnull %1338)
-  %.not.i112.i.i.i = icmp eq i64 %1385, %1374
-  br i1 %.not.i112.i.i.i, label %.oe_set_size.exit_crit_edge.i.i.i, label %1386
+  %.not.i111.i.i.i = icmp eq i64 %1385, %1374
+  br i1 %.not.i111.i.i.i, label %.oe_set_size.exit_crit_edge.i.i.i, label %1386
 
 .oe_set_size.exit_crit_edge.i.i.i:                ; preds = %1381
-  %.val107.pre.i.i.i = load i64, ptr %1362, align 8
+  %.val106.pre.i.i.i = load i64, ptr %1362, align 8
   br label %oe_set_size.exit.i.i.i
 
 1386:                                             ; preds = %1381
@@ -3678,26 +3678,26 @@ oe_in_pack.exit111.i.i.i:                         ; preds = %oe_in_pack.exit.thr
   unreachable
 
 oe_set_size.exit.i.i.i:                           ; preds = %.oe_set_size.exit_crit_edge.i.i.i, %1377
-  %.val107.i.i.i = phi i64 [ %.val107.pre.i.i.i, %.oe_set_size.exit_crit_edge.i.i.i ], [ %1373, %1377 ]
+  %.val106.i.i.i = phi i64 [ %.val106.pre.i.i.i, %.oe_set_size.exit_crit_edge.i.i.i ], [ %1373, %1377 ]
   %1387 = trunc i64 %1355 to i8
   %1388 = getelementptr inbounds nuw i8, ptr %1338, i64 87
   store i8 %1387, ptr %1388, align 1, !tbaa !166
-  %1389 = and i64 %.val107.i.i.i, 1073741824
-  %.not.i113.i.i.i = icmp eq i64 %1389, 0
-  %1390 = lshr i64 %.val107.i.i.i, 32
+  %1389 = and i64 %.val106.i.i.i, 1073741824
+  %.not.i112.i.i.i = icmp eq i64 %1389, 0
+  %1390 = lshr i64 %.val106.i.i.i, 32
   %1391 = trunc nuw i64 %1390 to i32
   %1392 = and i32 %1391, 7
   %1393 = add nsw i32 %1392, -4
-  %or.cond152155.i.i.i = icmp ult i32 %1393, -3
-  %or.cond152.i.i.i = select i1 %.not.i113.i.i.i, i1 true, i1 %or.cond152155.i.i.i
-  br i1 %or.cond152.i.i.i, label %1574, label %.thread146.i.i.i
+  %or.cond151154.i.i.i = icmp ult i32 %1393, -3
+  %or.cond151.i.i.i = select i1 %.not.i112.i.i.i, i1 true, i1 %or.cond151154.i.i.i
+  br i1 %or.cond151.i.i.i, label %1574, label %.thread145.i.i.i
 
 1394:                                             ; preds = %1361
   %1395 = load i32, ptr @reuse_delta, align 4, !tbaa !30
-  %.not95.i.i.i = icmp eq i32 %1395, 0
+  %.not94.i.i.i = icmp eq i32 %1395, 0
   %1396 = and i64 %1363, 274877906944
-  %.not96.i.i.i = icmp ne i64 %1396, 0
-  %or.cond.not.i.i.i = select i1 %.not95.i.i.i, i1 true, i1 %.not96.i.i.i
+  %.not95.i.i.i = icmp ne i64 %1396, 0
+  %or.cond.not.i.i.i = select i1 %.not94.i.i.i, i1 true, i1 %.not95.i.i.i
   br i1 %or.cond.not.i.i.i, label %.thread36.i.i, label %1401
 
 .thread36.i.i:                                    ; preds = %1394
@@ -3711,7 +3711,7 @@ oe_set_size.exit.i.i.i:                           ; preds = %.oe_set_size.exit_c
 1401:                                             ; preds = %1394
   %1402 = load i64, ptr %1351, align 8, !tbaa !24
   %1403 = add i64 %1402, %1355
-  %1404 = call ptr @use_pack(ptr noundef nonnull %.0.i110.i.i.i, ptr noundef nonnull %30, i64 noundef %1403, ptr noundef null) #25
+  %1404 = call ptr @use_pack(ptr noundef nonnull %.0.i109.i.i.i, ptr noundef nonnull %30, i64 noundef %1403, ptr noundef null) #25
   %1405 = load ptr, ptr @the_repository, align 8, !tbaa !4
   %1406 = getelementptr inbounds nuw i8, ptr %1405, i64 400
   %1407 = load ptr, ptr %1406, align 8, !tbaa !167
@@ -3761,39 +3761,39 @@ oe_set_size.exit.i.i.i:                           ; preds = %.oe_set_size.exit_c
 1426:                                             ; preds = %1361
   %1427 = load i64, ptr %1351, align 8, !tbaa !24
   %1428 = add i64 %1427, %1355
-  %1429 = call ptr @use_pack(ptr noundef nonnull %.0.i110.i.i.i, ptr noundef nonnull %30, i64 noundef %1428, ptr noundef null) #25
+  %1429 = call ptr @use_pack(ptr noundef nonnull %.0.i109.i.i.i, ptr noundef nonnull %30, i64 noundef %1428, ptr noundef null) #25
   %1430 = load i8, ptr %1429, align 1, !tbaa !29
   %1431 = and i8 %1430, 127
   %1432 = zext nneg i8 %1431 to i64
-  %.not88159.i.i.i = icmp sgt i8 %1430, -1
-  br i1 %.not88159.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i148
+  %.not88158.i.i.i = icmp sgt i8 %1430, -1
+  br i1 %.not88158.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i148
 
 .lr.ph.i.i.i148:                                  ; preds = %1426, %1439
-  %.079161.i.i.i = phi i64 [ %1447, %1439 ], [ %1432, %1426 ]
-  %.080160.i.i.i = phi i64 [ %1440, %1439 ], [ 1, %1426 ]
-  %or.cond103.i.i.i = icmp ult i64 %.079161.i.i.i, 144115188075855871
-  br i1 %or.cond103.i.i.i, label %1439, label %1433
+  %.079160.i.i.i = phi i64 [ %1447, %1439 ], [ %1432, %1426 ]
+  %.080159.i.i.i = phi i64 [ %1440, %1439 ], [ 1, %1426 ]
+  %or.cond102.i.i.i = icmp ugt i64 %.079160.i.i.i, 144115188075855870
+  br i1 %or.cond102.i.i.i, label %1433, label %1439
 
 1433:                                             ; preds = %.lr.ph.i.i.i148
   %1434 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !30
-  %.not4.i.i.i.i149 = icmp eq i32 %1434, 0
-  br i1 %.not4.i.i.i.i149, label %_.exit.i.i.i, label %1435
+  %.not4.i.i.i.i166 = icmp eq i32 %1434, 0
+  br i1 %.not4.i.i.i.i166, label %_.exit.i.i.i, label %1435
 
 1435:                                             ; preds = %1433
   %1436 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.212, i32 noundef 5) #25
   br label %_.exit.i.i.i
 
 _.exit.i.i.i:                                     ; preds = %1435, %1433
-  %.0.i115.i.i.i = phi ptr [ %1436, %1435 ], [ @.str.212, %1433 ]
+  %.0.i114.i.i.i = phi ptr [ %1436, %1435 ], [ @.str.212, %1433 ]
   %1437 = call ptr @oid_to_hex(ptr noundef %1338) #25
-  %1438 = call i32 (ptr, ...) @error(ptr noundef %.0.i115.i.i.i, ptr noundef %1437) #25
+  %1438 = call i32 (ptr, ...) @error(ptr noundef %.0.i114.i.i.i, ptr noundef %1437) #25
   br label %1574
 
 1439:                                             ; preds = %.lr.ph.i.i.i148
-  %1440 = add i64 %.080160.i.i.i, 1
-  %1441 = getelementptr inbounds nuw i8, ptr %1429, i64 %.080160.i.i.i
+  %1440 = add i64 %.080159.i.i.i, 1
+  %1441 = getelementptr inbounds nuw i8, ptr %1429, i64 %.080159.i.i.i
   %1442 = load i8, ptr %1441, align 1, !tbaa !29
-  %1443 = shl nuw i64 %.079161.i.i.i, 7
+  %1443 = shl nuw i64 %.079160.i.i.i, 7
   %1444 = add nuw i64 %1443, 128
   %1445 = and i8 %1442, 127
   %1446 = zext nneg i8 %1445 to i64
@@ -3808,22 +3808,22 @@ _.exit.i.i.i:                                     ; preds = %1435, %1433
   %1449 = sub nsw i64 %1448, %.079.lcssa.i.i.i
   %1450 = icmp sgt i64 %1449, 0
   %.not89.i.i.i = icmp sgt i64 %.079.lcssa.i.i.i, 0
-  %or.cond104.i.i.i = and i1 %.not89.i.i.i, %1450
-  br i1 %or.cond104.i.i.i, label %1457, label %1451
+  %or.cond103.i.i.i = and i1 %.not89.i.i.i, %1450
+  br i1 %or.cond103.i.i.i, label %1457, label %1451
 
 1451:                                             ; preds = %._crit_edge.i.i.i
   %1452 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !30
-  %.not4.i116.i.i.i = icmp eq i32 %1452, 0
-  br i1 %.not4.i116.i.i.i, label %_.exit118.i.i.i, label %1453
+  %.not4.i115.i.i.i = icmp eq i32 %1452, 0
+  br i1 %.not4.i115.i.i.i, label %_.exit117.i.i.i, label %1453
 
 1453:                                             ; preds = %1451
   %1454 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.213, i32 noundef 5) #25
-  br label %_.exit118.i.i.i
+  br label %_.exit117.i.i.i
 
-_.exit118.i.i.i:                                  ; preds = %1453, %1451
-  %.0.i117.i.i.i = phi ptr [ %1454, %1453 ], [ @.str.213, %1451 ]
+_.exit117.i.i.i:                                  ; preds = %1453, %1451
+  %.0.i116.i.i.i = phi ptr [ %1454, %1453 ], [ @.str.213, %1451 ]
   %1455 = call ptr @oid_to_hex(ptr noundef nonnull %1338) #25
-  %1456 = call i32 (ptr, ...) @error(ptr noundef %.0.i117.i.i.i, ptr noundef %1455) #25
+  %1456 = call i32 (ptr, ...) @error(ptr noundef %.0.i116.i.i.i, ptr noundef %1455) #25
   br label %1574
 
 1457:                                             ; preds = %._crit_edge.i.i.i
@@ -3839,7 +3839,7 @@ _.exit118.i.i.i:                                  ; preds = %1453, %1451
 
 1462:                                             ; preds = %1459
   call void @llvm.lifetime.start.p0(ptr nonnull %35)
-  %1463 = call i32 @offset_to_pack_pos(ptr noundef nonnull %.0.i110.i.i.i, i64 noundef %1449, ptr noundef nonnull %35) #25
+  %1463 = call i32 @offset_to_pack_pos(ptr noundef nonnull %.0.i109.i.i.i, i64 noundef %1449, ptr noundef nonnull %35) #25
   %1464 = icmp slt i32 %1463, 0
   br i1 %1464, label %1465, label %1466
 
@@ -3849,8 +3849,8 @@ _.exit118.i.i.i:                                  ; preds = %1453, %1451
 
 1466:                                             ; preds = %1462
   %1467 = load i32, ptr %35, align 4, !tbaa !30
-  %1468 = call i32 @pack_pos_to_index(ptr noundef nonnull %.0.i110.i.i.i, i32 noundef %1467) #25
-  %1469 = call i32 @nth_packed_object_id(ptr noundef nonnull %31, ptr noundef nonnull %.0.i110.i.i.i, i32 noundef %1468) #25
+  %1468 = call i32 @pack_pos_to_index(ptr noundef nonnull %.0.i109.i.i.i, i32 noundef %1467) #25
+  %1469 = call i32 @nth_packed_object_id(ptr noundef nonnull %31, ptr noundef nonnull %.0.i109.i.i.i, i32 noundef %1468) #25
   %.not92.i.not.i.i = icmp eq i32 %1469, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %35)
   %1470 = add i64 %.080.lcssa.i.i.i, %1355
@@ -3862,8 +3862,8 @@ _.exit118.i.i.i:                                  ; preds = %1453, %1451
 1473:                                             ; preds = %1466, %.loopexit.i.i167
   %1474 = phi ptr [ %1425, %.loopexit.i.i167 ], [ %1472, %1466 ]
   %1475 = call ptr @packlist_find(ptr noundef nonnull @to_pack, ptr noundef nonnull %31) #25
-  %.not.i119.i.i.i = icmp eq ptr %1475, null
-  br i1 %.not.i119.i.i.i, label %1478, label %1476
+  %.not.i118.i.i.i = icmp eq ptr %1475, null
+  br i1 %.not.i118.i.i.i, label %1478, label %1476
 
 1476:                                             ; preds = %1473
   %1477 = call i32 @in_same_island(ptr noundef nonnull %1338, ptr noundef nonnull %1475) #25
@@ -3909,7 +3909,7 @@ can_reuse_delta.exit.i.i.i:                       ; preds = %1485, %1483, %1476
   %1498 = getelementptr inbounds nuw i8, ptr %1338, i64 68
   %1499 = or i32 %1497, -2147483648
   store i32 %1499, ptr %1498, align 4
-  br label %oe_set_size.exit122.i.i.i
+  br label %oe_set_size.exit121.i.i.i
 
 1500:                                             ; preds = %can_reuse_delta.exit.i.i.i
   %1501 = getelementptr inbounds nuw i8, ptr %1338, i64 68
@@ -3917,35 +3917,35 @@ can_reuse_delta.exit.i.i.i:                       ; preds = %1485, %1483, %1476
   %1503 = and i32 %1502, 2147483647
   store i32 %1503, ptr %1501, align 4
   %1504 = call i64 @oe_get_size_slow(ptr noundef nonnull @to_pack, ptr noundef nonnull %1338)
-  %.not.i121.i.i.i = icmp eq i64 %1504, %1493
-  br i1 %.not.i121.i.i.i, label %.oe_set_size.exit122_crit_edge.i.i.i, label %1505
+  %.not.i120.i.i.i = icmp eq i64 %1504, %1493
+  br i1 %.not.i120.i.i.i, label %.oe_set_size.exit121_crit_edge.i.i.i, label %1505
 
-.oe_set_size.exit122_crit_edge.i.i.i:             ; preds = %1500
-  %.pre167.i.i.i = load i64, ptr %34, align 8, !tbaa !28
-  br label %oe_set_size.exit122.i.i.i
+.oe_set_size.exit121_crit_edge.i.i.i:             ; preds = %1500
+  %.pre166.i.i.i = load i64, ptr %34, align 8, !tbaa !28
+  br label %oe_set_size.exit121.i.i.i
 
 1505:                                             ; preds = %1500
   call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.1, i32 noundef 151, ptr noundef nonnull @.str.214) #26
   unreachable
 
-oe_set_size.exit122.i.i.i:                        ; preds = %.oe_set_size.exit122_crit_edge.i.i.i, %1496
-  %1506 = phi i64 [ %.pre167.i.i.i, %.oe_set_size.exit122_crit_edge.i.i.i ], [ %1493, %1496 ]
+oe_set_size.exit121.i.i.i:                        ; preds = %.oe_set_size.exit121_crit_edge.i.i.i, %1496
+  %1506 = phi i64 [ %.pre166.i.i.i, %.oe_set_size.exit121_crit_edge.i.i.i ], [ %1493, %1496 ]
   %1507 = load i64, ptr getelementptr inbounds nuw (i8, ptr @to_pack, i64 136), align 8, !tbaa !173
   %1508 = icmp ult i64 %1506, %1507
   br i1 %1508, label %1509, label %1513
 
-1509:                                             ; preds = %oe_set_size.exit122.i.i.i
+1509:                                             ; preds = %oe_set_size.exit121.i.i.i
   %1510 = getelementptr inbounds nuw i8, ptr %1338, i64 84
   %1511 = trunc i64 %1506 to i24
   %1512 = or i24 %1511, -8388608
   store i24 %1512, ptr %1510, align 4
   br label %oe_set_delta_size.exit.i.i.i
 
-1513:                                             ; preds = %oe_set_size.exit122.i.i.i
+1513:                                             ; preds = %oe_set_size.exit121.i.i.i
   %1514 = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @to_pack, i64 72)) #25
   %1515 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @to_pack, i64 48), align 8, !tbaa !174
-  %.not.i123.i.i.i = icmp eq ptr %1515, null
-  br i1 %.not.i123.i.i.i, label %st_mult.exit.i.i.i.i, label %1520
+  %.not.i122.i.i.i = icmp eq ptr %1515, null
+  br i1 %.not.i122.i.i.i, label %st_mult.exit.i.i.i.i, label %1520
 
 st_mult.exit.i.i.i.i:                             ; preds = %1513
   %1516 = load i32, ptr getelementptr inbounds nuw (i8, ptr @to_pack, i64 20), align 4, !tbaa !175
@@ -3972,7 +3972,7 @@ st_mult.exit.i.i.i.i:                             ; preds = %1513
   br label %oe_set_delta_size.exit.i.i.i
 
 oe_set_delta_size.exit.i.i.i:                     ; preds = %1520, %1509
-  br i1 %.not.i119.i.i.i, label %1548, label %oe_set_delta_child.exit.i.i.i
+  br i1 %.not.i118.i.i.i, label %1548, label %oe_set_delta_child.exit.i.i.i
 
 oe_set_delta_child.exit.i.i.i:                    ; preds = %oe_set_delta_size.exit.i.i.i
   %1532 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @to_pack, i64 8), align 8, !tbaa !19
@@ -3994,11 +3994,11 @@ oe_set_delta_child.exit.i.i.i:                    ; preds = %oe_set_delta_size.e
   %1546 = trunc i64 %1545 to i32
   %1547 = add i32 %1546, 1
   store i32 %1547, ptr %1540, align 4, !tbaa !177
-  br label %.thread146.i.i.i
+  br label %.thread145.i.i.i
 
 1548:                                             ; preds = %oe_set_delta_size.exit.i.i.i
   call void @oe_set_delta_ext(ptr noundef nonnull @to_pack, ptr noundef nonnull %1338, ptr noundef nonnull %31) #25
-  br label %.thread146.i.i.i
+  br label %.thread145.i.i.i
 
 can_reuse_delta.exit.thread.i.sink.split.i.i:     ; preds = %1459, %1457, %.thread36.i.i
   %.sink.i.i = phi i64 [ %1400, %.thread36.i.i ], [ %.080.lcssa.i.i.i, %1459 ], [ %.080.lcssa.i.i.i, %1457 ]
@@ -4012,15 +4012,15 @@ can_reuse_delta.exit.thread.i.i.i:                ; preds = %can_reuse_delta.exi
   %1552 = phi ptr [ %1474, %1485 ], [ %1474, %1480 ], [ %1474, %1478 ], [ %1474, %1476 ], [ %1472, %1466 ], [ %1551, %can_reuse_delta.exit.thread.i.sink.split.i.i ]
   %.val.i.i.i = load i64, ptr %1362, align 8
   %1553 = and i64 %.val.i.i.i, 31138512896
-  %.not99.i.i.i = icmp eq i64 %1553, 1073741824
-  br i1 %.not99.i.i.i, label %1574, label %1554
+  %.not98.i.i.i = icmp eq i64 %1553, 1073741824
+  br i1 %.not98.i.i.i, label %1574, label %1554
 
 1554:                                             ; preds = %can_reuse_delta.exit.thread.i.i.i
   %1555 = load i64, ptr %1351, align 8, !tbaa !24
   %1556 = load i8, ptr %1552, align 1, !tbaa !166
   %1557 = zext i8 %1556 to i64
   %1558 = add nsw i64 %1555, %1557
-  %1559 = call i64 @get_size_from_delta(ptr noundef nonnull %.0.i110.i.i.i, ptr noundef nonnull %30, i64 noundef %1558) #25
+  %1559 = call i64 @get_size_from_delta(ptr noundef nonnull %.0.i109.i.i.i, ptr noundef nonnull %30, i64 noundef %1558) #25
   store i64 %1559, ptr %27, align 8, !tbaa !28
   %1560 = icmp eq i64 %1559, 0
   br i1 %1560, label %1574, label %1561
@@ -4035,7 +4035,7 @@ can_reuse_delta.exit.thread.i.i.i:                ; preds = %can_reuse_delta.exi
   %1566 = getelementptr inbounds nuw i8, ptr %1338, i64 68
   %1567 = or i32 %1565, -2147483648
   store i32 %1567, ptr %1566, align 4
-  br label %.thread146.i.i.i
+  br label %.thread145.i.i.i
 
 1568:                                             ; preds = %1561
   %1569 = getelementptr inbounds nuw i8, ptr %1338, i64 68
@@ -4043,14 +4043,14 @@ can_reuse_delta.exit.thread.i.i.i:                ; preds = %can_reuse_delta.exi
   %1571 = and i32 %1570, 2147483647
   store i32 %1571, ptr %1569, align 4
   %1572 = call i64 @oe_get_size_slow(ptr noundef nonnull @to_pack, ptr noundef nonnull %1338)
-  %.not.i129.i.i.i = icmp eq i64 %1572, %1559
-  br i1 %.not.i129.i.i.i, label %.thread146.i.i.i, label %1573
+  %.not.i128.i.i.i = icmp eq i64 %1572, %1559
+  br i1 %.not.i128.i.i.i, label %.thread145.i.i.i, label %1573
 
 1573:                                             ; preds = %1568
   call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.1, i32 noundef 151, ptr noundef nonnull @.str.214) #26
   unreachable
 
-.thread146.i.i.i:                                 ; preds = %1568, %1564, %1548, %oe_set_delta_child.exit.i.i.i, %oe_set_size.exit.i.i.i
+.thread145.i.i.i:                                 ; preds = %1568, %1564, %1548, %oe_set_delta_child.exit.i.i.i, %oe_set_size.exit.i.i.i
   call void @unuse_pack(ptr noundef nonnull %30) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
@@ -4059,7 +4059,7 @@ can_reuse_delta.exit.thread.i.i.i:                ; preds = %can_reuse_delta.exi
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
   br label %check_object.exit.i.i
 
-1574:                                             ; preds = %1554, %can_reuse_delta.exit.thread.i.i.i, %1465, %_.exit118.i.i.i, %_.exit.i.i.i, %oe_set_size.exit.i.i.i, %oe_in_pack.exit111.i.i.i
+1574:                                             ; preds = %1554, %can_reuse_delta.exit.thread.i.i.i, %1465, %_.exit117.i.i.i, %_.exit.i.i.i, %oe_set_size.exit.i.i.i, %oe_in_pack.exit110.i.i.i
   call void @unuse_pack(ptr noundef nonnull %30) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
@@ -4077,8 +4077,8 @@ can_reuse_delta.exit.thread.i.i.i:                ; preds = %can_reuse_delta.exi
 1579:                                             ; preds = %1575
   %1580 = load ptr, ptr @the_repository, align 8, !tbaa !4
   %1581 = call i32 @repo_has_promisor_remote(ptr noundef %1580) #25
-  %.not101.i.i.i = icmp eq i32 %1581, 0
-  br i1 %.not101.i.i.i, label %.thread188.i.i.i, label %1582
+  %.not100.i.i.i = icmp eq i32 %1581, 0
+  br i1 %.not100.i.i.i, label %.thread187.i.i.i, label %1582
 
 1582:                                             ; preds = %1579
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
@@ -4094,8 +4094,8 @@ can_reuse_delta.exit.thread.i.i.i:                ; preds = %can_reuse_delta.exi
   %1587 = getelementptr inbounds nuw %struct.object_entry, ptr %1586, i64 %indvars.iv.i.i.i.i
   %1588 = load ptr, ptr @the_repository, align 8, !tbaa !4
   %1589 = call i32 @oid_object_info_extended(ptr noundef %1588, ptr noundef %1587, ptr noundef null, i32 noundef 24) #25
-  %.not.i131.i.i.i = icmp eq i32 %1589, 0
-  br i1 %.not.i131.i.i.i, label %1591, label %1590
+  %.not.i130.i.i.i = icmp eq i32 %1589, 0
+  br i1 %.not.i130.i.i.i, label %1591, label %1590
 
 1590:                                             ; preds = %.lr.ph.i.i.i.i
   call void @oid_array_append(ptr noundef nonnull %26, ptr noundef %1587) #25
@@ -4124,7 +4124,7 @@ prefetch_to_pack.exit.i.i.i:                      ; preds = %._crit_edge.loopexi
   %1599 = load ptr, ptr @the_repository, align 8, !tbaa !4
   %1600 = call i32 @oid_object_info_extended(ptr noundef %1599, ptr noundef %1338, ptr noundef nonnull %29, i32 noundef 17) #25
   %1601 = icmp slt i32 %1600, 0
-  br i1 %1601, label %.thread188.i.i.i, label %1602
+  br i1 %1601, label %.thread187.i.i.i, label %1602
 
 1602:                                             ; preds = %prefetch_to_pack.exit.i.i.i, %1575
   %.pr.i.i.i = load i32, ptr %28, align 4, !tbaa !30
@@ -4141,9 +4141,9 @@ oe_set_type.exit.i.i.i:                           ; preds = %1602
   %1606 = and i32 %.pr.fr.i.i.i, 7
   %1607 = zext nneg i32 %1606 to i64
   %1608 = shl nuw nsw i64 %1607, 32
-  br i1 %1605, label %1613, label %.thread188.i.i.i
+  br i1 %1605, label %1613, label %.thread187.i.i.i
 
-.thread188.i.i.i:                                 ; preds = %oe_set_type.exit.i.i.i, %prefetch_to_pack.exit.i.i.i, %1579
+.thread187.i.i.i:                                 ; preds = %oe_set_type.exit.i.i.i, %prefetch_to_pack.exit.i.i.i, %1579
   %.ph.i.i.i = phi i64 [ %1608, %oe_set_type.exit.i.i.i ], [ 30064771072, %1579 ], [ 30064771072, %prefetch_to_pack.exit.i.i.i ]
   %1609 = getelementptr inbounds nuw i8, ptr %1338, i64 88
   %1610 = load i64, ptr %1609, align 8
@@ -4177,22 +4177,22 @@ oe_set_type.exit.i.i.i:                           ; preds = %1602
   %1629 = and i32 %1628, 2147483647
   store i32 %1629, ptr %1627, align 4
   %1630 = call i64 @oe_get_size_slow(ptr noundef nonnull @to_pack, ptr noundef nonnull %1338)
-  %.not.i132.i.i.i = icmp eq i64 %1630, %1619
-  br i1 %.not.i132.i.i.i, label %check_object.exit.i.i, label %1631
+  %.not.i131.i.i.i = icmp eq i64 %1630, %1619
+  br i1 %.not.i131.i.i.i, label %check_object.exit.i.i, label %1631
 
 1631:                                             ; preds = %1626
   call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.1, i32 noundef 151, ptr noundef nonnull @.str.214) #26
   unreachable
 
-check_object.exit.i.i:                            ; preds = %1626, %1622, %.thread188.i.i.i, %.thread146.i.i.i
+check_object.exit.i.i:                            ; preds = %1626, %1622, %.thread187.i.i.i, %.thread145.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   %1632 = getelementptr inbounds nuw i8, ptr %1338, i64 88
   %1633 = load i64, ptr %1632, align 8
   %1634 = and i64 %1633, 1073741824
-  %.not20.i.i150 = icmp eq i64 %1634, 0
-  br i1 %.not20.i.i150, label %1650, label %1635
+  %.not20.i.i149 = icmp eq i64 %1634, 0
+  br i1 %.not20.i.i149, label %1650, label %1635
 
 1635:                                             ; preds = %check_object.exit.i.i
   %1636 = load i64, ptr @big_file_threshold, align 8, !tbaa !28
@@ -4239,13 +4239,13 @@ oe_size_greater_than.exit.thread.i.i:             ; preds = %oe_size_greater_tha
 ._crit_edge70.i.i:                                ; preds = %1650, %sane_qsort.exit.i.i, %1325
   %1655 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !30
   %.not4.i.i24.i.i = icmp eq i32 %1655, 0
-  br i1 %.not4.i.i24.i.i, label %stop_progress.exit.i.i151, label %1656
+  br i1 %.not4.i.i24.i.i, label %stop_progress.exit.i.i150, label %1656
 
 1656:                                             ; preds = %._crit_edge70.i.i
   %1657 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.206, i32 noundef 5) #25
-  br label %stop_progress.exit.i.i151
+  br label %stop_progress.exit.i.i150
 
-stop_progress.exit.i.i151:                        ; preds = %1656, %._crit_edge70.i.i
+stop_progress.exit.i.i150:                        ; preds = %1656, %._crit_edge70.i.i
   %.0.i.i26.i.i = phi ptr [ %1657, %1656 ], [ @.str.206, %._crit_edge70.i.i ]
   call void @stop_progress_msg(ptr noundef nonnull @progress_state, ptr noundef %.0.i.i26.i.i) #25
   %1658 = load i32, ptr getelementptr inbounds nuw (i8, ptr @to_pack, i64 16), align 8, !tbaa !158
@@ -4259,10 +4259,10 @@ stop_progress.exit.i.i151:                        ; preds = %1656, %._crit_edge7
   %.pr.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @to_pack, i64 8), align 8, !tbaa !19
   br label %.lr.ph72.split.i.i
 
-.lr.ph72.split.i.i:                               ; preds = %stop_progress.exit.i.i151, %.lr.ph72.splitthread-pre-split.i.i
-  %1661 = phi ptr [ %.pr.i.i, %.lr.ph72.splitthread-pre-split.i.i ], [ %1659, %stop_progress.exit.i.i151 ]
-  %1662 = phi i32 [ %1728, %.lr.ph72.splitthread-pre-split.i.i ], [ %1658, %stop_progress.exit.i.i151 ]
-  %indvars.iv108.i.i = phi i64 [ %indvars.iv.next109.i.i, %.lr.ph72.splitthread-pre-split.i.i ], [ 0, %stop_progress.exit.i.i151 ]
+.lr.ph72.split.i.i:                               ; preds = %stop_progress.exit.i.i150, %.lr.ph72.splitthread-pre-split.i.i
+  %1661 = phi ptr [ %.pr.i.i, %.lr.ph72.splitthread-pre-split.i.i ], [ %1659, %stop_progress.exit.i.i150 ]
+  %1662 = phi i32 [ %1728, %.lr.ph72.splitthread-pre-split.i.i ], [ %1658, %stop_progress.exit.i.i150 ]
+  %indvars.iv108.i.i = phi i64 [ %indvars.iv.next109.i.i, %.lr.ph72.splitthread-pre-split.i.i ], [ 0, %stop_progress.exit.i.i150 ]
   %1663 = getelementptr inbounds nuw %struct.object_entry, ptr %1661, i64 %indvars.iv108.i.i
   %.not69.i.i.i = icmp eq ptr %1661, null
   br i1 %.not69.i.i.i, label %break_delta_chains.exit.i.i, label %.lr.ph.i27.i.i
@@ -4426,11 +4426,11 @@ break_delta_chains.exit.i.i:                      ; preds = %break_delta_chains.
   %1730 = icmp samesign ult i64 %indvars.iv.next109.i.i, %1729
   br i1 %1730, label %.lr.ph72.splitthread-pre-split.i.i, label %get_object_details.exit.i, !llvm.loop !187
 
-get_object_details.exit.i:                        ; preds = %break_delta_chains.exit.i.i, %stop_progress.exit.i.i151
+get_object_details.exit.i:                        ; preds = %break_delta_chains.exit.i.i, %stop_progress.exit.i.i150
   call void @free(ptr noundef %1328) #25
   %1731 = load i32, ptr @pack_to_stdout, align 4, !tbaa !30
-  %.not38.i152 = icmp eq i32 %1731, 0
-  br i1 %.not38.i152, label %1732, label %1733
+  %.not38.i151 = icmp eq i32 %1731, 0
+  br i1 %.not38.i151, label %1732, label %1733
 
 1732:                                             ; preds = %get_object_details.exit.i
   store i32 1, ptr @do_check_packed_object_crc, align 4, !tbaa !30
@@ -4451,36 +4451,36 @@ st_mult.exit.i:                                   ; preds = %1733
   %1740 = call ptr @xmalloc(i64 noundef %1739) #25
   %1741 = load i32, ptr getelementptr inbounds nuw (i8, ptr @to_pack, i64 16), align 8, !tbaa !158
   %.not120.i = icmp eq i32 %1741, 0
-  br i1 %.not120.i, label %._crit_edge.thread.i159, label %.lr.ph.i153
+  br i1 %.not120.i, label %._crit_edge.thread.i158, label %.lr.ph.i152
 
-.lr.ph.i153:                                      ; preds = %st_mult.exit.i, %1776
-  %indvars.iv.i154 = phi i64 [ %indvars.iv.next.i157, %1776 ], [ 0, %st_mult.exit.i ]
-  %.032116.i = phi i32 [ %.1.i156, %1776 ], [ 0, %st_mult.exit.i ]
+.lr.ph.i152:                                      ; preds = %st_mult.exit.i, %1776
+  %indvars.iv.i153 = phi i64 [ %indvars.iv.next.i156, %1776 ], [ 0, %st_mult.exit.i ]
+  %.032116.i = phi i32 [ %.1.i155, %1776 ], [ 0, %st_mult.exit.i ]
   %.033115.i = phi i32 [ %.134.i, %1776 ], [ 0, %st_mult.exit.i ]
   %1742 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @to_pack, i64 8), align 8, !tbaa !19
-  %1743 = getelementptr inbounds nuw %struct.object_entry, ptr %1742, i64 %indvars.iv.i154
+  %1743 = getelementptr inbounds nuw %struct.object_entry, ptr %1742, i64 %indvars.iv.i153
   %1744 = getelementptr inbounds nuw i8, ptr %1743, i64 72
   %1745 = load i32, ptr %1744, align 8, !tbaa !176
   %.not.i47.i = icmp eq i32 %1745, 0
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %1743, i64 88
-  %.pre.i155 = load i64, ptr %.phi.trans.insert.i, align 8
+  %.pre.i154 = load i64, ptr %.phi.trans.insert.i, align 8
   br i1 %.not.i47.i, label %oe_delta.exit.thread.i, label %oe_delta.exit.i
 
-oe_delta.exit.i:                                  ; preds = %.lr.ph.i153
-  %1746 = and i64 %.pre.i155, 36028797018963968
+oe_delta.exit.i:                                  ; preds = %.lr.ph.i152
+  %1746 = and i64 %.pre.i154, 36028797018963968
   %.not8.i.i = icmp eq i64 %1746, 0
   %1747 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @to_pack, i64 112), align 8
   %.0.i.v.i = select i1 %.not8.i.i, ptr %1742, ptr %1747
   %.not41.i = icmp ne ptr %.0.i.v.i, null
-  %1748 = and i64 %.pre.i155, 1073741824
-  %.not42.i164 = icmp eq i64 %1748, 0
-  %or.cond233 = select i1 %.not41.i, i1 true, i1 %.not42.i164
+  %1748 = and i64 %.pre.i154, 1073741824
+  %.not42.i163 = icmp eq i64 %1748, 0
+  %or.cond233 = select i1 %.not41.i, i1 true, i1 %.not42.i163
   br i1 %or.cond233, label %1776, label %1749
 
-oe_delta.exit.thread.i:                           ; preds = %.lr.ph.i153
-  %.old = and i64 %.pre.i155, 1073741824
-  %.not42.i164.old = icmp eq i64 %.old, 0
-  br i1 %.not42.i164.old, label %1776, label %1749
+oe_delta.exit.thread.i:                           ; preds = %.lr.ph.i152
+  %.old = and i64 %.pre.i154, 1073741824
+  %.not42.i163.old = icmp eq i64 %.old, 0
+  br i1 %.not42.i163.old, label %1776, label %1749
 
 1749:                                             ; preds = %oe_delta.exit.i, %oe_delta.exit.thread.i
   %1750 = getelementptr inbounds nuw i8, ptr %1743, i64 68
@@ -4508,15 +4508,15 @@ oe_size_less_than.exit.i.oe_size_less_than.exit.oe_size_less_than.exit.thread_cr
   br label %oe_size_less_than.exit.thread.i
 
 oe_size_less_than.exit.thread.i:                  ; preds = %1752, %oe_size_less_than.exit.i.oe_size_less_than.exit.oe_size_less_than.exit.thread_crit_edge.i_crit_edge, %1755
-  %1760 = phi i64 [ %.pre.i155, %1755 ], [ %.pre160.i.pre, %oe_size_less_than.exit.i.oe_size_less_than.exit.oe_size_less_than.exit.thread_crit_edge.i_crit_edge ], [ %.pre.i155, %1752 ]
+  %1760 = phi i64 [ %.pre.i154, %1755 ], [ %.pre160.i.pre, %oe_size_less_than.exit.i.oe_size_less_than.exit.oe_size_less_than.exit.thread_crit_edge.i_crit_edge ], [ %.pre.i154, %1752 ]
   %1761 = and i64 %1760, 2147483648
-  %.not44.i165 = icmp eq i64 %1761, 0
-  br i1 %.not44.i165, label %1762, label %1776
+  %.not44.i164 = icmp eq i64 %1761, 0
+  br i1 %.not44.i164, label %1762, label %1776
 
 1762:                                             ; preds = %oe_size_less_than.exit.thread.i
   %1763 = and i64 %1760, 274877906944
-  %.not45.i166 = icmp eq i64 %1763, 0
-  br i1 %.not45.i166, label %1764, label %1770
+  %.not45.i165 = icmp eq i64 %1763, 0
+  br i1 %.not45.i165, label %1764, label %1770
 
 1764:                                             ; preds = %1762
   %1765 = add i32 %.033115.i, 1
@@ -4545,31 +4545,31 @@ oe_size_less_than.exit.thread.i:                  ; preds = %1752, %oe_size_less
 
 1776:                                             ; preds = %1772, %1770, %oe_size_less_than.exit.thread.i, %oe_size_less_than.exit.i, %1752, %oe_delta.exit.thread.i, %oe_delta.exit.i
   %.134.i = phi i32 [ %.2.i, %1772 ], [ %.033115.i, %oe_delta.exit.i ], [ %.033115.i, %oe_size_less_than.exit.i ], [ %.033115.i, %oe_delta.exit.thread.i ], [ %.033115.i, %oe_size_less_than.exit.thread.i ], [ %.033115.i, %1770 ], [ %.033115.i, %1752 ]
-  %.1.i156 = phi i32 [ %1773, %1772 ], [ %.032116.i, %oe_delta.exit.i ], [ %.032116.i, %oe_size_less_than.exit.i ], [ %.032116.i, %oe_delta.exit.thread.i ], [ %.032116.i, %oe_size_less_than.exit.thread.i ], [ %.032116.i, %1770 ], [ %.032116.i, %1752 ]
-  %indvars.iv.next.i157 = add nuw nsw i64 %indvars.iv.i154, 1
+  %.1.i155 = phi i32 [ %1773, %1772 ], [ %.032116.i, %oe_delta.exit.i ], [ %.032116.i, %oe_size_less_than.exit.i ], [ %.032116.i, %oe_delta.exit.thread.i ], [ %.032116.i, %oe_size_less_than.exit.thread.i ], [ %.032116.i, %1770 ], [ %.032116.i, %1752 ]
+  %indvars.iv.next.i156 = add nuw nsw i64 %indvars.iv.i153, 1
   %1777 = load i32, ptr getelementptr inbounds nuw (i8, ptr @to_pack, i64 16), align 8, !tbaa !158
   %1778 = zext i32 %1777 to i64
-  %1779 = icmp samesign ult i64 %indvars.iv.next.i157, %1778
-  br i1 %1779, label %.lr.ph.i153, label %._crit_edge.i158, !llvm.loop !189
+  %1779 = icmp samesign ult i64 %indvars.iv.next.i156, %1778
+  br i1 %1779, label %.lr.ph.i152, label %._crit_edge.i157, !llvm.loop !189
 
-._crit_edge.i158:                                 ; preds = %1776
+._crit_edge.i157:                                 ; preds = %1776
   %1780 = icmp ne i32 %.134.i, 0
-  %1781 = icmp ugt i32 %.1.i156, 1
+  %1781 = icmp ugt i32 %.1.i155, 1
   %or.cond5.i = select i1 %1780, i1 %1781, i1 false
-  br i1 %or.cond5.i, label %1782, label %._crit_edge.thread.i159
+  br i1 %or.cond5.i, label %1782, label %._crit_edge.thread.i158
 
-1782:                                             ; preds = %._crit_edge.i158
+1782:                                             ; preds = %._crit_edge.i157
   call void @llvm.lifetime.start.p0(ptr nonnull %36)
   store i32 0, ptr %36, align 4, !tbaa !30
   %1783 = load i32, ptr @progress, align 4, !tbaa !30
-  %.not39.i160 = icmp eq i32 %1783, 0
-  br i1 %.not39.i160, label %sane_qsort.exit.i162, label %1784
+  %.not39.i159 = icmp eq i32 %1783, 0
+  br i1 %.not39.i159, label %sane_qsort.exit.i161, label %1784
 
 1784:                                             ; preds = %1782
   %1785 = load ptr, ptr @the_repository, align 8, !tbaa !4
   %1786 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !30
-  %.not4.i.i161 = icmp eq i32 %1786, 0
-  br i1 %.not4.i.i161, label %_.exit.i, label %1787
+  %.not4.i.i160 = icmp eq i32 %1786, 0
+  br i1 %.not4.i.i160, label %_.exit.i, label %1787
 
 1787:                                             ; preds = %1784
   %1788 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.208, i32 noundef 5) #25
@@ -4580,14 +4580,14 @@ _.exit.i:                                         ; preds = %1787, %1784
   %1789 = zext i32 %.134.i to i64
   %1790 = call ptr @start_progress(ptr noundef %1785, ptr noundef %.0.i52.i, i64 noundef %1789) #25
   store ptr %1790, ptr @progress_state, align 8, !tbaa !76
-  br label %sane_qsort.exit.i162
+  br label %sane_qsort.exit.i161
 
-sane_qsort.exit.i162:                             ; preds = %_.exit.i, %1782
-  %1791 = zext i32 %.1.i156 to i64
+sane_qsort.exit.i161:                             ; preds = %_.exit.i, %1782
+  %1791 = zext i32 %.1.i155 to i64
   call void @qsort(ptr noundef %1740, i64 noundef %1791, i64 noundef 8, ptr noundef nonnull @type_size_sort) #25
   %1792 = add nsw i32 %1309, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
-  store i32 %.1.i156, ptr %25, align 4, !tbaa !30
+  store i32 %.1.i155, ptr %25, align 4, !tbaa !30
   %1793 = call i32 @pthread_mutex_init(ptr noundef nonnull @cache_mutex, ptr noundef null) #25
   %1794 = call i32 @pthread_mutex_init(ptr noundef nonnull @progress_mutex, ptr noundef null) #25
   %1795 = call i32 @pthread_cond_init(ptr noundef nonnull @progress_cond, ptr noundef null) #25
@@ -4595,14 +4595,14 @@ sane_qsort.exit.i162:                             ; preds = %_.exit.i, %1782
   %1797 = icmp slt i32 %1796, 2
   br i1 %1797, label %1798, label %1802
 
-1798:                                             ; preds = %sane_qsort.exit.i162
+1798:                                             ; preds = %sane_qsort.exit.i161
   call fastcc void @find_deltas(ptr noundef %1740, ptr noundef nonnull %25, i32 noundef range(i32 -2147483647, -2147483648) %1792, i32 noundef range(i32 1, 0) %1310, ptr noundef nonnull %36)
   %1799 = call i32 @pthread_cond_destroy(ptr noundef nonnull @progress_cond) #25
   %1800 = call i32 @pthread_mutex_destroy(ptr noundef nonnull @cache_mutex) #25
   %1801 = call i32 @pthread_mutex_destroy(ptr noundef nonnull @progress_mutex) #25
   br label %ll_find_deltas.exit.i
 
-1802:                                             ; preds = %sane_qsort.exit.i162
+1802:                                             ; preds = %sane_qsort.exit.i161
   %1803 = load i32, ptr @progress, align 4, !tbaa !30
   %1804 = load i32, ptr @pack_to_stdout, align 4, !tbaa !30
   %1805 = icmp sgt i32 %1803, %1804
@@ -4646,7 +4646,7 @@ _.exit.i65.i:                                     ; preds = %1809, %1806
   %indvars.iv205.i.i = phi i64 [ 0, %.lr.ph171.i.i ], [ %indvars.iv.next206.i.i, %.critedge.i.i ]
   %1822 = phi i32 [ %1817, %.lr.ph171.i.i ], [ %1860, %.critedge.i.i ]
   %.0126170.i.i = phi ptr [ %1740, %.lr.ph171.i.i ], [ %1858, %.critedge.i.i ]
-  %1823 = phi i32 [ %.1.i156, %.lr.ph171.i.i ], [ %1859, %.critedge.i.i ]
+  %1823 = phi i32 [ %.1.i155, %.lr.ph171.i.i ], [ %1859, %.critedge.i.i ]
   %1824 = trunc nuw nsw i64 %indvars.iv205.i.i to i32
   %1825 = sub nsw i32 %1822, %1824
   %1826 = udiv i32 %1823, %1825
@@ -4768,7 +4768,7 @@ _.exit.i65.i:                                     ; preds = %1809, %1806
   br i1 %1881, label %.lr.ph175.i.i, label %.preheader155.i.i, !llvm.loop !203
 
 .lr.ph196.i.i:                                    ; preds = %.preheader155.i.i, %1950
-  %.2125195.i.i = phi i32 [ %.3.i.i163, %1950 ], [ %.1124.i.i, %.preheader155.i.i ]
+  %.2125195.i.i = phi i32 [ %.3.i.i162, %1950 ], [ %.1124.i.i, %.preheader155.i.i ]
   %1882 = call i32 @pthread_mutex_lock(ptr noundef nonnull @progress_mutex) #25
   br label %1883
 
@@ -4919,8 +4919,8 @@ _.exit.i65.i:                                     ; preds = %1809, %1806
   br label %1950
 
 1950:                                             ; preds = %1944, %1934
-  %.3.i.i163 = phi i32 [ %.2125195.i.i, %1934 ], [ %1949, %1944 ]
-  %.not.i57.i = icmp eq i32 %.3.i.i163, 0
+  %.3.i.i162 = phi i32 [ %.2125195.i.i, %1934 ], [ %1949, %1944 ]
+  %.not.i57.i = icmp eq i32 %.3.i.i162, 0
   br i1 %.not.i57.i, label %._crit_edge197.i.i, label %.lr.ph196.i.i, !llvm.loop !208
 
 ._crit_edge197.i.i:                               ; preds = %1950, %.preheader155.i.i, %.preheader156.i.i, %1813
@@ -4954,13 +4954,13 @@ stop_progress.exit.i:                             ; preds = %1955, %ll_find_delt
 
 1960:                                             ; preds = %stop_progress.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
-  br label %._crit_edge.thread.i159
+  br label %._crit_edge.thread.i158
 
-._crit_edge.thread.i159:                          ; preds = %1960, %._crit_edge.i158, %st_mult.exit.i
+._crit_edge.thread.i158:                          ; preds = %1960, %._crit_edge.i157, %st_mult.exit.i
   call void @free(ptr noundef %1740) #25
   br label %prepare_pack.exit
 
-prepare_pack.exit:                                ; preds = %1733, %._crit_edge.thread.i159
+prepare_pack.exit:                                ; preds = %1733, %._crit_edge.thread.i158
   %1961 = load ptr, ptr @the_repository, align 8, !tbaa !4
   call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_leave_fl(ptr noundef nonnull @.str.1, i32 noundef 4675, ptr noundef nonnull @.str.105, ptr noundef nonnull @.str.130, ptr noundef %1961) #25
   br label %1962

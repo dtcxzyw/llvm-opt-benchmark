@@ -253,12 +253,12 @@ dgram_adjust_rcv_timeout.exit:                    ; preds = %11, %49
 
 63:                                               ; preds = %dgram_adjust_rcv_timeout.exit
   call void @BIO_clear_flags(ptr noundef nonnull %0, i32 noundef 15) #11
-  %or.cond30 = icmp eq i32 %57, -1
-  br i1 %or.cond30, label %64, label %BIO_dgram_should_retry.exit.thread
+  %64 = icmp eq i32 %57, -1
+  br i1 %64, label %65, label %BIO_dgram_should_retry.exit.thread
 
-64:                                               ; preds = %63
-  %65 = load i32, ptr %12, align 4, !tbaa !17
-  switch i32 %65, label %BIO_dgram_should_retry.exit.thread [
+65:                                               ; preds = %63
+  %66 = load i32, ptr %12, align 4, !tbaa !17
+  switch i32 %66, label %BIO_dgram_should_retry.exit.thread [
     i32 11, label %BIO_dgram_should_retry.exit
     i32 4, label %BIO_dgram_should_retry.exit
     i32 71, label %BIO_dgram_should_retry.exit
@@ -266,51 +266,51 @@ dgram_adjust_rcv_timeout.exit:                    ; preds = %11, %49
     i32 114, label %BIO_dgram_should_retry.exit
   ]
 
-BIO_dgram_should_retry.exit:                      ; preds = %64, %64, %64, %64, %64
+BIO_dgram_should_retry.exit:                      ; preds = %65, %65, %65, %65, %65
   call void @BIO_set_flags(ptr noundef nonnull %0, i32 noundef 9) #11
-  %66 = load i32, ptr %12, align 4, !tbaa !17
-  %67 = getelementptr inbounds nuw i8, ptr %10, i64 228
-  store i32 %66, ptr %67, align 4, !tbaa !22
+  %67 = load i32, ptr %12, align 4, !tbaa !17
+  %68 = getelementptr inbounds nuw i8, ptr %10, i64 228
+  store i32 %67, ptr %68, align 4, !tbaa !22
   br label %BIO_dgram_should_retry.exit.thread
 
-BIO_dgram_should_retry.exit.thread:               ; preds = %64, %.thread, %BIO_dgram_should_retry.exit, %63
-  %68 = load ptr, ptr %9, align 8, !tbaa !3
-  %69 = getelementptr inbounds nuw i8, ptr %68, i64 240
-  %70 = load i64, ptr %69, align 8
-  %.not.i24 = icmp eq i64 %70, 0
-  br i1 %.not.i24, label %dgram_reset_rcv_timeout.exit, label %71
+BIO_dgram_should_retry.exit.thread:               ; preds = %65, %.thread, %BIO_dgram_should_retry.exit, %63
+  %69 = load ptr, ptr %9, align 8, !tbaa !3
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 240
+  %71 = load i64, ptr %70, align 8
+  %.not.i23 = icmp eq i64 %71, 0
+  br i1 %.not.i23, label %dgram_reset_rcv_timeout.exit, label %72
 
-71:                                               ; preds = %BIO_dgram_should_retry.exit.thread
+72:                                               ; preds = %BIO_dgram_should_retry.exit.thread
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %72 = getelementptr inbounds nuw i8, ptr %68, i64 248
-  %73 = load i64, ptr %72, align 8
-  %.sroa.01.0.i.i25 = call i64 @llvm.uadd.sat.i64(i64 %73, i64 999)
-  %74 = udiv i64 %.sroa.01.0.i.i25, 1000000000
-  %75 = urem i64 %.sroa.01.0.i.i25, 1000000000
-  %.lhs.trunc.i.i26 = trunc nuw nsw i64 %75 to i32
-  %76 = udiv i32 %.lhs.trunc.i.i26, 1000
-  %.zext.i.i27 = zext nneg i32 %76 to i64
-  store i64 %74, ptr %4, align 8
-  %77 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 %.zext.i.i27, ptr %77, align 8
-  %78 = load i32, ptr %52, align 8, !tbaa !21
-  %79 = call i32 @setsockopt(i32 noundef %78, i32 noundef 1, i32 noundef 20, ptr noundef nonnull %4, i32 noundef 16) #11
-  %80 = icmp slt i32 %79, 0
-  br i1 %80, label %81, label %83
+  %73 = getelementptr inbounds nuw i8, ptr %69, i64 248
+  %74 = load i64, ptr %73, align 8
+  %.sroa.01.0.i.i24 = call i64 @llvm.uadd.sat.i64(i64 %74, i64 999)
+  %75 = udiv i64 %.sroa.01.0.i.i24, 1000000000
+  %76 = urem i64 %.sroa.01.0.i.i24, 1000000000
+  %.lhs.trunc.i.i25 = trunc nuw nsw i64 %76 to i32
+  %77 = udiv i32 %.lhs.trunc.i.i25, 1000
+  %.zext.i.i26 = zext nneg i32 %77 to i64
+  store i64 %75, ptr %4, align 8
+  %78 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i64 %.zext.i.i26, ptr %78, align 8
+  %79 = load i32, ptr %52, align 8, !tbaa !21
+  %80 = call i32 @setsockopt(i32 noundef %79, i32 noundef 1, i32 noundef 20, ptr noundef nonnull %4, i32 noundef 16) #11
+  %81 = icmp slt i32 %80, 0
+  br i1 %81, label %82, label %84
 
-81:                                               ; preds = %71
+82:                                               ; preds = %72
   call void @ERR_new() #11
   call void @ERR_set_debug(ptr noundef nonnull @.str.2, i32 noundef 401, ptr noundef nonnull @__func__.dgram_reset_rcv_timeout) #11
-  %82 = load i32, ptr %12, align 4, !tbaa !17
-  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 2, i32 noundef %82, ptr noundef nonnull @.str.4) #11
-  br label %83
+  %83 = load i32, ptr %12, align 4, !tbaa !17
+  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 2, i32 noundef %83, ptr noundef nonnull @.str.4) #11
+  br label %84
 
-83:                                               ; preds = %81, %71
+84:                                               ; preds = %82, %72
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %dgram_reset_rcv_timeout.exit
 
-dgram_reset_rcv_timeout.exit:                     ; preds = %83, %BIO_dgram_should_retry.exit.thread, %3
-  %.0 = phi i32 [ 0, %3 ], [ %57, %BIO_dgram_should_retry.exit.thread ], [ %57, %83 ]
+dgram_reset_rcv_timeout.exit:                     ; preds = %84, %BIO_dgram_should_retry.exit.thread, %3
+  %.0 = phi i32 [ 0, %3 ], [ %57, %BIO_dgram_should_retry.exit.thread ], [ %57, %84 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0

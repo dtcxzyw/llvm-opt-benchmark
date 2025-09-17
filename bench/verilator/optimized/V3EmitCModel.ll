@@ -41762,9 +41762,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit239: ; preds = %_Z
   br label %408
 
 _ZNK7AstNode6isQuadEv.exit:                       ; preds = %_ZNK7AstNode8isDoubleEv.exit, %_ZN7AstNode9privateIsI13AstBasicDTypeP12AstNodeDTypeEEbPKS_.exit.i
-  %347 = add i32 %115, -33
-  %spec.select.i = icmp ult i32 %347, 32
-  br i1 %spec.select.i, label %._crit_edge.i.i241, label %_ZNK7AstNode6isQuadEv.exit.thread
+  %347 = icmp sgt i32 %115, 32
+  br i1 %347, label %._crit_edge.i.i241, label %_ZNK7AstNode6isQuadEv.exit.thread
 
 ._crit_edge.i.i241:                               ; preds = %_ZNK7AstNode6isQuadEv.exit
   %348 = tail call noundef i64 @_ZNK8V3Number7toUQuadEv(ptr noundef nonnull align 8 dereferenceable(56) %19)
@@ -103307,9 +103306,8 @@ _ZNK7AstNode6isWideEv.exit.i:                     ; preds = %_ZNK7AstNode8isStri
   br i1 %22, label %_ZNK12AstNodeDType8charIQWNEv.exit, label %_ZNK7AstNode6isQuadEv.exit.i
 
 _ZNK7AstNode6isQuadEv.exit.i:                     ; preds = %_ZNK7AstNode6isWideEv.exit.i
-  %23 = add i32 %.fr.i, -33
-  %spec.select.i.i = icmp ult i32 %23, 32
-  %spec.select.i = select i1 %spec.select.i.i, ptr @.str.813, ptr @.str.814
+  %23 = icmp sgt i32 %.fr.i, 32
+  %spec.select.i = select i1 %23, ptr @.str.813, ptr @.str.814
   br label %_ZNK12AstNodeDType8charIQWNEv.exit
 
 _ZNK12AstNodeDType8charIQWNEv.exit:               ; preds = %2, %_ZNK7AstNode8isStringEv.exit.i, %_ZNK7AstNode8isStringEv.exit.thread.i, %_ZNK7AstNode6isWideEv.exit.i, %_ZNK7AstNode6isQuadEv.exit.i

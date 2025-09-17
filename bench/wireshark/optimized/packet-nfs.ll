@@ -4490,43 +4490,43 @@ define internal fastcc noundef i32 @dissect_nfs_fattr3(ptr noundef readonly capt
   %49 = load ptr, ptr %8, align 8
   %50 = sub i32 %48, %2
   call void @proto_item_set_len(ptr noundef %49, i32 noundef %50)
-  %.not = icmp sgt i32 %5, -1
-  br i1 %.not, label %57, label %51
+  %51 = icmp slt i32 %5, 2
+  br i1 %51, label %52, label %58
 
-51:                                               ; preds = %6
-  %52 = and i32 %5, 2147483647
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %54 = load ptr, ptr %53, align 8
-  %55 = call ptr @val_to_str_ext(i32 noundef %14, ptr noundef nonnull @names_nfs_ftype3_ext, ptr noundef nonnull @.str.1411)
-  %56 = and i32 %15, 4095
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %54, i32 noundef 25, ptr noundef nonnull @.str.1410, ptr noundef %55, i32 noundef %56, i32 noundef %22, i32 noundef %25)
-  br label %57
+52:                                               ; preds = %6
+  %53 = and i32 %5, 2147483647
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %55 = load ptr, ptr %54, align 8
+  %56 = call ptr @val_to_str_ext(i32 noundef %14, ptr noundef nonnull @names_nfs_ftype3_ext, ptr noundef nonnull @.str.1411)
+  %57 = and i32 %15, 4095
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %55, i32 noundef 25, ptr noundef nonnull @.str.1410, ptr noundef %56, i32 noundef %57, i32 noundef %22, i32 noundef %25)
+  br label %58
 
-57:                                               ; preds = %51, %6
-  %.0 = phi i32 [ %52, %51 ], [ %5, %6 ]
-  %.not6267 = icmp eq ptr %10, null
-  %.not6368 = icmp eq i32 %.0, 0
-  %or.cond69 = or i1 %.not6267, %.not6368
-  br i1 %or.cond69, label %.critedge, label %.lr.ph
+58:                                               ; preds = %52, %6
+  %.0 = phi i32 [ %53, %52 ], [ %5, %6 ]
+  %.not66 = icmp eq ptr %10, null
+  %.not6267 = icmp eq i32 %.0, 0
+  %or.cond68 = or i1 %.not66, %.not6267
+  br i1 %or.cond68, label %.critedge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %57
-  %58 = and i32 %15, 4095
-  br label %59
+.lr.ph:                                           ; preds = %58
+  %59 = and i32 %15, 4095
+  br label %60
 
-59:                                               ; preds = %.lr.ph, %59
-  %.171 = phi i32 [ %.0, %.lr.ph ], [ %60, %59 ]
-  %.06170 = phi ptr [ %10, %.lr.ph ], [ %63, %59 ]
-  %60 = add nsw i32 %.171, -1
-  %61 = call ptr @val_to_str_ext(i32 noundef %14, ptr noundef nonnull @names_nfs_ftype3_ext, ptr noundef nonnull @.str.1411)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef nonnull %.06170, ptr noundef nonnull @.str.1410, ptr noundef %61, i32 noundef %58, i32 noundef %22, i32 noundef %25)
-  %62 = getelementptr inbounds nuw i8, ptr %.06170, i64 24
-  %63 = load ptr, ptr %62, align 8
-  %.not62 = icmp eq ptr %63, null
-  %.not63 = icmp eq i32 %60, 0
-  %or.cond = select i1 %.not62, i1 true, i1 %.not63
-  br i1 %or.cond, label %.critedge, label %59, !llvm.loop !12
+60:                                               ; preds = %.lr.ph, %60
+  %.170 = phi i32 [ %.0, %.lr.ph ], [ %61, %60 ]
+  %.06169 = phi ptr [ %10, %.lr.ph ], [ %64, %60 ]
+  %61 = add nsw i32 %.170, -1
+  %62 = call ptr @val_to_str_ext(i32 noundef %14, ptr noundef nonnull @names_nfs_ftype3_ext, ptr noundef nonnull @.str.1411)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef nonnull %.06169, ptr noundef nonnull @.str.1410, ptr noundef %62, i32 noundef %59, i32 noundef %22, i32 noundef %25)
+  %63 = getelementptr inbounds nuw i8, ptr %.06169, i64 24
+  %64 = load ptr, ptr %63, align 8
+  %.not = icmp eq ptr %64, null
+  %.not62 = icmp eq i32 %61, 0
+  %or.cond = select i1 %.not, i1 true, i1 %.not62
+  br i1 %or.cond, label %.critedge, label %60, !llvm.loop !12
 
-.critedge:                                        ; preds = %59, %57
+.critedge:                                        ; preds = %60, %58
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %48
 }

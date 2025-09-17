@@ -29,10 +29,9 @@ define dso_local zeroext i1 @TransactionIdDidCommit(i32 noundef %0) local_unname
   br i1 %8, label %10, label %9
 
 9:                                                ; preds = %7
-  %.off.i = add nsw i32 %0, -1
-  %switch.i = icmp ult i32 %.off.i, 2
+  %.not.i = icmp eq i32 %0, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br i1 %switch.i, label %TransactionLogFetch.exit.thread12, label %TransactionLogFetch.exit.thread
+  br i1 %.not.i, label %TransactionLogFetch.exit.thread, label %TransactionLogFetch.exit.thread12
 
 10:                                               ; preds = %7
   %11 = call i32 @TransactionIdGetStatus(i32 noundef %0, ptr noundef nonnull %2) #5
@@ -144,10 +143,9 @@ define dso_local zeroext i1 @TransactionIdDidAbort(i32 noundef %0) local_unnamed
   br i1 %8, label %10, label %9
 
 9:                                                ; preds = %7
-  %.off.i = add nsw i32 %0, -1
-  %switch.i = icmp ult i32 %.off.i, 2
+  %.not.i = icmp eq i32 %0, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br i1 %switch.i, label %TransactionLogFetch.exit.thread, label %TransactionLogFetch.exit.thread12
+  br i1 %.not.i, label %TransactionLogFetch.exit.thread12, label %TransactionLogFetch.exit.thread
 
 10:                                               ; preds = %7
   %11 = call i32 @TransactionIdGetStatus(i32 noundef %0, ptr noundef nonnull %2) #5

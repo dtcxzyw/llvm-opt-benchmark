@@ -8066,279 +8066,276 @@ _ZN19ruff_python_codegen9generator9Generator7p_delim17h9af269dfbc7e71ceE.exit: ;
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1149)
   %30 = getelementptr inbounds nuw i8, ptr %.sroa.01.013, i64 55
   %31 = load i8, ptr %30, align 1, !range !1151, !alias.scope !1149, !noalias !1146, !noundef !12
-  %32 = and i8 %31, -2
-  %33 = icmp eq i8 %32, -38
-  %34 = add nsw i8 %31, 39
-  %trunc.i = select i1 %33, i8 %34, i8 0
-  switch i8 %trunc.i, label %35 [
-    i8 0, label %36
-    i8 1, label %51
-    i8 2, label %73
+  %trunc.i = tail call i8 @llvm.usub.sat.i8(i8 %31, i8 -39)
+  switch i8 %trunc.i, label %default.unreachable [
+    i8 0, label %32
+    i8 1, label %47
+    i8 2, label %69
   ]
 
-35:                                               ; preds = %_ZN19ruff_python_codegen9generator9Generator7p_delim17h9af269dfbc7e71ceE.exit
+default.unreachable:                              ; preds = %_ZN19ruff_python_codegen9generator9Generator7p_delim17h9af269dfbc7e71ceE.exit
   unreachable
 
-36:                                               ; preds = %_ZN19ruff_python_codegen9generator9Generator7p_delim17h9af269dfbc7e71ceE.exit
+32:                                               ; preds = %_ZN19ruff_python_codegen9generator9Generator7p_delim17h9af269dfbc7e71ceE.exit
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1152)
-  %37 = getelementptr inbounds nuw i8, ptr %.sroa.01.013, i64 32
-  %38 = tail call { ptr, i64 } @_ZN15ruff_python_ast4name4Name6as_str17hea18ebf34490796bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %37), !noalias !1155
-  %39 = load i64, ptr %3, align 8, !alias.scope !1156, !noalias !1159, !noundef !12
-  %.not.i.i.i3 = icmp eq i64 %39, 0
+  %33 = getelementptr inbounds nuw i8, ptr %.sroa.01.013, i64 32
+  %34 = tail call { ptr, i64 } @_ZN15ruff_python_ast4name4Name6as_str17hea18ebf34490796bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %33), !noalias !1155
+  %35 = load i64, ptr %3, align 8, !alias.scope !1156, !noalias !1159, !noundef !12
+  %.not.i.i.i3 = icmp eq i64 %35, 0
   br i1 %.not.i.i.i3, label %_ZN19ruff_python_codegen9generator9Generator4p_id17h745aed06cc855471E.exit.i, label %.preheader.i.i.i4
 
-40:                                               ; preds = %.preheader.i.i.i4
+36:                                               ; preds = %.preheader.i.i.i4
   store i64 0, ptr %3, align 8, !alias.scope !1156, !noalias !1159
   br label %_ZN19ruff_python_codegen9generator9Generator4p_id17h745aed06cc855471E.exit.i
 
-.preheader.i.i.i4:                                ; preds = %36, %.preheader.i.i.i4
-  %.sroa.0.02.i.i.i5 = phi i64 [ %41, %.preheader.i.i.i4 ], [ 0, %36 ]
-  %41 = add nuw i64 %.sroa.0.02.i.i.i5, 1
-  %42 = tail call { ptr, i64 } @"_ZN82_$LT$ruff_source_file..newlines..LineEnding$u20$as$u20$core..ops..deref..Deref$GT$5deref17hb000c744f1127fd8E"(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %19), !noalias !1162
-  %43 = extractvalue { ptr, i64 } %42, 0
-  %44 = extractvalue { ptr, i64 } %42, 1
-  %45 = getelementptr inbounds nuw i8, ptr %43, i64 %44
-  tail call void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17he435a9e90b5ea3ffE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull %43, ptr noundef %45, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0ca76464b2e8e510ae63dcf0a8444076.25), !noalias !1162
-  %exitcond.not.i.i.i6 = icmp eq i64 %41, %39
-  br i1 %exitcond.not.i.i.i6, label %40, label %.preheader.i.i.i4
+.preheader.i.i.i4:                                ; preds = %32, %.preheader.i.i.i4
+  %.sroa.0.02.i.i.i5 = phi i64 [ %37, %.preheader.i.i.i4 ], [ 0, %32 ]
+  %37 = add nuw i64 %.sroa.0.02.i.i.i5, 1
+  %38 = tail call { ptr, i64 } @"_ZN82_$LT$ruff_source_file..newlines..LineEnding$u20$as$u20$core..ops..deref..Deref$GT$5deref17hb000c744f1127fd8E"(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %19), !noalias !1162
+  %39 = extractvalue { ptr, i64 } %38, 0
+  %40 = extractvalue { ptr, i64 } %38, 1
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 %40
+  tail call void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17he435a9e90b5ea3ffE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull %39, ptr noundef %41, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0ca76464b2e8e510ae63dcf0a8444076.25), !noalias !1162
+  %exitcond.not.i.i.i6 = icmp eq i64 %37, %35
+  br i1 %exitcond.not.i.i.i6, label %36, label %.preheader.i.i.i4
 
-_ZN19ruff_python_codegen9generator9Generator4p_id17h745aed06cc855471E.exit.i: ; preds = %40, %36
-  %46 = extractvalue { ptr, i64 } %38, 1
-  %47 = extractvalue { ptr, i64 } %38, 0
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 %46
-  tail call void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17he435a9e90b5ea3ffE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull readonly align 1 %47, ptr noundef nonnull readonly %48, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0ca76464b2e8e510ae63dcf0a8444076.25)
-  %49 = getelementptr inbounds nuw i8, ptr %.sroa.01.013, i64 8
-  %50 = load ptr, ptr %49, align 8, !alias.scope !1149, !noalias !1146, !align !72, !noundef !12
-  %.not2.i = icmp eq ptr %50, null
-  br i1 %.not2.i, label %103, label %95
+_ZN19ruff_python_codegen9generator9Generator4p_id17h745aed06cc855471E.exit.i: ; preds = %36, %32
+  %42 = extractvalue { ptr, i64 } %34, 1
+  %43 = extractvalue { ptr, i64 } %34, 0
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 %42
+  tail call void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17he435a9e90b5ea3ffE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull readonly align 1 %43, ptr noundef nonnull readonly %44, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0ca76464b2e8e510ae63dcf0a8444076.25)
+  %45 = getelementptr inbounds nuw i8, ptr %.sroa.01.013, i64 8
+  %46 = load ptr, ptr %45, align 8, !alias.scope !1149, !noalias !1146, !align !72, !noundef !12
+  %.not2.i = icmp eq ptr %46, null
+  br i1 %.not2.i, label %99, label %91
 
-51:                                               ; preds = %_ZN19ruff_python_codegen9generator9Generator7p_delim17h9af269dfbc7e71ceE.exit
-  %52 = load i64, ptr %3, align 8, !alias.scope !1163, !noalias !1166, !noundef !12
-  %.not.i.i = icmp eq i64 %52, 0
+47:                                               ; preds = %_ZN19ruff_python_codegen9generator9Generator7p_delim17h9af269dfbc7e71ceE.exit
+  %48 = load i64, ptr %3, align 8, !alias.scope !1163, !noalias !1166, !noundef !12
+  %.not.i.i = icmp eq i64 %48, 0
   br i1 %.not.i.i, label %_ZN19ruff_python_codegen9generator9Generator1p17h945a79d7e53ba346E.exit.i, label %.preheader.i.i
 
-53:                                               ; preds = %.preheader.i.i
+49:                                               ; preds = %.preheader.i.i
   store i64 0, ptr %3, align 8, !alias.scope !1163, !noalias !1166
   br label %_ZN19ruff_python_codegen9generator9Generator1p17h945a79d7e53ba346E.exit.i
 
-.preheader.i.i:                                   ; preds = %51, %.preheader.i.i
-  %.sroa.0.02.i.i = phi i64 [ %54, %.preheader.i.i ], [ 0, %51 ]
-  %54 = add nuw i64 %.sroa.0.02.i.i, 1
-  %55 = tail call { ptr, i64 } @"_ZN82_$LT$ruff_source_file..newlines..LineEnding$u20$as$u20$core..ops..deref..Deref$GT$5deref17hb000c744f1127fd8E"(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %19), !noalias !1166
-  %56 = extractvalue { ptr, i64 } %55, 0
-  %57 = extractvalue { ptr, i64 } %55, 1
-  %58 = getelementptr inbounds nuw i8, ptr %56, i64 %57
-  tail call void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17he435a9e90b5ea3ffE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull %56, ptr noundef %58, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0ca76464b2e8e510ae63dcf0a8444076.25), !noalias !1166
-  %exitcond.not.i.i = icmp eq i64 %54, %52
-  br i1 %exitcond.not.i.i, label %53, label %.preheader.i.i
+.preheader.i.i:                                   ; preds = %47, %.preheader.i.i
+  %.sroa.0.02.i.i = phi i64 [ %50, %.preheader.i.i ], [ 0, %47 ]
+  %50 = add nuw i64 %.sroa.0.02.i.i, 1
+  %51 = tail call { ptr, i64 } @"_ZN82_$LT$ruff_source_file..newlines..LineEnding$u20$as$u20$core..ops..deref..Deref$GT$5deref17hb000c744f1127fd8E"(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %19), !noalias !1166
+  %52 = extractvalue { ptr, i64 } %51, 0
+  %53 = extractvalue { ptr, i64 } %51, 1
+  %54 = getelementptr inbounds nuw i8, ptr %52, i64 %53
+  tail call void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17he435a9e90b5ea3ffE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull %52, ptr noundef %54, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0ca76464b2e8e510ae63dcf0a8444076.25), !noalias !1166
+  %exitcond.not.i.i = icmp eq i64 %50, %48
+  br i1 %exitcond.not.i.i, label %49, label %.preheader.i.i
 
-_ZN19ruff_python_codegen9generator9Generator1p17h945a79d7e53ba346E.exit.i: ; preds = %53, %51
+_ZN19ruff_python_codegen9generator9Generator1p17h945a79d7e53ba346E.exit.i: ; preds = %49, %47
   tail call void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17he435a9e90b5ea3ffE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @anon.0ca76464b2e8e510ae63dcf0a8444076.60, ptr noundef nonnull readonly getelementptr inbounds nuw (i8, ptr @anon.0ca76464b2e8e510ae63dcf0a8444076.60, i64 1), ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0ca76464b2e8e510ae63dcf0a8444076.25), !noalias !1149
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1168)
-  %59 = getelementptr inbounds nuw i8, ptr %.sroa.01.013, i64 24
-  %60 = tail call { ptr, i64 } @_ZN15ruff_python_ast4name4Name6as_str17hea18ebf34490796bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %59), !noalias !1168
-  %61 = load i64, ptr %3, align 8, !alias.scope !1171, !noalias !1174, !noundef !12
-  %.not.i.i4.i = icmp eq i64 %61, 0
+  %55 = getelementptr inbounds nuw i8, ptr %.sroa.01.013, i64 24
+  %56 = tail call { ptr, i64 } @_ZN15ruff_python_ast4name4Name6as_str17hea18ebf34490796bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %55), !noalias !1168
+  %57 = load i64, ptr %3, align 8, !alias.scope !1171, !noalias !1174, !noundef !12
+  %.not.i.i4.i = icmp eq i64 %57, 0
   br i1 %.not.i.i4.i, label %_ZN19ruff_python_codegen9generator9Generator4p_id17h745aed06cc855471E.exit8.i, label %.preheader.i.i5.i
 
-62:                                               ; preds = %.preheader.i.i5.i
+58:                                               ; preds = %.preheader.i.i5.i
   store i64 0, ptr %3, align 8, !alias.scope !1171, !noalias !1174
   br label %_ZN19ruff_python_codegen9generator9Generator4p_id17h745aed06cc855471E.exit8.i
 
 .preheader.i.i5.i:                                ; preds = %_ZN19ruff_python_codegen9generator9Generator1p17h945a79d7e53ba346E.exit.i, %.preheader.i.i5.i
-  %.sroa.0.02.i.i6.i = phi i64 [ %63, %.preheader.i.i5.i ], [ 0, %_ZN19ruff_python_codegen9generator9Generator1p17h945a79d7e53ba346E.exit.i ]
-  %63 = add nuw i64 %.sroa.0.02.i.i6.i, 1
-  %64 = tail call { ptr, i64 } @"_ZN82_$LT$ruff_source_file..newlines..LineEnding$u20$as$u20$core..ops..deref..Deref$GT$5deref17hb000c744f1127fd8E"(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %19), !noalias !1177
-  %65 = extractvalue { ptr, i64 } %64, 0
-  %66 = extractvalue { ptr, i64 } %64, 1
-  %67 = getelementptr inbounds nuw i8, ptr %65, i64 %66
-  tail call void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17he435a9e90b5ea3ffE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull %65, ptr noundef %67, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0ca76464b2e8e510ae63dcf0a8444076.25), !noalias !1177
-  %exitcond.not.i.i7.i = icmp eq i64 %63, %61
-  br i1 %exitcond.not.i.i7.i, label %62, label %.preheader.i.i5.i
+  %.sroa.0.02.i.i6.i = phi i64 [ %59, %.preheader.i.i5.i ], [ 0, %_ZN19ruff_python_codegen9generator9Generator1p17h945a79d7e53ba346E.exit.i ]
+  %59 = add nuw i64 %.sroa.0.02.i.i6.i, 1
+  %60 = tail call { ptr, i64 } @"_ZN82_$LT$ruff_source_file..newlines..LineEnding$u20$as$u20$core..ops..deref..Deref$GT$5deref17hb000c744f1127fd8E"(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %19), !noalias !1177
+  %61 = extractvalue { ptr, i64 } %60, 0
+  %62 = extractvalue { ptr, i64 } %60, 1
+  %63 = getelementptr inbounds nuw i8, ptr %61, i64 %62
+  tail call void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17he435a9e90b5ea3ffE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull %61, ptr noundef %63, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0ca76464b2e8e510ae63dcf0a8444076.25), !noalias !1177
+  %exitcond.not.i.i7.i = icmp eq i64 %59, %57
+  br i1 %exitcond.not.i.i7.i, label %58, label %.preheader.i.i5.i
 
-_ZN19ruff_python_codegen9generator9Generator4p_id17h745aed06cc855471E.exit8.i: ; preds = %62, %_ZN19ruff_python_codegen9generator9Generator1p17h945a79d7e53ba346E.exit.i
-  %68 = extractvalue { ptr, i64 } %60, 1
-  %69 = extractvalue { ptr, i64 } %60, 0
-  %70 = getelementptr inbounds nuw i8, ptr %69, i64 %68
-  tail call void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17he435a9e90b5ea3ffE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull readonly align 1 %69, ptr noundef nonnull readonly %70, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0ca76464b2e8e510ae63dcf0a8444076.25)
-  %71 = getelementptr inbounds nuw i8, ptr %.sroa.01.013, i64 8
-  %72 = load ptr, ptr %71, align 8, !alias.scope !1149, !noalias !1146, !align !72, !noundef !12
-  %.not1.i = icmp eq ptr %72, null
-  br i1 %.not1.i, label %_ZN19ruff_python_codegen9generator9Generator18unparse_type_param17h465fabc96a63a26cE.exit, label %113
+_ZN19ruff_python_codegen9generator9Generator4p_id17h745aed06cc855471E.exit8.i: ; preds = %58, %_ZN19ruff_python_codegen9generator9Generator1p17h945a79d7e53ba346E.exit.i
+  %64 = extractvalue { ptr, i64 } %56, 1
+  %65 = extractvalue { ptr, i64 } %56, 0
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 %64
+  tail call void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17he435a9e90b5ea3ffE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull readonly align 1 %65, ptr noundef nonnull readonly %66, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0ca76464b2e8e510ae63dcf0a8444076.25)
+  %67 = getelementptr inbounds nuw i8, ptr %.sroa.01.013, i64 8
+  %68 = load ptr, ptr %67, align 8, !alias.scope !1149, !noalias !1146, !align !72, !noundef !12
+  %.not1.i = icmp eq ptr %68, null
+  br i1 %.not1.i, label %_ZN19ruff_python_codegen9generator9Generator18unparse_type_param17h465fabc96a63a26cE.exit, label %109
 
-73:                                               ; preds = %_ZN19ruff_python_codegen9generator9Generator7p_delim17h9af269dfbc7e71ceE.exit
-  %74 = load i64, ptr %3, align 8, !alias.scope !1178, !noalias !1181, !noundef !12
-  %.not.i9.i = icmp eq i64 %74, 0
+69:                                               ; preds = %_ZN19ruff_python_codegen9generator9Generator7p_delim17h9af269dfbc7e71ceE.exit
+  %70 = load i64, ptr %3, align 8, !alias.scope !1178, !noalias !1181, !noundef !12
+  %.not.i9.i = icmp eq i64 %70, 0
   br i1 %.not.i9.i, label %_ZN19ruff_python_codegen9generator9Generator1p17h945a79d7e53ba346E.exit13.i, label %.preheader.i10.i
 
-75:                                               ; preds = %.preheader.i10.i
+71:                                               ; preds = %.preheader.i10.i
   store i64 0, ptr %3, align 8, !alias.scope !1178, !noalias !1181
   br label %_ZN19ruff_python_codegen9generator9Generator1p17h945a79d7e53ba346E.exit13.i
 
-.preheader.i10.i:                                 ; preds = %73, %.preheader.i10.i
-  %.sroa.0.02.i11.i = phi i64 [ %76, %.preheader.i10.i ], [ 0, %73 ]
-  %76 = add nuw i64 %.sroa.0.02.i11.i, 1
-  %77 = tail call { ptr, i64 } @"_ZN82_$LT$ruff_source_file..newlines..LineEnding$u20$as$u20$core..ops..deref..Deref$GT$5deref17hb000c744f1127fd8E"(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %19), !noalias !1181
-  %78 = extractvalue { ptr, i64 } %77, 0
-  %79 = extractvalue { ptr, i64 } %77, 1
-  %80 = getelementptr inbounds nuw i8, ptr %78, i64 %79
-  tail call void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17he435a9e90b5ea3ffE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull %78, ptr noundef %80, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0ca76464b2e8e510ae63dcf0a8444076.25), !noalias !1181
-  %exitcond.not.i12.i = icmp eq i64 %76, %74
-  br i1 %exitcond.not.i12.i, label %75, label %.preheader.i10.i
+.preheader.i10.i:                                 ; preds = %69, %.preheader.i10.i
+  %.sroa.0.02.i11.i = phi i64 [ %72, %.preheader.i10.i ], [ 0, %69 ]
+  %72 = add nuw i64 %.sroa.0.02.i11.i, 1
+  %73 = tail call { ptr, i64 } @"_ZN82_$LT$ruff_source_file..newlines..LineEnding$u20$as$u20$core..ops..deref..Deref$GT$5deref17hb000c744f1127fd8E"(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %19), !noalias !1181
+  %74 = extractvalue { ptr, i64 } %73, 0
+  %75 = extractvalue { ptr, i64 } %73, 1
+  %76 = getelementptr inbounds nuw i8, ptr %74, i64 %75
+  tail call void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17he435a9e90b5ea3ffE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull %74, ptr noundef %76, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0ca76464b2e8e510ae63dcf0a8444076.25), !noalias !1181
+  %exitcond.not.i12.i = icmp eq i64 %72, %70
+  br i1 %exitcond.not.i12.i, label %71, label %.preheader.i10.i
 
-_ZN19ruff_python_codegen9generator9Generator1p17h945a79d7e53ba346E.exit13.i: ; preds = %75, %73
+_ZN19ruff_python_codegen9generator9Generator1p17h945a79d7e53ba346E.exit13.i: ; preds = %71, %69
   tail call void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17he435a9e90b5ea3ffE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @anon.0ca76464b2e8e510ae63dcf0a8444076.51, ptr noundef nonnull readonly getelementptr inbounds nuw (i8, ptr @anon.0ca76464b2e8e510ae63dcf0a8444076.51, i64 2), ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0ca76464b2e8e510ae63dcf0a8444076.25), !noalias !1149
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1183)
-  %81 = getelementptr inbounds nuw i8, ptr %.sroa.01.013, i64 24
-  %82 = tail call { ptr, i64 } @_ZN15ruff_python_ast4name4Name6as_str17hea18ebf34490796bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %81), !noalias !1183
-  %83 = load i64, ptr %3, align 8, !alias.scope !1186, !noalias !1189, !noundef !12
-  %.not.i.i14.i = icmp eq i64 %83, 0
+  %77 = getelementptr inbounds nuw i8, ptr %.sroa.01.013, i64 24
+  %78 = tail call { ptr, i64 } @_ZN15ruff_python_ast4name4Name6as_str17hea18ebf34490796bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %77), !noalias !1183
+  %79 = load i64, ptr %3, align 8, !alias.scope !1186, !noalias !1189, !noundef !12
+  %.not.i.i14.i = icmp eq i64 %79, 0
   br i1 %.not.i.i14.i, label %_ZN19ruff_python_codegen9generator9Generator4p_id17h745aed06cc855471E.exit18.i, label %.preheader.i.i15.i
 
-84:                                               ; preds = %.preheader.i.i15.i
+80:                                               ; preds = %.preheader.i.i15.i
   store i64 0, ptr %3, align 8, !alias.scope !1186, !noalias !1189
   br label %_ZN19ruff_python_codegen9generator9Generator4p_id17h745aed06cc855471E.exit18.i
 
 .preheader.i.i15.i:                               ; preds = %_ZN19ruff_python_codegen9generator9Generator1p17h945a79d7e53ba346E.exit13.i, %.preheader.i.i15.i
-  %.sroa.0.02.i.i16.i = phi i64 [ %85, %.preheader.i.i15.i ], [ 0, %_ZN19ruff_python_codegen9generator9Generator1p17h945a79d7e53ba346E.exit13.i ]
-  %85 = add nuw i64 %.sroa.0.02.i.i16.i, 1
-  %86 = tail call { ptr, i64 } @"_ZN82_$LT$ruff_source_file..newlines..LineEnding$u20$as$u20$core..ops..deref..Deref$GT$5deref17hb000c744f1127fd8E"(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %19), !noalias !1192
-  %87 = extractvalue { ptr, i64 } %86, 0
-  %88 = extractvalue { ptr, i64 } %86, 1
-  %89 = getelementptr inbounds nuw i8, ptr %87, i64 %88
-  tail call void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17he435a9e90b5ea3ffE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull %87, ptr noundef %89, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0ca76464b2e8e510ae63dcf0a8444076.25), !noalias !1192
-  %exitcond.not.i.i17.i = icmp eq i64 %85, %83
-  br i1 %exitcond.not.i.i17.i, label %84, label %.preheader.i.i15.i
+  %.sroa.0.02.i.i16.i = phi i64 [ %81, %.preheader.i.i15.i ], [ 0, %_ZN19ruff_python_codegen9generator9Generator1p17h945a79d7e53ba346E.exit13.i ]
+  %81 = add nuw i64 %.sroa.0.02.i.i16.i, 1
+  %82 = tail call { ptr, i64 } @"_ZN82_$LT$ruff_source_file..newlines..LineEnding$u20$as$u20$core..ops..deref..Deref$GT$5deref17hb000c744f1127fd8E"(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %19), !noalias !1192
+  %83 = extractvalue { ptr, i64 } %82, 0
+  %84 = extractvalue { ptr, i64 } %82, 1
+  %85 = getelementptr inbounds nuw i8, ptr %83, i64 %84
+  tail call void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17he435a9e90b5ea3ffE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull %83, ptr noundef %85, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0ca76464b2e8e510ae63dcf0a8444076.25), !noalias !1192
+  %exitcond.not.i.i17.i = icmp eq i64 %81, %79
+  br i1 %exitcond.not.i.i17.i, label %80, label %.preheader.i.i15.i
 
-_ZN19ruff_python_codegen9generator9Generator4p_id17h745aed06cc855471E.exit18.i: ; preds = %84, %_ZN19ruff_python_codegen9generator9Generator1p17h945a79d7e53ba346E.exit13.i
-  %90 = extractvalue { ptr, i64 } %82, 1
-  %91 = extractvalue { ptr, i64 } %82, 0
-  %92 = getelementptr inbounds nuw i8, ptr %91, i64 %90
-  tail call void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17he435a9e90b5ea3ffE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull readonly align 1 %91, ptr noundef nonnull readonly %92, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0ca76464b2e8e510ae63dcf0a8444076.25)
-  %93 = getelementptr inbounds nuw i8, ptr %.sroa.01.013, i64 8
-  %94 = load ptr, ptr %93, align 8, !alias.scope !1149, !noalias !1146, !align !72, !noundef !12
-  %.not.i2 = icmp eq ptr %94, null
-  br i1 %.not.i2, label %_ZN19ruff_python_codegen9generator9Generator18unparse_type_param17h465fabc96a63a26cE.exit, label %120
+_ZN19ruff_python_codegen9generator9Generator4p_id17h745aed06cc855471E.exit18.i: ; preds = %80, %_ZN19ruff_python_codegen9generator9Generator1p17h945a79d7e53ba346E.exit13.i
+  %86 = extractvalue { ptr, i64 } %78, 1
+  %87 = extractvalue { ptr, i64 } %78, 0
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 %86
+  tail call void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17he435a9e90b5ea3ffE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull readonly align 1 %87, ptr noundef nonnull readonly %88, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0ca76464b2e8e510ae63dcf0a8444076.25)
+  %89 = getelementptr inbounds nuw i8, ptr %.sroa.01.013, i64 8
+  %90 = load ptr, ptr %89, align 8, !alias.scope !1149, !noalias !1146, !align !72, !noundef !12
+  %.not.i2 = icmp eq ptr %90, null
+  br i1 %.not.i2, label %_ZN19ruff_python_codegen9generator9Generator18unparse_type_param17h465fabc96a63a26cE.exit, label %116
 
-95:                                               ; preds = %_ZN19ruff_python_codegen9generator9Generator4p_id17h745aed06cc855471E.exit.i
-  %96 = load i64, ptr %3, align 8, !alias.scope !1193, !noalias !1196, !noundef !12
-  %.not.i19.i = icmp eq i64 %96, 0
+91:                                               ; preds = %_ZN19ruff_python_codegen9generator9Generator4p_id17h745aed06cc855471E.exit.i
+  %92 = load i64, ptr %3, align 8, !alias.scope !1193, !noalias !1196, !noundef !12
+  %.not.i19.i = icmp eq i64 %92, 0
   br i1 %.not.i19.i, label %_ZN19ruff_python_codegen9generator9Generator1p17h945a79d7e53ba346E.exit23.i, label %.preheader.i20.i
 
-97:                                               ; preds = %.preheader.i20.i
+93:                                               ; preds = %.preheader.i20.i
   store i64 0, ptr %3, align 8, !alias.scope !1193, !noalias !1196
   br label %_ZN19ruff_python_codegen9generator9Generator1p17h945a79d7e53ba346E.exit23.i
 
-.preheader.i20.i:                                 ; preds = %95, %.preheader.i20.i
-  %.sroa.0.02.i21.i = phi i64 [ %98, %.preheader.i20.i ], [ 0, %95 ]
-  %98 = add nuw i64 %.sroa.0.02.i21.i, 1
-  %99 = tail call { ptr, i64 } @"_ZN82_$LT$ruff_source_file..newlines..LineEnding$u20$as$u20$core..ops..deref..Deref$GT$5deref17hb000c744f1127fd8E"(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %19), !noalias !1198
-  %100 = extractvalue { ptr, i64 } %99, 0
-  %101 = extractvalue { ptr, i64 } %99, 1
-  %102 = getelementptr inbounds nuw i8, ptr %100, i64 %101
-  tail call void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17he435a9e90b5ea3ffE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull %100, ptr noundef %102, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0ca76464b2e8e510ae63dcf0a8444076.25), !noalias !1198
-  %exitcond.not.i22.i = icmp eq i64 %98, %96
-  br i1 %exitcond.not.i22.i, label %97, label %.preheader.i20.i
+.preheader.i20.i:                                 ; preds = %91, %.preheader.i20.i
+  %.sroa.0.02.i21.i = phi i64 [ %94, %.preheader.i20.i ], [ 0, %91 ]
+  %94 = add nuw i64 %.sroa.0.02.i21.i, 1
+  %95 = tail call { ptr, i64 } @"_ZN82_$LT$ruff_source_file..newlines..LineEnding$u20$as$u20$core..ops..deref..Deref$GT$5deref17hb000c744f1127fd8E"(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %19), !noalias !1198
+  %96 = extractvalue { ptr, i64 } %95, 0
+  %97 = extractvalue { ptr, i64 } %95, 1
+  %98 = getelementptr inbounds nuw i8, ptr %96, i64 %97
+  tail call void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17he435a9e90b5ea3ffE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull %96, ptr noundef %98, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0ca76464b2e8e510ae63dcf0a8444076.25), !noalias !1198
+  %exitcond.not.i22.i = icmp eq i64 %94, %92
+  br i1 %exitcond.not.i22.i, label %93, label %.preheader.i20.i
 
-_ZN19ruff_python_codegen9generator9Generator1p17h945a79d7e53ba346E.exit23.i: ; preds = %97, %95
+_ZN19ruff_python_codegen9generator9Generator1p17h945a79d7e53ba346E.exit23.i: ; preds = %93, %91
   tail call void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17he435a9e90b5ea3ffE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @anon.0ca76464b2e8e510ae63dcf0a8444076.70, ptr noundef nonnull readonly getelementptr inbounds nuw (i8, ptr @anon.0ca76464b2e8e510ae63dcf0a8444076.70, i64 2), ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0ca76464b2e8e510ae63dcf0a8444076.25)
-  tail call fastcc void @_ZN19ruff_python_codegen9generator9Generator12unparse_expr17h2e4f70ecf4555049E(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 %50, i8 noundef 63)
-  br label %103
+  tail call fastcc void @_ZN19ruff_python_codegen9generator9Generator12unparse_expr17h2e4f70ecf4555049E(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 %46, i8 noundef 63)
+  br label %99
 
-103:                                              ; preds = %_ZN19ruff_python_codegen9generator9Generator1p17h945a79d7e53ba346E.exit23.i, %_ZN19ruff_python_codegen9generator9Generator4p_id17h745aed06cc855471E.exit.i
-  %104 = getelementptr inbounds nuw i8, ptr %.sroa.01.013, i64 16
-  %105 = load ptr, ptr %104, align 8, !alias.scope !1149, !noalias !1146, !align !72, !noundef !12
-  %.not3.i = icmp eq ptr %105, null
-  br i1 %.not3.i, label %_ZN19ruff_python_codegen9generator9Generator18unparse_type_param17h465fabc96a63a26cE.exit, label %106
+99:                                               ; preds = %_ZN19ruff_python_codegen9generator9Generator1p17h945a79d7e53ba346E.exit23.i, %_ZN19ruff_python_codegen9generator9Generator4p_id17h745aed06cc855471E.exit.i
+  %100 = getelementptr inbounds nuw i8, ptr %.sroa.01.013, i64 16
+  %101 = load ptr, ptr %100, align 8, !alias.scope !1149, !noalias !1146, !align !72, !noundef !12
+  %.not3.i = icmp eq ptr %101, null
+  br i1 %.not3.i, label %_ZN19ruff_python_codegen9generator9Generator18unparse_type_param17h465fabc96a63a26cE.exit, label %102
 
-106:                                              ; preds = %103
-  %107 = load i64, ptr %3, align 8, !alias.scope !1199, !noalias !1202, !noundef !12
-  %.not.i24.i = icmp eq i64 %107, 0
+102:                                              ; preds = %99
+  %103 = load i64, ptr %3, align 8, !alias.scope !1199, !noalias !1202, !noundef !12
+  %.not.i24.i = icmp eq i64 %103, 0
   br i1 %.not.i24.i, label %.sink.split.i, label %.preheader.i25.i
 
-.preheader.i25.i:                                 ; preds = %106, %.preheader.i25.i
-  %.sroa.0.02.i26.i = phi i64 [ %108, %.preheader.i25.i ], [ 0, %106 ]
-  %108 = add nuw i64 %.sroa.0.02.i26.i, 1
-  %109 = tail call { ptr, i64 } @"_ZN82_$LT$ruff_source_file..newlines..LineEnding$u20$as$u20$core..ops..deref..Deref$GT$5deref17hb000c744f1127fd8E"(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %19), !noalias !1204
-  %110 = extractvalue { ptr, i64 } %109, 0
-  %111 = extractvalue { ptr, i64 } %109, 1
-  %112 = getelementptr inbounds nuw i8, ptr %110, i64 %111
-  tail call void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17he435a9e90b5ea3ffE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull %110, ptr noundef %112, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0ca76464b2e8e510ae63dcf0a8444076.25), !noalias !1204
-  %exitcond.not.i27.i = icmp eq i64 %108, %107
+.preheader.i25.i:                                 ; preds = %102, %.preheader.i25.i
+  %.sroa.0.02.i26.i = phi i64 [ %104, %.preheader.i25.i ], [ 0, %102 ]
+  %104 = add nuw i64 %.sroa.0.02.i26.i, 1
+  %105 = tail call { ptr, i64 } @"_ZN82_$LT$ruff_source_file..newlines..LineEnding$u20$as$u20$core..ops..deref..Deref$GT$5deref17hb000c744f1127fd8E"(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %19), !noalias !1204
+  %106 = extractvalue { ptr, i64 } %105, 0
+  %107 = extractvalue { ptr, i64 } %105, 1
+  %108 = getelementptr inbounds nuw i8, ptr %106, i64 %107
+  tail call void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17he435a9e90b5ea3ffE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull %106, ptr noundef %108, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0ca76464b2e8e510ae63dcf0a8444076.25), !noalias !1204
+  %exitcond.not.i27.i = icmp eq i64 %104, %103
   br i1 %exitcond.not.i27.i, label %.sink.split.i.sink.split, label %.preheader.i25.i
 
 .sink.split.i.sink.split:                         ; preds = %.preheader.i35.i, %.preheader.i30.i, %.preheader.i25.i
-  %.sink.i.ph = phi ptr [ %105, %.preheader.i25.i ], [ %72, %.preheader.i30.i ], [ %94, %.preheader.i35.i ]
+  %.sink.i.ph = phi ptr [ %101, %.preheader.i25.i ], [ %68, %.preheader.i30.i ], [ %90, %.preheader.i35.i ]
   store i64 0, ptr %3, align 8, !alias.scope !1146, !noalias !1149
   br label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %.sink.split.i.sink.split, %120, %113, %106
-  %.sink.i = phi ptr [ %72, %113 ], [ %94, %120 ], [ %105, %106 ], [ %.sink.i.ph, %.sink.split.i.sink.split ]
+.sink.split.i:                                    ; preds = %.sink.split.i.sink.split, %116, %109, %102
+  %.sink.i = phi ptr [ %68, %109 ], [ %90, %116 ], [ %101, %102 ], [ %.sink.i.ph, %.sink.split.i.sink.split ]
   tail call void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17he435a9e90b5ea3ffE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @anon.0ca76464b2e8e510ae63dcf0a8444076.56, ptr noundef nonnull readonly getelementptr inbounds nuw (i8, ptr @anon.0ca76464b2e8e510ae63dcf0a8444076.56, i64 3), ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0ca76464b2e8e510ae63dcf0a8444076.25)
   tail call fastcc void @_ZN19ruff_python_codegen9generator9Generator12unparse_expr17h2e4f70ecf4555049E(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 %.sink.i, i8 noundef 63)
   br label %_ZN19ruff_python_codegen9generator9Generator18unparse_type_param17h465fabc96a63a26cE.exit
 
-113:                                              ; preds = %_ZN19ruff_python_codegen9generator9Generator4p_id17h745aed06cc855471E.exit8.i
-  %114 = load i64, ptr %3, align 8, !alias.scope !1205, !noalias !1208, !noundef !12
-  %.not.i29.i = icmp eq i64 %114, 0
+109:                                              ; preds = %_ZN19ruff_python_codegen9generator9Generator4p_id17h745aed06cc855471E.exit8.i
+  %110 = load i64, ptr %3, align 8, !alias.scope !1205, !noalias !1208, !noundef !12
+  %.not.i29.i = icmp eq i64 %110, 0
   br i1 %.not.i29.i, label %.sink.split.i, label %.preheader.i30.i
 
-.preheader.i30.i:                                 ; preds = %113, %.preheader.i30.i
-  %.sroa.0.02.i31.i = phi i64 [ %115, %.preheader.i30.i ], [ 0, %113 ]
-  %115 = add nuw i64 %.sroa.0.02.i31.i, 1
-  %116 = tail call { ptr, i64 } @"_ZN82_$LT$ruff_source_file..newlines..LineEnding$u20$as$u20$core..ops..deref..Deref$GT$5deref17hb000c744f1127fd8E"(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %19), !noalias !1210
-  %117 = extractvalue { ptr, i64 } %116, 0
-  %118 = extractvalue { ptr, i64 } %116, 1
-  %119 = getelementptr inbounds nuw i8, ptr %117, i64 %118
-  tail call void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17he435a9e90b5ea3ffE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull %117, ptr noundef %119, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0ca76464b2e8e510ae63dcf0a8444076.25), !noalias !1210
-  %exitcond.not.i32.i = icmp eq i64 %115, %114
+.preheader.i30.i:                                 ; preds = %109, %.preheader.i30.i
+  %.sroa.0.02.i31.i = phi i64 [ %111, %.preheader.i30.i ], [ 0, %109 ]
+  %111 = add nuw i64 %.sroa.0.02.i31.i, 1
+  %112 = tail call { ptr, i64 } @"_ZN82_$LT$ruff_source_file..newlines..LineEnding$u20$as$u20$core..ops..deref..Deref$GT$5deref17hb000c744f1127fd8E"(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %19), !noalias !1210
+  %113 = extractvalue { ptr, i64 } %112, 0
+  %114 = extractvalue { ptr, i64 } %112, 1
+  %115 = getelementptr inbounds nuw i8, ptr %113, i64 %114
+  tail call void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17he435a9e90b5ea3ffE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull %113, ptr noundef %115, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0ca76464b2e8e510ae63dcf0a8444076.25), !noalias !1210
+  %exitcond.not.i32.i = icmp eq i64 %111, %110
   br i1 %exitcond.not.i32.i, label %.sink.split.i.sink.split, label %.preheader.i30.i
 
-120:                                              ; preds = %_ZN19ruff_python_codegen9generator9Generator4p_id17h745aed06cc855471E.exit18.i
-  %121 = load i64, ptr %3, align 8, !alias.scope !1211, !noalias !1214, !noundef !12
-  %.not.i34.i = icmp eq i64 %121, 0
+116:                                              ; preds = %_ZN19ruff_python_codegen9generator9Generator4p_id17h745aed06cc855471E.exit18.i
+  %117 = load i64, ptr %3, align 8, !alias.scope !1211, !noalias !1214, !noundef !12
+  %.not.i34.i = icmp eq i64 %117, 0
   br i1 %.not.i34.i, label %.sink.split.i, label %.preheader.i35.i
 
-.preheader.i35.i:                                 ; preds = %120, %.preheader.i35.i
-  %.sroa.0.02.i36.i = phi i64 [ %122, %.preheader.i35.i ], [ 0, %120 ]
-  %122 = add nuw i64 %.sroa.0.02.i36.i, 1
-  %123 = tail call { ptr, i64 } @"_ZN82_$LT$ruff_source_file..newlines..LineEnding$u20$as$u20$core..ops..deref..Deref$GT$5deref17hb000c744f1127fd8E"(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %19), !noalias !1216
-  %124 = extractvalue { ptr, i64 } %123, 0
-  %125 = extractvalue { ptr, i64 } %123, 1
-  %126 = getelementptr inbounds nuw i8, ptr %124, i64 %125
-  tail call void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17he435a9e90b5ea3ffE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull %124, ptr noundef %126, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0ca76464b2e8e510ae63dcf0a8444076.25), !noalias !1216
-  %exitcond.not.i37.i = icmp eq i64 %122, %121
+.preheader.i35.i:                                 ; preds = %116, %.preheader.i35.i
+  %.sroa.0.02.i36.i = phi i64 [ %118, %.preheader.i35.i ], [ 0, %116 ]
+  %118 = add nuw i64 %.sroa.0.02.i36.i, 1
+  %119 = tail call { ptr, i64 } @"_ZN82_$LT$ruff_source_file..newlines..LineEnding$u20$as$u20$core..ops..deref..Deref$GT$5deref17hb000c744f1127fd8E"(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %19), !noalias !1216
+  %120 = extractvalue { ptr, i64 } %119, 0
+  %121 = extractvalue { ptr, i64 } %119, 1
+  %122 = getelementptr inbounds nuw i8, ptr %120, i64 %121
+  tail call void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17he435a9e90b5ea3ffE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull %120, ptr noundef %122, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0ca76464b2e8e510ae63dcf0a8444076.25), !noalias !1216
+  %exitcond.not.i37.i = icmp eq i64 %118, %117
   br i1 %exitcond.not.i37.i, label %.sink.split.i.sink.split, label %.preheader.i35.i
 
-_ZN19ruff_python_codegen9generator9Generator18unparse_type_param17h465fabc96a63a26cE.exit: ; preds = %_ZN19ruff_python_codegen9generator9Generator4p_id17h745aed06cc855471E.exit8.i, %_ZN19ruff_python_codegen9generator9Generator4p_id17h745aed06cc855471E.exit18.i, %103, %.sink.split.i
-  %127 = icmp eq ptr %21, %16
-  br i1 %127, label %._crit_edge, label %20
+_ZN19ruff_python_codegen9generator9Generator18unparse_type_param17h465fabc96a63a26cE.exit: ; preds = %_ZN19ruff_python_codegen9generator9Generator4p_id17h745aed06cc855471E.exit8.i, %_ZN19ruff_python_codegen9generator9Generator4p_id17h745aed06cc855471E.exit18.i, %99, %.sink.split.i
+  %123 = icmp eq ptr %21, %16
+  br i1 %123, label %._crit_edge, label %20
 
 ._crit_edge:                                      ; preds = %_ZN19ruff_python_codegen9generator9Generator18unparse_type_param17h465fabc96a63a26cE.exit, %_ZN19ruff_python_codegen9generator9Generator1p17h945a79d7e53ba346E.exit
-  %128 = load i64, ptr %3, align 8, !alias.scope !1217, !noalias !1220, !noundef !12
-  %.not.i7 = icmp eq i64 %128, 0
+  %124 = load i64, ptr %3, align 8, !alias.scope !1217, !noalias !1220, !noundef !12
+  %.not.i7 = icmp eq i64 %124, 0
   br i1 %.not.i7, label %_ZN19ruff_python_codegen9generator9Generator1p17h945a79d7e53ba346E.exit11, label %.preheader.i8
 
 .preheader.i8:                                    ; preds = %._crit_edge
-  %129 = getelementptr inbounds nuw i8, ptr %0, i64 49
-  br label %131
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 49
+  br label %127
 
-130:                                              ; preds = %131
+126:                                              ; preds = %127
   store i64 0, ptr %3, align 8, !alias.scope !1217, !noalias !1220
   br label %_ZN19ruff_python_codegen9generator9Generator1p17h945a79d7e53ba346E.exit11
 
-131:                                              ; preds = %131, %.preheader.i8
-  %.sroa.0.02.i9 = phi i64 [ 0, %.preheader.i8 ], [ %132, %131 ]
-  %132 = add nuw i64 %.sroa.0.02.i9, 1
-  %133 = tail call { ptr, i64 } @"_ZN82_$LT$ruff_source_file..newlines..LineEnding$u20$as$u20$core..ops..deref..Deref$GT$5deref17hb000c744f1127fd8E"(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %129), !noalias !1220
-  %134 = extractvalue { ptr, i64 } %133, 0
-  %135 = extractvalue { ptr, i64 } %133, 1
-  %136 = getelementptr inbounds nuw i8, ptr %134, i64 %135
-  tail call void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17he435a9e90b5ea3ffE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull %134, ptr noundef %136, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0ca76464b2e8e510ae63dcf0a8444076.25), !noalias !1220
-  %exitcond.not.i10 = icmp eq i64 %132, %128
-  br i1 %exitcond.not.i10, label %130, label %131
+127:                                              ; preds = %127, %.preheader.i8
+  %.sroa.0.02.i9 = phi i64 [ 0, %.preheader.i8 ], [ %128, %127 ]
+  %128 = add nuw i64 %.sroa.0.02.i9, 1
+  %129 = tail call { ptr, i64 } @"_ZN82_$LT$ruff_source_file..newlines..LineEnding$u20$as$u20$core..ops..deref..Deref$GT$5deref17hb000c744f1127fd8E"(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %125), !noalias !1220
+  %130 = extractvalue { ptr, i64 } %129, 0
+  %131 = extractvalue { ptr, i64 } %129, 1
+  %132 = getelementptr inbounds nuw i8, ptr %130, i64 %131
+  tail call void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17he435a9e90b5ea3ffE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull %130, ptr noundef %132, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0ca76464b2e8e510ae63dcf0a8444076.25), !noalias !1220
+  %exitcond.not.i10 = icmp eq i64 %128, %124
+  br i1 %exitcond.not.i10, label %126, label %127
 
-_ZN19ruff_python_codegen9generator9Generator1p17h945a79d7e53ba346E.exit11: ; preds = %._crit_edge, %130
+_ZN19ruff_python_codegen9generator9Generator1p17h945a79d7e53ba346E.exit11: ; preds = %._crit_edge, %126
   tail call void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17he435a9e90b5ea3ffE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @anon.0ca76464b2e8e510ae63dcf0a8444076.97, ptr noundef nonnull readonly getelementptr inbounds nuw (i8, ptr @anon.0ca76464b2e8e510ae63dcf0a8444076.97, i64 1), ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0ca76464b2e8e510ae63dcf0a8444076.25)
   ret void
 }
@@ -12802,6 +12799,9 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #13
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.usub.sat.i8(i8, i8) #13
 
 attributes #0 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

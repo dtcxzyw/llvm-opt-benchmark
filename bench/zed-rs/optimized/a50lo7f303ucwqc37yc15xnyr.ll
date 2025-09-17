@@ -1616,9 +1616,8 @@ define internal fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..result..Resu
   br i1 %.not, label %25, label %4
 
 4:                                                ; preds = %1
-  %5 = add i64 %3, 9223372036854775807
-  %switch.i = icmp ult i64 %5, 2
-  br i1 %switch.i, label %"_ZN4core3ptr81drop_in_place$LT$lsp_types..selection_range..SelectionRangeProviderCapability$GT$17h9332df5052d906e0E.exit", label %6
+  %5 = icmp ugt i64 %3, -9223372036854775808
+  br i1 %5, label %"_ZN4core3ptr81drop_in_place$LT$lsp_types..selection_range..SelectionRangeProviderCapability$GT$17h9332df5052d906e0E.exit", label %6
 
 6:                                                ; preds = %4
   %7 = icmp eq i64 %3, -9223372036854775808

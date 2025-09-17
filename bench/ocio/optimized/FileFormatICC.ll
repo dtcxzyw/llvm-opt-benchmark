@@ -8445,9 +8445,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN9SampleICC21IccXYZArrayTypeRea
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %12 = load i32, ptr %11, align 8, !tbaa !12
   %13 = icmp eq i32 %12, 0
-  %14 = add i32 %2, -20
-  %.not = icmp ult i32 %14, 12
-  %or.cond = and i1 %.not, %13
+  %14 = icmp ult i32 %2, 32
+  %or.cond = and i1 %14, %13
   br i1 %or.cond, label %_ZN9SampleICC5Read8ERSiPvi.exit.i, label %49
 
 _ZN9SampleICC5Read8ERSiPvi.exit.i:                ; preds = %6

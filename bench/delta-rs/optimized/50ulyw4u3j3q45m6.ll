@@ -12495,7 +12495,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit175
   %194 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h1c3145b2abdf0339E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9) #29
-          to label %42 unwind label %210
+          to label %42 unwind label %209
 
 195:                                              ; preds = %192
   %196 = load i8, ptr %6, align 8, !range !1192, !noundef !4
@@ -12510,41 +12510,40 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit175
   br label %44
 
 199:                                              ; preds = %195
-  %200 = add nsw i8 %196, -6
-  %201 = icmp ult i8 %200, 4
-  %202 = zext nneg i8 %196 to i64
-  %203 = add nsw i64 %202, -5
-  %204 = select i1 %201, i64 %203, i64 0
-  switch i64 %204, label %205 [
-    i64 0, label %206
+  %200 = icmp samesign ugt i8 %196, 5
+  %201 = zext nneg i8 %196 to i64
+  %202 = add nsw i64 %201, -5
+  %203 = select i1 %200, i64 %202, i64 0
+  switch i64 %203, label %204 [
+    i64 0, label %205
     i64 1, label %"_ZN84_$LT$std..path..Component$u20$as$u20$core..convert..AsRef$LT$std..path..Path$GT$$GT$6as_ref17h10e782364e692721E.llvm.4516252085333527013.exit.i"
-    i64 2, label %207
-    i64 3, label %208
-    i64 4, label %209
+    i64 2, label %206
+    i64 3, label %207
+    i64 4, label %208
   ]
 
-205:                                              ; preds = %199
+204:                                              ; preds = %199
   unreachable
 
-206:                                              ; preds = %199
+205:                                              ; preds = %199
   %.sroa.5307.0.copyload = load i64, ptr %.sroa.5307.0..sroa_idx, align 8
   %.sroa.4306.0.copyload = load ptr, ptr %.sroa.4306.0..sroa_idx, align 8, !nonnull !4, !noundef !4
+  br label %"_ZN84_$LT$std..path..Component$u20$as$u20$core..convert..AsRef$LT$std..path..Path$GT$$GT$6as_ref17h10e782364e692721E.llvm.4516252085333527013.exit.i"
+
+206:                                              ; preds = %199
   br label %"_ZN84_$LT$std..path..Component$u20$as$u20$core..convert..AsRef$LT$std..path..Path$GT$$GT$6as_ref17h10e782364e692721E.llvm.4516252085333527013.exit.i"
 
 207:                                              ; preds = %199
   br label %"_ZN84_$LT$std..path..Component$u20$as$u20$core..convert..AsRef$LT$std..path..Path$GT$$GT$6as_ref17h10e782364e692721E.llvm.4516252085333527013.exit.i"
 
 208:                                              ; preds = %199
-  br label %"_ZN84_$LT$std..path..Component$u20$as$u20$core..convert..AsRef$LT$std..path..Path$GT$$GT$6as_ref17h10e782364e692721E.llvm.4516252085333527013.exit.i"
-
-209:                                              ; preds = %199
   %.sroa.3.0.copyload = load i64, ptr %.sroa.3.0..sroa_idx, align 8
   %.sroa.2304.0.copyload = load ptr, ptr %.sroa.2304.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   br label %"_ZN84_$LT$std..path..Component$u20$as$u20$core..convert..AsRef$LT$std..path..Path$GT$$GT$6as_ref17h10e782364e692721E.llvm.4516252085333527013.exit.i"
 
-"_ZN84_$LT$std..path..Component$u20$as$u20$core..convert..AsRef$LT$std..path..Path$GT$$GT$6as_ref17h10e782364e692721E.llvm.4516252085333527013.exit.i": ; preds = %209, %208, %207, %206, %199
-  %.sroa.8.0.i.i.i = phi i64 [ %.sroa.5307.0.copyload, %206 ], [ 1, %207 ], [ 2, %208 ], [ %.sroa.3.0.copyload, %209 ], [ %204, %199 ]
-  %.sroa.0.0.i.i.i = phi ptr [ %.sroa.4306.0.copyload, %206 ], [ @anon.c76af8064ef2a30f6b22241a47dd282f.119.llvm.4516252085333527013, %207 ], [ @anon.c76af8064ef2a30f6b22241a47dd282f.120.llvm.4516252085333527013, %208 ], [ %.sroa.2304.0.copyload, %209 ], [ @anon.c76af8064ef2a30f6b22241a47dd282f.118.llvm.4516252085333527013, %199 ]
+"_ZN84_$LT$std..path..Component$u20$as$u20$core..convert..AsRef$LT$std..path..Path$GT$$GT$6as_ref17h10e782364e692721E.llvm.4516252085333527013.exit.i": ; preds = %208, %207, %206, %205, %199
+  %.sroa.8.0.i.i.i = phi i64 [ %.sroa.5307.0.copyload, %205 ], [ 1, %206 ], [ 2, %207 ], [ %.sroa.3.0.copyload, %208 ], [ %203, %199 ]
+  %.sroa.0.0.i.i.i = phi ptr [ %.sroa.4306.0.copyload, %205 ], [ @anon.c76af8064ef2a30f6b22241a47dd282f.119.llvm.4516252085333527013, %206 ], [ @anon.c76af8064ef2a30f6b22241a47dd282f.120.llvm.4516252085333527013, %207 ], [ %.sroa.2304.0.copyload, %208 ], [ @anon.c76af8064ef2a30f6b22241a47dd282f.118.llvm.4516252085333527013, %199 ]
   invoke void @_ZN3std4path7PathBuf5_push17h98f2c6a7c69395cbE(ptr noalias noundef nonnull align 8 dereferenceable(24) %9, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i.i, i64 noundef %.sroa.8.0.i.i.i)
           to label %_ZN3std4path7PathBuf4push17h6984281fa02c8d15E.exit unwind label %193
 
@@ -12552,8 +12551,8 @@ _ZN3std4path7PathBuf4push17h6984281fa02c8d15E.exit: ; preds = %"_ZN84_$LT$std..p
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %192
 
-210:                                              ; preds = %193
-  %211 = landingpad { ptr, i32 }
+209:                                              ; preds = %193
+  %210 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #30
   unreachable

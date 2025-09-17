@@ -7178,34 +7178,32 @@ define hidden void @"_ZN99_$LT$futures_util..stream..stream..next..Next$LT$St$GT
   call void @"_ZN87_$LT$postage..channels..watch..Receiver$LT$T$GT$$u20$as$u20$postage..stream..Stream$GT$9poll_recv17h93835279794ccc0bE.llvm.8880388253394343444"(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef nonnull align 8 dereferenceable(16) %6, ptr noalias noundef nonnull align 8 dereferenceable(8) %5), !noalias !1824
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %9 = load i64, ptr %8, align 8, !range !1825, !noalias !1819, !noundef !9
-  %10 = add i64 %9, 9223372036854775807
-  %11 = icmp ult i64 %10, 2
-  %12 = xor i64 %9, -9223372036854775808
-  %13 = select i1 %11, i64 %12, i64 0
-  switch i64 %13, label %14 [
-    i64 0, label %15
-    i64 1, label %16
-    i64 2, label %18
+  %10 = call i64 @llvm.umax.i64(i64 %9, i64 -9223372036854775808)
+  %11 = and i64 %10, 9223372036854775807
+  switch i64 %11, label %12 [
+    i64 0, label %13
+    i64 1, label %14
+    i64 2, label %16
   ]
 
-14:                                               ; preds = %3
+12:                                               ; preds = %3
   unreachable
 
-15:                                               ; preds = %3
+13:                                               ; preds = %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 48, i1 false), !noalias !1826
   br label %_ZN12futures_util6stream6stream9StreamExt15poll_next_unpin17h09da1ffe2d140db5E.exit
 
-16:                                               ; preds = %3
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 -9223372036854775806, ptr %17, align 8, !alias.scope !1827, !noalias !1826
+14:                                               ; preds = %3
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 -9223372036854775806, ptr %15, align 8, !alias.scope !1827, !noalias !1826
   br label %_ZN12futures_util6stream6stream9StreamExt15poll_next_unpin17h09da1ffe2d140db5E.exit
 
-18:                                               ; preds = %3
+16:                                               ; preds = %3
   %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 -9223372036854775807, ptr %.sroa.3.0..sroa_idx.i.i, align 8, !alias.scope !1827, !noalias !1826
   br label %_ZN12futures_util6stream6stream9StreamExt15poll_next_unpin17h09da1ffe2d140db5E.exit
 
-_ZN12futures_util6stream6stream9StreamExt15poll_next_unpin17h09da1ffe2d140db5E.exit: ; preds = %15, %16, %18
+_ZN12futures_util6stream6stream9StreamExt15poll_next_unpin17h09da1ffe2d140db5E.exit: ; preds = %13, %14, %16
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1819
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !1819
   ret void
@@ -14866,6 +14864,9 @@ declare i64 @llvm.umin.i64(i64, i64) #51
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #54
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #51
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

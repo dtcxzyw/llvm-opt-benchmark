@@ -231,7 +231,7 @@ define dso_local range(i64 12, 0) i64 @ewah_read_mmap(ptr noundef captures(none)
 
 5:                                                ; preds = %3
   %6 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str) #6
-  br label %95
+  br label %94
 
 7:                                                ; preds = %3
   %8 = load i8, ptr %1, align 1, !tbaa !23
@@ -253,119 +253,118 @@ define dso_local range(i64 12, 0) i64 @ewah_read_mmap(ptr noundef captures(none)
   %24 = or disjoint i64 %20, %23
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %24, ptr %25, align 8, !tbaa !4
-  %26 = and i64 %2, -4
-  %27 = icmp eq i64 %26, 4
-  br i1 %27, label %28, label %st_mult.exit
+  %26 = icmp ult i64 %2, 8
+  br i1 %26, label %27, label %st_mult.exit
 
-28:                                               ; preds = %7
-  %29 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.1) #6
-  br label %95
+27:                                               ; preds = %7
+  %28 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.1) #6
+  br label %94
 
 st_mult.exit:                                     ; preds = %7
-  %30 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %31 = load i8, ptr %30, align 1, !tbaa !23
-  %32 = zext i8 %31 to i64
-  %33 = shl nuw nsw i64 %32, 24
-  %34 = getelementptr inbounds nuw i8, ptr %1, i64 5
-  %35 = load i8, ptr %34, align 1, !tbaa !23
-  %36 = zext i8 %35 to i64
-  %37 = shl nuw nsw i64 %36, 16
-  %38 = or disjoint i64 %37, %33
-  %39 = getelementptr inbounds nuw i8, ptr %1, i64 6
-  %40 = load i8, ptr %39, align 1, !tbaa !23
-  %41 = zext i8 %40 to i64
-  %42 = shl nuw nsw i64 %41, 8
-  %43 = or disjoint i64 %38, %42
-  %44 = getelementptr inbounds nuw i8, ptr %1, i64 7
-  %45 = load i8, ptr %44, align 1, !tbaa !23
-  %46 = zext i8 %45 to i64
-  %47 = or disjoint i64 %43, %46
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %47, ptr %48, align 8, !tbaa !24
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %47, ptr %49, align 8, !tbaa !14
-  %50 = add i64 %2, -8
-  %51 = load ptr, ptr %0, align 8, !tbaa !15
-  %52 = shl nuw nsw i64 %47, 3
-  %53 = tail call ptr @xrealloc(ptr noundef %51, i64 noundef %52) #6
-  store ptr %53, ptr %0, align 8, !tbaa !15
-  %54 = load i64, ptr %49, align 8, !tbaa !14
-  %mul.ov.i49 = icmp ugt i64 %54, 2305843009213693951
-  br i1 %mul.ov.i49, label %55, label %st_mult.exit50
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %30 = load i8, ptr %29, align 1, !tbaa !23
+  %31 = zext i8 %30 to i64
+  %32 = shl nuw nsw i64 %31, 24
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 5
+  %34 = load i8, ptr %33, align 1, !tbaa !23
+  %35 = zext i8 %34 to i64
+  %36 = shl nuw nsw i64 %35, 16
+  %37 = or disjoint i64 %36, %32
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 6
+  %39 = load i8, ptr %38, align 1, !tbaa !23
+  %40 = zext i8 %39 to i64
+  %41 = shl nuw nsw i64 %40, 8
+  %42 = or disjoint i64 %37, %41
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 7
+  %44 = load i8, ptr %43, align 1, !tbaa !23
+  %45 = zext i8 %44 to i64
+  %46 = or disjoint i64 %42, %45
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %46, ptr %47, align 8, !tbaa !24
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %46, ptr %48, align 8, !tbaa !14
+  %49 = add i64 %2, -8
+  %50 = load ptr, ptr %0, align 8, !tbaa !15
+  %51 = shl nuw nsw i64 %46, 3
+  %52 = tail call ptr @xrealloc(ptr noundef %50, i64 noundef %51) #6
+  store ptr %52, ptr %0, align 8, !tbaa !15
+  %53 = load i64, ptr %48, align 8, !tbaa !14
+  %mul.ov.i49 = icmp ugt i64 %53, 2305843009213693951
+  br i1 %mul.ov.i49, label %54, label %st_mult.exit50
 
-55:                                               ; preds = %st_mult.exit
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.4, i64 noundef %54, i64 noundef 8) #7
+54:                                               ; preds = %st_mult.exit
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.4, i64 noundef %53, i64 noundef 8) #7
   unreachable
 
 st_mult.exit50:                                   ; preds = %st_mult.exit
-  %56 = shl nuw i64 %54, 3
-  %57 = icmp ult i64 %50, %56
-  br i1 %57, label %58, label %61
+  %55 = shl nuw i64 %53, 3
+  %56 = icmp ult i64 %49, %55
+  br i1 %56, label %57, label %60
 
-58:                                               ; preds = %st_mult.exit50
-  %59 = sub nuw i64 %56, %50
-  %60 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.2, i64 noundef %59) #6
-  br label %95
+57:                                               ; preds = %st_mult.exit50
+  %58 = sub nuw i64 %55, %49
+  %59 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.2, i64 noundef %58) #6
+  br label %94
 
-61:                                               ; preds = %st_mult.exit50
-  %62 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %53, ptr nonnull align 1 %62, i64 %56, i1 false)
-  %63 = getelementptr inbounds nuw i8, ptr %62, i64 %56
-  %64 = sub nuw i64 %50, %56
-  %65 = load i64, ptr %49, align 8, !tbaa !14
-  %.not = icmp eq i64 %65, 0
+60:                                               ; preds = %st_mult.exit50
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %52, ptr nonnull align 1 %61, i64 %55, i1 false)
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 %55
+  %63 = sub nuw i64 %49, %55
+  %64 = load i64, ptr %48, align 8, !tbaa !14
+  %.not = icmp eq i64 %64, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %61
-  %66 = load ptr, ptr %0, align 8, !tbaa !15
+.lr.ph:                                           ; preds = %60
+  %65 = load ptr, ptr %0, align 8, !tbaa !15
   br label %git_bswap64.exit
 
 git_bswap64.exit:                                 ; preds = %.lr.ph, %git_bswap64.exit
-  %.054 = phi i64 [ 0, %.lr.ph ], [ %70, %git_bswap64.exit ]
-  %67 = getelementptr inbounds nuw i64, ptr %66, i64 %.054
-  %68 = load i64, ptr %67, align 8, !tbaa !16
-  %69 = tail call i64 asm "bswap ${0:q}", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %68) #5, !srcloc !17
-  store i64 %69, ptr %67, align 8, !tbaa !16
-  %70 = add nuw i64 %.054, 1
-  %71 = load i64, ptr %49, align 8, !tbaa !14
-  %72 = icmp ult i64 %70, %71
-  br i1 %72, label %git_bswap64.exit, label %._crit_edge, !llvm.loop !25
+  %.054 = phi i64 [ 0, %.lr.ph ], [ %69, %git_bswap64.exit ]
+  %66 = getelementptr inbounds nuw i64, ptr %65, i64 %.054
+  %67 = load i64, ptr %66, align 8, !tbaa !16
+  %68 = tail call i64 asm "bswap ${0:q}", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %67) #5, !srcloc !17
+  store i64 %68, ptr %66, align 8, !tbaa !16
+  %69 = add nuw i64 %.054, 1
+  %70 = load i64, ptr %48, align 8, !tbaa !14
+  %71 = icmp ult i64 %69, %70
+  br i1 %71, label %git_bswap64.exit, label %._crit_edge, !llvm.loop !25
 
-._crit_edge:                                      ; preds = %git_bswap64.exit, %61
-  %73 = icmp ult i64 %64, 4
-  br i1 %73, label %74, label %76
+._crit_edge:                                      ; preds = %git_bswap64.exit, %60
+  %72 = icmp ult i64 %63, 4
+  br i1 %72, label %73, label %75
 
-74:                                               ; preds = %._crit_edge
-  %75 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.3) #6
-  br label %95
+73:                                               ; preds = %._crit_edge
+  %74 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.3) #6
+  br label %94
 
-76:                                               ; preds = %._crit_edge
-  %77 = load ptr, ptr %0, align 8, !tbaa !15
-  %78 = load i8, ptr %63, align 1, !tbaa !23
-  %79 = zext i8 %78 to i64
-  %80 = getelementptr inbounds nuw i8, ptr %63, i64 1
-  %81 = load i8, ptr %80, align 1, !tbaa !23
-  %82 = zext i8 %81 to i64
-  %83 = getelementptr inbounds nuw i8, ptr %63, i64 2
-  %84 = load i8, ptr %83, align 1, !tbaa !23
-  %85 = zext i8 %84 to i64
-  %86 = getelementptr inbounds nuw i8, ptr %63, i64 3
-  %87 = load i8, ptr %86, align 1, !tbaa !23
-  %88 = zext i8 %87 to i64
-  %.idx = shl nuw nsw i64 %82, 19
-  %89 = getelementptr inbounds nuw i8, ptr %77, i64 %.idx
-  %.idx52 = shl nuw nsw i64 %79, 27
-  %90 = getelementptr inbounds nuw i8, ptr %89, i64 %.idx52
-  %.idx53 = shl nuw nsw i64 %85, 11
-  %91 = getelementptr inbounds nuw i8, ptr %90, i64 %.idx53
-  %92 = getelementptr inbounds nuw i64, ptr %91, i64 %88
-  %93 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %92, ptr %93, align 8, !tbaa !22
-  %94 = add nuw nsw i64 %56, 12
-  br label %95
+75:                                               ; preds = %._crit_edge
+  %76 = load ptr, ptr %0, align 8, !tbaa !15
+  %77 = load i8, ptr %62, align 1, !tbaa !23
+  %78 = zext i8 %77 to i64
+  %79 = getelementptr inbounds nuw i8, ptr %62, i64 1
+  %80 = load i8, ptr %79, align 1, !tbaa !23
+  %81 = zext i8 %80 to i64
+  %82 = getelementptr inbounds nuw i8, ptr %62, i64 2
+  %83 = load i8, ptr %82, align 1, !tbaa !23
+  %84 = zext i8 %83 to i64
+  %85 = getelementptr inbounds nuw i8, ptr %62, i64 3
+  %86 = load i8, ptr %85, align 1, !tbaa !23
+  %87 = zext i8 %86 to i64
+  %.idx = shl nuw nsw i64 %81, 19
+  %88 = getelementptr inbounds nuw i8, ptr %76, i64 %.idx
+  %.idx52 = shl nuw nsw i64 %78, 27
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 %.idx52
+  %.idx53 = shl nuw nsw i64 %84, 11
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 %.idx53
+  %91 = getelementptr inbounds nuw i64, ptr %90, i64 %87
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store ptr %91, ptr %92, align 8, !tbaa !22
+  %93 = add nuw nsw i64 %55, 12
+  br label %94
 
-95:                                               ; preds = %76, %74, %58, %28, %5
-  %.042 = phi i64 [ -1, %5 ], [ -1, %28 ], [ -1, %58 ], [ -1, %74 ], [ %94, %76 ]
+94:                                               ; preds = %75, %73, %57, %27, %5
+  %.042 = phi i64 [ -1, %5 ], [ -1, %27 ], [ -1, %57 ], [ -1, %73 ], [ %93, %75 ]
   ret i64 %.042
 }
 

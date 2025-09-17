@@ -1782,9 +1782,8 @@ load_unlock.exit:                                 ; preds = %RSTRING_PTR.exit139
   br i1 %.not89, label %198, label %181
 
 181:                                              ; preds = %load_unlock.exit
-  %182 = add nsw i32 %159, -7
-  %or.cond = icmp ult i32 %182, 2
-  br i1 %or.cond, label %183, label %187
+  %182 = icmp samesign ugt i32 %159, 6
+  br i1 %182, label %183, label %187
 
 183:                                              ; preds = %181
   %184 = getelementptr i8, ptr %.sroa.8.0..sroa.8.0..sroa.8.0..sroa.8.0..sroa.8.24.58, i64 24

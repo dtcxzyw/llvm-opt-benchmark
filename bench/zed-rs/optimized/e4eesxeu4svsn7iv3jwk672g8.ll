@@ -7293,7 +7293,7 @@ default.unreachable5:                             ; preds = %1
   call void @llvm.experimental.noalias.scope.decl(metadata !1439)
   %14 = load ptr, ptr %13, align 8, !alias.scope !1439, !noundef !11
   %15 = icmp eq ptr %14, null
-  br i1 %15, label %"_ZN3std4sync4mpmc4list16Channel$LT$T$GT$4send17h3ae772312c80f34eE.exit", label %"_ZN3std4sync4mpmc4list16Channel$LT$T$GT$5write17he2ef1cdd61b9c0a3E.llvm.15011353581665487143.exit.thread.i"
+  br i1 %15, label %.thread, label %"_ZN3std4sync4mpmc4list16Channel$LT$T$GT$5write17he2ef1cdd61b9c0a3E.llvm.15011353581665487143.exit.thread.i"
 
 "_ZN3std4sync4mpmc4list16Channel$LT$T$GT$5write17he2ef1cdd61b9c0a3E.llvm.15011353581665487143.exit.thread.i": ; preds = %12
   %16 = load i64, ptr %9, align 8, !alias.scope !1439, !noundef !11
@@ -7304,29 +7304,29 @@ default.unreachable5:                             ; preds = %1
   %20 = atomicrmw or ptr %19, i64 1 release, align 8, !noalias !1439
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 256
   call void @_ZN3std4sync4mpmc5waker9SyncWaker6notify17he3a85fd965835f85E.llvm.15011353581665487143(ptr noundef nonnull align 8 %21), !noalias !1439
-  br label %"_ZN3std4sync4mpmc4list16Channel$LT$T$GT$4send17h3ae772312c80f34eE.exit"
+  br label %.thread
 
-"_ZN3std4sync4mpmc4list16Channel$LT$T$GT$4send17h3ae772312c80f34eE.exit": ; preds = %12, %"_ZN3std4sync4mpmc4list16Channel$LT$T$GT$5write17he2ef1cdd61b9c0a3E.llvm.15011353581665487143.exit.thread.i"
+.thread:                                          ; preds = %"_ZN3std4sync4mpmc4list16Channel$LT$T$GT$5write17he2ef1cdd61b9c0a3E.llvm.15011353581665487143.exit.thread.i", %12
   %.sroa.0.0.i = phi i8 [ 2, %"_ZN3std4sync4mpmc4list16Channel$LT$T$GT$5write17he2ef1cdd61b9c0a3E.llvm.15011353581665487143.exit.thread.i" ], [ 1, %12 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %24
+  br label %"_ZN3std4sync4mpmc15Sender$LT$T$GT$4send28_$u7b$$u7b$closure$u7d$$u7d$17hed5169600f0a064cE.llvm.3533412349758872646.exit"
 
 22:                                               ; preds = %1
   %23 = tail call noundef i8 @"_ZN3std4sync4mpmc4zero16Channel$LT$T$GT$4send17h2bc64a8d0484de5cE"(ptr noundef nonnull align 8 %5, i64 undef, i32 noundef 1000000000), !range !246
   br label %24
 
-24:                                               ; preds = %22, %"_ZN3std4sync4mpmc4list16Channel$LT$T$GT$4send17h3ae772312c80f34eE.exit", %6
-  %.sroa.01.0 = phi i8 [ %7, %6 ], [ %.sroa.0.0.i, %"_ZN3std4sync4mpmc4list16Channel$LT$T$GT$4send17h3ae772312c80f34eE.exit" ], [ %23, %22 ]
-  %.sroa.01.0.off = add nsw i8 %.sroa.01.0, -1
-  %switch = icmp ult i8 %.sroa.01.0.off, 2
-  br i1 %switch, label %"_ZN3std4sync4mpmc15Sender$LT$T$GT$4send28_$u7b$$u7b$closure$u7d$$u7d$17hed5169600f0a064cE.llvm.3533412349758872646.exit", label %25
+24:                                               ; preds = %22, %6
+  %.sroa.01.0 = phi i8 [ %7, %6 ], [ %23, %22 ]
+  %.not = icmp eq i8 %.sroa.01.0, 0
+  br i1 %.not, label %25, label %"_ZN3std4sync4mpmc15Sender$LT$T$GT$4send28_$u7b$$u7b$closure$u7d$$u7d$17hed5169600f0a064cE.llvm.3533412349758872646.exit"
 
 25:                                               ; preds = %24
-  call void @_ZN4core9panicking5panic17hec978767ec2d35ffE(ptr noalias noundef nonnull readonly align 1 @anon.392cefa9c5b04f3e9fef0cc6bf6e8142.70.llvm.3533412349758872646, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.392cefa9c5b04f3e9fef0cc6bf6e8142.72.llvm.3533412349758872646) #44
+  tail call void @_ZN4core9panicking5panic17hec978767ec2d35ffE(ptr noalias noundef nonnull readonly align 1 @anon.392cefa9c5b04f3e9fef0cc6bf6e8142.70.llvm.3533412349758872646, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.392cefa9c5b04f3e9fef0cc6bf6e8142.72.llvm.3533412349758872646) #44
   unreachable
 
-"_ZN3std4sync4mpmc15Sender$LT$T$GT$4send28_$u7b$$u7b$closure$u7d$$u7d$17hed5169600f0a064cE.llvm.3533412349758872646.exit": ; preds = %24
-  %26 = icmp ne i8 %.sroa.01.0, 2
+"_ZN3std4sync4mpmc15Sender$LT$T$GT$4send28_$u7b$$u7b$closure$u7d$$u7d$17hed5169600f0a064cE.llvm.3533412349758872646.exit": ; preds = %.thread, %24
+  %.sroa.01.08 = phi i8 [ %.sroa.0.0.i, %.thread ], [ %.sroa.01.0, %24 ]
+  %26 = icmp ne i8 %.sroa.01.08, 2
   ret i1 %26
 }
 

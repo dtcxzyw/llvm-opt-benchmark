@@ -2803,9 +2803,8 @@ define void @"_ZN93_$LT$regex_automata..meta..regex..Split$u20$as$u20$core..iter
 51:                                               ; preds = %46
   tail call void @llvm.experimental.noalias.scope.decl(metadata !710)
   %52 = load i32, ptr %16, align 8, !range !713, !alias.scope !714, !noalias !715, !noundef !20
-  %.off.i.i.i.i.i.i = add nsw i32 %52, -1
-  %switch.i.i.i.i.i.i = icmp ult i32 %.off.i.i.i.i.i.i, 2
-  br i1 %switch.i.i.i.i.i.i, label %_ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17h39aed4b8385658baE.exit.i.thread.i.i.i.i, label %_ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17h39aed4b8385658baE.exit.i.i.i.i.i
+  %.not.i.i.i.i = icmp eq i32 %52, 0
+  br i1 %.not.i.i.i.i, label %_ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17h39aed4b8385658baE.exit.i.i.i.i.i, label %_ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17h39aed4b8385658baE.exit.i.thread.i.i.i.i
 
 _ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17h39aed4b8385658baE.exit.i.i.i.i.i: ; preds = %51
   %53 = getelementptr inbounds nuw i8, ptr %.pre.i.i.i, i64 60

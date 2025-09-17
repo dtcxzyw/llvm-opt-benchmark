@@ -11251,16 +11251,16 @@ define hidden void @_ZN4fish5wutil9hex_float15parse_hex_float17hbcc196ce3e879613
   %.sroa.0.2 = phi ptr [ %.sroa.0.1, %.thread ], [ %38, %.split7.i139 ]
   %.sroa.0.0.i140 = phi i32 [ 1114112, %.thread ], [ %34, %.split7.i139 ]
   %.not109 = icmp eq i32 %.sroa.087.0, 1114112
-  br i1 %.not109, label %199, label %40
+  br i1 %.not109, label %198, label %40
 
 40:                                               ; preds = %"_ZN95_$LT$widestring..utfstr..iter..CharsUtf32$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdd5f1ed485b774daE.exit142"
   %41 = icmp ne i32 %.sroa.0.0.i140, 1114112
   %42 = icmp eq i32 %.sroa.087.0, 48
   %or.cond = and i1 %42, %41
-  br i1 %or.cond, label %43, label %199
+  br i1 %or.cond, label %43, label %198
 
 43:                                               ; preds = %40
-  switch i32 %.sroa.0.0.i140, label %199 [
+  switch i32 %.sroa.0.0.i140, label %198 [
     i32 120, label %44
     i32 88, label %44
   ]
@@ -11340,7 +11340,7 @@ define hidden void @_ZN4fish5wutil9hex_float15parse_hex_float17hbcc196ce3e879613
 .critedge.thread:                                 ; preds = %59, %62
   %70 = sub i64 %.sroa.055.3, %.sroa.055.2.lcssa
   %.sroa.079.0223238 = tail call i64 @llvm.umin.i64(i64 %70, i64 2147483647)
-  br i1 %.sroa.05.1, label %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h66127cf9d1f87cd7E.exit181.thread", label %199
+  br i1 %.sroa.05.1, label %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h66127cf9d1f87cd7E.exit181.thread", label %198
 
 71:                                               ; preds = %59, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h66127cf9d1f87cd7E.exit149.thread357"
   %72 = phi i32 [ %65, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h66127cf9d1f87cd7E.exit149.thread357" ], [ %61, %59 ]
@@ -11382,7 +11382,7 @@ define hidden void @_ZN4fish5wutil9hex_float15parse_hex_float17hbcc196ce3e879613
   %.sroa.06.2.lcssa = phi i64 [ %.sroa.06.0, %"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$7next_if17h08d3e4057aa7a236E.exit159.preheader.preheader" ], [ %.sroa.06.4, %"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$7next_if17h08d3e4057aa7a236E.exit159.preheader" ]
   %.sroa.05.2.lcssa = phi i1 [ %.sroa.05.1, %"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$7next_if17h08d3e4057aa7a236E.exit159.preheader.preheader" ], [ true, %"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$7next_if17h08d3e4057aa7a236E.exit159.preheader" ]
   %.sroa.055.4.lcssa = phi i64 [ %.sroa.055.4439, %"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$7next_if17h08d3e4057aa7a236E.exit159.preheader.preheader" ], [ %.sroa.055.4, %"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$7next_if17h08d3e4057aa7a236E.exit159.preheader" ]
-  br i1 %.sroa.05.2.lcssa, label %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h66127cf9d1f87cd7E.exit181.thread", label %199
+  br i1 %.sroa.05.2.lcssa, label %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h66127cf9d1f87cd7E.exit181.thread", label %198
 
 .lr.ph444:                                        ; preds = %"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$7next_if17h08d3e4057aa7a236E.exit159.preheader.preheader", %"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$7next_if17h08d3e4057aa7a236E.exit159.preheader"
   %.sroa.055.4443 = phi i64 [ %.sroa.055.4, %"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$7next_if17h08d3e4057aa7a236E.exit159.preheader" ], [ %.sroa.055.4439, %"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$7next_if17h08d3e4057aa7a236E.exit159.preheader.preheader" ]
@@ -11435,7 +11435,7 @@ define hidden void @_ZN4fish5wutil9hex_float15parse_hex_float17hbcc196ce3e879613
   %.sroa.055.5 = phi i64 [ %.sroa.055.3, %80 ], [ %.sroa.055.4443, %98 ]
   %.sroa.06.3 = phi i64 [ %.sroa.06.0, %80 ], [ %.sroa.06.2441, %98 ]
   %.sroa.05.3 = phi i1 [ %.sroa.05.1, %80 ], [ %.sroa.05.2442, %98 ]
-  br i1 %.sroa.05.3, label %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h66127cf9d1f87cd7E.exit181", label %199
+  br i1 %.sroa.05.3, label %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h66127cf9d1f87cd7E.exit181", label %198
 
 "_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h66127cf9d1f87cd7E.exit181": ; preds = %.critedge129
   switch i32 %.sroa.30.0, label %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h66127cf9d1f87cd7E.exit181.thread" [
@@ -11530,7 +11530,7 @@ define hidden void @_ZN4fish5wutil9hex_float15parse_hex_float17hbcc196ce3e879613
 
 .critedge131:                                     ; preds = %130, %133, %141
   %150 = icmp eq i64 %.sroa.055.8, %.sroa.055.7
-  br i1 %150, label %199, label %156
+  br i1 %150, label %198, label %156
 
 151:                                              ; preds = %146
   %152 = icmp sgt i32 %.sroa.042.1, -1
@@ -11584,53 +11584,52 @@ define hidden void @_ZN4fish5wutil9hex_float15parse_hex_float17hbcc196ce3e879613
 173:                                              ; preds = %161, %169
   %.sroa.042.2 = phi i32 [ %.sroa.042.3, %169 ], [ %.sroa.042.0, %161 ]
   %.sroa.06.5 = phi i64 [ %.sroa.041.0, %169 ], [ %166, %161 ]
-  %174 = shl nsw i32 %.sroa.079.0224229362372, 2
-  %175 = add nsw i32 %.sroa.079.0224229362372, -536870912
-  %176 = icmp ult i32 %175, -1073741824
-  br i1 %176, label %182, label %177, !prof !46
+  %174 = shl nuw nsw i32 %.sroa.079.0224229362372, 2
+  %175 = icmp samesign ugt i64 %.sroa.079.0224229362372.in, 536870911
+  br i1 %175, label %181, label %176, !prof !46
 
-177:                                              ; preds = %182, %173
-  %.sroa.086.0 = phi i32 [ 2147483647, %182 ], [ %174, %173 ]
-  %178 = tail call i32 @llvm.sadd.sat.i32(i32 %.sroa.086.0, i32 %.sroa.042.2)
-  %179 = add nuw nsw i32 %163, 1
-  %180 = tail call i32 @llvm.ssub.sat.i32(i32 %178, i32 %179)
-  %181 = icmp sgt i32 %180, 1023
-  br i1 %181, label %195, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hbc144b0a476f5b2eE.exit"
+176:                                              ; preds = %181, %173
+  %.sroa.086.0 = phi i32 [ 2147483647, %181 ], [ %174, %173 ]
+  %177 = tail call i32 @llvm.sadd.sat.i32(i32 %.sroa.086.0, i32 %.sroa.042.2)
+  %178 = add nuw nsw i32 %163, 1
+  %179 = tail call i32 @llvm.ssub.sat.i32(i32 %177, i32 %178)
+  %180 = icmp sgt i32 %179, 1023
+  br i1 %180, label %194, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hbc144b0a476f5b2eE.exit"
 
-182:                                              ; preds = %173
-  br label %177
+181:                                              ; preds = %173
+  br label %176
 
-"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hbc144b0a476f5b2eE.exit": ; preds = %177
-  %.sroa.0.0.sroa.speculated.i200 = tail call noundef range(i32 -1022, 1024) i32 @llvm.smax.i32(i32 range(i32 -2147483648, 1024) %180, i32 -1022)
-  %183 = add nsw i32 %.sroa.0.0.sroa.speculated.i200, 1023
-  %184 = zext nneg i32 %183 to i64
-  %185 = tail call i32 @llvm.smin.i32(i32 %180, i32 -1022)
-  %.sroa.0.0.sroa.speculated.i = add nsw i32 %185, 1022
-  %186 = shl nuw nsw i64 %184, 52
-  %187 = lshr i64 %.sroa.06.5, 11
-  %188 = and i64 %187, 4503599627370495
-  %189 = or disjoint i64 %188, %.sroa.051.1215
-  %190 = or disjoint i64 %189, %186
-  %191 = bitcast i64 %190 to double
-  %192 = icmp samesign ult i32 %185, -1022
-  %193 = tail call double @llvm.powi.f64.i32(double 2.000000e+00, i32 %.sroa.0.0.sroa.speculated.i)
-  %194 = fmul double %193, %191
-  %.sroa.053.0 = select i1 %192, double %194, double %191
+"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hbc144b0a476f5b2eE.exit": ; preds = %176
+  %.sroa.0.0.sroa.speculated.i200 = tail call noundef range(i32 -1022, 1024) i32 @llvm.smax.i32(i32 range(i32 -2147483648, 1024) %179, i32 -1022)
+  %182 = add nsw i32 %.sroa.0.0.sroa.speculated.i200, 1023
+  %183 = zext nneg i32 %182 to i64
+  %184 = tail call i32 @llvm.smin.i32(i32 %179, i32 -1022)
+  %.sroa.0.0.sroa.speculated.i = add nsw i32 %184, 1022
+  %185 = shl nuw nsw i64 %183, 52
+  %186 = lshr i64 %.sroa.06.5, 11
+  %187 = and i64 %186, 4503599627370495
+  %188 = or disjoint i64 %187, %.sroa.051.1215
+  %189 = or disjoint i64 %188, %185
+  %190 = bitcast i64 %189 to double
+  %191 = icmp samesign ult i32 %184, -1022
+  %192 = tail call double @llvm.powi.f64.i32(double 2.000000e+00, i32 %.sroa.0.0.sroa.speculated.i)
+  %193 = fmul double %192, %190
+  %.sroa.053.0 = select i1 %191, double %193, double %190
   br label %.sink.split
 
-195:                                              ; preds = %177
-  %196 = tail call double @llvm.copysign.f64(double 0x7FF0000000000000, double %.sroa.047.0217)
+194:                                              ; preds = %176
+  %195 = tail call double @llvm.copysign.f64(double 0x7FF0000000000000, double %.sroa.047.0217)
   br label %.sink.split
 
-.sink.split:                                      ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hbc144b0a476f5b2eE.exit", %159, %195
-  %.sink402 = phi double [ %196, %195 ], [ %160, %159 ], [ %.sroa.053.0, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hbc144b0a476f5b2eE.exit" ]
-  %197 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double %.sink402, ptr %197, align 8
-  %198 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.055.6, ptr %198, align 8
-  br label %199
+.sink.split:                                      ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hbc144b0a476f5b2eE.exit", %159, %194
+  %.sink402 = phi double [ %195, %194 ], [ %160, %159 ], [ %.sroa.053.0, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hbc144b0a476f5b2eE.exit" ]
+  %196 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store double %.sink402, ptr %196, align 8
+  %197 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sroa.055.6, ptr %197, align 8
+  br label %198
 
-199:                                              ; preds = %.sink.split, %.critedge131, %.critedge129, %.critedge.thread, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h66127cf9d1f87cd7E.exit169.thread", %"_ZN95_$LT$widestring..utfstr..iter..CharsUtf32$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdd5f1ed485b774daE.exit142", %40, %43
+198:                                              ; preds = %.sink.split, %.critedge131, %.critedge129, %.critedge.thread, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h66127cf9d1f87cd7E.exit169.thread", %"_ZN95_$LT$widestring..utfstr..iter..CharsUtf32$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdd5f1ed485b774daE.exit142", %40, %43
   %.sink = phi i64 [ 1, %43 ], [ 1, %40 ], [ 1, %"_ZN95_$LT$widestring..utfstr..iter..CharsUtf32$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdd5f1ed485b774daE.exit142" ], [ 1, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h66127cf9d1f87cd7E.exit169.thread" ], [ 1, %.critedge.thread ], [ 1, %.critedge129 ], [ 1, %.critedge131 ], [ 0, %.sink.split ]
   store i64 %.sink, ptr %0, align 8
   ret void
@@ -11799,16 +11798,16 @@ define hidden void @_ZN4fish5wutil9hex_float15parse_hex_float17hecc78b506b4094a5
   %.sroa.047.0227236 = phi double [ %.sroa.047.0227237, %"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2b7657d2af005023E.exit143" ], [ %.sroa.047.0.ph, %37 ]
   %.sroa.089.0 = phi i32 [ %.sroa.0.1.i.i.i140, %"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2b7657d2af005023E.exit143" ], [ %.pr229, %37 ]
   %.not109 = icmp eq i32 %.sroa.087.0242, 1114112
-  br i1 %.not109, label %193, label %46
+  br i1 %.not109, label %192, label %46
 
 46:                                               ; preds = %45
   %47 = icmp ne i32 %.sroa.089.0, 1114112
   %48 = icmp eq i32 %.sroa.087.0242, 48
   %or.cond = and i1 %48, %47
-  br i1 %or.cond, label %49, label %193
+  br i1 %or.cond, label %49, label %192
 
 49:                                               ; preds = %46
-  switch i32 %.sroa.089.0, label %193 [
+  switch i32 %.sroa.089.0, label %192 [
     i32 120, label %.preheader
     i32 88, label %.preheader
   ]
@@ -11953,7 +11952,7 @@ define hidden void @_ZN4fish5wutil9hex_float15parse_hex_float17hecc78b506b4094a5
 
 "_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$7next_if17h9c3bb14af98a86cdE.exit162.thread": ; preds = %.thread248, %80
   %.sroa.079.0253 = phi i32 [ %.sroa.079.0250, %.thread248 ], [ %.sroa.079.0, %80 ]
-  br i1 %.sroa.05.1, label %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17hba8bfb664e41feeaE.exit184", label %193
+  br i1 %.sroa.05.1, label %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17hba8bfb664e41feeaE.exit184", label %192
 
 83:                                               ; preds = %73
   %84 = zext nneg i32 %.sroa.02.0.i to i64
@@ -11990,7 +11989,7 @@ define hidden void @_ZN4fish5wutil9hex_float15parse_hex_float17hecc78b506b4094a5
 
 "_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17hba8bfb664e41feeaE.exit172.thread": ; preds = %"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$7next_if17h9c3bb14af98a86cdE.exit162.preheader"
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !2054
-  br i1 %.sroa.05.2, label %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17hba8bfb664e41feeaE.exit184.thread", label %193
+  br i1 %.sroa.05.2, label %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17hba8bfb664e41feeaE.exit184.thread", label %192
 
 93:                                               ; preds = %"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$7next_if17h9c3bb14af98a86cdE.exit162.preheader"
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !2057
@@ -12040,7 +12039,7 @@ define hidden void @_ZN4fish5wutil9hex_float15parse_hex_float17hecc78b506b4094a5
 
 .critedge129:                                     ; preds = %97, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17hba8bfb664e41feeaE.exit172"
   %112 = phi i32 [ 1114112, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17hba8bfb664e41feeaE.exit172" ], [ %.sroa.0.1.i.i.i.i.i169308, %97 ]
-  br i1 %.sroa.05.2, label %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17hba8bfb664e41feeaE.exit184", label %193
+  br i1 %.sroa.05.2, label %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17hba8bfb664e41feeaE.exit184", label %192
 
 "_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17hba8bfb664e41feeaE.exit184": ; preds = %.critedge129, %"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$7next_if17h9c3bb14af98a86cdE.exit162.thread"
   %.sroa.06.3311 = phi i64 [ %.sroa.06.0, %"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$7next_if17h9c3bb14af98a86cdE.exit162.thread" ], [ %.sroa.06.2, %.critedge129 ]
@@ -12177,7 +12176,7 @@ define hidden void @_ZN4fish5wutil9hex_float15parse_hex_float17hecc78b506b4094a5
 
 .critedge131:                                     ; preds = %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17hba8bfb664e41feeaE.exit196", %137
   %144 = icmp eq i64 %.sroa.055.8, %.sroa.055.7
-  br i1 %144, label %193, label %150
+  br i1 %144, label %192, label %150
 
 145:                                              ; preds = %140
   %146 = icmp sgt i32 %.sroa.042.1, -1
@@ -12231,53 +12230,52 @@ define hidden void @_ZN4fish5wutil9hex_float15parse_hex_float17hecc78b506b4094a5
 167:                                              ; preds = %155, %163
   %.sroa.042.2 = phi i32 [ %.sroa.042.3, %163 ], [ %.sroa.042.0, %155 ]
   %.sroa.06.5 = phi i64 [ %.sroa.041.0, %163 ], [ %160, %155 ]
-  %168 = shl nsw i32 %.sroa.079.0252257309317, 2
-  %169 = add nsw i32 %.sroa.079.0252257309317, -536870912
-  %170 = icmp ult i32 %169, -1073741824
-  br i1 %170, label %176, label %171, !prof !46
+  %168 = shl nuw nsw i32 %.sroa.079.0252257309317, 2
+  %169 = icmp ugt i32 %.sroa.079.0252257309317, 536870911
+  br i1 %169, label %175, label %170, !prof !46
 
-171:                                              ; preds = %176, %167
-  %.sroa.086.0 = phi i32 [ 2147483647, %176 ], [ %168, %167 ]
-  %172 = call i32 @llvm.sadd.sat.i32(i32 %.sroa.086.0, i32 %.sroa.042.2)
-  %173 = add nuw nsw i32 %157, 1
-  %174 = call i32 @llvm.ssub.sat.i32(i32 %172, i32 %173)
-  %175 = icmp sgt i32 %174, 1023
-  br i1 %175, label %189, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hbc144b0a476f5b2eE.exit"
+170:                                              ; preds = %175, %167
+  %.sroa.086.0 = phi i32 [ 2147483647, %175 ], [ %168, %167 ]
+  %171 = call i32 @llvm.sadd.sat.i32(i32 %.sroa.086.0, i32 %.sroa.042.2)
+  %172 = add nuw nsw i32 %157, 1
+  %173 = call i32 @llvm.ssub.sat.i32(i32 %171, i32 %172)
+  %174 = icmp sgt i32 %173, 1023
+  br i1 %174, label %188, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hbc144b0a476f5b2eE.exit"
 
-176:                                              ; preds = %167
-  br label %171
+175:                                              ; preds = %167
+  br label %170
 
-"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hbc144b0a476f5b2eE.exit": ; preds = %171
-  %.sroa.0.0.sroa.speculated.i203 = call noundef range(i32 -1022, 1024) i32 @llvm.smax.i32(i32 range(i32 -2147483648, 1024) %174, i32 -1022)
-  %177 = add nsw i32 %.sroa.0.0.sroa.speculated.i203, 1023
-  %178 = zext nneg i32 %177 to i64
-  %179 = call i32 @llvm.smin.i32(i32 %174, i32 -1022)
-  %.sroa.0.0.sroa.speculated.i = add nsw i32 %179, 1022
-  %180 = shl nuw nsw i64 %178, 52
-  %181 = lshr i64 %.sroa.06.5, 11
-  %182 = and i64 %181, 4503599627370495
-  %183 = or i64 %182, %.sroa.051.1225238
-  %184 = or i64 %183, %180
-  %185 = bitcast i64 %184 to double
-  %186 = icmp samesign ult i32 %179, -1022
-  %187 = call double @llvm.powi.f64.i32(double 2.000000e+00, i32 %.sroa.0.0.sroa.speculated.i)
-  %188 = fmul double %187, %185
-  %.sroa.053.0 = select i1 %186, double %188, double %185
+"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hbc144b0a476f5b2eE.exit": ; preds = %170
+  %.sroa.0.0.sroa.speculated.i203 = call noundef range(i32 -1022, 1024) i32 @llvm.smax.i32(i32 range(i32 -2147483648, 1024) %173, i32 -1022)
+  %176 = add nsw i32 %.sroa.0.0.sroa.speculated.i203, 1023
+  %177 = zext nneg i32 %176 to i64
+  %178 = call i32 @llvm.smin.i32(i32 %173, i32 -1022)
+  %.sroa.0.0.sroa.speculated.i = add nsw i32 %178, 1022
+  %179 = shl nuw nsw i64 %177, 52
+  %180 = lshr i64 %.sroa.06.5, 11
+  %181 = and i64 %180, 4503599627370495
+  %182 = or i64 %181, %.sroa.051.1225238
+  %183 = or i64 %182, %179
+  %184 = bitcast i64 %183 to double
+  %185 = icmp samesign ult i32 %178, -1022
+  %186 = call double @llvm.powi.f64.i32(double 2.000000e+00, i32 %.sroa.0.0.sroa.speculated.i)
+  %187 = fmul double %186, %184
+  %.sroa.053.0 = select i1 %185, double %187, double %184
   br label %.sink.split332
 
-189:                                              ; preds = %171
-  %190 = call double @llvm.copysign.f64(double 0x7FF0000000000000, double %.sroa.047.0227236)
+188:                                              ; preds = %170
+  %189 = call double @llvm.copysign.f64(double 0x7FF0000000000000, double %.sroa.047.0227236)
   br label %.sink.split332
 
-.sink.split332:                                   ; preds = %153, %189, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hbc144b0a476f5b2eE.exit"
-  %.sink330.sink = phi double [ %.sroa.053.0, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hbc144b0a476f5b2eE.exit" ], [ %154, %153 ], [ %190, %189 ]
-  %191 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double %.sink330.sink, ptr %191, align 8
-  %192 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.055.6, ptr %192, align 8
-  br label %193
+.sink.split332:                                   ; preds = %153, %188, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hbc144b0a476f5b2eE.exit"
+  %.sink330.sink = phi double [ %.sroa.053.0, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hbc144b0a476f5b2eE.exit" ], [ %154, %153 ], [ %189, %188 ]
+  %190 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store double %.sink330.sink, ptr %190, align 8
+  %191 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sroa.055.6, ptr %191, align 8
+  br label %192
 
-193:                                              ; preds = %.sink.split332, %49, %46, %45, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17hba8bfb664e41feeaE.exit172.thread", %"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$7next_if17h9c3bb14af98a86cdE.exit162.thread", %.critedge129, %.critedge131
+192:                                              ; preds = %.sink.split332, %49, %46, %45, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17hba8bfb664e41feeaE.exit172.thread", %"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$7next_if17h9c3bb14af98a86cdE.exit162.thread", %.critedge129, %.critedge131
   %.sink.sink = phi i64 [ 1, %49 ], [ 1, %46 ], [ 1, %45 ], [ 1, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17hba8bfb664e41feeaE.exit172.thread" ], [ 1, %"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$7next_if17h9c3bb14af98a86cdE.exit162.thread" ], [ 1, %.critedge129 ], [ 1, %.critedge131 ], [ 0, %.sink.split332 ]
   store i64 %.sink.sink, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
@@ -12355,16 +12353,16 @@ define hidden void @_ZN4fish5wutil9hex_float15parse_hex_float17hfba05d7a798fc08e
   %.sroa.047.0211218 = phi double [ %.sroa.047.0.ph, %"_ZN108_$LT$core..iter..adapters..peekable..Peekable$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf5307ff8b65e70daE.exit139" ], [ %.sroa.047.0211219.ph, %15 ], [ %.sroa.047.0211219294, %.thread ]
   %.sroa.089.0 = phi i32 [ %.pr.pre, %"_ZN108_$LT$core..iter..adapters..peekable..Peekable$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf5307ff8b65e70daE.exit139" ], [ %.pr, %15 ], [ %16, %.thread ]
   %.not109 = icmp eq i32 %.sroa.087.0224, 1114112
-  br i1 %.not109, label %149, label %17
+  br i1 %.not109, label %148, label %17
 
 17:                                               ; preds = %"_ZN108_$LT$core..iter..adapters..peekable..Peekable$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf5307ff8b65e70daE.exit142"
   %18 = icmp ne i32 %.sroa.089.0, 1114112
   %19 = icmp eq i32 %.sroa.087.0224, 48
   %or.cond = and i1 %19, %18
-  br i1 %or.cond, label %20, label %149
+  br i1 %or.cond, label %20, label %148
 
 20:                                               ; preds = %17
-  switch i32 %.sroa.089.0, label %149 [
+  switch i32 %.sroa.089.0, label %148 [
     i32 120, label %.preheader
     i32 88, label %.preheader
   ]
@@ -12463,7 +12461,7 @@ define hidden void @_ZN4fish5wutil9hex_float15parse_hex_float17hfba05d7a798fc08e
 
 "_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$7next_if17h6691b8ff23af4bc9E.exit159.thread": ; preds = %"_ZN108_$LT$core..iter..adapters..peekable..Peekable$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf5307ff8b65e70daE.exit.i152.thread", %44
   %.sroa.079.0234 = phi i32 [ %.sroa.079.0231, %"_ZN108_$LT$core..iter..adapters..peekable..Peekable$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf5307ff8b65e70daE.exit.i152.thread" ], [ %.sroa.079.0, %44 ]
-  br i1 %.sroa.05.1, label %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17hddce77614e86ad78E.exit177", label %149
+  br i1 %.sroa.05.1, label %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17hddce77614e86ad78E.exit177", label %148
 
 47:                                               ; preds = %37
   %48 = zext nneg i32 %.sroa.02.0.i to i64
@@ -12523,7 +12521,7 @@ define hidden void @_ZN4fish5wutil9hex_float15parse_hex_float17hfba05d7a798fc08e
 
 .critedge129:                                     ; preds = %59, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17hddce77614e86ad78E.exit167"
   %74 = phi i32 [ 1114112, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17hddce77614e86ad78E.exit167" ], [ %.sroa.0.0.i.i.i166, %59 ]
-  br i1 %.sroa.05.2, label %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17hddce77614e86ad78E.exit177", label %149
+  br i1 %.sroa.05.2, label %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17hddce77614e86ad78E.exit177", label %148
 
 "_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17hddce77614e86ad78E.exit177": ; preds = %.critedge129, %"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$7next_if17h6691b8ff23af4bc9E.exit159.thread"
   %.sroa.06.3297 = phi i64 [ %.sroa.06.0, %"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$7next_if17h6691b8ff23af4bc9E.exit159.thread" ], [ %.sroa.06.2, %.critedge129 ]
@@ -12602,7 +12600,7 @@ define hidden void @_ZN4fish5wutil9hex_float15parse_hex_float17hfba05d7a798fc08e
 
 .critedge131:                                     ; preds = %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17hddce77614e86ad78E.exit193", %92
   %99 = icmp eq i64 %.sroa.055.8, %.sroa.055.7
-  br i1 %99, label %149, label %105
+  br i1 %99, label %148, label %105
 
 100:                                              ; preds = %95
   %101 = icmp sgt i32 %.sroa.042.1, -1
@@ -12654,53 +12652,52 @@ define hidden void @_ZN4fish5wutil9hex_float15parse_hex_float17hfba05d7a798fc08e
 123:                                              ; preds = %111, %119
   %.sroa.042.2 = phi i32 [ %.sroa.042.3, %119 ], [ %.sroa.042.0, %111 ]
   %.sroa.06.5 = phi i64 [ %.sroa.041.0, %119 ], [ %116, %111 ]
-  %124 = shl nsw i32 %.sroa.079.0233238295, 2
-  %125 = add nsw i32 %.sroa.079.0233238295, -536870912
-  %126 = icmp ult i32 %125, -1073741824
-  br i1 %126, label %132, label %127, !prof !46
+  %124 = shl nuw nsw i32 %.sroa.079.0233238295, 2
+  %125 = icmp ugt i32 %.sroa.079.0233238295, 536870911
+  br i1 %125, label %131, label %126, !prof !46
 
-127:                                              ; preds = %132, %123
-  %.sroa.086.0 = phi i32 [ 2147483647, %132 ], [ %124, %123 ]
-  %128 = call i32 @llvm.sadd.sat.i32(i32 %.sroa.086.0, i32 %.sroa.042.2)
-  %129 = add nuw nsw i32 %113, 1
-  %130 = call i32 @llvm.ssub.sat.i32(i32 %128, i32 %129)
-  %131 = icmp sgt i32 %130, 1023
-  br i1 %131, label %145, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hbc144b0a476f5b2eE.exit"
+126:                                              ; preds = %131, %123
+  %.sroa.086.0 = phi i32 [ 2147483647, %131 ], [ %124, %123 ]
+  %127 = call i32 @llvm.sadd.sat.i32(i32 %.sroa.086.0, i32 %.sroa.042.2)
+  %128 = add nuw nsw i32 %113, 1
+  %129 = call i32 @llvm.ssub.sat.i32(i32 %127, i32 %128)
+  %130 = icmp sgt i32 %129, 1023
+  br i1 %130, label %144, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hbc144b0a476f5b2eE.exit"
 
-132:                                              ; preds = %123
-  br label %127
+131:                                              ; preds = %123
+  br label %126
 
-"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hbc144b0a476f5b2eE.exit": ; preds = %127
-  %.sroa.0.0.sroa.speculated.i199 = call noundef range(i32 -1022, 1024) i32 @llvm.smax.i32(i32 range(i32 -2147483648, 1024) %130, i32 -1022)
-  %133 = add nsw i32 %.sroa.0.0.sroa.speculated.i199, 1023
-  %134 = zext nneg i32 %133 to i64
-  %135 = call i32 @llvm.smin.i32(i32 %130, i32 -1022)
-  %.sroa.0.0.sroa.speculated.i = add nsw i32 %135, 1022
-  %136 = shl nuw nsw i64 %134, 52
-  %137 = lshr i64 %.sroa.06.5, 11
-  %138 = and i64 %137, 4503599627370495
-  %139 = or i64 %138, %.sroa.051.1209220
-  %140 = or i64 %139, %136
-  %141 = bitcast i64 %140 to double
-  %142 = icmp samesign ult i32 %135, -1022
-  %143 = call double @llvm.powi.f64.i32(double 2.000000e+00, i32 %.sroa.0.0.sroa.speculated.i)
-  %144 = fmul double %143, %141
-  %.sroa.053.0 = select i1 %142, double %144, double %141
+"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hbc144b0a476f5b2eE.exit": ; preds = %126
+  %.sroa.0.0.sroa.speculated.i199 = call noundef range(i32 -1022, 1024) i32 @llvm.smax.i32(i32 range(i32 -2147483648, 1024) %129, i32 -1022)
+  %132 = add nsw i32 %.sroa.0.0.sroa.speculated.i199, 1023
+  %133 = zext nneg i32 %132 to i64
+  %134 = call i32 @llvm.smin.i32(i32 %129, i32 -1022)
+  %.sroa.0.0.sroa.speculated.i = add nsw i32 %134, 1022
+  %135 = shl nuw nsw i64 %133, 52
+  %136 = lshr i64 %.sroa.06.5, 11
+  %137 = and i64 %136, 4503599627370495
+  %138 = or i64 %137, %.sroa.051.1209220
+  %139 = or i64 %138, %135
+  %140 = bitcast i64 %139 to double
+  %141 = icmp samesign ult i32 %134, -1022
+  %142 = call double @llvm.powi.f64.i32(double 2.000000e+00, i32 %.sroa.0.0.sroa.speculated.i)
+  %143 = fmul double %142, %140
+  %.sroa.053.0 = select i1 %141, double %143, double %140
   br label %.sink.split309
 
-145:                                              ; preds = %127
-  %146 = call double @llvm.copysign.f64(double 0x7FF0000000000000, double %.sroa.047.0211218)
+144:                                              ; preds = %126
+  %145 = call double @llvm.copysign.f64(double 0x7FF0000000000000, double %.sroa.047.0211218)
   br label %.sink.split309
 
-.sink.split309:                                   ; preds = %109, %145, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hbc144b0a476f5b2eE.exit"
-  %.sink307.sink = phi double [ %.sroa.053.0, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hbc144b0a476f5b2eE.exit" ], [ %110, %109 ], [ %146, %145 ]
-  %147 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double %.sink307.sink, ptr %147, align 8
-  %148 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.055.6, ptr %148, align 8
-  br label %149
+.sink.split309:                                   ; preds = %109, %144, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hbc144b0a476f5b2eE.exit"
+  %.sink307.sink = phi double [ %.sroa.053.0, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hbc144b0a476f5b2eE.exit" ], [ %110, %109 ], [ %145, %144 ]
+  %146 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store double %.sink307.sink, ptr %146, align 8
+  %147 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sroa.055.6, ptr %147, align 8
+  br label %148
 
-149:                                              ; preds = %.sink.split309, %20, %17, %"_ZN108_$LT$core..iter..adapters..peekable..Peekable$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf5307ff8b65e70daE.exit142", %"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$7next_if17h6691b8ff23af4bc9E.exit159.thread", %.critedge129, %.critedge131
+148:                                              ; preds = %.sink.split309, %20, %17, %"_ZN108_$LT$core..iter..adapters..peekable..Peekable$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf5307ff8b65e70daE.exit142", %"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$7next_if17h6691b8ff23af4bc9E.exit159.thread", %.critedge129, %.critedge131
   %.sink.sink = phi i64 [ 1, %20 ], [ 1, %17 ], [ 1, %"_ZN108_$LT$core..iter..adapters..peekable..Peekable$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf5307ff8b65e70daE.exit142" ], [ 1, %"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$7next_if17h6691b8ff23af4bc9E.exit159.thread" ], [ 1, %.critedge129 ], [ 1, %.critedge131 ], [ 0, %.sink.split309 ]
   store i64 %.sink.sink, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

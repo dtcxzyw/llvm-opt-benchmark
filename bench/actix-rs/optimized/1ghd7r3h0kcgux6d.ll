@@ -11667,8 +11667,8 @@ define hidden noundef range(i32 0, 2) i32 @_ZN6brotli3enc6encode27BrotliEncoderC
   %17 = icmp eq i32 %16, -1
   br i1 %17, label %21, label %18
 
-_ZN6brotli3enc6encode15ProcessMetadata17h6f64c48c4f2e8756E.exit: ; preds = %157, %63, %54, %72, %43, %_ZN6brotli3enc6encode14UpdateSizeHint17hf86e5d92fc9e6675E.exit, %114, %176, %158, %117, %24, %18, %172, %137
-  %.033 = phi i32 [ 0, %172 ], [ %138, %137 ], [ 0, %18 ], [ 0, %24 ], [ 0, %114 ], [ 0, %117 ], [ 1, %158 ], [ 1, %176 ], [ 0, %_ZN6brotli3enc6encode14UpdateSizeHint17hf86e5d92fc9e6675E.exit ], [ 0, %43 ], [ 1, %72 ], [ 1, %54 ], [ 0, %63 ], [ 1, %157 ]
+_ZN6brotli3enc6encode15ProcessMetadata17h6f64c48c4f2e8756E.exit: ; preds = %158, %63, %54, %72, %43, %_ZN6brotli3enc6encode14UpdateSizeHint17hf86e5d92fc9e6675E.exit, %114, %177, %159, %118, %24, %18, %173, %138
+  %.033 = phi i32 [ 0, %173 ], [ %139, %138 ], [ 0, %18 ], [ 0, %24 ], [ 0, %114 ], [ 0, %118 ], [ 1, %159 ], [ 1, %177 ], [ 0, %_ZN6brotli3enc6encode14UpdateSizeHint17hf86e5d92fc9e6675E.exit ], [ 0, %43 ], [ 1, %72 ], [ 1, %54 ], [ 0, %63 ], [ 1, %158 ]
   ret i32 %.033
 
 18:                                               ; preds = %12
@@ -11914,155 +11914,154 @@ _ZN6brotli3enc6encode14UpdateSizeHint17hf86e5d92fc9e6675E.exit: ; preds = %.thre
 114:                                              ; preds = %21
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 5552
   %116 = load i32, ptr %115, align 8, !range !1068, !noundef !12
-  %.off = add nsw i32 %116, -3
-  %switch = icmp ult i32 %.off, 2
-  br i1 %switch, label %_ZN6brotli3enc6encode15ProcessMetadata17h6f64c48c4f2e8756E.exit, label %117
+  %117 = icmp samesign ugt i32 %116, 2
+  br i1 %117, label %_ZN6brotli3enc6encode15ProcessMetadata17h6f64c48c4f2e8756E.exit, label %118
 
-117:                                              ; preds = %114
-  %118 = icmp eq i32 %116, 0
-  %119 = load i64, ptr %2, align 8
-  %120 = icmp eq i64 %119, 0
-  %or.cond5 = select i1 %118, i1 true, i1 %120
-  br i1 %or.cond5, label %121, label %_ZN6brotli3enc6encode15ProcessMetadata17h6f64c48c4f2e8756E.exit
+118:                                              ; preds = %114
+  %119 = icmp eq i32 %116, 0
+  %120 = load i64, ptr %2, align 8
+  %121 = icmp eq i64 %120, 0
+  %or.cond5 = select i1 %119, i1 true, i1 %121
+  br i1 %or.cond5, label %122, label %_ZN6brotli3enc6encode15ProcessMetadata17h6f64c48c4f2e8756E.exit
 
-121:                                              ; preds = %117
-  %122 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %123 = load i32, ptr %122, align 8, !noundef !12
-  %or.cond = icmp ugt i32 %123, 1
-  %124 = getelementptr inbounds nuw i8, ptr %0, i64 228
-  %125 = load i8, ptr %124, align 4, !range !536
-  %126 = trunc nuw i8 %125 to i1
-  %or.cond9 = select i1 %or.cond, i1 true, i1 %126
-  br i1 %or.cond9, label %.preheader, label %137
+122:                                              ; preds = %118
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  %124 = load i32, ptr %123, align 8, !noundef !12
+  %or.cond = icmp ugt i32 %124, 1
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 228
+  %126 = load i8, ptr %125, align 4, !range !536
+  %127 = trunc nuw i8 %126 to i1
+  %or.cond9 = select i1 %or.cond, i1 true, i1 %127
+  br i1 %or.cond9, label %.preheader, label %138
 
-.preheader:                                       ; preds = %121
-  %127 = getelementptr inbounds nuw i8, ptr %0, i64 368
-  %128 = getelementptr inbounds nuw i8, ptr %0, i64 416
+.preheader:                                       ; preds = %122
+  %128 = getelementptr inbounds nuw i8, ptr %0, i64 368
+  %129 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %.promoted89 = load i64, ptr %5, align 8
-  %129 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %130 = getelementptr inbounds nuw i8, ptr %0, i64 5512
-  %131 = icmp ne i8 %1, 0
-  %132 = icmp eq i8 %1, 2
-  %133 = icmp eq i8 %1, 1
-  %134 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %130 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  %131 = getelementptr inbounds nuw i8, ptr %0, i64 5512
+  %132 = icmp ne i8 %1, 0
+  %133 = icmp eq i8 %1, 2
+  %134 = icmp eq i8 %1, 1
+  %135 = getelementptr inbounds nuw i8, ptr %0, i64 168
   br label %.backedge.outer
 
-.backedge.outer:                                  ; preds = %178, %.preheader
-  %.ph256 = phi i64 [ %181, %178 ], [ %.promoted89, %.preheader ]
-  %.ph257 = phi i64 [ %182, %178 ], [ %119, %.preheader ]
-  %135 = icmp eq i64 %.ph257, 0
-  %.0 = and i1 %132, %135
-  %.034 = and i1 %133, %135
-  %136 = or i1 %.034, %.0
+.backedge.outer:                                  ; preds = %179, %.preheader
+  %.ph256 = phi i64 [ %182, %179 ], [ %.promoted89, %.preheader ]
+  %.ph257 = phi i64 [ %183, %179 ], [ %120, %.preheader ]
+  %136 = icmp eq i64 %.ph257, 0
+  %.0 = and i1 %133, %136
+  %.034 = and i1 %134, %136
+  %137 = or i1 %.034, %.0
   %spec.select = select i1 %.0, i32 2, i32 1
   br label %.backedge
 
-137:                                              ; preds = %121
-  %138 = tail call fastcc noundef i32 @_ZN6brotli3enc6encode31BrotliEncoderCompressStreamFast17hd5e7456efabb4a3fE(ptr noalias noundef align 8 dereferenceable(5576) %0, i8 noundef %1, ptr noalias noundef align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4, ptr noalias noundef align 8 dereferenceable(8) %5, ptr noalias noundef align 8 dereferenceable(8) %6, ptr noalias noundef nonnull align 1 %7, i64 noundef %8, ptr noalias noundef align 8 dereferenceable(8) %9, ptr noalias noundef align 8 dereferenceable(16) %10)
+138:                                              ; preds = %122
+  %139 = tail call fastcc noundef i32 @_ZN6brotli3enc6encode31BrotliEncoderCompressStreamFast17hd5e7456efabb4a3fE(ptr noalias noundef align 8 dereferenceable(5576) %0, i8 noundef %1, ptr noalias noundef align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4, ptr noalias noundef align 8 dereferenceable(8) %5, ptr noalias noundef align 8 dereferenceable(8) %6, ptr noalias noundef nonnull align 1 %7, i64 noundef %8, ptr noalias noundef align 8 dereferenceable(8) %9, ptr noalias noundef align 8 dereferenceable(16) %10)
   br label %_ZN6brotli3enc6encode15ProcessMetadata17h6f64c48c4f2e8756E.exit
 
 .backedge:                                        ; preds = %.backedge.backedge, %.backedge.outer
-  %139 = load i64, ptr %127, align 8, !alias.scope !1186, !noundef !12
   %140 = load i64, ptr %128, align 8, !alias.scope !1186, !noundef !12
-  %141 = sub i64 %139, %140
+  %141 = load i64, ptr %129, align 8, !alias.scope !1186, !noundef !12
+  %142 = sub i64 %140, %141
   tail call fastcc void @_ZN6brotli3enc6encode17EnsureInitialized17he31be0b358150ff7E(ptr noalias noundef nonnull align 8 dereferenceable(5576) %0)
-  %142 = load i32, ptr %129, align 8, !alias.scope !1189, !noundef !12
-  %143 = and i32 %142, 63
-  %144 = zext nneg i32 %143 to i64
-  %145 = shl nuw i64 1, %144
-  %146 = icmp ule i64 %145, %141
-  %or.cond11 = select i1 %146, i1 true, i1 %135
-  br i1 %or.cond11, label %147, label %150
+  %143 = load i32, ptr %130, align 8, !alias.scope !1189, !noundef !12
+  %144 = and i32 %143, 63
+  %145 = zext nneg i32 %144 to i64
+  %146 = shl nuw i64 1, %145
+  %147 = icmp ule i64 %146, %142
+  %or.cond11 = select i1 %147, i1 true, i1 %136
+  br i1 %or.cond11, label %148, label %151
 
-147:                                              ; preds = %.backedge
-  %148 = tail call fastcc noundef i32 @_ZN6brotli3enc6encode23InjectFlushOrPushOutput17h1d79dc163e9203f6E(ptr noalias noundef align 8 dereferenceable(5576) %0, ptr noalias noundef align 8 dereferenceable(8) %6, ptr noalias noundef nonnull align 1 %7, i64 noundef %8, ptr noalias noundef align 8 dereferenceable(8) %9, ptr noalias noundef align 8 dereferenceable(16) %10)
-  %149 = icmp eq i32 %148, 0
-  br i1 %149, label %152, label %.backedge.backedge
+148:                                              ; preds = %.backedge
+  %149 = tail call fastcc noundef i32 @_ZN6brotli3enc6encode23InjectFlushOrPushOutput17h1d79dc163e9203f6E(ptr noalias noundef align 8 dereferenceable(5576) %0, ptr noalias noundef align 8 dereferenceable(8) %6, ptr noalias noundef nonnull align 1 %7, i64 noundef %8, ptr noalias noundef align 8 dereferenceable(8) %9, ptr noalias noundef align 8 dereferenceable(16) %10)
+  %150 = icmp eq i32 %149, 0
+  br i1 %150, label %153, label %.backedge.backedge
 
-150:                                              ; preds = %.backedge
-  %151 = icmp ugt i64 %.ph256, %4
-  br i1 %151, label %183, label %178
+151:                                              ; preds = %.backedge
+  %152 = icmp ugt i64 %.ph256, %4
+  br i1 %152, label %184, label %179
 
-152:                                              ; preds = %147
-  %153 = load i64, ptr %130, align 8, !noundef !12
-  %154 = icmp eq i64 %153, 0
-  %155 = load i32, ptr %115, align 8, !range !1068
-  %156 = icmp eq i32 %155, 0
-  %or.cond44 = select i1 %154, i1 %156, i1 false
-  br i1 %or.cond44, label %157, label %158
+153:                                              ; preds = %148
+  %154 = load i64, ptr %131, align 8, !noundef !12
+  %155 = icmp eq i64 %154, 0
+  %156 = load i32, ptr %115, align 8, !range !1068
+  %157 = icmp eq i32 %156, 0
+  %or.cond44 = select i1 %155, i1 %157, i1 false
+  br i1 %or.cond44, label %158, label %159
 
-157:                                              ; preds = %152
-  %or.cond46.not = or i1 %131, %146
-  br i1 %or.cond46.not, label %160, label %_ZN6brotli3enc6encode15ProcessMetadata17h6f64c48c4f2e8756E.exit
+158:                                              ; preds = %153
+  %or.cond46.not = or i1 %132, %147
+  br i1 %or.cond46.not, label %161, label %_ZN6brotli3enc6encode15ProcessMetadata17h6f64c48c4f2e8756E.exit
 
-158:                                              ; preds = %152
-  %159 = icmp eq i32 %155, 1
-  %or.cond12 = and i1 %154, %159
-  br i1 %or.cond12, label %176, label %_ZN6brotli3enc6encode15ProcessMetadata17h6f64c48c4f2e8756E.exit
+159:                                              ; preds = %153
+  %160 = icmp eq i32 %156, 1
+  %or.cond12 = and i1 %155, %160
+  br i1 %or.cond12, label %177, label %_ZN6brotli3enc6encode15ProcessMetadata17h6f64c48c4f2e8756E.exit
 
-160:                                              ; preds = %157
-  %161 = load i64, ptr %134, align 8, !alias.scope !1192, !noundef !12
-  %162 = icmp eq i64 %161, 0
-  br i1 %162, label %163, label %_ZN6brotli3enc6encode14UpdateSizeHint17hf86e5d92fc9e6675E.exit51
+161:                                              ; preds = %158
+  %162 = load i64, ptr %135, align 8, !alias.scope !1192, !noundef !12
+  %163 = icmp eq i64 %162, 0
+  br i1 %163, label %164, label %_ZN6brotli3enc6encode14UpdateSizeHint17hf86e5d92fc9e6675E.exit51
 
-163:                                              ; preds = %160
-  %164 = load i64, ptr %127, align 8, !alias.scope !1192, !noundef !12
+164:                                              ; preds = %161
   %165 = load i64, ptr %128, align 8, !alias.scope !1192, !noundef !12
-  %166 = sub i64 %164, %165
-  %167 = or i64 %166, %.ph257
-  %or.cond.not.i48 = icmp ult i64 %167, 1073741824
-  %168 = add nuw nsw i64 %166, %.ph257
-  %spec.select.i49 = tail call i64 @llvm.umin.i64(i64 %168, i64 1073741824)
+  %166 = load i64, ptr %129, align 8, !alias.scope !1192, !noundef !12
+  %167 = sub i64 %165, %166
+  %168 = or i64 %167, %.ph257
+  %or.cond.not.i48 = icmp ult i64 %168, 1073741824
+  %169 = add nuw nsw i64 %167, %.ph257
+  %spec.select.i49 = tail call i64 @llvm.umin.i64(i64 %169, i64 1073741824)
   %.0.i50 = select i1 %or.cond.not.i48, i64 %spec.select.i49, i64 1073741824
-  store i64 %.0.i50, ptr %134, align 8, !alias.scope !1192
+  store i64 %.0.i50, ptr %135, align 8, !alias.scope !1192
   br label %_ZN6brotli3enc6encode14UpdateSizeHint17hf86e5d92fc9e6675E.exit51
 
-_ZN6brotli3enc6encode14UpdateSizeHint17hf86e5d92fc9e6675E.exit51: ; preds = %160, %163
+_ZN6brotli3enc6encode14UpdateSizeHint17hf86e5d92fc9e6675E.exit51: ; preds = %161, %164
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i64 0, ptr %14, align 8
-  %169 = call fastcc noundef i32 @_ZN6brotli3enc6encode10EncodeData17hb4e5ac7467e8e92fE(ptr noalias noundef align 8 dereferenceable(5576) %0, i1 noundef zeroext %.0, i1 noundef zeroext %.034, ptr noalias noundef align 8 dereferenceable(8) %14, ptr noalias noundef nonnull align 1 %11)
-  %170 = load i64, ptr %14, align 8, !noundef !12
-  store i64 %170, ptr %130, align 8
-  %171 = icmp eq i32 %169, 0
-  br i1 %171, label %172, label %173
+  %170 = call fastcc noundef i32 @_ZN6brotli3enc6encode10EncodeData17hb4e5ac7467e8e92fE(ptr noalias noundef align 8 dereferenceable(5576) %0, i1 noundef zeroext %.0, i1 noundef zeroext %.034, ptr noalias noundef align 8 dereferenceable(8) %14, ptr noalias noundef nonnull align 1 %11)
+  %171 = load i64, ptr %14, align 8, !noundef !12
+  store i64 %171, ptr %131, align 8
+  %172 = icmp eq i32 %170, 0
+  br i1 %172, label %173, label %174
 
-172:                                              ; preds = %_ZN6brotli3enc6encode14UpdateSizeHint17hf86e5d92fc9e6675E.exit51
+173:                                              ; preds = %_ZN6brotli3enc6encode14UpdateSizeHint17hf86e5d92fc9e6675E.exit51
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %_ZN6brotli3enc6encode15ProcessMetadata17h6f64c48c4f2e8756E.exit
 
-173:                                              ; preds = %_ZN6brotli3enc6encode14UpdateSizeHint17hf86e5d92fc9e6675E.exit51
-  br i1 %136, label %174, label %175
+174:                                              ; preds = %_ZN6brotli3enc6encode14UpdateSizeHint17hf86e5d92fc9e6675E.exit51
+  br i1 %137, label %175, label %176
 
-174:                                              ; preds = %173
+175:                                              ; preds = %174
   store i32 %spec.select, ptr %115, align 8
-  br label %175
+  br label %176
 
-175:                                              ; preds = %173, %174
+176:                                              ; preds = %174, %175
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %.backedge.backedge
 
-.backedge.backedge:                               ; preds = %175, %147
+.backedge.backedge:                               ; preds = %176, %148
   br label %.backedge
 
-176:                                              ; preds = %158
+177:                                              ; preds = %159
   store i32 0, ptr %115, align 8
-  %177 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store i32 2, ptr %177, align 8
+  %178 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  store i32 2, ptr %178, align 8
   br label %_ZN6brotli3enc6encode15ProcessMetadata17h6f64c48c4f2e8756E.exit
 
-178:                                              ; preds = %150
-  %.0.i47 = sub nuw i64 %145, %141
+179:                                              ; preds = %151
+  %.0.i47 = sub nuw i64 %146, %142
   %.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %.0.i47, i64 %.ph257)
-  %179 = sub nuw i64 %4, %.ph256
-  %180 = getelementptr inbounds i8, ptr %3, i64 %.ph256
-  tail call fastcc void @_ZN6brotli3enc6encode21CopyInputToRingBuffer17h61c920b0366e61e2E(ptr noalias noundef align 8 dereferenceable(5576) %0, i64 noundef %.0.sroa.speculated.i, ptr noalias noundef nonnull readonly align 1 %180, i64 noundef %179)
-  %181 = add i64 %.ph256, %.0.sroa.speculated.i
-  store i64 %181, ptr %5, align 8
-  %182 = sub i64 %.ph257, %.0.sroa.speculated.i
-  store i64 %182, ptr %2, align 8
+  %180 = sub nuw i64 %4, %.ph256
+  %181 = getelementptr inbounds i8, ptr %3, i64 %.ph256
+  tail call fastcc void @_ZN6brotli3enc6encode21CopyInputToRingBuffer17h61c920b0366e61e2E(ptr noalias noundef align 8 dereferenceable(5576) %0, i64 noundef %.0.sroa.speculated.i, ptr noalias noundef nonnull readonly align 1 %181, i64 noundef %180)
+  %182 = add i64 %.ph256, %.0.sroa.speculated.i
+  store i64 %182, ptr %5, align 8
+  %183 = sub i64 %.ph257, %.0.sroa.speculated.i
+  store i64 %183, ptr %2, align 8
   br label %.backedge.outer
 
-183:                                              ; preds = %150
+184:                                              ; preds = %151
   tail call void @_ZN4core5slice5index26slice_start_index_len_fail17h6f35008186d11abeE(i64 noundef %.ph256, i64 noundef %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e9f42dff1fd369047582a93c3ee51670.148) #21
   unreachable
 }
@@ -12077,8 +12076,8 @@ define hidden noundef range(i32 0, 2) i32 @_ZN6brotli3enc6encode27BrotliEncoderC
   %17 = icmp eq i32 %16, -1
   br i1 %17, label %21, label %18
 
-_ZN6brotli3enc6encode15ProcessMetadata17hbc34d0c29501858cE.exit: ; preds = %157, %63, %54, %72, %43, %_ZN6brotli3enc6encode14UpdateSizeHint17hf86e5d92fc9e6675E.exit, %114, %176, %158, %117, %24, %18, %172, %137
-  %.033 = phi i32 [ 0, %172 ], [ %138, %137 ], [ 0, %18 ], [ 0, %24 ], [ 0, %114 ], [ 0, %117 ], [ 1, %158 ], [ 1, %176 ], [ 0, %_ZN6brotli3enc6encode14UpdateSizeHint17hf86e5d92fc9e6675E.exit ], [ 0, %43 ], [ 1, %72 ], [ 1, %54 ], [ 0, %63 ], [ 1, %157 ]
+_ZN6brotli3enc6encode15ProcessMetadata17hbc34d0c29501858cE.exit: ; preds = %158, %63, %54, %72, %43, %_ZN6brotli3enc6encode14UpdateSizeHint17hf86e5d92fc9e6675E.exit, %114, %177, %159, %118, %24, %18, %173, %138
+  %.033 = phi i32 [ 0, %173 ], [ %139, %138 ], [ 0, %18 ], [ 0, %24 ], [ 0, %114 ], [ 0, %118 ], [ 1, %159 ], [ 1, %177 ], [ 0, %_ZN6brotli3enc6encode14UpdateSizeHint17hf86e5d92fc9e6675E.exit ], [ 0, %43 ], [ 1, %72 ], [ 1, %54 ], [ 0, %63 ], [ 1, %158 ]
   ret i32 %.033
 
 18:                                               ; preds = %12
@@ -12324,155 +12323,154 @@ _ZN6brotli3enc6encode14UpdateSizeHint17hf86e5d92fc9e6675E.exit: ; preds = %.thre
 114:                                              ; preds = %21
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 5552
   %116 = load i32, ptr %115, align 8, !range !1068, !noundef !12
-  %.off = add nsw i32 %116, -3
-  %switch = icmp ult i32 %.off, 2
-  br i1 %switch, label %_ZN6brotli3enc6encode15ProcessMetadata17hbc34d0c29501858cE.exit, label %117
+  %117 = icmp samesign ugt i32 %116, 2
+  br i1 %117, label %_ZN6brotli3enc6encode15ProcessMetadata17hbc34d0c29501858cE.exit, label %118
 
-117:                                              ; preds = %114
-  %118 = icmp eq i32 %116, 0
-  %119 = load i64, ptr %2, align 8
-  %120 = icmp eq i64 %119, 0
-  %or.cond5 = select i1 %118, i1 true, i1 %120
-  br i1 %or.cond5, label %121, label %_ZN6brotli3enc6encode15ProcessMetadata17hbc34d0c29501858cE.exit
+118:                                              ; preds = %114
+  %119 = icmp eq i32 %116, 0
+  %120 = load i64, ptr %2, align 8
+  %121 = icmp eq i64 %120, 0
+  %or.cond5 = select i1 %119, i1 true, i1 %121
+  br i1 %or.cond5, label %122, label %_ZN6brotli3enc6encode15ProcessMetadata17hbc34d0c29501858cE.exit
 
-121:                                              ; preds = %117
-  %122 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %123 = load i32, ptr %122, align 8, !noundef !12
-  %or.cond = icmp ugt i32 %123, 1
-  %124 = getelementptr inbounds nuw i8, ptr %0, i64 228
-  %125 = load i8, ptr %124, align 4, !range !536
-  %126 = trunc nuw i8 %125 to i1
-  %or.cond9 = select i1 %or.cond, i1 true, i1 %126
-  br i1 %or.cond9, label %.preheader, label %137
+122:                                              ; preds = %118
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  %124 = load i32, ptr %123, align 8, !noundef !12
+  %or.cond = icmp ugt i32 %124, 1
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 228
+  %126 = load i8, ptr %125, align 4, !range !536
+  %127 = trunc nuw i8 %126 to i1
+  %or.cond9 = select i1 %or.cond, i1 true, i1 %127
+  br i1 %or.cond9, label %.preheader, label %138
 
-.preheader:                                       ; preds = %121
-  %127 = getelementptr inbounds nuw i8, ptr %0, i64 368
-  %128 = getelementptr inbounds nuw i8, ptr %0, i64 416
+.preheader:                                       ; preds = %122
+  %128 = getelementptr inbounds nuw i8, ptr %0, i64 368
+  %129 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %.promoted89 = load i64, ptr %5, align 8
-  %129 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %130 = getelementptr inbounds nuw i8, ptr %0, i64 5512
-  %131 = icmp ne i8 %1, 0
-  %132 = icmp eq i8 %1, 2
-  %133 = icmp eq i8 %1, 1
-  %134 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %130 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  %131 = getelementptr inbounds nuw i8, ptr %0, i64 5512
+  %132 = icmp ne i8 %1, 0
+  %133 = icmp eq i8 %1, 2
+  %134 = icmp eq i8 %1, 1
+  %135 = getelementptr inbounds nuw i8, ptr %0, i64 168
   br label %.backedge.outer
 
-.backedge.outer:                                  ; preds = %178, %.preheader
-  %.ph256 = phi i64 [ %181, %178 ], [ %.promoted89, %.preheader ]
-  %.ph257 = phi i64 [ %182, %178 ], [ %119, %.preheader ]
-  %135 = icmp eq i64 %.ph257, 0
-  %.0 = and i1 %132, %135
-  %.034 = and i1 %133, %135
-  %136 = or i1 %.034, %.0
+.backedge.outer:                                  ; preds = %179, %.preheader
+  %.ph256 = phi i64 [ %182, %179 ], [ %.promoted89, %.preheader ]
+  %.ph257 = phi i64 [ %183, %179 ], [ %120, %.preheader ]
+  %136 = icmp eq i64 %.ph257, 0
+  %.0 = and i1 %133, %136
+  %.034 = and i1 %134, %136
+  %137 = or i1 %.034, %.0
   %spec.select = select i1 %.0, i32 2, i32 1
   br label %.backedge
 
-137:                                              ; preds = %121
-  %138 = tail call fastcc noundef i32 @_ZN6brotli3enc6encode31BrotliEncoderCompressStreamFast17hd5e7456efabb4a3fE(ptr noalias noundef align 8 dereferenceable(5576) %0, i8 noundef %1, ptr noalias noundef align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4, ptr noalias noundef align 8 dereferenceable(8) %5, ptr noalias noundef align 8 dereferenceable(8) %6, ptr noalias noundef nonnull align 1 %7, i64 noundef %8, ptr noalias noundef align 8 dereferenceable(8) %9, ptr noalias noundef align 8 dereferenceable(16) %10)
+138:                                              ; preds = %122
+  %139 = tail call fastcc noundef i32 @_ZN6brotli3enc6encode31BrotliEncoderCompressStreamFast17hd5e7456efabb4a3fE(ptr noalias noundef align 8 dereferenceable(5576) %0, i8 noundef %1, ptr noalias noundef align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4, ptr noalias noundef align 8 dereferenceable(8) %5, ptr noalias noundef align 8 dereferenceable(8) %6, ptr noalias noundef nonnull align 1 %7, i64 noundef %8, ptr noalias noundef align 8 dereferenceable(8) %9, ptr noalias noundef align 8 dereferenceable(16) %10)
   br label %_ZN6brotli3enc6encode15ProcessMetadata17hbc34d0c29501858cE.exit
 
 .backedge:                                        ; preds = %.backedge.backedge, %.backedge.outer
-  %139 = load i64, ptr %127, align 8, !alias.scope !1247, !noundef !12
   %140 = load i64, ptr %128, align 8, !alias.scope !1247, !noundef !12
-  %141 = sub i64 %139, %140
+  %141 = load i64, ptr %129, align 8, !alias.scope !1247, !noundef !12
+  %142 = sub i64 %140, %141
   tail call fastcc void @_ZN6brotli3enc6encode17EnsureInitialized17he31be0b358150ff7E(ptr noalias noundef nonnull align 8 dereferenceable(5576) %0)
-  %142 = load i32, ptr %129, align 8, !alias.scope !1250, !noundef !12
-  %143 = and i32 %142, 63
-  %144 = zext nneg i32 %143 to i64
-  %145 = shl nuw i64 1, %144
-  %146 = icmp ule i64 %145, %141
-  %or.cond11 = select i1 %146, i1 true, i1 %135
-  br i1 %or.cond11, label %147, label %150
+  %143 = load i32, ptr %130, align 8, !alias.scope !1250, !noundef !12
+  %144 = and i32 %143, 63
+  %145 = zext nneg i32 %144 to i64
+  %146 = shl nuw i64 1, %145
+  %147 = icmp ule i64 %146, %142
+  %or.cond11 = select i1 %147, i1 true, i1 %136
+  br i1 %or.cond11, label %148, label %151
 
-147:                                              ; preds = %.backedge
-  %148 = tail call fastcc noundef i32 @_ZN6brotli3enc6encode23InjectFlushOrPushOutput17h1d79dc163e9203f6E(ptr noalias noundef align 8 dereferenceable(5576) %0, ptr noalias noundef align 8 dereferenceable(8) %6, ptr noalias noundef nonnull align 1 %7, i64 noundef %8, ptr noalias noundef align 8 dereferenceable(8) %9, ptr noalias noundef align 8 dereferenceable(16) %10)
-  %149 = icmp eq i32 %148, 0
-  br i1 %149, label %152, label %.backedge.backedge
+148:                                              ; preds = %.backedge
+  %149 = tail call fastcc noundef i32 @_ZN6brotli3enc6encode23InjectFlushOrPushOutput17h1d79dc163e9203f6E(ptr noalias noundef align 8 dereferenceable(5576) %0, ptr noalias noundef align 8 dereferenceable(8) %6, ptr noalias noundef nonnull align 1 %7, i64 noundef %8, ptr noalias noundef align 8 dereferenceable(8) %9, ptr noalias noundef align 8 dereferenceable(16) %10)
+  %150 = icmp eq i32 %149, 0
+  br i1 %150, label %153, label %.backedge.backedge
 
-150:                                              ; preds = %.backedge
-  %151 = icmp ugt i64 %.ph256, %4
-  br i1 %151, label %183, label %178
+151:                                              ; preds = %.backedge
+  %152 = icmp ugt i64 %.ph256, %4
+  br i1 %152, label %184, label %179
 
-152:                                              ; preds = %147
-  %153 = load i64, ptr %130, align 8, !noundef !12
-  %154 = icmp eq i64 %153, 0
-  %155 = load i32, ptr %115, align 8, !range !1068
-  %156 = icmp eq i32 %155, 0
-  %or.cond44 = select i1 %154, i1 %156, i1 false
-  br i1 %or.cond44, label %157, label %158
+153:                                              ; preds = %148
+  %154 = load i64, ptr %131, align 8, !noundef !12
+  %155 = icmp eq i64 %154, 0
+  %156 = load i32, ptr %115, align 8, !range !1068
+  %157 = icmp eq i32 %156, 0
+  %or.cond44 = select i1 %155, i1 %157, i1 false
+  br i1 %or.cond44, label %158, label %159
 
-157:                                              ; preds = %152
-  %or.cond46.not = or i1 %131, %146
-  br i1 %or.cond46.not, label %160, label %_ZN6brotli3enc6encode15ProcessMetadata17hbc34d0c29501858cE.exit
+158:                                              ; preds = %153
+  %or.cond46.not = or i1 %132, %147
+  br i1 %or.cond46.not, label %161, label %_ZN6brotli3enc6encode15ProcessMetadata17hbc34d0c29501858cE.exit
 
-158:                                              ; preds = %152
-  %159 = icmp eq i32 %155, 1
-  %or.cond12 = and i1 %154, %159
-  br i1 %or.cond12, label %176, label %_ZN6brotli3enc6encode15ProcessMetadata17hbc34d0c29501858cE.exit
+159:                                              ; preds = %153
+  %160 = icmp eq i32 %156, 1
+  %or.cond12 = and i1 %155, %160
+  br i1 %or.cond12, label %177, label %_ZN6brotli3enc6encode15ProcessMetadata17hbc34d0c29501858cE.exit
 
-160:                                              ; preds = %157
-  %161 = load i64, ptr %134, align 8, !alias.scope !1253, !noundef !12
-  %162 = icmp eq i64 %161, 0
-  br i1 %162, label %163, label %_ZN6brotli3enc6encode14UpdateSizeHint17hf86e5d92fc9e6675E.exit51
+161:                                              ; preds = %158
+  %162 = load i64, ptr %135, align 8, !alias.scope !1253, !noundef !12
+  %163 = icmp eq i64 %162, 0
+  br i1 %163, label %164, label %_ZN6brotli3enc6encode14UpdateSizeHint17hf86e5d92fc9e6675E.exit51
 
-163:                                              ; preds = %160
-  %164 = load i64, ptr %127, align 8, !alias.scope !1253, !noundef !12
+164:                                              ; preds = %161
   %165 = load i64, ptr %128, align 8, !alias.scope !1253, !noundef !12
-  %166 = sub i64 %164, %165
-  %167 = or i64 %166, %.ph257
-  %or.cond.not.i48 = icmp ult i64 %167, 1073741824
-  %168 = add nuw nsw i64 %166, %.ph257
-  %spec.select.i49 = tail call i64 @llvm.umin.i64(i64 %168, i64 1073741824)
+  %166 = load i64, ptr %129, align 8, !alias.scope !1253, !noundef !12
+  %167 = sub i64 %165, %166
+  %168 = or i64 %167, %.ph257
+  %or.cond.not.i48 = icmp ult i64 %168, 1073741824
+  %169 = add nuw nsw i64 %167, %.ph257
+  %spec.select.i49 = tail call i64 @llvm.umin.i64(i64 %169, i64 1073741824)
   %.0.i50 = select i1 %or.cond.not.i48, i64 %spec.select.i49, i64 1073741824
-  store i64 %.0.i50, ptr %134, align 8, !alias.scope !1253
+  store i64 %.0.i50, ptr %135, align 8, !alias.scope !1253
   br label %_ZN6brotli3enc6encode14UpdateSizeHint17hf86e5d92fc9e6675E.exit51
 
-_ZN6brotli3enc6encode14UpdateSizeHint17hf86e5d92fc9e6675E.exit51: ; preds = %160, %163
+_ZN6brotli3enc6encode14UpdateSizeHint17hf86e5d92fc9e6675E.exit51: ; preds = %161, %164
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i64 0, ptr %14, align 8
-  %169 = call fastcc noundef i32 @_ZN6brotli3enc6encode10EncodeData17h04f143e104994adbE(ptr noalias noundef align 8 dereferenceable(5576) %0, i1 noundef zeroext %.0, i1 noundef zeroext %.034, ptr noalias noundef align 8 dereferenceable(8) %14, ptr noalias noundef nonnull align 1 %11)
-  %170 = load i64, ptr %14, align 8, !noundef !12
-  store i64 %170, ptr %130, align 8
-  %171 = icmp eq i32 %169, 0
-  br i1 %171, label %172, label %173
+  %170 = call fastcc noundef i32 @_ZN6brotli3enc6encode10EncodeData17h04f143e104994adbE(ptr noalias noundef align 8 dereferenceable(5576) %0, i1 noundef zeroext %.0, i1 noundef zeroext %.034, ptr noalias noundef align 8 dereferenceable(8) %14, ptr noalias noundef nonnull align 1 %11)
+  %171 = load i64, ptr %14, align 8, !noundef !12
+  store i64 %171, ptr %131, align 8
+  %172 = icmp eq i32 %170, 0
+  br i1 %172, label %173, label %174
 
-172:                                              ; preds = %_ZN6brotli3enc6encode14UpdateSizeHint17hf86e5d92fc9e6675E.exit51
+173:                                              ; preds = %_ZN6brotli3enc6encode14UpdateSizeHint17hf86e5d92fc9e6675E.exit51
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %_ZN6brotli3enc6encode15ProcessMetadata17hbc34d0c29501858cE.exit
 
-173:                                              ; preds = %_ZN6brotli3enc6encode14UpdateSizeHint17hf86e5d92fc9e6675E.exit51
-  br i1 %136, label %174, label %175
+174:                                              ; preds = %_ZN6brotli3enc6encode14UpdateSizeHint17hf86e5d92fc9e6675E.exit51
+  br i1 %137, label %175, label %176
 
-174:                                              ; preds = %173
+175:                                              ; preds = %174
   store i32 %spec.select, ptr %115, align 8
-  br label %175
+  br label %176
 
-175:                                              ; preds = %173, %174
+176:                                              ; preds = %174, %175
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %.backedge.backedge
 
-.backedge.backedge:                               ; preds = %175, %147
+.backedge.backedge:                               ; preds = %176, %148
   br label %.backedge
 
-176:                                              ; preds = %158
+177:                                              ; preds = %159
   store i32 0, ptr %115, align 8
-  %177 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store i32 2, ptr %177, align 8
+  %178 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  store i32 2, ptr %178, align 8
   br label %_ZN6brotli3enc6encode15ProcessMetadata17hbc34d0c29501858cE.exit
 
-178:                                              ; preds = %150
-  %.0.i47 = sub nuw i64 %145, %141
+179:                                              ; preds = %151
+  %.0.i47 = sub nuw i64 %146, %142
   %.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %.0.i47, i64 %.ph257)
-  %179 = sub nuw i64 %4, %.ph256
-  %180 = getelementptr inbounds i8, ptr %3, i64 %.ph256
-  tail call fastcc void @_ZN6brotli3enc6encode21CopyInputToRingBuffer17h61c920b0366e61e2E(ptr noalias noundef align 8 dereferenceable(5576) %0, i64 noundef %.0.sroa.speculated.i, ptr noalias noundef nonnull readonly align 1 %180, i64 noundef %179)
-  %181 = add i64 %.ph256, %.0.sroa.speculated.i
-  store i64 %181, ptr %5, align 8
-  %182 = sub i64 %.ph257, %.0.sroa.speculated.i
-  store i64 %182, ptr %2, align 8
+  %180 = sub nuw i64 %4, %.ph256
+  %181 = getelementptr inbounds i8, ptr %3, i64 %.ph256
+  tail call fastcc void @_ZN6brotli3enc6encode21CopyInputToRingBuffer17h61c920b0366e61e2E(ptr noalias noundef align 8 dereferenceable(5576) %0, i64 noundef %.0.sroa.speculated.i, ptr noalias noundef nonnull readonly align 1 %181, i64 noundef %180)
+  %182 = add i64 %.ph256, %.0.sroa.speculated.i
+  store i64 %182, ptr %5, align 8
+  %183 = sub i64 %.ph257, %.0.sroa.speculated.i
+  store i64 %183, ptr %2, align 8
   br label %.backedge.outer
 
-183:                                              ; preds = %150
+184:                                              ; preds = %151
   tail call void @_ZN4core5slice5index26slice_start_index_len_fail17h6f35008186d11abeE(i64 noundef %.ph256, i64 noundef %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e9f42dff1fd369047582a93c3ee51670.148) #21
   unreachable
 }

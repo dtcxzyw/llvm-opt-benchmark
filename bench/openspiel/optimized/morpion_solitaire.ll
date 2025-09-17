@@ -718,9 +718,8 @@ define void @_ZN10open_spiel17morpion_solitaire4LineC2El(ptr noundef nonnull ali
   br label %47
 
 11:                                               ; preds = %2
-  %12 = add i64 %1, -130
-  %or.cond3 = icmp ult i64 %12, 130
-  br i1 %or.cond3, label %13, label %19
+  %12 = icmp ult i64 %1, 260
+  br i1 %12, label %13, label %19
 
 13:                                               ; preds = %11
   %14 = trunc nuw nsw i64 %1 to i32

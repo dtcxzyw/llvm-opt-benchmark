@@ -54,19 +54,19 @@ define internal range(i32 1, 0) i32 @bmv_aud_decode_frame(ptr noundef %0, ptr no
   br i1 %19, label %54, label %20
 
 20:                                               ; preds = %15
-  %.not47 = icmp eq i8 %10, 0
-  br i1 %.not47, label %._crit_edge, label %.lr.ph.preheader
+  %.not46 = icmp eq i8 %10, 0
+  br i1 %.not46, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %20
   %21 = load ptr, ptr %1, align 8, !tbaa !38
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %52
-  %.03046 = phi ptr [ %43, %52 ], [ %9, %.lr.ph.preheader ]
-  %.03145 = phi i32 [ %53, %52 ], [ 0, %.lr.ph.preheader ]
-  %.03244 = phi ptr [ %50, %52 ], [ %21, %.lr.ph.preheader ]
-  %22 = getelementptr inbounds nuw i8, ptr %.03046, i64 1
-  %23 = load i8, ptr %.03046, align 1, !tbaa !8
+  %.03045 = phi ptr [ %43, %52 ], [ %9, %.lr.ph.preheader ]
+  %.03144 = phi i32 [ %53, %52 ], [ 0, %.lr.ph.preheader ]
+  %.03243 = phi ptr [ %50, %52 ], [ %21, %.lr.ph.preheader ]
+  %22 = getelementptr inbounds nuw i8, ptr %.03045, i64 1
+  %23 = load i8, ptr %.03045, align 1, !tbaa !8
   %24 = tail call i8 @llvm.fshl.i8(i8 %23, i8 %23, i8 7)
   %25 = zext i8 %24 to i32
   %26 = and i32 %25, 15
@@ -80,37 +80,37 @@ define internal range(i32 1, 0) i32 @bmv_aud_decode_frame(ptr noundef %0, ptr no
   br label %34
 
 34:                                               ; preds = %.lr.ph, %34
-  %.143 = phi ptr [ %22, %.lr.ph ], [ %43, %34 ]
-  %.13342 = phi ptr [ %.03244, %.lr.ph ], [ %50, %34 ]
-  %.03441 = phi i32 [ 0, %.lr.ph ], [ %51, %34 ]
-  %35 = getelementptr inbounds nuw i8, ptr %.143, i64 1
-  %36 = load i8, ptr %.143, align 1, !tbaa !8
+  %.142 = phi ptr [ %22, %.lr.ph ], [ %43, %34 ]
+  %.13341 = phi ptr [ %.03243, %.lr.ph ], [ %50, %34 ]
+  %.03440 = phi i32 [ 0, %.lr.ph ], [ %51, %34 ]
+  %35 = getelementptr inbounds nuw i8, ptr %.142, i64 1
+  %36 = load i8, ptr %.142, align 1, !tbaa !8
   %37 = sext i8 %36 to i32
   %38 = mul nsw i32 %29, %37
   %39 = ashr i32 %38, 5
   %40 = tail call i32 @llvm.smax.i32(i32 %39, i32 -32768)
   %41 = tail call i32 @llvm.smin.i32(i32 %40, i32 32767)
   %.0.i = trunc nsw i32 %41 to i16
-  %42 = getelementptr inbounds nuw i8, ptr %.13342, i64 2
-  store i16 %.0.i, ptr %.13342, align 2, !tbaa !39
-  %43 = getelementptr inbounds nuw i8, ptr %.143, i64 2
+  %42 = getelementptr inbounds nuw i8, ptr %.13341, i64 2
+  store i16 %.0.i, ptr %.13341, align 2, !tbaa !39
+  %43 = getelementptr inbounds nuw i8, ptr %.142, i64 2
   %44 = load i8, ptr %35, align 1, !tbaa !8
   %45 = sext i8 %44 to i32
   %46 = mul nsw i32 %33, %45
   %47 = ashr i32 %46, 5
   %48 = tail call i32 @llvm.smax.i32(i32 %47, i32 -32768)
   %49 = tail call i32 @llvm.smin.i32(i32 %48, i32 32767)
-  %.0.i40 = trunc nsw i32 %49 to i16
-  %50 = getelementptr inbounds nuw i8, ptr %.13342, i64 4
-  store i16 %.0.i40, ptr %42, align 2, !tbaa !39
-  %51 = add nuw nsw i32 %.03441, 1
+  %.0.i39 = trunc nsw i32 %49 to i16
+  %50 = getelementptr inbounds nuw i8, ptr %.13341, i64 4
+  store i16 %.0.i39, ptr %42, align 2, !tbaa !39
+  %51 = add nuw nsw i32 %.03440, 1
   %exitcond.not = icmp eq i32 %51, 32
   br i1 %exitcond.not, label %52, label %34, !llvm.loop !41
 
 52:                                               ; preds = %34
-  %53 = add nuw nsw i32 %.03145, 1
-  %exitcond49.not = icmp eq i32 %53, %11
-  br i1 %exitcond49.not, label %._crit_edge, label %.lr.ph, !llvm.loop !43
+  %53 = add nuw nsw i32 %.03144, 1
+  %exitcond48.not = icmp eq i32 %53, %11
+  br i1 %exitcond48.not, label %._crit_edge, label %.lr.ph, !llvm.loop !43
 
 ._crit_edge:                                      ; preds = %52, %20
   store i32 1, ptr %2, align 4, !tbaa !4

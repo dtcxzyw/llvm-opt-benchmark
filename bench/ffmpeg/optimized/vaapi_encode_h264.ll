@@ -215,62 +215,62 @@ define internal i32 @vaapi_encode_h264_init(ptr noundef %0) #0 {
 
 29:                                               ; preds = %27
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.96) #10
-  br label %56
+  br label %57
 
 30:                                               ; preds = %27
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.97) #10
-  br label %56
+  br label %57
 
 31:                                               ; preds = %27, %27, %27, %27, %27, %27
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.98) #10
-  br label %56
+  br label %57
 
 32:                                               ; preds = %28, %27
   %33 = phi i32 [ %.pre, %28 ], [ %20, %27 ]
-  %.not = icmp eq i32 %33, -99
-  %.not36 = icmp ult i32 %33, 256
-  %or.cond = or i1 %.not, %.not36
-  br i1 %or.cond, label %35, label %34
-
-34:                                               ; preds = %32
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.99, i32 noundef %33) #10
-  br label %56
+  %.not = icmp ne i32 %33, -99
+  %34 = icmp ugt i32 %33, 255
+  %or.cond = and i1 %.not, %34
+  br i1 %or.cond, label %35, label %36
 
 35:                                               ; preds = %32
-  %36 = getelementptr inbounds nuw i8, ptr %3, i64 1220
-  store i32 13, ptr %36, align 4, !tbaa !73
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %38 = load i32, ptr %37, align 8, !tbaa !74
-  %39 = add nsw i32 %38, 15
-  %40 = and i32 %39, -16
-  %41 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store i32 %40, ptr %41, align 8, !tbaa !75
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 116
-  %43 = load i32, ptr %42, align 4, !tbaa !76
-  %44 = add nsw i32 %43, 15
-  %45 = and i32 %44, -16
-  %46 = getelementptr inbounds nuw i8, ptr %3, i64 36
-  store i32 %45, ptr %46, align 4, !tbaa !77
-  %47 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  store i32 16, ptr %47, align 8, !tbaa !78
-  %48 = getelementptr inbounds nuw i8, ptr %3, i64 44
-  store i32 16, ptr %48, align 4, !tbaa !79
-  %49 = getelementptr inbounds nuw i8, ptr %3, i64 5880
-  %50 = load i32, ptr %49, align 8, !tbaa !80
-  %51 = icmp sgt i32 %50, 0
-  br i1 %51, label %52, label %54
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.99, i32 noundef %33) #10
+  br label %57
 
-52:                                               ; preds = %35
-  %53 = getelementptr inbounds nuw i8, ptr %3, i64 1216
-  store i32 %50, ptr %53, align 8, !tbaa !81
-  br label %54
+36:                                               ; preds = %32
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 1220
+  store i32 13, ptr %37, align 4, !tbaa !73
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %39 = load i32, ptr %38, align 8, !tbaa !74
+  %40 = add nsw i32 %39, 15
+  %41 = and i32 %40, -16
+  %42 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  store i32 %41, ptr %42, align 8, !tbaa !75
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 116
+  %44 = load i32, ptr %43, align 4, !tbaa !76
+  %45 = add nsw i32 %44, 15
+  %46 = and i32 %45, -16
+  %47 = getelementptr inbounds nuw i8, ptr %3, i64 36
+  store i32 %46, ptr %47, align 4, !tbaa !77
+  %48 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  store i32 16, ptr %48, align 8, !tbaa !78
+  %49 = getelementptr inbounds nuw i8, ptr %3, i64 44
+  store i32 16, ptr %49, align 4, !tbaa !79
+  %50 = getelementptr inbounds nuw i8, ptr %3, i64 5880
+  %51 = load i32, ptr %50, align 8, !tbaa !80
+  %52 = icmp sgt i32 %51, 0
+  br i1 %52, label %53, label %55
 
-54:                                               ; preds = %52, %35
-  %55 = tail call i32 @ff_vaapi_encode_init(ptr noundef nonnull %0) #10
-  br label %56
+53:                                               ; preds = %36
+  %54 = getelementptr inbounds nuw i8, ptr %3, i64 1216
+  store i32 %51, ptr %54, align 8, !tbaa !81
+  br label %55
 
-56:                                               ; preds = %54, %34, %31, %30, %29
-  %.0 = phi i32 [ -22, %34 ], [ %55, %54 ], [ -1163346256, %29 ], [ -1163346256, %30 ], [ -1163346256, %31 ]
+55:                                               ; preds = %53, %36
+  %56 = tail call i32 @ff_vaapi_encode_init(ptr noundef nonnull %0) #10
+  br label %57
+
+57:                                               ; preds = %55, %35, %31, %30, %29
+  %.0 = phi i32 [ -22, %35 ], [ %56, %55 ], [ -1163346256, %29 ], [ -1163346256, %30 ], [ -1163346256, %31 ]
   ret i32 %.0
 }
 

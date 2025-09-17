@@ -7075,7 +7075,7 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$4push17h
   %.sroa.016.087.lcssa = phi ptr [ %.sroa.016.0.ph91, %.lr.ph ], [ %75, %16 ]
   %.sroa.012.086.lcssa = phi i64 [ %.sroa.012.0.ph90, %.lr.ph ], [ %74, %16 ]
   %.lcssa = phi i64 [ %14, %.lr.ph ], [ %18, %16 ]
-  %20 = icmp eq i64 %.lcssa, 30
+  %20 = icmp samesign ugt i64 %.lcssa, 29
   %21 = icmp eq ptr %.sroa.0.0.ph89, null
   %or.cond = select i1 %20, i1 %21, i1 false
   br i1 %or.cond, label %24, label %22
@@ -7334,7 +7334,7 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$4push17h
   %.sroa.016.087.lcssa = phi ptr [ %.sroa.016.0.ph91, %.lr.ph ], [ %75, %16 ]
   %.sroa.012.086.lcssa = phi i64 [ %.sroa.012.0.ph90, %.lr.ph ], [ %74, %16 ]
   %.lcssa = phi i64 [ %14, %.lr.ph ], [ %18, %16 ]
-  %20 = icmp eq i64 %.lcssa, 30
+  %20 = icmp samesign ugt i64 %.lcssa, 29
   %21 = icmp eq ptr %.sroa.0.0.ph89, null
   %or.cond = select i1 %20, i1 %21, i1 false
   br i1 %or.cond, label %24, label %22
@@ -7593,7 +7593,7 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$4push17h
   %.sroa.016.085.lcssa = phi ptr [ %.sroa.016.0.ph89, %.lr.ph ], [ %75, %16 ]
   %.sroa.012.084.lcssa = phi i64 [ %.sroa.012.0.ph88, %.lr.ph ], [ %74, %16 ]
   %.lcssa = phi i64 [ %14, %.lr.ph ], [ %18, %16 ]
-  %20 = icmp eq i64 %.lcssa, 30
+  %20 = icmp samesign ugt i64 %.lcssa, 29
   %21 = icmp eq ptr %.sroa.0.0.ph87, null
   %or.cond = select i1 %20, i1 %21, i1 false
   br i1 %or.cond, label %24, label %22
@@ -7853,7 +7853,7 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$4push17h
   %.sroa.016.085.lcssa = phi ptr [ %.sroa.016.0.ph89, %.lr.ph ], [ %75, %16 ]
   %.sroa.012.084.lcssa = phi i64 [ %.sroa.012.0.ph88, %.lr.ph ], [ %74, %16 ]
   %.lcssa = phi i64 [ %14, %.lr.ph ], [ %18, %16 ]
-  %20 = icmp eq i64 %.lcssa, 30
+  %20 = icmp samesign ugt i64 %.lcssa, 29
   %21 = icmp eq ptr %.sroa.0.0.ph87, null
   %or.cond = select i1 %20, i1 %21, i1 false
   br i1 %or.cond, label %24, label %22
@@ -8113,7 +8113,7 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$4push17h
   %.sroa.016.087.lcssa = phi ptr [ %.sroa.016.0.ph91, %.lr.ph ], [ %75, %16 ]
   %.sroa.012.086.lcssa = phi i64 [ %.sroa.012.0.ph90, %.lr.ph ], [ %74, %16 ]
   %.lcssa = phi i64 [ %14, %.lr.ph ], [ %18, %16 ]
-  %20 = icmp eq i64 %.lcssa, 30
+  %20 = icmp samesign ugt i64 %.lcssa, 29
   %21 = icmp eq ptr %.sroa.0.0.ph89, null
   %or.cond = select i1 %20, i1 %21, i1 false
   br i1 %or.cond, label %24, label %22
@@ -8362,7 +8362,7 @@ define hidden noundef range(i8 1, 3) i8 @"_ZN16concurrent_queue9unbounded18Unbou
   %.sroa.017.090.lcssa = phi ptr [ %.sroa.017.0.ph94, %.lr.ph ], [ %60, %12 ]
   %.sroa.013.089.lcssa = phi i64 [ %.sroa.013.0.ph93, %.lr.ph ], [ %59, %12 ]
   %.lcssa = phi i64 [ %10, %.lr.ph ], [ %14, %12 ]
-  %16 = icmp eq i64 %.lcssa, 30
+  %16 = icmp samesign ugt i64 %.lcssa, 29
   %17 = icmp eq ptr %.sroa.0.048.ph92, null
   %or.cond = select i1 %16, i1 %17, i1 false
   br i1 %or.cond, label %20, label %18
@@ -8561,7 +8561,7 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$4push17h
   %.sroa.016.085.lcssa = phi ptr [ %.sroa.016.0.ph89, %.lr.ph ], [ %75, %16 ]
   %.sroa.012.084.lcssa = phi i64 [ %.sroa.012.0.ph88, %.lr.ph ], [ %74, %16 ]
   %.lcssa = phi i64 [ %14, %.lr.ph ], [ %18, %16 ]
-  %20 = icmp eq i64 %.lcssa, 30
+  %20 = icmp samesign ugt i64 %.lcssa, 29
   %21 = icmp eq ptr %.sroa.0.0.ph87, null
   %or.cond = select i1 %20, i1 %21, i1 false
   br i1 %or.cond, label %24, label %22
@@ -8828,7 +8828,7 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$4push17h
   %.sroa.017.090.lcssa = phi ptr [ %.sroa.017.0.ph94, %.lr.ph ], [ %83, %19 ]
   %.sroa.013.089.lcssa = phi i64 [ %.sroa.013.0.ph93, %.lr.ph ], [ %82, %19 ]
   %.lcssa = phi i64 [ %17, %.lr.ph ], [ %21, %19 ]
-  %23 = icmp eq i64 %.lcssa, 30
+  %23 = icmp samesign ugt i64 %.lcssa, 29
   %24 = icmp eq ptr %.sroa.0.0.ph92, null
   %or.cond = select i1 %23, i1 %24, i1 false
   br i1 %or.cond, label %27, label %25
@@ -9096,7 +9096,7 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$4push17h
   %.sroa.016.085.lcssa = phi ptr [ %.sroa.016.0.ph89, %.lr.ph ], [ %75, %16 ]
   %.sroa.012.084.lcssa = phi i64 [ %.sroa.012.0.ph88, %.lr.ph ], [ %74, %16 ]
   %.lcssa = phi i64 [ %14, %.lr.ph ], [ %18, %16 ]
-  %20 = icmp eq i64 %.lcssa, 30
+  %20 = icmp samesign ugt i64 %.lcssa, 29
   %21 = icmp eq ptr %.sroa.0.0.ph87, null
   %or.cond = select i1 %20, i1 %21, i1 false
   br i1 %or.cond, label %24, label %22
@@ -9356,7 +9356,7 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$4push17h
   %.sroa.016.087.lcssa = phi ptr [ %.sroa.016.0.ph91, %.lr.ph ], [ %75, %16 ]
   %.sroa.012.086.lcssa = phi i64 [ %.sroa.012.0.ph90, %.lr.ph ], [ %74, %16 ]
   %.lcssa = phi i64 [ %14, %.lr.ph ], [ %18, %16 ]
-  %20 = icmp eq i64 %.lcssa, 30
+  %20 = icmp samesign ugt i64 %.lcssa, 29
   %21 = icmp eq ptr %.sroa.0.0.ph89, null
   %or.cond = select i1 %20, i1 %21, i1 false
   br i1 %or.cond, label %24, label %22
@@ -9615,7 +9615,7 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$4push17h
   %.sroa.016.085.lcssa = phi ptr [ %.sroa.016.0.ph89, %.lr.ph ], [ %75, %16 ]
   %.sroa.012.084.lcssa = phi i64 [ %.sroa.012.0.ph88, %.lr.ph ], [ %74, %16 ]
   %.lcssa = phi i64 [ %14, %.lr.ph ], [ %18, %16 ]
-  %20 = icmp eq i64 %.lcssa, 30
+  %20 = icmp samesign ugt i64 %.lcssa, 29
   %21 = icmp eq ptr %.sroa.0.0.ph87, null
   %or.cond = select i1 %20, i1 %21, i1 false
   br i1 %or.cond, label %24, label %22

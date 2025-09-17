@@ -1126,7 +1126,7 @@ define hidden { i64, ptr } @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$
   %.sroa.017.0102.lcssa = phi ptr [ %.sroa.017.0.ph106, %.lr.ph ], [ %83, %16 ]
   %.sroa.013.0101.lcssa = phi i64 [ %.sroa.013.0.ph105, %.lr.ph ], [ %82, %16 ]
   %.lcssa = phi i64 [ %14, %.lr.ph ], [ %18, %16 ]
-  %21 = icmp eq i64 %.lcssa, 30
+  %21 = icmp samesign ugt i64 %.lcssa, 29
   %22 = icmp eq ptr %.sroa.0.052.ph104, null
   %or.cond = select i1 %21, i1 %22, i1 false
   br i1 %or.cond, label %25, label %23
@@ -6882,9 +6882,8 @@ define internal fastcc void @"_ZN4core3ptr90drop_in_place$LT$core..option..Optio
 
 4:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2626)
-  %5 = add i64 %2, 9223372036854775807
-  %switch.i = icmp ult i64 %5, 2
-  br i1 %switch.i, label %"_ZN4core3ptr62drop_in_place$LT$language..language_settings..FormatOnSave$GT$17h799bb31b2612692dE.exit", label %6
+  %5 = icmp ugt i64 %2, -9223372036854775808
+  br i1 %5, label %"_ZN4core3ptr62drop_in_place$LT$language..language_settings..FormatOnSave$GT$17h799bb31b2612692dE.exit", label %6
 
 6:                                                ; preds = %4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2629)

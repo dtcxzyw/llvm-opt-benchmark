@@ -86,13 +86,13 @@ define void @ff_line_noise_c(ptr noundef writeonly captures(none) %0, ptr nounde
   %13 = load i8, ptr %12, align 1, !tbaa !4
   %14 = sext i8 %13 to i32
   %15 = add nsw i32 %14, %11
-  %.not.i = icmp ult i32 %15, 256
+  %16 = icmp ugt i32 %15, 255
   %isnotneg.i = icmp sgt i32 %15, -1
-  %16 = sext i1 %isnotneg.i to i8
-  %17 = trunc nuw i32 %15 to i8
-  %.0.i = select i1 %.not.i, i8 %17, i8 %16
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
-  store i8 %.0.i, ptr %18, align 1, !tbaa !4
+  %17 = sext i1 %isnotneg.i to i8
+  %18 = trunc nuw i32 %15 to i8
+  %.0.i = select i1 %16, i8 %17, i8 %18
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
+  store i8 %.0.i, ptr %19, align 1, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7

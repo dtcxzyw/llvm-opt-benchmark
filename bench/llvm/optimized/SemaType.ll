@@ -51167,8 +51167,7 @@ _ZSt4copyIPKPN5clang10ParsedAttrEPS2_ET0_T_S7_S6_.exit31.i.thread.i.i: ; preds =
   %171 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %172 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %173 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %.off = add nsw i32 %2, -1
-  %switch = icmp ult i32 %.off, 2
+  %.not1313 = icmp eq i32 %2, 0
   %174 = getelementptr inbounds nuw i8, ptr %119, i64 12
   %175 = getelementptr inbounds nuw i8, ptr %119, i64 24
   %176 = getelementptr inbounds nuw i8, ptr %119, i64 40
@@ -53168,9 +53167,9 @@ _ZN12_GLOBAL__N_119TypeProcessingState17getAttributedTypeEPN5clang4AttrENS1_8Qua
 1200:                                             ; preds = %1192
   %1201 = load i32, ptr %348, align 4
   %trunc.i.i = trunc i32 %1201 to i16
-  %switch.tableidx1448 = add i16 %trunc.i.i, -277
-  %1202 = icmp ult i16 %switch.tableidx1448, 10
-  br i1 %1202, label %switch.lookup1449, label %_ZNK5clang10ParsedAttr12asSYCLLangASEv.exit.i
+  %switch.tableidx1449 = add i16 %trunc.i.i, -277
+  %1202 = icmp ult i16 %switch.tableidx1449, 10
+  br i1 %1202, label %switch.lookup1450, label %_ZNK5clang10ParsedAttr12asSYCLLangASEv.exit.i
 
 switch.lookup:                                    ; preds = %1198
   %1203 = zext nneg i16 %switch.tableidx to i64
@@ -53178,14 +53177,14 @@ switch.lookup:                                    ; preds = %1198
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZNK5clang10ParsedAttr12asSYCLLangASEv.exit.i
 
-switch.lookup1449:                                ; preds = %1200
-  %1204 = zext nneg i16 %switch.tableidx1448 to i64
-  %switch.gep1450 = getelementptr inbounds nuw i32, ptr @switch.table._ZL16processTypeAttrsRN12_GLOBAL__N_119TypeProcessingStateERN5clang8QualTypeE16TypeAttrLocationRKNS2_20ParsedAttributesViewENS2_18CUDAFunctionTargetE.259, i64 %1204
-  %switch.load1451 = load i32, ptr %switch.gep1450, align 4
+switch.lookup1450:                                ; preds = %1200
+  %1204 = zext nneg i16 %switch.tableidx1449 to i64
+  %switch.gep1451 = getelementptr inbounds nuw i32, ptr @switch.table._ZL16processTypeAttrsRN12_GLOBAL__N_119TypeProcessingStateERN5clang8QualTypeE16TypeAttrLocationRKNS2_20ParsedAttributesViewENS2_18CUDAFunctionTargetE.259, i64 %1204
+  %switch.load1452 = load i32, ptr %switch.gep1451, align 4
   br label %_ZNK5clang10ParsedAttr12asSYCLLangASEv.exit.i
 
-_ZNK5clang10ParsedAttr12asSYCLLangASEv.exit.i:    ; preds = %1200, %switch.lookup1449, %1198, %switch.lookup
-  %1205 = phi i32 [ %switch.load, %switch.lookup ], [ 0, %1198 ], [ %switch.load1451, %switch.lookup1449 ], [ 0, %1200 ]
+_ZNK5clang10ParsedAttr12asSYCLLangASEv.exit.i:    ; preds = %1200, %switch.lookup1450, %1198, %switch.lookup
+  %1205 = phi i32 [ %switch.load, %switch.lookup ], [ 0, %1198 ], [ %switch.load1452, %switch.lookup1450 ], [ 0, %1200 ]
   %1206 = getelementptr inbounds nuw i8, ptr %1194, i64 88
   %1207 = load i64, ptr %1206, align 8
   %1208 = and i64 %1207, 256
@@ -60277,8 +60276,8 @@ _ZNK5clang10Declarator18isPrototypeContextEv.exit: ; preds = %4542, %4542, %4542
   %4548 = getelementptr inbounds nuw i8, ptr %4547, i64 8
   %4549 = load i64, ptr %4548, align 8
   %4550 = trunc i64 %4549 to i32
-  %switch.tableidx1452 = shl i32 %4550, 3
-  %switch.cast = add i32 %switch.tableidx1452, 521280
+  %switch.tableidx1453 = shl i32 %4550, 3
+  %switch.cast = add i32 %switch.tableidx1453, 521280
   %switch.shiftamt = and i32 %switch.cast, 524280
   %switch.downshift = lshr i32 50397696, %switch.shiftamt
   %switch.masked = trunc i32 %switch.downshift to i8
@@ -60298,7 +60297,7 @@ _ZNK5clang10Declarator18isPrototypeContextEv.exit: ; preds = %4542, %4542, %4542
 
 4558:                                             ; preds = %.thread
   %.val.i693.pre972 = load ptr, ptr %0, align 8, !tbaa !1322
-  br i1 %switch, label %4559, label %4618
+  br i1 %.not1313, label %4618, label %4559
 
 4559:                                             ; preds = %4558
   call void @llvm.lifetime.start.p0(ptr nonnull %118)
@@ -61717,8 +61716,8 @@ _ZNK5clang8QualType13getQualifiersEv.exit.thread: ; preds = %5232
   %5237 = getelementptr inbounds nuw i8, ptr %5236, i64 24
   %.sroa.0.0.copyload.i.i.i795 = load i64, ptr %5237, align 8, !tbaa !53
   %5238 = and i64 %.sroa.0.0.copyload.i.i.i795, 496
-  %or.cond1383 = icmp eq i64 %5238, 0
-  br i1 %or.cond1383, label %.critedge841, label %5252
+  %or.cond1384 = icmp eq i64 %5238, 0
+  br i1 %or.cond1384, label %.critedge841, label %5252
 
 .critedge841:                                     ; preds = %_ZNK5clang8QualType13getQualifiersEv.exit.thread, %5232
   %5239 = load ptr, ptr %444, align 8, !tbaa !1330

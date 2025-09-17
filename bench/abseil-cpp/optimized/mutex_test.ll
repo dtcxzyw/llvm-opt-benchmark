@@ -14990,9 +14990,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_120ConditionWithAcquireEPNS_
   br i1 %15, label %16, label %18, !prof !445
 
 16:                                               ; preds = %13
-  %17 = and i32 %14, -2
-  %spec.select = icmp eq i32 %17, 2
-  ret i1 %spec.select
+  %17 = icmp sgt i32 %14, 1
+  ret i1 %17
 
 18:                                               ; preds = %13
   %19 = zext nneg i32 %14 to i64

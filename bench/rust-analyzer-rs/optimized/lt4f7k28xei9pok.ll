@@ -23294,82 +23294,80 @@ define internal fastcc void @"_ZN4core3ptr65drop_in_place$LT$ide_db..imports..im
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @"_ZN4core3ptr68drop_in_place$LT$ide_db..imports..import_assets..ImportCandidate$GT$17h4a5fe6f442f5b217E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !2916, !noundef !4
-  %3 = add i64 %2, 9223372036854775807
-  %4 = icmp ult i64 %3, 2
-  %5 = xor i64 %2, -9223372036854775808
-  %6 = select i1 %4, i64 %5, i64 0
-  switch i64 %6, label %7 [
-    i64 0, label %14
-    i64 1, label %23
+  %3 = tail call i64 @llvm.umax.i64(i64 %2, i64 -9223372036854775808)
+  %4 = and i64 %3, 9223372036854775807
+  switch i64 %4, label %5 [
+    i64 0, label %12
+    i64 1, label %21
   ]
 
-7:                                                ; preds = %1
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  invoke void @"_ZN4core3ptr30drop_in_place$LT$hir..Type$GT$17he97510feaa5f58f2E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %9)
-          to label %"_ZN4core3ptr73drop_in_place$LT$ide_db..imports..import_assets..TraitImportCandidate$GT$17h67358ae23fc24f04E.exit" unwind label %10
+5:                                                ; preds = %1
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  invoke void @"_ZN4core3ptr30drop_in_place$LT$hir..Type$GT$17he97510feaa5f58f2E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %7)
+          to label %"_ZN4core3ptr73drop_in_place$LT$ide_db..imports..import_assets..TraitImportCandidate$GT$17h67358ae23fc24f04E.exit" unwind label %8
 
-10:                                               ; preds = %7
-  %11 = landingpad { ptr, i32 }
+8:                                                ; preds = %5
+  %9 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ide_db..imports..import_assets..NameToImport$GT$17h4e25feaebc85e9b8E.llvm.17272167133303916261"(ptr noalias noundef nonnull align 8 dereferenceable(48) %8) #36
-          to label %common.resume unwind label %12
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ide_db..imports..import_assets..NameToImport$GT$17h4e25feaebc85e9b8E.llvm.17272167133303916261"(ptr noalias noundef nonnull align 8 dereferenceable(48) %6) #36
+          to label %common.resume unwind label %10
 
-12:                                               ; preds = %10
-  %13 = landingpad { ptr, i32 }
+10:                                               ; preds = %8
+  %11 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #35
   unreachable
 
-common.resume:                                    ; preds = %26, %17, %10
-  %common.resume.op = phi { ptr, i32 } [ %11, %10 ], [ %18, %17 ], [ %27, %26 ]
+common.resume:                                    ; preds = %24, %15, %8
+  %common.resume.op = phi { ptr, i32 } [ %9, %8 ], [ %16, %15 ], [ %25, %24 ]
   resume { ptr, i32 } %common.resume.op
 
-14:                                               ; preds = %1
-  %15 = icmp eq i64 %2, -9223372036854775808
-  br i1 %15, label %"_ZN4core3ptr72drop_in_place$LT$ide_db..imports..import_assets..PathImportCandidate$GT$17h27eee75af4be1613E.exit", label %16
+12:                                               ; preds = %1
+  %13 = icmp eq i64 %2, -9223372036854775808
+  br i1 %13, label %"_ZN4core3ptr72drop_in_place$LT$ide_db..imports..import_assets..PathImportCandidate$GT$17h27eee75af4be1613E.exit", label %14
 
-16:                                               ; preds = %14
+14:                                               ; preds = %12
   invoke void @"_ZN4core3ptr61drop_in_place$LT$alloc..vec..Vec$LT$smol_str..SmolStr$GT$$GT$17h172f0c0866c65681E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0)
-          to label %"_ZN4core3ptr72drop_in_place$LT$ide_db..imports..import_assets..PathImportCandidate$GT$17h27eee75af4be1613E.exit" unwind label %17
+          to label %"_ZN4core3ptr72drop_in_place$LT$ide_db..imports..import_assets..PathImportCandidate$GT$17h27eee75af4be1613E.exit" unwind label %15
 
-17:                                               ; preds = %16
-  %18 = landingpad { ptr, i32 }
+15:                                               ; preds = %14
+  %16 = landingpad { ptr, i32 }
           cleanup
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ide_db..imports..import_assets..NameToImport$GT$17h4e25feaebc85e9b8E.llvm.17272167133303916261"(ptr noalias noundef nonnull align 8 dereferenceable(32) %19) #36
-          to label %common.resume unwind label %20
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ide_db..imports..import_assets..NameToImport$GT$17h4e25feaebc85e9b8E.llvm.17272167133303916261"(ptr noalias noundef nonnull align 8 dereferenceable(32) %17) #36
+          to label %common.resume unwind label %18
 
-20:                                               ; preds = %17
-  %21 = landingpad { ptr, i32 }
+18:                                               ; preds = %15
+  %19 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #35
   unreachable
 
-"_ZN4core3ptr72drop_in_place$LT$ide_db..imports..import_assets..PathImportCandidate$GT$17h27eee75af4be1613E.exit": ; preds = %14, %16
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
+"_ZN4core3ptr72drop_in_place$LT$ide_db..imports..import_assets..PathImportCandidate$GT$17h27eee75af4be1613E.exit": ; preds = %12, %14
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %"_ZN4core3ptr73drop_in_place$LT$ide_db..imports..import_assets..TraitImportCandidate$GT$17h67358ae23fc24f04E.exit"
 
-23:                                               ; preds = %1
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  invoke void @"_ZN4core3ptr30drop_in_place$LT$hir..Type$GT$17he97510feaa5f58f2E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %25)
-          to label %"_ZN4core3ptr73drop_in_place$LT$ide_db..imports..import_assets..TraitImportCandidate$GT$17h67358ae23fc24f04E.exit" unwind label %26
+21:                                               ; preds = %1
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  invoke void @"_ZN4core3ptr30drop_in_place$LT$hir..Type$GT$17he97510feaa5f58f2E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %23)
+          to label %"_ZN4core3ptr73drop_in_place$LT$ide_db..imports..import_assets..TraitImportCandidate$GT$17h67358ae23fc24f04E.exit" unwind label %24
 
-26:                                               ; preds = %23
-  %27 = landingpad { ptr, i32 }
+24:                                               ; preds = %21
+  %25 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ide_db..imports..import_assets..NameToImport$GT$17h4e25feaebc85e9b8E.llvm.17272167133303916261"(ptr noalias noundef nonnull align 8 dereferenceable(48) %24) #36
-          to label %common.resume unwind label %28
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ide_db..imports..import_assets..NameToImport$GT$17h4e25feaebc85e9b8E.llvm.17272167133303916261"(ptr noalias noundef nonnull align 8 dereferenceable(48) %22) #36
+          to label %common.resume unwind label %26
 
-28:                                               ; preds = %26
-  %29 = landingpad { ptr, i32 }
+26:                                               ; preds = %24
+  %27 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #35
   unreachable
 
-"_ZN4core3ptr73drop_in_place$LT$ide_db..imports..import_assets..TraitImportCandidate$GT$17h67358ae23fc24f04E.exit": ; preds = %23, %7, %"_ZN4core3ptr72drop_in_place$LT$ide_db..imports..import_assets..PathImportCandidate$GT$17h27eee75af4be1613E.exit"
-  %.sink = phi ptr [ %22, %"_ZN4core3ptr72drop_in_place$LT$ide_db..imports..import_assets..PathImportCandidate$GT$17h27eee75af4be1613E.exit" ], [ %8, %7 ], [ %24, %23 ]
+"_ZN4core3ptr73drop_in_place$LT$ide_db..imports..import_assets..TraitImportCandidate$GT$17h67358ae23fc24f04E.exit": ; preds = %21, %5, %"_ZN4core3ptr72drop_in_place$LT$ide_db..imports..import_assets..PathImportCandidate$GT$17h27eee75af4be1613E.exit"
+  %.sink = phi ptr [ %20, %"_ZN4core3ptr72drop_in_place$LT$ide_db..imports..import_assets..PathImportCandidate$GT$17h27eee75af4be1613E.exit" ], [ %6, %5 ], [ %22, %21 ]
   tail call void @"_ZN4core3ptr65drop_in_place$LT$ide_db..imports..import_assets..NameToImport$GT$17h4e25feaebc85e9b8E.llvm.17272167133303916261"(ptr noalias noundef nonnull align 8 dereferenceable(32) %.sink)
   ret void
 }
@@ -67044,6 +67042,9 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #34
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64, i64) #33
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #33
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare range(i8 -1, 2) i8 @llvm.scmp.i8.i64(i64, i64) #33

@@ -6371,9 +6371,8 @@ unicode_cp_is_allowed.exit212.thread.thread:      ; preds = %272, %unicode_cp_is
   ]
 
 285:                                              ; preds = %284
-  %286 = add nsw i32 %.1290296.fr, -32
-  %or.cond.i227 = icmp ult i32 %286, 95
-  br i1 %or.cond.i227, label %.thread408, label %switch.early.test.i228
+  %286 = icmp samesign ugt i32 %.1290296.fr, 31
+  br i1 %286, label %.thread408, label %switch.early.test.i228
 
 switch.early.test.i228:                           ; preds = %285
   switch i32 %.1290296.fr, label %.thread437 [
@@ -6383,14 +6382,12 @@ switch.early.test.i228:                           ; preds = %285
   ]
 
 287:                                              ; preds = %284
-  %288 = add nsw i32 %.1290296.fr, -32
-  %or.cond11.i219 = icmp ult i32 %288, 95
-  br i1 %or.cond11.i219, label %.thread408, label %unicode_cp_is_allowed.exit230
+  %288 = icmp samesign ugt i32 %.1290296.fr, 31
+  br i1 %288, label %.thread408, label %unicode_cp_is_allowed.exit230
 
 289:                                              ; preds = %284, %284
-  %290 = add nsw i32 %.1290296.fr, -32
-  %or.cond21.i213 = icmp ult i32 %290, 55264
-  br i1 %or.cond21.i213, label %.thread408, label %switch.early.test66.i214
+  %290 = icmp samesign ugt i32 %.1290296.fr, 31
+  br i1 %290, label %.thread408, label %switch.early.test66.i214
 
 switch.early.test66.i214:                         ; preds = %289
   switch i32 %.1290296.fr, label %.thread437 [

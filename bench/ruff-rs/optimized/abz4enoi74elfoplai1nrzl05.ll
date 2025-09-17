@@ -5444,9 +5444,8 @@ default.unreachable3:                             ; preds = %61
   br label %84
 
 59:                                               ; preds = %47
-  %.off = add nsw i8 %46, -1
-  %switch1 = icmp ult i8 %.off, 2
-  br i1 %switch1, label %63, label %.thread
+  %.not = icmp eq i8 %46, 0
+  br i1 %.not, label %.thread, label %63
 
 .thread:                                          ; preds = %59
   call void @llvm.lifetime.start.p0(ptr nonnull %10)

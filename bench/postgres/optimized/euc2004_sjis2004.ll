@@ -412,10 +412,9 @@ get_ten.exit.thread136.i:                         ; preds = %49
   br i1 %or.cond3.i.i, label %get_ten.exit.i, label %53
 
 53:                                               ; preds = %52
-  %54 = add i8 %45, 97
-  %or.cond5.i.i = icmp ult i8 %54, 94
+  %54 = icmp slt i8 %45, -3
   %55 = add nsw i32 %46, -158
-  br i1 %or.cond5.i.i, label %get_ten.exit.i, label %get_ten.exit.thread.i
+  br i1 %54, label %get_ten.exit.i, label %get_ten.exit.thread.i
 
 get_ten.exit.i:                                   ; preds = %53, %52
   %.sink.i.neg.i = phi i32 [ -1, %52 ], [ 0, %53 ]
@@ -457,10 +456,9 @@ get_ten.exit113.thread144.i:                      ; preds = %64
   br i1 %or.cond3.i108.i, label %get_ten.exit113.i, label %68
 
 68:                                               ; preds = %67
-  %69 = add i8 %45, 97
-  %or.cond5.i109.i = icmp ult i8 %69, 94
+  %69 = icmp slt i8 %45, -3
   %70 = add nsw i32 %46, -158
-  br i1 %or.cond5.i109.i, label %get_ten.exit113.i, label %get_ten.exit113.thread.i
+  br i1 %69, label %get_ten.exit113.i, label %get_ten.exit113.thread.i
 
 get_ten.exit113.i:                                ; preds = %68, %67
   %.sink.i111.neg.i = phi i32 [ -1, %67 ], [ 0, %68 ]
@@ -502,10 +500,9 @@ get_ten.exit120.thread152.i:                      ; preds = %79
   br i1 %or.cond3.i115.i, label %get_ten.exit120.i, label %83
 
 83:                                               ; preds = %82
-  %84 = add i8 %45, 97
-  %or.cond5.i116.i = icmp ult i8 %84, 94
+  %84 = icmp slt i8 %45, -3
   %85 = add nsw i32 %46, -158
-  br i1 %or.cond5.i116.i, label %get_ten.exit120.i, label %get_ten.exit120.thread.i
+  br i1 %84, label %get_ten.exit120.i, label %get_ten.exit120.thread.i
 
 get_ten.exit120.i:                                ; preds = %83, %82
   %.sink.i118.i = phi i32 [ 1, %82 ], [ 0, %83 ]
@@ -565,10 +562,9 @@ get_ten.exit127.thread160.i:                      ; preds = %100
   br i1 %or.cond3.i122.i, label %get_ten.exit127.i, label %104
 
 104:                                              ; preds = %103
-  %105 = add i8 %45, 97
-  %or.cond5.i123.i = icmp ult i8 %105, 94
+  %105 = icmp slt i8 %45, -3
   %106 = add nsw i32 %46, -158
-  br i1 %or.cond5.i123.i, label %get_ten.exit127.i, label %get_ten.exit127.thread.i
+  br i1 %105, label %get_ten.exit127.i, label %get_ten.exit127.thread.i
 
 get_ten.exit127.i:                                ; preds = %104, %103
   %.sink.i125.i = phi i32 [ 1, %103 ], [ 0, %104 ]

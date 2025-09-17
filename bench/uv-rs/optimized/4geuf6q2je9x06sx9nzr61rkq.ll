@@ -5195,9 +5195,8 @@ define hidden { ptr, ptr } @_ZN4core5error5Error5cause17hccd8ee930549822bE(ptr n
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden { ptr, ptr } @_ZN4core5error5Error5cause17hf1691afa82c60b96E(ptr noalias noundef readonly align 8 dereferenceable(88) %0) unnamed_addr #11 {
   %2 = load i64, ptr %0, align 8, !range !1170, !alias.scope !1171, !noundef !22
-  %3 = add nsw i64 %2, -10
-  %switch.i = icmp ult i64 %3, 11
-  %..i = select i1 %switch.i, ptr null, ptr %0
+  %3 = icmp samesign ugt i64 %2, 9
+  %..i = select i1 %3, ptr null, ptr %0
   %4 = insertvalue { ptr, ptr } poison, ptr %..i, 0
   %5 = insertvalue { ptr, ptr } %4, ptr @anon.47af8473826c8c2585696a780e517604.281.llvm.12101516472763982539, 1
   ret { ptr, ptr } %5

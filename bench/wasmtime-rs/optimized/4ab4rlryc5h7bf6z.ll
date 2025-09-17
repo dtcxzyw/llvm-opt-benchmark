@@ -6111,9 +6111,8 @@ define internal fastcc void @"_ZN4core3ptr331drop_in_place$LT$hashbrown..scopegu
   call void @llvm.lifetime.end.p0(ptr nonnull %1), !noalias !1124
   %30 = sub nsw i64 0, %29
   %31 = getelementptr inbounds i8, ptr %19, i64 %30
-  %32 = add i64 %27, -1
-  %33 = icmp sgt i64 %32, -1
-  tail call void @llvm.assume(i1 %33)
+  %32 = icmp ne i64 %27, 0
+  tail call void @llvm.assume(i1 %32)
   tail call void @__rust_dealloc(ptr noundef nonnull %31, i64 noundef %28, i64 noundef %27) #64, !noalias !1124
   br label %"_ZN9hashbrown3raw15Bucket$LT$T$GT$4drop17hc3548a8c08c2c3efE.llvm.1710812290736639100.exit.i.i"
 
@@ -6233,9 +6232,8 @@ define hidden void @"_ZN4core3ptr53drop_in_place$LT$regalloc2..checker..CheckerV
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !1161
   %16 = sub nsw i64 0, %15
   %17 = getelementptr inbounds i8, ptr %3, i64 %16
-  %18 = add i64 %11, -1
-  %19 = icmp sgt i64 %18, -1
-  tail call void @llvm.assume(i1 %19)
+  %18 = icmp ne i64 %11, 0
+  tail call void @llvm.assume(i1 %18)
   tail call void @__rust_dealloc(ptr noundef nonnull %17, i64 noundef %13, i64 noundef %11) #64, !noalias !1161
   br label %"_ZN4core3ptr128drop_in_place$LT$hashbrown..set..HashSet$LT$regalloc2..VReg$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17hd762947dadbb1ebeE.exit"
 }
@@ -6439,9 +6437,8 @@ define hidden void @"_ZN4core3ptr85drop_in_place$LT$$LP$regalloc2..Allocation$C$
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !1226
   %17 = sub nsw i64 0, %16
   %18 = getelementptr inbounds i8, ptr %4, i64 %17
-  %19 = add i64 %12, -1
-  %20 = icmp sgt i64 %19, -1
-  tail call void @llvm.assume(i1 %20)
+  %19 = icmp ne i64 %12, 0
+  tail call void @llvm.assume(i1 %19)
   tail call void @__rust_dealloc(ptr noundef nonnull %18, i64 noundef %14, i64 noundef %12) #64, !noalias !1226
   br label %"_ZN4core3ptr53drop_in_place$LT$regalloc2..checker..CheckerValue$GT$17hd66482d4e69df645E.llvm.1710812290736639100.exit"
 
@@ -6491,9 +6488,8 @@ define hidden void @"_ZN4core3ptr90drop_in_place$LT$$LP$usize$C$hashbrown..set..
   %14 = load ptr, ptr %7, align 8, !alias.scope !1248, !nonnull !4, !noundef !4
   %15 = sub nsw i64 0, %13
   %16 = getelementptr inbounds i8, ptr %14, i64 %15
-  %17 = add i64 %9, -1
-  %18 = icmp sgt i64 %17, -1
-  tail call void @llvm.assume(i1 %18)
+  %17 = icmp ne i64 %9, 0
+  tail call void @llvm.assume(i1 %17)
   tail call void @__rust_dealloc(ptr noundef nonnull %16, i64 noundef %11, i64 noundef %9) #64, !noalias !1248
   br label %"_ZN4core3ptr74drop_in_place$LT$hashbrown..set..HashSet$LT$regalloc2..index..Inst$GT$$GT$17h8504c2c612ecbae4E.exit"
 
@@ -13430,9 +13426,8 @@ define hidden void @"_ZN9hashbrown3raw15Bucket$LT$T$GT$4drop17hc3548a8c08c2c3efE
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !2307
   %18 = sub nsw i64 0, %17
   %19 = getelementptr inbounds i8, ptr %5, i64 %18
-  %20 = add i64 %13, -1
-  %21 = icmp sgt i64 %20, -1
-  tail call void @llvm.assume(i1 %21)
+  %20 = icmp ne i64 %13, 0
+  tail call void @llvm.assume(i1 %20)
   tail call void @__rust_dealloc(ptr noundef nonnull %19, i64 noundef %15, i64 noundef %13) #64, !noalias !2307
   br label %"_ZN4core3ptr85drop_in_place$LT$$LP$regalloc2..Allocation$C$regalloc2..checker..CheckerValue$RP$$GT$17hd448d7c1c6fd250dE.llvm.1710812290736639100.exit"
 
@@ -13474,9 +13469,8 @@ define hidden void @"_ZN9hashbrown3raw15Bucket$LT$T$GT$4drop17hcf6628a8de09ab19E
   %15 = load ptr, ptr %8, align 8, !alias.scope !2329, !nonnull !4, !noundef !4
   %16 = sub nsw i64 0, %14
   %17 = getelementptr inbounds i8, ptr %15, i64 %16
-  %18 = add i64 %10, -1
-  %19 = icmp sgt i64 %18, -1
-  tail call void @llvm.assume(i1 %19)
+  %18 = icmp ne i64 %10, 0
+  tail call void @llvm.assume(i1 %18)
   tail call void @__rust_dealloc(ptr noundef nonnull %17, i64 noundef %12, i64 noundef %10) #64, !noalias !2329
   br label %"_ZN4core3ptr90drop_in_place$LT$$LP$usize$C$hashbrown..set..HashSet$LT$regalloc2..index..Inst$GT$$RP$$GT$17hcaf8f3e03a8fc59bE.llvm.1710812290736639100.exit"
 
@@ -16909,15 +16903,14 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$13drop_elements17ha
   %40 = load ptr, ptr %35, align 8, !alias.scope !2912, !noalias !2905, !nonnull !4, !noundef !4
   %41 = sub nsw i64 0, %39
   %42 = getelementptr inbounds i8, ptr %40, i64 %41
-  %43 = add i64 %37, -1
-  %44 = icmp sgt i64 %43, -1
-  tail call void @llvm.assume(i1 %44)
+  %43 = icmp ne i64 %37, 0
+  tail call void @llvm.assume(i1 %43)
   tail call void @__rust_dealloc(ptr noundef nonnull %42, i64 noundef %38, i64 noundef %37) #64, !noalias !2911
   br label %"_ZN9hashbrown3raw15Bucket$LT$T$GT$4drop17hcf6628a8de09ab19E.llvm.1710812290736639100.exit"
 
 "_ZN9hashbrown3raw15Bucket$LT$T$GT$4drop17hcf6628a8de09ab19E.llvm.1710812290736639100.exit": ; preds = %23, %34
-  %45 = icmp eq i64 %30, 0
-  br i1 %45, label %.thread, label %15
+  %44 = icmp eq i64 %30, 0
+  br i1 %44, label %.thread, label %15
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -17131,15 +17124,14 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$13drop_elements17hf
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !2983
   %43 = sub nsw i64 0, %42
   %44 = getelementptr inbounds i8, ptr %32, i64 %43
-  %45 = add i64 %40, -1
-  %46 = icmp sgt i64 %45, -1
-  tail call void @llvm.assume(i1 %46)
+  %45 = icmp ne i64 %40, 0
+  tail call void @llvm.assume(i1 %45)
   tail call void @__rust_dealloc(ptr noundef nonnull %44, i64 noundef %41, i64 noundef %40) #64, !noalias !2983
   br label %"_ZN9hashbrown3raw15Bucket$LT$T$GT$4drop17hc3548a8c08c2c3efE.llvm.1710812290736639100.exit"
 
 "_ZN9hashbrown3raw15Bucket$LT$T$GT$4drop17hc3548a8c08c2c3efE.llvm.1710812290736639100.exit": ; preds = %23, %34, %38
-  %47 = icmp eq i64 %30, 0
-  br i1 %47, label %.thread, label %15
+  %46 = icmp eq i64 %30, 0
+  br i1 %46, label %.thread, label %15
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn uwtable
@@ -39188,9 +39180,8 @@ switch.lookup:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZN17cranelift_codegen10data_value9DataValue9is_vector17h5ce08158bc3a5349E(ptr noalias noundef readonly align 16 captures(none) dereferenceable(32) %0) unnamed_addr #47 {
   %2 = load i8, ptr %0, align 16, !range !7288, !noundef !4
-  %.off = add nsw i8 %2, -7
-  %switch = icmp ult i8 %.off, 2
-  ret i1 %switch
+  %3 = icmp samesign ugt i8 %2, 6
+  ret i1 %3
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable

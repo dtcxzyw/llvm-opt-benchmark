@@ -7210,10 +7210,9 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb1EEppEv.exit.i.i.i.i: ;
   br i1 %.not1.i.i.i.i.i.i.i70, label %.thread, label %.lr.ph.i.i.i.preheader.i.i65, !llvm.loop !654
 
 _ZNK4llvm19MachineRegisterInfo9hasOneUseENS_8RegisterE.exit71: ; preds = %.lr.ph.i.i.i.preheader.i.i65
-  %176 = and i32 %26, -2
-  %or.cond3 = icmp eq i32 %176, 2
+  %176 = icmp ult i32 %26, 4
   %177 = icmp ne i64 %154, 0
-  %or.cond5 = select i1 %or.cond3, i1 true, i1 %177
+  %or.cond5 = select i1 %176, i1 true, i1 %177
   br i1 %or.cond5, label %178, label %.thread
 
 178:                                              ; preds = %_ZNK4llvm19MachineRegisterInfo9hasOneUseENS_8RegisterE.exit71

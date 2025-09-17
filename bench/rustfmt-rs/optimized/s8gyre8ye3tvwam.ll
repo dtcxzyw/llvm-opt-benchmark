@@ -8488,13 +8488,13 @@ define internal fastcc noundef i32 @"_ZN15rustfmt_nightly4attr13format_derive28_
   unreachable
 
 12:                                               ; preds = %0
-  %13 = icmp sgt i16 %.sroa.4.0.extract.trunc.i, -1
+  %13 = icmp sgt i16 %.sroa.4.0.extract.trunc.i, -2
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br i1 %13, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread2
 
 _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread: ; preds = %12
   %15 = trunc nuw i64 %.sroa.4.0.extract.shift.i to i32
-  %16 = and i32 %15, 32767
+  %16 = and i32 %15, 65535
   %17 = add i32 %16, %.sroa.09.0.extract.trunc.i
   store i32 %17, ptr %14, align 4, !alias.scope !1468
   br label %25
@@ -8588,7 +8588,7 @@ default.unreachable65:                            ; preds = %2
 27:                                               ; preds = %15
   %.sroa.5.0.extract.shift.i = lshr i64 %18, 48
   %.sroa.5.0.extract.trunc.i = trunc nuw nsw i64 %.sroa.5.0.extract.shift.i to i32
-  %28 = icmp sgt i16 %.sroa.4.0.extract.trunc.i, -1
+  %28 = icmp sgt i16 %.sroa.4.0.extract.trunc.i, -2
   %29 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i32 %.sroa.09.0.extract.trunc.i, ptr %29, align 4, !alias.scope !1479
   br i1 %28, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread45
@@ -8646,7 +8646,7 @@ _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit:
 48:                                               ; preds = %30
   %.sroa.5.0.extract.shift.i17 = lshr i64 %.sroa.01.0.copyload, 48
   %.sroa.5.0.extract.trunc.i18 = trunc nuw nsw i64 %.sroa.5.0.extract.shift.i17 to i32
-  %49 = icmp sgt i16 %.sroa.4.0.extract.trunc.i16, -1
+  %49 = icmp sgt i16 %.sroa.4.0.extract.trunc.i16, -2
   %50 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store i32 %.sroa.09.0.extract.trunc.i14, ptr %50, align 4, !alias.scope !1490
   br i1 %49, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit23.thread, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit23.thread49
@@ -8695,7 +8695,7 @@ _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit2
 61:                                               ; preds = %51
   %.sroa.5.0.extract.shift.i27 = lshr i64 %.sroa.05.0.copyload, 48
   %.sroa.5.0.extract.trunc.i28 = trunc nuw nsw i64 %.sroa.5.0.extract.shift.i27 to i32
-  %62 = icmp sgt i16 %.sroa.4.0.extract.trunc.i26, -1
+  %62 = icmp sgt i16 %.sroa.4.0.extract.trunc.i26, -2
   %63 = getelementptr inbounds nuw i8, ptr %13, i64 4
   store i32 %.sroa.09.0.extract.trunc.i24, ptr %63, align 4, !alias.scope !1500
   br i1 %62, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit33.thread, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit33.thread53
@@ -8776,13 +8776,13 @@ _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit2
   unreachable
 
 86:                                               ; preds = %77
-  %87 = icmp sgt i16 %.sroa.4.0.extract.trunc.i.i.i, -1
+  %87 = icmp sgt i16 %.sroa.4.0.extract.trunc.i.i.i, -2
   %88 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br i1 %87, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread.i.i, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread2.i.i
 
 _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread.i.i: ; preds = %86
   %89 = trunc nuw i64 %.sroa.4.0.extract.shift.i.i.i to i32
-  %90 = and i32 %89, 32767
+  %90 = and i32 %89, 65535
   %91 = add i32 %90, %.sroa.09.0.extract.trunc.i.i.i
   store i32 %91, ptr %88, align 4, !alias.scope !1513, !noalias !1510
   br label %"_ZN15rustfmt_nightly4expr18rewrite_struct_lit28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hcceadbc0c57de428E.exit.i"
@@ -8854,7 +8854,7 @@ _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.
 112:                                              ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h55b35170e908abb3E.exit"
   %.sroa.5.0.extract.shift.i37 = lshr i64 %.sroa.03.0.copyload, 48
   %.sroa.5.0.extract.trunc.i38 = trunc nuw nsw i64 %.sroa.5.0.extract.shift.i37 to i32
-  %113 = icmp sgt i16 %.sroa.4.0.extract.trunc.i36, -1
+  %113 = icmp sgt i16 %.sroa.4.0.extract.trunc.i36, -2
   %114 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i32 %.sroa.09.0.extract.trunc.i34, ptr %114, align 4, !alias.scope !1525
   br i1 %113, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit43.thread, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit43.thread57
@@ -8977,13 +8977,13 @@ default.unreachable15:                            ; preds = %1
   unreachable
 
 22:                                               ; preds = %10
-  %23 = icmp sgt i16 %.sroa.4.0.extract.trunc.i, -1
+  %23 = icmp sgt i16 %.sroa.4.0.extract.trunc.i, -2
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 8
   br i1 %23, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread2
 
 _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread: ; preds = %22
   %25 = trunc nuw i64 %.sroa.4.0.extract.shift.i to i32
-  %26 = and i32 %25, 32767
+  %26 = and i32 %25, 65535
   %27 = add i32 %26, %.sroa.09.0.extract.trunc.i
   store i32 %27, ptr %24, align 4, !alias.scope !1535
   br label %75
@@ -9041,13 +9041,13 @@ _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit:
   unreachable
 
 43:                                               ; preds = %31
-  %44 = icmp sgt i16 %.sroa.4.0.extract.trunc.i8, -1
+  %44 = icmp sgt i16 %.sroa.4.0.extract.trunc.i8, -2
   %45 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br i1 %44, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit15.thread, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit15.thread6
 
 _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit15.thread: ; preds = %43
   %46 = trunc nuw i64 %.sroa.4.0.extract.shift.i7 to i32
-  %47 = and i32 %46, 32767
+  %47 = and i32 %46, 65535
   %48 = add i32 %47, %.sroa.09.0.extract.trunc.i6
   store i32 %48, ptr %45, align 4, !alias.scope !1545
   br label %83
@@ -9103,13 +9103,13 @@ _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit1
   unreachable
 
 62:                                               ; preds = %52
-  %63 = icmp sgt i16 %.sroa.4.0.extract.trunc.i18, -1
+  %63 = icmp sgt i16 %.sroa.4.0.extract.trunc.i18, -2
   %64 = getelementptr inbounds nuw i8, ptr %8, i64 8
   br i1 %63, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit25.thread, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit25.thread10
 
 _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit25.thread: ; preds = %62
   %65 = trunc nuw i64 %.sroa.4.0.extract.shift.i17 to i32
-  %66 = and i32 %65, 32767
+  %66 = and i32 %65, 65535
   %67 = add i32 %66, %.sroa.09.0.extract.trunc.i16
   store i32 %67, ptr %64, align 4, !alias.scope !1555
   br label %90
@@ -9216,7 +9216,7 @@ define internal fastcc noundef i32 @"_ZN15rustfmt_nightly4expr36rewrite_tuple_in
 15:                                               ; preds = %0
   %.sroa.5.0.extract.shift.i = lshr i64 %6, 48
   %.sroa.5.0.extract.trunc.i = trunc nuw nsw i64 %.sroa.5.0.extract.shift.i to i32
-  %16 = icmp sgt i16 %.sroa.4.0.extract.trunc.i, -1
+  %16 = icmp sgt i16 %.sroa.4.0.extract.trunc.i, -2
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 %.sroa.09.0.extract.trunc.i, ptr %17, align 4, !alias.scope !1568
   br i1 %16, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread2
@@ -9286,13 +9286,13 @@ define internal fastcc noundef i32 @"_ZN15rustfmt_nightly4expr36rewrite_tuple_in
   unreachable
 
 15:                                               ; preds = %0
-  %16 = icmp sgt i16 %.sroa.4.0.extract.trunc.i, -1
+  %16 = icmp sgt i16 %.sroa.4.0.extract.trunc.i, -2
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br i1 %16, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread2
 
 _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread: ; preds = %15
   %18 = trunc nuw i64 %.sroa.4.0.extract.shift.i to i32
-  %19 = and i32 %18, 32767
+  %19 = and i32 %18, 65535
   %20 = add i32 %19, %.sroa.09.0.extract.trunc.i
   store i32 %20, ptr %17, align 4, !alias.scope !1581
   br label %28
@@ -9370,13 +9370,13 @@ define internal fastcc noundef i32 @"_ZN15rustfmt_nightly4expr36rewrite_tuple_in
   unreachable
 
 15:                                               ; preds = %0
-  %16 = icmp sgt i16 %.sroa.4.0.extract.trunc.i, -1
+  %16 = icmp sgt i16 %.sroa.4.0.extract.trunc.i, -2
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br i1 %16, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread2
 
 _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread: ; preds = %15
   %18 = trunc nuw i64 %.sroa.4.0.extract.shift.i to i32
-  %19 = and i32 %18, 32767
+  %19 = and i32 %18, 65535
   %20 = add i32 %19, %.sroa.09.0.extract.trunc.i
   store i32 %20, ptr %17, align 4, !alias.scope !1597
   br label %28
@@ -9452,13 +9452,13 @@ define internal fastcc noundef i32 @"_ZN15rustfmt_nightly7imports7UseTree8from_a
   unreachable
 
 14:                                               ; preds = %0
-  %15 = icmp sgt i16 %.sroa.4.0.extract.trunc.i, -1
+  %15 = icmp sgt i16 %.sroa.4.0.extract.trunc.i, -2
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br i1 %15, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread2
 
 _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread: ; preds = %14
   %17 = trunc nuw i64 %.sroa.4.0.extract.shift.i to i32
-  %18 = and i32 %17, 32767
+  %18 = and i32 %17, 65535
   %19 = add i32 %18, %.sroa.09.0.extract.trunc.i
   store i32 %19, ptr %16, align 4, !alias.scope !1607
   br label %27
@@ -9609,7 +9609,7 @@ define internal fastcc noundef i32 @"_ZN15rustfmt_nightly5items54_$LT$impl$u20$r
 21:                                               ; preds = %11
   %.sroa.5.0.extract.shift.i = lshr i64 %.sroa.01.0.copyload, 48
   %.sroa.5.0.extract.trunc.i = trunc nuw nsw i64 %.sroa.5.0.extract.shift.i to i32
-  %22 = icmp sgt i16 %.sroa.4.0.extract.trunc.i, -1
+  %22 = icmp sgt i16 %.sroa.4.0.extract.trunc.i, -2
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %.sroa.09.0.extract.trunc.i, ptr %23, align 4, !alias.scope !1620
   br i1 %22, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread2
@@ -9698,7 +9698,7 @@ _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.
 51:                                               ; preds = %41
   %.sroa.5.0.extract.shift.i8 = lshr i64 %.sroa.0.0.copyload, 48
   %.sroa.5.0.extract.trunc.i9 = trunc nuw nsw i64 %.sroa.5.0.extract.shift.i8 to i32
-  %52 = icmp sgt i16 %.sroa.4.0.extract.trunc.i7, -1
+  %52 = icmp sgt i16 %.sroa.4.0.extract.trunc.i7, -2
   %53 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %.sroa.09.0.extract.trunc.i5, ptr %53, align 4, !alias.scope !1637
   br i1 %52, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit14.thread, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit14.thread6
@@ -9771,13 +9771,13 @@ define internal fastcc noundef i32 @"_ZN15rustfmt_nightly5items54_$LT$impl$u20$r
   unreachable
 
 14:                                               ; preds = %0
-  %15 = icmp sgt i16 %.sroa.4.0.extract.trunc.i, -1
+  %15 = icmp sgt i16 %.sroa.4.0.extract.trunc.i, -2
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br i1 %15, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread2
 
 _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread: ; preds = %14
   %17 = trunc nuw i64 %.sroa.4.0.extract.shift.i to i32
-  %18 = and i32 %17, 32767
+  %18 = and i32 %17, 65535
   %19 = add i32 %18, %.sroa.09.0.extract.trunc.i
   store i32 %19, ptr %16, align 4, !alias.scope !1647
   br label %27
@@ -10666,7 +10666,7 @@ _ZN15rustfmt_nightly5items16rewrite_generics17h660660c2881bc9a2E.exit: ; preds =
           to label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit unwind label %84
 
 338:                                              ; preds = %319
-  %339 = icmp sgt i16 %.sroa.4.0.extract.trunc.i, -1
+  %339 = icmp sgt i16 %.sroa.4.0.extract.trunc.i, -2
   %340 = getelementptr inbounds nuw i8, ptr %30, i64 4
   store i32 %.sroa.09.0.extract.trunc.i, ptr %340, align 4, !alias.scope !1848
   %341 = getelementptr inbounds nuw i8, ptr %30, i64 8
@@ -10674,7 +10674,7 @@ _ZN15rustfmt_nightly5items16rewrite_generics17h660660c2881bc9a2E.exit: ; preds =
 
 _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread: ; preds = %338
   %342 = trunc nuw i64 %.sroa.4.0.extract.shift.i to i32
-  %343 = and i32 %342, 32767
+  %343 = and i32 %342, 65535
   %344 = add i32 %343, %.sroa.09.0.extract.trunc.i
   store i32 %344, ptr %341, align 4, !alias.scope !1848
   br label %351
@@ -10901,13 +10901,13 @@ _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit:
   unreachable
 
 417:                                              ; preds = %408
-  %418 = icmp sgt i16 %.sroa.4.0.extract.trunc.i.i, -1
+  %418 = icmp sgt i16 %.sroa.4.0.extract.trunc.i.i, -2
   %419 = getelementptr inbounds nuw i8, ptr %13, i64 8
   br i1 %418, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread.i, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread2.i
 
 _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread.i: ; preds = %417
   %420 = trunc nuw i64 %.sroa.4.0.extract.shift.i.i to i32
-  %421 = and i32 %420, 32767
+  %421 = and i32 %420, 65535
   %422 = add i32 %421, %.sroa.09.0.extract.trunc.i.i
   store i32 %422, ptr %419, align 4, !alias.scope !1892
   br label %.noexc236
@@ -12100,7 +12100,7 @@ _ZN15rustfmt_nightly5items16rewrite_generics17h660660c2881bc9a2E.exit: ; preds =
           to label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit unwind label %84
 
 338:                                              ; preds = %319
-  %339 = icmp sgt i16 %.sroa.4.0.extract.trunc.i, -1
+  %339 = icmp sgt i16 %.sroa.4.0.extract.trunc.i, -2
   %340 = getelementptr inbounds nuw i8, ptr %30, i64 4
   store i32 %.sroa.09.0.extract.trunc.i, ptr %340, align 4, !alias.scope !2152
   %341 = getelementptr inbounds nuw i8, ptr %30, i64 8
@@ -12108,7 +12108,7 @@ _ZN15rustfmt_nightly5items16rewrite_generics17h660660c2881bc9a2E.exit: ; preds =
 
 _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread: ; preds = %338
   %342 = trunc nuw i64 %.sroa.4.0.extract.shift.i to i32
-  %343 = and i32 %342, 32767
+  %343 = and i32 %342, 65535
   %344 = add i32 %343, %.sroa.09.0.extract.trunc.i
   store i32 %344, ptr %341, align 4, !alias.scope !2152
   br label %351
@@ -12335,13 +12335,13 @@ _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit:
   unreachable
 
 417:                                              ; preds = %408
-  %418 = icmp sgt i16 %.sroa.4.0.extract.trunc.i.i, -1
+  %418 = icmp sgt i16 %.sroa.4.0.extract.trunc.i.i, -2
   %419 = getelementptr inbounds nuw i8, ptr %13, i64 8
   br i1 %418, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread.i, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread2.i
 
 _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread.i: ; preds = %417
   %420 = trunc nuw i64 %.sroa.4.0.extract.shift.i.i to i32
-  %421 = and i32 %420, 32767
+  %421 = and i32 %420, 65535
   %422 = add i32 %421, %.sroa.09.0.extract.trunc.i.i
   store i32 %422, ptr %419, align 4, !alias.scope !2196
   br label %.noexc236
@@ -12723,13 +12723,13 @@ define internal fastcc noundef i32 @"_ZN15rustfmt_nightly5items14rewrite_params2
   unreachable
 
 16:                                               ; preds = %0
-  %17 = icmp sgt i16 %.sroa.4.0.extract.trunc.i, -1
+  %17 = icmp sgt i16 %.sroa.4.0.extract.trunc.i, -2
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br i1 %17, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread2
 
 _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread: ; preds = %16
   %19 = trunc nuw i64 %.sroa.4.0.extract.shift.i to i32
-  %20 = and i32 %19, 32767
+  %20 = and i32 %19, 65535
   %21 = add i32 %20, %.sroa.09.0.extract.trunc.i
   store i32 %21, ptr %18, align 4, !alias.scope !2265
   br label %29
@@ -12808,13 +12808,13 @@ define internal fastcc noundef i32 @"_ZN15rustfmt_nightly5items30rewrite_bounds_
   unreachable
 
 15:                                               ; preds = %0
-  %16 = icmp sgt i16 %.sroa.4.0.extract.trunc.i, -1
+  %16 = icmp sgt i16 %.sroa.4.0.extract.trunc.i, -2
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br i1 %16, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread2
 
 _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread: ; preds = %15
   %18 = trunc nuw i64 %.sroa.4.0.extract.shift.i to i32
-  %19 = and i32 %18, 32767
+  %19 = and i32 %18, 65535
   %20 = add i32 %19, %.sroa.09.0.extract.trunc.i
   store i32 %20, ptr %17, align 4, !alias.scope !2275
   br label %28
@@ -12893,13 +12893,13 @@ define internal fastcc noundef i32 @"_ZN15rustfmt_nightly5items20rewrite_where_c
   unreachable
 
 15:                                               ; preds = %0
-  %16 = icmp sgt i16 %.sroa.4.0.extract.trunc.i, -1
+  %16 = icmp sgt i16 %.sroa.4.0.extract.trunc.i, -2
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br i1 %16, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread2
 
 _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread: ; preds = %15
   %18 = trunc nuw i64 %.sroa.4.0.extract.shift.i to i32
-  %19 = and i32 %18, 32767
+  %19 = and i32 %18, 65535
   %20 = add i32 %19, %.sroa.09.0.extract.trunc.i
   store i32 %20, ptr %17, align 4, !alias.scope !2285
   br label %28
@@ -20002,7 +20002,7 @@ define hidden void @"_ZN116_$LT$rustfmt_nightly..lists..ListItems$LT$I$C$F1$C$F2
 26:                                               ; preds = %3
   %.sroa.5.0.extract.shift.i.i = lshr i64 %.sroa.0.0.copyload.i, 48
   %.sroa.5.0.extract.trunc.i.i = trunc nuw nsw i64 %.sroa.5.0.extract.shift.i.i to i32
-  %27 = icmp sgt i16 %.sroa.4.0.extract.trunc.i.i, -1
+  %27 = icmp sgt i16 %.sroa.4.0.extract.trunc.i.i, -2
   %28 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 %.sroa.09.0.extract.trunc.i.i, ptr %28, align 4, !alias.scope !3386
   br i1 %27, label %"_ZN15rustfmt_nightly7imports7UseTree8from_ast28_$u7b$$u7b$closure$u7d$$u7d$17h0dae39319fb31268E.exit", label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread2.i
@@ -20141,7 +20141,7 @@ _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.
 72:                                               ; preds = %62
   %.sroa.5.0.extract.shift.i.i48 = lshr i64 %.sroa.0.0.copyload.i43, 48
   %.sroa.5.0.extract.trunc.i.i49 = trunc nuw nsw i64 %.sroa.5.0.extract.shift.i.i48 to i32
-  %73 = icmp sgt i16 %.sroa.4.0.extract.trunc.i.i46, -1
+  %73 = icmp sgt i16 %.sroa.4.0.extract.trunc.i.i46, -2
   %74 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 %.sroa.09.0.extract.trunc.i.i44, ptr %74, align 4, !alias.scope !3408
   br i1 %73, label %"_ZN15rustfmt_nightly7imports7UseTree8from_ast28_$u7b$$u7b$closure$u7d$$u7d$17h0dae39319fb31268E.exit61", label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread2.i50
@@ -21678,7 +21678,7 @@ define hidden void @"_ZN116_$LT$rustfmt_nightly..lists..ListItems$LT$I$C$F1$C$F2
 29:                                               ; preds = %3
   %.sroa.5.0.extract.shift.i.i = lshr i64 %.sroa.0.0.i, 48
   %.sroa.5.0.extract.trunc.i.i = trunc nuw nsw i64 %.sroa.5.0.extract.shift.i.i to i32
-  %30 = icmp sgt i16 %.sroa.4.0.extract.trunc.i.i, -1
+  %30 = icmp sgt i16 %.sroa.4.0.extract.trunc.i.i, -2
   %31 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 %.sroa.09.0.extract.trunc.i.i, ptr %31, align 4, !alias.scope !3806
   br i1 %30, label %"_ZN15rustfmt_nightly5items30rewrite_bounds_on_where_clause28_$u7b$$u7b$closure$u7d$$u7d$17h5653c205c78f8f85E.exit", label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread2.i
@@ -21820,7 +21820,7 @@ _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.
 76:                                               ; preds = %65
   %.sroa.5.0.extract.shift.i.i53 = lshr i64 %.sroa.0.0.i48, 48
   %.sroa.5.0.extract.trunc.i.i54 = trunc nuw nsw i64 %.sroa.5.0.extract.shift.i.i53 to i32
-  %77 = icmp sgt i16 %.sroa.4.0.extract.trunc.i.i51, -1
+  %77 = icmp sgt i16 %.sroa.4.0.extract.trunc.i.i51, -2
   %78 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 %.sroa.09.0.extract.trunc.i.i49, ptr %78, align 4, !alias.scope !3826
   br i1 %77, label %"_ZN15rustfmt_nightly5items30rewrite_bounds_on_where_clause28_$u7b$$u7b$closure$u7d$$u7d$17h5653c205c78f8f85E.exit66", label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread2.i55
@@ -23333,7 +23333,7 @@ define hidden void @"_ZN116_$LT$rustfmt_nightly..lists..ListItems$LT$I$C$F1$C$F2
 28:                                               ; preds = %3
   %.sroa.5.0.extract.shift.i.i = lshr i64 %2, 48
   %.sroa.5.0.extract.trunc.i.i = trunc nuw nsw i64 %.sroa.5.0.extract.shift.i.i to i32
-  %29 = icmp sgt i16 %.sroa.4.0.extract.trunc.i.i, -1
+  %29 = icmp sgt i16 %.sroa.4.0.extract.trunc.i.i, -2
   %30 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store i32 %.sroa.09.0.extract.trunc.i.i, ptr %30, align 4, !alias.scope !4028
   br i1 %29, label %"_ZN15rustfmt_nightly4attr13format_derive28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h40cb8d90c47536b1E.exit", label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread2.i
@@ -23512,7 +23512,7 @@ _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.
 84:                                               ; preds = %75
   %.sroa.5.0.extract.shift.i.i56 = lshr i64 %.0.val, 48
   %.sroa.5.0.extract.trunc.i.i57 = trunc nuw nsw i64 %.sroa.5.0.extract.shift.i.i56 to i32
-  %85 = icmp sgt i16 %.sroa.4.0.extract.trunc.i.i54, -1
+  %85 = icmp sgt i16 %.sroa.4.0.extract.trunc.i.i54, -2
   %86 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 %.sroa.09.0.extract.trunc.i.i52, ptr %86, align 4, !alias.scope !4069
   br i1 %85, label %"_ZN15rustfmt_nightly4attr13format_derive28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h40cb8d90c47536b1E.exit70", label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread2.i58
@@ -24432,7 +24432,7 @@ define hidden void @"_ZN116_$LT$rustfmt_nightly..lists..ListItems$LT$I$C$F1$C$F2
 28:                                               ; preds = %3
   %.sroa.5.0.extract.shift.i.i = lshr i64 %.sroa.0.0.copyload.i.i, 48
   %.sroa.5.0.extract.trunc.i.i = trunc nuw nsw i64 %.sroa.5.0.extract.shift.i.i to i32
-  %29 = icmp sgt i16 %.sroa.4.0.extract.trunc.i.i, -1
+  %29 = icmp sgt i16 %.sroa.4.0.extract.trunc.i.i, -2
   %30 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 %.sroa.09.0.extract.trunc.i.i, ptr %30, align 4, !alias.scope !4218
   br i1 %29, label %"_ZN15rustfmt_nightly5types20format_function_type28_$u7b$$u7b$closure$u7d$$u7d$17he077bb60b58d52f5E.exit", label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread2.i
@@ -24574,7 +24574,7 @@ _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.
 75:                                               ; preds = %65
   %.sroa.5.0.extract.shift.i.i51 = lshr i64 %.sroa.0.0.copyload.i.i46, 48
   %.sroa.5.0.extract.trunc.i.i52 = trunc nuw nsw i64 %.sroa.5.0.extract.shift.i.i51 to i32
-  %76 = icmp sgt i16 %.sroa.4.0.extract.trunc.i.i49, -1
+  %76 = icmp sgt i16 %.sroa.4.0.extract.trunc.i.i49, -2
   %77 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 %.sroa.09.0.extract.trunc.i.i47, ptr %77, align 4, !alias.scope !4251
   br i1 %76, label %"_ZN15rustfmt_nightly5types20format_function_type28_$u7b$$u7b$closure$u7d$$u7d$17he077bb60b58d52f5E.exit64", label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread2.i53
@@ -24852,7 +24852,7 @@ define hidden void @"_ZN116_$LT$rustfmt_nightly..lists..ListItems$LT$I$C$F1$C$F2
 29:                                               ; preds = %3
   %.sroa.5.0.extract.shift.i.i = lshr i64 %.sroa.0.0.copyload.i.i.i, 48
   %.sroa.5.0.extract.trunc.i.i = trunc nuw nsw i64 %.sroa.5.0.extract.shift.i.i to i32
-  %30 = icmp sgt i16 %.sroa.4.0.extract.trunc.i.i, -1
+  %30 = icmp sgt i16 %.sroa.4.0.extract.trunc.i.i, -2
   %31 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 %.sroa.09.0.extract.trunc.i.i, ptr %31, align 4, !alias.scope !4309
   br i1 %30, label %"_ZN15rustfmt_nightly4expr36rewrite_tuple_in_visual_indent_style28_$u7b$$u7b$closure$u7d$$u7d$17hb62b0eeec614bb7bE.exit", label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread2.i
@@ -24993,7 +24993,7 @@ _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.
 76:                                               ; preds = %65
   %.sroa.5.0.extract.shift.i.i51 = lshr i64 %.sroa.0.0.copyload.i.i.i46, 48
   %.sroa.5.0.extract.trunc.i.i52 = trunc nuw nsw i64 %.sroa.5.0.extract.shift.i.i51 to i32
-  %77 = icmp sgt i16 %.sroa.4.0.extract.trunc.i.i49, -1
+  %77 = icmp sgt i16 %.sroa.4.0.extract.trunc.i.i49, -2
   %78 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 %.sroa.09.0.extract.trunc.i.i47, ptr %78, align 4, !alias.scope !4335
   br i1 %77, label %"_ZN15rustfmt_nightly4expr36rewrite_tuple_in_visual_indent_style28_$u7b$$u7b$closure$u7d$$u7d$17hb62b0eeec614bb7bE.exit64", label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread2.i53
@@ -25835,7 +25835,7 @@ define hidden void @"_ZN116_$LT$rustfmt_nightly..lists..ListItems$LT$I$C$F1$C$F2
 28:                                               ; preds = %3
   %.sroa.5.0.extract.shift.i.i = lshr i64 %.sroa.0.0.copyload.i, 48
   %.sroa.5.0.extract.trunc.i.i = trunc nuw nsw i64 %.sroa.5.0.extract.shift.i.i to i32
-  %29 = icmp sgt i16 %.sroa.4.0.extract.trunc.i.i, -1
+  %29 = icmp sgt i16 %.sroa.4.0.extract.trunc.i.i, -2
   %30 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i32 %.sroa.09.0.extract.trunc.i.i, ptr %30, align 4, !alias.scope !4446
   br i1 %29, label %"_ZN15rustfmt_nightly6macros17rewrite_macro_def28_$u7b$$u7b$closure$u7d$$u7d$17he25f09d2006c74e7E.exit", label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread2.i
@@ -25974,7 +25974,7 @@ _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.
 74:                                               ; preds = %64
   %.sroa.5.0.extract.shift.i.i49 = lshr i64 %.sroa.0.0.copyload.i44, 48
   %.sroa.5.0.extract.trunc.i.i50 = trunc nuw nsw i64 %.sroa.5.0.extract.shift.i.i49 to i32
-  %75 = icmp sgt i16 %.sroa.4.0.extract.trunc.i.i47, -1
+  %75 = icmp sgt i16 %.sroa.4.0.extract.trunc.i.i47, -2
   %76 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 %.sroa.09.0.extract.trunc.i.i45, ptr %76, align 4, !alias.scope !4466
   br i1 %75, label %"_ZN15rustfmt_nightly6macros17rewrite_macro_def28_$u7b$$u7b$closure$u7d$$u7d$17he25f09d2006c74e7E.exit62", label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread2.i51
@@ -26868,7 +26868,7 @@ define hidden void @"_ZN116_$LT$rustfmt_nightly..lists..ListItems$LT$I$C$F1$C$F2
 29:                                               ; preds = %3
   %.sroa.5.0.extract.shift.i.i = lshr i64 %.sroa.0.0.i, 48
   %.sroa.5.0.extract.trunc.i.i = trunc nuw nsw i64 %.sroa.5.0.extract.shift.i.i to i32
-  %30 = icmp sgt i16 %.sroa.4.0.extract.trunc.i.i, -1
+  %30 = icmp sgt i16 %.sroa.4.0.extract.trunc.i.i, -2
   %31 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 %.sroa.09.0.extract.trunc.i.i, ptr %31, align 4, !alias.scope !4579
   br i1 %30, label %"_ZN15rustfmt_nightly5items20rewrite_where_clause28_$u7b$$u7b$closure$u7d$$u7d$17h93b49fd124fad6caE.exit", label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread2.i
@@ -27010,7 +27010,7 @@ _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.
 76:                                               ; preds = %65
   %.sroa.5.0.extract.shift.i.i51 = lshr i64 %.sroa.0.0.i46, 48
   %.sroa.5.0.extract.trunc.i.i52 = trunc nuw nsw i64 %.sroa.5.0.extract.shift.i.i51 to i32
-  %77 = icmp sgt i16 %.sroa.4.0.extract.trunc.i.i49, -1
+  %77 = icmp sgt i16 %.sroa.4.0.extract.trunc.i.i49, -2
   %78 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 %.sroa.09.0.extract.trunc.i.i47, ptr %78, align 4, !alias.scope !4599
   br i1 %77, label %"_ZN15rustfmt_nightly5items20rewrite_where_clause28_$u7b$$u7b$closure$u7d$$u7d$17h93b49fd124fad6caE.exit64", label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread2.i53
@@ -27913,13 +27913,13 @@ define internal fastcc noundef i32 @"_ZN15rustfmt_nightly6macros17rewrite_macro_
   unreachable
 
 14:                                               ; preds = %0
-  %15 = icmp sgt i16 %.sroa.4.0.extract.trunc.i, -1
+  %15 = icmp sgt i16 %.sroa.4.0.extract.trunc.i, -2
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br i1 %15, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread2
 
 _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread: ; preds = %14
   %17 = trunc nuw i64 %.sroa.4.0.extract.shift.i to i32
-  %18 = and i32 %17, 32767
+  %18 = and i32 %17, 65535
   %19 = add i32 %18, %.sroa.09.0.extract.trunc.i
   store i32 %19, ptr %16, align 4, !alias.scope !4641
   br label %27
@@ -27992,7 +27992,7 @@ define internal fastcc noundef i32 @"_ZN15rustfmt_nightly7matches18rewrite_match
 14:                                               ; preds = %1
   %.sroa.5.0.extract.shift.i = lshr i64 %5, 48
   %.sroa.5.0.extract.trunc.i = trunc nuw nsw i64 %.sroa.5.0.extract.shift.i to i32
-  %15 = icmp sgt i16 %.sroa.4.0.extract.trunc.i, -1
+  %15 = icmp sgt i16 %.sroa.4.0.extract.trunc.i, -2
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %.sroa.09.0.extract.trunc.i, ptr %16, align 4, !alias.scope !4651
   br i1 %15, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread2
@@ -28058,13 +28058,13 @@ define internal fastcc noundef i32 @"_ZN15rustfmt_nightly7matches18rewrite_match
   unreachable
 
 14:                                               ; preds = %1
-  %15 = icmp sgt i16 %.sroa.4.0.extract.trunc.i, -1
+  %15 = icmp sgt i16 %.sroa.4.0.extract.trunc.i, -2
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br i1 %15, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread2
 
 _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread: ; preds = %14
   %17 = trunc nuw i64 %.sroa.4.0.extract.shift.i to i32
-  %18 = and i32 %17, 32767
+  %18 = and i32 %17, 65535
   %19 = add i32 %18, %.sroa.09.0.extract.trunc.i
   store i32 %19, ptr %16, align 4, !alias.scope !4661
   br label %27
@@ -28137,7 +28137,7 @@ define internal fastcc noundef i32 @"_ZN15rustfmt_nightly8overflow7Context13rewr
 13:                                               ; preds = %0
   %.sroa.5.0.extract.shift.i = lshr i64 %4, 48
   %.sroa.5.0.extract.trunc.i = trunc nuw nsw i64 %.sroa.5.0.extract.shift.i to i32
-  %14 = icmp sgt i16 %.sroa.4.0.extract.trunc.i, -1
+  %14 = icmp sgt i16 %.sroa.4.0.extract.trunc.i, -2
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 %.sroa.09.0.extract.trunc.i, ptr %15, align 4, !alias.scope !4671
   br i1 %14, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread2
@@ -28203,13 +28203,13 @@ define internal fastcc noundef i32 @"_ZN15rustfmt_nightly8overflow7Context13rewr
   unreachable
 
 13:                                               ; preds = %0
-  %14 = icmp sgt i16 %.sroa.4.0.extract.trunc.i, -1
+  %14 = icmp sgt i16 %.sroa.4.0.extract.trunc.i, -2
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br i1 %14, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread2
 
 _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread: ; preds = %13
   %16 = trunc nuw i64 %.sroa.4.0.extract.shift.i to i32
-  %17 = and i32 %16, 32767
+  %17 = and i32 %16, 65535
   %18 = add i32 %17, %.sroa.09.0.extract.trunc.i
   store i32 %18, ptr %15, align 4, !alias.scope !4681
   br label %26
@@ -34915,7 +34915,7 @@ define internal fastcc noundef i32 @"_ZN15rustfmt_nightly8patterns18rewrite_stru
 20:                                               ; preds = %11
   %.sroa.5.0.extract.shift.i = lshr i64 %.sroa.0.0.copyload, 48
   %.sroa.5.0.extract.trunc.i = trunc nuw nsw i64 %.sroa.5.0.extract.shift.i to i32
-  %21 = icmp sgt i16 %.sroa.4.0.extract.trunc.i, -1
+  %21 = icmp sgt i16 %.sroa.4.0.extract.trunc.i, -2
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %.sroa.09.0.extract.trunc.i, ptr %22, align 4, !alias.scope !6088
   br i1 %21, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread2
@@ -35010,7 +35010,7 @@ _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.
 53:                                               ; preds = %43
   %.sroa.5.0.extract.shift.i9 = lshr i64 %.sroa.01.0.copyload, 48
   %.sroa.5.0.extract.trunc.i10 = trunc nuw nsw i64 %.sroa.5.0.extract.shift.i9 to i32
-  %54 = icmp sgt i16 %.sroa.4.0.extract.trunc.i8, -1
+  %54 = icmp sgt i16 %.sroa.4.0.extract.trunc.i8, -2
   %55 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %.sroa.09.0.extract.trunc.i6, ptr %55, align 4, !alias.scope !6104
   br i1 %54, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit15.thread, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit15.thread6
@@ -35078,13 +35078,13 @@ define internal fastcc noundef i32 @"_ZN15rustfmt_nightly8patterns18rewrite_stru
   unreachable
 
 13:                                               ; preds = %0
-  %14 = icmp sgt i16 %.sroa.4.0.extract.trunc.i, -1
+  %14 = icmp sgt i16 %.sroa.4.0.extract.trunc.i, -2
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br i1 %14, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread2
 
 _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread: ; preds = %13
   %16 = trunc nuw i64 %.sroa.4.0.extract.shift.i to i32
-  %17 = and i32 %16, 32767
+  %17 = and i32 %16, 65535
   %18 = add i32 %17, %.sroa.09.0.extract.trunc.i
   store i32 %18, ptr %15, align 4, !alias.scope !6114
   br label %26
@@ -35177,7 +35177,7 @@ define internal fastcc noundef i32 @"_ZN15rustfmt_nightly8patterns25count_wildca
 21:                                               ; preds = %"_ZN94_$LT$rustfmt_nightly..patterns..TuplePatField$u20$as$u20$rustfmt_nightly..spanned..Spanned$GT$4span17hc34bb278ca4ef80bE.exit"
   %.sroa.5.0.extract.shift.i = lshr i64 %.sroa.0.0.i, 48
   %.sroa.5.0.extract.trunc.i = trunc nuw nsw i64 %.sroa.5.0.extract.shift.i to i32
-  %22 = icmp sgt i16 %.sroa.4.0.extract.trunc.i, -1
+  %22 = icmp sgt i16 %.sroa.4.0.extract.trunc.i, -2
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 %.sroa.09.0.extract.trunc.i, ptr %23, align 4, !alias.scope !6127
   br i1 %22, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread2
@@ -35263,13 +35263,13 @@ define internal fastcc noundef i32 @"_ZN15rustfmt_nightly8patterns25count_wildca
   unreachable
 
 21:                                               ; preds = %"_ZN94_$LT$rustfmt_nightly..patterns..TuplePatField$u20$as$u20$rustfmt_nightly..spanned..Spanned$GT$4span17hc34bb278ca4ef80bE.exit"
-  %22 = icmp sgt i16 %.sroa.4.0.extract.trunc.i, -1
+  %22 = icmp sgt i16 %.sroa.4.0.extract.trunc.i, -2
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br i1 %22, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread2
 
 _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread: ; preds = %21
   %24 = trunc nuw i64 %.sroa.4.0.extract.shift.i to i32
-  %25 = and i32 %24, 32767
+  %25 = and i32 %24, 65535
   %26 = add i32 %25, %.sroa.09.0.extract.trunc.i
   store i32 %26, ptr %23, align 4, !alias.scope !6140
   br label %34
@@ -35342,7 +35342,7 @@ define internal fastcc noundef i32 @"_ZN15rustfmt_nightly7reorder40rewrite_reord
 13:                                               ; preds = %0
   %.sroa.5.0.extract.shift.i = lshr i64 %4, 48
   %.sroa.5.0.extract.trunc.i = trunc nuw nsw i64 %.sroa.5.0.extract.shift.i to i32
-  %14 = icmp sgt i16 %.sroa.4.0.extract.trunc.i, -1
+  %14 = icmp sgt i16 %.sroa.4.0.extract.trunc.i, -2
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 %.sroa.09.0.extract.trunc.i, ptr %15, align 4, !alias.scope !6150
   br i1 %14, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread2
@@ -35408,13 +35408,13 @@ define internal fastcc noundef i32 @"_ZN15rustfmt_nightly7reorder40rewrite_reord
   unreachable
 
 13:                                               ; preds = %0
-  %14 = icmp sgt i16 %.sroa.4.0.extract.trunc.i, -1
+  %14 = icmp sgt i16 %.sroa.4.0.extract.trunc.i, -2
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br i1 %14, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread2
 
 _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread: ; preds = %13
   %16 = trunc nuw i64 %.sroa.4.0.extract.shift.i to i32
-  %17 = and i32 %16, 32767
+  %17 = and i32 %16, 65535
   %18 = add i32 %17, %.sroa.09.0.extract.trunc.i
   store i32 %18, ptr %15, align 4, !alias.scope !6160
   br label %26
@@ -35490,7 +35490,7 @@ define internal fastcc noundef i32 @"_ZN15rustfmt_nightly7reorder40rewrite_reord
 15:                                               ; preds = %0
   %.sroa.5.0.extract.shift.i = lshr i64 %6, 48
   %.sroa.5.0.extract.trunc.i = trunc nuw nsw i64 %.sroa.5.0.extract.shift.i to i32
-  %16 = icmp sgt i16 %.sroa.4.0.extract.trunc.i, -1
+  %16 = icmp sgt i16 %.sroa.4.0.extract.trunc.i, -2
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 %.sroa.09.0.extract.trunc.i, ptr %17, align 4, !alias.scope !6170
   br i1 %16, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread2
@@ -35559,13 +35559,13 @@ define internal fastcc noundef i32 @"_ZN15rustfmt_nightly7reorder40rewrite_reord
   unreachable
 
 15:                                               ; preds = %0
-  %16 = icmp sgt i16 %.sroa.4.0.extract.trunc.i, -1
+  %16 = icmp sgt i16 %.sroa.4.0.extract.trunc.i, -2
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br i1 %16, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread2
 
 _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread: ; preds = %15
   %18 = trunc nuw i64 %.sroa.4.0.extract.shift.i to i32
-  %19 = and i32 %18, 32767
+  %19 = and i32 %18, 65535
   %20 = add i32 %19, %.sroa.09.0.extract.trunc.i
   store i32 %20, ptr %17, align 4, !alias.scope !6180
   br label %28
@@ -35688,7 +35688,7 @@ _ZN15rustfmt_nightly5items14is_named_param17h4d77cc3392014986E.exit.thread.i: ; 
 35:                                               ; preds = %"_ZN75_$LT$rustc_ast..ast..Param$u20$as$u20$rustfmt_nightly..spanned..Spanned$GT$4span17h37f25c5cfa0630d1E.exit"
   %.sroa.5.0.extract.shift.i = lshr i64 %.sroa.0.0.i, 48
   %.sroa.5.0.extract.trunc.i = trunc nuw nsw i64 %.sroa.5.0.extract.shift.i to i32
-  %36 = icmp sgt i16 %.sroa.4.0.extract.trunc.i, -1
+  %36 = icmp sgt i16 %.sroa.4.0.extract.trunc.i, -2
   %37 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %.sroa.09.0.extract.trunc.i, ptr %37, align 4, !alias.scope !6197
   br i1 %36, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread2
@@ -35757,13 +35757,13 @@ define internal fastcc noundef i32 @"_ZN15rustfmt_nightly5types20format_function
   unreachable
 
 14:                                               ; preds = %0
-  %15 = icmp sgt i16 %.sroa.4.0.extract.trunc.i, -1
+  %15 = icmp sgt i16 %.sroa.4.0.extract.trunc.i, -2
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br i1 %15, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread2
 
 _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread: ; preds = %14
   %17 = trunc nuw i64 %.sroa.4.0.extract.shift.i to i32
-  %18 = and i32 %17, 32767
+  %18 = and i32 %17, 65535
   %19 = add i32 %18, %.sroa.09.0.extract.trunc.i
   store i32 %19, ptr %16, align 4, !alias.scope !6210
   br label %27
@@ -35886,13 +35886,13 @@ _ZN15rustfmt_nightly5items14is_named_param17h4d77cc3392014986E.exit.thread.i: ; 
   unreachable
 
 35:                                               ; preds = %"_ZN75_$LT$rustc_ast..ast..Param$u20$as$u20$rustfmt_nightly..spanned..Spanned$GT$4span17h37f25c5cfa0630d1E.exit"
-  %36 = icmp sgt i16 %.sroa.4.0.extract.trunc.i, -1
+  %36 = icmp sgt i16 %.sroa.4.0.extract.trunc.i, -2
   %37 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br i1 %36, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread2
 
 _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread: ; preds = %35
   %38 = trunc nuw i64 %.sroa.4.0.extract.shift.i to i32
-  %39 = and i32 %38, 32767
+  %39 = and i32 %38, 65535
   %40 = add i32 %39, %.sroa.09.0.extract.trunc.i
   store i32 %40, ptr %37, align 4, !alias.scope !6227
   br label %48
@@ -35965,7 +35965,7 @@ define internal fastcc noundef i32 @"_ZN15rustfmt_nightly8vertical27rewrite_alig
 13:                                               ; preds = %0
   %.sroa.5.0.extract.shift.i = lshr i64 %4, 48
   %.sroa.5.0.extract.trunc.i = trunc nuw nsw i64 %.sroa.5.0.extract.shift.i to i32
-  %14 = icmp sgt i16 %.sroa.4.0.extract.trunc.i, -1
+  %14 = icmp sgt i16 %.sroa.4.0.extract.trunc.i, -2
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 %.sroa.09.0.extract.trunc.i, ptr %15, align 4, !alias.scope !6237
   br i1 %14, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread2
@@ -36031,7 +36031,7 @@ define internal fastcc noundef i32 @"_ZN15rustfmt_nightly8vertical27rewrite_alig
 13:                                               ; preds = %0
   %.sroa.5.0.extract.shift.i = lshr i64 %4, 48
   %.sroa.5.0.extract.trunc.i = trunc nuw nsw i64 %.sroa.5.0.extract.shift.i to i32
-  %14 = icmp sgt i16 %.sroa.4.0.extract.trunc.i, -1
+  %14 = icmp sgt i16 %.sroa.4.0.extract.trunc.i, -2
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 %.sroa.09.0.extract.trunc.i, ptr %15, align 4, !alias.scope !6247
   br i1 %14, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread2
@@ -36097,13 +36097,13 @@ define internal fastcc noundef i32 @"_ZN15rustfmt_nightly8vertical27rewrite_alig
   unreachable
 
 13:                                               ; preds = %0
-  %14 = icmp sgt i16 %.sroa.4.0.extract.trunc.i, -1
+  %14 = icmp sgt i16 %.sroa.4.0.extract.trunc.i, -2
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br i1 %14, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread2
 
 _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread: ; preds = %13
   %16 = trunc nuw i64 %.sroa.4.0.extract.shift.i to i32
-  %17 = and i32 %16, 32767
+  %17 = and i32 %16, 65535
   %18 = add i32 %17, %.sroa.09.0.extract.trunc.i
   store i32 %18, ptr %15, align 4, !alias.scope !6257
   br label %26
@@ -36176,13 +36176,13 @@ define internal fastcc noundef i32 @"_ZN15rustfmt_nightly8vertical27rewrite_alig
   unreachable
 
 13:                                               ; preds = %0
-  %14 = icmp sgt i16 %.sroa.4.0.extract.trunc.i, -1
+  %14 = icmp sgt i16 %.sroa.4.0.extract.trunc.i, -2
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br i1 %14, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread2
 
 _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread: ; preds = %13
   %16 = trunc nuw i64 %.sroa.4.0.extract.shift.i to i32
-  %17 = and i32 %16, 32767
+  %17 = and i32 %16, 65535
   %18 = add i32 %17, %.sroa.09.0.extract.trunc.i
   store i32 %18, ptr %15, align 4, !alias.scope !6267
   br label %26

@@ -18534,13 +18534,13 @@ _ZNK4llvm6MDNode8operandsEv.exit:                 ; preds = %84, %90
   %98 = icmp eq i32 %2, 0
   br i1 %98, label %.lr.ph.split, label %.lr.ph.split.us
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %109
-  %.087.us = phi ptr [ %110, %109 ], [ %.sroa.0.0.i.i, %.lr.ph ]
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %108
+  %.087.us = phi ptr [ %109, %108 ], [ %.sroa.0.0.i.i, %.lr.ph ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %99 = load ptr, ptr %.087.us, align 8, !tbaa !357
   store ptr %99, ptr %6, align 8, !tbaa !527
   %.not63.us = icmp eq ptr %99, null
-  br i1 %.not63.us, label %109, label %100
+  br i1 %.not63.us, label %108, label %100
 
 100:                                              ; preds = %.lr.ph.split.us
   %101 = load i8, ptr %99, align 4, !tbaa !341
@@ -18554,187 +18554,186 @@ _ZNK4llvm6MDNode8operandsEv.exit:                 ; preds = %84, %90
 
 105:                                              ; preds = %103
   tail call fastcc void @_ZN12_GLOBAL__N_18Verifier11visitMDNodeERKN4llvm6MDNodeENS0_19AreDebugLocsAllowedE(ptr noundef nonnull align 8 dereferenceable(2248) %0, ptr noundef nonnull align 8 dereferenceable(16) %99, i32 noundef 1)
-  br label %109
+  br label %108
 
 106:                                              ; preds = %103
-  %107 = add i8 %101, -3
-  %spec.select.i.i.i.i.i.i.i.i.us = icmp ult i8 %107, -2
-  br i1 %spec.select.i.i.i.i.i.i.i.i.us, label %109, label %108
+  %.not = icmp eq i8 %101, 1
+  br i1 %.not, label %107, label %108
 
-108:                                              ; preds = %106
+107:                                              ; preds = %106
   tail call fastcc void @_ZN12_GLOBAL__N_18Verifier20visitValueAsMetadataERKN4llvm15ValueAsMetadataEPNS1_8FunctionE(ptr noundef nonnull align 8 dereferenceable(2248) %0, ptr noundef nonnull align 8 dereferenceable(136) %99, ptr noundef null)
-  br label %109
+  br label %108
 
-109:                                              ; preds = %108, %106, %105, %.lr.ph.split.us
+108:                                              ; preds = %107, %106, %105, %.lr.ph.split.us
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %110 = getelementptr inbounds nuw i8, ptr %.087.us, i64 8
-  %.not62.us = icmp eq ptr %110, %97
+  %109 = getelementptr inbounds nuw i8, ptr %.087.us, i64 8
+  %.not62.us = icmp eq ptr %109, %97
   br i1 %.not62.us, label %._crit_edge, label %.lr.ph.split.us
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %156
-  %.087 = phi ptr [ %157, %156 ], [ %.sroa.0.0.i.i, %.lr.ph ]
+.lr.ph.split:                                     ; preds = %.lr.ph, %155
+  %.087 = phi ptr [ %156, %155 ], [ %.sroa.0.0.i.i, %.lr.ph ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %111 = load ptr, ptr %.087, align 8, !tbaa !357
-  store ptr %111, ptr %6, align 8, !tbaa !527
-  %.not63 = icmp eq ptr %111, null
-  br i1 %.not63, label %156, label %112
+  %110 = load ptr, ptr %.087, align 8, !tbaa !357
+  store ptr %110, ptr %6, align 8, !tbaa !527
+  %.not63 = icmp eq ptr %110, null
+  br i1 %.not63, label %155, label %111
 
-112:                                              ; preds = %.lr.ph.split
-  %113 = load i8, ptr %111, align 4, !tbaa !341
-  switch i8 %113, label %150 [
+111:                                              ; preds = %.lr.ph.split
+  %112 = load i8, ptr %110, align 4, !tbaa !341
+  switch i8 %112, label %149 [
     i8 2, label %.split.us
-    i8 6, label %129
+    i8 6, label %128
   ]
 
-.split.us:                                        ; preds = %100, %112
+.split.us:                                        ; preds = %100, %111
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %114 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %115 = getelementptr inbounds nuw i8, ptr %7, i64 33
-  store i8 1, ptr %115, align 1, !tbaa !95
+  %113 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %114 = getelementptr inbounds nuw i8, ptr %7, i64 33
+  store i8 1, ptr %114, align 1, !tbaa !95
   store ptr @.str.275, ptr %7, align 8, !tbaa !96
-  store i8 3, ptr %114, align 8, !tbaa !92
+  store i8 3, ptr %113, align 8, !tbaa !92
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %1, ptr %8, align 8, !tbaa !329
-  %116 = load ptr, ptr %0, align 8, !tbaa !64
-  %.not.i.i68 = icmp eq ptr %116, null
-  br i1 %.not.i.i68, label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread.i, label %118
+  %115 = load ptr, ptr %0, align 8, !tbaa !64
+  %.not.i.i68 = icmp eq ptr %115, null
+  br i1 %.not.i.i68, label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread.i, label %117
 
 _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread.i: ; preds = %.split.us
-  %117 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  store i8 1, ptr %117, align 8, !tbaa !187
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  store i8 1, ptr %116, align 8, !tbaa !187
   br label %_ZN4llvm15VerifierSupport11CheckFailedIPKNS_6MDNodeEJPKNS_8MetadataEEEEvRKNS_5TwineERKT_DpRKT0_.exit
 
-118:                                              ; preds = %.split.us
-  call void @_ZNK4llvm5Twine5printERNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(34) %7, ptr noundef nonnull align 8 dereferenceable(48) %116) #27
-  %119 = getelementptr inbounds nuw i8, ptr %116, i64 32
-  %120 = load ptr, ptr %119, align 8, !tbaa !298
-  %121 = getelementptr inbounds nuw i8, ptr %116, i64 24
-  %122 = load ptr, ptr %121, align 8, !tbaa !294
-  %.not.i.i.i = icmp ult ptr %120, %122
-  br i1 %.not.i.i.i, label %125, label %123
+117:                                              ; preds = %.split.us
+  call void @_ZNK4llvm5Twine5printERNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(34) %7, ptr noundef nonnull align 8 dereferenceable(48) %115) #27
+  %118 = getelementptr inbounds nuw i8, ptr %115, i64 32
+  %119 = load ptr, ptr %118, align 8, !tbaa !298
+  %120 = getelementptr inbounds nuw i8, ptr %115, i64 24
+  %121 = load ptr, ptr %120, align 8, !tbaa !294
+  %.not.i.i.i = icmp ult ptr %119, %121
+  br i1 %.not.i.i.i, label %124, label %122
 
-123:                                              ; preds = %118
-  %124 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(48) %116, i8 noundef zeroext 10) #27
+122:                                              ; preds = %117
+  %123 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(48) %115, i8 noundef zeroext 10) #27
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i
 
-125:                                              ; preds = %118
-  %126 = getelementptr inbounds nuw i8, ptr %120, i64 1
-  store ptr %126, ptr %119, align 8, !tbaa !298
-  store i8 10, ptr %120, align 1, !tbaa !96
+124:                                              ; preds = %117
+  %125 = getelementptr inbounds nuw i8, ptr %119, i64 1
+  store ptr %125, ptr %118, align 8, !tbaa !298
+  store i8 10, ptr %119, align 1, !tbaa !96
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i
 
-_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i: ; preds = %125, %123
+_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i: ; preds = %124, %122
   %.pr.i = load ptr, ptr %0, align 8, !tbaa !64
-  %127 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  store i8 1, ptr %127, align 8, !tbaa !187
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  store i8 1, ptr %126, align 8, !tbaa !187
   %.not.i = icmp eq ptr %.pr.i, null
-  br i1 %.not.i, label %_ZN4llvm15VerifierSupport11CheckFailedIPKNS_6MDNodeEJPKNS_8MetadataEEEEvRKNS_5TwineERKT_DpRKT0_.exit, label %128
+  br i1 %.not.i, label %_ZN4llvm15VerifierSupport11CheckFailedIPKNS_6MDNodeEJPKNS_8MetadataEEEEvRKNS_5TwineERKT_DpRKT0_.exit, label %127
 
-128:                                              ; preds = %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i
+127:                                              ; preds = %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i
   call void @_ZN4llvm15VerifierSupport7WriteTsIPKNS_6MDNodeEJPKNS_8MetadataEEEEvRKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %6)
   br label %_ZN4llvm15VerifierSupport11CheckFailedIPKNS_6MDNodeEJPKNS_8MetadataEEEEvRKNS_5TwineERKT_DpRKT0_.exit
 
-_ZN4llvm15VerifierSupport11CheckFailedIPKNS_6MDNodeEJPKNS_8MetadataEEEEvRKNS_5TwineERKT_DpRKT0_.exit: ; preds = %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread.i, %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i, %128
+_ZN4llvm15VerifierSupport11CheckFailedIPKNS_6MDNodeEJPKNS_8MetadataEEEEvRKNS_5TwineERKT_DpRKT0_.exit: ; preds = %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread.i, %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i, %127
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %158
+  br label %157
 
-129:                                              ; preds = %112
+128:                                              ; preds = %111
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %130 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  %131 = getelementptr inbounds nuw i8, ptr %9, i64 33
-  store i8 1, ptr %131, align 1, !tbaa !95
+  %129 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %130 = getelementptr inbounds nuw i8, ptr %9, i64 33
+  store i8 1, ptr %130, align 1, !tbaa !95
   store ptr @.str.276, ptr %9, align 8, !tbaa !96
-  store i8 3, ptr %130, align 8, !tbaa !92
+  store i8 3, ptr %129, align 8, !tbaa !92
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %1, ptr %10, align 8, !tbaa !329
-  %132 = load ptr, ptr %0, align 8, !tbaa !64
-  %.not.i.i69 = icmp eq ptr %132, null
-  br i1 %.not.i.i69, label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i, label %133
+  %131 = load ptr, ptr %0, align 8, !tbaa !64
+  %.not.i.i69 = icmp eq ptr %131, null
+  br i1 %.not.i.i69, label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i, label %132
 
-133:                                              ; preds = %129
-  call void @_ZNK4llvm5Twine5printERNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(34) %9, ptr noundef nonnull align 8 dereferenceable(48) %132) #27
-  %134 = getelementptr inbounds nuw i8, ptr %132, i64 32
-  %135 = load ptr, ptr %134, align 8, !tbaa !298
-  %136 = getelementptr inbounds nuw i8, ptr %132, i64 24
-  %137 = load ptr, ptr %136, align 8, !tbaa !294
-  %.not.i.i.i70 = icmp ult ptr %135, %137
-  br i1 %.not.i.i.i70, label %140, label %138
+132:                                              ; preds = %128
+  call void @_ZNK4llvm5Twine5printERNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(34) %9, ptr noundef nonnull align 8 dereferenceable(48) %131) #27
+  %133 = getelementptr inbounds nuw i8, ptr %131, i64 32
+  %134 = load ptr, ptr %133, align 8, !tbaa !298
+  %135 = getelementptr inbounds nuw i8, ptr %131, i64 24
+  %136 = load ptr, ptr %135, align 8, !tbaa !294
+  %.not.i.i.i70 = icmp ult ptr %134, %136
+  br i1 %.not.i.i.i70, label %139, label %137
 
-138:                                              ; preds = %133
-  %139 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(48) %132, i8 noundef zeroext 10) #27
+137:                                              ; preds = %132
+  %138 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(48) %131, i8 noundef zeroext 10) #27
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i
 
-140:                                              ; preds = %133
-  %141 = getelementptr inbounds nuw i8, ptr %135, i64 1
-  store ptr %141, ptr %134, align 8, !tbaa !298
-  store i8 10, ptr %135, align 1, !tbaa !96
+139:                                              ; preds = %132
+  %140 = getelementptr inbounds nuw i8, ptr %134, i64 1
+  store ptr %140, ptr %133, align 8, !tbaa !298
+  store i8 10, ptr %134, align 1, !tbaa !96
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i
 
-_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i: ; preds = %140, %138, %129
-  %142 = getelementptr inbounds nuw i8, ptr %0, i64 202
-  %143 = load i8, ptr %142, align 2, !tbaa !272, !range !50, !noundef !51
-  %144 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %145 = load i8, ptr %144, align 8, !tbaa !187, !range !50, !noundef !51
-  %146 = or i8 %145, %143
-  store i8 %146, ptr %144, align 8, !tbaa !187
-  %147 = getelementptr inbounds nuw i8, ptr %0, i64 201
-  store i8 1, ptr %147, align 1, !tbaa !188
-  %148 = load ptr, ptr %0, align 8, !tbaa !64
-  %.not.i71 = icmp eq ptr %148, null
-  br i1 %.not.i71, label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedIPKNS_6MDNodeEJPKNS_8MetadataEEEEvRKNS_5TwineERKT_DpRKT0_.exit, label %149
+_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i: ; preds = %139, %137, %128
+  %141 = getelementptr inbounds nuw i8, ptr %0, i64 202
+  %142 = load i8, ptr %141, align 2, !tbaa !272, !range !50, !noundef !51
+  %143 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  %144 = load i8, ptr %143, align 8, !tbaa !187, !range !50, !noundef !51
+  %145 = or i8 %144, %142
+  store i8 %145, ptr %143, align 8, !tbaa !187
+  %146 = getelementptr inbounds nuw i8, ptr %0, i64 201
+  store i8 1, ptr %146, align 1, !tbaa !188
+  %147 = load ptr, ptr %0, align 8, !tbaa !64
+  %.not.i71 = icmp eq ptr %147, null
+  br i1 %.not.i71, label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedIPKNS_6MDNodeEJPKNS_8MetadataEEEEvRKNS_5TwineERKT_DpRKT0_.exit, label %148
 
-149:                                              ; preds = %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i
+148:                                              ; preds = %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i
   call void @_ZN4llvm15VerifierSupport7WriteTsIPKNS_6MDNodeEJPKNS_8MetadataEEEEvRKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %6)
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedIPKNS_6MDNodeEJPKNS_8MetadataEEEEvRKNS_5TwineERKT_DpRKT0_.exit
 
-_ZN4llvm15VerifierSupport20DebugInfoCheckFailedIPKNS_6MDNodeEJPKNS_8MetadataEEEEvRKNS_5TwineERKT_DpRKT0_.exit: ; preds = %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i, %149
+_ZN4llvm15VerifierSupport20DebugInfoCheckFailedIPKNS_6MDNodeEJPKNS_8MetadataEEEEvRKNS_5TwineERKT_DpRKT0_.exit: ; preds = %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i, %148
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %158
+  br label %157
 
-150:                                              ; preds = %112
-  %151 = add i8 %113, -36
-  %switch.i.i.i.i.i.i.i.i = icmp ult i8 %151, -31
-  br i1 %switch.i.i.i.i.i.i.i.i, label %153, label %152
+149:                                              ; preds = %111
+  %150 = add i8 %112, -36
+  %switch.i.i.i.i.i.i.i.i = icmp ult i8 %150, -31
+  br i1 %switch.i.i.i.i.i.i.i.i, label %152, label %151
 
-152:                                              ; preds = %150
-  tail call fastcc void @_ZN12_GLOBAL__N_18Verifier11visitMDNodeERKN4llvm6MDNodeENS0_19AreDebugLocsAllowedE(ptr noundef nonnull align 8 dereferenceable(2248) %0, ptr noundef nonnull align 8 dereferenceable(16) %111, i32 noundef 0)
-  br label %156
+151:                                              ; preds = %149
+  tail call fastcc void @_ZN12_GLOBAL__N_18Verifier11visitMDNodeERKN4llvm6MDNodeENS0_19AreDebugLocsAllowedE(ptr noundef nonnull align 8 dereferenceable(2248) %0, ptr noundef nonnull align 8 dereferenceable(16) %110, i32 noundef 0)
+  br label %155
 
-153:                                              ; preds = %150
-  %154 = add i8 %113, -3
-  %spec.select.i.i.i.i.i.i.i.i = icmp ult i8 %154, -2
-  br i1 %spec.select.i.i.i.i.i.i.i.i, label %156, label %155
+152:                                              ; preds = %149
+  %153 = add i8 %112, -3
+  %spec.select.i.i.i.i.i.i.i.i = icmp ult i8 %153, -2
+  br i1 %spec.select.i.i.i.i.i.i.i.i, label %155, label %154
 
-155:                                              ; preds = %153
-  tail call fastcc void @_ZN12_GLOBAL__N_18Verifier20visitValueAsMetadataERKN4llvm15ValueAsMetadataEPNS1_8FunctionE(ptr noundef nonnull align 8 dereferenceable(2248) %0, ptr noundef nonnull align 8 dereferenceable(136) %111, ptr noundef null)
-  br label %156
+154:                                              ; preds = %152
+  tail call fastcc void @_ZN12_GLOBAL__N_18Verifier20visitValueAsMetadataERKN4llvm15ValueAsMetadataEPNS1_8FunctionE(ptr noundef nonnull align 8 dereferenceable(2248) %0, ptr noundef nonnull align 8 dereferenceable(136) %110, ptr noundef null)
+  br label %155
 
-156:                                              ; preds = %152, %.lr.ph.split, %155, %153
+155:                                              ; preds = %151, %.lr.ph.split, %154, %152
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %157 = getelementptr inbounds nuw i8, ptr %.087, i64 8
-  %.not62 = icmp eq ptr %157, %97
+  %156 = getelementptr inbounds nuw i8, ptr %.087, i64 8
+  %.not62 = icmp eq ptr %156, %97
   br i1 %.not62, label %._crit_edge, label %.lr.ph.split
 
-158:                                              ; preds = %_ZN4llvm15VerifierSupport11CheckFailedIPKNS_6MDNodeEJPKNS_8MetadataEEEEvRKNS_5TwineERKT_DpRKT0_.exit, %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedIPKNS_6MDNodeEJPKNS_8MetadataEEEEvRKNS_5TwineERKT_DpRKT0_.exit
+157:                                              ; preds = %_ZN4llvm15VerifierSupport11CheckFailedIPKNS_6MDNodeEJPKNS_8MetadataEEEEvRKNS_5TwineERKT_DpRKT0_.exit, %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedIPKNS_6MDNodeEJPKNS_8MetadataEEEEvRKNS_5TwineERKT_DpRKT0_.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.critedge107
 
-._crit_edge:                                      ; preds = %109, %156, %_ZNK4llvm6MDNode8operandsEv.exit
-  %159 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %160 = load i8, ptr %159, align 1
-  %161 = and i8 %160, 127
-  %162 = icmp eq i8 %161, 2
-  br i1 %162, label %163, label %_ZNK4llvm6MDNode10isResolvedEv.exit
+._crit_edge:                                      ; preds = %108, %155, %_ZNK4llvm6MDNode8operandsEv.exit
+  %158 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %159 = load i8, ptr %158, align 1
+  %160 = and i8 %159, 127
+  %161 = icmp eq i8 %160, 2
+  br i1 %161, label %162, label %_ZNK4llvm6MDNode10isResolvedEv.exit
 
-163:                                              ; preds = %._crit_edge
+162:                                              ; preds = %._crit_edge
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %164 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %165 = getelementptr inbounds nuw i8, ptr %11, i64 33
-  store i8 1, ptr %165, align 1, !tbaa !95
+  %163 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  %164 = getelementptr inbounds nuw i8, ptr %11, i64 33
+  store i8 1, ptr %164, align 1, !tbaa !95
   store ptr @.str.277, ptr %11, align 8, !tbaa !96
-  store i8 3, ptr %164, align 8, !tbaa !92
+  store i8 3, ptr %163, align 8, !tbaa !92
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr %1, ptr %12, align 8, !tbaa !329
   call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_6MDNodeEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %11, ptr noundef nonnull align 8 dereferenceable(8) %12)
@@ -18743,18 +18742,18 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedIPKNS_6MDNodeEJPKNS_8MetadataEEEE
   br label %.critedge107
 
 _ZNK4llvm6MDNode10isResolvedEv.exit:              ; preds = %._crit_edge
-  %166 = getelementptr inbounds i8, ptr %1, i64 -8
-  %167 = load i32, ptr %166, align 8, !tbaa !687
-  %.not.i73 = icmp eq i32 %167, 0
-  br i1 %.not.i73, label %.critedge107, label %168
+  %165 = getelementptr inbounds i8, ptr %1, i64 -8
+  %166 = load i32, ptr %165, align 8, !tbaa !687
+  %.not.i73 = icmp eq i32 %166, 0
+  br i1 %.not.i73, label %.critedge107, label %167
 
-168:                                              ; preds = %_ZNK4llvm6MDNode10isResolvedEv.exit
+167:                                              ; preds = %_ZNK4llvm6MDNode10isResolvedEv.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  %169 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  %170 = getelementptr inbounds nuw i8, ptr %13, i64 33
-  store i8 1, ptr %170, align 1, !tbaa !95
+  %168 = getelementptr inbounds nuw i8, ptr %13, i64 32
+  %169 = getelementptr inbounds nuw i8, ptr %13, i64 33
+  store i8 1, ptr %169, align 1, !tbaa !95
   store ptr @.str.278, ptr %13, align 8, !tbaa !96
-  store i8 3, ptr %169, align 8, !tbaa !92
+  store i8 3, ptr %168, align 8, !tbaa !92
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr %1, ptr %14, align 8, !tbaa !329
   call void @_ZN4llvm15VerifierSupport11CheckFailedIPKNS_6MDNodeEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %13, ptr noundef nonnull align 8 dereferenceable(8) %14)
@@ -18762,7 +18761,7 @@ _ZNK4llvm6MDNode10isResolvedEv.exit:              ; preds = %._crit_edge
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %.critedge107
 
-.critedge107:                                     ; preds = %.lr.ph.i.i, %158, %_ZNK4llvm6MDNode10isResolvedEv.exit, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i, %168, %163, %44
+.critedge107:                                     ; preds = %.lr.ph.i.i, %157, %_ZNK4llvm6MDNode10isResolvedEv.exit, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i, %167, %162, %44
   ret void
 }
 

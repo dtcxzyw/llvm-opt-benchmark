@@ -307,53 +307,52 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   br label %11
 
 11:                                               ; preds = %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h9020ec6bb43fde2dE.exit.i", %6
-  %.sroa.06.0.i = phi i64 [ 0, %6 ], [ %23, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h9020ec6bb43fde2dE.exit.i" ]
+  %.sroa.06.0.i = phi i64 [ 0, %6 ], [ %22, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h9020ec6bb43fde2dE.exit.i" ]
   %12 = getelementptr inbounds { i8, [55 x i8] }, ptr %0, i64 %.sroa.06.0.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !83)
   %.sroa.0.0.copyload.i.i.i = load i8, ptr %12, align 8, !alias.scope !86, !noalias !89
-  %13 = add nsw i8 %.sroa.0.0.copyload.i.i.i, -6
-  %14 = icmp ult i8 %13, 4
-  %15 = zext nneg i8 %.sroa.0.0.copyload.i.i.i to i64
-  %16 = add nsw i64 %15, -5
-  %17 = select i1 %14, i64 %16, i64 0
-  switch i64 %17, label %18 [
-    i64 0, label %19
+  %13 = icmp samesign ugt i8 %.sroa.0.0.copyload.i.i.i, 5
+  %14 = zext nneg i8 %.sroa.0.0.copyload.i.i.i to i64
+  %15 = add nsw i64 %14, -5
+  %16 = select i1 %13, i64 %15, i64 0
+  switch i64 %16, label %17 [
+    i64 0, label %18
     i64 1, label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h9020ec6bb43fde2dE.exit.i"
-    i64 2, label %20
-    i64 3, label %21
-    i64 4, label %22
+    i64 2, label %19
+    i64 3, label %20
+    i64 4, label %21
   ]
 
-18:                                               ; preds = %11
+17:                                               ; preds = %11
   unreachable
 
-19:                                               ; preds = %11
+18:                                               ; preds = %11
   %.sroa.7.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 48
   %.sroa.7.0.copyload.i.i.i = load i64, ptr %.sroa.7.0..sroa_idx.i.i.i, align 8, !alias.scope !86, !noalias !89
   %.sroa.62.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 40
   %.sroa.62.0.copyload.i.i.i = load ptr, ptr %.sroa.62.0..sroa_idx.i.i.i, align 8, !alias.scope !86, !noalias !89, !nonnull !3, !noundef !3
   br label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h9020ec6bb43fde2dE.exit.i"
 
+19:                                               ; preds = %11
+  br label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h9020ec6bb43fde2dE.exit.i"
+
 20:                                               ; preds = %11
   br label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h9020ec6bb43fde2dE.exit.i"
 
 21:                                               ; preds = %11
-  br label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h9020ec6bb43fde2dE.exit.i"
-
-22:                                               ; preds = %11
   %.sroa.5.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 16
   %.sroa.5.0.copyload.i.i.i = load i64, ptr %.sroa.5.0..sroa_idx.i.i.i, align 8, !alias.scope !86, !noalias !89
   %.sroa.41.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 8
   %.sroa.41.0.copyload.i.i.i = load ptr, ptr %.sroa.41.0..sroa_idx.i.i.i, align 8, !alias.scope !86, !noalias !89, !nonnull !3, !noundef !3
   br label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h9020ec6bb43fde2dE.exit.i"
 
-"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h9020ec6bb43fde2dE.exit.i": ; preds = %22, %21, %20, %19, %11
-  %.sroa.8.0.i.i.i.i = phi i64 [ %.sroa.7.0.copyload.i.i.i, %19 ], [ 1, %20 ], [ 2, %21 ], [ %.sroa.5.0.copyload.i.i.i, %22 ], [ %17, %11 ]
-  %.sroa.0.0.i.i.i.i = phi ptr [ %.sroa.62.0.copyload.i.i.i, %19 ], [ @anon.581ac69e9b622adfb1fd4be6c7aea2dd.9, %20 ], [ @anon.581ac69e9b622adfb1fd4be6c7aea2dd.10, %21 ], [ %.sroa.41.0.copyload.i.i.i, %22 ], [ @anon.581ac69e9b622adfb1fd4be6c7aea2dd.8, %11 ]
+"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h9020ec6bb43fde2dE.exit.i": ; preds = %21, %20, %19, %18, %11
+  %.sroa.8.0.i.i.i.i = phi i64 [ %.sroa.7.0.copyload.i.i.i, %18 ], [ 1, %19 ], [ 2, %20 ], [ %.sroa.5.0.copyload.i.i.i, %21 ], [ %16, %11 ]
+  %.sroa.0.0.i.i.i.i = phi ptr [ %.sroa.62.0.copyload.i.i.i, %18 ], [ @anon.581ac69e9b622adfb1fd4be6c7aea2dd.9, %19 ], [ @anon.581ac69e9b622adfb1fd4be6c7aea2dd.10, %20 ], [ %.sroa.41.0.copyload.i.i.i, %21 ], [ @anon.581ac69e9b622adfb1fd4be6c7aea2dd.8, %11 ]
   tail call void @_ZN3std4path7PathBuf5_push17hed0ac1997e1d518cE(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i.i.i, i64 noundef %.sroa.8.0.i.i.i.i), !noalias !83
-  %23 = add nuw i64 %.sroa.06.0.i, 1
-  %24 = icmp eq i64 %23, %10
-  br i1 %24, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hb5f2699a1bad6c48E.llvm.1087596546742658848.exit", label %11
+  %22 = add nuw i64 %.sroa.06.0.i, 1
+  %23 = icmp eq i64 %22, %10
+  br i1 %23, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hb5f2699a1bad6c48E.llvm.1087596546742658848.exit", label %11
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hb5f2699a1bad6c48E.llvm.1087596546742658848.exit": ; preds = %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h9020ec6bb43fde2dE.exit.i", %3
   ret void
@@ -16358,53 +16357,52 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   br label %11
 
 11:                                               ; preds = %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h9020ec6bb43fde2dE.exit", %6
-  %.sroa.06.0 = phi i64 [ 0, %6 ], [ %23, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h9020ec6bb43fde2dE.exit" ]
+  %.sroa.06.0 = phi i64 [ 0, %6 ], [ %22, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h9020ec6bb43fde2dE.exit" ]
   %12 = getelementptr inbounds { i8, [55 x i8] }, ptr %0, i64 %.sroa.06.0
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3369)
   %.sroa.0.0.copyload.i.i = load i8, ptr %12, align 8, !alias.scope !3372
-  %13 = add nsw i8 %.sroa.0.0.copyload.i.i, -6
-  %14 = icmp ult i8 %13, 4
-  %15 = zext nneg i8 %.sroa.0.0.copyload.i.i to i64
-  %16 = add nsw i64 %15, -5
-  %17 = select i1 %14, i64 %16, i64 0
-  switch i64 %17, label %18 [
-    i64 0, label %19
+  %13 = icmp samesign ugt i8 %.sroa.0.0.copyload.i.i, 5
+  %14 = zext nneg i8 %.sroa.0.0.copyload.i.i to i64
+  %15 = add nsw i64 %14, -5
+  %16 = select i1 %13, i64 %15, i64 0
+  switch i64 %16, label %17 [
+    i64 0, label %18
     i64 1, label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h9020ec6bb43fde2dE.exit"
-    i64 2, label %20
-    i64 3, label %21
-    i64 4, label %22
+    i64 2, label %19
+    i64 3, label %20
+    i64 4, label %21
   ]
 
-18:                                               ; preds = %11
+17:                                               ; preds = %11
   unreachable
 
-19:                                               ; preds = %11
+18:                                               ; preds = %11
   %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %12, i64 48
   %.sroa.7.0.copyload.i.i = load i64, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !alias.scope !3372
   %.sroa.62.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %12, i64 40
   %.sroa.62.0.copyload.i.i = load ptr, ptr %.sroa.62.0..sroa_idx.i.i, align 8, !alias.scope !3372, !nonnull !3, !noundef !3
   br label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h9020ec6bb43fde2dE.exit"
 
+19:                                               ; preds = %11
+  br label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h9020ec6bb43fde2dE.exit"
+
 20:                                               ; preds = %11
   br label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h9020ec6bb43fde2dE.exit"
 
 21:                                               ; preds = %11
-  br label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h9020ec6bb43fde2dE.exit"
-
-22:                                               ; preds = %11
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %12, i64 16
   %.sroa.5.0.copyload.i.i = load i64, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !3372
   %.sroa.41.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %12, i64 8
   %.sroa.41.0.copyload.i.i = load ptr, ptr %.sroa.41.0..sroa_idx.i.i, align 8, !alias.scope !3372, !nonnull !3, !noundef !3
   br label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h9020ec6bb43fde2dE.exit"
 
-"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h9020ec6bb43fde2dE.exit": ; preds = %11, %19, %20, %21, %22
-  %.sroa.8.0.i.i.i = phi i64 [ %.sroa.7.0.copyload.i.i, %19 ], [ 1, %20 ], [ 2, %21 ], [ %.sroa.5.0.copyload.i.i, %22 ], [ %17, %11 ]
-  %.sroa.0.0.i.i.i = phi ptr [ %.sroa.62.0.copyload.i.i, %19 ], [ @anon.581ac69e9b622adfb1fd4be6c7aea2dd.9, %20 ], [ @anon.581ac69e9b622adfb1fd4be6c7aea2dd.10, %21 ], [ %.sroa.41.0.copyload.i.i, %22 ], [ @anon.581ac69e9b622adfb1fd4be6c7aea2dd.8, %11 ]
+"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h9020ec6bb43fde2dE.exit": ; preds = %11, %18, %19, %20, %21
+  %.sroa.8.0.i.i.i = phi i64 [ %.sroa.7.0.copyload.i.i, %18 ], [ 1, %19 ], [ 2, %20 ], [ %.sroa.5.0.copyload.i.i, %21 ], [ %16, %11 ]
+  %.sroa.0.0.i.i.i = phi ptr [ %.sroa.62.0.copyload.i.i, %18 ], [ @anon.581ac69e9b622adfb1fd4be6c7aea2dd.9, %19 ], [ @anon.581ac69e9b622adfb1fd4be6c7aea2dd.10, %20 ], [ %.sroa.41.0.copyload.i.i, %21 ], [ @anon.581ac69e9b622adfb1fd4be6c7aea2dd.8, %11 ]
   tail call void @_ZN3std4path7PathBuf5_push17hed0ac1997e1d518cE(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i.i, i64 noundef %.sroa.8.0.i.i.i), !noalias !3369
-  %23 = add nuw i64 %.sroa.06.0, 1
-  %24 = icmp eq i64 %23, %10
-  br i1 %24, label %.loopexit, label %11
+  %22 = add nuw i64 %.sroa.06.0, 1
+  %23 = icmp eq i64 %22, %10
+  br i1 %23, label %.loopexit, label %11
 
 .loopexit:                                        ; preds = %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h9020ec6bb43fde2dE.exit", %3
   ret void

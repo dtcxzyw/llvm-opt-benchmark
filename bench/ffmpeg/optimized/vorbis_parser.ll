@@ -254,7 +254,7 @@ define ptr @av_vorbis_parse_init(ptr noundef %0, i32 noundef %1) local_unnamed_a
   %6 = tail call noalias ptr @av_mallocz(i64 noundef 296) #6
   store ptr %6, ptr %5, align 8, !tbaa !17
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %168, label %7
+  br i1 %.not, label %169, label %7
 
 7:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -268,7 +268,7 @@ define ptr @av_vorbis_parse_init(ptr noundef %0, i32 noundef %1) local_unnamed_a
 
 11:                                               ; preds = %7
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %6, i32 noundef 16, ptr noundef nonnull @.str.3) #6
-  br label %160
+  br label %161
 
 12:                                               ; preds = %7
   %13 = load ptr, ptr %3, align 16, !tbaa !21
@@ -278,7 +278,7 @@ define ptr @av_vorbis_parse_init(ptr noundef %0, i32 noundef %1) local_unnamed_a
 
 16:                                               ; preds = %12
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %6, i32 noundef 16, ptr noundef nonnull @.str.6) #6
-  br label %160
+  br label %161
 
 17:                                               ; preds = %12
   %18 = load i8, ptr %13, align 1, !tbaa !12
@@ -287,7 +287,7 @@ define ptr @av_vorbis_parse_init(ptr noundef %0, i32 noundef %1) local_unnamed_a
 
 19:                                               ; preds = %17
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %6, i32 noundef 16, ptr noundef nonnull @.str.7) #6
-  br label %160
+  br label %161
 
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %13, i64 1
@@ -297,7 +297,7 @@ define ptr @av_vorbis_parse_init(ptr noundef %0, i32 noundef %1) local_unnamed_a
 
 22:                                               ; preds = %20
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %6, i32 noundef 16, ptr noundef nonnull @.str.9) #6
-  br label %160
+  br label %161
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds nuw i8, ptr %13, i64 29
@@ -308,7 +308,7 @@ define ptr @av_vorbis_parse_init(ptr noundef %0, i32 noundef %1) local_unnamed_a
 
 27:                                               ; preds = %23
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %6, i32 noundef 16, ptr noundef nonnull @.str.10) #6
-  br label %160
+  br label %161
 
 28:                                               ; preds = %23
   %29 = getelementptr inbounds nuw i8, ptr %13, i64 28
@@ -333,7 +333,7 @@ define ptr @av_vorbis_parse_init(ptr noundef %0, i32 noundef %1) local_unnamed_a
 
 45:                                               ; preds = %28
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %6, i32 noundef 16, ptr noundef nonnull @.str.11) #6
-  br label %160
+  br label %161
 
 46:                                               ; preds = %28
   %47 = load i8, ptr %41, align 1, !tbaa !12
@@ -342,7 +342,7 @@ define ptr @av_vorbis_parse_init(ptr noundef %0, i32 noundef %1) local_unnamed_a
 
 48:                                               ; preds = %46
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %6, i32 noundef 16, ptr noundef nonnull @.str.12) #6
-  br label %160
+  br label %161
 
 49:                                               ; preds = %46
   %50 = getelementptr inbounds nuw i8, ptr %41, i64 1
@@ -352,7 +352,7 @@ define ptr @av_vorbis_parse_init(ptr noundef %0, i32 noundef %1) local_unnamed_a
 
 51:                                               ; preds = %49
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %6, i32 noundef 16, ptr noundef nonnull @.str.13) #6
-  br label %160
+  br label %161
 
 52:                                               ; preds = %49
   %53 = zext nneg i32 %43 to i64
@@ -366,7 +366,7 @@ define ptr @av_vorbis_parse_init(ptr noundef %0, i32 noundef %1) local_unnamed_a
 
 56:                                               ; preds = %52
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %6, i32 noundef 16, ptr noundef nonnull @.str.14) #6
-  br label %160
+  br label %161
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
@@ -504,88 +504,88 @@ define ptr @av_vorbis_parse_init(ptr noundef %0, i32 noundef %1) local_unnamed_a
   %126 = getelementptr inbounds nuw i8, ptr %6, i64 284
   store i32 %.0.lcssa.ph.i.i, ptr %126, align 4, !tbaa !14
   %127 = add nsw i32 %.0.lcssa.ph.i.i, -1
-  %.not.i.i.i = icmp ult i32 %127, 65536
-  %128 = lshr i32 %127, 16
-  %spec.select.i.i.i = select i1 %.not.i.i.i, i32 %127, i32 %128
-  %spec.select12.i.i.i = select i1 %.not.i.i.i, i32 0, i32 16
-  %.not11.i.i.i = icmp samesign ult i32 %spec.select.i.i.i, 256
-  %129 = lshr i32 %spec.select.i.i.i, 8
-  %130 = or disjoint i32 %spec.select12.i.i.i, 8
-  %.110.i.i.i = select i1 %.not11.i.i.i, i32 %spec.select.i.i.i, i32 %129
-  %.1.i.i.i = select i1 %.not11.i.i.i, i32 %spec.select12.i.i.i, i32 %130
-  %131 = zext nneg i32 %.110.i.i.i to i64
-  %132 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %131
-  %133 = load i8, ptr %132, align 1, !tbaa !12
-  %134 = zext i8 %133 to i32
-  %135 = add nuw nsw i32 %.1.i.i.i, %134
-  %136 = shl i32 4, %135
-  %137 = add i32 %136, -2
-  %138 = getelementptr inbounds nuw i8, ptr %6, i64 288
-  store i32 %137, ptr %138, align 8, !tbaa !15
-  %139 = getelementptr inbounds nuw i8, ptr %6, i64 292
-  store i32 %136, ptr %139, align 4, !tbaa !16
-  %140 = icmp sgt i32 %.0.lcssa.ph.i.i, 0
-  br i1 %140, label %.lr.ph131.i.i, label %.loopexit
+  %128 = icmp ugt i32 %127, 62
+  %129 = lshr i32 %127, 16
+  %spec.select.i.i.i = select i1 %128, i32 %129, i32 %127
+  %spec.select11.i.i.i = select i1 %128, i32 16, i32 0
+  %.not.i.i.i = icmp samesign ult i32 %spec.select.i.i.i, 256
+  %130 = lshr i32 %spec.select.i.i.i, 8
+  %131 = or disjoint i32 %spec.select11.i.i.i, 8
+  %.110.i.i.i = select i1 %.not.i.i.i, i32 %spec.select.i.i.i, i32 %130
+  %.1.i.i.i = select i1 %.not.i.i.i, i32 %spec.select11.i.i.i, i32 %131
+  %132 = zext nneg i32 %.110.i.i.i to i64
+  %133 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %132
+  %134 = load i8, ptr %133, align 1, !tbaa !12
+  %135 = zext i8 %134 to i32
+  %136 = add nuw nsw i32 %.1.i.i.i, %135
+  %137 = shl i32 4, %136
+  %138 = add i32 %137, -2
+  %139 = getelementptr inbounds nuw i8, ptr %6, i64 288
+  store i32 %138, ptr %139, align 8, !tbaa !15
+  %140 = getelementptr inbounds nuw i8, ptr %6, i64 292
+  store i32 %137, ptr %140, align 4, !tbaa !16
+  %141 = icmp sgt i32 %.0.lcssa.ph.i.i, 0
+  br i1 %141, label %.lr.ph131.i.i, label %.loopexit
 
 .lr.ph131.i.i:                                    ; preds = %.thread109.i.i
-  %141 = getelementptr inbounds nuw i8, ptr %6, i64 28
-  %142 = zext nneg i32 %127 to i64
-  br label %143
+  %142 = getelementptr inbounds nuw i8, ptr %6, i64 28
+  %143 = zext nneg i32 %127 to i64
+  br label %144
 
-143:                                              ; preds = %143, %.lr.ph131.i.i
-  %indvars.iv134.i.i = phi i64 [ %142, %.lr.ph131.i.i ], [ %indvars.iv.next135.i.i, %143 ]
-  %.sroa.13.3129.i.i = phi i32 [ %spec.select.i71.i.i, %.lr.ph131.i.i ], [ %spec.select.i77.i.i, %143 ]
-  %144 = sub nsw i32 0, %.sroa.13.3129.i.i
-  %145 = sub nsw i32 %63, %.sroa.13.3129.i.i
-  %146 = icmp slt i32 %.sroa.13.3129.i.i, -40
-  %..i.i75.i.i = call i32 @llvm.smin.i32(i32 %145, i32 40)
-  %.0.i.i76.i.i = select i1 %146, i32 %144, i32 %..i.i75.i.i
-  %147 = add nsw i32 %.0.i.i76.i.i, %.sroa.13.3129.i.i
-  %148 = lshr i32 %147, 3
-  %149 = zext nneg i32 %148 to i64
-  %150 = getelementptr inbounds nuw i8, ptr %54, i64 %149
-  %151 = load i8, ptr %150, align 1, !tbaa !12
-  %152 = icmp slt i32 %147, %63
-  %153 = zext i1 %152 to i32
-  %spec.select.i77.i.i = add i32 %147, %153
-  %154 = zext i8 %151 to i32
-  %155 = and i32 %147, 7
-  %156 = shl nuw nsw i32 %154, %155
-  %157 = lshr i32 %156, 7
-  %158 = and i32 %157, 1
-  %159 = getelementptr inbounds nuw i32, ptr %141, i64 %indvars.iv134.i.i
-  store i32 %158, ptr %159, align 4, !tbaa !13
+144:                                              ; preds = %144, %.lr.ph131.i.i
+  %indvars.iv134.i.i = phi i64 [ %143, %.lr.ph131.i.i ], [ %indvars.iv.next135.i.i, %144 ]
+  %.sroa.13.3129.i.i = phi i32 [ %spec.select.i71.i.i, %.lr.ph131.i.i ], [ %spec.select.i77.i.i, %144 ]
+  %145 = sub nsw i32 0, %.sroa.13.3129.i.i
+  %146 = sub nsw i32 %63, %.sroa.13.3129.i.i
+  %147 = icmp slt i32 %.sroa.13.3129.i.i, -40
+  %..i.i75.i.i = call i32 @llvm.smin.i32(i32 %146, i32 40)
+  %.0.i.i76.i.i = select i1 %147, i32 %145, i32 %..i.i75.i.i
+  %148 = add nsw i32 %.0.i.i76.i.i, %.sroa.13.3129.i.i
+  %149 = lshr i32 %148, 3
+  %150 = zext nneg i32 %149 to i64
+  %151 = getelementptr inbounds nuw i8, ptr %54, i64 %150
+  %152 = load i8, ptr %151, align 1, !tbaa !12
+  %153 = icmp slt i32 %148, %63
+  %154 = zext i1 %153 to i32
+  %spec.select.i77.i.i = add i32 %148, %154
+  %155 = zext i8 %152 to i32
+  %156 = and i32 %148, 7
+  %157 = shl nuw nsw i32 %155, %156
+  %158 = lshr i32 %157, 7
+  %159 = and i32 %158, 1
+  %160 = getelementptr inbounds nuw i32, ptr %142, i64 %indvars.iv134.i.i
+  store i32 %159, ptr %160, align 4, !tbaa !13
   %indvars.iv.next135.i.i = add nsw i64 %indvars.iv134.i.i, -1
   %.not141.i.i = icmp eq i64 %indvars.iv134.i.i, 0
-  br i1 %.not141.i.i, label %.loopexit, label %143, !llvm.loop !27
+  br i1 %.not141.i.i, label %.loopexit, label %144, !llvm.loop !27
 
 parse_setup_header.exit.thread22.i:               ; preds = %125, %._crit_edge118.thread.i.i, %.thread.i.i
   call void @av_free(ptr noundef nonnull %54) #6
-  br label %160
+  br label %161
 
-160:                                              ; preds = %11, %parse_setup_header.exit.thread22.i, %16, %19, %22, %27, %56, %51, %48, %45
+161:                                              ; preds = %11, %parse_setup_header.exit.thread22.i, %16, %19, %22, %27, %56, %51, %48, %45
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @av_freep(ptr noundef nonnull %5) #6
-  br label %168
+  br label %169
 
-.loopexit:                                        ; preds = %143, %.thread109.i.i
+.loopexit:                                        ; preds = %144, %.thread109.i.i
   call void @av_free(ptr noundef nonnull %54) #6
-  %161 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  store i32 1, ptr %161, align 4, !tbaa !4
-  %162 = getelementptr inbounds nuw i8, ptr %6, i64 28
-  %163 = load i32, ptr %162, align 4, !tbaa !13
-  %164 = sext i32 %163 to i64
-  %165 = getelementptr inbounds i32, ptr %34, i64 %164
-  %166 = load i32, ptr %165, align 4, !tbaa !13
-  %167 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i32 %166, ptr %167, align 8, !tbaa !11
+  %162 = getelementptr inbounds nuw i8, ptr %6, i64 12
+  store i32 1, ptr %162, align 4, !tbaa !4
+  %163 = getelementptr inbounds nuw i8, ptr %6, i64 28
+  %164 = load i32, ptr %163, align 4, !tbaa !13
+  %165 = sext i32 %164 to i64
+  %166 = getelementptr inbounds i32, ptr %34, i64 %165
+  %167 = load i32, ptr %166, align 4, !tbaa !13
+  %168 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  store i32 %167, ptr %168, align 8, !tbaa !11
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %168
+  br label %169
 
-168:                                              ; preds = %2, %.loopexit, %160
-  %.0 = phi ptr [ null, %160 ], [ %6, %.loopexit ], [ null, %2 ]
+169:                                              ; preds = %2, %.loopexit, %161
+  %.0 = phi ptr [ null, %161 ], [ %6, %.loopexit ], [ null, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }

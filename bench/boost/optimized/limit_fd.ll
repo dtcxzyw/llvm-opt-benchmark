@@ -162410,7 +162410,7 @@ define linkonce_odr hidden noundef i32 @_ZN5boost7process2v16detail11system_impl
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %.not = icmp eq i32 %15, -1
-  br i1 %.not, label %_ZNK5boost7process2v15child9exit_codeEv.exit, label %30
+  br i1 %.not, label %48, label %30
 
 28:                                               ; preds = %37
   %29 = landingpad { ptr, i32 }
@@ -162470,22 +162470,15 @@ define linkonce_odr hidden noundef i32 @_ZN5boost7process2v16detail11system_impl
   %43 = load atomic i32, ptr %42 seq_cst, align 4
   %44 = and i32 %43, 127
   %45 = icmp eq i32 %44, 0
-  br i1 %45, label %46, label %49
+  %46 = lshr i32 %43, 8
+  %47 = and i32 %46, 255
+  %.not.i.i9 = icmp eq i32 %44, 127
+  %..i.i = select i1 %.not.i.i9, i32 %43, i32 %44
+  %.0.i.i = select i1 %45, i32 %47, i32 %..i.i
+  br label %48
 
-46:                                               ; preds = %41
-  %47 = lshr i32 %43, 8
-  %48 = and i32 %47, 255
-  br label %_ZNK5boost7process2v15child9exit_codeEv.exit
-
-49:                                               ; preds = %41
-  %50 = shl nuw nsw i32 %44, 24
-  %sext.i.i = add nuw i32 %50, 16777216
-  %51 = icmp sgt i32 %sext.i.i, 33554431
-  %..i.i = select i1 %51, i32 %44, i32 %43
-  br label %_ZNK5boost7process2v15child9exit_codeEv.exit
-
-_ZNK5boost7process2v15child9exit_codeEv.exit:     ; preds = %49, %46, %7
-  %.0 = phi i32 [ -1, %7 ], [ %48, %46 ], [ %..i.i, %49 ]
+48:                                               ; preds = %41, %7
+  %.0 = phi i32 [ -1, %7 ], [ %.0.i.i, %41 ]
   call void @_ZN5boost7process2v15childD2Ev(ptr noundef nonnull align 8 dereferenceable(26) %12) #61
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret i32 %.0
@@ -173680,7 +173673,7 @@ define linkonce_odr hidden noundef i32 @_ZN5boost7process2v16detail11system_impl
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %.not = icmp eq i32 %13, -1
-  br i1 %.not, label %_ZNK5boost7process2v15child9exit_codeEv.exit, label %28
+  br i1 %.not, label %46, label %28
 
 26:                                               ; preds = %35
   %27 = landingpad { ptr, i32 }
@@ -173740,22 +173733,15 @@ define linkonce_odr hidden noundef i32 @_ZN5boost7process2v16detail11system_impl
   %41 = load atomic i32, ptr %40 seq_cst, align 4
   %42 = and i32 %41, 127
   %43 = icmp eq i32 %42, 0
-  br i1 %43, label %44, label %47
+  %44 = lshr i32 %41, 8
+  %45 = and i32 %44, 255
+  %.not.i.i7 = icmp eq i32 %42, 127
+  %..i.i = select i1 %.not.i.i7, i32 %41, i32 %42
+  %.0.i.i = select i1 %43, i32 %45, i32 %..i.i
+  br label %46
 
-44:                                               ; preds = %39
-  %45 = lshr i32 %41, 8
-  %46 = and i32 %45, 255
-  br label %_ZNK5boost7process2v15child9exit_codeEv.exit
-
-47:                                               ; preds = %39
-  %48 = shl nuw nsw i32 %42, 24
-  %sext.i.i = add nuw i32 %48, 16777216
-  %49 = icmp sgt i32 %sext.i.i, 33554431
-  %..i.i = select i1 %49, i32 %42, i32 %41
-  br label %_ZNK5boost7process2v15child9exit_codeEv.exit
-
-_ZNK5boost7process2v15child9exit_codeEv.exit:     ; preds = %47, %44, %5
-  %.0 = phi i32 [ -1, %5 ], [ %46, %44 ], [ %..i.i, %47 ]
+46:                                               ; preds = %39, %5
+  %.0 = phi i32 [ -1, %5 ], [ %.0.i.i, %39 ]
   call void @_ZN5boost7process2v15childD2Ev(ptr noundef nonnull align 8 dereferenceable(26) %10) #61
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.0
@@ -176406,7 +176392,7 @@ define linkonce_odr hidden noundef i32 @_ZN5boost7process2v16detail11system_impl
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %.not = icmp eq i32 %13, -1
-  br i1 %.not, label %_ZNK5boost7process2v15child9exit_codeEv.exit, label %28
+  br i1 %.not, label %46, label %28
 
 26:                                               ; preds = %35
   %27 = landingpad { ptr, i32 }
@@ -176466,22 +176452,15 @@ define linkonce_odr hidden noundef i32 @_ZN5boost7process2v16detail11system_impl
   %41 = load atomic i32, ptr %40 seq_cst, align 4
   %42 = and i32 %41, 127
   %43 = icmp eq i32 %42, 0
-  br i1 %43, label %44, label %47
+  %44 = lshr i32 %41, 8
+  %45 = and i32 %44, 255
+  %.not.i.i7 = icmp eq i32 %42, 127
+  %..i.i = select i1 %.not.i.i7, i32 %41, i32 %42
+  %.0.i.i = select i1 %43, i32 %45, i32 %..i.i
+  br label %46
 
-44:                                               ; preds = %39
-  %45 = lshr i32 %41, 8
-  %46 = and i32 %45, 255
-  br label %_ZNK5boost7process2v15child9exit_codeEv.exit
-
-47:                                               ; preds = %39
-  %48 = shl nuw nsw i32 %42, 24
-  %sext.i.i = add nuw i32 %48, 16777216
-  %49 = icmp sgt i32 %sext.i.i, 33554431
-  %..i.i = select i1 %49, i32 %42, i32 %41
-  br label %_ZNK5boost7process2v15child9exit_codeEv.exit
-
-_ZNK5boost7process2v15child9exit_codeEv.exit:     ; preds = %47, %44, %5
-  %.0 = phi i32 [ -1, %5 ], [ %46, %44 ], [ %..i.i, %47 ]
+46:                                               ; preds = %39, %5
+  %.0 = phi i32 [ -1, %5 ], [ %.0.i.i, %39 ]
   call void @_ZN5boost7process2v15childD2Ev(ptr noundef nonnull align 8 dereferenceable(26) %10) #61
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.0
@@ -178973,7 +178952,7 @@ define linkonce_odr hidden noundef i32 @_ZN5boost7process2v16detail11system_impl
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %.not = icmp eq i32 %13, -1
-  br i1 %.not, label %_ZNK5boost7process2v15child9exit_codeEv.exit, label %28
+  br i1 %.not, label %46, label %28
 
 26:                                               ; preds = %35
   %27 = landingpad { ptr, i32 }
@@ -179033,22 +179012,15 @@ define linkonce_odr hidden noundef i32 @_ZN5boost7process2v16detail11system_impl
   %41 = load atomic i32, ptr %40 seq_cst, align 4
   %42 = and i32 %41, 127
   %43 = icmp eq i32 %42, 0
-  br i1 %43, label %44, label %47
+  %44 = lshr i32 %41, 8
+  %45 = and i32 %44, 255
+  %.not.i.i7 = icmp eq i32 %42, 127
+  %..i.i = select i1 %.not.i.i7, i32 %41, i32 %42
+  %.0.i.i = select i1 %43, i32 %45, i32 %..i.i
+  br label %46
 
-44:                                               ; preds = %39
-  %45 = lshr i32 %41, 8
-  %46 = and i32 %45, 255
-  br label %_ZNK5boost7process2v15child9exit_codeEv.exit
-
-47:                                               ; preds = %39
-  %48 = shl nuw nsw i32 %42, 24
-  %sext.i.i = add nuw i32 %48, 16777216
-  %49 = icmp sgt i32 %sext.i.i, 33554431
-  %..i.i = select i1 %49, i32 %42, i32 %41
-  br label %_ZNK5boost7process2v15child9exit_codeEv.exit
-
-_ZNK5boost7process2v15child9exit_codeEv.exit:     ; preds = %47, %44, %5
-  %.0 = phi i32 [ -1, %5 ], [ %46, %44 ], [ %..i.i, %47 ]
+46:                                               ; preds = %39, %5
+  %.0 = phi i32 [ -1, %5 ], [ %.0.i.i, %39 ]
   call void @_ZN5boost7process2v15childD2Ev(ptr noundef nonnull align 8 dereferenceable(26) %10) #61
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.0
@@ -181540,7 +181512,7 @@ define linkonce_odr hidden noundef i32 @_ZN5boost7process2v16detail11system_impl
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %.not = icmp eq i32 %12, -1
-  br i1 %.not, label %_ZNK5boost7process2v15child9exit_codeEv.exit, label %27
+  br i1 %.not, label %45, label %27
 
 25:                                               ; preds = %34
   %26 = landingpad { ptr, i32 }
@@ -181600,22 +181572,15 @@ define linkonce_odr hidden noundef i32 @_ZN5boost7process2v16detail11system_impl
   %40 = load atomic i32, ptr %39 seq_cst, align 4
   %41 = and i32 %40, 127
   %42 = icmp eq i32 %41, 0
-  br i1 %42, label %43, label %46
+  %43 = lshr i32 %40, 8
+  %44 = and i32 %43, 255
+  %.not.i.i6 = icmp eq i32 %41, 127
+  %..i.i = select i1 %.not.i.i6, i32 %40, i32 %41
+  %.0.i.i = select i1 %42, i32 %44, i32 %..i.i
+  br label %45
 
-43:                                               ; preds = %38
-  %44 = lshr i32 %40, 8
-  %45 = and i32 %44, 255
-  br label %_ZNK5boost7process2v15child9exit_codeEv.exit
-
-46:                                               ; preds = %38
-  %47 = shl nuw nsw i32 %41, 24
-  %sext.i.i = add nuw i32 %47, 16777216
-  %48 = icmp sgt i32 %sext.i.i, 33554431
-  %..i.i = select i1 %48, i32 %41, i32 %40
-  br label %_ZNK5boost7process2v15child9exit_codeEv.exit
-
-_ZNK5boost7process2v15child9exit_codeEv.exit:     ; preds = %46, %43, %4
-  %.0 = phi i32 [ -1, %4 ], [ %45, %43 ], [ %..i.i, %46 ]
+45:                                               ; preds = %38, %4
+  %.0 = phi i32 [ -1, %4 ], [ %.0.i.i, %38 ]
   call void @_ZN5boost7process2v15childD2Ev(ptr noundef nonnull align 8 dereferenceable(26) %9) #61
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.0
@@ -183921,7 +183886,7 @@ define linkonce_odr hidden noundef i32 @_ZN5boost7process2v16detail11system_impl
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.not = icmp eq i32 %9, -1
-  br i1 %.not, label %_ZNK5boost7process2v15child9exit_codeEv.exit, label %24
+  br i1 %.not, label %42, label %24
 
 22:                                               ; preds = %31
   %23 = landingpad { ptr, i32 }
@@ -183981,22 +183946,15 @@ define linkonce_odr hidden noundef i32 @_ZN5boost7process2v16detail11system_impl
   %37 = load atomic i32, ptr %36 seq_cst, align 4
   %38 = and i32 %37, 127
   %39 = icmp eq i32 %38, 0
-  br i1 %39, label %40, label %43
+  %40 = lshr i32 %37, 8
+  %41 = and i32 %40, 255
+  %.not.i.i3 = icmp eq i32 %38, 127
+  %..i.i = select i1 %.not.i.i3, i32 %37, i32 %38
+  %.0.i.i = select i1 %39, i32 %41, i32 %..i.i
+  br label %42
 
-40:                                               ; preds = %35
-  %41 = lshr i32 %37, 8
-  %42 = and i32 %41, 255
-  br label %_ZNK5boost7process2v15child9exit_codeEv.exit
-
-43:                                               ; preds = %35
-  %44 = shl nuw nsw i32 %38, 24
-  %sext.i.i = add nuw i32 %44, 16777216
-  %45 = icmp sgt i32 %sext.i.i, 33554431
-  %..i.i = select i1 %45, i32 %38, i32 %37
-  br label %_ZNK5boost7process2v15child9exit_codeEv.exit
-
-_ZNK5boost7process2v15child9exit_codeEv.exit:     ; preds = %43, %40, %1
-  %.0 = phi i32 [ -1, %1 ], [ %42, %40 ], [ %..i.i, %43 ]
+42:                                               ; preds = %35, %1
+  %.0 = phi i32 [ -1, %1 ], [ %.0.i.i, %35 ]
   call void @_ZN5boost7process2v15childD2Ev(ptr noundef nonnull align 8 dereferenceable(26) %6) #61
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
@@ -186011,7 +185969,7 @@ define linkonce_odr hidden noundef i32 @_ZN5boost7process2v16detail11system_impl
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.not = icmp eq i32 %10, -1
-  br i1 %.not, label %_ZNK5boost7process2v15child9exit_codeEv.exit, label %25
+  br i1 %.not, label %43, label %25
 
 23:                                               ; preds = %32
   %24 = landingpad { ptr, i32 }
@@ -186071,22 +186029,15 @@ define linkonce_odr hidden noundef i32 @_ZN5boost7process2v16detail11system_impl
   %38 = load atomic i32, ptr %37 seq_cst, align 4
   %39 = and i32 %38, 127
   %40 = icmp eq i32 %39, 0
-  br i1 %40, label %41, label %44
+  %41 = lshr i32 %38, 8
+  %42 = and i32 %41, 255
+  %.not.i.i4 = icmp eq i32 %39, 127
+  %..i.i = select i1 %.not.i.i4, i32 %38, i32 %39
+  %.0.i.i = select i1 %40, i32 %42, i32 %..i.i
+  br label %43
 
-41:                                               ; preds = %36
-  %42 = lshr i32 %38, 8
-  %43 = and i32 %42, 255
-  br label %_ZNK5boost7process2v15child9exit_codeEv.exit
-
-44:                                               ; preds = %36
-  %45 = shl nuw nsw i32 %39, 24
-  %sext.i.i = add nuw i32 %45, 16777216
-  %46 = icmp sgt i32 %sext.i.i, 33554431
-  %..i.i = select i1 %46, i32 %39, i32 %38
-  br label %_ZNK5boost7process2v15child9exit_codeEv.exit
-
-_ZNK5boost7process2v15child9exit_codeEv.exit:     ; preds = %44, %41, %2
-  %.0 = phi i32 [ -1, %2 ], [ %43, %41 ], [ %..i.i, %44 ]
+43:                                               ; preds = %36, %2
+  %.0 = phi i32 [ -1, %2 ], [ %.0.i.i, %36 ]
   call void @_ZN5boost7process2v15childD2Ev(ptr noundef nonnull align 8 dereferenceable(26) %7) #61
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0

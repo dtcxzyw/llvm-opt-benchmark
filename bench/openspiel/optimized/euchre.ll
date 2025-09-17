@@ -9489,9 +9489,8 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %.noexc, %_ZNSt6vect
   br label %61
 
 40:                                               ; preds = %24
-  %41 = add i32 %35, -3
-  %or.cond3 = icmp ult i32 %41, 2
-  br i1 %or.cond3, label %61, label %42
+  %41 = icmp ult i32 %35, 5
+  br i1 %41, label %61, label %42
 
 42:                                               ; preds = %40
   %43 = icmp eq i32 %35, 5

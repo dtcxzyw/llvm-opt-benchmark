@@ -3744,12 +3744,12 @@ define internal fastcc void @_ZN5regex5regex6string5Regex11captures_at17h9983fbb
   %10 = alloca { { i32, [1 x i32] }, { ptr, i64 }, { i64, i64 }, i8, [7 x i8] }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 0, ptr %10, align 8
-  %.sroa.420.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store ptr %2, ptr %.sroa.420.0..sroa_idx, align 8
-  %.sroa.521.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store i64 %3, ptr %.sroa.521.0..sroa_idx, align 8
-  %.sroa.7.0..sroa_idx22 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  store i64 0, ptr %.sroa.7.0..sroa_idx22, align 8
+  %.sroa.421.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
+  store ptr %2, ptr %.sroa.421.0..sroa_idx, align 8
+  %.sroa.522.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 16
+  store i64 %3, ptr %.sroa.522.0..sroa_idx, align 8
+  %.sroa.7.0..sroa_idx23 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  store i64 0, ptr %.sroa.7.0..sroa_idx23, align 8
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 32
   store i64 %3, ptr %.sroa.9.0..sroa_idx, align 8
   %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 40
@@ -3826,9 +3826,9 @@ _ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17hd4e175028fe63256E.exit.i
 
 41:                                               ; preds = %.noexc
   invoke void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr noalias noundef nonnull readonly align 1 @anon.148a832d388ba4488b38de3279afe8e7.10, i64 noundef 70, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.148a832d388ba4488b38de3279afe8e7.72, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.148a832d388ba4488b38de3279afe8e7.12) #23
-          to label %.noexc14 unwind label %86
+          to label %.noexc15 unwind label %86
 
-.noexc14:                                         ; preds = %41
+.noexc15:                                         ; preds = %41
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17hc3d4b4e5e161f780E.exit.i.i": ; preds = %.noexc, %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17hb263535dda5d37e3E.exit.thread.i
@@ -3937,9 +3937,9 @@ _ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17hd4e175028fe63256E.exit.i
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !1022
   store ptr null, ptr %5, align 8, !noalias !1022
   invoke void @_ZN4core9panicking13assert_failed17h417c28205fc856a6E(i8 noundef 1, ptr noalias noundef readonly align 8 dereferenceable(8) @_ZN14regex_automata4util4pool5inner17THREAD_ID_DROPPED17h625977097e11d11fE, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.148a832d388ba4488b38de3279afe8e7.16) #23
-          to label %.noexc17 unwind label %86
+          to label %.noexc18 unwind label %86
 
-.noexc17:                                         ; preds = %.noexc7.i
+.noexc18:                                         ; preds = %.noexc7.i
   unreachable
 
 .noexc8.i:                                        ; preds = %75
@@ -3989,20 +3989,20 @@ _ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17hd4e175028fe63256E.exit.i
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 32
   %97 = load i64, ptr %96, align 8, !range !65, !noundef !5
   %trunc.i = trunc nuw i64 %97 to i1
-  br i1 %trunc.i, label %98, label %.thread28
+  br i1 %trunc.i, label %98, label %.thread29
 
 98:                                               ; preds = %92
   %99 = getelementptr inbounds nuw i8, ptr %95, i64 40
   %100 = load i64, ptr %99, align 8
   %101 = call i64 @llvm.uadd.sat.i64(i64 %100, i64 1)
-  br label %.thread28
+  br label %.thread29
 
-.thread28:                                        ; preds = %92, %98
-  %.sroa.3.0.i18 = phi i64 [ %101, %98 ], [ undef, %92 ]
-  %.sroa.0.0.i19 = phi i64 [ 1, %98 ], [ 0, %92 ]
-  store i64 %.sroa.0.0.i19, ptr %0, align 8
+.thread29:                                        ; preds = %92, %98
+  %.sroa.3.0.i19 = phi i64 [ %101, %98 ], [ undef, %92 ]
+  %.sroa.0.0.i20 = phi i64 [ 1, %98 ], [ 0, %92 ]
+  store i64 %.sroa.0.0.i20, ptr %0, align 8
   %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.3.0.i18, ptr %.sroa.42.0..sroa_idx, align 8
+  store i64 %.sroa.3.0.i19, ptr %.sroa.42.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %9, i64 40, i1 false)
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -4011,7 +4011,7 @@ _ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17hd4e175028fe63256E.exit.i
   store i64 %3, ptr %.sroa.7.0..sroa_idx, align 8
   br label %102
 
-102:                                              ; preds = %.thread28, %.thread
+102:                                              ; preds = %.thread29, %.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void

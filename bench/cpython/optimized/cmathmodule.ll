@@ -810,14 +810,15 @@ define internal ptr @cmath_isclose(ptr readnone captures(none) %0, ptr noundef %
   br i1 %or.cond5, label %.thread69, label %11
 
 11:                                               ; preds = %8, %.thread
-  %12 = phi i64 [ %7, %.thread ], [ %2, %8 ]
+  %.in = phi i64 [ %7, %.thread ], [ %2, %8 ]
+  %12 = add i64 %.in, -2
   %13 = call ptr @_PyArg_UnpackKeywords(ptr noundef %1, i64 noundef %2, ptr noundef null, ptr noundef %3, ptr noundef nonnull @cmath_isclose._parser, i32 noundef 2, i32 noundef 2, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %5) #10
   %.not52 = icmp eq ptr %13, null
   br i1 %.not52, label %86, label %.thread69
 
 .thread69:                                        ; preds = %8, %11
   %14 = phi ptr [ %13, %11 ], [ %1, %8 ]
-  %15 = phi i64 [ %12, %11 ], [ 2, %8 ]
+  %15 = phi i64 [ %12, %11 ], [ 0, %8 ]
   %16 = load ptr, ptr %14, align 8, !tbaa !9
   %17 = call { double, double } @PyComplex_AsCComplex(ptr noundef %16) #10
   %18 = extractvalue { double, double } %17, 0
@@ -837,7 +838,7 @@ define internal ptr @cmath_isclose(ptr readnone captures(none) %0, ptr noundef %
   br i1 %.not54, label %28, label %86
 
 28:                                               ; preds = %21
-  %.not55 = icmp eq i64 %15, 2
+  %.not55 = icmp eq i64 %15, 0
   br i1 %.not55, label %53, label %29
 
 29:                                               ; preds = %28
@@ -869,7 +870,7 @@ define internal ptr @cmath_isclose(ptr readnone captures(none) %0, ptr noundef %
 
 41:                                               ; preds = %36, %39, %34
   %.2 = phi double [ %.val64, %34 ], [ -1.000000e+00, %39 ], [ %37, %36 ]
-  %.not59 = icmp eq i64 %15, 3
+  %.not59 = icmp eq i64 %15, 1
   br i1 %.not59, label %53, label %42
 
 42:                                               ; preds = %41, %29

@@ -1176,10 +1176,10 @@ define internal void @_handle_msg(ptr noundef %0, ptr noundef readonly captures(
 12:                                               ; preds = %2
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 212
   %14 = load i16, ptr %13, align 4
-  switch i16 %14, label %147 [
+  switch i16 %14, label %143 [
     i16 6002, label %15
     i16 6003, label %46
-    i16 7004, label %143
+    i16 7004, label %139
   ]
 
 15:                                               ; preds = %12
@@ -1353,117 +1353,113 @@ define internal void @_handle_msg(ptr noundef %0, ptr noundef readonly captures(
   %97 = getelementptr inbounds nuw i8, ptr %.val14, i64 16
   %98 = load i32, ptr %97, align 8
   %99 = and i32 %98, 127
-  %100 = icmp eq i32 %99, 0
-  br i1 %100, label %101, label %116
+  switch i32 %99, label %.preheader1.i [
+    i32 0, label %100
+    i32 127, label %.loopexit.i
+  ]
 
-101:                                              ; preds = %96
-  %102 = lshr i32 %98, 8
-  %103 = and i32 %102, 255
-  %.not47.i = icmp eq i32 %103, 0
+100:                                              ; preds = %96
+  %101 = lshr i32 %98, 8
+  %102 = and i32 %101, 255
+  %.not47.i = icmp eq i32 %102, 0
   br i1 %.not47.i, label %.loopexit.i, label %.preheader.i20
 
-.preheader.i20:                                   ; preds = %101
-  %104 = load i32, ptr %.val14, align 8
-  %.not11.i = icmp eq i32 %104, 0
+.preheader.i20:                                   ; preds = %100
+  %103 = load i32, ptr %.val14, align 8
+  %.not11.i = icmp eq i32 %103, 0
   br i1 %.not11.i, label %._crit_edge8.i, label %.lr.ph7.i
 
 .lr.ph7.i:                                        ; preds = %.preheader.i20
-  %105 = getelementptr inbounds nuw i8, ptr %.val14, i64 8
-  br label %106
+  %104 = getelementptr inbounds nuw i8, ptr %.val14, i64 8
+  br label %105
 
-106:                                              ; preds = %106, %.lr.ph7.i
-  %indvars.iv16.i = phi i64 [ 0, %.lr.ph7.i ], [ %indvars.iv.next17.i, %106 ]
-  %107 = load ptr, ptr %105, align 8
-  %108 = getelementptr inbounds nuw i32, ptr %107, i64 %indvars.iv16.i
-  %109 = load i32, ptr %108, align 4
-  %110 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.41, i32 noundef %109, i32 noundef %103) #14
+105:                                              ; preds = %105, %.lr.ph7.i
+  %indvars.iv16.i = phi i64 [ 0, %.lr.ph7.i ], [ %indvars.iv.next17.i, %105 ]
+  %106 = load ptr, ptr %104, align 8
+  %107 = getelementptr inbounds nuw i32, ptr %106, i64 %indvars.iv16.i
+  %108 = load i32, ptr %107, align 4
+  %109 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.41, i32 noundef %108, i32 noundef %102) #14
   %indvars.iv.next17.i = add nuw nsw i64 %indvars.iv16.i, 1
-  %111 = load i32, ptr %.val14, align 8
-  %112 = zext i32 %111 to i64
-  %113 = icmp samesign ult i64 %indvars.iv.next17.i, %112
-  br i1 %113, label %106, label %._crit_edge8.i, !llvm.loop !24
+  %110 = load i32, ptr %.val14, align 8
+  %111 = zext i32 %110 to i64
+  %112 = icmp samesign ult i64 %indvars.iv.next17.i, %111
+  br i1 %112, label %105, label %._crit_edge8.i, !llvm.loop !24
 
-._crit_edge8.i:                                   ; preds = %106, %.preheader.i20
-  %114 = load i32, ptr @global_rc, align 4
-  %115 = tail call i32 @llvm.smax.i32(i32 %103, i32 %114)
-  store i32 %115, ptr @global_rc, align 4
+._crit_edge8.i:                                   ; preds = %105, %.preheader.i20
+  %113 = load i32, ptr @global_rc, align 4
+  %114 = tail call i32 @llvm.smax.i32(i32 %102, i32 %113)
+  store i32 %114, ptr @global_rc, align 4
   br label %.loopexit.i
 
-116:                                              ; preds = %96
-  %117 = shl nuw nsw i32 %99, 24
-  %sext.i = add nuw i32 %117, 16777216
-  %118 = icmp sgt i32 %sext.i, 33554431
-  br i1 %118, label %.preheader1.i, label %.loopexit.i
-
-.preheader1.i:                                    ; preds = %116
-  %119 = load i32, ptr %.val14, align 8
-  %.not10.i = icmp eq i32 %119, 0
+.preheader1.i:                                    ; preds = %96
+  %115 = load i32, ptr %.val14, align 8
+  %.not10.i = icmp eq i32 %115, 0
   br i1 %.not10.i, label %.loopexit.i, label %.lr.ph5.i
 
 .lr.ph5.i:                                        ; preds = %.preheader1.i
-  %120 = getelementptr inbounds nuw i8, ptr %.val14, i64 8
-  br label %121
+  %116 = getelementptr inbounds nuw i8, ptr %.val14, i64 8
+  br label %117
 
-121:                                              ; preds = %130, %.lr.ph5.i
-  %indvars.iv13.i = phi i64 [ 0, %.lr.ph5.i ], [ %indvars.iv.next14.i, %130 ]
-  %122 = tail call i32 @get_log_level() #14
-  %123 = icmp sgt i32 %122, 3
-  br i1 %123, label %124, label %130
+117:                                              ; preds = %126, %.lr.ph5.i
+  %indvars.iv13.i = phi i64 [ 0, %.lr.ph5.i ], [ %indvars.iv.next14.i, %126 ]
+  %118 = tail call i32 @get_log_level() #14
+  %119 = icmp sgt i32 %118, 3
+  br i1 %119, label %120, label %126
 
-124:                                              ; preds = %121
-  %125 = load ptr, ptr %120, align 8
-  %126 = getelementptr inbounds nuw i32, ptr %125, i64 %indvars.iv13.i
-  %127 = load i32, ptr %126, align 4
-  %128 = load i32, ptr %97, align 8
-  %129 = and i32 %128, 127
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.42, i32 noundef %127, i32 noundef %129) #14
-  br label %130
+120:                                              ; preds = %117
+  %121 = load ptr, ptr %116, align 8
+  %122 = getelementptr inbounds nuw i32, ptr %121, i64 %indvars.iv13.i
+  %123 = load i32, ptr %122, align 4
+  %124 = load i32, ptr %97, align 8
+  %125 = and i32 %124, 127
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.42, i32 noundef %123, i32 noundef %125) #14
+  br label %126
 
-130:                                              ; preds = %124, %121
+126:                                              ; preds = %120, %117
   %indvars.iv.next14.i = add nuw nsw i64 %indvars.iv13.i, 1
-  %131 = load i32, ptr %.val14, align 8
-  %132 = zext i32 %131 to i64
-  %133 = icmp samesign ult i64 %indvars.iv.next14.i, %132
-  br i1 %133, label %121, label %.loopexit.i, !llvm.loop !25
+  %127 = load i32, ptr %.val14, align 8
+  %128 = zext i32 %127 to i64
+  %129 = icmp samesign ult i64 %indvars.iv.next14.i, %128
+  br i1 %129, label %117, label %.loopexit.i, !llvm.loop !25
 
-.loopexit.i:                                      ; preds = %130, %.preheader1.i, %116, %._crit_edge8.i, %101
-  %134 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %135 = tail call i32 @pthread_cond_signal(ptr noundef nonnull %134) #14
-  %.not48.i = icmp eq i32 %135, 0
-  br i1 %.not48.i, label %139, label %136
+.loopexit.i:                                      ; preds = %126, %.preheader1.i, %._crit_edge8.i, %100, %96
+  %130 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %131 = tail call i32 @pthread_cond_signal(ptr noundef nonnull %130) #14
+  %.not48.i = icmp eq i32 %131, 0
+  br i1 %.not48.i, label %135, label %132
 
-136:                                              ; preds = %.loopexit.i
-  %137 = tail call ptr @__errno_location() #16
-  store i32 %135, ptr %137, align 4
-  %138 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.20, i32 noundef 544, ptr noundef nonnull @__func__._exit_handler) #14
-  br label %139
+132:                                              ; preds = %.loopexit.i
+  %133 = tail call ptr @__errno_location() #16
+  store i32 %131, ptr %133, align 4
+  %134 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.20, i32 noundef 544, ptr noundef nonnull @__func__._exit_handler) #14
+  br label %135
 
-139:                                              ; preds = %136, %.loopexit.i
-  %140 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #14
-  %.not49.i = icmp eq i32 %140, 0
-  br i1 %.not49.i, label %_launch_handler.exit, label %141
+135:                                              ; preds = %132, %.loopexit.i
+  %136 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #14
+  %.not49.i = icmp eq i32 %136, 0
+  br i1 %.not49.i, label %_launch_handler.exit, label %137
 
-141:                                              ; preds = %139
-  %142 = tail call ptr @__errno_location() #16
-  store i32 %140, ptr %142, align 4
+137:                                              ; preds = %135
+  %138 = tail call ptr @__errno_location() #16
+  store i32 %136, ptr %138, align 4
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.37, ptr noundef nonnull @__func__._exit_handler) #15
   unreachable
 
-143:                                              ; preds = %12
-  %144 = tail call i32 @get_log_level() #14
-  %145 = icmp sgt i32 %144, 5
-  br i1 %145, label %146, label %_launch_handler.exit
+139:                                              ; preds = %12
+  %140 = tail call i32 @get_log_level() #14
+  %141 = icmp sgt i32 %140, 5
+  br i1 %141, label %142, label %_launch_handler.exit
 
-146:                                              ; preds = %143
+142:                                              ; preds = %139
   tail call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.33) #14
   br label %_launch_handler.exit
 
-147:                                              ; preds = %12
-  %148 = tail call ptr @rpc_num2string(i16 noundef zeroext %14) #14
-  %149 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.34, ptr noundef %148) #14
+143:                                              ; preds = %12
+  %144 = tail call ptr @rpc_num2string(i16 noundef zeroext %14) #14
+  %145 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.34, ptr noundef %144) #14
   br label %_launch_handler.exit
 
-_launch_handler.exit:                             ; preds = %139, %66, %63, %42, %147, %146, %143, %10
+_launch_handler.exit:                             ; preds = %135, %66, %63, %42, %143, %142, %139, %10
   ret void
 }
 

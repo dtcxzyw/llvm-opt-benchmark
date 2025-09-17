@@ -6259,9 +6259,8 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit237: ; preds 
   br label %316
 
 273:                                              ; preds = %264
-  %274 = add i8 %.fca.1.extract68, -2
-  %spec.select.i.i.i.i.i = icmp ult i8 %274, 3
-  br i1 %spec.select.i.i.i.i.i, label %275, label %_ZNK5clang4ento4SVal5getAsINS0_3LocEEESt8optionalIT_Ev.exit
+  %274 = icmp ult i8 %.fca.1.extract68, 5
+  br i1 %274, label %275, label %_ZNK5clang4ento4SVal5getAsINS0_3LocEEESt8optionalIT_Ev.exit
 
 275:                                              ; preds = %273
   %276 = load ptr, ptr %75, align 8, !tbaa !222

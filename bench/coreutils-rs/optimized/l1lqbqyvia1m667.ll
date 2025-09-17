@@ -5166,9 +5166,8 @@ _ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17hd4e175028fe63256E.exit.i
 255:                                              ; preds = %250
   call void @llvm.experimental.noalias.scope.decl(metadata !897)
   %256 = load i32, ptr %.sroa.07.sroa.4.0..sroa_idx, align 8, !range !900, !alias.scope !901, !noalias !902, !noundef !5
-  %.off.i.i.i.i.i.i = add nsw i32 %256, -1
-  %switch.i1.i.i.i.i.i = icmp ult i32 %.off.i.i.i.i.i.i, 2
-  br i1 %switch.i1.i.i.i.i.i, label %_ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17hed577765fe40040cE.exit.thread.i.i.i.i.i, label %_ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17hed577765fe40040cE.exit.i.i.i.i.i
+  %.not.i.i.i.i.i = icmp eq i32 %256, 0
+  br i1 %.not.i.i.i.i.i, label %_ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17hed577765fe40040cE.exit.i.i.i.i.i, label %_ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17hed577765fe40040cE.exit.thread.i.i.i.i.i
 
 _ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17hed577765fe40040cE.exit.i.i.i.i.i: ; preds = %255
   %257 = getelementptr inbounds nuw i8, ptr %.pre.i.i.i.i, i64 60

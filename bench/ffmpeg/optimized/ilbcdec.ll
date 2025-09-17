@@ -2687,10 +2687,10 @@ filter_arfq12.exit:                               ; preds = %1815
   br label %1845
 
 1845:                                             ; preds = %1845, %.lr.ph.i135
-  %1846 = phi i16 [ %.pre5.i, %.lr.ph.i135 ], [ %1880, %1845 ]
-  %1847 = phi i16 [ %.pre4.i, %.lr.ph.i135 ], [ %1885, %1845 ]
-  %1848 = phi i16 [ %.pre3.i, %.lr.ph.i135 ], [ %1881, %1845 ]
-  %1849 = phi i16 [ %.pre.i137, %.lr.ph.i135 ], [ %1887, %1845 ]
+  %1846 = phi i16 [ %.pre5.i, %.lr.ph.i135 ], [ %1881, %1845 ]
+  %1847 = phi i16 [ %.pre4.i, %.lr.ph.i135 ], [ %1886, %1845 ]
+  %1848 = phi i16 [ %.pre3.i, %.lr.ph.i135 ], [ %1882, %1845 ]
+  %1849 = phi i16 [ %.pre.i137, %.lr.ph.i135 ], [ %1888, %1845 ]
   %indvars.iv.i138 = phi i64 [ 0, %.lr.ph.i135 ], [ %indvars.iv.next.i140, %1845 ]
   %1850 = sext i16 %1849 to i32
   %1851 = mul nsw i32 %1850, 7918
@@ -2721,49 +2721,49 @@ filter_arfq12.exit:                               ; preds = %1815
   %1873 = load i16, ptr %1863, align 2, !tbaa !46
   store i16 %1873, ptr %1837, align 2, !tbaa !46
   %1874 = add nsw i32 %1872, 1024
-  %1875 = add nsw i32 %1872, 67109888
-  %.not.i.i = icmp ult i32 %1875, 134217728
-  %1876 = icmp sgt i32 %1872, -1025
-  %1877 = select i1 %1876, i32 67106816, i32 67108864
-  %.0.i.i139 = select i1 %.not.i.i, i32 %1874, i32 %1877
-  %1878 = lshr i32 %.0.i.i139, 11
-  %1879 = trunc i32 %1878 to i16
-  store i16 %1879, ptr %1863, align 2, !tbaa !46
-  %1880 = load i16, ptr %1836, align 2, !tbaa !46
-  store i16 %1880, ptr %1843, align 2, !tbaa !46
-  %1881 = load i16, ptr %1841, align 2, !tbaa !46
-  store i16 %1881, ptr %1842, align 2, !tbaa !46
-  %1882 = icmp sgt i32 %1872, 268435455
-  %1883 = tail call i32 @llvm.smax.i32(i32 %1872, i32 -268435456)
-  %spec.select.i = shl i32 %1883, 3
-  %.045.i = select i1 %1882, i32 2147483647, i32 %spec.select.i
-  %1884 = lshr i32 %.045.i, 16
-  %1885 = trunc nuw i32 %1884 to i16
-  store i16 %1885, ptr %1836, align 2, !tbaa !46
-  %1886 = trunc i32 %.045.i to i16
-  %1887 = lshr i16 %1886, 1
-  store i16 %1887, ptr %1841, align 2, !tbaa !46
+  %1875 = add nsw i32 %1872, -67107840
+  %1876 = icmp ult i32 %1875, -134217728
+  %1877 = icmp sgt i32 %1872, -1025
+  %1878 = select i1 %1877, i32 67106816, i32 67108864
+  %.0.i.i139 = select i1 %1876, i32 %1878, i32 %1874
+  %1879 = lshr i32 %.0.i.i139, 11
+  %1880 = trunc i32 %1879 to i16
+  store i16 %1880, ptr %1863, align 2, !tbaa !46
+  %1881 = load i16, ptr %1836, align 2, !tbaa !46
+  store i16 %1881, ptr %1843, align 2, !tbaa !46
+  %1882 = load i16, ptr %1841, align 2, !tbaa !46
+  store i16 %1882, ptr %1842, align 2, !tbaa !46
+  %1883 = icmp sgt i32 %1872, 268435455
+  %1884 = tail call i32 @llvm.smax.i32(i32 %1872, i32 -268435456)
+  %spec.select.i = shl i32 %1884, 3
+  %.045.i = select i1 %1883, i32 2147483647, i32 %spec.select.i
+  %1885 = lshr i32 %.045.i, 16
+  %1886 = trunc nuw i32 %1885 to i16
+  store i16 %1886, ptr %1836, align 2, !tbaa !46
+  %1887 = trunc i32 %.045.i to i16
+  %1888 = lshr i16 %1887, 1
+  store i16 %1888, ptr %1841, align 2, !tbaa !46
   %indvars.iv.next.i140 = add nuw nsw i64 %indvars.iv.i138, 1
   %exitcond.not.i141 = icmp eq i64 %indvars.iv.next.i140, %wide.trip.count.i136
   br i1 %exitcond.not.i141, label %hp_output.exit, label %1845, !llvm.loop !90
 
 hp_output.exit:                                   ; preds = %1845, %1833
-  %1888 = getelementptr inbounds nuw i8, ptr %10, i64 608
-  %1889 = getelementptr inbounds nuw i8, ptr %10, i64 476
-  %1890 = getelementptr inbounds nuw i8, ptr %10, i64 234
-  %1891 = load i16, ptr %1890, align 2, !tbaa !39
-  %1892 = sext i16 %1891 to i64
-  %1893 = mul nsw i64 %1892, 22
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1888, ptr nonnull align 4 %1889, i64 %1893, i1 false)
-  %1894 = getelementptr inbounds nuw i8, ptr %10, i64 212
+  %1889 = getelementptr inbounds nuw i8, ptr %10, i64 608
+  %1890 = getelementptr inbounds nuw i8, ptr %10, i64 476
+  %1891 = getelementptr inbounds nuw i8, ptr %10, i64 234
+  %1892 = load i16, ptr %1891, align 2, !tbaa !39
+  %1893 = sext i16 %1892 to i64
+  %1894 = mul nsw i64 %1893, 22
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1889, ptr nonnull align 4 %1890, i64 %1894, i1 false)
+  %1895 = getelementptr inbounds nuw i8, ptr %10, i64 212
   %spec.select96 = zext i1 %.not94 to i32
-  store i32 %spec.select96, ptr %1894, align 4, !tbaa !91
+  store i32 %spec.select96, ptr %1895, align 4, !tbaa !91
   store i32 1, ptr %2, align 4, !tbaa !33
-  %1895 = load i32, ptr %18, align 8, !tbaa !45
+  %1896 = load i32, ptr %18, align 8, !tbaa !45
   br label %unpack_frame.exit.thread
 
 unpack_frame.exit.thread:                         ; preds = %4, %unpack_frame.exit, %hp_output.exit
-  %.087 = phi i32 [ %1895, %hp_output.exit ], [ %1354, %unpack_frame.exit ], [ -1094995529, %4 ]
+  %.087 = phi i32 [ %1896, %hp_output.exit ], [ %1354, %unpack_frame.exit ], [ -1094995529, %4 ]
   ret i32 %.087
 }
 

@@ -2797,9 +2797,8 @@ common.resume:                                    ; preds = %97, %106, %118, %71
   br label %33
 
 45:                                               ; preds = %27
-  %46 = add i8 %26, -32
-  %or.cond2.i = icmp ult i8 %46, 95
-  br i1 %or.cond2.i, label %48, label %47
+  %46 = icmp ult i8 %26, 127
+  br i1 %46, label %48, label %47
 
 47:                                               ; preds = %45
   %or.cond3.i = icmp slt i8 %26, -96
@@ -2813,9 +2812,8 @@ common.resume:                                    ; preds = %97, %106, %118, %71
   br label %33
 
 50:                                               ; preds = %47
-  %51 = add i8 %26, 96
-  %or.cond4.i = icmp ult i8 %51, 95
-  br i1 %or.cond4.i, label %57, label %55
+  %51 = icmp slt i8 %26, -1
+  br i1 %51, label %57, label %55
 
 52:                                               ; preds = %47
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !317

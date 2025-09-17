@@ -566,25 +566,25 @@ short_term_synth.exit:                            ; preds = %filter_value.exit76
 
 367:                                              ; preds = %367, %short_term_synth.exit
   %indvars.iv.i49 = phi i64 [ 0, %short_term_synth.exit ], [ %indvars.iv.next.i50, %367 ]
-  %.0811.i = phi i32 [ %366, %short_term_synth.exit ], [ %376, %367 ]
+  %.0810.i = phi i32 [ %366, %short_term_synth.exit ], [ %376, %367 ]
   %368 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv.i49
   %369 = load i16, ptr %368, align 2, !tbaa !37
   %370 = sext i16 %369 to i32
-  %371 = mul i32 %.0811.i, 28180
+  %371 = mul i32 %.0810.i, 28180
   %372 = add i32 %371, 16384
   %373 = ashr i32 %372, 15
   %374 = add nsw i32 %373, %370
   %375 = tail call i32 @llvm.smax.i32(i32 %374, i32 -32768)
   %376 = tail call i32 @llvm.smin.i32(i32 %375, i32 32767)
   %377 = shl nsw i32 %376, 1
-  %378 = add nsw i32 %377, 32768
-  %.not.i9.i = icmp ult i32 %378, 65536
-  %379 = icmp sgt i32 %374, -1
-  %380 = select i1 %379, i16 32760, i16 -32768
-  %381 = trunc i32 %377 to i16
-  %382 = and i16 %381, -8
-  %383 = select i1 %.not.i9.i, i16 %382, i16 %380
-  store i16 %383, ptr %368, align 2, !tbaa !37
+  %378 = add nsw i32 %377, -32768
+  %379 = icmp ult i32 %378, -65536
+  %380 = icmp sgt i32 %374, -1
+  %381 = select i1 %380, i16 32760, i16 -32768
+  %382 = trunc i32 %377 to i16
+  %383 = and i16 %382, -8
+  %384 = select i1 %379, i16 %381, i16 %383
+  store i16 %384, ptr %368, align 2, !tbaa !37
   %indvars.iv.next.i50 = add nuw nsw i64 %indvars.iv.i49, 1
   %exitcond.not.i51 = icmp eq i64 %indvars.iv.next.i50, 160
   br i1 %exitcond.not.i51, label %postprocess.exit, label %367, !llvm.loop !54

@@ -464,8 +464,8 @@ define hidden void @_ZN5regex8regexset6string8RegexSet10matches_at17h98e0713a526
 _ZN14regex_automata4util6search5Input8set_span17h33e1c00c50febac0E.exit: ; preds = %5
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !41
   store i32 0, ptr %16, align 8
-  %.sroa.411.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 8
-  store ptr %2, ptr %.sroa.411.0..sroa_idx, align 8
+  %.sroa.412.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 8
+  store ptr %2, ptr %.sroa.412.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 16
   store i64 %3, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 24
@@ -555,9 +555,9 @@ _ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17h3caf5338a24ba062E.exit.i
 
 61:                                               ; preds = %.noexc
   invoke void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr noalias noundef nonnull readonly align 1 @anon.c811ec582cdc986de3ef720eba6c8e83.3, i64 noundef 70, ptr noundef nonnull align 1 %6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c811ec582cdc986de3ef720eba6c8e83.37, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c811ec582cdc986de3ef720eba6c8e83.5) #14
-          to label %.noexc7 unwind label %105
+          to label %.noexc8 unwind label %105
 
-.noexc7:                                          ; preds = %61
+.noexc8:                                          ; preds = %61
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17he86f65e38c81a541E.exit.i.i": ; preds = %.noexc, %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h316631178f9de364E.exit.thread.i
@@ -666,9 +666,9 @@ _ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17h3caf5338a24ba062E.exit.i
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !78
   store ptr null, ptr %7, align 8, !noalias !78
   invoke void @_ZN4core9panicking13assert_failed17ha1f58f412bf86caeE(i8 noundef 1, ptr noalias noundef readonly align 8 dereferenceable(8) @_ZN14regex_automata4util4pool5inner17THREAD_ID_DROPPED17h65bcc753a8817827E, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %8, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c811ec582cdc986de3ef720eba6c8e83.10) #14
-          to label %.noexc10 unwind label %105
+          to label %.noexc11 unwind label %105
 
-.noexc10:                                         ; preds = %.noexc6.i
+.noexc11:                                         ; preds = %.noexc6.i
   unreachable
 
 .noexc7.i:                                        ; preds = %94
@@ -817,12 +817,12 @@ define noundef zeroext i1 @_ZN12actix_router9regex_set8RegexSet8is_match17h86168
   %.val3 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !107
   store i32 0, ptr %8, align 8
-  %.sroa.57.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr %1, ptr %.sroa.57.0..sroa_idx, align 8
+  %.sroa.58.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store ptr %1, ptr %.sroa.58.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 %2, ptr %.sroa.6.0..sroa_idx, align 8
-  %.sroa.78.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store i64 0, ptr %.sroa.78.0..sroa_idx, align 8
+  %.sroa.79.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 24
+  store i64 0, ptr %.sroa.79.0..sroa_idx, align 8
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 32
   store i64 %2, ptr %.sroa.8.0..sroa_idx, align 8
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 40

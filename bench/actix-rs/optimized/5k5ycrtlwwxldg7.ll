@@ -1447,14 +1447,14 @@ define internal void @"_ZN107_$LT$actix_service..boxed..FactoryWrapper$LT$SF$GT$
   %.sroa.4 = alloca [6 x i64], align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %6 = load i8, ptr %5, align 8, !range !215, !noundef !9
-  switch i8 %6, label %default.unreachable14 [
+  switch i8 %6, label %default.unreachable12 [
     i8 0, label %7
     i8 1, label %9
     i8 2, label %10
     i8 3, label %11
   ]
 
-default.unreachable14:                            ; preds = %3
+default.unreachable12:                            ; preds = %3
   unreachable
 
 7:                                                ; preds = %3
@@ -1462,8 +1462,8 @@ default.unreachable14:                            ; preds = %3
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 56, i1 false)
   br label %11
 
-.body:                                            ; preds = %15, %31, %27
-  %.pn2 = phi { ptr, i32 } [ %28, %27 ], [ %16, %31 ], [ %16, %15 ]
+.body:                                            ; preds = %15, %32, %28
+  %.pn2 = phi { ptr, i32 } [ %29, %28 ], [ %16, %32 ], [ %16, %15 ]
   store i8 2, ptr %5, align 8
   resume { ptr, i32 } %.pn2
 
@@ -1480,7 +1480,7 @@ default.unreachable14:                            ; preds = %3
   %.sroa.0.0.copyload.i = load i64, ptr %12, align 8, !alias.scope !232, !noalias !235
   store i64 -9223372036854775806, ptr %12, align 8, !alias.scope !232, !noalias !235
   %13 = icmp eq i64 %.sroa.0.0.copyload.i, -9223372036854775806
-  br i1 %13, label %14, label %20
+  br i1 %13, label %14, label %21
 
 14:                                               ; preds = %11
   invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.80c6f4cf418dd24648bccdf694554fd7.68, i64 noundef 30, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.80c6f4cf418dd24648bccdf694554fd7.70) #38
@@ -1493,68 +1493,67 @@ default.unreachable14:                            ; preds = %3
   %16 = landingpad { ptr, i32 }
           cleanup
   %17 = load i64, ptr %12, align 8, !range !237, !alias.scope !238, !noundef !9
-  %.off.i.i5 = add i64 %17, 9223372036854775807
-  %switch.i.i6 = icmp ult i64 %.off.i.i5, 2
-  br i1 %switch.i.i6, label %.body, label %31
+  %18 = icmp ugt i64 %17, -9223372036854775808
+  br i1 %18, label %.body, label %32
 
-common.ret:                                       ; preds = %20, %"_ZN107_$LT$actix_service..boxed..FactoryWrapper$LT$SF$GT$$u20$as$u20$actix_service..ServiceFactory$LT$Req$GT$$GT$11new_service28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h0303250b46768cf5E.exit.i"
-  %.sroa.0.0.i = phi ptr [ %24, %"_ZN107_$LT$actix_service..boxed..FactoryWrapper$LT$SF$GT$$u20$as$u20$actix_service..ServiceFactory$LT$Req$GT$$GT$11new_service28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h0303250b46768cf5E.exit.i" ], [ null, %20 ]
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.0.0.i, ptr %18, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr @anon.80c6f4cf418dd24648bccdf694554fd7.10, ptr %19, align 8
+common.ret:                                       ; preds = %21, %"_ZN107_$LT$actix_service..boxed..FactoryWrapper$LT$SF$GT$$u20$as$u20$actix_service..ServiceFactory$LT$Req$GT$$GT$11new_service28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h0303250b46768cf5E.exit.i"
+  %.sroa.0.0.i = phi ptr [ %25, %"_ZN107_$LT$actix_service..boxed..FactoryWrapper$LT$SF$GT$$u20$as$u20$actix_service..ServiceFactory$LT$Req$GT$$GT$11new_service28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h0303250b46768cf5E.exit.i" ], [ null, %21 ]
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.sroa.0.0.i, ptr %19, align 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr @anon.80c6f4cf418dd24648bccdf694554fd7.10, ptr %20, align 8
   store i64 0, ptr %0, align 8
   store i8 1, ptr %5, align 8
   ret void
 
-20:                                               ; preds = %11
+21:                                               ; preds = %11
   %.sroa.5.0..0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.4, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.5.0..0..sroa_idx.i, i64 48, i1 false)
-  %21 = icmp eq i64 %.sroa.0.0.copyload.i, -9223372036854775807
-  br i1 %21, label %common.ret, label %22
+  %22 = icmp eq i64 %.sroa.0.0.copyload.i, -9223372036854775807
+  br i1 %22, label %common.ret, label %23
 
-22:                                               ; preds = %20
+23:                                               ; preds = %21
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !243
   store i64 %.sroa.0.0.copyload.i, ptr %4, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.5.0..0..sroa_idx.i, i64 48, i1 false)
-  %23 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !248
-  %24 = tail call noundef align 8 dereferenceable_or_null(56) ptr @__rust_alloc(i64 noundef 56, i64 noundef 8) #37, !noalias !248
-  %25 = icmp eq ptr %24, null
-  br i1 %25, label %26, label %"_ZN107_$LT$actix_service..boxed..FactoryWrapper$LT$SF$GT$$u20$as$u20$actix_service..ServiceFactory$LT$Req$GT$$GT$11new_service28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h0303250b46768cf5E.exit.i"
+  %24 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !248
+  %25 = tail call noundef align 8 dereferenceable_or_null(56) ptr @__rust_alloc(i64 noundef 56, i64 noundef 8) #37, !noalias !248
+  %26 = icmp eq ptr %25, null
+  br i1 %26, label %27, label %"_ZN107_$LT$actix_service..boxed..FactoryWrapper$LT$SF$GT$$u20$as$u20$actix_service..ServiceFactory$LT$Req$GT$$GT$11new_service28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h0303250b46768cf5E.exit.i"
 
-26:                                               ; preds = %22
+27:                                               ; preds = %23
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 8, i64 noundef 56) #38
-          to label %.noexc.i.i unwind label %27, !noalias !243
+          to label %.noexc.i.i unwind label %28, !noalias !243
 
-.noexc.i.i:                                       ; preds = %26
+.noexc.i.i:                                       ; preds = %27
   unreachable
 
-27:                                               ; preds = %26
-  %28 = landingpad { ptr, i32 }
+28:                                               ; preds = %27
+  %29 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr50drop_in_place$LT$actix_web..redirect..Redirect$GT$17hfa45fe482e36dc36E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %4)
-          to label %.body unwind label %29, !noalias !243
+          to label %.body unwind label %30, !noalias !243
 
-29:                                               ; preds = %27
-  %30 = landingpad { ptr, i32 }
+30:                                               ; preds = %28
+  %31 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #36, !noalias !243
   unreachable
 
-"_ZN107_$LT$actix_service..boxed..FactoryWrapper$LT$SF$GT$$u20$as$u20$actix_service..ServiceFactory$LT$Req$GT$$GT$11new_service28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h0303250b46768cf5E.exit.i": ; preds = %22
-  store i64 %.sroa.0.0.copyload.i, ptr %24, align 8
-  %.sroa.4.0..sroa_idx13 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.4.0..sroa_idx13, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.4, i64 48, i1 false)
+"_ZN107_$LT$actix_service..boxed..FactoryWrapper$LT$SF$GT$$u20$as$u20$actix_service..ServiceFactory$LT$Req$GT$$GT$11new_service28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h0303250b46768cf5E.exit.i": ; preds = %23
+  store i64 %.sroa.0.0.copyload.i, ptr %25, align 8
+  %.sroa.4.0..sroa_idx11 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.4.0..sroa_idx11, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.4, i64 48, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !243
   br label %common.ret
 
-31:                                               ; preds = %15
+32:                                               ; preds = %15
   invoke void @"_ZN4core3ptr50drop_in_place$LT$actix_web..redirect..Redirect$GT$17hfa45fe482e36dc36E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %12)
-          to label %.body unwind label %32
+          to label %.body unwind label %33
 
-32:                                               ; preds = %31
-  %33 = landingpad { ptr, i32 }
+33:                                               ; preds = %32
+  %34 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #36
   unreachable
@@ -2981,29 +2980,27 @@ define internal void @"_ZN4core3ptr634drop_in_place$LT$$LT$actix_service..boxed.
   %3 = load i8, ptr %2, align 8, !range !215, !noundef !9
   switch i8 %3, label %common.ret [
     i8 0, label %4
-    i8 3, label %6
+    i8 3, label %7
   ]
 
-common.ret.sink.split:                            ; preds = %6, %4
-  %.sink = phi ptr [ %0, %4 ], [ %7, %6 ]
+common.ret.sink.split:                            ; preds = %7, %4
+  %.sink = phi ptr [ %0, %4 ], [ %8, %7 ]
   tail call void @"_ZN4core3ptr50drop_in_place$LT$actix_web..redirect..Redirect$GT$17hfa45fe482e36dc36E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %.sink)
   br label %common.ret
 
-common.ret:                                       ; preds = %common.ret.sink.split, %6, %4, %1
+common.ret:                                       ; preds = %common.ret.sink.split, %7, %4, %1
   ret void
 
 4:                                                ; preds = %1
   %5 = load i64, ptr %0, align 8, !range !237, !alias.scope !590, !noundef !9
-  %.off.i.i = add i64 %5, 9223372036854775807
-  %switch.i.i = icmp ult i64 %.off.i.i, 2
-  br i1 %switch.i.i, label %common.ret, label %common.ret.sink.split
+  %6 = icmp ugt i64 %5, -9223372036854775808
+  br i1 %6, label %common.ret, label %common.ret.sink.split
 
-6:                                                ; preds = %1
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %8 = load i64, ptr %7, align 8, !range !237, !alias.scope !595, !noundef !9
-  %.off.i.i2 = add i64 %8, 9223372036854775807
-  %switch.i.i3 = icmp ult i64 %.off.i.i2, 2
-  br i1 %switch.i.i3, label %common.ret, label %common.ret.sink.split
+7:                                                ; preds = %1
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %9 = load i64, ptr %8, align 8, !range !237, !alias.scope !595, !noundef !9
+  %10 = icmp ugt i64 %9, -9223372036854775808
+  br i1 %10, label %common.ret, label %common.ret.sink.split
 }
 
 ; Function Attrs: nonlazybind uwtable

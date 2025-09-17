@@ -83846,9 +83846,8 @@ _ZL24NavScoreItemDistIntervalffff.exit109.thread: ; preds = %66, %72, %_ZL24NavS
   br i1 %130, label %131, label %._crit_edge
 
 131:                                              ; preds = %129
-  %132 = and i32 %.097, -2
-  %or.cond7 = icmp eq i32 %132, 2
-  %133 = select i1 %or.cond7, float %.0.i108143, float %.098
+  %132 = icmp samesign ugt i32 %.097, 1
+  %133 = select i1 %132, float %.0.i108143, float %.098
   %134 = fcmp olt float %133, 0.000000e+00
   br i1 %134, label %135, label %._crit_edge
 

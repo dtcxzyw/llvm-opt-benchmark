@@ -2248,7 +2248,7 @@ declare ptr @strchrnul(ptr noundef, i32 noundef) local_unnamed_addr #16
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 4) i64 @strbuf_expand_literal(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %3 = load i8, ptr %1, align 1, !tbaa !4
-  switch i8 %3, label %77 [
+  switch i8 %3, label %78 [
     i8 110, label %4
     i8 120, label %31
   ]
@@ -2315,7 +2315,7 @@ strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i
   %29 = load i64, ptr %6, align 8, !tbaa !16
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 %29
   store i8 0, ptr %30, align 1, !tbaa !4
-  br label %77
+  br label %78
 
 31:                                               ; preds = %2
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 1
@@ -2324,92 +2324,92 @@ strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i
   %35 = getelementptr inbounds nuw i8, ptr @hexval_table, i64 %34
   %36 = load i8, ptr %35, align 1, !tbaa !4
   %37 = sext i8 %36 to i32
-  %.not.i7 = icmp ult i8 %36, 16
-  br i1 %.not.i7, label %38, label %hex2chr.exit
+  %38 = icmp ugt i8 %36, 15
+  br i1 %38, label %hex2chr.exit, label %39
 
-38:                                               ; preds = %31
-  %39 = shl nuw nsw i32 %37, 4
-  %40 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %41 = load i8, ptr %40, align 1, !tbaa !4
-  %42 = zext i8 %41 to i64
-  %43 = getelementptr inbounds nuw i8, ptr @hexval_table, i64 %42
-  %44 = load i8, ptr %43, align 1, !tbaa !4
-  %45 = sext i8 %44 to i32
-  %46 = or i32 %39, %45
+39:                                               ; preds = %31
+  %40 = shl nuw nsw i32 %37, 4
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  %42 = load i8, ptr %41, align 1, !tbaa !4
+  %43 = zext i8 %42 to i64
+  %44 = getelementptr inbounds nuw i8, ptr @hexval_table, i64 %43
+  %45 = load i8, ptr %44, align 1, !tbaa !4
+  %46 = sext i8 %45 to i32
+  %47 = or i32 %40, %46
   br label %hex2chr.exit
 
-hex2chr.exit:                                     ; preds = %31, %38
-  %47 = phi i32 [ %46, %38 ], [ %37, %31 ]
-  %48 = icmp slt i32 %47, 0
-  br i1 %48, label %77, label %49
+hex2chr.exit:                                     ; preds = %31, %39
+  %48 = phi i32 [ %47, %39 ], [ %37, %31 ]
+  %49 = icmp slt i32 %48, 0
+  br i1 %49, label %78, label %50
 
-49:                                               ; preds = %hex2chr.exit
-  %50 = load i64, ptr %0, align 8, !tbaa !15
-  %.not.i.i8 = icmp eq i64 %50, 0
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %52 = load i64, ptr %51, align 8, !tbaa !16
-  br i1 %.not.i.i8, label %strbuf_avail.exit.thread.i15, label %strbuf_avail.exit.i9
+50:                                               ; preds = %hex2chr.exit
+  %51 = load i64, ptr %0, align 8, !tbaa !15
+  %.not.i.i7 = icmp eq i64 %51, 0
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %53 = load i64, ptr %52, align 8, !tbaa !16
+  br i1 %.not.i.i7, label %strbuf_avail.exit.thread.i14, label %strbuf_avail.exit.i8
 
-strbuf_avail.exit.i9:                             ; preds = %49
-  %.neg.i10 = add i64 %52, 1
-  %.not.i11 = icmp eq i64 %50, %.neg.i10
-  br i1 %.not.i11, label %.thread.i12, label %strbuf_addch.exit16
+strbuf_avail.exit.i8:                             ; preds = %50
+  %.neg.i9 = add i64 %53, 1
+  %.not.i10 = icmp eq i64 %51, %.neg.i9
+  br i1 %.not.i10, label %.thread.i11, label %strbuf_addch.exit15
 
-strbuf_avail.exit.thread.i15:                     ; preds = %49
-  %53 = icmp ugt i64 %52, -3
-  br i1 %53, label %55, label %56
+strbuf_avail.exit.thread.i14:                     ; preds = %50
+  %54 = icmp ugt i64 %53, -3
+  br i1 %54, label %56, label %57
 
-.thread.i12:                                      ; preds = %strbuf_avail.exit.i9
-  %54 = icmp ugt i64 %52, -3
-  br i1 %54, label %55, label %.thread8.i13
+.thread.i11:                                      ; preds = %strbuf_avail.exit.i8
+  %55 = icmp ugt i64 %53, -3
+  br i1 %55, label %56, label %.thread8.i12
 
-55:                                               ; preds = %.thread.i12, %strbuf_avail.exit.thread.i15
+56:                                               ; preds = %.thread.i11, %strbuf_avail.exit.thread.i14
   tail call void (ptr, ...) @die(ptr noundef nonnull @.str) #24
   unreachable
 
-56:                                               ; preds = %strbuf_avail.exit.thread.i15
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr null, ptr %57, align 8, !tbaa !12
-  br label %.thread8.i13
+57:                                               ; preds = %strbuf_avail.exit.thread.i14
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr null, ptr %58, align 8, !tbaa !12
+  br label %.thread8.i12
 
-.thread8.i13:                                     ; preds = %56, %.thread.i12
-  %58 = add nuw i64 %52, 2
-  %59 = icmp ugt i64 %58, %50
-  br i1 %59, label %60, label %strbuf_addch.exit16
+.thread8.i12:                                     ; preds = %57, %.thread.i11
+  %59 = add nuw i64 %53, 2
+  %60 = icmp ugt i64 %59, %51
+  br i1 %60, label %61, label %strbuf_addch.exit15
 
-60:                                               ; preds = %.thread8.i13
-  %61 = mul i64 %50, 3
-  %62 = add i64 %61, 48
-  %63 = lshr i64 %62, 1
-  %..i.i14 = tail call i64 @llvm.umax.i64(i64 %63, i64 %58)
-  store i64 %..i.i14, ptr %0, align 8, !tbaa !15
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %65 = load ptr, ptr %64, align 8, !tbaa !12
-  %66 = tail call ptr @xrealloc(ptr noundef %65, i64 noundef %..i.i14) #25
-  store ptr %66, ptr %64, align 8, !tbaa !12
-  br i1 %.not.i.i8, label %67, label %strbuf_addch.exit16
+61:                                               ; preds = %.thread8.i12
+  %62 = mul i64 %51, 3
+  %63 = add i64 %62, 48
+  %64 = lshr i64 %63, 1
+  %..i.i13 = tail call i64 @llvm.umax.i64(i64 %64, i64 %59)
+  store i64 %..i.i13, ptr %0, align 8, !tbaa !15
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %66 = load ptr, ptr %65, align 8, !tbaa !12
+  %67 = tail call ptr @xrealloc(ptr noundef %66, i64 noundef %..i.i13) #25
+  store ptr %67, ptr %65, align 8, !tbaa !12
+  br i1 %.not.i.i7, label %68, label %strbuf_addch.exit15
 
-67:                                               ; preds = %60
-  store i8 0, ptr %66, align 1, !tbaa !4
-  br label %strbuf_addch.exit16
+68:                                               ; preds = %61
+  store i8 0, ptr %67, align 1, !tbaa !4
+  br label %strbuf_addch.exit15
 
-strbuf_addch.exit16:                              ; preds = %strbuf_avail.exit.i9, %.thread8.i13, %60, %67
-  %68 = trunc i32 %47 to i8
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %70 = load ptr, ptr %69, align 8, !tbaa !12
-  %71 = load i64, ptr %51, align 8, !tbaa !16
-  %72 = add i64 %71, 1
-  store i64 %72, ptr %51, align 8, !tbaa !16
-  %73 = getelementptr inbounds nuw i8, ptr %70, i64 %71
-  store i8 %68, ptr %73, align 1, !tbaa !4
-  %74 = load ptr, ptr %69, align 8, !tbaa !12
-  %75 = load i64, ptr %51, align 8, !tbaa !16
-  %76 = getelementptr inbounds nuw i8, ptr %74, i64 %75
-  store i8 0, ptr %76, align 1, !tbaa !4
-  br label %77
+strbuf_addch.exit15:                              ; preds = %strbuf_avail.exit.i8, %.thread8.i12, %61, %68
+  %69 = trunc i32 %48 to i8
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %71 = load ptr, ptr %70, align 8, !tbaa !12
+  %72 = load i64, ptr %52, align 8, !tbaa !16
+  %73 = add i64 %72, 1
+  store i64 %73, ptr %52, align 8, !tbaa !16
+  %74 = getelementptr inbounds nuw i8, ptr %71, i64 %72
+  store i8 %69, ptr %74, align 1, !tbaa !4
+  %75 = load ptr, ptr %70, align 8, !tbaa !12
+  %76 = load i64, ptr %52, align 8, !tbaa !16
+  %77 = getelementptr inbounds nuw i8, ptr %75, i64 %76
+  store i8 0, ptr %77, align 1, !tbaa !4
+  br label %78
 
-77:                                               ; preds = %2, %hex2chr.exit, %strbuf_addch.exit16, %strbuf_addch.exit
-  %.0 = phi i64 [ 1, %strbuf_addch.exit ], [ 3, %strbuf_addch.exit16 ], [ 0, %hex2chr.exit ], [ 0, %2 ]
+78:                                               ; preds = %2, %hex2chr.exit, %strbuf_addch.exit15, %strbuf_addch.exit
+  %.0 = phi i64 [ 1, %strbuf_addch.exit ], [ 3, %strbuf_addch.exit15 ], [ 0, %hex2chr.exit ], [ 0, %2 ]
   ret i64 %.0
 }
 

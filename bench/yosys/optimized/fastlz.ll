@@ -1171,8 +1171,7 @@ define i32 @fastlz_decompress(ptr noundef readonly captures(address) %0, i32 nou
   br label %_ZL18fastlz1_decompressPKviPvi.exit
 
 86:                                               ; preds = %4
-  %.mask = and i8 %5, -32
-  %87 = icmp eq i8 %.mask, 32
+  %87 = icmp ult i8 %5, 64
   br i1 %87, label %88, label %_ZL18fastlz1_decompressPKviPvi.exit
 
 88:                                               ; preds = %86

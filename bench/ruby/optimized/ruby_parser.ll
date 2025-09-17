@@ -549,12 +549,12 @@ define internal fastcc i64 @negative_numeric(i64 noundef %0) unnamed_addr #0 {
   %8 = and i64 %0, 6
   %9 = icmp ne i64 %8, 0
   %10 = or i1 %7, %9
-  br i1 %10, label %11, label %35
+  br i1 %10, label %11, label %36
 
 11:                                               ; preds = %6
   %12 = and i64 %0, 2
-  %.not31 = icmp eq i64 %12, 0
-  br i1 %.not31, label %86, label %13
+  %.not30 = icmp eq i64 %12, 0
+  br i1 %.not30, label %88, label %13
 
 13:                                               ; preds = %11
   %.not.i.i = icmp eq i64 %0, -9223372036854775806
@@ -574,130 +574,130 @@ rb_float_value_inline.exit:                       ; preds = %13, %14
   %20 = fneg double %.0.i
   %21 = bitcast double %20 to i64
   %cond.i = icmp eq i64 %21, 3458764513820540928
-  br i1 %cond.i, label %33, label %22
+  br i1 %cond.i, label %34, label %22
 
 22:                                               ; preds = %rb_float_value_inline.exit
   %23 = lshr i64 %21, 60
   %24 = trunc nuw nsw i64 %23 to i32
   %25 = and i32 %24, 7
-  %26 = add nsw i32 %25, -3
-  %.not7.i = icmp ult i32 %26, 2
-  br i1 %.not7.i, label %27, label %31
+  %26 = add nsw i32 %25, -5
+  %27 = icmp ult i32 %26, -2
+  br i1 %27, label %32, label %28
 
-27:                                               ; preds = %22
-  %28 = tail call noundef i64 @llvm.fshl.i64(i64 range(i64 3458764513820540929, 3458764513820540928) %21, i64 range(i64 3458764513820540929, 3458764513820540928) %21, i64 3)
-  %29 = and i64 %28, -4
-  %30 = or disjoint i64 %29, 2
+28:                                               ; preds = %22
+  %29 = tail call noundef i64 @llvm.fshl.i64(i64 range(i64 3458764513820540929, 3458764513820540928) %21, i64 range(i64 3458764513820540929, 3458764513820540928) %21, i64 3)
+  %30 = and i64 %29, -4
+  %31 = or disjoint i64 %30, 2
   br label %rb_float_new_inline.exit
 
-31:                                               ; preds = %22
-  %32 = icmp eq i64 %21, 0
-  br i1 %32, label %rb_float_new_inline.exit, label %33
+32:                                               ; preds = %22
+  %33 = icmp eq i64 %21, 0
+  br i1 %33, label %rb_float_new_inline.exit, label %34
 
-33:                                               ; preds = %31, %rb_float_value_inline.exit
-  %34 = tail call i64 @rb_float_new_in_heap(double noundef %20) #14
+34:                                               ; preds = %32, %rb_float_value_inline.exit
+  %35 = tail call i64 @rb_float_new_in_heap(double noundef %20) #14
   br label %rb_float_new_inline.exit
 
-35:                                               ; preds = %6
-  %36 = inttoptr i64 %0 to ptr
-  %37 = load i64, ptr %36, align 8, !tbaa !22
-  %38 = trunc i64 %37 to i32
-  %39 = and i32 %38, 31
-  switch i32 %39, label %86 [
-    i32 10, label %40
-    i32 15, label %43
-    i32 14, label %52
+36:                                               ; preds = %6
+  %37 = inttoptr i64 %0 to ptr
+  %38 = load i64, ptr %37, align 8, !tbaa !22
+  %39 = trunc i64 %38 to i32
+  %40 = and i32 %39, 31
+  switch i32 %40, label %88 [
+    i32 10, label %41
+    i32 15, label %44
+    i32 14, label %53
     i32 4, label %rb_float_value_inline.exit26
   ]
 
-40:                                               ; preds = %35
-  %41 = xor i64 %37, 8192
-  store i64 %41, ptr %36, align 8, !tbaa !22
-  %42 = tail call i64 @rb_big_norm(i64 noundef %0) #14
+41:                                               ; preds = %36
+  %42 = xor i64 %38, 8192
+  store i64 %42, ptr %37, align 8, !tbaa !22
+  %43 = tail call i64 @rb_big_norm(i64 noundef %0) #14
   br label %rb_float_new_inline.exit
 
-43:                                               ; preds = %35
-  %44 = getelementptr inbounds nuw i8, ptr %36, i64 16
-  %45 = load i64, ptr %44, align 8, !tbaa !64
-  %46 = tail call fastcc i64 @negative_numeric(i64 noundef %45)
-  store i64 %46, ptr %44, align 8, !tbaa !29
-  %47 = icmp eq i64 %46, 0
-  %48 = and i64 %46, 7
-  %49 = icmp ne i64 %48, 0
-  %50 = or i1 %47, %49
-  br i1 %50, label %rb_float_new_inline.exit, label %51
+44:                                               ; preds = %36
+  %45 = getelementptr inbounds nuw i8, ptr %37, i64 16
+  %46 = load i64, ptr %45, align 8, !tbaa !64
+  %47 = tail call fastcc i64 @negative_numeric(i64 noundef %46)
+  store i64 %47, ptr %45, align 8, !tbaa !29
+  %48 = icmp eq i64 %47, 0
+  %49 = and i64 %47, 7
+  %50 = icmp ne i64 %49, 0
+  %51 = or i1 %48, %50
+  br i1 %51, label %rb_float_new_inline.exit, label %52
 
-51:                                               ; preds = %43
-  tail call void @rb_gc_writebarrier(i64 noundef %0, i64 noundef %46) #14
+52:                                               ; preds = %44
+  tail call void @rb_gc_writebarrier(i64 noundef %0, i64 noundef %47) #14
   br label %rb_float_new_inline.exit
 
-52:                                               ; preds = %35
-  %53 = getelementptr inbounds nuw i8, ptr %36, i64 16
-  %54 = load i64, ptr %53, align 8, !tbaa !66
-  %55 = tail call fastcc i64 @negative_numeric(i64 noundef %54)
-  store i64 %55, ptr %53, align 8, !tbaa !29
-  %56 = icmp eq i64 %55, 0
-  %57 = and i64 %55, 7
-  %58 = icmp ne i64 %57, 0
-  %59 = or i1 %56, %58
-  br i1 %59, label %rb_obj_write.exit, label %60
+53:                                               ; preds = %36
+  %54 = getelementptr inbounds nuw i8, ptr %37, i64 16
+  %55 = load i64, ptr %54, align 8, !tbaa !66
+  %56 = tail call fastcc i64 @negative_numeric(i64 noundef %55)
+  store i64 %56, ptr %54, align 8, !tbaa !29
+  %57 = icmp eq i64 %56, 0
+  %58 = and i64 %56, 7
+  %59 = icmp ne i64 %58, 0
+  %60 = or i1 %57, %59
+  br i1 %60, label %rb_obj_write.exit, label %61
 
-60:                                               ; preds = %52
-  tail call void @rb_gc_writebarrier(i64 noundef %0, i64 noundef %55) #14
+61:                                               ; preds = %53
+  tail call void @rb_gc_writebarrier(i64 noundef %0, i64 noundef %56) #14
   br label %rb_obj_write.exit
 
-rb_obj_write.exit:                                ; preds = %52, %60
-  %61 = getelementptr inbounds nuw i8, ptr %36, i64 24
-  %62 = load i64, ptr %61, align 8, !tbaa !68
-  %63 = tail call fastcc i64 @negative_numeric(i64 noundef %62)
-  store i64 %63, ptr %61, align 8, !tbaa !29
-  %64 = icmp eq i64 %63, 0
-  %65 = and i64 %63, 7
-  %66 = icmp ne i64 %65, 0
-  %67 = or i1 %64, %66
-  br i1 %67, label %rb_float_new_inline.exit, label %68
+rb_obj_write.exit:                                ; preds = %53, %61
+  %62 = getelementptr inbounds nuw i8, ptr %37, i64 24
+  %63 = load i64, ptr %62, align 8, !tbaa !68
+  %64 = tail call fastcc i64 @negative_numeric(i64 noundef %63)
+  store i64 %64, ptr %62, align 8, !tbaa !29
+  %65 = icmp eq i64 %64, 0
+  %66 = and i64 %64, 7
+  %67 = icmp ne i64 %66, 0
+  %68 = or i1 %65, %67
+  br i1 %68, label %rb_float_new_inline.exit, label %69
 
-68:                                               ; preds = %rb_obj_write.exit
-  tail call void @rb_gc_writebarrier(i64 noundef %0, i64 noundef %63) #14
+69:                                               ; preds = %rb_obj_write.exit
+  tail call void @rb_gc_writebarrier(i64 noundef %0, i64 noundef %64) #14
   br label %rb_float_new_inline.exit
 
-rb_float_value_inline.exit26:                     ; preds = %35
-  %69 = getelementptr inbounds nuw i8, ptr %36, i64 16
-  %70 = load double, ptr %69, align 8, !tbaa !69
-  %71 = fneg double %70
-  %72 = bitcast double %71 to i64
-  %cond.i27 = icmp eq i64 %72, 3458764513820540928
-  br i1 %cond.i27, label %84, label %73
+rb_float_value_inline.exit26:                     ; preds = %36
+  %70 = getelementptr inbounds nuw i8, ptr %37, i64 16
+  %71 = load double, ptr %70, align 8, !tbaa !69
+  %72 = fneg double %71
+  %73 = bitcast double %72 to i64
+  %cond.i27 = icmp eq i64 %73, 3458764513820540928
+  br i1 %cond.i27, label %86, label %74
 
-73:                                               ; preds = %rb_float_value_inline.exit26
-  %74 = lshr i64 %72, 60
-  %75 = trunc nuw nsw i64 %74 to i32
-  %76 = and i32 %75, 7
-  %77 = add nsw i32 %76, -3
-  %.not7.i28 = icmp ult i32 %77, 2
-  br i1 %.not7.i28, label %78, label %82
+74:                                               ; preds = %rb_float_value_inline.exit26
+  %75 = lshr i64 %73, 60
+  %76 = trunc nuw nsw i64 %75 to i32
+  %77 = and i32 %76, 7
+  %78 = add nsw i32 %77, -5
+  %79 = icmp ult i32 %78, -2
+  br i1 %79, label %84, label %80
 
-78:                                               ; preds = %73
-  %79 = tail call noundef i64 @llvm.fshl.i64(i64 range(i64 3458764513820540929, 3458764513820540928) %72, i64 range(i64 3458764513820540929, 3458764513820540928) %72, i64 3)
-  %80 = and i64 %79, -4
-  %81 = or disjoint i64 %80, 2
+80:                                               ; preds = %74
+  %81 = tail call noundef i64 @llvm.fshl.i64(i64 range(i64 3458764513820540929, 3458764513820540928) %73, i64 range(i64 3458764513820540929, 3458764513820540928) %73, i64 3)
+  %82 = and i64 %81, -4
+  %83 = or disjoint i64 %82, 2
   br label %rb_float_new_inline.exit
 
-82:                                               ; preds = %73
-  %83 = icmp eq i64 %72, 0
-  br i1 %83, label %rb_float_new_inline.exit, label %84
+84:                                               ; preds = %74
+  %85 = icmp eq i64 %73, 0
+  br i1 %85, label %rb_float_new_inline.exit, label %86
 
-84:                                               ; preds = %82, %rb_float_value_inline.exit26
-  %85 = tail call i64 @rb_float_new_in_heap(double noundef %71) #14
+86:                                               ; preds = %84, %rb_float_value_inline.exit26
+  %87 = tail call i64 @rb_float_new_in_heap(double noundef %72) #14
   br label %rb_float_new_inline.exit
 
-86:                                               ; preds = %11, %35
-  %87 = tail call ptr @rb_builtin_class_name(i64 noundef %0) #14
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.6, ptr noundef %87) #17
+88:                                               ; preds = %11, %36
+  %89 = tail call ptr @rb_builtin_class_name(i64 noundef %0) #14
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.6, ptr noundef %89) #17
   unreachable
 
-rb_float_new_inline.exit:                         ; preds = %84, %82, %78, %68, %rb_obj_write.exit, %51, %43, %33, %31, %27, %40, %3
-  %.020 = phi i64 [ %5, %3 ], [ %42, %40 ], [ %34, %33 ], [ %30, %27 ], [ -9223372036854775806, %31 ], [ %0, %43 ], [ %0, %51 ], [ %0, %rb_obj_write.exit ], [ %0, %68 ], [ %85, %84 ], [ %81, %78 ], [ -9223372036854775806, %82 ]
+rb_float_new_inline.exit:                         ; preds = %86, %84, %80, %69, %rb_obj_write.exit, %52, %44, %34, %32, %28, %41, %3
+  %.020 = phi i64 [ %5, %3 ], [ %43, %41 ], [ %35, %34 ], [ %31, %28 ], [ -9223372036854775806, %32 ], [ %0, %44 ], [ %0, %52 ], [ %0, %rb_obj_write.exit ], [ %0, %69 ], [ %87, %86 ], [ %83, %80 ], [ -9223372036854775806, %84 ]
   ret i64 %.020
 }
 
@@ -713,32 +713,32 @@ define dso_local i64 @rb_node_float_literal_val(ptr noundef readonly captures(no
   %.0 = select i1 %.not, double %4, double %7
   %8 = bitcast double %.0 to i64
   %cond.i = icmp eq i64 %8, 3458764513820540928
-  br i1 %cond.i, label %20, label %9
+  br i1 %cond.i, label %21, label %9
 
 9:                                                ; preds = %1
   %10 = lshr i64 %8, 60
   %11 = trunc nuw nsw i64 %10 to i32
   %12 = and i32 %11, 7
-  %13 = add nsw i32 %12, -3
-  %.not7.i = icmp ult i32 %13, 2
-  br i1 %.not7.i, label %14, label %18
+  %13 = add nsw i32 %12, -5
+  %14 = icmp ult i32 %13, -2
+  br i1 %14, label %19, label %15
 
-14:                                               ; preds = %9
-  %15 = tail call noundef i64 @llvm.fshl.i64(i64 range(i64 3458764513820540929, 3458764513820540928) %8, i64 range(i64 3458764513820540929, 3458764513820540928) %8, i64 3)
-  %16 = and i64 %15, -4
-  %17 = or disjoint i64 %16, 2
+15:                                               ; preds = %9
+  %16 = tail call noundef i64 @llvm.fshl.i64(i64 range(i64 3458764513820540929, 3458764513820540928) %8, i64 range(i64 3458764513820540929, 3458764513820540928) %8, i64 3)
+  %17 = and i64 %16, -4
+  %18 = or disjoint i64 %17, 2
   br label %rb_float_new_inline.exit
 
-18:                                               ; preds = %9
-  %19 = icmp eq i64 %8, 0
-  br i1 %19, label %rb_float_new_inline.exit, label %20
+19:                                               ; preds = %9
+  %20 = icmp eq i64 %8, 0
+  br i1 %20, label %rb_float_new_inline.exit, label %21
 
-20:                                               ; preds = %18, %1
-  %21 = tail call i64 @rb_float_new_in_heap(double noundef %.0) #14
+21:                                               ; preds = %19, %1
+  %22 = tail call i64 @rb_float_new_in_heap(double noundef %.0) #14
   br label %rb_float_new_inline.exit
 
-rb_float_new_inline.exit:                         ; preds = %14, %18, %20
-  %.0.i = phi i64 [ %21, %20 ], [ %17, %14 ], [ -9223372036854775806, %18 ]
+rb_float_new_inline.exit:                         ; preds = %15, %19, %21
+  %.0.i = phi i64 [ %22, %21 ], [ %18, %15 ], [ -9223372036854775806, %19 ]
   ret i64 %.0.i
 }
 
@@ -805,10 +805,10 @@ define internal fastcc i64 @rational_value(ptr noundef readonly captures(none) %
 define dso_local i64 @rb_node_imaginary_literal_val(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %3 = load i32, ptr %2, align 4, !tbaa !80
-  switch i32 %3, label %36 [
+  switch i32 %3, label %37 [
     i32 0, label %4
     i32 1, label %10
-    i32 2, label %28
+    i32 2, label %29
   ]
 
 4:                                                ; preds = %1
@@ -825,58 +825,58 @@ define dso_local i64 @rb_node_imaginary_literal_val(ptr noundef readonly capture
   %13 = tail call double @strtod(ptr noundef captures(none) %12, ptr noundef null) #14
   %14 = bitcast double %13 to i64
   %cond.i = icmp eq i64 %14, 3458764513820540928
-  br i1 %cond.i, label %26, label %15
+  br i1 %cond.i, label %27, label %15
 
 15:                                               ; preds = %10
   %16 = lshr i64 %14, 60
   %17 = trunc nuw nsw i64 %16 to i32
   %18 = and i32 %17, 7
-  %19 = add nsw i32 %18, -3
-  %.not7.i = icmp ult i32 %19, 2
-  br i1 %.not7.i, label %20, label %24
+  %19 = add nsw i32 %18, -5
+  %20 = icmp ult i32 %19, -2
+  br i1 %20, label %25, label %21
 
-20:                                               ; preds = %15
-  %21 = tail call noundef i64 @llvm.fshl.i64(i64 range(i64 3458764513820540929, 3458764513820540928) %14, i64 range(i64 3458764513820540929, 3458764513820540928) %14, i64 3)
-  %22 = and i64 %21, -4
-  %23 = or disjoint i64 %22, 2
+21:                                               ; preds = %15
+  %22 = tail call noundef i64 @llvm.fshl.i64(i64 range(i64 3458764513820540929, 3458764513820540928) %14, i64 range(i64 3458764513820540929, 3458764513820540928) %14, i64 3)
+  %23 = and i64 %22, -4
+  %24 = or disjoint i64 %23, 2
   br label %rb_float_new_inline.exit
 
-24:                                               ; preds = %15
-  %25 = icmp eq i64 %14, 0
-  br i1 %25, label %rb_float_new_inline.exit, label %26
+25:                                               ; preds = %15
+  %26 = icmp eq i64 %14, 0
+  br i1 %26, label %rb_float_new_inline.exit, label %27
 
-26:                                               ; preds = %24, %10
-  %27 = tail call i64 @rb_float_new_in_heap(double noundef %13) #14
+27:                                               ; preds = %25, %10
+  %28 = tail call i64 @rb_float_new_in_heap(double noundef %13) #14
   br label %rb_float_new_inline.exit
 
-28:                                               ; preds = %1
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %30 = load ptr, ptr %29, align 8, !tbaa !82
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %32 = load i32, ptr %31, align 4, !tbaa !83
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %34 = load i32, ptr %33, align 8, !tbaa !84
-  %35 = tail call fastcc i64 @rational_value(ptr noundef %30, i32 noundef %32, i32 noundef %34)
+29:                                               ; preds = %1
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %31 = load ptr, ptr %30, align 8, !tbaa !82
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %33 = load i32, ptr %32, align 4, !tbaa !83
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %35 = load i32, ptr %34, align 8, !tbaa !84
+  %36 = tail call fastcc i64 @rational_value(ptr noundef %31, i32 noundef %33, i32 noundef %35)
   br label %rb_float_new_inline.exit
 
-36:                                               ; preds = %1
+37:                                               ; preds = %1
   tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.2) #17
   unreachable
 
-rb_float_new_inline.exit:                         ; preds = %26, %24, %20, %28, %4
-  %.0 = phi i64 [ %9, %4 ], [ %35, %28 ], [ %27, %26 ], [ %23, %20 ], [ -9223372036854775806, %24 ]
-  %37 = tail call i64 @rb_complex_raw(i64 noundef 1, i64 noundef %.0) #14
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %39 = load i32, ptr %38, align 8, !tbaa !85
-  %.not = icmp eq i32 %39, 0
-  br i1 %.not, label %42, label %40
+rb_float_new_inline.exit:                         ; preds = %27, %25, %21, %29, %4
+  %.0 = phi i64 [ %9, %4 ], [ %36, %29 ], [ %28, %27 ], [ %24, %21 ], [ -9223372036854775806, %25 ]
+  %38 = tail call i64 @rb_complex_raw(i64 noundef 1, i64 noundef %.0) #14
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %40 = load i32, ptr %39, align 8, !tbaa !85
+  %.not = icmp eq i32 %40, 0
+  br i1 %.not, label %43, label %41
 
-40:                                               ; preds = %rb_float_new_inline.exit
-  %41 = tail call fastcc i64 @negative_numeric(i64 noundef %37)
-  br label %42
+41:                                               ; preds = %rb_float_new_inline.exit
+  %42 = tail call fastcc i64 @negative_numeric(i64 noundef %38)
+  br label %43
 
-42:                                               ; preds = %40, %rb_float_new_inline.exit
-  %.1 = phi i64 [ %41, %40 ], [ %37, %rb_float_new_inline.exit ]
+43:                                               ; preds = %41, %rb_float_new_inline.exit
+  %.1 = phi i64 [ %42, %41 ], [ %38, %rb_float_new_inline.exit ]
   ret i64 %.1
 }
 

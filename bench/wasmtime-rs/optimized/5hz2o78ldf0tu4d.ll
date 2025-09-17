@@ -48453,88 +48453,87 @@ default.unreachable31:                            ; preds = %"_ZN71_$LT$cranelif
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define internal fastcc void @"_ZN94_$LT$cranelift_codegen..isa..x64..inst..args..SyntheticAmode$u20$as$u20$core..clone..Clone$GT$5clone17he9d558dd68191759E"(ptr noalias noundef nonnull writeonly align 4 captures(none) dereferenceable(16) %0, ptr noalias noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1) unnamed_addr #17 {
   %3 = load i8, ptr %1, align 4, !range !7565, !noundef !4
-  %4 = add nsw i8 %3, -3
-  %5 = icmp ult i8 %4, 3
-  %6 = zext nneg i8 %3 to i64
-  %7 = add nsw i64 %6, -2
-  %8 = select i1 %5, i64 %7, i64 0
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %10 = load i32, ptr %9, align 4, !noundef !4
-  switch i64 %8, label %11 [
-    i64 0, label %12
-    i64 1, label %27
-    i64 2, label %29
-    i64 3, label %31
+  %4 = icmp samesign ugt i8 %3, 2
+  %5 = zext nneg i8 %3 to i64
+  %6 = add nsw i64 %5, -2
+  %7 = select i1 %4, i64 %6, i64 0
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %9 = load i32, ptr %8, align 4, !noundef !4
+  switch i64 %7, label %10 [
+    i64 0, label %11
+    i64 1, label %26
+    i64 2, label %28
+    i64 3, label %30
   ]
 
-11:                                               ; preds = %2
+10:                                               ; preds = %2
   unreachable
 
-12:                                               ; preds = %2
+11:                                               ; preds = %2
   switch i8 %3, label %default.unreachable1.i [
-    i8 0, label %13
-    i8 1, label %18
+    i8 0, label %12
+    i8 1, label %17
     i8 2, label %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit"
   ]
 
-default.unreachable1.i:                           ; preds = %12
+default.unreachable1.i:                           ; preds = %11
   unreachable
 
-13:                                               ; preds = %12
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %15 = load i32, ptr %14, align 4, !alias.scope !7566, !noalias !7569, !noundef !4
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %17 = load i16, ptr %16, align 2, !alias.scope !7566, !noalias !7569, !noundef !4
+12:                                               ; preds = %11
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %14 = load i32, ptr %13, align 4, !alias.scope !7566, !noalias !7569, !noundef !4
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  %16 = load i16, ptr %15, align 2, !alias.scope !7566, !noalias !7569, !noundef !4
   br label %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit"
 
-18:                                               ; preds = %12
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %20 = load i32, ptr %19, align 4, !alias.scope !7566, !noalias !7569, !noundef !4
-  %21 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %22 = load i32, ptr %21, align 4, !alias.scope !7566, !noalias !7569, !noundef !4
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %24 = load i8, ptr %23, align 1, !alias.scope !7566, !noalias !7569, !noundef !4
-  %25 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %26 = load i16, ptr %25, align 2, !alias.scope !7566, !noalias !7569, !noundef !4
+17:                                               ; preds = %11
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %19 = load i32, ptr %18, align 4, !alias.scope !7566, !noalias !7569, !noundef !4
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %21 = load i32, ptr %20, align 4, !alias.scope !7566, !noalias !7569, !noundef !4
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %23 = load i8, ptr %22, align 1, !alias.scope !7566, !noalias !7569, !noundef !4
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  %25 = load i16, ptr %24, align 2, !alias.scope !7566, !noalias !7569, !noundef !4
   br label %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit"
 
-"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit": ; preds = %12, %13, %18
-  %.sroa.10.0 = phi i32 [ %15, %13 ], [ %20, %18 ], [ undef, %12 ]
-  %.sroa.5.0 = phi i16 [ %17, %13 ], [ %26, %18 ], [ undef, %12 ]
-  %.sroa.4.0 = phi i8 [ undef, %13 ], [ %24, %18 ], [ undef, %12 ]
-  %.sroa.12.0 = phi i32 [ undef, %13 ], [ %22, %18 ], [ undef, %12 ]
+"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit": ; preds = %11, %12, %17
+  %.sroa.10.0 = phi i32 [ %14, %12 ], [ %19, %17 ], [ undef, %11 ]
+  %.sroa.5.0 = phi i16 [ %16, %12 ], [ %25, %17 ], [ undef, %11 ]
+  %.sroa.4.0 = phi i8 [ undef, %12 ], [ %23, %17 ], [ undef, %11 ]
+  %.sroa.12.0 = phi i32 [ undef, %12 ], [ %21, %17 ], [ undef, %11 ]
   store i8 %3, ptr %0, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %.sroa.4.0, ptr %.sroa.4.0..sroa_idx, align 1
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 2
   store i16 %.sroa.5.0, ptr %.sroa.5.0..sroa_idx, align 2
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %10, ptr %.sroa.7.0..sroa_idx, align 4
+  store i32 %9, ptr %.sroa.7.0..sroa_idx, align 4
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.sroa.10.0, ptr %.sroa.10.0..sroa_idx, align 4
   %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %.sroa.12.0, ptr %.sroa.12.0..sroa_idx, align 4
-  br label %33
+  br label %32
 
-27:                                               ; preds = %2
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %10, ptr %28, align 4
+26:                                               ; preds = %2
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 %9, ptr %27, align 4
   store i8 3, ptr %0, align 4
-  br label %33
+  br label %32
 
-29:                                               ; preds = %2
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %10, ptr %30, align 4
+28:                                               ; preds = %2
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 %9, ptr %29, align 4
   store i8 4, ptr %0, align 4
-  br label %33
+  br label %32
 
-31:                                               ; preds = %2
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %10, ptr %32, align 4
+30:                                               ; preds = %2
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 %9, ptr %31, align 4
   store i8 5, ptr %0, align 4
-  br label %33
+  br label %32
 
-33:                                               ; preds = %31, %29, %27, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit"
+32:                                               ; preds = %30, %28, %26, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit"
   ret void
 }
 
@@ -48547,7 +48546,7 @@ define internal fastcc void @"_ZN89_$LT$cranelift_codegen..isa..x64..inst..args.
   switch i8 %narrow, label %6 [
     i8 0, label %7
     i8 1, label %11
-    i8 2, label %37
+    i8 2, label %36
   ]
 
 6:                                                ; preds = %2
@@ -48559,88 +48558,87 @@ define internal fastcc void @"_ZN89_$LT$cranelift_codegen..isa..x64..inst..args.
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %9, ptr %10, align 4
   store i8 6, ptr %0, align 4
-  br label %41
+  br label %40
 
 11:                                               ; preds = %2
-  %12 = add nsw i8 %3, -3
-  %13 = icmp ult i8 %12, 3
-  %14 = zext nneg i8 %3 to i64
-  %15 = add nsw i64 %14, -2
-  %16 = select i1 %13, i64 %15, i64 0
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %18 = load i32, ptr %17, align 4, !alias.scope !7571, !noalias !7574, !noundef !4
-  switch i64 %16, label %19 [
-    i64 0, label %20
+  %12 = icmp samesign ugt i8 %3, 2
+  %13 = zext nneg i8 %3 to i64
+  %14 = add nsw i64 %13, -2
+  %15 = select i1 %12, i64 %14, i64 0
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %17 = load i32, ptr %16, align 4, !alias.scope !7571, !noalias !7574, !noundef !4
+  switch i64 %15, label %18 [
+    i64 0, label %19
     i64 1, label %"_ZN94_$LT$cranelift_codegen..isa..x64..inst..args..SyntheticAmode$u20$as$u20$core..clone..Clone$GT$5clone17he9d558dd68191759E.exit"
-    i64 2, label %35
-    i64 3, label %36
+    i64 2, label %34
+    i64 3, label %35
   ]
 
-19:                                               ; preds = %11
+18:                                               ; preds = %11
   unreachable
 
-20:                                               ; preds = %11
+19:                                               ; preds = %11
   switch i8 %3, label %default.unreachable1.i.i [
-    i8 0, label %21
-    i8 1, label %26
+    i8 0, label %20
+    i8 1, label %25
     i8 2, label %"_ZN94_$LT$cranelift_codegen..isa..x64..inst..args..SyntheticAmode$u20$as$u20$core..clone..Clone$GT$5clone17he9d558dd68191759E.exit"
   ]
 
-default.unreachable1.i.i:                         ; preds = %20
+default.unreachable1.i.i:                         ; preds = %19
   unreachable
 
-21:                                               ; preds = %20
-  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %23 = load i32, ptr %22, align 4, !alias.scope !7576, !noalias !7579, !noundef !4
-  %24 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %25 = load i16, ptr %24, align 2, !alias.scope !7576, !noalias !7579, !noundef !4
+20:                                               ; preds = %19
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %22 = load i32, ptr %21, align 4, !alias.scope !7576, !noalias !7579, !noundef !4
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  %24 = load i16, ptr %23, align 2, !alias.scope !7576, !noalias !7579, !noundef !4
   br label %"_ZN94_$LT$cranelift_codegen..isa..x64..inst..args..SyntheticAmode$u20$as$u20$core..clone..Clone$GT$5clone17he9d558dd68191759E.exit"
 
-26:                                               ; preds = %20
-  %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %28 = load i32, ptr %27, align 4, !alias.scope !7576, !noalias !7579, !noundef !4
-  %29 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %30 = load i32, ptr %29, align 4, !alias.scope !7576, !noalias !7579, !noundef !4
-  %31 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %32 = load i8, ptr %31, align 1, !alias.scope !7576, !noalias !7579, !noundef !4
-  %33 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %34 = load i16, ptr %33, align 2, !alias.scope !7576, !noalias !7579, !noundef !4
+25:                                               ; preds = %19
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %27 = load i32, ptr %26, align 4, !alias.scope !7576, !noalias !7579, !noundef !4
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %29 = load i32, ptr %28, align 4, !alias.scope !7576, !noalias !7579, !noundef !4
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %31 = load i8, ptr %30, align 1, !alias.scope !7576, !noalias !7579, !noundef !4
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  %33 = load i16, ptr %32, align 2, !alias.scope !7576, !noalias !7579, !noundef !4
+  br label %"_ZN94_$LT$cranelift_codegen..isa..x64..inst..args..SyntheticAmode$u20$as$u20$core..clone..Clone$GT$5clone17he9d558dd68191759E.exit"
+
+34:                                               ; preds = %11
   br label %"_ZN94_$LT$cranelift_codegen..isa..x64..inst..args..SyntheticAmode$u20$as$u20$core..clone..Clone$GT$5clone17he9d558dd68191759E.exit"
 
 35:                                               ; preds = %11
   br label %"_ZN94_$LT$cranelift_codegen..isa..x64..inst..args..SyntheticAmode$u20$as$u20$core..clone..Clone$GT$5clone17he9d558dd68191759E.exit"
 
-36:                                               ; preds = %11
-  br label %"_ZN94_$LT$cranelift_codegen..isa..x64..inst..args..SyntheticAmode$u20$as$u20$core..clone..Clone$GT$5clone17he9d558dd68191759E.exit"
-
-"_ZN94_$LT$cranelift_codegen..isa..x64..inst..args..SyntheticAmode$u20$as$u20$core..clone..Clone$GT$5clone17he9d558dd68191759E.exit": ; preds = %11, %20, %21, %26, %35, %36
-  %.sroa.14.0 = phi i32 [ undef, %35 ], [ undef, %36 ], [ undef, %21 ], [ %30, %26 ], [ undef, %20 ], [ undef, %11 ]
-  %.sroa.13.0 = phi i32 [ undef, %35 ], [ undef, %36 ], [ %23, %21 ], [ %28, %26 ], [ undef, %20 ], [ undef, %11 ]
-  %.sroa.8.0 = phi i16 [ undef, %35 ], [ undef, %36 ], [ %25, %21 ], [ %34, %26 ], [ undef, %20 ], [ undef, %11 ]
-  %.sroa.7.0 = phi i8 [ undef, %35 ], [ undef, %36 ], [ undef, %21 ], [ %32, %26 ], [ undef, %20 ], [ undef, %11 ]
-  %.sroa.0.0 = phi i8 [ 4, %35 ], [ 5, %36 ], [ 0, %21 ], [ 1, %26 ], [ %3, %20 ], [ 3, %11 ]
+"_ZN94_$LT$cranelift_codegen..isa..x64..inst..args..SyntheticAmode$u20$as$u20$core..clone..Clone$GT$5clone17he9d558dd68191759E.exit": ; preds = %11, %19, %20, %25, %34, %35
+  %.sroa.14.0 = phi i32 [ undef, %34 ], [ undef, %35 ], [ undef, %20 ], [ %29, %25 ], [ undef, %19 ], [ undef, %11 ]
+  %.sroa.13.0 = phi i32 [ undef, %34 ], [ undef, %35 ], [ %22, %20 ], [ %27, %25 ], [ undef, %19 ], [ undef, %11 ]
+  %.sroa.8.0 = phi i16 [ undef, %34 ], [ undef, %35 ], [ %24, %20 ], [ %33, %25 ], [ undef, %19 ], [ undef, %11 ]
+  %.sroa.7.0 = phi i8 [ undef, %34 ], [ undef, %35 ], [ undef, %20 ], [ %31, %25 ], [ undef, %19 ], [ undef, %11 ]
+  %.sroa.0.0 = phi i8 [ 4, %34 ], [ 5, %35 ], [ 0, %20 ], [ 1, %25 ], [ %3, %19 ], [ 3, %11 ]
   store i8 %.sroa.0.0, ptr %0, align 4
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %.sroa.7.0, ptr %.sroa.7.0..sroa_idx, align 1
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 2
   store i16 %.sroa.8.0, ptr %.sroa.8.0..sroa_idx, align 2
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %18, ptr %.sroa.9.0..sroa_idx, align 4
+  store i32 %17, ptr %.sroa.9.0..sroa_idx, align 4
   %.sroa.13.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.sroa.13.0, ptr %.sroa.13.0..sroa_idx, align 4
   %.sroa.14.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %.sroa.14.0, ptr %.sroa.14.0..sroa_idx, align 4
-  br label %41
+  br label %40
 
-37:                                               ; preds = %2
-  %38 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %39 = load i32, ptr %38, align 4, !noundef !4
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %39, ptr %40, align 4
+36:                                               ; preds = %2
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %38 = load i32, ptr %37, align 4, !noundef !4
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 %38, ptr %39, align 4
   store i8 8, ptr %0, align 4
-  br label %41
+  br label %40
 
-41:                                               ; preds = %37, %"_ZN94_$LT$cranelift_codegen..isa..x64..inst..args..SyntheticAmode$u20$as$u20$core..clone..Clone$GT$5clone17he9d558dd68191759E.exit", %7
+40:                                               ; preds = %36, %"_ZN94_$LT$cranelift_codegen..isa..x64..inst..args..SyntheticAmode$u20$as$u20$core..clone..Clone$GT$5clone17he9d558dd68191759E.exit", %7
   ret void
 }
 

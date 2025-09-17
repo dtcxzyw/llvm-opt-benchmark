@@ -280,9 +280,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %13
   br i1 %.011, label %.sink.split, label %41
 
 23:                                               ; preds = %1
-  %24 = and i32 %0, -2
-  %or.cond3 = icmp eq i32 %24, 2
-  br i1 %or.cond3, label %25, label %40
+  %24 = icmp sgt i32 %0, 1
+  br i1 %24, label %25, label %40
 
 25:                                               ; preds = %23
   %26 = tail call ptr @__cxa_allocate_exception(i64 40) #22

@@ -16188,133 +16188,132 @@ _ZN12_GLOBAL__N_115th_rewriter_cfg31log_rewrite_axiom_instantiationEP9func_declj
   br label %381
 
 381:                                              ; preds = %_ZN12_GLOBAL__N_115th_rewriter_cfg31log_rewrite_axiom_instantiationEP9func_decljPKP4exprR7obj_refIS3_11ast_managerE.exit, %_ZN12_GLOBAL__N_115th_rewriter_cfg15reduce_app_coreEP9func_decljPKP4exprR7obj_refIS3_11ast_managerE.exit.thread
-  %382 = add i32 %.0.i49, -6
-  %or.cond = icmp ult i32 %382, -2
-  br i1 %or.cond, label %_ZN12_GLOBAL__N_115th_rewriter_cfg8pull_iteER7obj_refI4expr11ast_managerE.exit.thread, label %.thread.thread
+  %.not97 = icmp eq i32 %.0.i49, 4
+  br i1 %.not97, label %.thread.thread, label %_ZN12_GLOBAL__N_115th_rewriter_cfg8pull_iteER7obj_refI4expr11ast_managerE.exit.thread
 
 .thread:                                          ; preds = %_ZN7obj_refI3app11ast_managerEaSEPS0_.exit, %187, %_ZNK4decl13get_family_idEv.exit.i, %_ZN12_GLOBAL__N_115th_rewriter_cfg15reduce_app_coreEP9func_decljPKP4exprR7obj_refIS3_11ast_managerE.exit
-  %383 = getelementptr inbounds nuw i8, ptr %0, i64 2940
-  %384 = load i8, ptr %383, align 4, !tbaa !448, !range !281, !noundef !282
-  %385 = trunc nuw i8 %384 to i1
-  %386 = getelementptr inbounds nuw i8, ptr %0, i64 2939
-  %387 = load i8, ptr %386, align 1, !range !281
-  %388 = trunc nuw i8 %387 to i1
-  %or.cond39 = select i1 %385, i1 true, i1 %388
-  br i1 %or.cond39, label %395, label %_ZN12_GLOBAL__N_115th_rewriter_cfg8push_iteER7obj_refI4expr11ast_managerE.exit.thread
+  %382 = getelementptr inbounds nuw i8, ptr %0, i64 2940
+  %383 = load i8, ptr %382, align 4, !tbaa !448, !range !281, !noundef !282
+  %384 = trunc nuw i8 %383 to i1
+  %385 = getelementptr inbounds nuw i8, ptr %0, i64 2939
+  %386 = load i8, ptr %385, align 1, !range !281
+  %387 = trunc nuw i8 %386 to i1
+  %or.cond39 = select i1 %384, i1 true, i1 %387
+  br i1 %or.cond39, label %394, label %_ZN12_GLOBAL__N_115th_rewriter_cfg8push_iteER7obj_refI4expr11ast_managerE.exit.thread
 
 .thread.thread:                                   ; preds = %381
-  %389 = getelementptr inbounds nuw i8, ptr %0, i64 2940
-  %390 = load i8, ptr %389, align 4, !tbaa !448, !range !281, !noundef !282
-  %391 = trunc nuw i8 %390 to i1
-  %392 = getelementptr inbounds nuw i8, ptr %0, i64 2939
-  %393 = load i8, ptr %392, align 1, !range !281
-  %394 = trunc nuw i8 %393 to i1
-  %or.cond3999 = select i1 %391, i1 true, i1 %394
-  br i1 %or.cond3999, label %397, label %_ZN12_GLOBAL__N_115th_rewriter_cfg8push_iteER7obj_refI4expr11ast_managerE.exit
+  %388 = getelementptr inbounds nuw i8, ptr %0, i64 2940
+  %389 = load i8, ptr %388, align 4, !tbaa !448, !range !281, !noundef !282
+  %390 = trunc nuw i8 %389 to i1
+  %391 = getelementptr inbounds nuw i8, ptr %0, i64 2939
+  %392 = load i8, ptr %391, align 1, !range !281
+  %393 = trunc nuw i8 %392 to i1
+  %or.cond39100 = select i1 %390, i1 true, i1 %393
+  br i1 %or.cond39100, label %396, label %_ZN12_GLOBAL__N_115th_rewriter_cfg8push_iteER7obj_refI4expr11ast_managerE.exit
 
-395:                                              ; preds = %.thread
+394:                                              ; preds = %.thread
   %.val40 = load ptr, ptr %18, align 8, !tbaa !319
-  %396 = tail call fastcc noundef i32 @_ZN12_GLOBAL__N_115th_rewriter_cfg8push_iteEP9func_decljPKP4exprR7obj_refIS3_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(2945) %0, ptr %.val40, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(16) %4)
+  %395 = tail call fastcc noundef i32 @_ZN12_GLOBAL__N_115th_rewriter_cfg8push_iteEP9func_decljPKP4exprR7obj_refIS3_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(2945) %0, ptr %.val40, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(16) %4)
   br label %_ZN12_GLOBAL__N_115th_rewriter_cfg8push_iteER7obj_refI4expr11ast_managerE.exit
 
-397:                                              ; preds = %.thread.thread
-  %398 = load ptr, ptr %4, align 8, !tbaa !264
-  %399 = getelementptr inbounds nuw i8, ptr %398, i64 4
-  %400 = load i32, ptr %399, align 4
-  %401 = and i32 %400, 65535
-  %402 = icmp eq i32 %401, 0
-  br i1 %402, label %403, label %_ZN12_GLOBAL__N_115th_rewriter_cfg8push_iteER7obj_refI4expr11ast_managerE.exit
+396:                                              ; preds = %.thread.thread
+  %397 = load ptr, ptr %4, align 8, !tbaa !264
+  %398 = getelementptr inbounds nuw i8, ptr %397, i64 4
+  %399 = load i32, ptr %398, align 4
+  %400 = and i32 %399, 65535
+  %401 = icmp eq i32 %400, 0
+  br i1 %401, label %402, label %_ZN12_GLOBAL__N_115th_rewriter_cfg8push_iteER7obj_refI4expr11ast_managerE.exit
 
-403:                                              ; preds = %397
-  %404 = getelementptr inbounds nuw i8, ptr %398, i64 16
-  %405 = load ptr, ptr %404, align 8, !tbaa !302
-  %406 = getelementptr i8, ptr %405, i64 24
-  %407 = load ptr, ptr %406, align 8, !tbaa !319
-  %.not.i.i.i.i.i45 = icmp eq ptr %407, null
+402:                                              ; preds = %396
+  %403 = getelementptr inbounds nuw i8, ptr %397, i64 16
+  %404 = load ptr, ptr %403, align 8, !tbaa !302
+  %405 = getelementptr i8, ptr %404, i64 24
+  %406 = load ptr, ptr %405, align 8, !tbaa !319
+  %.not.i.i.i.i.i45 = icmp eq ptr %406, null
   br i1 %.not.i.i.i.i.i45, label %_ZN12_GLOBAL__N_115th_rewriter_cfg8push_iteER7obj_refI4expr11ast_managerE.exit, label %_ZNK11ast_manager6is_iteEPK4expr.exit.i
 
-_ZNK11ast_manager6is_iteEPK4expr.exit.i:          ; preds = %403
-  %408 = load i32, ptr %407, align 8, !tbaa !322
-  %409 = icmp eq i32 %408, 0
-  %410 = getelementptr inbounds nuw i8, ptr %407, i64 4
-  %411 = load i32, ptr %410, align 4
-  %412 = icmp eq i32 %411, 4
-  %413 = select i1 %409, i1 %412, i1 false
-  br i1 %413, label %414, label %_ZN12_GLOBAL__N_115th_rewriter_cfg8push_iteER7obj_refI4expr11ast_managerE.exit
+_ZNK11ast_manager6is_iteEPK4expr.exit.i:          ; preds = %402
+  %407 = load i32, ptr %406, align 8, !tbaa !322
+  %408 = icmp eq i32 %407, 0
+  %409 = getelementptr inbounds nuw i8, ptr %406, i64 4
+  %410 = load i32, ptr %409, align 4
+  %411 = icmp eq i32 %410, 4
+  %412 = select i1 %408, i1 %411, i1 false
+  br i1 %412, label %413, label %_ZN12_GLOBAL__N_115th_rewriter_cfg8push_iteER7obj_refI4expr11ast_managerE.exit
 
-414:                                              ; preds = %_ZNK11ast_manager6is_iteEPK4expr.exit.i
-  %415 = getelementptr inbounds nuw i8, ptr %398, i64 32
-  %416 = call fastcc noundef i32 @_ZN12_GLOBAL__N_115th_rewriter_cfg8push_iteEP9func_decljPKP4exprR7obj_refIS3_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(2945) %0, ptr nonnull %407, ptr noundef nonnull %415, ptr noundef nonnull align 8 dereferenceable(16) %4)
+413:                                              ; preds = %_ZNK11ast_manager6is_iteEPK4expr.exit.i
+  %414 = getelementptr inbounds nuw i8, ptr %397, i64 32
+  %415 = call fastcc noundef i32 @_ZN12_GLOBAL__N_115th_rewriter_cfg8push_iteEP9func_decljPKP4exprR7obj_refIS3_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(2945) %0, ptr nonnull %406, ptr noundef nonnull %414, ptr noundef nonnull align 8 dereferenceable(16) %4)
   br label %_ZN12_GLOBAL__N_115th_rewriter_cfg8push_iteER7obj_refI4expr11ast_managerE.exit
 
-_ZN12_GLOBAL__N_115th_rewriter_cfg8push_iteER7obj_refI4expr11ast_managerE.exit: ; preds = %.thread.thread, %414, %_ZNK11ast_manager6is_iteEPK4expr.exit.i, %403, %397, %395
-  %.0 = phi i32 [ %396, %395 ], [ 4, %397 ], [ 4, %403 ], [ 4, %_ZNK11ast_manager6is_iteEPK4expr.exit.i ], [ 4, %414 ], [ %.0.i49, %.thread.thread ]
-  %417 = getelementptr inbounds nuw i8, ptr %0, i64 2936
-  %418 = load i8, ptr %417, align 8, !tbaa !251, !range !281, !noundef !282
-  %419 = trunc nuw i8 %418 to i1
-  br i1 %419, label %423, label %_ZN12_GLOBAL__N_115th_rewriter_cfg8pull_iteER7obj_refI4expr11ast_managerE.exit
+_ZN12_GLOBAL__N_115th_rewriter_cfg8push_iteER7obj_refI4expr11ast_managerE.exit: ; preds = %.thread.thread, %413, %_ZNK11ast_manager6is_iteEPK4expr.exit.i, %402, %396, %394
+  %.0 = phi i32 [ %395, %394 ], [ 4, %396 ], [ 4, %402 ], [ 4, %_ZNK11ast_manager6is_iteEPK4expr.exit.i ], [ 4, %413 ], [ 4, %.thread.thread ]
+  %416 = getelementptr inbounds nuw i8, ptr %0, i64 2936
+  %417 = load i8, ptr %416, align 8, !tbaa !251, !range !281, !noundef !282
+  %418 = trunc nuw i8 %417 to i1
+  br i1 %418, label %422, label %_ZN12_GLOBAL__N_115th_rewriter_cfg8pull_iteER7obj_refI4expr11ast_managerE.exit
 
 _ZN12_GLOBAL__N_115th_rewriter_cfg8push_iteER7obj_refI4expr11ast_managerE.exit.thread: ; preds = %.thread
-  %420 = getelementptr inbounds nuw i8, ptr %0, i64 2936
-  %421 = load i8, ptr %420, align 8, !tbaa !251, !range !281, !noundef !282
-  %422 = trunc nuw i8 %421 to i1
-  br i1 %422, label %.thread105, label %_ZN12_GLOBAL__N_115th_rewriter_cfg8pull_iteER7obj_refI4expr11ast_managerE.exit.thread107
+  %419 = getelementptr inbounds nuw i8, ptr %0, i64 2936
+  %420 = load i8, ptr %419, align 8, !tbaa !251, !range !281, !noundef !282
+  %421 = trunc nuw i8 %420 to i1
+  br i1 %421, label %.thread106, label %_ZN12_GLOBAL__N_115th_rewriter_cfg8pull_iteER7obj_refI4expr11ast_managerE.exit.thread108
 
-423:                                              ; preds = %_ZN12_GLOBAL__N_115th_rewriter_cfg8push_iteER7obj_refI4expr11ast_managerE.exit
-  %424 = icmp eq i32 %.0, 5
-  br i1 %424, label %.thread105, label %426
+422:                                              ; preds = %_ZN12_GLOBAL__N_115th_rewriter_cfg8push_iteER7obj_refI4expr11ast_managerE.exit
+  %423 = icmp eq i32 %.0, 5
+  br i1 %423, label %.thread106, label %425
 
-.thread105:                                       ; preds = %_ZN12_GLOBAL__N_115th_rewriter_cfg8push_iteER7obj_refI4expr11ast_managerE.exit.thread, %423
-  %425 = call fastcc noundef i32 @_ZN12_GLOBAL__N_115th_rewriter_cfg8pull_iteEP9func_decljPKP4exprR7obj_refIS3_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(2945) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(16) %4)
+.thread106:                                       ; preds = %_ZN12_GLOBAL__N_115th_rewriter_cfg8push_iteER7obj_refI4expr11ast_managerE.exit.thread, %422
+  %424 = call fastcc noundef i32 @_ZN12_GLOBAL__N_115th_rewriter_cfg8pull_iteEP9func_decljPKP4exprR7obj_refIS3_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(2945) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(16) %4)
   br label %_ZN12_GLOBAL__N_115th_rewriter_cfg8pull_iteER7obj_refI4expr11ast_managerE.exit
 
-426:                                              ; preds = %423
-  %427 = load ptr, ptr %4, align 8, !tbaa !264
-  %428 = getelementptr inbounds nuw i8, ptr %427, i64 4
-  %429 = load i32, ptr %428, align 4
-  %430 = and i32 %429, 65535
-  %431 = icmp eq i32 %430, 0
-  br i1 %431, label %432, label %439
+425:                                              ; preds = %422
+  %426 = load ptr, ptr %4, align 8, !tbaa !264
+  %427 = getelementptr inbounds nuw i8, ptr %426, i64 4
+  %428 = load i32, ptr %427, align 4
+  %429 = and i32 %428, 65535
+  %430 = icmp eq i32 %429, 0
+  br i1 %430, label %431, label %438
 
-432:                                              ; preds = %426
-  %433 = getelementptr inbounds nuw i8, ptr %427, i64 16
-  %434 = load ptr, ptr %433, align 8, !tbaa !302
-  %435 = getelementptr inbounds nuw i8, ptr %427, i64 24
-  %436 = load i32, ptr %435, align 8, !tbaa !297
-  %437 = getelementptr inbounds nuw i8, ptr %427, i64 32
-  %438 = call fastcc noundef i32 @_ZN12_GLOBAL__N_115th_rewriter_cfg8pull_iteEP9func_decljPKP4exprR7obj_refIS3_11ast_managerE(ptr noundef nonnull readonly align 8 dereferenceable(2945) %0, ptr noundef %434, i32 noundef %436, ptr noundef nonnull %437, ptr noundef nonnull align 8 dereferenceable(16) %4)
-  %.not.i46 = icmp eq i32 %438, 5
-  br i1 %.not.i46, label %439, label %_ZN12_GLOBAL__N_115th_rewriter_cfg8pull_iteER7obj_refI4expr11ast_managerE.exit.thread
+431:                                              ; preds = %425
+  %432 = getelementptr inbounds nuw i8, ptr %426, i64 16
+  %433 = load ptr, ptr %432, align 8, !tbaa !302
+  %434 = getelementptr inbounds nuw i8, ptr %426, i64 24
+  %435 = load i32, ptr %434, align 8, !tbaa !297
+  %436 = getelementptr inbounds nuw i8, ptr %426, i64 32
+  %437 = call fastcc noundef i32 @_ZN12_GLOBAL__N_115th_rewriter_cfg8pull_iteEP9func_decljPKP4exprR7obj_refIS3_11ast_managerE(ptr noundef nonnull readonly align 8 dereferenceable(2945) %0, ptr noundef %433, i32 noundef %435, ptr noundef nonnull %436, ptr noundef nonnull align 8 dereferenceable(16) %4)
+  %.not.i46 = icmp eq i32 %437, 5
+  br i1 %.not.i46, label %438, label %_ZN12_GLOBAL__N_115th_rewriter_cfg8pull_iteER7obj_refI4expr11ast_managerE.exit.thread
 
-439:                                              ; preds = %432, %426
+438:                                              ; preds = %431, %425
   br label %_ZN12_GLOBAL__N_115th_rewriter_cfg8pull_iteER7obj_refI4expr11ast_managerE.exit.thread
 
-_ZN12_GLOBAL__N_115th_rewriter_cfg8pull_iteER7obj_refI4expr11ast_managerE.exit: ; preds = %.thread105, %_ZN12_GLOBAL__N_115th_rewriter_cfg8push_iteER7obj_refI4expr11ast_managerE.exit
-  %.1 = phi i32 [ %425, %.thread105 ], [ %.0, %_ZN12_GLOBAL__N_115th_rewriter_cfg8push_iteER7obj_refI4expr11ast_managerE.exit ]
-  %440 = icmp eq i32 %.1, 5
-  br i1 %440, label %_ZN12_GLOBAL__N_115th_rewriter_cfg8pull_iteER7obj_refI4expr11ast_managerE.exit.thread107, label %_ZN12_GLOBAL__N_115th_rewriter_cfg8pull_iteER7obj_refI4expr11ast_managerE.exit.thread
+_ZN12_GLOBAL__N_115th_rewriter_cfg8pull_iteER7obj_refI4expr11ast_managerE.exit: ; preds = %.thread106, %_ZN12_GLOBAL__N_115th_rewriter_cfg8push_iteER7obj_refI4expr11ast_managerE.exit
+  %.1 = phi i32 [ %424, %.thread106 ], [ %.0, %_ZN12_GLOBAL__N_115th_rewriter_cfg8push_iteER7obj_refI4expr11ast_managerE.exit ]
+  %439 = icmp eq i32 %.1, 5
+  br i1 %439, label %_ZN12_GLOBAL__N_115th_rewriter_cfg8pull_iteER7obj_refI4expr11ast_managerE.exit.thread108, label %_ZN12_GLOBAL__N_115th_rewriter_cfg8pull_iteER7obj_refI4expr11ast_managerE.exit.thread
 
-_ZN12_GLOBAL__N_115th_rewriter_cfg8pull_iteER7obj_refI4expr11ast_managerE.exit.thread107: ; preds = %_ZN12_GLOBAL__N_115th_rewriter_cfg8push_iteER7obj_refI4expr11ast_managerE.exit.thread, %_ZN12_GLOBAL__N_115th_rewriter_cfg8pull_iteER7obj_refI4expr11ast_managerE.exit
-  %441 = load ptr, ptr %18, align 8, !tbaa !319
-  %442 = icmp eq ptr %441, null
-  br i1 %442, label %_ZNK4decl13get_family_idEv.exit.thread, label %_ZNK4decl13get_family_idEv.exit
+_ZN12_GLOBAL__N_115th_rewriter_cfg8pull_iteER7obj_refI4expr11ast_managerE.exit.thread108: ; preds = %_ZN12_GLOBAL__N_115th_rewriter_cfg8push_iteER7obj_refI4expr11ast_managerE.exit.thread, %_ZN12_GLOBAL__N_115th_rewriter_cfg8pull_iteER7obj_refI4expr11ast_managerE.exit
+  %440 = load ptr, ptr %18, align 8, !tbaa !319
+  %441 = icmp eq ptr %440, null
+  br i1 %441, label %_ZNK4decl13get_family_idEv.exit.thread, label %_ZNK4decl13get_family_idEv.exit
 
-_ZNK4decl13get_family_idEv.exit:                  ; preds = %_ZN12_GLOBAL__N_115th_rewriter_cfg8pull_iteER7obj_refI4expr11ast_managerE.exit.thread107
-  %443 = load i32, ptr %441, align 8, !tbaa !322
-  %444 = icmp eq i32 %443, -1
-  br i1 %444, label %_ZNK4decl13get_family_idEv.exit.thread, label %_ZN12_GLOBAL__N_115th_rewriter_cfg8pull_iteER7obj_refI4expr11ast_managerE.exit.thread
+_ZNK4decl13get_family_idEv.exit:                  ; preds = %_ZN12_GLOBAL__N_115th_rewriter_cfg8pull_iteER7obj_refI4expr11ast_managerE.exit.thread108
+  %442 = load i32, ptr %440, align 8, !tbaa !322
+  %443 = icmp eq i32 %442, -1
+  br i1 %443, label %_ZNK4decl13get_family_idEv.exit.thread, label %_ZN12_GLOBAL__N_115th_rewriter_cfg8pull_iteER7obj_refI4expr11ast_managerE.exit.thread
 
-_ZNK4decl13get_family_idEv.exit.thread:           ; preds = %_ZN12_GLOBAL__N_115th_rewriter_cfg8pull_iteER7obj_refI4expr11ast_managerE.exit.thread107, %_ZNK4decl13get_family_idEv.exit
-  %445 = call noundef zeroext i1 @_Z13is_partial_eqPK9func_decl(ptr noundef nonnull %1)
-  br i1 %445, label %446, label %_ZN12_GLOBAL__N_115th_rewriter_cfg8pull_iteER7obj_refI4expr11ast_managerE.exit.thread
+_ZNK4decl13get_family_idEv.exit.thread:           ; preds = %_ZN12_GLOBAL__N_115th_rewriter_cfg8pull_iteER7obj_refI4expr11ast_managerE.exit.thread108, %_ZNK4decl13get_family_idEv.exit
+  %444 = call noundef zeroext i1 @_Z13is_partial_eqPK9func_decl(ptr noundef nonnull %1)
+  br i1 %444, label %445, label %_ZN12_GLOBAL__N_115th_rewriter_cfg8pull_iteER7obj_refI4expr11ast_managerE.exit.thread
 
-446:                                              ; preds = %_ZNK4decl13get_family_idEv.exit.thread
-  %447 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  %448 = call noundef i32 @_ZN14array_rewriter11mk_app_coreEP9func_decljPKP4exprR7obj_refIS2_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(22) %447, ptr noundef nonnull %1, i32 noundef %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(16) %4)
+445:                                              ; preds = %_ZNK4decl13get_family_idEv.exit.thread
+  %446 = getelementptr inbounds nuw i8, ptr %0, i64 328
+  %447 = call noundef i32 @_ZN14array_rewriter11mk_app_coreEP9func_decljPKP4exprR7obj_refIS2_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(22) %446, ptr noundef nonnull %1, i32 noundef %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(16) %4)
   br label %_ZN12_GLOBAL__N_115th_rewriter_cfg8pull_iteER7obj_refI4expr11ast_managerE.exit.thread
 
-_ZN12_GLOBAL__N_115th_rewriter_cfg8pull_iteER7obj_refI4expr11ast_managerE.exit.thread: ; preds = %432, %439, %_ZN12_GLOBAL__N_115th_rewriter_cfg8pull_iteER7obj_refI4expr11ast_managerE.exit, %_ZNK4decl13get_family_idEv.exit, %_ZNK4decl13get_family_idEv.exit.thread, %446, %381
-  %.035 = phi i32 [ %.0.i49, %381 ], [ %448, %446 ], [ 5, %_ZNK4decl13get_family_idEv.exit.thread ], [ 5, %_ZNK4decl13get_family_idEv.exit ], [ %.1, %_ZN12_GLOBAL__N_115th_rewriter_cfg8pull_iteER7obj_refI4expr11ast_managerE.exit ], [ %438, %432 ], [ 4, %439 ]
+_ZN12_GLOBAL__N_115th_rewriter_cfg8pull_iteER7obj_refI4expr11ast_managerE.exit.thread: ; preds = %431, %438, %_ZN12_GLOBAL__N_115th_rewriter_cfg8pull_iteER7obj_refI4expr11ast_managerE.exit, %_ZNK4decl13get_family_idEv.exit, %_ZNK4decl13get_family_idEv.exit.thread, %445, %381
+  %.035 = phi i32 [ %.0.i49, %381 ], [ %447, %445 ], [ 5, %_ZNK4decl13get_family_idEv.exit.thread ], [ 5, %_ZNK4decl13get_family_idEv.exit ], [ %.1, %_ZN12_GLOBAL__N_115th_rewriter_cfg8pull_iteER7obj_refI4expr11ast_managerE.exit ], [ %437, %431 ], [ 4, %438 ]
   ret i32 %.035
 }
 

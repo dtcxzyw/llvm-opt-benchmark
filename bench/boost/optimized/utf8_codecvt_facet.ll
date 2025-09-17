@@ -84,9 +84,8 @@ define noundef range(i32 0, 3) i32 @_ZNK5boost7archive6detail18utf8_codecvt_face
   br label %50
 
 18:                                               ; preds = %15
-  %19 = and i8 %12, -32
-  %or.cond.i.i = icmp eq i8 %19, -64
-  br i1 %or.cond.i.i, label %_ZN5boost7archive6detail18utf8_codecvt_facet20get_cont_octet_countEh.exit, label %20
+  %19 = icmp samesign ult i8 %12, -32
+  br i1 %19, label %_ZN5boost7archive6detail18utf8_codecvt_facet20get_cont_octet_countEh.exit, label %20
 
 20:                                               ; preds = %18
   %21 = and i8 %12, -16

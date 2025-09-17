@@ -243,39 +243,39 @@ thread-pre-split:                                 ; preds = %30
   br label %99
 
 99:                                               ; preds = %99, %89
-  %.02535.i.us = phi i32 [ %96, %89 ], [ %.02634.i.us, %99 ]
-  %.02634.i.us = phi i32 [ %94, %89 ], [ %117, %99 ]
-  %.02733.i.us = phi ptr [ %93, %89 ], [ %118, %99 ]
-  %.02832.i.us = phi i32 [ 0, %89 ], [ %119, %99 ]
-  %.sroa.5.031.i.us = phi i32 [ 0, %89 ], [ %109, %99 ]
-  %100 = lshr i32 %.sroa.5.031.i.us, 3
+  %.02534.i.us = phi i32 [ %96, %89 ], [ %.02633.i.us, %99 ]
+  %.02633.i.us = phi i32 [ %94, %89 ], [ %117, %99 ]
+  %.02732.i.us = phi ptr [ %93, %89 ], [ %118, %99 ]
+  %.02831.i.us = phi i32 [ 0, %89 ], [ %119, %99 ]
+  %.sroa.5.030.i.us = phi i32 [ 0, %89 ], [ %109, %99 ]
+  %100 = lshr i32 %.sroa.5.030.i.us, 3
   %101 = zext nneg i32 %100 to i64
   %102 = getelementptr inbounds nuw i8, ptr %92, i64 %101
   %103 = load i32, ptr %102, align 1, !tbaa !39
   %104 = call i32 @llvm.bswap.i32(i32 %103)
-  %105 = and i32 %.sroa.5.031.i.us, 7
+  %105 = and i32 %.sroa.5.030.i.us, 7
   %106 = shl i32 %104, %105
   %107 = ashr i32 %106, 28
-  %108 = call i32 @llvm.umin.i32(i32 %.sroa.5.031.i.us, i32 132)
+  %108 = call i32 @llvm.umin.i32(i32 %.sroa.5.030.i.us, i32 132)
   %109 = add nuw nsw i32 %108, 4
   %110 = mul nsw i32 %107, %88
-  %111 = mul nsw i32 %.02634.i.us, %97
-  %112 = mul nsw i32 %.02535.i.us, %98
+  %111 = mul nsw i32 %.02633.i.us, %97
+  %112 = mul nsw i32 %.02534.i.us, %98
   %113 = add nsw i32 %111, %112
   %114 = ashr i32 %113, 12
   %115 = add nsw i32 %110, %114
   %116 = call i32 @llvm.smax.i32(i32 %115, i32 -32768)
   %117 = call i32 @llvm.smin.i32(i32 %116, i32 32767)
   %.0.i.i.us = trunc nsw i32 %117 to i16
-  %118 = getelementptr inbounds nuw i8, ptr %.02733.i.us, i64 2
-  store i16 %.0.i.i.us, ptr %.02733.i.us, align 2, !tbaa !50
-  %119 = add nuw nsw i32 %.02832.i.us, 1
+  %118 = getelementptr inbounds nuw i8, ptr %.02732.i.us, i64 2
+  store i16 %.0.i.i.us, ptr %.02732.i.us, align 2, !tbaa !50
+  %119 = add nuw nsw i32 %.02831.i.us, 1
   %exitcond.not.i.us = icmp eq i32 %119, 32
   br i1 %exitcond.not.i.us, label %120, label %99, !llvm.loop !52
 
 120:                                              ; preds = %99
   store i32 %117, ptr %85, align 4, !tbaa !47
-  store i32 %.02634.i.us, ptr %95, align 4, !tbaa !49
+  store i32 %.02633.i.us, ptr %95, align 4, !tbaa !49
   %121 = getelementptr inbounds nuw i8, ptr %.387107.us, i64 18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

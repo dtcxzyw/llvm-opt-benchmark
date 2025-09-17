@@ -6373,9 +6373,8 @@ backref_number_check.exit:                        ; preds = %10
   br label %41
 
 23:                                               ; preds = %backref_number_check.exit
-  %24 = add nuw i64 %19, 4611686018427387904
-  %or.cond.i = icmp sgt i64 %24, -1
-  br i1 %or.cond.i, label %25, label %28
+  %24 = icmp samesign ult i64 %19, 4611686018427387904
+  br i1 %24, label %25, label %28
 
 25:                                               ; preds = %23
   %26 = shl nuw nsw i64 %19, 1
@@ -6454,9 +6453,8 @@ backref_number_check.exit:                        ; preds = %10
   br i1 %20, label %rb_long2num_inline.exit, label %21
 
 21:                                               ; preds = %backref_number_check.exit
-  %22 = add nuw i64 %19, 4611686018427387904
-  %or.cond.i = icmp sgt i64 %22, -1
-  br i1 %or.cond.i, label %23, label %26
+  %22 = icmp samesign ult i64 %19, 4611686018427387904
+  br i1 %22, label %23, label %26
 
 23:                                               ; preds = %21
   %24 = shl nuw nsw i64 %19, 1

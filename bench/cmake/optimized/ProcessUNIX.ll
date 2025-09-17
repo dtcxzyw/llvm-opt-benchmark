@@ -313,13 +313,13 @@ define dso_local range(i32 0, 2) i32 @cmsysProcess_WaitForExit(ptr noundef %0, p
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 1296
   %20 = load volatile i32, ptr %19, align 8, !tbaa !21
   %.not53 = icmp eq i32 %20, 0
-  br i1 %.not53, label %21, label %96
+  br i1 %.not53, label %21, label %92
 
 21:                                               ; preds = %18
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 1152
   %23 = load i32, ptr %22, align 8, !tbaa !20
   %.not54 = icmp eq i32 %23, 0
-  br i1 %.not54, label %.preheader, label %96
+  br i1 %.not54, label %.preheader, label %92
 
 .preheader:                                       ; preds = %21
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -342,256 +342,252 @@ define dso_local range(i32 0, 2) i32 @cmsysProcess_WaitForExit(ptr noundef %0, p
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store i32 %32, ptr %35, align 4, !tbaa !36
   %36 = and i32 %32, 127
-  %37 = icmp eq i32 %36, 0
-  br i1 %37, label %38, label %43
-
-38:                                               ; preds = %29
-  store i32 4, ptr %34, align 4, !tbaa !38
-  %39 = getelementptr inbounds nuw i8, ptr %34, i64 4
-  store i32 0, ptr %39, align 4, !tbaa !39
-  %40 = lshr i32 %32, 8
-  %41 = and i32 %40, 255
-  %42 = getelementptr inbounds nuw i8, ptr %34, i64 12
-  store i32 %41, ptr %42, align 4, !tbaa !40
-  br label %kwsysProcessSetExitExceptionByIndex.exit
-
-43:                                               ; preds = %29
-  %44 = shl nuw nsw i32 %36, 24
-  %sext = add nuw i32 %44, 16777216
-  %45 = icmp sgt i32 %sext, 33554431
-  br i1 %45, label %46, label %82
-
-46:                                               ; preds = %43
-  store i32 2, ptr %34, align 4, !tbaa !38
-  %47 = getelementptr inbounds nuw i8, ptr %34, i64 4
-  %48 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  switch i32 %36, label %80 [
-    i32 11, label %49
-    i32 7, label %50
-    i32 8, label %51
-    i32 4, label %52
-    i32 2, label %53
-    i32 6, label %54
-    i32 9, label %55
-    i32 15, label %56
-    i32 1, label %57
-    i32 3, label %58
-    i32 5, label %59
-    i32 10, label %60
-    i32 12, label %61
-    i32 13, label %62
-    i32 14, label %63
-    i32 16, label %64
-    i32 17, label %65
-    i32 18, label %66
-    i32 19, label %67
-    i32 20, label %68
-    i32 21, label %69
-    i32 22, label %70
-    i32 23, label %71
-    i32 24, label %72
-    i32 25, label %73
-    i32 26, label %74
-    i32 27, label %75
-    i32 28, label %76
-    i32 29, label %77
-    i32 30, label %78
-    i32 31, label %79
+  switch i32 %36, label %42 [
+    i32 0, label %37
+    i32 127, label %78
   ]
 
-49:                                               ; preds = %46
-  store i32 1, ptr %47, align 4, !tbaa !39
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(19) %48, ptr noundef nonnull align 1 dereferenceable(19) @.str.8, i64 19, i1 false) #25
+37:                                               ; preds = %29
+  store i32 4, ptr %34, align 4, !tbaa !38
+  %38 = getelementptr inbounds nuw i8, ptr %34, i64 4
+  store i32 0, ptr %38, align 4, !tbaa !39
+  %39 = lshr i32 %32, 8
+  %40 = and i32 %39, 255
+  %41 = getelementptr inbounds nuw i8, ptr %34, i64 12
+  store i32 %40, ptr %41, align 4, !tbaa !40
   br label %kwsysProcessSetExitExceptionByIndex.exit
 
-50:                                               ; preds = %46
-  store i32 1, ptr %47, align 4, !tbaa !39
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %48, ptr noundef nonnull align 1 dereferenceable(10) @.str.9, i64 10, i1 false) #25
+42:                                               ; preds = %29
+  store i32 2, ptr %34, align 4, !tbaa !38
+  %43 = getelementptr inbounds nuw i8, ptr %34, i64 4
+  %44 = getelementptr inbounds nuw i8, ptr %34, i64 16
+  switch i32 %36, label %76 [
+    i32 11, label %45
+    i32 7, label %46
+    i32 8, label %47
+    i32 4, label %48
+    i32 2, label %49
+    i32 6, label %50
+    i32 9, label %51
+    i32 15, label %52
+    i32 1, label %53
+    i32 3, label %54
+    i32 5, label %55
+    i32 10, label %56
+    i32 12, label %57
+    i32 13, label %58
+    i32 14, label %59
+    i32 16, label %60
+    i32 17, label %61
+    i32 18, label %62
+    i32 19, label %63
+    i32 20, label %64
+    i32 21, label %65
+    i32 22, label %66
+    i32 23, label %67
+    i32 24, label %68
+    i32 25, label %69
+    i32 26, label %70
+    i32 27, label %71
+    i32 28, label %72
+    i32 29, label %73
+    i32 30, label %74
+    i32 31, label %75
+  ]
+
+45:                                               ; preds = %42
+  store i32 1, ptr %43, align 4, !tbaa !39
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(19) %44, ptr noundef nonnull align 1 dereferenceable(19) @.str.8, i64 19, i1 false) #25
   br label %kwsysProcessSetExitExceptionByIndex.exit
 
-51:                                               ; preds = %46
-  store i32 4, ptr %47, align 4, !tbaa !39
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(25) %48, ptr noundef nonnull align 1 dereferenceable(25) @.str.10, i64 25, i1 false) #25
+46:                                               ; preds = %42
+  store i32 1, ptr %43, align 4, !tbaa !39
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %44, ptr noundef nonnull align 1 dereferenceable(10) @.str.9, i64 10, i1 false) #25
   br label %kwsysProcessSetExitExceptionByIndex.exit
 
-52:                                               ; preds = %46
-  store i32 2, ptr %47, align 4, !tbaa !39
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %48, ptr noundef nonnull align 1 dereferenceable(20) @.str.11, i64 20, i1 false) #25
+47:                                               ; preds = %42
+  store i32 4, ptr %43, align 4, !tbaa !39
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(25) %44, ptr noundef nonnull align 1 dereferenceable(25) @.str.10, i64 25, i1 false) #25
   br label %kwsysProcessSetExitExceptionByIndex.exit
 
-53:                                               ; preds = %46
-  store i32 3, ptr %47, align 4, !tbaa !39
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %48, ptr noundef nonnull align 1 dereferenceable(15) @.str.12, i64 15, i1 false) #25
+48:                                               ; preds = %42
+  store i32 2, ptr %43, align 4, !tbaa !39
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %44, ptr noundef nonnull align 1 dereferenceable(20) @.str.11, i64 20, i1 false) #25
   br label %kwsysProcessSetExitExceptionByIndex.exit
 
-54:                                               ; preds = %46
-  store i32 5, ptr %47, align 4, !tbaa !39
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(19) %48, ptr noundef nonnull align 1 dereferenceable(19) @.str.13, i64 19, i1 false) #25
+49:                                               ; preds = %42
+  store i32 3, ptr %43, align 4, !tbaa !39
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %44, ptr noundef nonnull align 1 dereferenceable(15) @.str.12, i64 15, i1 false) #25
   br label %kwsysProcessSetExitExceptionByIndex.exit
 
-55:                                               ; preds = %46
-  store i32 5, ptr %47, align 4, !tbaa !39
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %48, ptr noundef nonnull align 1 dereferenceable(18) @.str.14, i64 18, i1 false) #25
+50:                                               ; preds = %42
+  store i32 5, ptr %43, align 4, !tbaa !39
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(19) %44, ptr noundef nonnull align 1 dereferenceable(19) @.str.13, i64 19, i1 false) #25
   br label %kwsysProcessSetExitExceptionByIndex.exit
 
-56:                                               ; preds = %46
-  store i32 5, ptr %47, align 4, !tbaa !39
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(22) %48, ptr noundef nonnull align 1 dereferenceable(22) @.str.15, i64 22, i1 false) #25
+51:                                               ; preds = %42
+  store i32 5, ptr %43, align 4, !tbaa !39
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %44, ptr noundef nonnull align 1 dereferenceable(18) @.str.14, i64 18, i1 false) #25
   br label %kwsysProcessSetExitExceptionByIndex.exit
 
-57:                                               ; preds = %46
-  store i32 5, ptr %47, align 4, !tbaa !39
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %48, ptr noundef nonnull align 1 dereferenceable(7) @.str.16, i64 7, i1 false) #25
+52:                                               ; preds = %42
+  store i32 5, ptr %43, align 4, !tbaa !39
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(22) %44, ptr noundef nonnull align 1 dereferenceable(22) @.str.15, i64 22, i1 false) #25
   br label %kwsysProcessSetExitExceptionByIndex.exit
 
-58:                                               ; preds = %46
-  store i32 5, ptr %47, align 4, !tbaa !39
-  store i64 23724528828369235, ptr %48, align 4
+53:                                               ; preds = %42
+  store i32 5, ptr %43, align 4, !tbaa !39
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %44, ptr noundef nonnull align 1 dereferenceable(7) @.str.16, i64 7, i1 false) #25
   br label %kwsysProcessSetExitExceptionByIndex.exit
 
-59:                                               ; preds = %46
-  store i32 5, ptr %47, align 4, !tbaa !39
-  store i64 22589819993934163, ptr %48, align 4
+54:                                               ; preds = %42
+  store i32 5, ptr %43, align 4, !tbaa !39
+  store i64 23724528828369235, ptr %44, align 4
   br label %kwsysProcessSetExitExceptionByIndex.exit
 
-60:                                               ; preds = %46
-  store i32 5, ptr %47, align 4, !tbaa !39
-  store i64 13882791725320531, ptr %48, align 4
+55:                                               ; preds = %42
+  store i32 5, ptr %43, align 4, !tbaa !39
+  store i64 22589819993934163, ptr %44, align 4
   br label %kwsysProcessSetExitExceptionByIndex.exit
 
-61:                                               ; preds = %46
-  store i32 5, ptr %47, align 4, !tbaa !39
-  store i64 14164266702031187, ptr %48, align 4
+56:                                               ; preds = %42
+  store i32 5, ptr %43, align 4, !tbaa !39
+  store i64 13882791725320531, ptr %44, align 4
   br label %kwsysProcessSetExitExceptionByIndex.exit
 
-62:                                               ; preds = %46
-  store i32 5, ptr %47, align 4, !tbaa !39
-  store i64 19510049202719059, ptr %48, align 4
+57:                                               ; preds = %42
+  store i32 5, ptr %43, align 4, !tbaa !39
+  store i64 14164266702031187, ptr %44, align 4
   br label %kwsysProcessSetExitExceptionByIndex.exit
 
-63:                                               ; preds = %46
-  store i32 5, ptr %47, align 4, !tbaa !39
-  store i64 21764060672903507, ptr %48, align 4
+58:                                               ; preds = %42
+  store i32 5, ptr %43, align 4, !tbaa !39
+  store i64 19510049202719059, ptr %44, align 4
   br label %kwsysProcessSetExitExceptionByIndex.exit
 
-64:                                               ; preds = %46
-  store i32 5, ptr %47, align 4, !tbaa !39
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %48, ptr noundef nonnull align 1 dereferenceable(10) @.str.23, i64 10, i1 false) #25
+59:                                               ; preds = %42
+  store i32 5, ptr %43, align 4, !tbaa !39
+  store i64 21764060672903507, ptr %44, align 4
   br label %kwsysProcessSetExitExceptionByIndex.exit
 
-65:                                               ; preds = %46
-  store i32 5, ptr %47, align 4, !tbaa !39
-  store i64 19224171666426195, ptr %48, align 4
+60:                                               ; preds = %42
+  store i32 5, ptr %43, align 4, !tbaa !39
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %44, ptr noundef nonnull align 1 dereferenceable(10) @.str.23, i64 10, i1 false) #25
   br label %kwsysProcessSetExitExceptionByIndex.exit
 
-66:                                               ; preds = %46
-  store i32 5, ptr %47, align 4, !tbaa !39
-  store i64 23730000381823315, ptr %48, align 4
+61:                                               ; preds = %42
+  store i32 5, ptr %43, align 4, !tbaa !39
+  store i64 19224171666426195, ptr %44, align 4
   br label %kwsysProcessSetExitExceptionByIndex.exit
 
-67:                                               ; preds = %46
-  store i32 5, ptr %47, align 4, !tbaa !39
-  store i64 22605221729880403, ptr %48, align 4
+62:                                               ; preds = %42
+  store i32 5, ptr %43, align 4, !tbaa !39
+  store i64 23730000381823315, ptr %44, align 4
   br label %kwsysProcessSetExitExceptionByIndex.exit
 
-68:                                               ; preds = %46
-  store i32 5, ptr %47, align 4, !tbaa !39
-  store i64 22610715009829203, ptr %48, align 4
+63:                                               ; preds = %42
+  store i32 5, ptr %43, align 4, !tbaa !39
+  store i64 22605221729880403, ptr %44, align 4
   br label %kwsysProcessSetExitExceptionByIndex.exit
 
-69:                                               ; preds = %46
-  store i32 5, ptr %47, align 4, !tbaa !39
-  store i64 22035674723469651, ptr %48, align 4
+64:                                               ; preds = %42
+  store i32 5, ptr %43, align 4, !tbaa !39
+  store i64 22610715009829203, ptr %44, align 4
   br label %kwsysProcessSetExitExceptionByIndex.exit
 
-70:                                               ; preds = %46
-  store i32 5, ptr %47, align 4, !tbaa !39
-  store i64 24012596630210899, ptr %48, align 4
+65:                                               ; preds = %42
+  store i32 5, ptr %43, align 4, !tbaa !39
+  store i64 22035674723469651, ptr %44, align 4
   br label %kwsysProcessSetExitExceptionByIndex.exit
 
-71:                                               ; preds = %46
-  store i32 5, ptr %47, align 4, !tbaa !39
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %48, ptr noundef nonnull align 1 dereferenceable(7) @.str.30, i64 7, i1 false) #25
+66:                                               ; preds = %42
+  store i32 5, ptr %43, align 4, !tbaa !39
+  store i64 24012596630210899, ptr %44, align 4
   br label %kwsysProcessSetExitExceptionByIndex.exit
 
-72:                                               ; preds = %46
-  store i32 5, ptr %47, align 4, !tbaa !39
-  store i64 24013623194503507, ptr %48, align 4
+67:                                               ; preds = %42
+  store i32 5, ptr %43, align 4, !tbaa !39
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %44, ptr noundef nonnull align 1 dereferenceable(7) @.str.30, i64 7, i1 false) #25
   br label %kwsysProcessSetExitExceptionByIndex.exit
 
-73:                                               ; preds = %46
-  store i32 5, ptr %47, align 4, !tbaa !39
-  store i64 25424309497842003, ptr %48, align 4
+68:                                               ; preds = %42
+  store i32 5, ptr %43, align 4, !tbaa !39
+  store i64 24013623194503507, ptr %44, align 4
   br label %kwsysProcessSetExitExceptionByIndex.exit
 
-74:                                               ; preds = %46
-  store i32 5, ptr %47, align 4, !tbaa !39
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %48, ptr noundef nonnull align 1 dereferenceable(10) @.str.33, i64 10, i1 false) #25
+69:                                               ; preds = %42
+  store i32 5, ptr %43, align 4, !tbaa !39
+  store i64 25424309497842003, ptr %44, align 4
   br label %kwsysProcessSetExitExceptionByIndex.exit
 
-75:                                               ; preds = %46
-  store i32 5, ptr %47, align 4, !tbaa !39
-  store i64 19790463322507603, ptr %48, align 4
+70:                                               ; preds = %42
+  store i32 5, ptr %43, align 4, !tbaa !39
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %44, ptr noundef nonnull align 1 dereferenceable(10) @.str.33, i64 10, i1 false) #25
   br label %kwsysProcessSetExitExceptionByIndex.exit
 
-76:                                               ; preds = %46
-  store i32 5, ptr %47, align 4, !tbaa !39
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %48, ptr noundef nonnull align 1 dereferenceable(9) @.str.35, i64 9, i1 false) #25
+71:                                               ; preds = %42
+  store i32 5, ptr %43, align 4, !tbaa !39
+  store i64 19790463322507603, ptr %44, align 4
   br label %kwsysProcessSetExitExceptionByIndex.exit
 
-77:                                               ; preds = %46
-  store i32 5, ptr %47, align 4, !tbaa !39
-  store i64 21476001762986323, ptr %48, align 4
+72:                                               ; preds = %42
+  store i32 5, ptr %43, align 4, !tbaa !39
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %44, ptr noundef nonnull align 1 dereferenceable(9) @.str.35, i64 9, i1 false) #25
   br label %kwsysProcessSetExitExceptionByIndex.exit
 
-78:                                               ; preds = %46
-  store i32 5, ptr %47, align 4, !tbaa !39
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %48, ptr noundef nonnull align 1 dereferenceable(7) @.str.37, i64 7, i1 false) #25
+73:                                               ; preds = %42
+  store i32 5, ptr %43, align 4, !tbaa !39
+  store i64 21476001762986323, ptr %44, align 4
   br label %kwsysProcessSetExitExceptionByIndex.exit
 
-79:                                               ; preds = %46
-  store i32 5, ptr %47, align 4, !tbaa !39
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %48, ptr noundef nonnull align 1 dereferenceable(7) @.str.38, i64 7, i1 false) #25
+74:                                               ; preds = %42
+  store i32 5, ptr %43, align 4, !tbaa !39
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %44, ptr noundef nonnull align 1 dereferenceable(7) @.str.37, i64 7, i1 false) #25
   br label %kwsysProcessSetExitExceptionByIndex.exit
 
-80:                                               ; preds = %46
-  store i32 5, ptr %47, align 4, !tbaa !39
-  %81 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %48, i64 noundef 1025, ptr noundef nonnull @.str.39, i32 noundef range(i32 0, 128) %36) #25
+75:                                               ; preds = %42
+  store i32 5, ptr %43, align 4, !tbaa !39
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %44, ptr noundef nonnull align 1 dereferenceable(7) @.str.38, i64 7, i1 false) #25
   br label %kwsysProcessSetExitExceptionByIndex.exit
 
-82:                                               ; preds = %43
-  %83 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(33) %83, ptr noundef nonnull align 1 dereferenceable(33) @.str.7, i64 33, i1 false) #25
-  %84 = load ptr, ptr %28, align 8, !tbaa !32
-  %85 = getelementptr inbounds nuw %struct.kwsysProcessResults_s, ptr %84, i64 %indvars.iv
-  store i32 1, ptr %85, align 4, !tbaa !38
+76:                                               ; preds = %42
+  store i32 5, ptr %43, align 4, !tbaa !39
+  %77 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %44, i64 noundef 1025, ptr noundef nonnull @.str.39, i32 noundef range(i32 0, 128) %36) #25
   br label %kwsysProcessSetExitExceptionByIndex.exit
 
-kwsysProcessSetExitExceptionByIndex.exit:         ; preds = %80, %79, %78, %77, %76, %75, %74, %73, %72, %71, %70, %69, %68, %67, %66, %65, %64, %63, %62, %61, %60, %59, %58, %57, %56, %55, %54, %53, %52, %51, %50, %49, %38, %82
+78:                                               ; preds = %29
+  %79 = getelementptr inbounds nuw i8, ptr %34, i64 16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(33) %79, ptr noundef nonnull align 1 dereferenceable(33) @.str.7, i64 33, i1 false) #25
+  %80 = load ptr, ptr %28, align 8, !tbaa !32
+  %81 = getelementptr inbounds nuw %struct.kwsysProcessResults_s, ptr %80, i64 %indvars.iv
+  store i32 1, ptr %81, align 4, !tbaa !38
+  br label %kwsysProcessSetExitExceptionByIndex.exit
+
+kwsysProcessSetExitExceptionByIndex.exit:         ; preds = %76, %75, %74, %73, %72, %71, %70, %69, %68, %67, %66, %65, %64, %63, %62, %61, %60, %59, %58, %57, %56, %55, %54, %53, %52, %51, %50, %49, %48, %47, %46, %45, %37, %78
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %86 = load volatile i32, ptr %24, align 8, !tbaa !22
-  %87 = sext i32 %86 to i64
-  %88 = icmp slt i64 %indvars.iv.next, %87
-  br i1 %88, label %29, label %._crit_edge, !llvm.loop !41
+  %82 = load volatile i32, ptr %24, align 8, !tbaa !22
+  %83 = sext i32 %82 to i64
+  %84 = icmp slt i64 %indvars.iv.next, %83
+  br i1 %84, label %29, label %._crit_edge, !llvm.loop !41
 
 ._crit_edge:                                      ; preds = %kwsysProcessSetExitExceptionByIndex.exit, %.preheader
-  %89 = getelementptr inbounds nuw i8, ptr %0, i64 2328
-  %90 = load ptr, ptr %89, align 8, !tbaa !32
-  %91 = load volatile i32, ptr %24, align 8, !tbaa !22
-  %92 = sext i32 %91 to i64
-  %93 = getelementptr %struct.kwsysProcessResults_s, ptr %90, i64 %92
-  %94 = getelementptr i8, ptr %93, i64 -1044
-  %95 = load i32, ptr %94, align 4, !tbaa !38
-  br label %96
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 2328
+  %86 = load ptr, ptr %85, align 8, !tbaa !32
+  %87 = load volatile i32, ptr %24, align 8, !tbaa !22
+  %88 = sext i32 %87 to i64
+  %89 = getelementptr %struct.kwsysProcessResults_s, ptr %86, i64 %88
+  %90 = getelementptr i8, ptr %89, i64 -1044
+  %91 = load i32, ptr %90, align 4, !tbaa !38
+  br label %92
 
-96:                                               ; preds = %21, %18, %._crit_edge
-  %.sink = phi i32 [ %95, %._crit_edge ], [ 6, %18 ], [ 5, %21 ]
+92:                                               ; preds = %21, %18, %._crit_edge
+  %.sink = phi i32 [ %91, %._crit_edge ], [ 6, %18 ], [ 5, %21 ]
   store volatile i32 %.sink, ptr %4, align 4, !tbaa !18
   tail call fastcc void @kwsysProcessCleanup(ptr noundef %0, i32 noundef 0)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %8, %2, %3, %96, %17, %13
-  %.047 = phi i32 [ 1, %13 ], [ 1, %17 ], [ 1, %96 ], [ 1, %3 ], [ 1, %2 ], [ 0, %8 ]
+.loopexit:                                        ; preds = %8, %2, %3, %92, %17, %13
+  %.047 = phi i32 [ 1, %13 ], [ 1, %17 ], [ 1, %92 ], [ 1, %3 ], [ 1, %2 ], [ 0, %8 ]
   ret i32 %.047
 }
 

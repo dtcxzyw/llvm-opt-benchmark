@@ -753,21 +753,20 @@ define { i64, double } @"_ZN114_$LT$statrs..distribution..geometric..Geometric$u
   br i1 %13, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit.thread", label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit.thread3"
 
 "_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit": ; preds = %10
-  %14 = add i64 %11, -4607182418800017408
-  %15 = icmp ult i64 %14, 5
-  br i1 %15, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit.thread", label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit.thread3"
+  %14 = icmp ult i64 %11, 4607182418800017413
+  br i1 %14, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit.thread", label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit.thread3"
 
 "_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit.thread3": ; preds = %5, %12, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit"
-  %16 = fsub double 2.000000e+00, %.val
-  %17 = fsub double 1.000000e+00, %.val
-  %18 = tail call double @llvm.sqrt.f64(double %17)
-  %19 = fdiv double %16, %18
+  %15 = fsub double 2.000000e+00, %.val
+  %16 = fsub double 1.000000e+00, %.val
+  %17 = tail call double @llvm.sqrt.f64(double %16)
+  %18 = fdiv double %15, %17
   br label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit.thread"
 
 "_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit.thread": ; preds = %1, %12, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit", %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit.thread3"
-  %.sroa.3.0 = phi double [ %19, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit.thread3" ], [ 0x7FF0000000000000, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit" ], [ 0x7FF0000000000000, %12 ], [ 0x7FF0000000000000, %1 ]
-  %20 = insertvalue { i64, double } { i64 1, double poison }, double %.sroa.3.0, 1
-  ret { i64, double } %20
+  %.sroa.3.0 = phi double [ %18, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit.thread3" ], [ 0x7FF0000000000000, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit" ], [ 0x7FF0000000000000, %12 ], [ 0x7FF0000000000000, %1 ]
+  %19 = insertvalue { i64, double } { i64 1, double poison }, double %.sroa.3.0, 1
+  ret { i64, double } %19
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -839,7 +838,7 @@ define noundef double @"_ZN110_$LT$statrs..distribution..geometric..Geometric$u2
   br i1 %18, label %19, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit7.thread"
 
 19:                                               ; preds = %21, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit7.thread", %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit.thread10", %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit7", %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit", %2, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit7.thread15"
-  %.sroa.0.0 = phi double [ %31, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit7.thread15" ], [ 0xFFF0000000000000, %2 ], [ 0.000000e+00, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit" ], [ 0xFFF0000000000000, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit7" ], [ 0.000000e+00, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit.thread10" ], [ 0xFFF0000000000000, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit7.thread" ], [ 0xFFF0000000000000, %21 ]
+  %.sroa.0.0 = phi double [ %30, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit7.thread15" ], [ 0xFFF0000000000000, %2 ], [ 0.000000e+00, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit" ], [ 0xFFF0000000000000, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit7" ], [ 0.000000e+00, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit.thread10" ], [ 0xFFF0000000000000, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit7.thread" ], [ 0xFFF0000000000000, %21 ]
   ret double %.sroa.0.0
 
 .thread:                                          ; preds = %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit"
@@ -855,18 +854,17 @@ define noundef double @"_ZN110_$LT$statrs..distribution..geometric..Geometric$u2
   br label %19
 
 "_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit7": ; preds = %.thread
-  %23 = add i64 %20, -4607182418800017408
-  %24 = icmp ult i64 %23, 5
-  br i1 %24, label %19, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit7.thread15"
+  %23 = icmp ult i64 %20, 4607182418800017413
+  br i1 %23, label %19, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit7.thread15"
 
 "_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit7.thread15": ; preds = %8, %21, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit7"
-  %25 = add i64 %1, -1
-  %26 = uitofp i64 %25 to double
-  %27 = fsub double 1.000000e+00, %.val1
-  %28 = tail call noundef double @llvm.log.f64(double %27)
-  %29 = fmul double %28, %26
-  %30 = tail call noundef double @llvm.log.f64(double %.val1)
-  %31 = fadd double %30, %29
+  %24 = add i64 %1, -1
+  %25 = uitofp i64 %24 to double
+  %26 = fsub double 1.000000e+00, %.val1
+  %27 = tail call noundef double @llvm.log.f64(double %26)
+  %28 = fmul double %27, %25
+  %29 = tail call noundef double @llvm.log.f64(double %.val1)
+  %30 = fadd double %29, %28
   br label %19
 }
 
@@ -1529,7 +1527,7 @@ define void @_ZN6statrs8function4beta16checked_beta_reg17hc3be34898596ccaaE(ptr 
   store ptr @anon.add817559d7beeee5c0788ec3c34287f.41.llvm.10715550030521876899, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 1, ptr %.sroa.5.0..sroa_idx, align 8
-  br label %115
+  br label %114
 
 9:                                                ; preds = %6
   %10 = fcmp oge double %3, 0.000000e+00
@@ -1543,7 +1541,7 @@ define void @_ZN6statrs8function4beta16checked_beta_reg17hc3be34898596ccaaE(ptr 
   store ptr @anon.add817559d7beeee5c0788ec3c34287f.40.llvm.10715550030521876899, ptr %.sroa.427.0..sroa_idx, align 8
   %.sroa.528.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 1, ptr %.sroa.528.0..sroa_idx, align 8
-  br label %115
+  br label %114
 
 13:                                               ; preds = %9
   store i64 4, ptr %0, align 8
@@ -1555,7 +1553,7 @@ define void @_ZN6statrs8function4beta16checked_beta_reg17hc3be34898596ccaaE(ptr 
   store ptr @anon.add817559d7beeee5c0788ec3c34287f.45, ptr %.sroa.633.0..sroa_idx, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 1, ptr %.sroa.7.0..sroa_idx, align 8
-  br label %115
+  br label %114
 
 14:                                               ; preds = %9
   %15 = tail call double @llvm.fabs.f64(double %3)
@@ -1578,131 +1576,130 @@ define void @_ZN6statrs8function4beta16checked_beta_reg17hc3be34898596ccaaE(ptr 
   br i1 %23, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit87.thread", label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit87.thread94"
 
 "_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit87": ; preds = %20
-  %24 = add nsw i64 %21, -4607182418800017408
-  %25 = icmp ult i64 %24, 5
-  br i1 %25, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit87.thread", label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit87.thread94"
+  %24 = icmp ult i64 %21, 4607182418800017413
+  br i1 %24, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit87.thread", label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit87.thread94"
 
 "_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit87.thread94": ; preds = %22, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit87"
-  %26 = fadd double %1, %2
-  %27 = tail call noundef double @_ZN6statrs8function5gamma8ln_gamma17h21e3ca649f6326d4E(double noundef %26)
-  %28 = tail call noundef double @_ZN6statrs8function5gamma8ln_gamma17h21e3ca649f6326d4E(double noundef %1)
-  %29 = fsub double %27, %28
-  %30 = tail call noundef double @_ZN6statrs8function5gamma8ln_gamma17h21e3ca649f6326d4E(double noundef %2)
-  %31 = fsub double %29, %30
-  %32 = tail call noundef double @llvm.log.f64(double %3)
-  %33 = fmul double %1, %32
-  %34 = fadd double %33, %31
-  %35 = fsub double 1.000000e+00, %3
-  %36 = tail call noundef double @llvm.log.f64(double %35)
-  %37 = fmul double %2, %36
-  %38 = fadd double %37, %34
-  %39 = tail call double @llvm.exp.f64(double %38)
+  %25 = fadd double %1, %2
+  %26 = tail call noundef double @_ZN6statrs8function5gamma8ln_gamma17h21e3ca649f6326d4E(double noundef %25)
+  %27 = tail call noundef double @_ZN6statrs8function5gamma8ln_gamma17h21e3ca649f6326d4E(double noundef %1)
+  %28 = fsub double %26, %27
+  %29 = tail call noundef double @_ZN6statrs8function5gamma8ln_gamma17h21e3ca649f6326d4E(double noundef %2)
+  %30 = fsub double %28, %29
+  %31 = tail call noundef double @llvm.log.f64(double %3)
+  %32 = fmul double %1, %31
+  %33 = fadd double %32, %30
+  %34 = fsub double 1.000000e+00, %3
+  %35 = tail call noundef double @llvm.log.f64(double %34)
+  %36 = fmul double %2, %35
+  %37 = fadd double %36, %33
+  %38 = tail call double @llvm.exp.f64(double %37)
   br label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit87.thread"
 
 "_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit87.thread": ; preds = %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit", %14, %22, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit87", %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit87.thread94"
-  %.sroa.061.0 = phi double [ %39, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit87.thread94" ], [ 0.000000e+00, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit87" ], [ 0.000000e+00, %22 ], [ 0.000000e+00, %14 ], [ 0.000000e+00, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit" ]
-  %40 = fadd double %1, 1.000000e+00
-  %41 = fadd double %1, %2
-  %42 = fadd double %41, 2.000000e+00
-  %43 = fdiv double %40, %42
-  %44 = fcmp oge double %3, %43
-  %45 = fsub double 1.000000e+00, %3
-  %.sroa.034.0 = select i1 %44, double %45, double %3
-  %.sroa.017.0 = select i1 %44, double %1, double %2
-  %.sroa.0.0 = select i1 %44, double %2, double %1
-  %46 = fadd double %.sroa.0.0, 1.000000e+00
-  %47 = fadd double %.sroa.0.0, -1.000000e+00
-  %48 = fmul double %41, %.sroa.034.0
-  %49 = fdiv double %48, %46
-  %50 = fsub double 1.000000e+00, %49
-  %51 = tail call double @llvm.fabs.f64(double %50)
-  %52 = fcmp olt double %51, 0x360000000000000
-  %53 = fdiv double 1.000000e+00, %50
-  %54 = select i1 %52, double 0x7C80000000000000, double %53
-  br label %55
+  %.sroa.061.0 = phi double [ %38, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit87.thread94" ], [ 0.000000e+00, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit87" ], [ 0.000000e+00, %22 ], [ 0.000000e+00, %14 ], [ 0.000000e+00, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit" ]
+  %39 = fadd double %1, 1.000000e+00
+  %40 = fadd double %1, %2
+  %41 = fadd double %40, 2.000000e+00
+  %42 = fdiv double %39, %41
+  %43 = fcmp oge double %3, %42
+  %44 = fsub double 1.000000e+00, %3
+  %.sroa.034.0 = select i1 %43, double %44, double %3
+  %.sroa.017.0 = select i1 %43, double %1, double %2
+  %.sroa.0.0 = select i1 %43, double %2, double %1
+  %45 = fadd double %.sroa.0.0, 1.000000e+00
+  %46 = fadd double %.sroa.0.0, -1.000000e+00
+  %47 = fmul double %40, %.sroa.034.0
+  %48 = fdiv double %47, %45
+  %49 = fsub double 1.000000e+00, %48
+  %50 = tail call double @llvm.fabs.f64(double %49)
+  %51 = fcmp olt double %50, 0x360000000000000
+  %52 = fdiv double 1.000000e+00, %49
+  %53 = select i1 %51, double 0x7C80000000000000, double %52
+  br label %54
 
-55:                                               ; preds = %62, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit87.thread"
-  %.sroa.040.1 = phi double [ %54, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit87.thread" ], [ %103, %62 ]
-  %.sroa.055.0 = phi double [ 1.000000e+00, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit87.thread" ], [ %.sroa.055.2, %62 ]
-  %.sroa.065.0 = phi double [ %54, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit87.thread" ], [ %105, %62 ]
-  %.sroa.071.0 = phi i32 [ 1, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit87.thread" ], [ %63, %62 ]
+54:                                               ; preds = %61, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit87.thread"
+  %.sroa.040.1 = phi double [ %53, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit87.thread" ], [ %102, %61 ]
+  %.sroa.055.0 = phi double [ 1.000000e+00, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit87.thread" ], [ %.sroa.055.2, %61 ]
+  %.sroa.065.0 = phi double [ %53, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit87.thread" ], [ %104, %61 ]
+  %.sroa.071.0 = phi i32 [ 1, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit87.thread" ], [ %62, %61 ]
   %exitcond.not = icmp eq i32 %.sroa.071.0, 141
-  br i1 %exitcond.not, label %56, label %62
+  br i1 %exitcond.not, label %55, label %61
 
-56:                                               ; preds = %55
-  %57 = fmul double %.sroa.061.0, %.sroa.065.0
-  %58 = fdiv double %57, %2
-  %59 = fsub double 1.000000e+00, %58
-  %60 = fdiv double %57, %1
-  %.sink = select i1 %44, double %59, double %60
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double %.sink, ptr %61, align 8
+55:                                               ; preds = %54
+  %56 = fmul double %.sroa.061.0, %.sroa.065.0
+  %57 = fdiv double %56, %2
+  %58 = fsub double 1.000000e+00, %57
+  %59 = fdiv double %56, %1
+  %.sink = select i1 %43, double %58, double %59
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store double %.sink, ptr %60, align 8
   store i64 21, ptr %0, align 8
-  br label %115
+  br label %114
 
-62:                                               ; preds = %55
-  %63 = add nuw nsw i32 %.sroa.071.0, 1
-  %64 = uitofp nneg i32 %.sroa.071.0 to double
-  %65 = shl nuw nsw i32 %.sroa.071.0, 1
-  %66 = uitofp nneg i32 %65 to double
-  %67 = fsub double %.sroa.017.0, %64
-  %68 = fmul double %67, %64
-  %69 = fmul double %.sroa.034.0, %68
-  %70 = fadd double %47, %66
-  %71 = fadd double %.sroa.0.0, %66
-  %72 = fmul double %70, %71
-  %73 = fdiv double %69, %72
-  %74 = fmul double %.sroa.040.1, %73
-  %75 = fadd double %74, 1.000000e+00
-  %76 = tail call double @llvm.fabs.f64(double %75)
-  %77 = fcmp olt double %76, 0x360000000000000
-  %78 = fdiv double %73, %.sroa.055.0
-  %79 = fadd double %78, 1.000000e+00
-  %80 = tail call double @llvm.fabs.f64(double %79)
-  %81 = fcmp olt double %80, 0x360000000000000
-  %.sroa.055.1 = select i1 %81, double 0x360000000000000, double %79
-  %82 = fdiv double 1.000000e+00, %75
-  %83 = select i1 %77, double 0x7C80000000000000, double %82
-  %84 = fmul double %.sroa.065.0, %83
-  %85 = fmul double %.sroa.055.1, %84
-  %86 = fadd double %.sroa.0.0, %64
-  %87 = fneg double %86
-  %88 = fadd double %41, %64
-  %89 = fmul double %88, %87
-  %90 = fmul double %.sroa.034.0, %89
-  %91 = fadd double %46, %66
-  %92 = fmul double %71, %91
-  %93 = fdiv double %90, %92
-  %94 = fmul double %93, %83
-  %95 = fadd double %94, 1.000000e+00
-  %96 = tail call double @llvm.fabs.f64(double %95)
-  %97 = fcmp olt double %96, 0x360000000000000
-  %98 = fdiv double %93, %.sroa.055.1
-  %99 = fadd double %98, 1.000000e+00
-  %100 = tail call double @llvm.fabs.f64(double %99)
-  %101 = fcmp olt double %100, 0x360000000000000
-  %.sroa.055.2 = select i1 %101, double 0x360000000000000, double %99
-  %102 = fdiv double 1.000000e+00, %95
-  %103 = select i1 %97, double 0x7C80000000000000, double %102
-  %104 = fmul double %103, %.sroa.055.2
-  %105 = fmul double %85, %104
-  %106 = fadd double %104, -1.000000e+00
-  %107 = tail call double @llvm.fabs.f64(double %106)
-  %108 = fcmp ugt double %107, 0x3CA0000000000000
-  br i1 %108, label %55, label %109
+61:                                               ; preds = %54
+  %62 = add nuw nsw i32 %.sroa.071.0, 1
+  %63 = uitofp nneg i32 %.sroa.071.0 to double
+  %64 = shl nuw nsw i32 %.sroa.071.0, 1
+  %65 = uitofp nneg i32 %64 to double
+  %66 = fsub double %.sroa.017.0, %63
+  %67 = fmul double %66, %63
+  %68 = fmul double %.sroa.034.0, %67
+  %69 = fadd double %46, %65
+  %70 = fadd double %.sroa.0.0, %65
+  %71 = fmul double %69, %70
+  %72 = fdiv double %68, %71
+  %73 = fmul double %.sroa.040.1, %72
+  %74 = fadd double %73, 1.000000e+00
+  %75 = tail call double @llvm.fabs.f64(double %74)
+  %76 = fcmp olt double %75, 0x360000000000000
+  %77 = fdiv double %72, %.sroa.055.0
+  %78 = fadd double %77, 1.000000e+00
+  %79 = tail call double @llvm.fabs.f64(double %78)
+  %80 = fcmp olt double %79, 0x360000000000000
+  %.sroa.055.1 = select i1 %80, double 0x360000000000000, double %78
+  %81 = fdiv double 1.000000e+00, %74
+  %82 = select i1 %76, double 0x7C80000000000000, double %81
+  %83 = fmul double %.sroa.065.0, %82
+  %84 = fmul double %.sroa.055.1, %83
+  %85 = fadd double %.sroa.0.0, %63
+  %86 = fneg double %85
+  %87 = fadd double %40, %63
+  %88 = fmul double %87, %86
+  %89 = fmul double %.sroa.034.0, %88
+  %90 = fadd double %45, %65
+  %91 = fmul double %70, %90
+  %92 = fdiv double %89, %91
+  %93 = fmul double %92, %82
+  %94 = fadd double %93, 1.000000e+00
+  %95 = tail call double @llvm.fabs.f64(double %94)
+  %96 = fcmp olt double %95, 0x360000000000000
+  %97 = fdiv double %92, %.sroa.055.1
+  %98 = fadd double %97, 1.000000e+00
+  %99 = tail call double @llvm.fabs.f64(double %98)
+  %100 = fcmp olt double %99, 0x360000000000000
+  %.sroa.055.2 = select i1 %100, double 0x360000000000000, double %98
+  %101 = fdiv double 1.000000e+00, %94
+  %102 = select i1 %96, double 0x7C80000000000000, double %101
+  %103 = fmul double %102, %.sroa.055.2
+  %104 = fmul double %84, %103
+  %105 = fadd double %103, -1.000000e+00
+  %106 = tail call double @llvm.fabs.f64(double %105)
+  %107 = fcmp ugt double %106, 0x3CA0000000000000
+  br i1 %107, label %54, label %108
 
-109:                                              ; preds = %62
-  %110 = fmul double %.sroa.061.0, %105
-  %111 = fdiv double %110, %2
-  %112 = fsub double 1.000000e+00, %111
-  %113 = fdiv double %110, %1
-  %.sink98 = select i1 %44, double %112, double %113
-  %114 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double %.sink98, ptr %114, align 8
+108:                                              ; preds = %61
+  %109 = fmul double %.sroa.061.0, %104
+  %110 = fdiv double %109, %2
+  %111 = fsub double 1.000000e+00, %110
+  %112 = fdiv double %109, %1
+  %.sink98 = select i1 %43, double %111, double %112
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store double %.sink98, ptr %113, align 8
   store i64 21, ptr %0, align 8
-  br label %115
+  br label %114
 
-115:                                              ; preds = %8, %13, %56, %12, %109
+114:                                              ; preds = %8, %13, %55, %12, %108
   ret void
 }
 

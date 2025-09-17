@@ -103,7 +103,7 @@ define internal i32 @gsm_decode_frame(ptr noundef %0, ptr noundef %1, ptr nounde
 
 13:                                               ; preds = %4
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.5) #9
-  br label %402
+  br label %403
 
 14:                                               ; preds = %4
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 376
@@ -112,15 +112,15 @@ define internal i32 @gsm_decode_frame(ptr noundef %0, ptr noundef %1, ptr nounde
   store i32 %16, ptr %17, align 8, !tbaa !37
   %18 = tail call i32 @ff_get_buffer(ptr noundef nonnull %0, ptr noundef %1, i32 noundef 0) #9
   %19 = icmp slt i32 %18, 0
-  br i1 %19, label %402, label %20
+  br i1 %19, label %403, label %20
 
 20:                                               ; preds = %14
   %21 = load ptr, ptr %1, align 8, !tbaa !42
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %23 = load i32, ptr %22, align 8, !tbaa !31
-  switch i32 %23, label %400 [
+  switch i32 %23, label %401 [
     i32 86034, label %24
-    i32 86046, label %394
+    i32 86046, label %395
   ]
 
 24:                                               ; preds = %20
@@ -634,48 +634,48 @@ short_term_synth.exit.i:                          ; preds = %filter_value.exit76
 
 377:                                              ; preds = %377, %short_term_synth.exit.i
   %indvars.iv.i49.i = phi i64 [ 0, %short_term_synth.exit.i ], [ %indvars.iv.next.i50.i, %377 ]
-  %.0811.i.i = phi i32 [ %376, %short_term_synth.exit.i ], [ %386, %377 ]
+  %.0810.i.i = phi i32 [ %376, %short_term_synth.exit.i ], [ %386, %377 ]
   %378 = getelementptr inbounds nuw i16, ptr %21, i64 %indvars.iv.i49.i
   %379 = load i16, ptr %378, align 2, !tbaa !46
   %380 = sext i16 %379 to i32
-  %381 = mul i32 %.0811.i.i, 28180
+  %381 = mul i32 %.0810.i.i, 28180
   %382 = add i32 %381, 16384
   %383 = ashr i32 %382, 15
   %384 = add nsw i32 %383, %380
   %385 = tail call i32 @llvm.smax.i32(i32 %384, i32 -32768)
   %386 = tail call i32 @llvm.smin.i32(i32 %385, i32 32767)
   %387 = shl nsw i32 %386, 1
-  %388 = add nsw i32 %387, 32768
-  %.not.i9.i.i = icmp ult i32 %388, 65536
-  %389 = icmp sgt i32 %384, -1
-  %390 = select i1 %389, i16 32760, i16 -32768
-  %391 = trunc i32 %387 to i16
-  %392 = and i16 %391, -8
-  %393 = select i1 %.not.i9.i.i, i16 %392, i16 %390
-  store i16 %393, ptr %378, align 2, !tbaa !46
+  %388 = add nsw i32 %387, -32768
+  %389 = icmp ult i32 %388, -65536
+  %390 = icmp sgt i32 %384, -1
+  %391 = select i1 %390, i16 32760, i16 -32768
+  %392 = trunc i32 %387 to i16
+  %393 = and i16 %392, -8
+  %394 = select i1 %389, i16 %391, i16 %393
+  store i16 %394, ptr %378, align 2, !tbaa !46
   %indvars.iv.next.i50.i = add nuw nsw i64 %indvars.iv.i49.i, 1
   %exitcond.not.i51.i = icmp eq i64 %indvars.iv.next.i50.i, 160
   br i1 %exitcond.not.i51.i, label %gsm_decode_block.exit, label %377, !llvm.loop !63
 
 gsm_decode_block.exit:                            ; preds = %377
   store i32 %386, ptr %375, align 4, !tbaa !62
-  br label %400
+  br label %401
 
-394:                                              ; preds = %20
-  %395 = load i32, ptr %10, align 4, !tbaa !33
-  %396 = sub nsw i32 65, %395
-  %397 = sdiv i32 %396, 3
-  %398 = tail call i32 @ff_msgsm_decode_block(ptr noundef nonnull %0, ptr noundef %21, ptr noundef %7, i32 noundef %397) #9
-  %399 = icmp slt i32 %398, 0
-  br i1 %399, label %402, label %400
+395:                                              ; preds = %20
+  %396 = load i32, ptr %10, align 4, !tbaa !33
+  %397 = sub nsw i32 65, %396
+  %398 = sdiv i32 %397, 3
+  %399 = tail call i32 @ff_msgsm_decode_block(ptr noundef nonnull %0, ptr noundef %21, ptr noundef %7, i32 noundef %398) #9
+  %400 = icmp slt i32 %399, 0
+  br i1 %400, label %403, label %401
 
-400:                                              ; preds = %gsm_decode_block.exit, %394, %20
+401:                                              ; preds = %gsm_decode_block.exit, %395, %20
   store i32 1, ptr %2, align 4, !tbaa !4
-  %401 = load i32, ptr %10, align 4, !tbaa !33
-  br label %402
+  %402 = load i32, ptr %10, align 4, !tbaa !33
+  br label %403
 
-402:                                              ; preds = %394, %14, %400, %13
-  %.0 = phi i32 [ -1094995529, %13 ], [ %401, %400 ], [ %18, %14 ], [ %398, %394 ]
+403:                                              ; preds = %395, %14, %401, %13
+  %.0 = phi i32 [ -1094995529, %13 ], [ %402, %401 ], [ %18, %14 ], [ %399, %395 ]
   ret i32 %.0
 }
 

@@ -53,10 +53,10 @@ PACKET_buf_init.exit:                             ; preds = %2
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 17
   br label %14
 
-14:                                               ; preds = %.lr.ph, %208
-  %.1138 = phi ptr [ %8, %.lr.ph ], [ %.2, %208 ]
-  %.sroa.0.0137 = phi ptr [ %0, %.lr.ph ], [ %.sroa.0.1, %208 ]
-  %.sroa.29.0136 = phi i64 [ %1, %.lr.ph ], [ %.sroa.29.1, %208 ]
+14:                                               ; preds = %.lr.ph, %207
+  %.1138 = phi ptr [ %8, %.lr.ph ], [ %.2, %207 ]
+  %.sroa.0.0137 = phi ptr [ %0, %.lr.ph ], [ %.sroa.0.1, %207 ]
+  %.sroa.29.0136 = phi i64 [ %1, %.lr.ph ], [ %.sroa.29.1, %207 ]
   %15 = load i8, ptr %.sroa.0.0137, align 1, !tbaa !4
   %16 = getelementptr inbounds nuw i8, ptr %.sroa.0.0137, i64 1
   %17 = add i64 %.sroa.29.0136, -1
@@ -66,13 +66,13 @@ PACKET_buf_init.exit:                             ; preds = %2
     i8 2, label %34
     i8 3, label %46
     i8 4, label %58
-    i8 5, label %151
-    i8 6, label %152
-    i8 7, label %194
-    i8 8, label %195
-    i8 9, label %197
-    i8 10, label %199
-    i8 11, label %201
+    i8 5, label %150
+    i8 6, label %151
+    i8 7, label %193
+    i8 8, label %194
+    i8 9, label %196
+    i8 10, label %198
+    i8 11, label %200
   ]
 
 18:                                               ; preds = %14
@@ -99,13 +99,13 @@ PACKET_get_1.exit.i:                              ; preds = %18
   call void @ossl_quic_rcidm_free(ptr noundef %.1138) #4
   %29 = call ptr @ossl_quic_rcidm_new(ptr noundef nonnull %4) #4
   %30 = icmp eq ptr %29, null
-  br i1 %30, label %PACKET_buf_init.exit.thread, label %208
+  br i1 %30, label %PACKET_buf_init.exit.thread, label %207
 
 31:                                               ; preds = %14
   call void @ossl_quic_rcidm_free(ptr noundef %.1138) #4
   %32 = call ptr @ossl_quic_rcidm_new(ptr noundef null) #4
   %33 = icmp eq ptr %32, null
-  br i1 %33, label %PACKET_buf_init.exit.thread, label %208
+  br i1 %33, label %PACKET_buf_init.exit.thread, label %207
 
 34:                                               ; preds = %14
   %.not.i.i.i35 = icmp eq i64 %17, 0
@@ -129,7 +129,7 @@ PACKET_get_1.exit.i36:                            ; preds = %34
   %44 = sub nuw i64 %37, %40
   store i8 %35, ptr %4, align 1, !tbaa !7
   %45 = call i32 @ossl_quic_rcidm_add_from_initial(ptr noundef %.1138, ptr noundef nonnull %4) #4
-  br label %208
+  br label %207
 
 46:                                               ; preds = %14
   %.not.i.i.i40 = icmp eq i64 %17, 0
@@ -153,7 +153,7 @@ PACKET_get_1.exit.i41:                            ; preds = %46
   %56 = sub nuw i64 %49, %52
   store i8 %47, ptr %4, align 1, !tbaa !7
   %57 = call i32 @ossl_quic_rcidm_add_from_server_retry(ptr noundef %.1138, ptr noundef nonnull %4) #4
-  br label %208
+  br label %207
 
 58:                                               ; preds = %14
   %59 = icmp ult i64 %.sroa.29.0136, 9
@@ -204,169 +204,168 @@ PACKET_get_1.exit.i41:                            ; preds = %46
   %96 = or disjoint i64 %92, %95
   %97 = or i64 %96, %88
   store i64 %97, ptr %6, align 8, !tbaa !9
-  %98 = add i64 %.sroa.29.0136, -9
-  %99 = icmp ult i64 %98, 8
-  br i1 %99, label %PACKET_buf_init.exit.thread, label %100
+  %98 = icmp ult i64 %.sroa.29.0136, 17
+  br i1 %98, label %PACKET_buf_init.exit.thread, label %99
 
-100:                                              ; preds = %60
-  %101 = getelementptr inbounds nuw i8, ptr %.sroa.0.0137, i64 9
-  %102 = load i8, ptr %101, align 1, !tbaa !4
-  %103 = zext i8 %102 to i64
-  %104 = shl nuw i64 %103, 56
-  store i64 %104, ptr %10, align 8, !tbaa !9
-  %105 = getelementptr inbounds nuw i8, ptr %.sroa.0.0137, i64 10
-  %106 = load i8, ptr %105, align 1, !tbaa !4
-  %107 = zext i8 %106 to i64
-  %108 = shl nuw nsw i64 %107, 48
-  %109 = or disjoint i64 %108, %104
-  store i64 %109, ptr %10, align 8, !tbaa !9
-  %110 = getelementptr inbounds nuw i8, ptr %.sroa.0.0137, i64 11
-  %111 = load i8, ptr %110, align 1, !tbaa !4
-  %112 = zext i8 %111 to i64
-  %113 = shl nuw nsw i64 %112, 40
-  %114 = or disjoint i64 %113, %109
-  store i64 %114, ptr %10, align 8, !tbaa !9
-  %115 = getelementptr inbounds nuw i8, ptr %.sroa.0.0137, i64 12
-  %116 = load i8, ptr %115, align 1, !tbaa !4
-  %117 = zext i8 %116 to i64
-  %118 = shl nuw nsw i64 %117, 32
-  %119 = or disjoint i64 %118, %114
-  store i64 %119, ptr %10, align 8, !tbaa !9
-  %120 = getelementptr inbounds nuw i8, ptr %.sroa.0.0137, i64 13
-  %121 = load i8, ptr %120, align 1, !tbaa !4
-  %122 = zext i8 %121 to i64
-  %123 = shl nuw nsw i64 %122, 24
-  %124 = or disjoint i64 %123, %119
-  store i64 %124, ptr %10, align 8, !tbaa !9
-  %125 = getelementptr inbounds nuw i8, ptr %.sroa.0.0137, i64 14
-  %126 = load i8, ptr %125, align 1, !tbaa !4
-  %127 = zext i8 %126 to i64
-  %128 = shl nuw nsw i64 %127, 16
-  %129 = or disjoint i64 %128, %124
-  store i64 %129, ptr %10, align 8, !tbaa !9
-  %130 = getelementptr inbounds nuw i8, ptr %.sroa.0.0137, i64 15
-  %131 = load i8, ptr %130, align 1, !tbaa !4
-  %132 = zext i8 %131 to i64
-  %133 = shl nuw nsw i64 %132, 8
-  %134 = getelementptr inbounds nuw i8, ptr %.sroa.0.0137, i64 16
-  %135 = load i8, ptr %134, align 1, !tbaa !4
-  %136 = zext i8 %135 to i64
-  %137 = or disjoint i64 %133, %136
-  %138 = or i64 %137, %129
-  store i64 %138, ptr %10, align 8, !tbaa !9
+99:                                               ; preds = %60
+  %100 = getelementptr inbounds nuw i8, ptr %.sroa.0.0137, i64 9
+  %101 = load i8, ptr %100, align 1, !tbaa !4
+  %102 = zext i8 %101 to i64
+  %103 = shl nuw i64 %102, 56
+  store i64 %103, ptr %10, align 8, !tbaa !9
+  %104 = getelementptr inbounds nuw i8, ptr %.sroa.0.0137, i64 10
+  %105 = load i8, ptr %104, align 1, !tbaa !4
+  %106 = zext i8 %105 to i64
+  %107 = shl nuw nsw i64 %106, 48
+  %108 = or disjoint i64 %107, %103
+  store i64 %108, ptr %10, align 8, !tbaa !9
+  %109 = getelementptr inbounds nuw i8, ptr %.sroa.0.0137, i64 11
+  %110 = load i8, ptr %109, align 1, !tbaa !4
+  %111 = zext i8 %110 to i64
+  %112 = shl nuw nsw i64 %111, 40
+  %113 = or disjoint i64 %112, %108
+  store i64 %113, ptr %10, align 8, !tbaa !9
+  %114 = getelementptr inbounds nuw i8, ptr %.sroa.0.0137, i64 12
+  %115 = load i8, ptr %114, align 1, !tbaa !4
+  %116 = zext i8 %115 to i64
+  %117 = shl nuw nsw i64 %116, 32
+  %118 = or disjoint i64 %117, %113
+  store i64 %118, ptr %10, align 8, !tbaa !9
+  %119 = getelementptr inbounds nuw i8, ptr %.sroa.0.0137, i64 13
+  %120 = load i8, ptr %119, align 1, !tbaa !4
+  %121 = zext i8 %120 to i64
+  %122 = shl nuw nsw i64 %121, 24
+  %123 = or disjoint i64 %122, %118
+  store i64 %123, ptr %10, align 8, !tbaa !9
+  %124 = getelementptr inbounds nuw i8, ptr %.sroa.0.0137, i64 14
+  %125 = load i8, ptr %124, align 1, !tbaa !4
+  %126 = zext i8 %125 to i64
+  %127 = shl nuw nsw i64 %126, 16
+  %128 = or disjoint i64 %127, %123
+  store i64 %128, ptr %10, align 8, !tbaa !9
+  %129 = getelementptr inbounds nuw i8, ptr %.sroa.0.0137, i64 15
+  %130 = load i8, ptr %129, align 1, !tbaa !4
+  %131 = zext i8 %130 to i64
+  %132 = shl nuw nsw i64 %131, 8
+  %133 = getelementptr inbounds nuw i8, ptr %.sroa.0.0137, i64 16
+  %134 = load i8, ptr %133, align 1, !tbaa !4
+  %135 = zext i8 %134 to i64
+  %136 = or disjoint i64 %132, %135
+  %137 = or i64 %136, %128
+  store i64 %137, ptr %10, align 8, !tbaa !9
   %.not.i.i.i50 = icmp eq i64 %.sroa.29.0136, 17
   br i1 %.not.i.i.i50, label %PACKET_buf_init.exit.thread, label %PACKET_get_1.exit.i51
 
-PACKET_get_1.exit.i51:                            ; preds = %100
-  %139 = getelementptr inbounds nuw i8, ptr %.sroa.0.0137, i64 17
-  %140 = load i8, ptr %139, align 1, !tbaa !4
-  %141 = getelementptr inbounds nuw i8, ptr %.sroa.0.0137, i64 18
-  %142 = add i64 %.sroa.29.0136, -18
-  %143 = icmp ugt i8 %140, 20
-  br i1 %143, label %PACKET_buf_init.exit.thread, label %144
+PACKET_get_1.exit.i51:                            ; preds = %99
+  %138 = getelementptr inbounds nuw i8, ptr %.sroa.0.0137, i64 17
+  %139 = load i8, ptr %138, align 1, !tbaa !4
+  %140 = getelementptr inbounds nuw i8, ptr %.sroa.0.0137, i64 18
+  %141 = add i64 %.sroa.29.0136, -18
+  %142 = icmp ugt i8 %139, 20
+  br i1 %142, label %PACKET_buf_init.exit.thread, label %143
 
-144:                                              ; preds = %PACKET_get_1.exit.i51
-  %145 = zext nneg i8 %140 to i64
-  %146 = icmp ult i64 %142, %145
-  br i1 %146, label %PACKET_buf_init.exit.thread, label %147
+143:                                              ; preds = %PACKET_get_1.exit.i51
+  %144 = zext nneg i8 %139 to i64
+  %145 = icmp ult i64 %141, %144
+  br i1 %145, label %PACKET_buf_init.exit.thread, label %146
 
-147:                                              ; preds = %144
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %13, ptr nonnull align 1 %141, i64 range(i64 0, 21) %145, i1 false)
-  %148 = getelementptr inbounds nuw i8, ptr %141, i64 %145
-  %149 = sub nuw i64 %142, %145
-  store i8 %140, ptr %12, align 8, !tbaa !7
-  %150 = call i32 @ossl_quic_rcidm_add_from_ncid(ptr noundef %.1138, ptr noundef nonnull %6) #4
-  br label %208
+146:                                              ; preds = %143
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %13, ptr nonnull align 1 %140, i64 range(i64 0, 21) %144, i1 false)
+  %147 = getelementptr inbounds nuw i8, ptr %140, i64 %144
+  %148 = sub nuw i64 %141, %144
+  store i8 %139, ptr %12, align 8, !tbaa !7
+  %149 = call i32 @ossl_quic_rcidm_add_from_ncid(ptr noundef %.1138, ptr noundef nonnull %6) #4
+  br label %207
+
+150:                                              ; preds = %14
+  call void @ossl_quic_rcidm_on_handshake_complete(ptr noundef %.1138) #4
+  br label %207
 
 151:                                              ; preds = %14
-  call void @ossl_quic_rcidm_on_handshake_complete(ptr noundef %.1138) #4
-  br label %208
+  %152 = icmp ult i64 %.sroa.29.0136, 9
+  br i1 %152, label %PACKET_buf_init.exit.thread, label %153
 
-152:                                              ; preds = %14
-  %153 = icmp ult i64 %.sroa.29.0136, 9
-  br i1 %153, label %PACKET_buf_init.exit.thread, label %154
+153:                                              ; preds = %151
+  %154 = load i8, ptr %16, align 1, !tbaa !4
+  %155 = zext i8 %154 to i64
+  %156 = shl nuw i64 %155, 56
+  %157 = getelementptr inbounds nuw i8, ptr %.sroa.0.0137, i64 2
+  %158 = load i8, ptr %157, align 1, !tbaa !4
+  %159 = zext i8 %158 to i64
+  %160 = shl nuw nsw i64 %159, 48
+  %161 = or disjoint i64 %160, %156
+  %162 = getelementptr inbounds nuw i8, ptr %.sroa.0.0137, i64 3
+  %163 = load i8, ptr %162, align 1, !tbaa !4
+  %164 = zext i8 %163 to i64
+  %165 = shl nuw nsw i64 %164, 40
+  %166 = or disjoint i64 %161, %165
+  %167 = getelementptr inbounds nuw i8, ptr %.sroa.0.0137, i64 4
+  %168 = load i8, ptr %167, align 1, !tbaa !4
+  %169 = zext i8 %168 to i64
+  %170 = shl nuw nsw i64 %169, 32
+  %171 = or disjoint i64 %166, %170
+  %172 = getelementptr inbounds nuw i8, ptr %.sroa.0.0137, i64 5
+  %173 = load i8, ptr %172, align 1, !tbaa !4
+  %174 = zext i8 %173 to i64
+  %175 = shl nuw nsw i64 %174, 24
+  %176 = or disjoint i64 %171, %175
+  %177 = getelementptr inbounds nuw i8, ptr %.sroa.0.0137, i64 6
+  %178 = load i8, ptr %177, align 1, !tbaa !4
+  %179 = zext i8 %178 to i64
+  %180 = shl nuw nsw i64 %179, 16
+  %181 = or disjoint i64 %176, %180
+  %182 = getelementptr inbounds nuw i8, ptr %.sroa.0.0137, i64 7
+  %183 = load i8, ptr %182, align 1, !tbaa !4
+  %184 = zext i8 %183 to i64
+  %185 = shl nuw nsw i64 %184, 8
+  %186 = or i64 %181, %185
+  %187 = getelementptr inbounds nuw i8, ptr %.sroa.0.0137, i64 8
+  %188 = load i8, ptr %187, align 1, !tbaa !4
+  %189 = zext i8 %188 to i64
+  %190 = or i64 %186, %189
+  %191 = getelementptr inbounds nuw i8, ptr %.sroa.0.0137, i64 9
+  %192 = add i64 %.sroa.29.0136, -9
+  call void @ossl_quic_rcidm_on_packet_sent(ptr noundef %.1138, i64 noundef %190) #4
+  br label %207
 
-154:                                              ; preds = %152
-  %155 = load i8, ptr %16, align 1, !tbaa !4
-  %156 = zext i8 %155 to i64
-  %157 = shl nuw i64 %156, 56
-  %158 = getelementptr inbounds nuw i8, ptr %.sroa.0.0137, i64 2
-  %159 = load i8, ptr %158, align 1, !tbaa !4
-  %160 = zext i8 %159 to i64
-  %161 = shl nuw nsw i64 %160, 48
-  %162 = or disjoint i64 %161, %157
-  %163 = getelementptr inbounds nuw i8, ptr %.sroa.0.0137, i64 3
-  %164 = load i8, ptr %163, align 1, !tbaa !4
-  %165 = zext i8 %164 to i64
-  %166 = shl nuw nsw i64 %165, 40
-  %167 = or disjoint i64 %162, %166
-  %168 = getelementptr inbounds nuw i8, ptr %.sroa.0.0137, i64 4
-  %169 = load i8, ptr %168, align 1, !tbaa !4
-  %170 = zext i8 %169 to i64
-  %171 = shl nuw nsw i64 %170, 32
-  %172 = or disjoint i64 %167, %171
-  %173 = getelementptr inbounds nuw i8, ptr %.sroa.0.0137, i64 5
-  %174 = load i8, ptr %173, align 1, !tbaa !4
-  %175 = zext i8 %174 to i64
-  %176 = shl nuw nsw i64 %175, 24
-  %177 = or disjoint i64 %172, %176
-  %178 = getelementptr inbounds nuw i8, ptr %.sroa.0.0137, i64 6
-  %179 = load i8, ptr %178, align 1, !tbaa !4
-  %180 = zext i8 %179 to i64
-  %181 = shl nuw nsw i64 %180, 16
-  %182 = or disjoint i64 %177, %181
-  %183 = getelementptr inbounds nuw i8, ptr %.sroa.0.0137, i64 7
-  %184 = load i8, ptr %183, align 1, !tbaa !4
-  %185 = zext i8 %184 to i64
-  %186 = shl nuw nsw i64 %185, 8
-  %187 = or i64 %182, %186
-  %188 = getelementptr inbounds nuw i8, ptr %.sroa.0.0137, i64 8
-  %189 = load i8, ptr %188, align 1, !tbaa !4
-  %190 = zext i8 %189 to i64
-  %191 = or i64 %187, %190
-  %192 = getelementptr inbounds nuw i8, ptr %.sroa.0.0137, i64 9
-  %193 = add i64 %.sroa.29.0136, -9
-  call void @ossl_quic_rcidm_on_packet_sent(ptr noundef %.1138, i64 noundef %191) #4
-  br label %208
+193:                                              ; preds = %14
+  call void @ossl_quic_rcidm_request_roll(ptr noundef %.1138) #4
+  br label %207
 
 194:                                              ; preds = %14
-  call void @ossl_quic_rcidm_request_roll(ptr noundef %.1138) #4
-  br label %208
+  %195 = call i32 @ossl_quic_rcidm_pop_retire_seq_num(ptr noundef %.1138, ptr noundef nonnull %3) #4
+  br label %207
 
-195:                                              ; preds = %14
-  %196 = call i32 @ossl_quic_rcidm_pop_retire_seq_num(ptr noundef %.1138, ptr noundef nonnull %3) #4
-  br label %208
+196:                                              ; preds = %14
+  %197 = call i32 @ossl_quic_rcidm_peek_retire_seq_num(ptr noundef %.1138, ptr noundef nonnull %3) #4
+  br label %207
 
-197:                                              ; preds = %14
-  %198 = call i32 @ossl_quic_rcidm_peek_retire_seq_num(ptr noundef %.1138, ptr noundef nonnull %3) #4
-  br label %208
+198:                                              ; preds = %14
+  %199 = call i32 @ossl_quic_rcidm_get_preferred_tx_dcid(ptr noundef %.1138, ptr noundef nonnull %5) #4
+  br label %207
 
-199:                                              ; preds = %14
-  %200 = call i32 @ossl_quic_rcidm_get_preferred_tx_dcid(ptr noundef %.1138, ptr noundef nonnull %5) #4
-  br label %208
-
-201:                                              ; preds = %14
+200:                                              ; preds = %14
   %.not.i.i58 = icmp eq i64 %17, 0
-  br i1 %.not.i.i58, label %PACKET_buf_init.exit.thread, label %202
+  br i1 %.not.i.i58, label %PACKET_buf_init.exit.thread, label %201
 
-202:                                              ; preds = %201
-  %203 = load i8, ptr %16, align 1, !tbaa !4
-  %204 = zext i8 %203 to i32
-  %205 = getelementptr inbounds nuw i8, ptr %.sroa.0.0137, i64 2
-  %206 = add i64 %.sroa.29.0136, -2
-  %207 = call i32 @ossl_quic_rcidm_get_preferred_tx_dcid_changed(ptr noundef %.1138, i32 noundef %204) #4
-  br label %208
+201:                                              ; preds = %200
+  %202 = load i8, ptr %16, align 1, !tbaa !4
+  %203 = zext i8 %202 to i32
+  %204 = getelementptr inbounds nuw i8, ptr %.sroa.0.0137, i64 2
+  %205 = add i64 %.sroa.29.0136, -2
+  %206 = call i32 @ossl_quic_rcidm_get_preferred_tx_dcid_changed(ptr noundef %.1138, i32 noundef %203) #4
+  br label %207
 
-208:                                              ; preds = %31, %26, %202, %199, %197, %195, %194, %154, %151, %147, %54, %42
-  %.sroa.29.1 = phi i64 [ %28, %26 ], [ %17, %31 ], [ %44, %42 ], [ %56, %54 ], [ %149, %147 ], [ %17, %151 ], [ %193, %154 ], [ %17, %194 ], [ %17, %195 ], [ %17, %197 ], [ %17, %199 ], [ %206, %202 ]
-  %.sroa.0.1 = phi ptr [ %27, %26 ], [ %16, %31 ], [ %43, %42 ], [ %55, %54 ], [ %148, %147 ], [ %16, %151 ], [ %192, %154 ], [ %16, %194 ], [ %16, %195 ], [ %16, %197 ], [ %16, %199 ], [ %205, %202 ]
-  %.2 = phi ptr [ %29, %26 ], [ %32, %31 ], [ %.1138, %42 ], [ %.1138, %54 ], [ %.1138, %147 ], [ %.1138, %151 ], [ %.1138, %154 ], [ %.1138, %194 ], [ %.1138, %195 ], [ %.1138, %197 ], [ %.1138, %199 ], [ %.1138, %202 ]
+207:                                              ; preds = %31, %26, %201, %198, %196, %194, %193, %153, %150, %146, %54, %42
+  %.sroa.29.1 = phi i64 [ %28, %26 ], [ %17, %31 ], [ %44, %42 ], [ %56, %54 ], [ %148, %146 ], [ %17, %150 ], [ %192, %153 ], [ %17, %193 ], [ %17, %194 ], [ %17, %196 ], [ %17, %198 ], [ %205, %201 ]
+  %.sroa.0.1 = phi ptr [ %27, %26 ], [ %16, %31 ], [ %43, %42 ], [ %55, %54 ], [ %147, %146 ], [ %16, %150 ], [ %191, %153 ], [ %16, %193 ], [ %16, %194 ], [ %16, %196 ], [ %16, %198 ], [ %204, %201 ]
+  %.2 = phi ptr [ %29, %26 ], [ %32, %31 ], [ %.1138, %42 ], [ %.1138, %54 ], [ %.1138, %146 ], [ %.1138, %150 ], [ %.1138, %153 ], [ %.1138, %193 ], [ %.1138, %194 ], [ %.1138, %196 ], [ %.1138, %198 ], [ %.1138, %201 ]
   %.not22 = icmp eq i64 %.sroa.29.1, 0
   br i1 %.not22, label %PACKET_buf_init.exit.thread, label %14, !llvm.loop !11
 
-PACKET_buf_init.exit.thread:                      ; preds = %26, %31, %208, %14, %PACKET_get_1.exit.i, %18, %23, %PACKET_get_1.exit.i36, %34, %39, %PACKET_get_1.exit.i41, %46, %51, %58, %60, %PACKET_get_1.exit.i51, %100, %144, %152, %201, %.preheader, %2, %PACKET_buf_init.exit
-  %.015 = phi i32 [ 0, %PACKET_buf_init.exit ], [ 0, %2 ], [ 0, %.preheader ], [ 0, %26 ], [ 0, %31 ], [ 0, %208 ], [ -1, %14 ], [ -1, %PACKET_get_1.exit.i ], [ -1, %18 ], [ -1, %23 ], [ -1, %PACKET_get_1.exit.i36 ], [ -1, %34 ], [ -1, %39 ], [ -1, %PACKET_get_1.exit.i41 ], [ -1, %46 ], [ -1, %51 ], [ -1, %58 ], [ -1, %60 ], [ -1, %PACKET_get_1.exit.i51 ], [ -1, %100 ], [ -1, %144 ], [ -1, %152 ], [ -1, %201 ]
-  %.0 = phi ptr [ null, %PACKET_buf_init.exit ], [ null, %2 ], [ %8, %.preheader ], [ null, %26 ], [ null, %31 ], [ %.2, %208 ], [ %.1138, %14 ], [ %.1138, %PACKET_get_1.exit.i ], [ %.1138, %18 ], [ %.1138, %23 ], [ %.1138, %PACKET_get_1.exit.i36 ], [ %.1138, %34 ], [ %.1138, %39 ], [ %.1138, %PACKET_get_1.exit.i41 ], [ %.1138, %46 ], [ %.1138, %51 ], [ %.1138, %58 ], [ %.1138, %60 ], [ %.1138, %PACKET_get_1.exit.i51 ], [ %.1138, %100 ], [ %.1138, %144 ], [ %.1138, %152 ], [ %.1138, %201 ]
+PACKET_buf_init.exit.thread:                      ; preds = %26, %31, %207, %14, %PACKET_get_1.exit.i, %18, %23, %PACKET_get_1.exit.i36, %34, %39, %PACKET_get_1.exit.i41, %46, %51, %58, %60, %PACKET_get_1.exit.i51, %99, %143, %151, %200, %.preheader, %2, %PACKET_buf_init.exit
+  %.015 = phi i32 [ 0, %PACKET_buf_init.exit ], [ 0, %2 ], [ 0, %.preheader ], [ 0, %26 ], [ 0, %31 ], [ 0, %207 ], [ -1, %14 ], [ -1, %PACKET_get_1.exit.i ], [ -1, %18 ], [ -1, %23 ], [ -1, %PACKET_get_1.exit.i36 ], [ -1, %34 ], [ -1, %39 ], [ -1, %PACKET_get_1.exit.i41 ], [ -1, %46 ], [ -1, %51 ], [ -1, %58 ], [ -1, %60 ], [ -1, %PACKET_get_1.exit.i51 ], [ -1, %99 ], [ -1, %143 ], [ -1, %151 ], [ -1, %200 ]
+  %.0 = phi ptr [ null, %PACKET_buf_init.exit ], [ null, %2 ], [ %8, %.preheader ], [ null, %26 ], [ null, %31 ], [ %.2, %207 ], [ %.1138, %14 ], [ %.1138, %PACKET_get_1.exit.i ], [ %.1138, %18 ], [ %.1138, %23 ], [ %.1138, %PACKET_get_1.exit.i36 ], [ %.1138, %34 ], [ %.1138, %39 ], [ %.1138, %PACKET_get_1.exit.i41 ], [ %.1138, %46 ], [ %.1138, %51 ], [ %.1138, %58 ], [ %.1138, %60 ], [ %.1138, %PACKET_get_1.exit.i51 ], [ %.1138, %99 ], [ %.1138, %143 ], [ %.1138, %151 ], [ %.1138, %200 ]
   call void @ossl_quic_rcidm_free(ptr noundef %.0) #4
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

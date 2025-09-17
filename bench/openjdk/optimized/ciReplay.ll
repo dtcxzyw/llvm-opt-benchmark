@@ -5877,7 +5877,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN13CompileReplay19is_valid_comp
   %7 = load i64, ptr @TieredStopAtLevel, align 8
   %8 = icmp eq i64 %7, 0
   %9 = select i1 %6, i1 true, i1 %8
-  br i1 %.not24, label %25, label %10
+  br i1 %.not24, label %24, label %10
 
 10:                                               ; preds = %4
   br i1 %9, label %_ZN14CompilerConfig13is_c1_enabledEv.exit.thread13, label %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i.i.i
@@ -5885,61 +5885,59 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN13CompileReplay19is_valid_comp
 _ZN14CompilerConfig10is_c1_onlyEv.exit.i.i.i.i:   ; preds = %10
   %11 = load i8, ptr @TieredCompilation, align 1
   %12 = trunc i8 %11 to i1
-  %13 = add i64 %7, -1
-  %14 = icmp ult i64 %13, 3
-  %spec.select.i.i.i.i.i = select i1 %12, i1 %14, i1 false
-  %15 = load i32, ptr @_ZN19CompilationModeFlag5_modeE, align 4
-  %16 = icmp eq i32 %15, 1
-  %17 = or i1 %spec.select.i.i.i.i.i, %16
-  %18 = load i8, ptr @UseJVMCICompiler, align 1
-  %19 = trunc i8 %18 to i1
-  %20 = select i1 %17, i1 true, i1 %19
-  br i1 %20, label %_ZN14CompilerConfig10is_c2_onlyEv.exit.thread.thread.i.i, label %_ZN14CompilerConfig13is_c1_enabledEv.exit
+  %13 = icmp ult i64 %7, 4
+  %spec.select.i.i.i.i.i = select i1 %12, i1 %13, i1 false
+  %14 = load i32, ptr @_ZN19CompilationModeFlag5_modeE, align 4
+  %15 = icmp eq i32 %14, 1
+  %16 = or i1 %spec.select.i.i.i.i.i, %15
+  %17 = load i8, ptr @UseJVMCICompiler, align 1
+  %18 = trunc i8 %17 to i1
+  %19 = select i1 %16, i1 true, i1 %18
+  br i1 %19, label %_ZN14CompilerConfig10is_c2_onlyEv.exit.thread.thread.i.i, label %_ZN14CompilerConfig13is_c1_enabledEv.exit
 
 _ZN14CompilerConfig10is_c2_onlyEv.exit.thread.thread.i.i: ; preds = %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i.i.i
-  %.not.i.i = xor i1 %19, true
-  %21 = icmp ne i32 %15, 2
-  %22 = and i1 %21, %12
-  %23 = or i1 %22, %.not.i.i
-  %or.cond = or i1 %17, %23
+  %.not.i.i = xor i1 %18, true
+  %20 = icmp ne i32 %14, 2
+  %21 = and i1 %20, %12
+  %22 = or i1 %21, %.not.i.i
+  %or.cond = or i1 %16, %22
   br i1 %or.cond, label %.thread15, label %_ZN14CompilerConfig13is_c1_enabledEv.exit.thread13
 
 _ZN14CompilerConfig13is_c1_enabledEv.exit:        ; preds = %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i.i.i
-  %24 = icmp ne i32 %15, 2
-  %.not6.i.i = and i1 %24, %12
+  %23 = icmp ne i32 %14, 2
+  %.not6.i.i = and i1 %23, %12
   br i1 %.not6.i.i, label %.thread15, label %_ZN14CompilerConfig13is_c1_enabledEv.exit.thread13
 
-25:                                               ; preds = %4
+24:                                               ; preds = %4
   br i1 %9, label %_ZN14CompilerConfig13is_c1_enabledEv.exit.thread13, label %_ZN14CompilerConfig10is_c1_onlyEv.exit.i
 
-_ZN14CompilerConfig10is_c1_onlyEv.exit.i:         ; preds = %25
-  %26 = load i8, ptr @TieredCompilation, align 1
-  %27 = trunc i8 %26 to i1
-  %28 = add i64 %7, -1
-  %29 = icmp ult i64 %28, 3
-  %spec.select.i.i = select i1 %27, i1 %29, i1 false
-  %30 = load i32, ptr @_ZN19CompilationModeFlag5_modeE, align 4
-  %31 = icmp eq i32 %30, 1
-  %32 = or i1 %spec.select.i.i, %31
-  %33 = load i8, ptr @UseJVMCICompiler, align 1
-  %34 = trunc i8 %33 to i1
-  %35 = select i1 %32, i1 true, i1 %34
-  br i1 %35, label %_ZN14CompilerConfig13is_c1_enabledEv.exit.thread13, label %.thread15
+_ZN14CompilerConfig10is_c1_onlyEv.exit.i:         ; preds = %24
+  %25 = load i8, ptr @TieredCompilation, align 1
+  %26 = trunc i8 %25 to i1
+  %27 = icmp ult i64 %7, 4
+  %spec.select.i.i = select i1 %26, i1 %27, i1 false
+  %28 = load i32, ptr @_ZN19CompilationModeFlag5_modeE, align 4
+  %29 = icmp eq i32 %28, 1
+  %30 = or i1 %spec.select.i.i, %29
+  %31 = load i8, ptr @UseJVMCICompiler, align 1
+  %32 = trunc i8 %31 to i1
+  %33 = select i1 %30, i1 true, i1 %32
+  br i1 %33, label %_ZN14CompilerConfig13is_c1_enabledEv.exit.thread13, label %.thread15
 
-_ZN14CompilerConfig13is_c1_enabledEv.exit.thread13: ; preds = %_ZN14CompilerConfig10is_c1_onlyEv.exit.i, %25, %_ZN14CompilerConfig13is_c1_enabledEv.exit, %10, %_ZN14CompilerConfig10is_c2_onlyEv.exit.thread.thread.i.i, %2
-  %.str.69.sink = phi ptr [ @.str.68, %2 ], [ @.str.69, %_ZN14CompilerConfig10is_c2_onlyEv.exit.thread.thread.i.i ], [ @.str.69, %10 ], [ @.str.69, %_ZN14CompilerConfig13is_c1_enabledEv.exit ], [ @.str.70, %25 ], [ @.str.70, %_ZN14CompilerConfig10is_c1_onlyEv.exit.i ]
-  %36 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 256, i32 noundef 0) #17
-  %37 = tail call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef %36, i64 noundef 256, ptr noundef nonnull %.str.69.sink, i32 noundef %1) #17
-  %.not = icmp eq ptr %36, null
-  br i1 %.not, label %.thread15, label %38
+_ZN14CompilerConfig13is_c1_enabledEv.exit.thread13: ; preds = %_ZN14CompilerConfig10is_c1_onlyEv.exit.i, %24, %_ZN14CompilerConfig13is_c1_enabledEv.exit, %10, %_ZN14CompilerConfig10is_c2_onlyEv.exit.thread.thread.i.i, %2
+  %.str.69.sink = phi ptr [ @.str.68, %2 ], [ @.str.69, %_ZN14CompilerConfig10is_c2_onlyEv.exit.thread.thread.i.i ], [ @.str.69, %10 ], [ @.str.69, %_ZN14CompilerConfig13is_c1_enabledEv.exit ], [ @.str.70, %24 ], [ @.str.70, %_ZN14CompilerConfig10is_c1_onlyEv.exit.i ]
+  %34 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 256, i32 noundef 0) #17
+  %35 = tail call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef %34, i64 noundef 256, ptr noundef nonnull %.str.69.sink, i32 noundef %1) #17
+  %.not = icmp eq ptr %34, null
+  br i1 %.not, label %.thread15, label %36
 
-38:                                               ; preds = %_ZN14CompilerConfig13is_c1_enabledEv.exit.thread13
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  store ptr %36, ptr %39, align 8
+36:                                               ; preds = %_ZN14CompilerConfig13is_c1_enabledEv.exit.thread13
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  store ptr %34, ptr %37, align 8
   br label %.thread15
 
-.thread15:                                        ; preds = %_ZN14CompilerConfig10is_c1_onlyEv.exit.i, %_ZN14CompilerConfig10is_c2_onlyEv.exit.thread.thread.i.i, %_ZN14CompilerConfig13is_c1_enabledEv.exit, %_ZN14CompilerConfig13is_c1_enabledEv.exit.thread13, %38
-  %.not18 = phi i1 [ true, %_ZN14CompilerConfig13is_c1_enabledEv.exit.thread13 ], [ false, %38 ], [ true, %_ZN14CompilerConfig13is_c1_enabledEv.exit ], [ true, %_ZN14CompilerConfig10is_c2_onlyEv.exit.thread.thread.i.i ], [ true, %_ZN14CompilerConfig10is_c1_onlyEv.exit.i ]
+.thread15:                                        ; preds = %_ZN14CompilerConfig10is_c1_onlyEv.exit.i, %_ZN14CompilerConfig10is_c2_onlyEv.exit.thread.thread.i.i, %_ZN14CompilerConfig13is_c1_enabledEv.exit, %_ZN14CompilerConfig13is_c1_enabledEv.exit.thread13, %36
+  %.not18 = phi i1 [ true, %_ZN14CompilerConfig13is_c1_enabledEv.exit.thread13 ], [ false, %36 ], [ true, %_ZN14CompilerConfig13is_c1_enabledEv.exit ], [ true, %_ZN14CompilerConfig10is_c2_onlyEv.exit.thread.thread.i.i ], [ true, %_ZN14CompilerConfig10is_c1_onlyEv.exit.i ]
   ret i1 %.not18
 }
 

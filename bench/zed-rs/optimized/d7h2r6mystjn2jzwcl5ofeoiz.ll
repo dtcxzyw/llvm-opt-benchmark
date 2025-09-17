@@ -17983,9 +17983,8 @@ define internal fastcc void @"_ZN4core3ptr277drop_in_place$LT$hashbrown..scopegu
   %.val.i.i = load i64, ptr %11, align 8, !range !4813, !noundef !4
   %12 = getelementptr i8, ptr %10, i64 -16
   %.val6.i.i = load ptr, ptr %12, align 8
-  %13 = add i64 %.val.i.i, 9223372036854775807
-  %switch.i.i.i.i = icmp ult i64 %13, 11
-  br i1 %switch.i.i.i.i, label %"_ZN4core3ptr58drop_in_place$LT$$LP$task..VariableName$C$$LP$$RP$$RP$$GT$17h77a6ac68b76ccdfbE.exit.i.i", label %14
+  %13 = icmp ugt i64 %.val.i.i, -9223372036854775808
+  br i1 %13, label %"_ZN4core3ptr58drop_in_place$LT$$LP$task..VariableName$C$$LP$$RP$$RP$$GT$17h77a6ac68b76ccdfbE.exit.i.i", label %14
 
 14:                                               ; preds = %8
   switch i64 %.val.i.i, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.17862517299867782409.exit.i.i1.i.i.i.i.i.i.i" [
@@ -63074,9 +63073,8 @@ define hidden void @_ZN9hashbrown3raw13RawTableInner13drop_elements17h8faf301633
   %.val.i = load i64, ptr %30, align 8, !range !4813, !alias.scope !17779, !noundef !4
   %31 = getelementptr inbounds i8, ptr %28, i64 -40
   %.val1.i = load ptr, ptr %31, align 8, !alias.scope !17779
-  %32 = add i64 %.val.i, 9223372036854775807
-  %switch.i.i = icmp ult i64 %32, 11
-  br i1 %switch.i.i, label %"_ZN4core3ptr39drop_in_place$LT$task..VariableName$GT$17h9c703cbc775e7835E.exit.i", label %33
+  %32 = icmp ugt i64 %.val.i, -9223372036854775808
+  br i1 %32, label %"_ZN4core3ptr39drop_in_place$LT$task..VariableName$GT$17h9c703cbc775e7835E.exit.i", label %33
 
 33:                                               ; preds = %"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17hf06852cc96c40b4aE.exit"
   switch i64 %.val.i, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.17862517299867782409.exit.i.i1.i.i.i.i.i" [
@@ -65636,9 +65634,8 @@ define hidden void @_ZN9hashbrown3raw13RawTableInner13drop_elements17hdd737acb7d
   %.val = load i64, ptr %30, align 8, !range !4813, !noundef !4
   %31 = getelementptr i8, ptr %28, i64 -16
   %.val6 = load ptr, ptr %31, align 8
-  %32 = add i64 %.val, 9223372036854775807
-  %switch.i.i = icmp ult i64 %32, 11
-  br i1 %switch.i.i, label %"_ZN4core3ptr58drop_in_place$LT$$LP$task..VariableName$C$$LP$$RP$$RP$$GT$17h77a6ac68b76ccdfbE.exit", label %33
+  %32 = icmp ugt i64 %.val, -9223372036854775808
+  br i1 %32, label %"_ZN4core3ptr58drop_in_place$LT$$LP$task..VariableName$C$$LP$$RP$$RP$$GT$17h77a6ac68b76ccdfbE.exit", label %33
 
 33:                                               ; preds = %"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17hdd1dd298d9140ce8E.exit"
   switch i64 %.val, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.17862517299867782409.exit.i.i1.i.i.i.i.i" [
@@ -69368,9 +69365,8 @@ define hidden void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h653d98e
   %.val.i.i = load i64, ptr %37, align 8, !range !4813, !alias.scope !19321, !noalias !19308, !noundef !4
   %38 = getelementptr inbounds i8, ptr %35, i64 -40
   %.val1.i.i = load ptr, ptr %38, align 8, !alias.scope !19321, !noalias !19308
-  %39 = add i64 %.val.i.i, 9223372036854775807
-  %switch.i.i.i = icmp ult i64 %39, 11
-  br i1 %switch.i.i.i, label %"_ZN4core3ptr39drop_in_place$LT$task..VariableName$GT$17h9c703cbc775e7835E.exit.i.i", label %40
+  %39 = icmp ugt i64 %.val.i.i, -9223372036854775808
+  br i1 %39, label %"_ZN4core3ptr39drop_in_place$LT$task..VariableName$GT$17h9c703cbc775e7835E.exit.i.i", label %40
 
 40:                                               ; preds = %"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17hf06852cc96c40b4aE.exit.i"
   switch i64 %.val.i.i, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.17862517299867782409.exit.i.i1.i.i.i.i.i.i" [
@@ -69714,9 +69710,8 @@ define hidden void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h6ca12ae
   %.val.i = load i64, ptr %37, align 8, !range !4813, !noalias !19385, !noundef !4
   %38 = getelementptr i8, ptr %35, i64 -16
   %.val6.i = load ptr, ptr %38, align 8, !noalias !19385
-  %39 = add i64 %.val.i, 9223372036854775807
-  %switch.i.i.i = icmp ult i64 %39, 11
-  br i1 %switch.i.i.i, label %"_ZN4core3ptr58drop_in_place$LT$$LP$task..VariableName$C$$LP$$RP$$RP$$GT$17h77a6ac68b76ccdfbE.exit.i", label %40
+  %39 = icmp ugt i64 %.val.i, -9223372036854775808
+  br i1 %39, label %"_ZN4core3ptr58drop_in_place$LT$$LP$task..VariableName$C$$LP$$RP$$RP$$GT$17h77a6ac68b76ccdfbE.exit.i", label %40
 
 40:                                               ; preds = %"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17hdd1dd298d9140ce8E.exit.i"
   switch i64 %.val.i, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.17862517299867782409.exit.i.i1.i.i.i.i.i.i" [

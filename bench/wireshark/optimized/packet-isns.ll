@@ -1582,31 +1582,30 @@ define internal fastcc void @dissect_isns_attr_port(ptr noundef %0, i32 noundef 
   %13 = load i32, ptr @hf_isns_port_type, align 4
   %14 = zext nneg i16 %10 to i64
   %15 = tail call ptr @proto_tree_add_boolean(ptr noundef %2, i32 noundef %13, ptr noundef %0, i32 noundef %1, i32 noundef 2, i64 noundef %14)
-  %16 = add nsw i16 %4, -1
-  %or.cond = icmp ult i16 %16, 2
-  br i1 %or.cond, label %17, label %27
+  %.not31 = icmp eq i16 %4, 0
+  br i1 %.not31, label %26, label %16
 
-17:                                               ; preds = %6
+16:                                               ; preds = %6
   %.not = icmp eq i16 %10, 0
   %. = select i1 %.not, i32 2, i32 3
   %isns_tcp_handle.val = load ptr, ptr @isns_tcp_handle, align 8
   %isns_udp_handle.val = load ptr, ptr @isns_udp_handle, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %5, i64 20
-  %19 = load i32, ptr %18, align 4
-  %20 = getelementptr inbounds nuw i8, ptr %5, i64 208
-  %21 = getelementptr inbounds nuw i8, ptr %5, i64 232
-  %22 = tail call ptr @find_conversation(i32 noundef %19, ptr noundef nonnull %20, ptr noundef nonnull %21, i32 noundef %., i32 noundef %11, i32 noundef 0, i32 noundef 131072)
-  %23 = icmp eq ptr %22, null
-  br i1 %23, label %24, label %27
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 20
+  %18 = load i32, ptr %17, align 4
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 208
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 232
+  %21 = tail call ptr @find_conversation(i32 noundef %18, ptr noundef nonnull %19, ptr noundef nonnull %20, i32 noundef %., i32 noundef %11, i32 noundef 0, i32 noundef 131072)
+  %22 = icmp eq ptr %21, null
+  br i1 %22, label %23, label %26
 
-24:                                               ; preds = %17
+23:                                               ; preds = %16
   %.0 = select i1 %.not, ptr %isns_tcp_handle.val, ptr %isns_udp_handle.val
-  %25 = load i32, ptr %18, align 4
-  %26 = tail call ptr @conversation_new(i32 noundef %25, ptr noundef nonnull %20, ptr noundef nonnull %21, i32 noundef %., i32 noundef %11, i32 noundef 0, i32 noundef 4)
-  tail call void @conversation_set_dissector(ptr noundef %26, ptr noundef %.0)
-  br label %27
+  %24 = load i32, ptr %17, align 4
+  %25 = tail call ptr @conversation_new(i32 noundef %24, ptr noundef nonnull %19, ptr noundef nonnull %20, i32 noundef %., i32 noundef %11, i32 noundef 0, i32 noundef 4)
+  tail call void @conversation_set_dissector(ptr noundef %25, ptr noundef %.0)
+  br label %26
 
-27:                                               ; preds = %17, %24, %6
+26:                                               ; preds = %16, %23, %6
   ret void
 }
 

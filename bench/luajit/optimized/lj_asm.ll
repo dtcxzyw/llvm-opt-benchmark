@@ -5020,40 +5020,40 @@ asm_retf.exit:                                    ; preds = %.thread.i.i997, %23
 2380:                                             ; preds = %._crit_edge.i.i948
   %2381 = load i32, ptr %29, align 8, !tbaa !21
   %2382 = load i32, ptr %175, align 4, !tbaa !21
-  %spec.select203.i.i961 = call i32 @llvm.umin.i32(i32 %2382, i32 %2381)
+  %spec.select202.i.i961 = call i32 @llvm.umin.i32(i32 %2382, i32 %2381)
   %2383 = load i32, ptr %176, align 8, !tbaa !21
-  %spec.select204.i.i962 = call i32 @llvm.umin.i32(i32 %2383, i32 %spec.select203.i.i961)
+  %spec.select203.i.i962 = call i32 @llvm.umin.i32(i32 %2383, i32 %spec.select202.i.i961)
   %2384 = load i32, ptr %177, align 4, !tbaa !21
-  %spec.select205.i.i963 = call i32 @llvm.umin.i32(i32 %2384, i32 %spec.select204.i.i962)
+  %spec.select204.i.i963 = call i32 @llvm.umin.i32(i32 %2384, i32 %spec.select203.i.i962)
   %2385 = load i32, ptr %178, align 4, !tbaa !21
-  %spec.select206.i.i964 = call i32 @llvm.umin.i32(i32 %2385, i32 %spec.select205.i.i963)
+  %spec.select205.i.i964 = call i32 @llvm.umin.i32(i32 %2385, i32 %spec.select204.i.i963)
   %2386 = load i32, ptr %179, align 8, !tbaa !21
-  %spec.select207.i.i965 = call i32 @llvm.umin.i32(i32 %2386, i32 %spec.select206.i.i964)
+  %spec.select206.i.i965 = call i32 @llvm.umin.i32(i32 %2386, i32 %spec.select205.i.i964)
   %2387 = load i32, ptr %180, align 4, !tbaa !21
-  %spec.select208.i.i966 = call i32 @llvm.umin.i32(i32 %2387, i32 %spec.select207.i.i965)
+  %spec.select207.i.i966 = call i32 @llvm.umin.i32(i32 %2387, i32 %spec.select206.i.i965)
   %2388 = load i32, ptr %181, align 8, !tbaa !21
-  %spec.select209.i.i967 = call i32 @llvm.umin.i32(i32 %2388, i32 %spec.select208.i.i966)
+  %spec.select208.i.i967 = call i32 @llvm.umin.i32(i32 %2388, i32 %spec.select207.i.i966)
   %2389 = load i32, ptr %182, align 4, !tbaa !21
-  %spec.select210.i.i968 = call i32 @llvm.umin.i32(i32 %2389, i32 %spec.select209.i.i967)
+  %spec.select209.i.i968 = call i32 @llvm.umin.i32(i32 %2389, i32 %spec.select208.i.i967)
   %2390 = load i32, ptr %183, align 8, !tbaa !21
-  %spec.select211.i.i969 = call i32 @llvm.umin.i32(i32 %2390, i32 %spec.select210.i.i968)
+  %spec.select210.i.i969 = call i32 @llvm.umin.i32(i32 %2390, i32 %spec.select209.i.i968)
   %2391 = load i32, ptr %184, align 4, !tbaa !21
-  %spec.select212.i.i970 = call i32 @llvm.umin.i32(i32 %2391, i32 %spec.select211.i.i969)
+  %spec.select211.i.i970 = call i32 @llvm.umin.i32(i32 %2391, i32 %spec.select210.i.i969)
   %2392 = load i32, ptr %185, align 8, !tbaa !21
-  %spec.select213.i.i971 = call i32 @llvm.umin.i32(i32 %2392, i32 %spec.select212.i.i970)
+  %spec.select212.i.i971 = call i32 @llvm.umin.i32(i32 %2392, i32 %spec.select211.i.i970)
   %2393 = load i32, ptr %186, align 4, !tbaa !21
-  %spec.select214.i.i972 = call i32 @llvm.umin.i32(i32 %2393, i32 %spec.select213.i.i971)
+  %spec.select213.i.i972 = call i32 @llvm.umin.i32(i32 %2393, i32 %spec.select212.i.i971)
   %2394 = load i32, ptr %187, align 4, !tbaa !21
-  %spec.select231.i.i973 = call i32 @llvm.umin.i32(i32 %2394, i32 %spec.select214.i.i972)
-  %2395 = and i32 %spec.select231.i.i973, 65535
+  %spec.select230.i.i973 = call i32 @llvm.umin.i32(i32 %2394, i32 %spec.select213.i.i972)
+  %2395 = and i32 %spec.select230.i.i973, 65535
   %2396 = icmp samesign ult i32 %2395, 32768
   br i1 %2396, label %ra_evict.exit.i976, label %2397
 
 2397:                                             ; preds = %2380
   %2398 = load i32, ptr %154, align 8, !tbaa !80
   %2399 = and i32 %2398, 49135
-  %.not201.i.i974 = icmp eq i32 %2399, 0
-  br i1 %.not201.i.i974, label %ra_evict.exit.i976, label %2400
+  %.not200.i.i974 = icmp eq i32 %2399, 0
+  br i1 %.not200.i.i974, label %ra_evict.exit.i976, label %2400
 
 2400:                                             ; preds = %2397
   %2401 = load ptr, ptr %143, align 8, !tbaa !68
@@ -5064,8 +5064,8 @@ asm_retf.exit:                                    ; preds = %.thread.i.i997, %23
   %2406 = zext nneg i8 %2405 to i32
   %2407 = shl nuw i32 1, %2406
   %2408 = and i32 %2407, %2398
-  %.not202.i.i975 = icmp eq i32 %2408, 0
-  br i1 %.not202.i.i975, label %2409, label %ra_evict.exit.i976
+  %.not201.i.i975 = icmp eq i32 %2408, 0
+  br i1 %.not201.i.i975, label %2409, label %ra_evict.exit.i976
 
 2409:                                             ; preds = %2400
   %2410 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %2399, i1 true)
@@ -5820,44 +5820,44 @@ asm_ldexp.exit:                                   ; preds = %emit_rmro.exit.i924
 2792:                                             ; preds = %._crit_edge.i.i890
   %2793 = load i32, ptr %188, align 8, !tbaa !21
   %2794 = load i32, ptr %189, align 4, !tbaa !21
-  %spec.select217.i.i901 = call i32 @llvm.umin.i32(i32 %2794, i32 %2793)
+  %spec.select216.i.i901 = call i32 @llvm.umin.i32(i32 %2794, i32 %2793)
   %2795 = load i32, ptr %190, align 8, !tbaa !21
-  %spec.select218.i.i902 = call i32 @llvm.umin.i32(i32 %2795, i32 %spec.select217.i.i901)
+  %spec.select217.i.i902 = call i32 @llvm.umin.i32(i32 %2795, i32 %spec.select216.i.i901)
   %2796 = load i32, ptr %191, align 4, !tbaa !21
-  %spec.select219.i.i903 = call i32 @llvm.umin.i32(i32 %2796, i32 %spec.select218.i.i902)
+  %spec.select218.i.i903 = call i32 @llvm.umin.i32(i32 %2796, i32 %spec.select217.i.i902)
   %2797 = load i32, ptr %192, align 8, !tbaa !21
-  %spec.select220.i.i904 = call i32 @llvm.umin.i32(i32 %2797, i32 %spec.select219.i.i903)
+  %spec.select219.i.i904 = call i32 @llvm.umin.i32(i32 %2797, i32 %spec.select218.i.i903)
   %2798 = load i32, ptr %193, align 4, !tbaa !21
-  %spec.select221.i.i905 = call i32 @llvm.umin.i32(i32 %2798, i32 %spec.select220.i.i904)
+  %spec.select220.i.i905 = call i32 @llvm.umin.i32(i32 %2798, i32 %spec.select219.i.i904)
   %2799 = load i32, ptr %194, align 8, !tbaa !21
-  %spec.select222.i.i906 = call i32 @llvm.umin.i32(i32 %2799, i32 %spec.select221.i.i905)
+  %spec.select221.i.i906 = call i32 @llvm.umin.i32(i32 %2799, i32 %spec.select220.i.i905)
   %2800 = load i32, ptr %195, align 4, !tbaa !21
-  %spec.select223.i.i907 = call i32 @llvm.umin.i32(i32 %2800, i32 %spec.select222.i.i906)
+  %spec.select222.i.i907 = call i32 @llvm.umin.i32(i32 %2800, i32 %spec.select221.i.i906)
   %2801 = load i32, ptr %196, align 8, !tbaa !21
-  %spec.select224.i.i908 = call i32 @llvm.umin.i32(i32 %2801, i32 %spec.select223.i.i907)
+  %spec.select223.i.i908 = call i32 @llvm.umin.i32(i32 %2801, i32 %spec.select222.i.i907)
   %2802 = load i32, ptr %197, align 4, !tbaa !21
-  %spec.select225.i.i909 = call i32 @llvm.umin.i32(i32 %2802, i32 %spec.select224.i.i908)
+  %spec.select224.i.i909 = call i32 @llvm.umin.i32(i32 %2802, i32 %spec.select223.i.i908)
   %2803 = load i32, ptr %198, align 8, !tbaa !21
-  %spec.select226.i.i910 = call i32 @llvm.umin.i32(i32 %2803, i32 %spec.select225.i.i909)
+  %spec.select225.i.i910 = call i32 @llvm.umin.i32(i32 %2803, i32 %spec.select224.i.i909)
   %2804 = load i32, ptr %199, align 4, !tbaa !21
-  %spec.select227.i.i911 = call i32 @llvm.umin.i32(i32 %2804, i32 %spec.select226.i.i910)
+  %spec.select226.i.i911 = call i32 @llvm.umin.i32(i32 %2804, i32 %spec.select225.i.i910)
   %2805 = load i32, ptr %200, align 8, !tbaa !21
-  %spec.select228.i.i912 = call i32 @llvm.umin.i32(i32 %2805, i32 %spec.select227.i.i911)
+  %spec.select227.i.i912 = call i32 @llvm.umin.i32(i32 %2805, i32 %spec.select226.i.i911)
   %2806 = load i32, ptr %201, align 4, !tbaa !21
-  %spec.select229.i.i913 = call i32 @llvm.umin.i32(i32 %2806, i32 %spec.select228.i.i912)
+  %spec.select228.i.i913 = call i32 @llvm.umin.i32(i32 %2806, i32 %spec.select227.i.i912)
   %2807 = load i32, ptr %202, align 8, !tbaa !21
-  %spec.select230.i.i914 = call i32 @llvm.umin.i32(i32 %2807, i32 %spec.select229.i.i913)
+  %spec.select229.i.i914 = call i32 @llvm.umin.i32(i32 %2807, i32 %spec.select228.i.i913)
   %2808 = load i32, ptr %203, align 4, !tbaa !21
-  %spec.select231.i.i915 = call i32 @llvm.umin.i32(i32 %2808, i32 %spec.select230.i.i914)
-  %2809 = and i32 %spec.select231.i.i915, 65535
+  %spec.select230.i.i915 = call i32 @llvm.umin.i32(i32 %2808, i32 %spec.select229.i.i914)
+  %2809 = and i32 %spec.select230.i.i915, 65535
   %2810 = icmp samesign ult i32 %2809, 32768
   br i1 %2810, label %ra_evict.exit.i918, label %2811
 
 2811:                                             ; preds = %2792
   %2812 = load i32, ptr %154, align 8, !tbaa !80
   %2813 = and i32 %2812, -65536
-  %.not201.i.i916 = icmp eq i32 %2813, 0
-  br i1 %.not201.i.i916, label %ra_evict.exit.i918, label %2814
+  %.not200.i.i916 = icmp eq i32 %2813, 0
+  br i1 %.not200.i.i916, label %ra_evict.exit.i918, label %2814
 
 2814:                                             ; preds = %2811
   %2815 = load ptr, ptr %143, align 8, !tbaa !68
@@ -5868,8 +5868,8 @@ asm_ldexp.exit:                                   ; preds = %emit_rmro.exit.i924
   %2820 = zext nneg i8 %2819 to i32
   %2821 = shl nuw i32 1, %2820
   %2822 = and i32 %2821, %2812
-  %.not202.i.i917 = icmp eq i32 %2822, 0
-  br i1 %.not202.i.i917, label %2823, label %ra_evict.exit.i918
+  %.not201.i.i917 = icmp eq i32 %2822, 0
+  br i1 %.not201.i.i917, label %2823, label %ra_evict.exit.i918
 
 2823:                                             ; preds = %2814
   %2824 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %2813, i1 true)
@@ -5974,44 +5974,44 @@ ra_dest.exit.i900:                                ; preds = %2842, %2839
 2867:                                             ; preds = %._crit_edge.i43.i
   %2868 = load i32, ptr %188, align 8, !tbaa !21
   %2869 = load i32, ptr %189, align 4, !tbaa !21
-  %spec.select217.i1182 = call i32 @llvm.umin.i32(i32 %2869, i32 %2868)
+  %spec.select216.i1182 = call i32 @llvm.umin.i32(i32 %2869, i32 %2868)
   %2870 = load i32, ptr %190, align 8, !tbaa !21
-  %spec.select218.i1183 = call i32 @llvm.umin.i32(i32 %2870, i32 %spec.select217.i1182)
+  %spec.select217.i1183 = call i32 @llvm.umin.i32(i32 %2870, i32 %spec.select216.i1182)
   %2871 = load i32, ptr %191, align 4, !tbaa !21
-  %spec.select219.i1184 = call i32 @llvm.umin.i32(i32 %2871, i32 %spec.select218.i1183)
+  %spec.select218.i1184 = call i32 @llvm.umin.i32(i32 %2871, i32 %spec.select217.i1183)
   %2872 = load i32, ptr %192, align 8, !tbaa !21
-  %spec.select220.i1185 = call i32 @llvm.umin.i32(i32 %2872, i32 %spec.select219.i1184)
+  %spec.select219.i1185 = call i32 @llvm.umin.i32(i32 %2872, i32 %spec.select218.i1184)
   %2873 = load i32, ptr %193, align 4, !tbaa !21
-  %spec.select221.i1186 = call i32 @llvm.umin.i32(i32 %2873, i32 %spec.select220.i1185)
+  %spec.select220.i1186 = call i32 @llvm.umin.i32(i32 %2873, i32 %spec.select219.i1185)
   %2874 = load i32, ptr %194, align 8, !tbaa !21
-  %spec.select222.i1187 = call i32 @llvm.umin.i32(i32 %2874, i32 %spec.select221.i1186)
+  %spec.select221.i1187 = call i32 @llvm.umin.i32(i32 %2874, i32 %spec.select220.i1186)
   %2875 = load i32, ptr %195, align 4, !tbaa !21
-  %spec.select223.i1188 = call i32 @llvm.umin.i32(i32 %2875, i32 %spec.select222.i1187)
+  %spec.select222.i1188 = call i32 @llvm.umin.i32(i32 %2875, i32 %spec.select221.i1187)
   %2876 = load i32, ptr %196, align 8, !tbaa !21
-  %spec.select224.i1189 = call i32 @llvm.umin.i32(i32 %2876, i32 %spec.select223.i1188)
+  %spec.select223.i1189 = call i32 @llvm.umin.i32(i32 %2876, i32 %spec.select222.i1188)
   %2877 = load i32, ptr %197, align 4, !tbaa !21
-  %spec.select225.i1190 = call i32 @llvm.umin.i32(i32 %2877, i32 %spec.select224.i1189)
+  %spec.select224.i1190 = call i32 @llvm.umin.i32(i32 %2877, i32 %spec.select223.i1189)
   %2878 = load i32, ptr %198, align 8, !tbaa !21
-  %spec.select226.i1191 = call i32 @llvm.umin.i32(i32 %2878, i32 %spec.select225.i1190)
+  %spec.select225.i1191 = call i32 @llvm.umin.i32(i32 %2878, i32 %spec.select224.i1190)
   %2879 = load i32, ptr %199, align 4, !tbaa !21
-  %spec.select227.i1192 = call i32 @llvm.umin.i32(i32 %2879, i32 %spec.select226.i1191)
+  %spec.select226.i1192 = call i32 @llvm.umin.i32(i32 %2879, i32 %spec.select225.i1191)
   %2880 = load i32, ptr %200, align 8, !tbaa !21
-  %spec.select228.i1193 = call i32 @llvm.umin.i32(i32 %2880, i32 %spec.select227.i1192)
+  %spec.select227.i1193 = call i32 @llvm.umin.i32(i32 %2880, i32 %spec.select226.i1192)
   %2881 = load i32, ptr %201, align 4, !tbaa !21
-  %spec.select229.i1194 = call i32 @llvm.umin.i32(i32 %2881, i32 %spec.select228.i1193)
+  %spec.select228.i1194 = call i32 @llvm.umin.i32(i32 %2881, i32 %spec.select227.i1193)
   %2882 = load i32, ptr %202, align 8, !tbaa !21
-  %spec.select230.i1195 = call i32 @llvm.umin.i32(i32 %2882, i32 %spec.select229.i1194)
+  %spec.select229.i1195 = call i32 @llvm.umin.i32(i32 %2882, i32 %spec.select228.i1194)
   %2883 = load i32, ptr %203, align 4, !tbaa !21
-  %spec.select231.i1197 = call i32 @llvm.umin.i32(i32 %2883, i32 %spec.select230.i1195)
-  %2884 = and i32 %spec.select231.i1197, 65535
+  %spec.select230.i1197 = call i32 @llvm.umin.i32(i32 %2883, i32 %spec.select229.i1195)
+  %2884 = and i32 %spec.select230.i1197, 65535
   %2885 = icmp samesign ult i32 %2884, 32768
   br i1 %2885, label %ra_evict.exit1201, label %2886
 
 2886:                                             ; preds = %2867
   %2887 = load i32, ptr %154, align 8, !tbaa !80
   %2888 = and i32 %2887, -65536
-  %.not201.i1198 = icmp eq i32 %2888, 0
-  br i1 %.not201.i1198, label %ra_evict.exit1201, label %2889
+  %.not200.i1198 = icmp eq i32 %2888, 0
+  br i1 %.not200.i1198, label %ra_evict.exit1201, label %2889
 
 2889:                                             ; preds = %2886
   %2890 = load ptr, ptr %143, align 8, !tbaa !68
@@ -6022,8 +6022,8 @@ ra_dest.exit.i900:                                ; preds = %2842, %2839
   %2895 = zext nneg i8 %2894 to i32
   %2896 = shl nuw i32 1, %2895
   %2897 = and i32 %2896, %2887
-  %.not202.i1199 = icmp eq i32 %2897, 0
-  br i1 %.not202.i1199, label %2898, label %ra_evict.exit1201
+  %.not201.i1199 = icmp eq i32 %2897, 0
+  br i1 %.not201.i1199, label %2898, label %ra_evict.exit1201
 
 2898:                                             ; preds = %2889
   %2899 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %2888, i1 true)
@@ -6328,40 +6328,40 @@ emit_call_.exit.i:                                ; preds = %3011, %3006, %emit_
 3043:                                             ; preds = %._crit_edge.i.i834
   %3044 = load i32, ptr %29, align 8, !tbaa !21
   %3045 = load i32, ptr %175, align 4, !tbaa !21
-  %spec.select203.i.i867 = call i32 @llvm.umin.i32(i32 %3045, i32 %3044)
+  %spec.select202.i.i867 = call i32 @llvm.umin.i32(i32 %3045, i32 %3044)
   %3046 = load i32, ptr %176, align 8, !tbaa !21
-  %spec.select204.i.i868 = call i32 @llvm.umin.i32(i32 %3046, i32 %spec.select203.i.i867)
+  %spec.select203.i.i868 = call i32 @llvm.umin.i32(i32 %3046, i32 %spec.select202.i.i867)
   %3047 = load i32, ptr %177, align 4, !tbaa !21
-  %spec.select205.i.i869 = call i32 @llvm.umin.i32(i32 %3047, i32 %spec.select204.i.i868)
+  %spec.select204.i.i869 = call i32 @llvm.umin.i32(i32 %3047, i32 %spec.select203.i.i868)
   %3048 = load i32, ptr %178, align 4, !tbaa !21
-  %spec.select206.i.i870 = call i32 @llvm.umin.i32(i32 %3048, i32 %spec.select205.i.i869)
+  %spec.select205.i.i870 = call i32 @llvm.umin.i32(i32 %3048, i32 %spec.select204.i.i869)
   %3049 = load i32, ptr %179, align 8, !tbaa !21
-  %spec.select207.i.i871 = call i32 @llvm.umin.i32(i32 %3049, i32 %spec.select206.i.i870)
+  %spec.select206.i.i871 = call i32 @llvm.umin.i32(i32 %3049, i32 %spec.select205.i.i870)
   %3050 = load i32, ptr %180, align 4, !tbaa !21
-  %spec.select208.i.i872 = call i32 @llvm.umin.i32(i32 %3050, i32 %spec.select207.i.i871)
+  %spec.select207.i.i872 = call i32 @llvm.umin.i32(i32 %3050, i32 %spec.select206.i.i871)
   %3051 = load i32, ptr %181, align 8, !tbaa !21
-  %spec.select209.i.i873 = call i32 @llvm.umin.i32(i32 %3051, i32 %spec.select208.i.i872)
+  %spec.select208.i.i873 = call i32 @llvm.umin.i32(i32 %3051, i32 %spec.select207.i.i872)
   %3052 = load i32, ptr %182, align 4, !tbaa !21
-  %spec.select210.i.i874 = call i32 @llvm.umin.i32(i32 %3052, i32 %spec.select209.i.i873)
+  %spec.select209.i.i874 = call i32 @llvm.umin.i32(i32 %3052, i32 %spec.select208.i.i873)
   %3053 = load i32, ptr %183, align 8, !tbaa !21
-  %spec.select211.i.i875 = call i32 @llvm.umin.i32(i32 %3053, i32 %spec.select210.i.i874)
+  %spec.select210.i.i875 = call i32 @llvm.umin.i32(i32 %3053, i32 %spec.select209.i.i874)
   %3054 = load i32, ptr %184, align 4, !tbaa !21
-  %spec.select212.i.i876 = call i32 @llvm.umin.i32(i32 %3054, i32 %spec.select211.i.i875)
+  %spec.select211.i.i876 = call i32 @llvm.umin.i32(i32 %3054, i32 %spec.select210.i.i875)
   %3055 = load i32, ptr %185, align 8, !tbaa !21
-  %spec.select213.i.i877 = call i32 @llvm.umin.i32(i32 %3055, i32 %spec.select212.i.i876)
+  %spec.select212.i.i877 = call i32 @llvm.umin.i32(i32 %3055, i32 %spec.select211.i.i876)
   %3056 = load i32, ptr %186, align 4, !tbaa !21
-  %spec.select214.i.i878 = call i32 @llvm.umin.i32(i32 %3056, i32 %spec.select213.i.i877)
+  %spec.select213.i.i878 = call i32 @llvm.umin.i32(i32 %3056, i32 %spec.select212.i.i877)
   %3057 = load i32, ptr %187, align 4, !tbaa !21
-  %spec.select231.i.i879 = call i32 @llvm.umin.i32(i32 %3057, i32 %spec.select214.i.i878)
-  %3058 = and i32 %spec.select231.i.i879, 65535
+  %spec.select230.i.i879 = call i32 @llvm.umin.i32(i32 %3057, i32 %spec.select213.i.i878)
+  %3058 = and i32 %spec.select230.i.i879, 65535
   %3059 = icmp samesign ult i32 %3058, 32768
   br i1 %3059, label %ra_evict.exit.i882, label %3060
 
 3060:                                             ; preds = %3043
   %3061 = load i32, ptr %154, align 8, !tbaa !80
   %3062 = and i32 %3061, 49135
-  %.not201.i.i880 = icmp eq i32 %3062, 0
-  br i1 %.not201.i.i880, label %ra_evict.exit.i882, label %3063
+  %.not200.i.i880 = icmp eq i32 %3062, 0
+  br i1 %.not200.i.i880, label %ra_evict.exit.i882, label %3063
 
 3063:                                             ; preds = %3060
   %3064 = load ptr, ptr %143, align 8, !tbaa !68
@@ -6372,8 +6372,8 @@ emit_call_.exit.i:                                ; preds = %3011, %3006, %emit_
   %3069 = zext nneg i8 %3068 to i32
   %3070 = shl nuw i32 1, %3069
   %3071 = and i32 %3070, %3061
-  %.not202.i.i881 = icmp eq i32 %3071, 0
-  br i1 %.not202.i.i881, label %3072, label %ra_evict.exit.i882
+  %.not201.i.i881 = icmp eq i32 %3071, 0
+  br i1 %.not201.i.i881, label %3072, label %ra_evict.exit.i882
 
 3072:                                             ; preds = %3063
   %3073 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %3062, i1 true)
@@ -6450,44 +6450,44 @@ ra_alloc1.exit.i846:                              ; preds = %ra_dest.exit.i844
 3107:                                             ; preds = %3104
   %3108 = load i32, ptr %188, align 8, !tbaa !21
   %3109 = load i32, ptr %189, align 4, !tbaa !21
-  %spec.select217.i.i852 = call i32 @llvm.umin.i32(i32 %3109, i32 %3108)
+  %spec.select216.i.i852 = call i32 @llvm.umin.i32(i32 %3109, i32 %3108)
   %3110 = load i32, ptr %190, align 8, !tbaa !21
-  %spec.select218.i.i853 = call i32 @llvm.umin.i32(i32 %3110, i32 %spec.select217.i.i852)
+  %spec.select217.i.i853 = call i32 @llvm.umin.i32(i32 %3110, i32 %spec.select216.i.i852)
   %3111 = load i32, ptr %191, align 4, !tbaa !21
-  %spec.select219.i.i854 = call i32 @llvm.umin.i32(i32 %3111, i32 %spec.select218.i.i853)
+  %spec.select218.i.i854 = call i32 @llvm.umin.i32(i32 %3111, i32 %spec.select217.i.i853)
   %3112 = load i32, ptr %192, align 8, !tbaa !21
-  %spec.select220.i.i855 = call i32 @llvm.umin.i32(i32 %3112, i32 %spec.select219.i.i854)
+  %spec.select219.i.i855 = call i32 @llvm.umin.i32(i32 %3112, i32 %spec.select218.i.i854)
   %3113 = load i32, ptr %193, align 4, !tbaa !21
-  %spec.select221.i.i856 = call i32 @llvm.umin.i32(i32 %3113, i32 %spec.select220.i.i855)
+  %spec.select220.i.i856 = call i32 @llvm.umin.i32(i32 %3113, i32 %spec.select219.i.i855)
   %3114 = load i32, ptr %194, align 8, !tbaa !21
-  %spec.select222.i.i857 = call i32 @llvm.umin.i32(i32 %3114, i32 %spec.select221.i.i856)
+  %spec.select221.i.i857 = call i32 @llvm.umin.i32(i32 %3114, i32 %spec.select220.i.i856)
   %3115 = load i32, ptr %195, align 4, !tbaa !21
-  %spec.select223.i.i858 = call i32 @llvm.umin.i32(i32 %3115, i32 %spec.select222.i.i857)
+  %spec.select222.i.i858 = call i32 @llvm.umin.i32(i32 %3115, i32 %spec.select221.i.i857)
   %3116 = load i32, ptr %196, align 8, !tbaa !21
-  %spec.select224.i.i859 = call i32 @llvm.umin.i32(i32 %3116, i32 %spec.select223.i.i858)
+  %spec.select223.i.i859 = call i32 @llvm.umin.i32(i32 %3116, i32 %spec.select222.i.i858)
   %3117 = load i32, ptr %197, align 4, !tbaa !21
-  %spec.select225.i.i860 = call i32 @llvm.umin.i32(i32 %3117, i32 %spec.select224.i.i859)
+  %spec.select224.i.i860 = call i32 @llvm.umin.i32(i32 %3117, i32 %spec.select223.i.i859)
   %3118 = load i32, ptr %198, align 8, !tbaa !21
-  %spec.select226.i.i861 = call i32 @llvm.umin.i32(i32 %3118, i32 %spec.select225.i.i860)
+  %spec.select225.i.i861 = call i32 @llvm.umin.i32(i32 %3118, i32 %spec.select224.i.i860)
   %3119 = load i32, ptr %199, align 4, !tbaa !21
-  %spec.select227.i.i862 = call i32 @llvm.umin.i32(i32 %3119, i32 %spec.select226.i.i861)
+  %spec.select226.i.i862 = call i32 @llvm.umin.i32(i32 %3119, i32 %spec.select225.i.i861)
   %3120 = load i32, ptr %200, align 8, !tbaa !21
-  %spec.select228.i.i863 = call i32 @llvm.umin.i32(i32 %3120, i32 %spec.select227.i.i862)
+  %spec.select227.i.i863 = call i32 @llvm.umin.i32(i32 %3120, i32 %spec.select226.i.i862)
   %3121 = load i32, ptr %201, align 4, !tbaa !21
-  %spec.select229.i.i864 = call i32 @llvm.umin.i32(i32 %3121, i32 %spec.select228.i.i863)
+  %spec.select228.i.i864 = call i32 @llvm.umin.i32(i32 %3121, i32 %spec.select227.i.i863)
   %3122 = load i32, ptr %202, align 8, !tbaa !21
-  %spec.select230.i.i865 = call i32 @llvm.umin.i32(i32 %3122, i32 %spec.select229.i.i864)
+  %spec.select229.i.i865 = call i32 @llvm.umin.i32(i32 %3122, i32 %spec.select228.i.i864)
   %3123 = load i32, ptr %203, align 4, !tbaa !21
-  %spec.select231.i23.i = call i32 @llvm.umin.i32(i32 %3123, i32 %spec.select230.i.i865)
-  %3124 = and i32 %spec.select231.i23.i, 65535
+  %spec.select230.i23.i = call i32 @llvm.umin.i32(i32 %3123, i32 %spec.select229.i.i865)
+  %3124 = and i32 %spec.select230.i23.i, 65535
   %3125 = icmp samesign ult i32 %3124, 32768
   br i1 %3125, label %ra_evict.exit27.i, label %3126
 
 3126:                                             ; preds = %3107
   %3127 = load i32, ptr %154, align 8, !tbaa !80
   %3128 = and i32 %3127, -65536
-  %.not201.i24.i = icmp eq i32 %3128, 0
-  br i1 %.not201.i24.i, label %ra_evict.exit27.i, label %3129
+  %.not200.i24.i = icmp eq i32 %3128, 0
+  br i1 %.not200.i24.i, label %ra_evict.exit27.i, label %3129
 
 3129:                                             ; preds = %3126
   %3130 = zext nneg i32 %3124 to i64
@@ -6497,8 +6497,8 @@ ra_alloc1.exit.i846:                              ; preds = %ra_dest.exit.i844
   %3134 = zext nneg i8 %3133 to i32
   %3135 = shl nuw i32 1, %3134
   %3136 = and i32 %3135, %3127
-  %.not202.i25.i = icmp eq i32 %3136, 0
-  br i1 %.not202.i25.i, label %3137, label %ra_evict.exit27.i
+  %.not201.i25.i = icmp eq i32 %3136, 0
+  br i1 %.not201.i25.i, label %3137, label %ra_evict.exit27.i
 
 3137:                                             ; preds = %3129
   %3138 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %3128, i1 true)
@@ -6651,40 +6651,40 @@ asm_tobit.exit:                                   ; preds = %3151, %3167
 3210:                                             ; preds = %._crit_edge.i.i801
   %3211 = load i32, ptr %29, align 8, !tbaa !21
   %3212 = load i32, ptr %175, align 4, !tbaa !21
-  %spec.select203.i.i813 = call i32 @llvm.umin.i32(i32 %3212, i32 %3211)
+  %spec.select202.i.i813 = call i32 @llvm.umin.i32(i32 %3212, i32 %3211)
   %3213 = load i32, ptr %176, align 8, !tbaa !21
-  %spec.select204.i.i814 = call i32 @llvm.umin.i32(i32 %3213, i32 %spec.select203.i.i813)
+  %spec.select203.i.i814 = call i32 @llvm.umin.i32(i32 %3213, i32 %spec.select202.i.i813)
   %3214 = load i32, ptr %177, align 4, !tbaa !21
-  %spec.select205.i.i815 = call i32 @llvm.umin.i32(i32 %3214, i32 %spec.select204.i.i814)
+  %spec.select204.i.i815 = call i32 @llvm.umin.i32(i32 %3214, i32 %spec.select203.i.i814)
   %3215 = load i32, ptr %178, align 4, !tbaa !21
-  %spec.select206.i.i816 = call i32 @llvm.umin.i32(i32 %3215, i32 %spec.select205.i.i815)
+  %spec.select205.i.i816 = call i32 @llvm.umin.i32(i32 %3215, i32 %spec.select204.i.i815)
   %3216 = load i32, ptr %179, align 8, !tbaa !21
-  %spec.select207.i.i817 = call i32 @llvm.umin.i32(i32 %3216, i32 %spec.select206.i.i816)
+  %spec.select206.i.i817 = call i32 @llvm.umin.i32(i32 %3216, i32 %spec.select205.i.i816)
   %3217 = load i32, ptr %180, align 4, !tbaa !21
-  %spec.select208.i.i818 = call i32 @llvm.umin.i32(i32 %3217, i32 %spec.select207.i.i817)
+  %spec.select207.i.i818 = call i32 @llvm.umin.i32(i32 %3217, i32 %spec.select206.i.i817)
   %3218 = load i32, ptr %181, align 8, !tbaa !21
-  %spec.select209.i.i819 = call i32 @llvm.umin.i32(i32 %3218, i32 %spec.select208.i.i818)
+  %spec.select208.i.i819 = call i32 @llvm.umin.i32(i32 %3218, i32 %spec.select207.i.i818)
   %3219 = load i32, ptr %182, align 4, !tbaa !21
-  %spec.select210.i.i820 = call i32 @llvm.umin.i32(i32 %3219, i32 %spec.select209.i.i819)
+  %spec.select209.i.i820 = call i32 @llvm.umin.i32(i32 %3219, i32 %spec.select208.i.i819)
   %3220 = load i32, ptr %183, align 8, !tbaa !21
-  %spec.select211.i.i821 = call i32 @llvm.umin.i32(i32 %3220, i32 %spec.select210.i.i820)
+  %spec.select210.i.i821 = call i32 @llvm.umin.i32(i32 %3220, i32 %spec.select209.i.i820)
   %3221 = load i32, ptr %184, align 4, !tbaa !21
-  %spec.select212.i.i822 = call i32 @llvm.umin.i32(i32 %3221, i32 %spec.select211.i.i821)
+  %spec.select211.i.i822 = call i32 @llvm.umin.i32(i32 %3221, i32 %spec.select210.i.i821)
   %3222 = load i32, ptr %185, align 8, !tbaa !21
-  %spec.select213.i.i823 = call i32 @llvm.umin.i32(i32 %3222, i32 %spec.select212.i.i822)
+  %spec.select212.i.i823 = call i32 @llvm.umin.i32(i32 %3222, i32 %spec.select211.i.i822)
   %3223 = load i32, ptr %186, align 4, !tbaa !21
-  %spec.select214.i.i824 = call i32 @llvm.umin.i32(i32 %3223, i32 %spec.select213.i.i823)
+  %spec.select213.i.i824 = call i32 @llvm.umin.i32(i32 %3223, i32 %spec.select212.i.i823)
   %3224 = load i32, ptr %187, align 4, !tbaa !21
-  %spec.select231.i.i825 = call i32 @llvm.umin.i32(i32 %3224, i32 %spec.select214.i.i824)
-  %3225 = and i32 %spec.select231.i.i825, 65535
+  %spec.select230.i.i825 = call i32 @llvm.umin.i32(i32 %3224, i32 %spec.select213.i.i824)
+  %3225 = and i32 %spec.select230.i.i825, 65535
   %3226 = icmp samesign ult i32 %3225, 32768
   br i1 %3226, label %ra_evict.exit.i828, label %3227
 
 3227:                                             ; preds = %3210
   %3228 = load i32, ptr %154, align 8, !tbaa !80
   %3229 = and i32 %3228, 49135
-  %.not201.i.i826 = icmp eq i32 %3229, 0
-  br i1 %.not201.i.i826, label %ra_evict.exit.i828, label %3230
+  %.not200.i.i826 = icmp eq i32 %3229, 0
+  br i1 %.not200.i.i826, label %ra_evict.exit.i828, label %3230
 
 3230:                                             ; preds = %3227
   %3231 = load ptr, ptr %143, align 8, !tbaa !68
@@ -6695,8 +6695,8 @@ asm_tobit.exit:                                   ; preds = %3151, %3167
   %3236 = zext nneg i8 %3235 to i32
   %3237 = shl nuw i32 1, %3236
   %3238 = and i32 %3237, %3228
-  %.not202.i.i827 = icmp eq i32 %3238, 0
-  br i1 %.not202.i.i827, label %3239, label %ra_evict.exit.i828
+  %.not201.i.i827 = icmp eq i32 %3238, 0
+  br i1 %.not201.i.i827, label %3239, label %ra_evict.exit.i828
 
 3239:                                             ; preds = %3230
   %3240 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %3229, i1 true)
@@ -6847,40 +6847,40 @@ ra_dest.exit.i811:                                ; preds = %3258, %3255
 3320:                                             ; preds = %._crit_edge.i.i750
   %3321 = load i32, ptr %29, align 8, !tbaa !21
   %3322 = load i32, ptr %175, align 4, !tbaa !21
-  %spec.select203.i.i781 = call i32 @llvm.umin.i32(i32 %3322, i32 %3321)
+  %spec.select202.i.i781 = call i32 @llvm.umin.i32(i32 %3322, i32 %3321)
   %3323 = load i32, ptr %176, align 8, !tbaa !21
-  %spec.select204.i.i782 = call i32 @llvm.umin.i32(i32 %3323, i32 %spec.select203.i.i781)
+  %spec.select203.i.i782 = call i32 @llvm.umin.i32(i32 %3323, i32 %spec.select202.i.i781)
   %3324 = load i32, ptr %177, align 4, !tbaa !21
-  %spec.select205.i.i783 = call i32 @llvm.umin.i32(i32 %3324, i32 %spec.select204.i.i782)
+  %spec.select204.i.i783 = call i32 @llvm.umin.i32(i32 %3324, i32 %spec.select203.i.i782)
   %3325 = load i32, ptr %178, align 4, !tbaa !21
-  %spec.select206.i.i784 = call i32 @llvm.umin.i32(i32 %3325, i32 %spec.select205.i.i783)
+  %spec.select205.i.i784 = call i32 @llvm.umin.i32(i32 %3325, i32 %spec.select204.i.i783)
   %3326 = load i32, ptr %179, align 8, !tbaa !21
-  %spec.select207.i.i785 = call i32 @llvm.umin.i32(i32 %3326, i32 %spec.select206.i.i784)
+  %spec.select206.i.i785 = call i32 @llvm.umin.i32(i32 %3326, i32 %spec.select205.i.i784)
   %3327 = load i32, ptr %180, align 4, !tbaa !21
-  %spec.select208.i.i786 = call i32 @llvm.umin.i32(i32 %3327, i32 %spec.select207.i.i785)
+  %spec.select207.i.i786 = call i32 @llvm.umin.i32(i32 %3327, i32 %spec.select206.i.i785)
   %3328 = load i32, ptr %181, align 8, !tbaa !21
-  %spec.select209.i.i787 = call i32 @llvm.umin.i32(i32 %3328, i32 %spec.select208.i.i786)
+  %spec.select208.i.i787 = call i32 @llvm.umin.i32(i32 %3328, i32 %spec.select207.i.i786)
   %3329 = load i32, ptr %182, align 4, !tbaa !21
-  %spec.select210.i.i788 = call i32 @llvm.umin.i32(i32 %3329, i32 %spec.select209.i.i787)
+  %spec.select209.i.i788 = call i32 @llvm.umin.i32(i32 %3329, i32 %spec.select208.i.i787)
   %3330 = load i32, ptr %183, align 8, !tbaa !21
-  %spec.select211.i.i789 = call i32 @llvm.umin.i32(i32 %3330, i32 %spec.select210.i.i788)
+  %spec.select210.i.i789 = call i32 @llvm.umin.i32(i32 %3330, i32 %spec.select209.i.i788)
   %3331 = load i32, ptr %184, align 4, !tbaa !21
-  %spec.select212.i.i790 = call i32 @llvm.umin.i32(i32 %3331, i32 %spec.select211.i.i789)
+  %spec.select211.i.i790 = call i32 @llvm.umin.i32(i32 %3331, i32 %spec.select210.i.i789)
   %3332 = load i32, ptr %185, align 8, !tbaa !21
-  %spec.select213.i.i791 = call i32 @llvm.umin.i32(i32 %3332, i32 %spec.select212.i.i790)
+  %spec.select212.i.i791 = call i32 @llvm.umin.i32(i32 %3332, i32 %spec.select211.i.i790)
   %3333 = load i32, ptr %186, align 4, !tbaa !21
-  %spec.select214.i.i792 = call i32 @llvm.umin.i32(i32 %3333, i32 %spec.select213.i.i791)
+  %spec.select213.i.i792 = call i32 @llvm.umin.i32(i32 %3333, i32 %spec.select212.i.i791)
   %3334 = load i32, ptr %187, align 4, !tbaa !21
-  %spec.select231.i.i793 = call i32 @llvm.umin.i32(i32 %3334, i32 %spec.select214.i.i792)
-  %3335 = and i32 %spec.select231.i.i793, 65535
+  %spec.select230.i.i793 = call i32 @llvm.umin.i32(i32 %3334, i32 %spec.select213.i.i792)
+  %3335 = and i32 %spec.select230.i.i793, 65535
   %3336 = icmp samesign ult i32 %3335, 32768
   br i1 %3336, label %ra_evict.exit.i796, label %3337
 
 3337:                                             ; preds = %3320
   %3338 = load i32, ptr %154, align 8, !tbaa !80
   %3339 = and i32 %3338, 49135
-  %.not201.i.i794 = icmp eq i32 %3339, 0
-  br i1 %.not201.i.i794, label %ra_evict.exit.i796, label %3340
+  %.not200.i.i794 = icmp eq i32 %3339, 0
+  br i1 %.not200.i.i794, label %ra_evict.exit.i796, label %3340
 
 3340:                                             ; preds = %3337
   %3341 = zext nneg i32 %3335 to i64
@@ -6890,8 +6890,8 @@ ra_dest.exit.i811:                                ; preds = %3258, %3255
   %3345 = zext nneg i8 %3344 to i32
   %3346 = shl nuw i32 1, %3345
   %3347 = and i32 %3346, %3338
-  %.not202.i.i795 = icmp eq i32 %3347, 0
-  br i1 %.not202.i.i795, label %3348, label %ra_evict.exit.i796
+  %.not201.i.i795 = icmp eq i32 %3347, 0
+  br i1 %.not201.i.i795, label %3348, label %ra_evict.exit.i796
 
 3348:                                             ; preds = %3340
   %3349 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %3339, i1 true)
@@ -7467,40 +7467,40 @@ asm_newref.exit:                                  ; preds = %3600, %3603
 3634:                                             ; preds = %._crit_edge.i.i.i
   %3635 = load i32, ptr %29, align 8, !tbaa !21
   %3636 = load i32, ptr %175, align 4, !tbaa !21
-  %spec.select203.i.i.i = call i32 @llvm.umin.i32(i32 %3636, i32 %3635)
+  %spec.select202.i.i.i = call i32 @llvm.umin.i32(i32 %3636, i32 %3635)
   %3637 = load i32, ptr %176, align 8, !tbaa !21
-  %spec.select204.i.i.i = call i32 @llvm.umin.i32(i32 %3637, i32 %spec.select203.i.i.i)
+  %spec.select203.i.i.i = call i32 @llvm.umin.i32(i32 %3637, i32 %spec.select202.i.i.i)
   %3638 = load i32, ptr %177, align 4, !tbaa !21
-  %spec.select205.i.i.i = call i32 @llvm.umin.i32(i32 %3638, i32 %spec.select204.i.i.i)
+  %spec.select204.i.i.i = call i32 @llvm.umin.i32(i32 %3638, i32 %spec.select203.i.i.i)
   %3639 = load i32, ptr %178, align 4, !tbaa !21
-  %spec.select206.i.i.i = call i32 @llvm.umin.i32(i32 %3639, i32 %spec.select205.i.i.i)
+  %spec.select205.i.i.i = call i32 @llvm.umin.i32(i32 %3639, i32 %spec.select204.i.i.i)
   %3640 = load i32, ptr %179, align 8, !tbaa !21
-  %spec.select207.i.i.i = call i32 @llvm.umin.i32(i32 %3640, i32 %spec.select206.i.i.i)
+  %spec.select206.i.i.i = call i32 @llvm.umin.i32(i32 %3640, i32 %spec.select205.i.i.i)
   %3641 = load i32, ptr %180, align 4, !tbaa !21
-  %spec.select208.i.i.i = call i32 @llvm.umin.i32(i32 %3641, i32 %spec.select207.i.i.i)
+  %spec.select207.i.i.i = call i32 @llvm.umin.i32(i32 %3641, i32 %spec.select206.i.i.i)
   %3642 = load i32, ptr %181, align 8, !tbaa !21
-  %spec.select209.i.i.i = call i32 @llvm.umin.i32(i32 %3642, i32 %spec.select208.i.i.i)
+  %spec.select208.i.i.i = call i32 @llvm.umin.i32(i32 %3642, i32 %spec.select207.i.i.i)
   %3643 = load i32, ptr %182, align 4, !tbaa !21
-  %spec.select210.i.i.i = call i32 @llvm.umin.i32(i32 %3643, i32 %spec.select209.i.i.i)
+  %spec.select209.i.i.i = call i32 @llvm.umin.i32(i32 %3643, i32 %spec.select208.i.i.i)
   %3644 = load i32, ptr %183, align 8, !tbaa !21
-  %spec.select211.i.i.i = call i32 @llvm.umin.i32(i32 %3644, i32 %spec.select210.i.i.i)
+  %spec.select210.i.i.i = call i32 @llvm.umin.i32(i32 %3644, i32 %spec.select209.i.i.i)
   %3645 = load i32, ptr %184, align 4, !tbaa !21
-  %spec.select212.i.i.i = call i32 @llvm.umin.i32(i32 %3645, i32 %spec.select211.i.i.i)
+  %spec.select211.i.i.i = call i32 @llvm.umin.i32(i32 %3645, i32 %spec.select210.i.i.i)
   %3646 = load i32, ptr %185, align 8, !tbaa !21
-  %spec.select213.i.i.i = call i32 @llvm.umin.i32(i32 %3646, i32 %spec.select212.i.i.i)
+  %spec.select212.i.i.i = call i32 @llvm.umin.i32(i32 %3646, i32 %spec.select211.i.i.i)
   %3647 = load i32, ptr %186, align 4, !tbaa !21
-  %spec.select214.i.i.i = call i32 @llvm.umin.i32(i32 %3647, i32 %spec.select213.i.i.i)
+  %spec.select213.i.i.i = call i32 @llvm.umin.i32(i32 %3647, i32 %spec.select212.i.i.i)
   %3648 = load i32, ptr %187, align 4, !tbaa !21
-  %spec.select231.i.i.i = call i32 @llvm.umin.i32(i32 %3648, i32 %spec.select214.i.i.i)
-  %3649 = and i32 %spec.select231.i.i.i, 65535
+  %spec.select230.i.i.i = call i32 @llvm.umin.i32(i32 %3648, i32 %spec.select213.i.i.i)
+  %3649 = and i32 %spec.select230.i.i.i, 65535
   %3650 = icmp samesign ult i32 %3649, 32768
   br i1 %3650, label %ra_evict.exit.i.i, label %3651
 
 3651:                                             ; preds = %3634
   %3652 = load i32, ptr %154, align 8, !tbaa !80
   %3653 = and i32 %3652, 49135
-  %.not201.i.i.i = icmp eq i32 %3653, 0
-  br i1 %.not201.i.i.i, label %ra_evict.exit.i.i, label %3654
+  %.not200.i.i.i = icmp eq i32 %3653, 0
+  br i1 %.not200.i.i.i, label %ra_evict.exit.i.i, label %3654
 
 3654:                                             ; preds = %3651
   %3655 = load ptr, ptr %143, align 8, !tbaa !68
@@ -7511,8 +7511,8 @@ asm_newref.exit:                                  ; preds = %3600, %3603
   %3660 = zext nneg i8 %3659 to i32
   %3661 = shl nuw i32 1, %3660
   %3662 = and i32 %3661, %3652
-  %.not202.i.i.i = icmp eq i32 %3662, 0
-  br i1 %.not202.i.i.i, label %3663, label %ra_evict.exit.i.i
+  %.not201.i.i.i = icmp eq i32 %3662, 0
+  br i1 %.not201.i.i.i, label %3663, label %ra_evict.exit.i.i
 
 3663:                                             ; preds = %3654
   %3664 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %3653, i1 true)
@@ -7598,40 +7598,40 @@ ra_dest.exit.i.i:                                 ; preds = %3682, %3679
 3708:                                             ; preds = %3705
   %3709 = load i32, ptr %29, align 8, !tbaa !21
   %3710 = load i32, ptr %175, align 4, !tbaa !21
-  %spec.select203.i81.i.i = call i32 @llvm.umin.i32(i32 %3710, i32 %3709)
+  %spec.select202.i81.i.i = call i32 @llvm.umin.i32(i32 %3710, i32 %3709)
   %3711 = load i32, ptr %176, align 8, !tbaa !21
-  %spec.select204.i82.i.i = call i32 @llvm.umin.i32(i32 %3711, i32 %spec.select203.i81.i.i)
+  %spec.select203.i82.i.i = call i32 @llvm.umin.i32(i32 %3711, i32 %spec.select202.i81.i.i)
   %3712 = load i32, ptr %177, align 4, !tbaa !21
-  %spec.select205.i83.i.i = call i32 @llvm.umin.i32(i32 %3712, i32 %spec.select204.i82.i.i)
+  %spec.select204.i83.i.i = call i32 @llvm.umin.i32(i32 %3712, i32 %spec.select203.i82.i.i)
   %3713 = load i32, ptr %178, align 4, !tbaa !21
-  %spec.select206.i84.i.i = call i32 @llvm.umin.i32(i32 %3713, i32 %spec.select205.i83.i.i)
+  %spec.select205.i84.i.i = call i32 @llvm.umin.i32(i32 %3713, i32 %spec.select204.i83.i.i)
   %3714 = load i32, ptr %179, align 8, !tbaa !21
-  %spec.select207.i85.i.i = call i32 @llvm.umin.i32(i32 %3714, i32 %spec.select206.i84.i.i)
+  %spec.select206.i85.i.i = call i32 @llvm.umin.i32(i32 %3714, i32 %spec.select205.i84.i.i)
   %3715 = load i32, ptr %180, align 4, !tbaa !21
-  %spec.select208.i86.i.i = call i32 @llvm.umin.i32(i32 %3715, i32 %spec.select207.i85.i.i)
+  %spec.select207.i86.i.i = call i32 @llvm.umin.i32(i32 %3715, i32 %spec.select206.i85.i.i)
   %3716 = load i32, ptr %181, align 8, !tbaa !21
-  %spec.select209.i87.i.i = call i32 @llvm.umin.i32(i32 %3716, i32 %spec.select208.i86.i.i)
+  %spec.select208.i87.i.i = call i32 @llvm.umin.i32(i32 %3716, i32 %spec.select207.i86.i.i)
   %3717 = load i32, ptr %182, align 4, !tbaa !21
-  %spec.select210.i88.i.i = call i32 @llvm.umin.i32(i32 %3717, i32 %spec.select209.i87.i.i)
+  %spec.select209.i88.i.i = call i32 @llvm.umin.i32(i32 %3717, i32 %spec.select208.i87.i.i)
   %3718 = load i32, ptr %183, align 8, !tbaa !21
-  %spec.select211.i89.i.i = call i32 @llvm.umin.i32(i32 %3718, i32 %spec.select210.i88.i.i)
+  %spec.select210.i89.i.i = call i32 @llvm.umin.i32(i32 %3718, i32 %spec.select209.i88.i.i)
   %3719 = load i32, ptr %184, align 4, !tbaa !21
-  %spec.select212.i90.i.i = call i32 @llvm.umin.i32(i32 %3719, i32 %spec.select211.i89.i.i)
+  %spec.select211.i90.i.i = call i32 @llvm.umin.i32(i32 %3719, i32 %spec.select210.i89.i.i)
   %3720 = load i32, ptr %185, align 8, !tbaa !21
-  %spec.select213.i91.i.i = call i32 @llvm.umin.i32(i32 %3720, i32 %spec.select212.i90.i.i)
+  %spec.select212.i91.i.i = call i32 @llvm.umin.i32(i32 %3720, i32 %spec.select211.i90.i.i)
   %3721 = load i32, ptr %186, align 4, !tbaa !21
-  %spec.select214.i92.i.i = call i32 @llvm.umin.i32(i32 %3721, i32 %spec.select213.i91.i.i)
+  %spec.select213.i92.i.i = call i32 @llvm.umin.i32(i32 %3721, i32 %spec.select212.i91.i.i)
   %3722 = load i32, ptr %187, align 4, !tbaa !21
-  %spec.select231.i94.i.i = call i32 @llvm.umin.i32(i32 %3722, i32 %spec.select214.i92.i.i)
-  %3723 = and i32 %spec.select231.i94.i.i, 65535
+  %spec.select230.i94.i.i = call i32 @llvm.umin.i32(i32 %3722, i32 %spec.select213.i92.i.i)
+  %3723 = and i32 %spec.select230.i94.i.i, 65535
   %3724 = icmp samesign ult i32 %3723, 32768
   br i1 %3724, label %ra_evict.exit98.i.i, label %3725
 
 3725:                                             ; preds = %3708
   %3726 = load i32, ptr %154, align 8, !tbaa !80
   %3727 = and i32 %3726, 49135
-  %.not201.i95.i.i = icmp eq i32 %3727, 0
-  br i1 %.not201.i95.i.i, label %ra_evict.exit98.i.i, label %3728
+  %.not200.i95.i.i = icmp eq i32 %3727, 0
+  br i1 %.not200.i95.i.i, label %ra_evict.exit98.i.i, label %3728
 
 3728:                                             ; preds = %3725
   %3729 = load ptr, ptr %143, align 8, !tbaa !68
@@ -7642,8 +7642,8 @@ ra_dest.exit.i.i:                                 ; preds = %3682, %3679
   %3734 = zext nneg i8 %3733 to i32
   %3735 = shl nuw i32 1, %3734
   %3736 = and i32 %3735, %3726
-  %.not202.i96.i.i = icmp eq i32 %3736, 0
-  br i1 %.not202.i96.i.i, label %3737, label %ra_evict.exit98.i.i
+  %.not201.i96.i.i = icmp eq i32 %3736, 0
+  br i1 %.not201.i96.i.i, label %3737, label %ra_evict.exit98.i.i
 
 3737:                                             ; preds = %3728
   %3738 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %3727, i1 true)
@@ -8068,40 +8068,40 @@ emit_rmro.exit78.i.i:                             ; preds = %3921, %3919, %3917,
 3956:                                             ; preds = %._crit_edge.i.i717
   %3957 = load i32, ptr %29, align 8, !tbaa !21
   %3958 = load i32, ptr %175, align 4, !tbaa !21
-  %spec.select203.i.i732 = call i32 @llvm.umin.i32(i32 %3958, i32 %3957)
+  %spec.select202.i.i732 = call i32 @llvm.umin.i32(i32 %3958, i32 %3957)
   %3959 = load i32, ptr %176, align 8, !tbaa !21
-  %spec.select204.i.i733 = call i32 @llvm.umin.i32(i32 %3959, i32 %spec.select203.i.i732)
+  %spec.select203.i.i733 = call i32 @llvm.umin.i32(i32 %3959, i32 %spec.select202.i.i732)
   %3960 = load i32, ptr %177, align 4, !tbaa !21
-  %spec.select205.i.i734 = call i32 @llvm.umin.i32(i32 %3960, i32 %spec.select204.i.i733)
+  %spec.select204.i.i734 = call i32 @llvm.umin.i32(i32 %3960, i32 %spec.select203.i.i733)
   %3961 = load i32, ptr %178, align 4, !tbaa !21
-  %spec.select206.i.i735 = call i32 @llvm.umin.i32(i32 %3961, i32 %spec.select205.i.i734)
+  %spec.select205.i.i735 = call i32 @llvm.umin.i32(i32 %3961, i32 %spec.select204.i.i734)
   %3962 = load i32, ptr %179, align 8, !tbaa !21
-  %spec.select207.i.i736 = call i32 @llvm.umin.i32(i32 %3962, i32 %spec.select206.i.i735)
+  %spec.select206.i.i736 = call i32 @llvm.umin.i32(i32 %3962, i32 %spec.select205.i.i735)
   %3963 = load i32, ptr %180, align 4, !tbaa !21
-  %spec.select208.i.i737 = call i32 @llvm.umin.i32(i32 %3963, i32 %spec.select207.i.i736)
+  %spec.select207.i.i737 = call i32 @llvm.umin.i32(i32 %3963, i32 %spec.select206.i.i736)
   %3964 = load i32, ptr %181, align 8, !tbaa !21
-  %spec.select209.i.i738 = call i32 @llvm.umin.i32(i32 %3964, i32 %spec.select208.i.i737)
+  %spec.select208.i.i738 = call i32 @llvm.umin.i32(i32 %3964, i32 %spec.select207.i.i737)
   %3965 = load i32, ptr %182, align 4, !tbaa !21
-  %spec.select210.i.i739 = call i32 @llvm.umin.i32(i32 %3965, i32 %spec.select209.i.i738)
+  %spec.select209.i.i739 = call i32 @llvm.umin.i32(i32 %3965, i32 %spec.select208.i.i738)
   %3966 = load i32, ptr %183, align 8, !tbaa !21
-  %spec.select211.i.i740 = call i32 @llvm.umin.i32(i32 %3966, i32 %spec.select210.i.i739)
+  %spec.select210.i.i740 = call i32 @llvm.umin.i32(i32 %3966, i32 %spec.select209.i.i739)
   %3967 = load i32, ptr %184, align 4, !tbaa !21
-  %spec.select212.i.i741 = call i32 @llvm.umin.i32(i32 %3967, i32 %spec.select211.i.i740)
+  %spec.select211.i.i741 = call i32 @llvm.umin.i32(i32 %3967, i32 %spec.select210.i.i740)
   %3968 = load i32, ptr %185, align 8, !tbaa !21
-  %spec.select213.i.i742 = call i32 @llvm.umin.i32(i32 %3968, i32 %spec.select212.i.i741)
+  %spec.select212.i.i742 = call i32 @llvm.umin.i32(i32 %3968, i32 %spec.select211.i.i741)
   %3969 = load i32, ptr %186, align 4, !tbaa !21
-  %spec.select214.i.i743 = call i32 @llvm.umin.i32(i32 %3969, i32 %spec.select213.i.i742)
+  %spec.select213.i.i743 = call i32 @llvm.umin.i32(i32 %3969, i32 %spec.select212.i.i742)
   %3970 = load i32, ptr %187, align 4, !tbaa !21
-  %spec.select231.i.i744 = call i32 @llvm.umin.i32(i32 %3970, i32 %spec.select214.i.i743)
-  %3971 = and i32 %spec.select231.i.i744, 65535
+  %spec.select230.i.i744 = call i32 @llvm.umin.i32(i32 %3970, i32 %spec.select213.i.i743)
+  %3971 = and i32 %spec.select230.i.i744, 65535
   %3972 = icmp samesign ult i32 %3971, 32768
   br i1 %3972, label %ra_evict.exit.i747, label %3973
 
 3973:                                             ; preds = %3956
   %3974 = load i32, ptr %154, align 8, !tbaa !80
   %3975 = and i32 %3974, 49135
-  %.not201.i.i745 = icmp eq i32 %3975, 0
-  br i1 %.not201.i.i745, label %ra_evict.exit.i747, label %3976
+  %.not200.i.i745 = icmp eq i32 %3975, 0
+  br i1 %.not200.i.i745, label %ra_evict.exit.i747, label %3976
 
 3976:                                             ; preds = %3973
   %3977 = load ptr, ptr %143, align 8, !tbaa !68
@@ -8112,8 +8112,8 @@ emit_rmro.exit78.i.i:                             ; preds = %3921, %3919, %3917,
   %3982 = zext nneg i8 %3981 to i32
   %3983 = shl nuw i32 1, %3982
   %3984 = and i32 %3983, %3974
-  %.not202.i.i746 = icmp eq i32 %3984, 0
-  br i1 %.not202.i.i746, label %3985, label %ra_evict.exit.i747
+  %.not201.i.i746 = icmp eq i32 %3984, 0
+  br i1 %.not201.i.i746, label %3985, label %ra_evict.exit.i747
 
 3985:                                             ; preds = %3976
   %3986 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %3975, i1 true)
@@ -8293,40 +8293,40 @@ asm_fref.exit:                                    ; preds = %4009, %4025, %4041,
 4072:                                             ; preds = %._crit_edge.i.i686
   %4073 = load i32, ptr %29, align 8, !tbaa !21
   %4074 = load i32, ptr %175, align 4, !tbaa !21
-  %spec.select203.i.i697 = call i32 @llvm.umin.i32(i32 %4074, i32 %4073)
+  %spec.select202.i.i697 = call i32 @llvm.umin.i32(i32 %4074, i32 %4073)
   %4075 = load i32, ptr %176, align 8, !tbaa !21
-  %spec.select204.i.i698 = call i32 @llvm.umin.i32(i32 %4075, i32 %spec.select203.i.i697)
+  %spec.select203.i.i698 = call i32 @llvm.umin.i32(i32 %4075, i32 %spec.select202.i.i697)
   %4076 = load i32, ptr %177, align 4, !tbaa !21
-  %spec.select205.i.i699 = call i32 @llvm.umin.i32(i32 %4076, i32 %spec.select204.i.i698)
+  %spec.select204.i.i699 = call i32 @llvm.umin.i32(i32 %4076, i32 %spec.select203.i.i698)
   %4077 = load i32, ptr %178, align 4, !tbaa !21
-  %spec.select206.i.i700 = call i32 @llvm.umin.i32(i32 %4077, i32 %spec.select205.i.i699)
+  %spec.select205.i.i700 = call i32 @llvm.umin.i32(i32 %4077, i32 %spec.select204.i.i699)
   %4078 = load i32, ptr %179, align 8, !tbaa !21
-  %spec.select207.i.i701 = call i32 @llvm.umin.i32(i32 %4078, i32 %spec.select206.i.i700)
+  %spec.select206.i.i701 = call i32 @llvm.umin.i32(i32 %4078, i32 %spec.select205.i.i700)
   %4079 = load i32, ptr %180, align 4, !tbaa !21
-  %spec.select208.i.i702 = call i32 @llvm.umin.i32(i32 %4079, i32 %spec.select207.i.i701)
+  %spec.select207.i.i702 = call i32 @llvm.umin.i32(i32 %4079, i32 %spec.select206.i.i701)
   %4080 = load i32, ptr %181, align 8, !tbaa !21
-  %spec.select209.i.i703 = call i32 @llvm.umin.i32(i32 %4080, i32 %spec.select208.i.i702)
+  %spec.select208.i.i703 = call i32 @llvm.umin.i32(i32 %4080, i32 %spec.select207.i.i702)
   %4081 = load i32, ptr %182, align 4, !tbaa !21
-  %spec.select210.i.i704 = call i32 @llvm.umin.i32(i32 %4081, i32 %spec.select209.i.i703)
+  %spec.select209.i.i704 = call i32 @llvm.umin.i32(i32 %4081, i32 %spec.select208.i.i703)
   %4082 = load i32, ptr %183, align 8, !tbaa !21
-  %spec.select211.i.i705 = call i32 @llvm.umin.i32(i32 %4082, i32 %spec.select210.i.i704)
+  %spec.select210.i.i705 = call i32 @llvm.umin.i32(i32 %4082, i32 %spec.select209.i.i704)
   %4083 = load i32, ptr %184, align 4, !tbaa !21
-  %spec.select212.i.i706 = call i32 @llvm.umin.i32(i32 %4083, i32 %spec.select211.i.i705)
+  %spec.select211.i.i706 = call i32 @llvm.umin.i32(i32 %4083, i32 %spec.select210.i.i705)
   %4084 = load i32, ptr %185, align 8, !tbaa !21
-  %spec.select213.i.i707 = call i32 @llvm.umin.i32(i32 %4084, i32 %spec.select212.i.i706)
+  %spec.select212.i.i707 = call i32 @llvm.umin.i32(i32 %4084, i32 %spec.select211.i.i706)
   %4085 = load i32, ptr %186, align 4, !tbaa !21
-  %spec.select214.i.i708 = call i32 @llvm.umin.i32(i32 %4085, i32 %spec.select213.i.i707)
+  %spec.select213.i.i708 = call i32 @llvm.umin.i32(i32 %4085, i32 %spec.select212.i.i707)
   %4086 = load i32, ptr %187, align 4, !tbaa !21
-  %spec.select231.i.i709 = call i32 @llvm.umin.i32(i32 %4086, i32 %spec.select214.i.i708)
-  %4087 = and i32 %spec.select231.i.i709, 65535
+  %spec.select230.i.i709 = call i32 @llvm.umin.i32(i32 %4086, i32 %spec.select213.i.i708)
+  %4087 = and i32 %spec.select230.i.i709, 65535
   %4088 = icmp samesign ult i32 %4087, 32768
   br i1 %4088, label %ra_evict.exit.i712, label %4089
 
 4089:                                             ; preds = %4072
   %4090 = load i32, ptr %154, align 8, !tbaa !80
   %4091 = and i32 %4090, 49135
-  %.not201.i.i710 = icmp eq i32 %4091, 0
-  br i1 %.not201.i.i710, label %ra_evict.exit.i712, label %4092
+  %.not200.i.i710 = icmp eq i32 %4091, 0
+  br i1 %.not200.i.i710, label %ra_evict.exit.i712, label %4092
 
 4092:                                             ; preds = %4089
   %4093 = load ptr, ptr %143, align 8, !tbaa !68
@@ -8337,8 +8337,8 @@ asm_fref.exit:                                    ; preds = %4009, %4025, %4041,
   %4098 = zext nneg i8 %4097 to i32
   %4099 = shl nuw i32 1, %4098
   %4100 = and i32 %4099, %4090
-  %.not202.i.i711 = icmp eq i32 %4100, 0
-  br i1 %.not202.i.i711, label %4101, label %ra_evict.exit.i712
+  %.not201.i.i711 = icmp eq i32 %4100, 0
+  br i1 %.not201.i.i711, label %4101, label %ra_evict.exit.i712
 
 4101:                                             ; preds = %4092
   %4102 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %4091, i1 true)
@@ -8435,40 +8435,40 @@ asm_tmpref.exit:                                  ; preds = %4117, %4120
 4142:                                             ; preds = %._crit_edge.i.i646
   %4143 = load i32, ptr %29, align 8, !tbaa !21
   %4144 = load i32, ptr %175, align 4, !tbaa !21
-  %spec.select203.i.i666 = call i32 @llvm.umin.i32(i32 %4144, i32 %4143)
+  %spec.select202.i.i666 = call i32 @llvm.umin.i32(i32 %4144, i32 %4143)
   %4145 = load i32, ptr %176, align 8, !tbaa !21
-  %spec.select204.i.i667 = call i32 @llvm.umin.i32(i32 %4145, i32 %spec.select203.i.i666)
+  %spec.select203.i.i667 = call i32 @llvm.umin.i32(i32 %4145, i32 %spec.select202.i.i666)
   %4146 = load i32, ptr %177, align 4, !tbaa !21
-  %spec.select205.i.i668 = call i32 @llvm.umin.i32(i32 %4146, i32 %spec.select204.i.i667)
+  %spec.select204.i.i668 = call i32 @llvm.umin.i32(i32 %4146, i32 %spec.select203.i.i667)
   %4147 = load i32, ptr %178, align 4, !tbaa !21
-  %spec.select206.i.i669 = call i32 @llvm.umin.i32(i32 %4147, i32 %spec.select205.i.i668)
+  %spec.select205.i.i669 = call i32 @llvm.umin.i32(i32 %4147, i32 %spec.select204.i.i668)
   %4148 = load i32, ptr %179, align 8, !tbaa !21
-  %spec.select207.i.i670 = call i32 @llvm.umin.i32(i32 %4148, i32 %spec.select206.i.i669)
+  %spec.select206.i.i670 = call i32 @llvm.umin.i32(i32 %4148, i32 %spec.select205.i.i669)
   %4149 = load i32, ptr %180, align 4, !tbaa !21
-  %spec.select208.i.i671 = call i32 @llvm.umin.i32(i32 %4149, i32 %spec.select207.i.i670)
+  %spec.select207.i.i671 = call i32 @llvm.umin.i32(i32 %4149, i32 %spec.select206.i.i670)
   %4150 = load i32, ptr %181, align 8, !tbaa !21
-  %spec.select209.i.i672 = call i32 @llvm.umin.i32(i32 %4150, i32 %spec.select208.i.i671)
+  %spec.select208.i.i672 = call i32 @llvm.umin.i32(i32 %4150, i32 %spec.select207.i.i671)
   %4151 = load i32, ptr %182, align 4, !tbaa !21
-  %spec.select210.i.i673 = call i32 @llvm.umin.i32(i32 %4151, i32 %spec.select209.i.i672)
+  %spec.select209.i.i673 = call i32 @llvm.umin.i32(i32 %4151, i32 %spec.select208.i.i672)
   %4152 = load i32, ptr %183, align 8, !tbaa !21
-  %spec.select211.i.i674 = call i32 @llvm.umin.i32(i32 %4152, i32 %spec.select210.i.i673)
+  %spec.select210.i.i674 = call i32 @llvm.umin.i32(i32 %4152, i32 %spec.select209.i.i673)
   %4153 = load i32, ptr %184, align 4, !tbaa !21
-  %spec.select212.i.i675 = call i32 @llvm.umin.i32(i32 %4153, i32 %spec.select211.i.i674)
+  %spec.select211.i.i675 = call i32 @llvm.umin.i32(i32 %4153, i32 %spec.select210.i.i674)
   %4154 = load i32, ptr %185, align 8, !tbaa !21
-  %spec.select213.i.i676 = call i32 @llvm.umin.i32(i32 %4154, i32 %spec.select212.i.i675)
+  %spec.select212.i.i676 = call i32 @llvm.umin.i32(i32 %4154, i32 %spec.select211.i.i675)
   %4155 = load i32, ptr %186, align 4, !tbaa !21
-  %spec.select214.i.i677 = call i32 @llvm.umin.i32(i32 %4155, i32 %spec.select213.i.i676)
+  %spec.select213.i.i677 = call i32 @llvm.umin.i32(i32 %4155, i32 %spec.select212.i.i676)
   %4156 = load i32, ptr %187, align 4, !tbaa !21
-  %spec.select231.i.i678 = call i32 @llvm.umin.i32(i32 %4156, i32 %spec.select214.i.i677)
-  %4157 = and i32 %spec.select231.i.i678, 65535
+  %spec.select230.i.i678 = call i32 @llvm.umin.i32(i32 %4156, i32 %spec.select213.i.i677)
+  %4157 = and i32 %spec.select230.i.i678, 65535
   %4158 = icmp samesign ult i32 %4157, 32768
   br i1 %4158, label %ra_evict.exit.i681, label %4159
 
 4159:                                             ; preds = %4142
   %4160 = load i32, ptr %154, align 8, !tbaa !80
   %4161 = and i32 %4160, 49135
-  %.not201.i.i679 = icmp eq i32 %4161, 0
-  br i1 %.not201.i.i679, label %ra_evict.exit.i681, label %4162
+  %.not200.i.i679 = icmp eq i32 %4161, 0
+  br i1 %.not200.i.i679, label %ra_evict.exit.i681, label %4162
 
 4162:                                             ; preds = %4159
   %4163 = load ptr, ptr %143, align 8, !tbaa !68
@@ -8479,8 +8479,8 @@ asm_tmpref.exit:                                  ; preds = %4117, %4120
   %4168 = zext nneg i8 %4167 to i32
   %4169 = shl nuw i32 1, %4168
   %4170 = and i32 %4169, %4160
-  %.not202.i.i680 = icmp eq i32 %4170, 0
-  br i1 %.not202.i.i680, label %4171, label %ra_evict.exit.i681
+  %.not201.i.i680 = icmp eq i32 %4170, 0
+  br i1 %.not201.i.i680, label %4171, label %ra_evict.exit.i681
 
 4171:                                             ; preds = %4162
   %4172 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %4161, i1 true)
@@ -8782,40 +8782,40 @@ emit_gri.exit.i:                                  ; preds = %4288, %4285
 4317:                                             ; preds = %._crit_edge.i.i616
   %4318 = load i32, ptr %29, align 8, !tbaa !21
   %4319 = load i32, ptr %175, align 4, !tbaa !21
-  %spec.select203.i.i627 = call i32 @llvm.umin.i32(i32 %4319, i32 %4318)
+  %spec.select202.i.i627 = call i32 @llvm.umin.i32(i32 %4319, i32 %4318)
   %4320 = load i32, ptr %176, align 8, !tbaa !21
-  %spec.select204.i.i628 = call i32 @llvm.umin.i32(i32 %4320, i32 %spec.select203.i.i627)
+  %spec.select203.i.i628 = call i32 @llvm.umin.i32(i32 %4320, i32 %spec.select202.i.i627)
   %4321 = load i32, ptr %177, align 4, !tbaa !21
-  %spec.select205.i.i629 = call i32 @llvm.umin.i32(i32 %4321, i32 %spec.select204.i.i628)
+  %spec.select204.i.i629 = call i32 @llvm.umin.i32(i32 %4321, i32 %spec.select203.i.i628)
   %4322 = load i32, ptr %178, align 4, !tbaa !21
-  %spec.select206.i.i630 = call i32 @llvm.umin.i32(i32 %4322, i32 %spec.select205.i.i629)
+  %spec.select205.i.i630 = call i32 @llvm.umin.i32(i32 %4322, i32 %spec.select204.i.i629)
   %4323 = load i32, ptr %179, align 8, !tbaa !21
-  %spec.select207.i.i631 = call i32 @llvm.umin.i32(i32 %4323, i32 %spec.select206.i.i630)
+  %spec.select206.i.i631 = call i32 @llvm.umin.i32(i32 %4323, i32 %spec.select205.i.i630)
   %4324 = load i32, ptr %180, align 4, !tbaa !21
-  %spec.select208.i.i632 = call i32 @llvm.umin.i32(i32 %4324, i32 %spec.select207.i.i631)
+  %spec.select207.i.i632 = call i32 @llvm.umin.i32(i32 %4324, i32 %spec.select206.i.i631)
   %4325 = load i32, ptr %181, align 8, !tbaa !21
-  %spec.select209.i.i633 = call i32 @llvm.umin.i32(i32 %4325, i32 %spec.select208.i.i632)
+  %spec.select208.i.i633 = call i32 @llvm.umin.i32(i32 %4325, i32 %spec.select207.i.i632)
   %4326 = load i32, ptr %182, align 4, !tbaa !21
-  %spec.select210.i.i634 = call i32 @llvm.umin.i32(i32 %4326, i32 %spec.select209.i.i633)
+  %spec.select209.i.i634 = call i32 @llvm.umin.i32(i32 %4326, i32 %spec.select208.i.i633)
   %4327 = load i32, ptr %183, align 8, !tbaa !21
-  %spec.select211.i.i635 = call i32 @llvm.umin.i32(i32 %4327, i32 %spec.select210.i.i634)
+  %spec.select210.i.i635 = call i32 @llvm.umin.i32(i32 %4327, i32 %spec.select209.i.i634)
   %4328 = load i32, ptr %184, align 4, !tbaa !21
-  %spec.select212.i.i636 = call i32 @llvm.umin.i32(i32 %4328, i32 %spec.select211.i.i635)
+  %spec.select211.i.i636 = call i32 @llvm.umin.i32(i32 %4328, i32 %spec.select210.i.i635)
   %4329 = load i32, ptr %185, align 8, !tbaa !21
-  %spec.select213.i.i637 = call i32 @llvm.umin.i32(i32 %4329, i32 %spec.select212.i.i636)
+  %spec.select212.i.i637 = call i32 @llvm.umin.i32(i32 %4329, i32 %spec.select211.i.i636)
   %4330 = load i32, ptr %186, align 4, !tbaa !21
-  %spec.select214.i.i638 = call i32 @llvm.umin.i32(i32 %4330, i32 %spec.select213.i.i637)
+  %spec.select213.i.i638 = call i32 @llvm.umin.i32(i32 %4330, i32 %spec.select212.i.i637)
   %4331 = load i32, ptr %187, align 4, !tbaa !21
-  %spec.select231.i.i639 = call i32 @llvm.umin.i32(i32 %4331, i32 %spec.select214.i.i638)
-  %4332 = and i32 %spec.select231.i.i639, 65535
+  %spec.select230.i.i639 = call i32 @llvm.umin.i32(i32 %4331, i32 %spec.select213.i.i638)
+  %4332 = and i32 %spec.select230.i.i639, 65535
   %4333 = icmp samesign ult i32 %4332, 32768
   br i1 %4333, label %ra_evict.exit.i642, label %4334
 
 4334:                                             ; preds = %4317
   %4335 = load i32, ptr %154, align 8, !tbaa !80
   %4336 = and i32 %4335, 49135
-  %.not201.i.i640 = icmp eq i32 %4336, 0
-  br i1 %.not201.i.i640, label %ra_evict.exit.i642, label %4337
+  %.not200.i.i640 = icmp eq i32 %4336, 0
+  br i1 %.not200.i.i640, label %ra_evict.exit.i642, label %4337
 
 4337:                                             ; preds = %4334
   %4338 = load ptr, ptr %143, align 8, !tbaa !68
@@ -8826,8 +8826,8 @@ emit_gri.exit.i:                                  ; preds = %4288, %4285
   %4343 = zext nneg i8 %4342 to i32
   %4344 = shl nuw i32 1, %4343
   %4345 = and i32 %4344, %4335
-  %.not202.i.i641 = icmp eq i32 %4345, 0
-  br i1 %.not202.i.i641, label %4346, label %ra_evict.exit.i642
+  %.not201.i.i641 = icmp eq i32 %4345, 0
+  br i1 %.not201.i.i641, label %4346, label %ra_evict.exit.i642
 
 4346:                                             ; preds = %4337
   %4347 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %4336, i1 true)
@@ -9154,40 +9154,40 @@ emit_rr.exit.i.i:                                 ; preds = %4484, %asm_guardcc.
 4510:                                             ; preds = %4507
   %4511 = load i32, ptr %29, align 8, !tbaa !21
   %4512 = load i32, ptr %175, align 4, !tbaa !21
-  %spec.select203.i.i160.i = call i32 @llvm.umin.i32(i32 %4512, i32 %4511)
+  %spec.select202.i.i160.i = call i32 @llvm.umin.i32(i32 %4512, i32 %4511)
   %4513 = load i32, ptr %176, align 8, !tbaa !21
-  %spec.select204.i.i161.i = call i32 @llvm.umin.i32(i32 %4513, i32 %spec.select203.i.i160.i)
+  %spec.select203.i.i161.i = call i32 @llvm.umin.i32(i32 %4513, i32 %spec.select202.i.i160.i)
   %4514 = load i32, ptr %177, align 4, !tbaa !21
-  %spec.select205.i.i162.i = call i32 @llvm.umin.i32(i32 %4514, i32 %spec.select204.i.i161.i)
+  %spec.select204.i.i162.i = call i32 @llvm.umin.i32(i32 %4514, i32 %spec.select203.i.i161.i)
   %4515 = load i32, ptr %178, align 4, !tbaa !21
-  %spec.select206.i.i163.i = call i32 @llvm.umin.i32(i32 %4515, i32 %spec.select205.i.i162.i)
+  %spec.select205.i.i163.i = call i32 @llvm.umin.i32(i32 %4515, i32 %spec.select204.i.i162.i)
   %4516 = load i32, ptr %179, align 8, !tbaa !21
-  %spec.select207.i.i164.i = call i32 @llvm.umin.i32(i32 %4516, i32 %spec.select206.i.i163.i)
+  %spec.select206.i.i164.i = call i32 @llvm.umin.i32(i32 %4516, i32 %spec.select205.i.i163.i)
   %4517 = load i32, ptr %180, align 4, !tbaa !21
-  %spec.select208.i.i165.i = call i32 @llvm.umin.i32(i32 %4517, i32 %spec.select207.i.i164.i)
+  %spec.select207.i.i165.i = call i32 @llvm.umin.i32(i32 %4517, i32 %spec.select206.i.i164.i)
   %4518 = load i32, ptr %181, align 8, !tbaa !21
-  %spec.select209.i.i166.i = call i32 @llvm.umin.i32(i32 %4518, i32 %spec.select208.i.i165.i)
+  %spec.select208.i.i166.i = call i32 @llvm.umin.i32(i32 %4518, i32 %spec.select207.i.i165.i)
   %4519 = load i32, ptr %182, align 4, !tbaa !21
-  %spec.select210.i.i167.i = call i32 @llvm.umin.i32(i32 %4519, i32 %spec.select209.i.i166.i)
+  %spec.select209.i.i167.i = call i32 @llvm.umin.i32(i32 %4519, i32 %spec.select208.i.i166.i)
   %4520 = load i32, ptr %183, align 8, !tbaa !21
-  %spec.select211.i.i168.i = call i32 @llvm.umin.i32(i32 %4520, i32 %spec.select210.i.i167.i)
+  %spec.select210.i.i168.i = call i32 @llvm.umin.i32(i32 %4520, i32 %spec.select209.i.i167.i)
   %4521 = load i32, ptr %184, align 4, !tbaa !21
-  %spec.select212.i.i169.i = call i32 @llvm.umin.i32(i32 %4521, i32 %spec.select211.i.i168.i)
+  %spec.select211.i.i169.i = call i32 @llvm.umin.i32(i32 %4521, i32 %spec.select210.i.i168.i)
   %4522 = load i32, ptr %185, align 8, !tbaa !21
-  %spec.select213.i.i170.i = call i32 @llvm.umin.i32(i32 %4522, i32 %spec.select212.i.i169.i)
+  %spec.select212.i.i170.i = call i32 @llvm.umin.i32(i32 %4522, i32 %spec.select211.i.i169.i)
   %4523 = load i32, ptr %186, align 4, !tbaa !21
-  %spec.select214.i.i171.i = call i32 @llvm.umin.i32(i32 %4523, i32 %spec.select213.i.i170.i)
+  %spec.select213.i.i171.i = call i32 @llvm.umin.i32(i32 %4523, i32 %spec.select212.i.i170.i)
   %4524 = load i32, ptr %187, align 4, !tbaa !21
-  %spec.select231.i.i172.i = call i32 @llvm.umin.i32(i32 %4524, i32 %spec.select214.i.i171.i)
-  %4525 = and i32 %spec.select231.i.i172.i, 65535
+  %spec.select230.i.i172.i = call i32 @llvm.umin.i32(i32 %4524, i32 %spec.select213.i.i171.i)
+  %4525 = and i32 %spec.select230.i.i172.i, 65535
   %4526 = icmp samesign ult i32 %4525, 32768
   br i1 %4526, label %ra_evict.exit.i175.i, label %4527
 
 4527:                                             ; preds = %4510
   %4528 = load i32, ptr %154, align 8, !tbaa !80
   %4529 = and i32 %4528, 49135
-  %.not201.i.i173.i = icmp eq i32 %4529, 0
-  br i1 %.not201.i.i173.i, label %ra_evict.exit.i175.i, label %4530
+  %.not200.i.i173.i = icmp eq i32 %4529, 0
+  br i1 %.not200.i.i173.i, label %ra_evict.exit.i175.i, label %4530
 
 4530:                                             ; preds = %4527
   %4531 = load ptr, ptr %143, align 8, !tbaa !68
@@ -9198,8 +9198,8 @@ emit_rr.exit.i.i:                                 ; preds = %4484, %asm_guardcc.
   %4536 = zext nneg i8 %4535 to i32
   %4537 = shl nuw i32 1, %4536
   %4538 = and i32 %4537, %4528
-  %.not202.i.i174.i = icmp eq i32 %4538, 0
-  br i1 %.not202.i.i174.i, label %4539, label %ra_evict.exit.i175.i
+  %.not201.i.i174.i = icmp eq i32 %4538, 0
+  br i1 %.not201.i.i174.i, label %4539, label %ra_evict.exit.i175.i
 
 4539:                                             ; preds = %4530
   %4540 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %4529, i1 true)
@@ -9955,44 +9955,44 @@ emit_mrm.exit561:                                 ; preds = %4882, %4903, %4911,
 4938:                                             ; preds = %4935
   %4939 = load i32, ptr %188, align 8, !tbaa !21
   %4940 = load i32, ptr %189, align 4, !tbaa !21
-  %spec.select217.i.i527 = call i32 @llvm.umin.i32(i32 %4940, i32 %4939)
+  %spec.select216.i.i527 = call i32 @llvm.umin.i32(i32 %4940, i32 %4939)
   %4941 = load i32, ptr %190, align 8, !tbaa !21
-  %spec.select218.i.i528 = call i32 @llvm.umin.i32(i32 %4941, i32 %spec.select217.i.i527)
+  %spec.select217.i.i528 = call i32 @llvm.umin.i32(i32 %4941, i32 %spec.select216.i.i527)
   %4942 = load i32, ptr %191, align 4, !tbaa !21
-  %spec.select219.i.i529 = call i32 @llvm.umin.i32(i32 %4942, i32 %spec.select218.i.i528)
+  %spec.select218.i.i529 = call i32 @llvm.umin.i32(i32 %4942, i32 %spec.select217.i.i528)
   %4943 = load i32, ptr %192, align 8, !tbaa !21
-  %spec.select220.i.i530 = call i32 @llvm.umin.i32(i32 %4943, i32 %spec.select219.i.i529)
+  %spec.select219.i.i530 = call i32 @llvm.umin.i32(i32 %4943, i32 %spec.select218.i.i529)
   %4944 = load i32, ptr %193, align 4, !tbaa !21
-  %spec.select221.i.i531 = call i32 @llvm.umin.i32(i32 %4944, i32 %spec.select220.i.i530)
+  %spec.select220.i.i531 = call i32 @llvm.umin.i32(i32 %4944, i32 %spec.select219.i.i530)
   %4945 = load i32, ptr %194, align 8, !tbaa !21
-  %spec.select222.i.i532 = call i32 @llvm.umin.i32(i32 %4945, i32 %spec.select221.i.i531)
+  %spec.select221.i.i532 = call i32 @llvm.umin.i32(i32 %4945, i32 %spec.select220.i.i531)
   %4946 = load i32, ptr %195, align 4, !tbaa !21
-  %spec.select223.i.i533 = call i32 @llvm.umin.i32(i32 %4946, i32 %spec.select222.i.i532)
+  %spec.select222.i.i533 = call i32 @llvm.umin.i32(i32 %4946, i32 %spec.select221.i.i532)
   %4947 = load i32, ptr %196, align 8, !tbaa !21
-  %spec.select224.i.i534 = call i32 @llvm.umin.i32(i32 %4947, i32 %spec.select223.i.i533)
+  %spec.select223.i.i534 = call i32 @llvm.umin.i32(i32 %4947, i32 %spec.select222.i.i533)
   %4948 = load i32, ptr %197, align 4, !tbaa !21
-  %spec.select225.i.i535 = call i32 @llvm.umin.i32(i32 %4948, i32 %spec.select224.i.i534)
+  %spec.select224.i.i535 = call i32 @llvm.umin.i32(i32 %4948, i32 %spec.select223.i.i534)
   %4949 = load i32, ptr %198, align 8, !tbaa !21
-  %spec.select226.i.i536 = call i32 @llvm.umin.i32(i32 %4949, i32 %spec.select225.i.i535)
+  %spec.select225.i.i536 = call i32 @llvm.umin.i32(i32 %4949, i32 %spec.select224.i.i535)
   %4950 = load i32, ptr %199, align 4, !tbaa !21
-  %spec.select227.i.i537 = call i32 @llvm.umin.i32(i32 %4950, i32 %spec.select226.i.i536)
+  %spec.select226.i.i537 = call i32 @llvm.umin.i32(i32 %4950, i32 %spec.select225.i.i536)
   %4951 = load i32, ptr %200, align 8, !tbaa !21
-  %spec.select228.i.i538 = call i32 @llvm.umin.i32(i32 %4951, i32 %spec.select227.i.i537)
+  %spec.select227.i.i538 = call i32 @llvm.umin.i32(i32 %4951, i32 %spec.select226.i.i537)
   %4952 = load i32, ptr %201, align 4, !tbaa !21
-  %spec.select229.i.i539 = call i32 @llvm.umin.i32(i32 %4952, i32 %spec.select228.i.i538)
+  %spec.select228.i.i539 = call i32 @llvm.umin.i32(i32 %4952, i32 %spec.select227.i.i538)
   %4953 = load i32, ptr %202, align 8, !tbaa !21
-  %spec.select230.i.i540 = call i32 @llvm.umin.i32(i32 %4953, i32 %spec.select229.i.i539)
+  %spec.select229.i.i540 = call i32 @llvm.umin.i32(i32 %4953, i32 %spec.select228.i.i539)
   %4954 = load i32, ptr %203, align 4, !tbaa !21
-  %spec.select231.i.i541 = call i32 @llvm.umin.i32(i32 %4954, i32 %spec.select230.i.i540)
-  %4955 = and i32 %spec.select231.i.i541, 65535
+  %spec.select230.i.i541 = call i32 @llvm.umin.i32(i32 %4954, i32 %spec.select229.i.i540)
+  %4955 = and i32 %spec.select230.i.i541, 65535
   %4956 = icmp samesign ult i32 %4955, 32768
   br i1 %4956, label %ra_evict.exit.i544, label %4957
 
 4957:                                             ; preds = %4938
   %4958 = load i32, ptr %154, align 8, !tbaa !80
   %4959 = and i32 %4958, -65536
-  %.not201.i.i542 = icmp eq i32 %4959, 0
-  br i1 %.not201.i.i542, label %ra_evict.exit.i544, label %4960
+  %.not200.i.i542 = icmp eq i32 %4959, 0
+  br i1 %.not200.i.i542, label %ra_evict.exit.i544, label %4960
 
 4960:                                             ; preds = %4957
   %4961 = load ptr, ptr %143, align 8, !tbaa !68
@@ -10003,8 +10003,8 @@ emit_mrm.exit561:                                 ; preds = %4882, %4903, %4911,
   %4966 = zext nneg i8 %4965 to i32
   %4967 = shl nuw i32 1, %4966
   %4968 = and i32 %4967, %4958
-  %.not202.i.i543 = icmp eq i32 %4968, 0
-  br i1 %.not202.i.i543, label %4969, label %ra_evict.exit.i544
+  %.not201.i.i543 = icmp eq i32 %4968, 0
+  br i1 %.not201.i.i543, label %4969, label %ra_evict.exit.i544
 
 4969:                                             ; preds = %4960
   %4970 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %4959, i1 true)
@@ -12425,40 +12425,40 @@ asm_cnew.exit.i:                                  ; preds = %._crit_edge.i72.i.i
 6199:                                             ; preds = %._crit_edge.i.i378
   %6200 = load i32, ptr %29, align 8, !tbaa !21
   %6201 = load i32, ptr %175, align 4, !tbaa !21
-  %spec.select203.i.i = call i32 @llvm.umin.i32(i32 %6201, i32 %6200)
+  %spec.select202.i.i = call i32 @llvm.umin.i32(i32 %6201, i32 %6200)
   %6202 = load i32, ptr %176, align 8, !tbaa !21
-  %spec.select204.i.i = call i32 @llvm.umin.i32(i32 %6202, i32 %spec.select203.i.i)
+  %spec.select203.i.i = call i32 @llvm.umin.i32(i32 %6202, i32 %spec.select202.i.i)
   %6203 = load i32, ptr %177, align 4, !tbaa !21
-  %spec.select205.i.i = call i32 @llvm.umin.i32(i32 %6203, i32 %spec.select204.i.i)
+  %spec.select204.i.i = call i32 @llvm.umin.i32(i32 %6203, i32 %spec.select203.i.i)
   %6204 = load i32, ptr %178, align 4, !tbaa !21
-  %spec.select206.i.i = call i32 @llvm.umin.i32(i32 %6204, i32 %spec.select205.i.i)
+  %spec.select205.i.i = call i32 @llvm.umin.i32(i32 %6204, i32 %spec.select204.i.i)
   %6205 = load i32, ptr %179, align 8, !tbaa !21
-  %spec.select207.i.i = call i32 @llvm.umin.i32(i32 %6205, i32 %spec.select206.i.i)
+  %spec.select206.i.i = call i32 @llvm.umin.i32(i32 %6205, i32 %spec.select205.i.i)
   %6206 = load i32, ptr %180, align 4, !tbaa !21
-  %spec.select208.i.i = call i32 @llvm.umin.i32(i32 %6206, i32 %spec.select207.i.i)
+  %spec.select207.i.i = call i32 @llvm.umin.i32(i32 %6206, i32 %spec.select206.i.i)
   %6207 = load i32, ptr %181, align 8, !tbaa !21
-  %spec.select209.i.i = call i32 @llvm.umin.i32(i32 %6207, i32 %spec.select208.i.i)
+  %spec.select208.i.i = call i32 @llvm.umin.i32(i32 %6207, i32 %spec.select207.i.i)
   %6208 = load i32, ptr %182, align 4, !tbaa !21
-  %spec.select210.i.i = call i32 @llvm.umin.i32(i32 %6208, i32 %spec.select209.i.i)
+  %spec.select209.i.i = call i32 @llvm.umin.i32(i32 %6208, i32 %spec.select208.i.i)
   %6209 = load i32, ptr %183, align 8, !tbaa !21
-  %spec.select211.i.i = call i32 @llvm.umin.i32(i32 %6209, i32 %spec.select210.i.i)
+  %spec.select210.i.i = call i32 @llvm.umin.i32(i32 %6209, i32 %spec.select209.i.i)
   %6210 = load i32, ptr %184, align 4, !tbaa !21
-  %spec.select212.i.i = call i32 @llvm.umin.i32(i32 %6210, i32 %spec.select211.i.i)
+  %spec.select211.i.i = call i32 @llvm.umin.i32(i32 %6210, i32 %spec.select210.i.i)
   %6211 = load i32, ptr %185, align 8, !tbaa !21
-  %spec.select213.i.i = call i32 @llvm.umin.i32(i32 %6211, i32 %spec.select212.i.i)
+  %spec.select212.i.i = call i32 @llvm.umin.i32(i32 %6211, i32 %spec.select211.i.i)
   %6212 = load i32, ptr %186, align 4, !tbaa !21
-  %spec.select214.i.i = call i32 @llvm.umin.i32(i32 %6212, i32 %spec.select213.i.i)
+  %spec.select213.i.i = call i32 @llvm.umin.i32(i32 %6212, i32 %spec.select212.i.i)
   %6213 = load i32, ptr %187, align 4, !tbaa !21
-  %spec.select231.i.i407 = call i32 @llvm.umin.i32(i32 %6213, i32 %spec.select214.i.i)
-  %6214 = and i32 %spec.select231.i.i407, 65535
+  %spec.select230.i.i407 = call i32 @llvm.umin.i32(i32 %6213, i32 %spec.select213.i.i)
+  %6214 = and i32 %spec.select230.i.i407, 65535
   %6215 = icmp samesign ult i32 %6214, 32768
   br i1 %6215, label %ra_evict.exit.i410, label %6216
 
 6216:                                             ; preds = %6199
   %6217 = load i32, ptr %154, align 8, !tbaa !80
   %6218 = and i32 %6217, 49135
-  %.not201.i.i408 = icmp eq i32 %6218, 0
-  br i1 %.not201.i.i408, label %ra_evict.exit.i410, label %6219
+  %.not200.i.i408 = icmp eq i32 %6218, 0
+  br i1 %.not200.i.i408, label %ra_evict.exit.i410, label %6219
 
 6219:                                             ; preds = %6216
   %6220 = load ptr, ptr %143, align 8, !tbaa !68
@@ -12469,8 +12469,8 @@ asm_cnew.exit.i:                                  ; preds = %._crit_edge.i72.i.i
   %6225 = zext nneg i8 %6224 to i32
   %6226 = shl nuw i32 1, %6225
   %6227 = and i32 %6226, %6217
-  %.not202.i.i409 = icmp eq i32 %6227, 0
-  br i1 %.not202.i.i409, label %6228, label %ra_evict.exit.i410
+  %.not201.i.i409 = icmp eq i32 %6227, 0
+  br i1 %.not201.i.i409, label %6228, label %ra_evict.exit.i410
 
 6228:                                             ; preds = %6219
   %6229 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %6218, i1 true)
@@ -13883,44 +13883,44 @@ asm_obar.exit:                                    ; preds = %.thread45.i, %6887,
 6925:                                             ; preds = %._crit_edge.i.i331
   %6926 = load i32, ptr %188, align 8, !tbaa !21
   %6927 = load i32, ptr %189, align 4, !tbaa !21
-  %spec.select217.i.i = call i32 @llvm.umin.i32(i32 %6927, i32 %6926)
+  %spec.select216.i.i = call i32 @llvm.umin.i32(i32 %6927, i32 %6926)
   %6928 = load i32, ptr %190, align 8, !tbaa !21
-  %spec.select218.i.i = call i32 @llvm.umin.i32(i32 %6928, i32 %spec.select217.i.i)
+  %spec.select217.i.i = call i32 @llvm.umin.i32(i32 %6928, i32 %spec.select216.i.i)
   %6929 = load i32, ptr %191, align 4, !tbaa !21
-  %spec.select219.i.i = call i32 @llvm.umin.i32(i32 %6929, i32 %spec.select218.i.i)
+  %spec.select218.i.i = call i32 @llvm.umin.i32(i32 %6929, i32 %spec.select217.i.i)
   %6930 = load i32, ptr %192, align 8, !tbaa !21
-  %spec.select220.i.i = call i32 @llvm.umin.i32(i32 %6930, i32 %spec.select219.i.i)
+  %spec.select219.i.i = call i32 @llvm.umin.i32(i32 %6930, i32 %spec.select218.i.i)
   %6931 = load i32, ptr %193, align 4, !tbaa !21
-  %spec.select221.i.i = call i32 @llvm.umin.i32(i32 %6931, i32 %spec.select220.i.i)
+  %spec.select220.i.i = call i32 @llvm.umin.i32(i32 %6931, i32 %spec.select219.i.i)
   %6932 = load i32, ptr %194, align 8, !tbaa !21
-  %spec.select222.i.i = call i32 @llvm.umin.i32(i32 %6932, i32 %spec.select221.i.i)
+  %spec.select221.i.i = call i32 @llvm.umin.i32(i32 %6932, i32 %spec.select220.i.i)
   %6933 = load i32, ptr %195, align 4, !tbaa !21
-  %spec.select223.i.i = call i32 @llvm.umin.i32(i32 %6933, i32 %spec.select222.i.i)
+  %spec.select222.i.i = call i32 @llvm.umin.i32(i32 %6933, i32 %spec.select221.i.i)
   %6934 = load i32, ptr %196, align 8, !tbaa !21
-  %spec.select224.i.i = call i32 @llvm.umin.i32(i32 %6934, i32 %spec.select223.i.i)
+  %spec.select223.i.i = call i32 @llvm.umin.i32(i32 %6934, i32 %spec.select222.i.i)
   %6935 = load i32, ptr %197, align 4, !tbaa !21
-  %spec.select225.i.i = call i32 @llvm.umin.i32(i32 %6935, i32 %spec.select224.i.i)
+  %spec.select224.i.i = call i32 @llvm.umin.i32(i32 %6935, i32 %spec.select223.i.i)
   %6936 = load i32, ptr %198, align 8, !tbaa !21
-  %spec.select226.i.i = call i32 @llvm.umin.i32(i32 %6936, i32 %spec.select225.i.i)
+  %spec.select225.i.i = call i32 @llvm.umin.i32(i32 %6936, i32 %spec.select224.i.i)
   %6937 = load i32, ptr %199, align 4, !tbaa !21
-  %spec.select227.i.i = call i32 @llvm.umin.i32(i32 %6937, i32 %spec.select226.i.i)
+  %spec.select226.i.i = call i32 @llvm.umin.i32(i32 %6937, i32 %spec.select225.i.i)
   %6938 = load i32, ptr %200, align 8, !tbaa !21
-  %spec.select228.i.i = call i32 @llvm.umin.i32(i32 %6938, i32 %spec.select227.i.i)
+  %spec.select227.i.i = call i32 @llvm.umin.i32(i32 %6938, i32 %spec.select226.i.i)
   %6939 = load i32, ptr %201, align 4, !tbaa !21
-  %spec.select229.i.i = call i32 @llvm.umin.i32(i32 %6939, i32 %spec.select228.i.i)
+  %spec.select228.i.i = call i32 @llvm.umin.i32(i32 %6939, i32 %spec.select227.i.i)
   %6940 = load i32, ptr %202, align 8, !tbaa !21
-  %spec.select230.i.i = call i32 @llvm.umin.i32(i32 %6940, i32 %spec.select229.i.i)
+  %spec.select229.i.i = call i32 @llvm.umin.i32(i32 %6940, i32 %spec.select228.i.i)
   %6941 = load i32, ptr %203, align 4, !tbaa !21
-  %spec.select231.i.i = call i32 @llvm.umin.i32(i32 %6941, i32 %spec.select230.i.i)
-  %6942 = and i32 %spec.select231.i.i, 65535
+  %spec.select230.i.i = call i32 @llvm.umin.i32(i32 %6941, i32 %spec.select229.i.i)
+  %6942 = and i32 %spec.select230.i.i, 65535
   %6943 = icmp samesign ult i32 %6942, 32768
   br i1 %6943, label %ra_evict.exit.i, label %6944
 
 6944:                                             ; preds = %6925
   %6945 = load i32, ptr %154, align 8, !tbaa !80
   %6946 = and i32 %6945, -65536
-  %.not201.i.i = icmp eq i32 %6946, 0
-  br i1 %.not201.i.i, label %ra_evict.exit.i, label %6947
+  %.not200.i.i = icmp eq i32 %6946, 0
+  br i1 %.not200.i.i, label %ra_evict.exit.i, label %6947
 
 6947:                                             ; preds = %6944
   %6948 = load ptr, ptr %143, align 8, !tbaa !68
@@ -13931,8 +13931,8 @@ asm_obar.exit:                                    ; preds = %.thread45.i, %6887,
   %6953 = zext nneg i8 %6952 to i32
   %6954 = shl nuw i32 1, %6953
   %6955 = and i32 %6954, %6945
-  %.not202.i.i = icmp eq i32 %6955, 0
-  br i1 %.not202.i.i, label %6956, label %ra_evict.exit.i
+  %.not201.i.i = icmp eq i32 %6955, 0
+  br i1 %.not201.i.i, label %6956, label %ra_evict.exit.i
 
 6956:                                             ; preds = %6947
   %6957 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %6946, i1 true)
@@ -14213,40 +14213,40 @@ ra_alloc1.exit167.i:                              ; preds = %7079, %7072
 7101:                                             ; preds = %._crit_edge.i169.i
   %7102 = load i32, ptr %29, align 8, !tbaa !21
   %7103 = load i32, ptr %175, align 4, !tbaa !21
-  %spec.select203.i1148 = call i32 @llvm.umin.i32(i32 %7103, i32 %7102)
+  %spec.select202.i1148 = call i32 @llvm.umin.i32(i32 %7103, i32 %7102)
   %7104 = load i32, ptr %176, align 8, !tbaa !21
-  %spec.select204.i1149 = call i32 @llvm.umin.i32(i32 %7104, i32 %spec.select203.i1148)
+  %spec.select203.i1149 = call i32 @llvm.umin.i32(i32 %7104, i32 %spec.select202.i1148)
   %7105 = load i32, ptr %177, align 4, !tbaa !21
-  %spec.select205.i1151 = call i32 @llvm.umin.i32(i32 %7105, i32 %spec.select204.i1149)
+  %spec.select204.i1151 = call i32 @llvm.umin.i32(i32 %7105, i32 %spec.select203.i1149)
   %7106 = load i32, ptr %178, align 4, !tbaa !21
-  %spec.select206.i1153 = call i32 @llvm.umin.i32(i32 %7106, i32 %spec.select205.i1151)
+  %spec.select205.i1153 = call i32 @llvm.umin.i32(i32 %7106, i32 %spec.select204.i1151)
   %7107 = load i32, ptr %179, align 8, !tbaa !21
-  %spec.select207.i1154 = call i32 @llvm.umin.i32(i32 %7107, i32 %spec.select206.i1153)
+  %spec.select206.i1154 = call i32 @llvm.umin.i32(i32 %7107, i32 %spec.select205.i1153)
   %7108 = load i32, ptr %180, align 4, !tbaa !21
-  %spec.select208.i1155 = call i32 @llvm.umin.i32(i32 %7108, i32 %spec.select207.i1154)
+  %spec.select207.i1155 = call i32 @llvm.umin.i32(i32 %7108, i32 %spec.select206.i1154)
   %7109 = load i32, ptr %181, align 8, !tbaa !21
-  %spec.select209.i1156 = call i32 @llvm.umin.i32(i32 %7109, i32 %spec.select208.i1155)
+  %spec.select208.i1156 = call i32 @llvm.umin.i32(i32 %7109, i32 %spec.select207.i1155)
   %7110 = load i32, ptr %182, align 4, !tbaa !21
-  %spec.select210.i1158 = call i32 @llvm.umin.i32(i32 %7110, i32 %spec.select209.i1156)
+  %spec.select209.i1158 = call i32 @llvm.umin.i32(i32 %7110, i32 %spec.select208.i1156)
   %7111 = load i32, ptr %183, align 8, !tbaa !21
-  %spec.select211.i1160 = call i32 @llvm.umin.i32(i32 %7111, i32 %spec.select210.i1158)
+  %spec.select210.i1160 = call i32 @llvm.umin.i32(i32 %7111, i32 %spec.select209.i1158)
   %7112 = load i32, ptr %184, align 4, !tbaa !21
-  %spec.select212.i1162 = call i32 @llvm.umin.i32(i32 %7112, i32 %spec.select211.i1160)
+  %spec.select211.i1162 = call i32 @llvm.umin.i32(i32 %7112, i32 %spec.select210.i1160)
   %7113 = load i32, ptr %185, align 8, !tbaa !21
-  %spec.select213.i1163 = call i32 @llvm.umin.i32(i32 %7113, i32 %spec.select212.i1162)
+  %spec.select212.i1163 = call i32 @llvm.umin.i32(i32 %7113, i32 %spec.select211.i1162)
   %7114 = load i32, ptr %186, align 4, !tbaa !21
-  %spec.select214.i1164 = call i32 @llvm.umin.i32(i32 %7114, i32 %spec.select213.i1163)
+  %spec.select213.i1164 = call i32 @llvm.umin.i32(i32 %7114, i32 %spec.select212.i1163)
   %7115 = load i32, ptr %187, align 4, !tbaa !21
-  %spec.select231.i1166 = call i32 @llvm.umin.i32(i32 %7115, i32 %spec.select214.i1164)
-  %7116 = and i32 %spec.select231.i1166, 65535
+  %spec.select230.i1166 = call i32 @llvm.umin.i32(i32 %7115, i32 %spec.select213.i1164)
+  %7116 = and i32 %spec.select230.i1166, 65535
   %7117 = icmp samesign ult i32 %7116, 32768
   br i1 %7117, label %ra_evict.exit1170, label %7118
 
 7118:                                             ; preds = %7101
   %7119 = load i32, ptr %154, align 8, !tbaa !80
   %7120 = and i32 %7119, 49135
-  %.not201.i1167 = icmp eq i32 %7120, 0
-  br i1 %.not201.i1167, label %ra_evict.exit1170, label %7121
+  %.not200.i1167 = icmp eq i32 %7120, 0
+  br i1 %.not200.i1167, label %ra_evict.exit1170, label %7121
 
 7121:                                             ; preds = %7118
   %7122 = load ptr, ptr %143, align 8, !tbaa !68
@@ -14257,8 +14257,8 @@ ra_alloc1.exit167.i:                              ; preds = %7079, %7072
   %7127 = zext nneg i8 %7126 to i32
   %7128 = shl nuw i32 1, %7127
   %7129 = and i32 %7128, %7119
-  %.not202.i1168 = icmp eq i32 %7129, 0
-  br i1 %.not202.i1168, label %7130, label %ra_evict.exit1170
+  %.not201.i1168 = icmp eq i32 %7129, 0
+  br i1 %.not201.i1168, label %7130, label %ra_evict.exit1170
 
 7130:                                             ; preds = %7121
   %7131 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %7120, i1 true)
@@ -14342,44 +14342,44 @@ ra_alloc1.exit1147:                               ; preds = %7153
 7167:                                             ; preds = %7164
   %7168 = load i32, ptr %188, align 8, !tbaa !21
   %7169 = load i32, ptr %189, align 4, !tbaa !21
-  %spec.select217.i = call i32 @llvm.umin.i32(i32 %7169, i32 %7168)
+  %spec.select216.i = call i32 @llvm.umin.i32(i32 %7169, i32 %7168)
   %7170 = load i32, ptr %190, align 8, !tbaa !21
-  %spec.select218.i = call i32 @llvm.umin.i32(i32 %7170, i32 %spec.select217.i)
+  %spec.select217.i = call i32 @llvm.umin.i32(i32 %7170, i32 %spec.select216.i)
   %7171 = load i32, ptr %191, align 4, !tbaa !21
-  %spec.select219.i = call i32 @llvm.umin.i32(i32 %7171, i32 %spec.select218.i)
+  %spec.select218.i = call i32 @llvm.umin.i32(i32 %7171, i32 %spec.select217.i)
   %7172 = load i32, ptr %192, align 8, !tbaa !21
-  %spec.select220.i = call i32 @llvm.umin.i32(i32 %7172, i32 %spec.select219.i)
+  %spec.select219.i = call i32 @llvm.umin.i32(i32 %7172, i32 %spec.select218.i)
   %7173 = load i32, ptr %193, align 4, !tbaa !21
-  %spec.select221.i = call i32 @llvm.umin.i32(i32 %7173, i32 %spec.select220.i)
+  %spec.select220.i = call i32 @llvm.umin.i32(i32 %7173, i32 %spec.select219.i)
   %7174 = load i32, ptr %194, align 8, !tbaa !21
-  %spec.select222.i = call i32 @llvm.umin.i32(i32 %7174, i32 %spec.select221.i)
+  %spec.select221.i = call i32 @llvm.umin.i32(i32 %7174, i32 %spec.select220.i)
   %7175 = load i32, ptr %195, align 4, !tbaa !21
-  %spec.select223.i = call i32 @llvm.umin.i32(i32 %7175, i32 %spec.select222.i)
+  %spec.select222.i = call i32 @llvm.umin.i32(i32 %7175, i32 %spec.select221.i)
   %7176 = load i32, ptr %196, align 8, !tbaa !21
-  %spec.select224.i = call i32 @llvm.umin.i32(i32 %7176, i32 %spec.select223.i)
+  %spec.select223.i = call i32 @llvm.umin.i32(i32 %7176, i32 %spec.select222.i)
   %7177 = load i32, ptr %197, align 4, !tbaa !21
-  %spec.select225.i = call i32 @llvm.umin.i32(i32 %7177, i32 %spec.select224.i)
+  %spec.select224.i = call i32 @llvm.umin.i32(i32 %7177, i32 %spec.select223.i)
   %7178 = load i32, ptr %198, align 8, !tbaa !21
-  %spec.select226.i = call i32 @llvm.umin.i32(i32 %7178, i32 %spec.select225.i)
+  %spec.select225.i = call i32 @llvm.umin.i32(i32 %7178, i32 %spec.select224.i)
   %7179 = load i32, ptr %199, align 4, !tbaa !21
-  %spec.select227.i1137 = call i32 @llvm.umin.i32(i32 %7179, i32 %spec.select226.i)
+  %spec.select226.i = call i32 @llvm.umin.i32(i32 %7179, i32 %spec.select225.i)
   %7180 = load i32, ptr %200, align 8, !tbaa !21
-  %spec.select228.i = call i32 @llvm.umin.i32(i32 %7180, i32 %spec.select227.i1137)
+  %spec.select227.i1137 = call i32 @llvm.umin.i32(i32 %7180, i32 %spec.select226.i)
   %7181 = load i32, ptr %201, align 4, !tbaa !21
-  %spec.select229.i1138 = call i32 @llvm.umin.i32(i32 %7181, i32 %spec.select228.i)
+  %spec.select228.i = call i32 @llvm.umin.i32(i32 %7181, i32 %spec.select227.i1137)
   %7182 = load i32, ptr %202, align 8, !tbaa !21
-  %spec.select230.i = call i32 @llvm.umin.i32(i32 %7182, i32 %spec.select229.i1138)
+  %spec.select229.i1138 = call i32 @llvm.umin.i32(i32 %7182, i32 %spec.select228.i)
   %7183 = load i32, ptr %203, align 4, !tbaa !21
-  %spec.select231.i1140 = call i32 @llvm.umin.i32(i32 %7183, i32 %spec.select230.i)
-  %7184 = and i32 %spec.select231.i1140, 65535
+  %spec.select230.i1140 = call i32 @llvm.umin.i32(i32 %7183, i32 %spec.select229.i1138)
+  %7184 = and i32 %spec.select230.i1140, 65535
   %7185 = icmp samesign ult i32 %7184, 32768
   br i1 %7185, label %ra_evict.exit1144, label %7186
 
 7186:                                             ; preds = %7167
   %7187 = load i32, ptr %154, align 8, !tbaa !80
   %7188 = and i32 %7187, -65536
-  %.not201.i1141 = icmp eq i32 %7188, 0
-  br i1 %.not201.i1141, label %ra_evict.exit1144, label %7189
+  %.not200.i1141 = icmp eq i32 %7188, 0
+  br i1 %.not200.i1141, label %ra_evict.exit1144, label %7189
 
 7189:                                             ; preds = %7186
   %7190 = zext nneg i32 %7184 to i64
@@ -14389,8 +14389,8 @@ ra_alloc1.exit1147:                               ; preds = %7153
   %7194 = zext nneg i8 %7193 to i32
   %7195 = shl nuw i32 1, %7194
   %7196 = and i32 %7195, %7187
-  %.not202.i1142 = icmp eq i32 %7196, 0
-  br i1 %.not202.i1142, label %7197, label %ra_evict.exit1144
+  %.not201.i1142 = icmp eq i32 %7196, 0
+  br i1 %.not201.i1142, label %7197, label %ra_evict.exit1144
 
 7197:                                             ; preds = %7189
   %7198 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %7188, i1 true)
@@ -14576,40 +14576,40 @@ emit_rr.exit194.i:                                ; preds = %7269, %7255
 7300:                                             ; preds = %._crit_edge.i196.i
   %7301 = load i32, ptr %29, align 8, !tbaa !21
   %7302 = load i32, ptr %175, align 4, !tbaa !21
-  %spec.select203.i1114 = call i32 @llvm.umin.i32(i32 %7302, i32 %7301)
+  %spec.select202.i1114 = call i32 @llvm.umin.i32(i32 %7302, i32 %7301)
   %7303 = load i32, ptr %176, align 8, !tbaa !21
-  %spec.select204.i1115 = call i32 @llvm.umin.i32(i32 %7303, i32 %spec.select203.i1114)
+  %spec.select203.i1115 = call i32 @llvm.umin.i32(i32 %7303, i32 %spec.select202.i1114)
   %7304 = load i32, ptr %177, align 4, !tbaa !21
-  %spec.select205.i1117 = call i32 @llvm.umin.i32(i32 %7304, i32 %spec.select204.i1115)
+  %spec.select204.i1117 = call i32 @llvm.umin.i32(i32 %7304, i32 %spec.select203.i1115)
   %7305 = load i32, ptr %178, align 4, !tbaa !21
-  %spec.select206.i1119 = call i32 @llvm.umin.i32(i32 %7305, i32 %spec.select205.i1117)
+  %spec.select205.i1119 = call i32 @llvm.umin.i32(i32 %7305, i32 %spec.select204.i1117)
   %7306 = load i32, ptr %179, align 8, !tbaa !21
-  %spec.select207.i1120 = call i32 @llvm.umin.i32(i32 %7306, i32 %spec.select206.i1119)
+  %spec.select206.i1120 = call i32 @llvm.umin.i32(i32 %7306, i32 %spec.select205.i1119)
   %7307 = load i32, ptr %180, align 4, !tbaa !21
-  %spec.select208.i1121 = call i32 @llvm.umin.i32(i32 %7307, i32 %spec.select207.i1120)
+  %spec.select207.i1121 = call i32 @llvm.umin.i32(i32 %7307, i32 %spec.select206.i1120)
   %7308 = load i32, ptr %181, align 8, !tbaa !21
-  %spec.select209.i1122 = call i32 @llvm.umin.i32(i32 %7308, i32 %spec.select208.i1121)
+  %spec.select208.i1122 = call i32 @llvm.umin.i32(i32 %7308, i32 %spec.select207.i1121)
   %7309 = load i32, ptr %182, align 4, !tbaa !21
-  %spec.select210.i1124 = call i32 @llvm.umin.i32(i32 %7309, i32 %spec.select209.i1122)
+  %spec.select209.i1124 = call i32 @llvm.umin.i32(i32 %7309, i32 %spec.select208.i1122)
   %7310 = load i32, ptr %183, align 8, !tbaa !21
-  %spec.select211.i1126 = call i32 @llvm.umin.i32(i32 %7310, i32 %spec.select210.i1124)
+  %spec.select210.i1126 = call i32 @llvm.umin.i32(i32 %7310, i32 %spec.select209.i1124)
   %7311 = load i32, ptr %184, align 4, !tbaa !21
-  %spec.select212.i1128 = call i32 @llvm.umin.i32(i32 %7311, i32 %spec.select211.i1126)
+  %spec.select211.i1128 = call i32 @llvm.umin.i32(i32 %7311, i32 %spec.select210.i1126)
   %7312 = load i32, ptr %185, align 8, !tbaa !21
-  %spec.select213.i1129 = call i32 @llvm.umin.i32(i32 %7312, i32 %spec.select212.i1128)
+  %spec.select212.i1129 = call i32 @llvm.umin.i32(i32 %7312, i32 %spec.select211.i1128)
   %7313 = load i32, ptr %186, align 4, !tbaa !21
-  %spec.select214.i1130 = call i32 @llvm.umin.i32(i32 %7313, i32 %spec.select213.i1129)
+  %spec.select213.i1130 = call i32 @llvm.umin.i32(i32 %7313, i32 %spec.select212.i1129)
   %7314 = load i32, ptr %187, align 4, !tbaa !21
-  %spec.select231.i1132 = call i32 @llvm.umin.i32(i32 %7314, i32 %spec.select214.i1130)
-  %7315 = and i32 %spec.select231.i1132, 65535
+  %spec.select230.i1132 = call i32 @llvm.umin.i32(i32 %7314, i32 %spec.select213.i1130)
+  %7315 = and i32 %spec.select230.i1132, 65535
   %7316 = icmp samesign ult i32 %7315, 32768
   br i1 %7316, label %ra_evict.exit1136, label %7317
 
 7317:                                             ; preds = %7300
   %7318 = load i32, ptr %154, align 8, !tbaa !80
   %7319 = and i32 %7318, 49135
-  %.not201.i1133 = icmp eq i32 %7319, 0
-  br i1 %.not201.i1133, label %ra_evict.exit1136, label %7320
+  %.not200.i1133 = icmp eq i32 %7319, 0
+  br i1 %.not200.i1133, label %ra_evict.exit1136, label %7320
 
 7320:                                             ; preds = %7317
   %7321 = load ptr, ptr %143, align 8, !tbaa !68
@@ -14620,8 +14620,8 @@ emit_rr.exit194.i:                                ; preds = %7269, %7255
   %7326 = zext nneg i8 %7325 to i32
   %7327 = shl nuw i32 1, %7326
   %7328 = and i32 %7327, %7318
-  %.not202.i1134 = icmp eq i32 %7328, 0
-  br i1 %.not202.i1134, label %7329, label %ra_evict.exit1136
+  %.not201.i1134 = icmp eq i32 %7328, 0
+  br i1 %.not201.i1134, label %7329, label %ra_evict.exit1136
 
 7329:                                             ; preds = %7320
   %7330 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %7319, i1 true)
@@ -14740,40 +14740,40 @@ ra_dest.exit206.i:                                ; preds = %7348, %7345
 7375:                                             ; preds = %._crit_edge.i208.i
   %7376 = load i32, ptr %29, align 8, !tbaa !21
   %7377 = load i32, ptr %175, align 4, !tbaa !21
-  %spec.select203.i1091 = call i32 @llvm.umin.i32(i32 %7377, i32 %7376)
+  %spec.select202.i1091 = call i32 @llvm.umin.i32(i32 %7377, i32 %7376)
   %7378 = load i32, ptr %176, align 8, !tbaa !21
-  %spec.select204.i1092 = call i32 @llvm.umin.i32(i32 %7378, i32 %spec.select203.i1091)
+  %spec.select203.i1092 = call i32 @llvm.umin.i32(i32 %7378, i32 %spec.select202.i1091)
   %7379 = load i32, ptr %177, align 4, !tbaa !21
-  %spec.select205.i1094 = call i32 @llvm.umin.i32(i32 %7379, i32 %spec.select204.i1092)
+  %spec.select204.i1094 = call i32 @llvm.umin.i32(i32 %7379, i32 %spec.select203.i1092)
   %7380 = load i32, ptr %178, align 4, !tbaa !21
-  %spec.select206.i1096 = call i32 @llvm.umin.i32(i32 %7380, i32 %spec.select205.i1094)
+  %spec.select205.i1096 = call i32 @llvm.umin.i32(i32 %7380, i32 %spec.select204.i1094)
   %7381 = load i32, ptr %179, align 8, !tbaa !21
-  %spec.select207.i1097 = call i32 @llvm.umin.i32(i32 %7381, i32 %spec.select206.i1096)
+  %spec.select206.i1097 = call i32 @llvm.umin.i32(i32 %7381, i32 %spec.select205.i1096)
   %7382 = load i32, ptr %180, align 4, !tbaa !21
-  %spec.select208.i1098 = call i32 @llvm.umin.i32(i32 %7382, i32 %spec.select207.i1097)
+  %spec.select207.i1098 = call i32 @llvm.umin.i32(i32 %7382, i32 %spec.select206.i1097)
   %7383 = load i32, ptr %181, align 8, !tbaa !21
-  %spec.select209.i1099 = call i32 @llvm.umin.i32(i32 %7383, i32 %spec.select208.i1098)
+  %spec.select208.i1099 = call i32 @llvm.umin.i32(i32 %7383, i32 %spec.select207.i1098)
   %7384 = load i32, ptr %182, align 4, !tbaa !21
-  %spec.select210.i1101 = call i32 @llvm.umin.i32(i32 %7384, i32 %spec.select209.i1099)
+  %spec.select209.i1101 = call i32 @llvm.umin.i32(i32 %7384, i32 %spec.select208.i1099)
   %7385 = load i32, ptr %183, align 8, !tbaa !21
-  %spec.select211.i1103 = call i32 @llvm.umin.i32(i32 %7385, i32 %spec.select210.i1101)
+  %spec.select210.i1103 = call i32 @llvm.umin.i32(i32 %7385, i32 %spec.select209.i1101)
   %7386 = load i32, ptr %184, align 4, !tbaa !21
-  %spec.select212.i1105 = call i32 @llvm.umin.i32(i32 %7386, i32 %spec.select211.i1103)
+  %spec.select211.i1105 = call i32 @llvm.umin.i32(i32 %7386, i32 %spec.select210.i1103)
   %7387 = load i32, ptr %185, align 8, !tbaa !21
-  %spec.select213.i1106 = call i32 @llvm.umin.i32(i32 %7387, i32 %spec.select212.i1105)
+  %spec.select212.i1106 = call i32 @llvm.umin.i32(i32 %7387, i32 %spec.select211.i1105)
   %7388 = load i32, ptr %186, align 4, !tbaa !21
-  %spec.select214.i1107 = call i32 @llvm.umin.i32(i32 %7388, i32 %spec.select213.i1106)
+  %spec.select213.i1107 = call i32 @llvm.umin.i32(i32 %7388, i32 %spec.select212.i1106)
   %7389 = load i32, ptr %187, align 4, !tbaa !21
-  %spec.select231.i1109 = call i32 @llvm.umin.i32(i32 %7389, i32 %spec.select214.i1107)
-  %7390 = and i32 %spec.select231.i1109, 65535
+  %spec.select230.i1109 = call i32 @llvm.umin.i32(i32 %7389, i32 %spec.select213.i1107)
+  %7390 = and i32 %spec.select230.i1109, 65535
   %7391 = icmp samesign ult i32 %7390, 32768
   br i1 %7391, label %ra_evict.exit1113, label %7392
 
 7392:                                             ; preds = %7375
   %7393 = load i32, ptr %154, align 8, !tbaa !80
   %7394 = and i32 %7393, 49135
-  %.not201.i1110 = icmp eq i32 %7394, 0
-  br i1 %.not201.i1110, label %ra_evict.exit1113, label %7395
+  %.not200.i1110 = icmp eq i32 %7394, 0
+  br i1 %.not200.i1110, label %ra_evict.exit1113, label %7395
 
 7395:                                             ; preds = %7392
   %7396 = load ptr, ptr %143, align 8, !tbaa !68
@@ -14784,8 +14784,8 @@ ra_dest.exit206.i:                                ; preds = %7348, %7345
   %7401 = zext nneg i8 %7400 to i32
   %7402 = shl nuw i32 1, %7401
   %7403 = and i32 %7402, %7393
-  %.not202.i1111 = icmp eq i32 %7403, 0
-  br i1 %.not202.i1111, label %7404, label %ra_evict.exit1113
+  %.not201.i1111 = icmp eq i32 %7403, 0
+  br i1 %.not201.i1111, label %7404, label %ra_evict.exit1113
 
 7404:                                             ; preds = %7395
   %7405 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %7394, i1 true)
@@ -14892,40 +14892,40 @@ ra_dest.exit218.i:                                ; preds = %7423, %7420
 7444:                                             ; preds = %._crit_edge.i220.i
   %7445 = load i32, ptr %29, align 8, !tbaa !21
   %7446 = load i32, ptr %175, align 4, !tbaa !21
-  %spec.select203.i = call i32 @llvm.umin.i32(i32 %7446, i32 %7445)
+  %spec.select202.i = call i32 @llvm.umin.i32(i32 %7446, i32 %7445)
   %7447 = load i32, ptr %176, align 8, !tbaa !21
-  %spec.select204.i = call i32 @llvm.umin.i32(i32 %7447, i32 %spec.select203.i)
+  %spec.select203.i = call i32 @llvm.umin.i32(i32 %7447, i32 %spec.select202.i)
   %7448 = load i32, ptr %177, align 4, !tbaa !21
-  %spec.select205.i = call i32 @llvm.umin.i32(i32 %7448, i32 %spec.select204.i)
+  %spec.select204.i = call i32 @llvm.umin.i32(i32 %7448, i32 %spec.select203.i)
   %7449 = load i32, ptr %178, align 4, !tbaa !21
-  %spec.select206.i = call i32 @llvm.umin.i32(i32 %7449, i32 %spec.select205.i)
+  %spec.select205.i = call i32 @llvm.umin.i32(i32 %7449, i32 %spec.select204.i)
   %7450 = load i32, ptr %179, align 8, !tbaa !21
-  %spec.select207.i = call i32 @llvm.umin.i32(i32 %7450, i32 %spec.select206.i)
+  %spec.select206.i = call i32 @llvm.umin.i32(i32 %7450, i32 %spec.select205.i)
   %7451 = load i32, ptr %180, align 4, !tbaa !21
-  %spec.select208.i = call i32 @llvm.umin.i32(i32 %7451, i32 %spec.select207.i)
+  %spec.select207.i = call i32 @llvm.umin.i32(i32 %7451, i32 %spec.select206.i)
   %7452 = load i32, ptr %181, align 8, !tbaa !21
-  %spec.select209.i = call i32 @llvm.umin.i32(i32 %7452, i32 %spec.select208.i)
+  %spec.select208.i = call i32 @llvm.umin.i32(i32 %7452, i32 %spec.select207.i)
   %7453 = load i32, ptr %182, align 4, !tbaa !21
-  %spec.select210.i = call i32 @llvm.umin.i32(i32 %7453, i32 %spec.select209.i)
+  %spec.select209.i = call i32 @llvm.umin.i32(i32 %7453, i32 %spec.select208.i)
   %7454 = load i32, ptr %183, align 8, !tbaa !21
-  %spec.select211.i = call i32 @llvm.umin.i32(i32 %7454, i32 %spec.select210.i)
+  %spec.select210.i = call i32 @llvm.umin.i32(i32 %7454, i32 %spec.select209.i)
   %7455 = load i32, ptr %184, align 4, !tbaa !21
-  %spec.select212.i = call i32 @llvm.umin.i32(i32 %7455, i32 %spec.select211.i)
+  %spec.select211.i = call i32 @llvm.umin.i32(i32 %7455, i32 %spec.select210.i)
   %7456 = load i32, ptr %185, align 8, !tbaa !21
-  %spec.select213.i = call i32 @llvm.umin.i32(i32 %7456, i32 %spec.select212.i)
+  %spec.select212.i = call i32 @llvm.umin.i32(i32 %7456, i32 %spec.select211.i)
   %7457 = load i32, ptr %186, align 4, !tbaa !21
-  %spec.select214.i = call i32 @llvm.umin.i32(i32 %7457, i32 %spec.select213.i)
+  %spec.select213.i = call i32 @llvm.umin.i32(i32 %7457, i32 %spec.select212.i)
   %7458 = load i32, ptr %187, align 4, !tbaa !21
-  %spec.select231.i = call i32 @llvm.umin.i32(i32 %7458, i32 %spec.select214.i)
-  %7459 = and i32 %spec.select231.i, 65535
+  %spec.select230.i = call i32 @llvm.umin.i32(i32 %7458, i32 %spec.select213.i)
+  %7459 = and i32 %spec.select230.i, 65535
   %7460 = icmp samesign ult i32 %7459, 32768
   br i1 %7460, label %ra_evict.exit, label %7461
 
 7461:                                             ; preds = %7444
   %7462 = load i32, ptr %154, align 8, !tbaa !80
   %7463 = and i32 %7462, 49135
-  %.not201.i = icmp eq i32 %7463, 0
-  br i1 %.not201.i, label %ra_evict.exit, label %7464
+  %.not200.i = icmp eq i32 %7463, 0
+  br i1 %.not200.i, label %ra_evict.exit, label %7464
 
 7464:                                             ; preds = %7461
   %7465 = load ptr, ptr %143, align 8, !tbaa !68
@@ -14936,8 +14936,8 @@ ra_dest.exit218.i:                                ; preds = %7423, %7420
   %7470 = zext nneg i8 %7469 to i32
   %7471 = shl nuw i32 1, %7470
   %7472 = and i32 %7471, %7462
-  %.not202.i = icmp eq i32 %7472, 0
-  br i1 %.not202.i, label %7473, label %ra_evict.exit
+  %.not201.i = icmp eq i32 %7472, 0
+  br i1 %.not201.i, label %7473, label %ra_evict.exit
 
 7473:                                             ; preds = %7464
   %7474 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %7463, i1 true)
@@ -18878,8 +18878,8 @@ define internal fastcc range(i32 0, 256) i32 @ra_evict(ptr noundef nonnull captu
 
 4:                                                ; preds = %2
   %5 = and i32 %1, 1
-  %.not186 = icmp eq i32 %5, 0
-  br i1 %.not186, label %8, label %6, !prof !108
+  %.not185 = icmp eq i32 %5, 0
+  br i1 %.not185, label %8, label %6, !prof !108
 
 6:                                                ; preds = %4
   %7 = load i32, ptr %0, align 8, !tbaa !21
@@ -18888,151 +18888,151 @@ define internal fastcc range(i32 0, 256) i32 @ra_evict(ptr noundef nonnull captu
 8:                                                ; preds = %6, %4
   %.0133 = phi i32 [ -1, %4 ], [ %7, %6 ]
   %9 = and i32 %1, 2
-  %.not188 = icmp eq i32 %9, 0
-  br i1 %.not188, label %13, label %10, !prof !108
+  %.not187 = icmp eq i32 %9, 0
+  br i1 %.not187, label %13, label %10, !prof !108
 
 10:                                               ; preds = %8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %12 = load i32, ptr %11, align 4, !tbaa !21
-  %spec.select203 = tail call i32 @llvm.umin.i32(i32 %12, i32 %.0133)
+  %spec.select202 = tail call i32 @llvm.umin.i32(i32 %12, i32 %.0133)
   br label %13
 
 13:                                               ; preds = %10, %8
-  %.1134 = phi i32 [ %.0133, %8 ], [ %spec.select203, %10 ]
+  %.1134 = phi i32 [ %.0133, %8 ], [ %spec.select202, %10 ]
   %14 = and i32 %1, 4
-  %.not189 = icmp eq i32 %14, 0
-  br i1 %.not189, label %18, label %15, !prof !108
+  %.not188 = icmp eq i32 %14, 0
+  br i1 %.not188, label %18, label %15, !prof !108
 
 15:                                               ; preds = %13
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load i32, ptr %16, align 8, !tbaa !21
-  %spec.select204 = tail call i32 @llvm.umin.i32(i32 %17, i32 %.1134)
+  %spec.select203 = tail call i32 @llvm.umin.i32(i32 %17, i32 %.1134)
   br label %18
 
 18:                                               ; preds = %15, %13
-  %.2 = phi i32 [ %.1134, %13 ], [ %spec.select204, %15 ]
+  %.2 = phi i32 [ %.1134, %13 ], [ %spec.select203, %15 ]
   %19 = and i32 %1, 8
-  %.not190 = icmp eq i32 %19, 0
-  br i1 %.not190, label %23, label %20, !prof !108
+  %.not189 = icmp eq i32 %19, 0
+  br i1 %.not189, label %23, label %20, !prof !108
 
 20:                                               ; preds = %18
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %22 = load i32, ptr %21, align 4, !tbaa !21
-  %spec.select205 = tail call i32 @llvm.umin.i32(i32 %22, i32 %.2)
+  %spec.select204 = tail call i32 @llvm.umin.i32(i32 %22, i32 %.2)
   br label %23
 
 23:                                               ; preds = %20, %18
-  %.3 = phi i32 [ %.2, %18 ], [ %spec.select205, %20 ]
+  %.3 = phi i32 [ %.2, %18 ], [ %spec.select204, %20 ]
   %24 = and i32 %1, 32
-  %.not191 = icmp eq i32 %24, 0
-  br i1 %.not191, label %28, label %25, !prof !108
+  %.not190 = icmp eq i32 %24, 0
+  br i1 %.not190, label %28, label %25, !prof !108
 
 25:                                               ; preds = %23
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %27 = load i32, ptr %26, align 4, !tbaa !21
-  %spec.select206 = tail call i32 @llvm.umin.i32(i32 %27, i32 %.3)
+  %spec.select205 = tail call i32 @llvm.umin.i32(i32 %27, i32 %.3)
   br label %28
 
 28:                                               ; preds = %25, %23
-  %.4 = phi i32 [ %.3, %23 ], [ %spec.select206, %25 ]
+  %.4 = phi i32 [ %.3, %23 ], [ %spec.select205, %25 ]
   %29 = and i32 %1, 64
-  %.not192 = icmp eq i32 %29, 0
-  br i1 %.not192, label %33, label %30, !prof !108
+  %.not191 = icmp eq i32 %29, 0
+  br i1 %.not191, label %33, label %30, !prof !108
 
 30:                                               ; preds = %28
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load i32, ptr %31, align 8, !tbaa !21
-  %spec.select207 = tail call i32 @llvm.umin.i32(i32 %32, i32 %.4)
+  %spec.select206 = tail call i32 @llvm.umin.i32(i32 %32, i32 %.4)
   br label %33
 
 33:                                               ; preds = %30, %28
-  %.5 = phi i32 [ %.4, %28 ], [ %spec.select207, %30 ]
+  %.5 = phi i32 [ %.4, %28 ], [ %spec.select206, %30 ]
   %34 = and i32 %1, 128
-  %.not193 = icmp eq i32 %34, 0
-  br i1 %.not193, label %38, label %35, !prof !108
+  %.not192 = icmp eq i32 %34, 0
+  br i1 %.not192, label %38, label %35, !prof !108
 
 35:                                               ; preds = %33
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %37 = load i32, ptr %36, align 4, !tbaa !21
-  %spec.select208 = tail call i32 @llvm.umin.i32(i32 %37, i32 %.5)
+  %spec.select207 = tail call i32 @llvm.umin.i32(i32 %37, i32 %.5)
   br label %38
 
 38:                                               ; preds = %35, %33
-  %.6 = phi i32 [ %.5, %33 ], [ %spec.select208, %35 ]
+  %.6 = phi i32 [ %.5, %33 ], [ %spec.select207, %35 ]
   %39 = and i32 %1, 256
-  %.not194 = icmp eq i32 %39, 0
-  br i1 %.not194, label %43, label %40, !prof !108
+  %.not193 = icmp eq i32 %39, 0
+  br i1 %.not193, label %43, label %40, !prof !108
 
 40:                                               ; preds = %38
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %42 = load i32, ptr %41, align 8, !tbaa !21
-  %spec.select209 = tail call i32 @llvm.umin.i32(i32 %42, i32 %.6)
+  %spec.select208 = tail call i32 @llvm.umin.i32(i32 %42, i32 %.6)
   br label %43
 
 43:                                               ; preds = %40, %38
-  %.7 = phi i32 [ %.6, %38 ], [ %spec.select209, %40 ]
+  %.7 = phi i32 [ %.6, %38 ], [ %spec.select208, %40 ]
   %44 = and i32 %1, 512
-  %.not195 = icmp eq i32 %44, 0
-  br i1 %.not195, label %48, label %45, !prof !108
+  %.not194 = icmp eq i32 %44, 0
+  br i1 %.not194, label %48, label %45, !prof !108
 
 45:                                               ; preds = %43
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %47 = load i32, ptr %46, align 4, !tbaa !21
-  %spec.select210 = tail call i32 @llvm.umin.i32(i32 %47, i32 %.7)
+  %spec.select209 = tail call i32 @llvm.umin.i32(i32 %47, i32 %.7)
   br label %48
 
 48:                                               ; preds = %45, %43
-  %.8 = phi i32 [ %.7, %43 ], [ %spec.select210, %45 ]
+  %.8 = phi i32 [ %.7, %43 ], [ %spec.select209, %45 ]
   %49 = and i32 %1, 1024
-  %.not196 = icmp eq i32 %49, 0
-  br i1 %.not196, label %53, label %50, !prof !108
+  %.not195 = icmp eq i32 %49, 0
+  br i1 %.not195, label %53, label %50, !prof !108
 
 50:                                               ; preds = %48
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %52 = load i32, ptr %51, align 8, !tbaa !21
-  %spec.select211 = tail call i32 @llvm.umin.i32(i32 %52, i32 %.8)
+  %spec.select210 = tail call i32 @llvm.umin.i32(i32 %52, i32 %.8)
   br label %53
 
 53:                                               ; preds = %50, %48
-  %.9 = phi i32 [ %.8, %48 ], [ %spec.select211, %50 ]
+  %.9 = phi i32 [ %.8, %48 ], [ %spec.select210, %50 ]
   %54 = and i32 %1, 2048
-  %.not197 = icmp eq i32 %54, 0
-  br i1 %.not197, label %58, label %55, !prof !108
+  %.not196 = icmp eq i32 %54, 0
+  br i1 %.not196, label %58, label %55, !prof !108
 
 55:                                               ; preds = %53
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %57 = load i32, ptr %56, align 4, !tbaa !21
-  %spec.select212 = tail call i32 @llvm.umin.i32(i32 %57, i32 %.9)
+  %spec.select211 = tail call i32 @llvm.umin.i32(i32 %57, i32 %.9)
   br label %58
 
 58:                                               ; preds = %55, %53
-  %.10 = phi i32 [ %.9, %53 ], [ %spec.select212, %55 ]
+  %.10 = phi i32 [ %.9, %53 ], [ %spec.select211, %55 ]
   %59 = and i32 %1, 4096
-  %.not198 = icmp eq i32 %59, 0
-  br i1 %.not198, label %63, label %60, !prof !108
+  %.not197 = icmp eq i32 %59, 0
+  br i1 %.not197, label %63, label %60, !prof !108
 
 60:                                               ; preds = %58
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %62 = load i32, ptr %61, align 8, !tbaa !21
-  %spec.select213 = tail call i32 @llvm.umin.i32(i32 %62, i32 %.10)
+  %spec.select212 = tail call i32 @llvm.umin.i32(i32 %62, i32 %.10)
   br label %63
 
 63:                                               ; preds = %60, %58
-  %.11 = phi i32 [ %.10, %58 ], [ %spec.select213, %60 ]
+  %.11 = phi i32 [ %.10, %58 ], [ %spec.select212, %60 ]
   %64 = and i32 %1, 8192
-  %.not199 = icmp eq i32 %64, 0
-  br i1 %.not199, label %68, label %65, !prof !108
+  %.not198 = icmp eq i32 %64, 0
+  br i1 %.not198, label %68, label %65, !prof !108
 
 65:                                               ; preds = %63
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %67 = load i32, ptr %66, align 4, !tbaa !21
-  %spec.select214 = tail call i32 @llvm.umin.i32(i32 %67, i32 %.11)
+  %spec.select213 = tail call i32 @llvm.umin.i32(i32 %67, i32 %.11)
   br label %68
 
 68:                                               ; preds = %65, %63
-  %.12 = phi i32 [ %.11, %63 ], [ %spec.select214, %65 ]
-  %.not200 = icmp samesign ult i32 %1, 32768
-  br i1 %.not200, label %147, label %.sink.split, !prof !108
+  %.12 = phi i32 [ %.11, %63 ], [ %spec.select213, %65 ]
+  %.not199 = icmp samesign ult i32 %1, 32768
+  br i1 %.not199, label %148, label %.sink.split, !prof !108
 
 69:                                               ; preds = %2
   %70 = and i32 %1, 65536
@@ -19053,11 +19053,11 @@ define internal fastcc range(i32 0, 256) i32 @ra_evict(ptr noundef nonnull captu
 76:                                               ; preds = %74
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %78 = load i32, ptr %77, align 4, !tbaa !21
-  %spec.select217 = tail call i32 @llvm.umin.i32(i32 %78, i32 %.14)
+  %spec.select216 = tail call i32 @llvm.umin.i32(i32 %78, i32 %.14)
   br label %79
 
 79:                                               ; preds = %76, %74
-  %.15 = phi i32 [ %.14, %74 ], [ %spec.select217, %76 ]
+  %.15 = phi i32 [ %.14, %74 ], [ %spec.select216, %76 ]
   %80 = and i32 %1, 262144
   %.not172 = icmp eq i32 %80, 0
   br i1 %.not172, label %84, label %81, !prof !108
@@ -19065,11 +19065,11 @@ define internal fastcc range(i32 0, 256) i32 @ra_evict(ptr noundef nonnull captu
 81:                                               ; preds = %79
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %83 = load i32, ptr %82, align 8, !tbaa !21
-  %spec.select218 = tail call i32 @llvm.umin.i32(i32 %83, i32 %.15)
+  %spec.select217 = tail call i32 @llvm.umin.i32(i32 %83, i32 %.15)
   br label %84
 
 84:                                               ; preds = %81, %79
-  %.16 = phi i32 [ %.15, %79 ], [ %spec.select218, %81 ]
+  %.16 = phi i32 [ %.15, %79 ], [ %spec.select217, %81 ]
   %85 = and i32 %1, 524288
   %.not173 = icmp eq i32 %85, 0
   br i1 %.not173, label %89, label %86, !prof !108
@@ -19077,11 +19077,11 @@ define internal fastcc range(i32 0, 256) i32 @ra_evict(ptr noundef nonnull captu
 86:                                               ; preds = %84
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %88 = load i32, ptr %87, align 4, !tbaa !21
-  %spec.select219 = tail call i32 @llvm.umin.i32(i32 %88, i32 %.16)
+  %spec.select218 = tail call i32 @llvm.umin.i32(i32 %88, i32 %.16)
   br label %89
 
 89:                                               ; preds = %86, %84
-  %.17 = phi i32 [ %.16, %84 ], [ %spec.select219, %86 ]
+  %.17 = phi i32 [ %.16, %84 ], [ %spec.select218, %86 ]
   %90 = and i32 %1, 1048576
   %.not174 = icmp eq i32 %90, 0
   br i1 %.not174, label %94, label %91, !prof !108
@@ -19089,11 +19089,11 @@ define internal fastcc range(i32 0, 256) i32 @ra_evict(ptr noundef nonnull captu
 91:                                               ; preds = %89
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %93 = load i32, ptr %92, align 8, !tbaa !21
-  %spec.select220 = tail call i32 @llvm.umin.i32(i32 %93, i32 %.17)
+  %spec.select219 = tail call i32 @llvm.umin.i32(i32 %93, i32 %.17)
   br label %94
 
 94:                                               ; preds = %91, %89
-  %.18 = phi i32 [ %.17, %89 ], [ %spec.select220, %91 ]
+  %.18 = phi i32 [ %.17, %89 ], [ %spec.select219, %91 ]
   %95 = and i32 %1, 2097152
   %.not175 = icmp eq i32 %95, 0
   br i1 %.not175, label %99, label %96, !prof !108
@@ -19101,11 +19101,11 @@ define internal fastcc range(i32 0, 256) i32 @ra_evict(ptr noundef nonnull captu
 96:                                               ; preds = %94
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %98 = load i32, ptr %97, align 4, !tbaa !21
-  %spec.select221 = tail call i32 @llvm.umin.i32(i32 %98, i32 %.18)
+  %spec.select220 = tail call i32 @llvm.umin.i32(i32 %98, i32 %.18)
   br label %99
 
 99:                                               ; preds = %96, %94
-  %.19 = phi i32 [ %.18, %94 ], [ %spec.select221, %96 ]
+  %.19 = phi i32 [ %.18, %94 ], [ %spec.select220, %96 ]
   %100 = and i32 %1, 4194304
   %.not176 = icmp eq i32 %100, 0
   br i1 %.not176, label %104, label %101, !prof !108
@@ -19113,11 +19113,11 @@ define internal fastcc range(i32 0, 256) i32 @ra_evict(ptr noundef nonnull captu
 101:                                              ; preds = %99
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %103 = load i32, ptr %102, align 8, !tbaa !21
-  %spec.select222 = tail call i32 @llvm.umin.i32(i32 %103, i32 %.19)
+  %spec.select221 = tail call i32 @llvm.umin.i32(i32 %103, i32 %.19)
   br label %104
 
 104:                                              ; preds = %101, %99
-  %.20 = phi i32 [ %.19, %99 ], [ %spec.select222, %101 ]
+  %.20 = phi i32 [ %.19, %99 ], [ %spec.select221, %101 ]
   %105 = and i32 %1, 8388608
   %.not177 = icmp eq i32 %105, 0
   br i1 %.not177, label %109, label %106, !prof !108
@@ -19125,11 +19125,11 @@ define internal fastcc range(i32 0, 256) i32 @ra_evict(ptr noundef nonnull captu
 106:                                              ; preds = %104
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %108 = load i32, ptr %107, align 4, !tbaa !21
-  %spec.select223 = tail call i32 @llvm.umin.i32(i32 %108, i32 %.20)
+  %spec.select222 = tail call i32 @llvm.umin.i32(i32 %108, i32 %.20)
   br label %109
 
 109:                                              ; preds = %106, %104
-  %.21 = phi i32 [ %.20, %104 ], [ %spec.select223, %106 ]
+  %.21 = phi i32 [ %.20, %104 ], [ %spec.select222, %106 ]
   %110 = and i32 %1, 16777216
   %.not178 = icmp eq i32 %110, 0
   br i1 %.not178, label %114, label %111, !prof !108
@@ -19137,11 +19137,11 @@ define internal fastcc range(i32 0, 256) i32 @ra_evict(ptr noundef nonnull captu
 111:                                              ; preds = %109
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %113 = load i32, ptr %112, align 8, !tbaa !21
-  %spec.select224 = tail call i32 @llvm.umin.i32(i32 %113, i32 %.21)
+  %spec.select223 = tail call i32 @llvm.umin.i32(i32 %113, i32 %.21)
   br label %114
 
 114:                                              ; preds = %111, %109
-  %.22 = phi i32 [ %.21, %109 ], [ %spec.select224, %111 ]
+  %.22 = phi i32 [ %.21, %109 ], [ %spec.select223, %111 ]
   %115 = and i32 %1, 33554432
   %.not179 = icmp eq i32 %115, 0
   br i1 %.not179, label %119, label %116, !prof !108
@@ -19149,11 +19149,11 @@ define internal fastcc range(i32 0, 256) i32 @ra_evict(ptr noundef nonnull captu
 116:                                              ; preds = %114
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %118 = load i32, ptr %117, align 4, !tbaa !21
-  %spec.select225 = tail call i32 @llvm.umin.i32(i32 %118, i32 %.22)
+  %spec.select224 = tail call i32 @llvm.umin.i32(i32 %118, i32 %.22)
   br label %119
 
 119:                                              ; preds = %116, %114
-  %.23 = phi i32 [ %.22, %114 ], [ %spec.select225, %116 ]
+  %.23 = phi i32 [ %.22, %114 ], [ %spec.select224, %116 ]
   %120 = and i32 %1, 67108864
   %.not180 = icmp eq i32 %120, 0
   br i1 %.not180, label %124, label %121, !prof !108
@@ -19161,11 +19161,11 @@ define internal fastcc range(i32 0, 256) i32 @ra_evict(ptr noundef nonnull captu
 121:                                              ; preds = %119
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %123 = load i32, ptr %122, align 8, !tbaa !21
-  %spec.select226 = tail call i32 @llvm.umin.i32(i32 %123, i32 %.23)
+  %spec.select225 = tail call i32 @llvm.umin.i32(i32 %123, i32 %.23)
   br label %124
 
 124:                                              ; preds = %121, %119
-  %.24 = phi i32 [ %.23, %119 ], [ %spec.select226, %121 ]
+  %.24 = phi i32 [ %.23, %119 ], [ %spec.select225, %121 ]
   %125 = and i32 %1, 134217728
   %.not181 = icmp eq i32 %125, 0
   br i1 %.not181, label %129, label %126, !prof !108
@@ -19173,11 +19173,11 @@ define internal fastcc range(i32 0, 256) i32 @ra_evict(ptr noundef nonnull captu
 126:                                              ; preds = %124
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %128 = load i32, ptr %127, align 4, !tbaa !21
-  %spec.select227 = tail call i32 @llvm.umin.i32(i32 %128, i32 %.24)
+  %spec.select226 = tail call i32 @llvm.umin.i32(i32 %128, i32 %.24)
   br label %129
 
 129:                                              ; preds = %126, %124
-  %.25 = phi i32 [ %.24, %124 ], [ %spec.select227, %126 ]
+  %.25 = phi i32 [ %.24, %124 ], [ %spec.select226, %126 ]
   %130 = and i32 %1, 268435456
   %.not182 = icmp eq i32 %130, 0
   br i1 %.not182, label %134, label %131, !prof !108
@@ -19185,11 +19185,11 @@ define internal fastcc range(i32 0, 256) i32 @ra_evict(ptr noundef nonnull captu
 131:                                              ; preds = %129
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %133 = load i32, ptr %132, align 8, !tbaa !21
-  %spec.select228 = tail call i32 @llvm.umin.i32(i32 %133, i32 %.25)
+  %spec.select227 = tail call i32 @llvm.umin.i32(i32 %133, i32 %.25)
   br label %134
 
 134:                                              ; preds = %131, %129
-  %.26 = phi i32 [ %.25, %129 ], [ %spec.select228, %131 ]
+  %.26 = phi i32 [ %.25, %129 ], [ %spec.select227, %131 ]
   %135 = and i32 %1, 536870912
   %.not183 = icmp eq i32 %135, 0
   br i1 %.not183, label %139, label %136, !prof !108
@@ -19197,11 +19197,11 @@ define internal fastcc range(i32 0, 256) i32 @ra_evict(ptr noundef nonnull captu
 136:                                              ; preds = %134
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %138 = load i32, ptr %137, align 4, !tbaa !21
-  %spec.select229 = tail call i32 @llvm.umin.i32(i32 %138, i32 %.26)
+  %spec.select228 = tail call i32 @llvm.umin.i32(i32 %138, i32 %.26)
   br label %139
 
 139:                                              ; preds = %136, %134
-  %.27 = phi i32 [ %.26, %134 ], [ %spec.select229, %136 ]
+  %.27 = phi i32 [ %.26, %134 ], [ %spec.select228, %136 ]
   %140 = and i32 %1, 1073741824
   %.not184 = icmp eq i32 %140, 0
   br i1 %.not184, label %144, label %141, !prof !108
@@ -19209,60 +19209,60 @@ define internal fastcc range(i32 0, 256) i32 @ra_evict(ptr noundef nonnull captu
 141:                                              ; preds = %139
   %142 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %143 = load i32, ptr %142, align 8, !tbaa !21
-  %spec.select230 = tail call i32 @llvm.umin.i32(i32 %143, i32 %.27)
+  %spec.select229 = tail call i32 @llvm.umin.i32(i32 %143, i32 %.27)
   br label %144
 
 144:                                              ; preds = %141, %139
-  %.28 = phi i32 [ %.27, %139 ], [ %spec.select230, %141 ]
-  %.not185 = icmp sgt i32 %1, -1
-  br i1 %.not185, label %147, label %.sink.split, !prof !108
+  %.28 = phi i32 [ %.27, %139 ], [ %spec.select229, %141 ]
+  %145 = icmp slt i32 %1, 65536
+  br i1 %145, label %.sink.split, label %148, !prof !38
 
 .sink.split:                                      ; preds = %144, %68
   %.sink = phi i64 [ 60, %68 ], [ 124, %144 ]
   %.28.sink = phi i32 [ %.12, %68 ], [ %.28, %144 ]
-  %145 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink
-  %146 = load i32, ptr %145, align 4, !tbaa !21
-  %spec.select231 = tail call i32 @llvm.umin.i32(i32 %146, i32 %.28.sink)
-  br label %147
+  %146 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink
+  %147 = load i32, ptr %146, align 4, !tbaa !21
+  %spec.select230 = tail call i32 @llvm.umin.i32(i32 %147, i32 %.28.sink)
+  br label %148
 
-147:                                              ; preds = %.sink.split, %144, %68
-  %.13 = phi i32 [ %.12, %68 ], [ %.28, %144 ], [ %spec.select231, %.sink.split ]
-  %148 = and i32 %.13, 65535
-  %149 = icmp samesign ult i32 %148, 32768
-  br i1 %149, label %170, label %150
+148:                                              ; preds = %.sink.split, %144, %68
+  %.13 = phi i32 [ %.12, %68 ], [ %.28, %144 ], [ %spec.select230, %.sink.split ]
+  %149 = and i32 %.13, 65535
+  %150 = icmp samesign ult i32 %149, 32768
+  br i1 %150, label %171, label %151
 
-150:                                              ; preds = %147
-  %151 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %152 = load i32, ptr %151, align 8, !tbaa !80
-  %153 = and i32 %152, %1
-  %.not201 = icmp eq i32 %153, 0
-  br i1 %.not201, label %170, label %154
+151:                                              ; preds = %148
+  %152 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %153 = load i32, ptr %152, align 8, !tbaa !80
+  %154 = and i32 %153, %1
+  %.not200 = icmp eq i32 %154, 0
+  br i1 %.not200, label %171, label %155
 
-154:                                              ; preds = %150
-  %155 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %156 = load ptr, ptr %155, align 8, !tbaa !68
-  %157 = zext nneg i32 %148 to i64
-  %158 = getelementptr inbounds nuw %union.IRIns, ptr %156, i64 %157
-  %159 = getelementptr inbounds nuw i8, ptr %158, i64 6
-  %160 = load i8, ptr %159, align 2, !tbaa !20
-  %161 = zext nneg i8 %160 to i32
-  %162 = shl nuw i32 1, %161
-  %163 = and i32 %162, %152
-  %.not202 = icmp eq i32 %163, 0
-  br i1 %.not202, label %164, label %170
+155:                                              ; preds = %151
+  %156 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %157 = load ptr, ptr %156, align 8, !tbaa !68
+  %158 = zext nneg i32 %149 to i64
+  %159 = getelementptr inbounds nuw %union.IRIns, ptr %157, i64 %158
+  %160 = getelementptr inbounds nuw i8, ptr %159, i64 6
+  %161 = load i8, ptr %160, align 2, !tbaa !20
+  %162 = zext nneg i8 %161 to i32
+  %163 = shl nuw i32 1, %162
+  %164 = and i32 %163, %153
+  %.not201 = icmp eq i32 %164, 0
+  br i1 %.not201, label %165, label %171
 
-164:                                              ; preds = %154
-  %165 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %153, i1 true)
-  %166 = zext nneg i32 %165 to i64
-  %167 = getelementptr inbounds nuw i32, ptr %0, i64 %166
-  %168 = load i32, ptr %167, align 4, !tbaa !21
-  %169 = and i32 %168, 65535
-  br label %170
+165:                                              ; preds = %155
+  %166 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %154, i1 true)
+  %167 = zext nneg i32 %166 to i64
+  %168 = getelementptr inbounds nuw i32, ptr %0, i64 %167
+  %169 = load i32, ptr %168, align 4, !tbaa !21
+  %170 = and i32 %169, 65535
+  br label %171
 
-170:                                              ; preds = %154, %164, %150, %147
-  %.0 = phi i32 [ %148, %147 ], [ %148, %150 ], [ %148, %154 ], [ %169, %164 ]
-  %171 = tail call fastcc i32 @ra_restore(ptr noundef %0, i32 noundef %.0)
-  ret i32 %171
+171:                                              ; preds = %155, %165, %151, %148
+  %.0 = phi i32 [ %149, %148 ], [ %149, %151 ], [ %149, %155 ], [ %170, %165 ]
+  %172 = tail call fastcc i32 @ra_restore(ptr noundef %0, i32 noundef %.0)
+  ret i32 %172
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -21263,44 +21263,44 @@ define internal fastcc void @asm_neg_not(ptr noundef nonnull captures(none) %0, 
   %23 = load i32, ptr %0, align 8, !tbaa !21
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %25 = load i32, ptr %24, align 4, !tbaa !21
-  %spec.select203.i = tail call i32 @llvm.umin.i32(i32 %25, i32 %23)
+  %spec.select202.i = tail call i32 @llvm.umin.i32(i32 %25, i32 %23)
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load i32, ptr %26, align 8, !tbaa !21
-  %spec.select204.i = tail call i32 @llvm.umin.i32(i32 %27, i32 %spec.select203.i)
+  %spec.select203.i = tail call i32 @llvm.umin.i32(i32 %27, i32 %spec.select202.i)
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %29 = load i32, ptr %28, align 4, !tbaa !21
-  %spec.select205.i = tail call i32 @llvm.umin.i32(i32 %29, i32 %spec.select204.i)
+  %spec.select204.i = tail call i32 @llvm.umin.i32(i32 %29, i32 %spec.select203.i)
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %31 = load i32, ptr %30, align 4, !tbaa !21
-  %spec.select206.i = tail call i32 @llvm.umin.i32(i32 %31, i32 %spec.select205.i)
+  %spec.select205.i = tail call i32 @llvm.umin.i32(i32 %31, i32 %spec.select204.i)
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %33 = load i32, ptr %32, align 8, !tbaa !21
-  %spec.select207.i = tail call i32 @llvm.umin.i32(i32 %33, i32 %spec.select206.i)
+  %spec.select206.i = tail call i32 @llvm.umin.i32(i32 %33, i32 %spec.select205.i)
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %35 = load i32, ptr %34, align 4, !tbaa !21
-  %spec.select208.i = tail call i32 @llvm.umin.i32(i32 %35, i32 %spec.select207.i)
+  %spec.select207.i = tail call i32 @llvm.umin.i32(i32 %35, i32 %spec.select206.i)
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %37 = load i32, ptr %36, align 8, !tbaa !21
-  %spec.select209.i = tail call i32 @llvm.umin.i32(i32 %37, i32 %spec.select208.i)
+  %spec.select208.i = tail call i32 @llvm.umin.i32(i32 %37, i32 %spec.select207.i)
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %39 = load i32, ptr %38, align 4, !tbaa !21
-  %spec.select210.i = tail call i32 @llvm.umin.i32(i32 %39, i32 %spec.select209.i)
+  %spec.select209.i = tail call i32 @llvm.umin.i32(i32 %39, i32 %spec.select208.i)
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %41 = load i32, ptr %40, align 8, !tbaa !21
-  %spec.select211.i = tail call i32 @llvm.umin.i32(i32 %41, i32 %spec.select210.i)
+  %spec.select210.i = tail call i32 @llvm.umin.i32(i32 %41, i32 %spec.select209.i)
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %43 = load i32, ptr %42, align 4, !tbaa !21
-  %spec.select212.i = tail call i32 @llvm.umin.i32(i32 %43, i32 %spec.select211.i)
+  %spec.select211.i = tail call i32 @llvm.umin.i32(i32 %43, i32 %spec.select210.i)
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %45 = load i32, ptr %44, align 8, !tbaa !21
-  %spec.select213.i = tail call i32 @llvm.umin.i32(i32 %45, i32 %spec.select212.i)
+  %spec.select212.i = tail call i32 @llvm.umin.i32(i32 %45, i32 %spec.select211.i)
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %47 = load i32, ptr %46, align 4, !tbaa !21
-  %spec.select214.i = tail call i32 @llvm.umin.i32(i32 %47, i32 %spec.select213.i)
+  %spec.select213.i = tail call i32 @llvm.umin.i32(i32 %47, i32 %spec.select212.i)
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %49 = load i32, ptr %48, align 4, !tbaa !21
-  %spec.select231.i = tail call i32 @llvm.umin.i32(i32 %49, i32 %spec.select214.i)
-  %50 = and i32 %spec.select231.i, 65535
+  %spec.select230.i = tail call i32 @llvm.umin.i32(i32 %49, i32 %spec.select213.i)
+  %50 = and i32 %spec.select230.i, 65535
   %51 = icmp samesign ult i32 %50, 32768
   br i1 %51, label %ra_evict.exit, label %52
 
@@ -21308,8 +21308,8 @@ define internal fastcc void @asm_neg_not(ptr noundef nonnull captures(none) %0, 
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %54 = load i32, ptr %53, align 8, !tbaa !80
   %55 = and i32 %54, 49135
-  %.not201.i = icmp eq i32 %55, 0
-  br i1 %.not201.i, label %ra_evict.exit, label %56
+  %.not200.i = icmp eq i32 %55, 0
+  br i1 %.not200.i, label %ra_evict.exit, label %56
 
 56:                                               ; preds = %52
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -21321,8 +21321,8 @@ define internal fastcc void @asm_neg_not(ptr noundef nonnull captures(none) %0, 
   %63 = zext nneg i8 %62 to i32
   %64 = shl nuw i32 1, %63
   %65 = and i32 %64, %54
-  %.not202.i = icmp eq i32 %65, 0
-  br i1 %.not202.i, label %66, label %ra_evict.exit
+  %.not201.i = icmp eq i32 %65, 0
+  br i1 %.not201.i, label %66, label %ra_evict.exit
 
 66:                                               ; preds = %56
   %67 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %55, i1 true)
@@ -22064,44 +22064,44 @@ define internal fastcc void @asm_bitshift(ptr noundef nonnull %0, ptr noundef ca
   %33 = load i32, ptr %0, align 8, !tbaa !21
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %35 = load i32, ptr %34, align 4, !tbaa !21
-  %spec.select203.i = tail call i32 @llvm.umin.i32(i32 %35, i32 %33)
+  %spec.select202.i = tail call i32 @llvm.umin.i32(i32 %35, i32 %33)
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %37 = load i32, ptr %36, align 8, !tbaa !21
-  %spec.select204.i = tail call i32 @llvm.umin.i32(i32 %37, i32 %spec.select203.i)
+  %spec.select203.i = tail call i32 @llvm.umin.i32(i32 %37, i32 %spec.select202.i)
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %39 = load i32, ptr %38, align 4, !tbaa !21
-  %spec.select205.i = tail call i32 @llvm.umin.i32(i32 %39, i32 %spec.select204.i)
+  %spec.select204.i = tail call i32 @llvm.umin.i32(i32 %39, i32 %spec.select203.i)
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %41 = load i32, ptr %40, align 4, !tbaa !21
-  %spec.select206.i = tail call i32 @llvm.umin.i32(i32 %41, i32 %spec.select205.i)
+  %spec.select205.i = tail call i32 @llvm.umin.i32(i32 %41, i32 %spec.select204.i)
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %43 = load i32, ptr %42, align 8, !tbaa !21
-  %spec.select207.i = tail call i32 @llvm.umin.i32(i32 %43, i32 %spec.select206.i)
+  %spec.select206.i = tail call i32 @llvm.umin.i32(i32 %43, i32 %spec.select205.i)
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %45 = load i32, ptr %44, align 4, !tbaa !21
-  %spec.select208.i = tail call i32 @llvm.umin.i32(i32 %45, i32 %spec.select207.i)
+  %spec.select207.i = tail call i32 @llvm.umin.i32(i32 %45, i32 %spec.select206.i)
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %47 = load i32, ptr %46, align 8, !tbaa !21
-  %spec.select209.i = tail call i32 @llvm.umin.i32(i32 %47, i32 %spec.select208.i)
+  %spec.select208.i = tail call i32 @llvm.umin.i32(i32 %47, i32 %spec.select207.i)
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %49 = load i32, ptr %48, align 4, !tbaa !21
-  %spec.select210.i = tail call i32 @llvm.umin.i32(i32 %49, i32 %spec.select209.i)
+  %spec.select209.i = tail call i32 @llvm.umin.i32(i32 %49, i32 %spec.select208.i)
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %51 = load i32, ptr %50, align 8, !tbaa !21
-  %spec.select211.i = tail call i32 @llvm.umin.i32(i32 %51, i32 %spec.select210.i)
+  %spec.select210.i = tail call i32 @llvm.umin.i32(i32 %51, i32 %spec.select209.i)
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %53 = load i32, ptr %52, align 4, !tbaa !21
-  %spec.select212.i = tail call i32 @llvm.umin.i32(i32 %53, i32 %spec.select211.i)
+  %spec.select211.i = tail call i32 @llvm.umin.i32(i32 %53, i32 %spec.select210.i)
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %55 = load i32, ptr %54, align 8, !tbaa !21
-  %spec.select213.i = tail call i32 @llvm.umin.i32(i32 %55, i32 %spec.select212.i)
+  %spec.select212.i = tail call i32 @llvm.umin.i32(i32 %55, i32 %spec.select211.i)
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %57 = load i32, ptr %56, align 4, !tbaa !21
-  %spec.select214.i = tail call i32 @llvm.umin.i32(i32 %57, i32 %spec.select213.i)
+  %spec.select213.i = tail call i32 @llvm.umin.i32(i32 %57, i32 %spec.select212.i)
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %59 = load i32, ptr %58, align 4, !tbaa !21
-  %spec.select231.i = tail call i32 @llvm.umin.i32(i32 %59, i32 %spec.select214.i)
-  %60 = and i32 %spec.select231.i, 65535
+  %spec.select230.i = tail call i32 @llvm.umin.i32(i32 %59, i32 %spec.select213.i)
+  %60 = and i32 %spec.select230.i, 65535
   %61 = icmp samesign ult i32 %60, 32768
   br i1 %61, label %ra_evict.exit, label %62
 
@@ -22109,8 +22109,8 @@ define internal fastcc void @asm_bitshift(ptr noundef nonnull %0, ptr noundef ca
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %64 = load i32, ptr %63, align 8, !tbaa !80
   %65 = and i32 %64, 49135
-  %.not201.i = icmp eq i32 %65, 0
-  br i1 %.not201.i, label %ra_evict.exit, label %66
+  %.not200.i = icmp eq i32 %65, 0
+  br i1 %.not200.i, label %ra_evict.exit, label %66
 
 66:                                               ; preds = %62
   %67 = zext nneg i32 %60 to i64
@@ -22120,8 +22120,8 @@ define internal fastcc void @asm_bitshift(ptr noundef nonnull %0, ptr noundef ca
   %71 = zext nneg i8 %70 to i32
   %72 = shl nuw i32 1, %71
   %73 = and i32 %72, %64
-  %.not202.i = icmp eq i32 %73, 0
-  br i1 %.not202.i, label %74, label %ra_evict.exit
+  %.not201.i = icmp eq i32 %73, 0
+  br i1 %.not201.i, label %74, label %ra_evict.exit
 
 74:                                               ; preds = %66
   %75 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %65, i1 true)
@@ -22617,41 +22617,41 @@ ra_dest.exit145:                                  ; preds = %329, %332
   %339 = load i32, ptr %0, align 8, !tbaa !21
   %340 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %341 = load i32, ptr %340, align 8, !tbaa !21
-  %spec.select204.i164 = tail call i32 @llvm.umin.i32(i32 %341, i32 %339)
+  %spec.select203.i164 = tail call i32 @llvm.umin.i32(i32 %341, i32 %339)
   %342 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %343 = load i32, ptr %342, align 4, !tbaa !21
-  %spec.select205.i165 = tail call i32 @llvm.umin.i32(i32 %343, i32 %spec.select204.i164)
+  %spec.select204.i165 = tail call i32 @llvm.umin.i32(i32 %343, i32 %spec.select203.i164)
   %344 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %345 = load i32, ptr %344, align 4, !tbaa !21
-  %spec.select206.i166 = tail call i32 @llvm.umin.i32(i32 %345, i32 %spec.select205.i165)
+  %spec.select205.i166 = tail call i32 @llvm.umin.i32(i32 %345, i32 %spec.select204.i165)
   %346 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %347 = load i32, ptr %346, align 8, !tbaa !21
-  %spec.select207.i167 = tail call i32 @llvm.umin.i32(i32 %347, i32 %spec.select206.i166)
+  %spec.select206.i167 = tail call i32 @llvm.umin.i32(i32 %347, i32 %spec.select205.i166)
   %348 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %349 = load i32, ptr %348, align 4, !tbaa !21
-  %spec.select208.i168 = tail call i32 @llvm.umin.i32(i32 %349, i32 %spec.select207.i167)
+  %spec.select207.i168 = tail call i32 @llvm.umin.i32(i32 %349, i32 %spec.select206.i167)
   %350 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %351 = load i32, ptr %350, align 8, !tbaa !21
-  %spec.select209.i169 = tail call i32 @llvm.umin.i32(i32 %351, i32 %spec.select208.i168)
+  %spec.select208.i169 = tail call i32 @llvm.umin.i32(i32 %351, i32 %spec.select207.i168)
   %352 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %353 = load i32, ptr %352, align 4, !tbaa !21
-  %spec.select210.i170 = tail call i32 @llvm.umin.i32(i32 %353, i32 %spec.select209.i169)
+  %spec.select209.i170 = tail call i32 @llvm.umin.i32(i32 %353, i32 %spec.select208.i169)
   %354 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %355 = load i32, ptr %354, align 8, !tbaa !21
-  %spec.select211.i171 = tail call i32 @llvm.umin.i32(i32 %355, i32 %spec.select210.i170)
+  %spec.select210.i171 = tail call i32 @llvm.umin.i32(i32 %355, i32 %spec.select209.i170)
   %356 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %357 = load i32, ptr %356, align 4, !tbaa !21
-  %spec.select212.i172 = tail call i32 @llvm.umin.i32(i32 %357, i32 %spec.select211.i171)
+  %spec.select211.i172 = tail call i32 @llvm.umin.i32(i32 %357, i32 %spec.select210.i171)
   %358 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %359 = load i32, ptr %358, align 8, !tbaa !21
-  %spec.select213.i173 = tail call i32 @llvm.umin.i32(i32 %359, i32 %spec.select212.i172)
+  %spec.select212.i173 = tail call i32 @llvm.umin.i32(i32 %359, i32 %spec.select211.i172)
   %360 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %361 = load i32, ptr %360, align 4, !tbaa !21
-  %spec.select214.i174 = tail call i32 @llvm.umin.i32(i32 %361, i32 %spec.select213.i173)
+  %spec.select213.i174 = tail call i32 @llvm.umin.i32(i32 %361, i32 %spec.select212.i173)
   %362 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %363 = load i32, ptr %362, align 4, !tbaa !21
-  %spec.select231.i175 = tail call i32 @llvm.umin.i32(i32 %363, i32 %spec.select214.i174)
-  %364 = and i32 %spec.select231.i175, 65535
+  %spec.select230.i175 = tail call i32 @llvm.umin.i32(i32 %363, i32 %spec.select213.i174)
+  %364 = and i32 %spec.select230.i175, 65535
   %365 = icmp samesign ult i32 %364, 32768
   br i1 %365, label %ra_evict.exit179, label %366
 
@@ -22659,8 +22659,8 @@ ra_dest.exit145:                                  ; preds = %329, %332
   %367 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %368 = load i32, ptr %367, align 8, !tbaa !80
   %369 = and i32 %368, 49133
-  %.not201.i176 = icmp eq i32 %369, 0
-  br i1 %.not201.i176, label %ra_evict.exit179, label %370
+  %.not200.i176 = icmp eq i32 %369, 0
+  br i1 %.not200.i176, label %ra_evict.exit179, label %370
 
 370:                                              ; preds = %366
   %371 = load ptr, ptr %8, align 8, !tbaa !68
@@ -22671,8 +22671,8 @@ ra_dest.exit145:                                  ; preds = %329, %332
   %376 = zext nneg i8 %375 to i32
   %377 = shl nuw i32 1, %376
   %378 = and i32 %377, %368
-  %.not202.i177 = icmp eq i32 %378, 0
-  br i1 %.not202.i177, label %379, label %ra_evict.exit179
+  %.not201.i177 = icmp eq i32 %378, 0
+  br i1 %.not201.i177, label %379, label %ra_evict.exit179
 
 379:                                              ; preds = %370
   %380 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %369, i1 true)
@@ -23115,44 +23115,44 @@ define internal fastcc void @asm_href(ptr noundef nonnull %0, ptr noundef captur
   %30 = load i32, ptr %0, align 8, !tbaa !21
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %32 = load i32, ptr %31, align 4, !tbaa !21
-  %spec.select203.i = tail call i32 @llvm.umin.i32(i32 %32, i32 %30)
+  %spec.select202.i = tail call i32 @llvm.umin.i32(i32 %32, i32 %30)
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = load i32, ptr %33, align 8, !tbaa !21
-  %spec.select204.i = tail call i32 @llvm.umin.i32(i32 %34, i32 %spec.select203.i)
+  %spec.select203.i = tail call i32 @llvm.umin.i32(i32 %34, i32 %spec.select202.i)
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %36 = load i32, ptr %35, align 4, !tbaa !21
-  %spec.select205.i = tail call i32 @llvm.umin.i32(i32 %36, i32 %spec.select204.i)
+  %spec.select204.i = tail call i32 @llvm.umin.i32(i32 %36, i32 %spec.select203.i)
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %38 = load i32, ptr %37, align 4, !tbaa !21
-  %spec.select206.i = tail call i32 @llvm.umin.i32(i32 %38, i32 %spec.select205.i)
+  %spec.select205.i = tail call i32 @llvm.umin.i32(i32 %38, i32 %spec.select204.i)
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %40 = load i32, ptr %39, align 8, !tbaa !21
-  %spec.select207.i = tail call i32 @llvm.umin.i32(i32 %40, i32 %spec.select206.i)
+  %spec.select206.i = tail call i32 @llvm.umin.i32(i32 %40, i32 %spec.select205.i)
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %42 = load i32, ptr %41, align 4, !tbaa !21
-  %spec.select208.i = tail call i32 @llvm.umin.i32(i32 %42, i32 %spec.select207.i)
+  %spec.select207.i = tail call i32 @llvm.umin.i32(i32 %42, i32 %spec.select206.i)
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %44 = load i32, ptr %43, align 8, !tbaa !21
-  %spec.select209.i = tail call i32 @llvm.umin.i32(i32 %44, i32 %spec.select208.i)
+  %spec.select208.i = tail call i32 @llvm.umin.i32(i32 %44, i32 %spec.select207.i)
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %46 = load i32, ptr %45, align 4, !tbaa !21
-  %spec.select210.i = tail call i32 @llvm.umin.i32(i32 %46, i32 %spec.select209.i)
+  %spec.select209.i = tail call i32 @llvm.umin.i32(i32 %46, i32 %spec.select208.i)
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %48 = load i32, ptr %47, align 8, !tbaa !21
-  %spec.select211.i = tail call i32 @llvm.umin.i32(i32 %48, i32 %spec.select210.i)
+  %spec.select210.i = tail call i32 @llvm.umin.i32(i32 %48, i32 %spec.select209.i)
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %50 = load i32, ptr %49, align 4, !tbaa !21
-  %spec.select212.i = tail call i32 @llvm.umin.i32(i32 %50, i32 %spec.select211.i)
+  %spec.select211.i = tail call i32 @llvm.umin.i32(i32 %50, i32 %spec.select210.i)
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %52 = load i32, ptr %51, align 8, !tbaa !21
-  %spec.select213.i = tail call i32 @llvm.umin.i32(i32 %52, i32 %spec.select212.i)
+  %spec.select212.i = tail call i32 @llvm.umin.i32(i32 %52, i32 %spec.select211.i)
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %54 = load i32, ptr %53, align 4, !tbaa !21
-  %spec.select214.i = tail call i32 @llvm.umin.i32(i32 %54, i32 %spec.select213.i)
+  %spec.select213.i = tail call i32 @llvm.umin.i32(i32 %54, i32 %spec.select212.i)
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %56 = load i32, ptr %55, align 4, !tbaa !21
-  %spec.select231.i = tail call i32 @llvm.umin.i32(i32 %56, i32 %spec.select214.i)
-  %57 = and i32 %spec.select231.i, 65535
+  %spec.select230.i = tail call i32 @llvm.umin.i32(i32 %56, i32 %spec.select213.i)
+  %57 = and i32 %spec.select230.i, 65535
   %58 = icmp samesign ult i32 %57, 32768
   br i1 %58, label %ra_evict.exit, label %59
 
@@ -23160,8 +23160,8 @@ define internal fastcc void @asm_href(ptr noundef nonnull %0, ptr noundef captur
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %61 = load i32, ptr %60, align 8, !tbaa !80
   %62 = and i32 %61, 49135
-  %.not201.i = icmp eq i32 %62, 0
-  br i1 %.not201.i, label %ra_evict.exit, label %63
+  %.not200.i = icmp eq i32 %62, 0
+  br i1 %.not200.i, label %ra_evict.exit, label %63
 
 63:                                               ; preds = %59
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -23173,8 +23173,8 @@ define internal fastcc void @asm_href(ptr noundef nonnull %0, ptr noundef captur
   %70 = zext nneg i8 %69 to i32
   %71 = shl nuw i32 1, %70
   %72 = and i32 %71, %61
-  %.not202.i = icmp eq i32 %72, 0
-  br i1 %.not202.i, label %73, label %ra_evict.exit
+  %.not201.i = icmp eq i32 %72, 0
+  br i1 %.not201.i, label %73, label %ra_evict.exit
 
 73:                                               ; preds = %63
   %74 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %62, i1 true)
@@ -29728,44 +29728,44 @@ define internal fastcc void @asm_intmin_max(ptr noundef nonnull captures(none) %
   %23 = load i32, ptr %0, align 8, !tbaa !21
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %25 = load i32, ptr %24, align 4, !tbaa !21
-  %spec.select203.i = tail call i32 @llvm.umin.i32(i32 %25, i32 %23)
+  %spec.select202.i = tail call i32 @llvm.umin.i32(i32 %25, i32 %23)
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load i32, ptr %26, align 8, !tbaa !21
-  %spec.select204.i = tail call i32 @llvm.umin.i32(i32 %27, i32 %spec.select203.i)
+  %spec.select203.i = tail call i32 @llvm.umin.i32(i32 %27, i32 %spec.select202.i)
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %29 = load i32, ptr %28, align 4, !tbaa !21
-  %spec.select205.i = tail call i32 @llvm.umin.i32(i32 %29, i32 %spec.select204.i)
+  %spec.select204.i = tail call i32 @llvm.umin.i32(i32 %29, i32 %spec.select203.i)
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %31 = load i32, ptr %30, align 4, !tbaa !21
-  %spec.select206.i = tail call i32 @llvm.umin.i32(i32 %31, i32 %spec.select205.i)
+  %spec.select205.i = tail call i32 @llvm.umin.i32(i32 %31, i32 %spec.select204.i)
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %33 = load i32, ptr %32, align 8, !tbaa !21
-  %spec.select207.i = tail call i32 @llvm.umin.i32(i32 %33, i32 %spec.select206.i)
+  %spec.select206.i = tail call i32 @llvm.umin.i32(i32 %33, i32 %spec.select205.i)
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %35 = load i32, ptr %34, align 4, !tbaa !21
-  %spec.select208.i = tail call i32 @llvm.umin.i32(i32 %35, i32 %spec.select207.i)
+  %spec.select207.i = tail call i32 @llvm.umin.i32(i32 %35, i32 %spec.select206.i)
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %37 = load i32, ptr %36, align 8, !tbaa !21
-  %spec.select209.i = tail call i32 @llvm.umin.i32(i32 %37, i32 %spec.select208.i)
+  %spec.select208.i = tail call i32 @llvm.umin.i32(i32 %37, i32 %spec.select207.i)
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %39 = load i32, ptr %38, align 4, !tbaa !21
-  %spec.select210.i = tail call i32 @llvm.umin.i32(i32 %39, i32 %spec.select209.i)
+  %spec.select209.i = tail call i32 @llvm.umin.i32(i32 %39, i32 %spec.select208.i)
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %41 = load i32, ptr %40, align 8, !tbaa !21
-  %spec.select211.i = tail call i32 @llvm.umin.i32(i32 %41, i32 %spec.select210.i)
+  %spec.select210.i = tail call i32 @llvm.umin.i32(i32 %41, i32 %spec.select209.i)
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %43 = load i32, ptr %42, align 4, !tbaa !21
-  %spec.select212.i = tail call i32 @llvm.umin.i32(i32 %43, i32 %spec.select211.i)
+  %spec.select211.i = tail call i32 @llvm.umin.i32(i32 %43, i32 %spec.select210.i)
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %45 = load i32, ptr %44, align 8, !tbaa !21
-  %spec.select213.i = tail call i32 @llvm.umin.i32(i32 %45, i32 %spec.select212.i)
+  %spec.select212.i = tail call i32 @llvm.umin.i32(i32 %45, i32 %spec.select211.i)
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %47 = load i32, ptr %46, align 4, !tbaa !21
-  %spec.select214.i = tail call i32 @llvm.umin.i32(i32 %47, i32 %spec.select213.i)
+  %spec.select213.i = tail call i32 @llvm.umin.i32(i32 %47, i32 %spec.select212.i)
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %49 = load i32, ptr %48, align 4, !tbaa !21
-  %spec.select231.i = tail call i32 @llvm.umin.i32(i32 %49, i32 %spec.select214.i)
-  %50 = and i32 %spec.select231.i, 65535
+  %spec.select230.i = tail call i32 @llvm.umin.i32(i32 %49, i32 %spec.select213.i)
+  %50 = and i32 %spec.select230.i, 65535
   %51 = icmp samesign ult i32 %50, 32768
   br i1 %51, label %ra_evict.exit, label %52
 
@@ -29773,8 +29773,8 @@ define internal fastcc void @asm_intmin_max(ptr noundef nonnull captures(none) %
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %54 = load i32, ptr %53, align 8, !tbaa !80
   %55 = and i32 %54, 49135
-  %.not201.i = icmp eq i32 %55, 0
-  br i1 %.not201.i, label %ra_evict.exit, label %56
+  %.not200.i = icmp eq i32 %55, 0
+  br i1 %.not200.i, label %ra_evict.exit, label %56
 
 56:                                               ; preds = %52
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -29786,8 +29786,8 @@ define internal fastcc void @asm_intmin_max(ptr noundef nonnull captures(none) %
   %63 = zext nneg i8 %62 to i32
   %64 = shl nuw i32 1, %63
   %65 = and i32 %64, %54
-  %.not202.i = icmp eq i32 %65, 0
-  br i1 %.not202.i, label %66, label %ra_evict.exit
+  %.not201.i = icmp eq i32 %65, 0
+  br i1 %.not201.i, label %66, label %ra_evict.exit
 
 66:                                               ; preds = %56
   %67 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %55, i1 true)
@@ -30519,44 +30519,44 @@ ra_scratch.exit:                                  ; preds = %10, %12
   %36 = load i32, ptr %0, align 8, !tbaa !21
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %38 = load i32, ptr %37, align 4, !tbaa !21
-  %spec.select203.i = tail call i32 @llvm.umin.i32(i32 %38, i32 %36)
+  %spec.select202.i = tail call i32 @llvm.umin.i32(i32 %38, i32 %36)
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %40 = load i32, ptr %39, align 8, !tbaa !21
-  %spec.select204.i = tail call i32 @llvm.umin.i32(i32 %40, i32 %spec.select203.i)
+  %spec.select203.i = tail call i32 @llvm.umin.i32(i32 %40, i32 %spec.select202.i)
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %42 = load i32, ptr %41, align 4, !tbaa !21
-  %spec.select205.i = tail call i32 @llvm.umin.i32(i32 %42, i32 %spec.select204.i)
+  %spec.select204.i = tail call i32 @llvm.umin.i32(i32 %42, i32 %spec.select203.i)
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %44 = load i32, ptr %43, align 4, !tbaa !21
-  %spec.select206.i = tail call i32 @llvm.umin.i32(i32 %44, i32 %spec.select205.i)
+  %spec.select205.i = tail call i32 @llvm.umin.i32(i32 %44, i32 %spec.select204.i)
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %46 = load i32, ptr %45, align 8, !tbaa !21
-  %spec.select207.i = tail call i32 @llvm.umin.i32(i32 %46, i32 %spec.select206.i)
+  %spec.select206.i = tail call i32 @llvm.umin.i32(i32 %46, i32 %spec.select205.i)
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %48 = load i32, ptr %47, align 4, !tbaa !21
-  %spec.select208.i = tail call i32 @llvm.umin.i32(i32 %48, i32 %spec.select207.i)
+  %spec.select207.i = tail call i32 @llvm.umin.i32(i32 %48, i32 %spec.select206.i)
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %50 = load i32, ptr %49, align 8, !tbaa !21
-  %spec.select209.i = tail call i32 @llvm.umin.i32(i32 %50, i32 %spec.select208.i)
+  %spec.select208.i = tail call i32 @llvm.umin.i32(i32 %50, i32 %spec.select207.i)
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %52 = load i32, ptr %51, align 4, !tbaa !21
-  %spec.select210.i = tail call i32 @llvm.umin.i32(i32 %52, i32 %spec.select209.i)
+  %spec.select209.i = tail call i32 @llvm.umin.i32(i32 %52, i32 %spec.select208.i)
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %54 = load i32, ptr %53, align 8, !tbaa !21
-  %spec.select211.i = tail call i32 @llvm.umin.i32(i32 %54, i32 %spec.select210.i)
+  %spec.select210.i = tail call i32 @llvm.umin.i32(i32 %54, i32 %spec.select209.i)
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %56 = load i32, ptr %55, align 4, !tbaa !21
-  %spec.select212.i = tail call i32 @llvm.umin.i32(i32 %56, i32 %spec.select211.i)
+  %spec.select211.i = tail call i32 @llvm.umin.i32(i32 %56, i32 %spec.select210.i)
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %58 = load i32, ptr %57, align 8, !tbaa !21
-  %spec.select213.i = tail call i32 @llvm.umin.i32(i32 %58, i32 %spec.select212.i)
+  %spec.select212.i = tail call i32 @llvm.umin.i32(i32 %58, i32 %spec.select211.i)
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %60 = load i32, ptr %59, align 4, !tbaa !21
-  %spec.select214.i = tail call i32 @llvm.umin.i32(i32 %60, i32 %spec.select213.i)
+  %spec.select213.i = tail call i32 @llvm.umin.i32(i32 %60, i32 %spec.select212.i)
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %62 = load i32, ptr %61, align 4, !tbaa !21
-  %spec.select231.i = tail call i32 @llvm.umin.i32(i32 %62, i32 %spec.select214.i)
-  %63 = and i32 %spec.select231.i, 65535
+  %spec.select230.i = tail call i32 @llvm.umin.i32(i32 %62, i32 %spec.select213.i)
+  %63 = and i32 %spec.select230.i, 65535
   %64 = icmp samesign ult i32 %63, 32768
   br i1 %64, label %ra_evict.exit, label %65
 
@@ -30564,8 +30564,8 @@ ra_scratch.exit:                                  ; preds = %10, %12
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %67 = load i32, ptr %66, align 8, !tbaa !80
   %68 = and i32 %67, 49135
-  %.not201.i = icmp eq i32 %68, 0
-  br i1 %.not201.i, label %ra_evict.exit, label %69
+  %.not200.i = icmp eq i32 %68, 0
+  br i1 %.not200.i, label %ra_evict.exit, label %69
 
 69:                                               ; preds = %65
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -30577,8 +30577,8 @@ ra_scratch.exit:                                  ; preds = %10, %12
   %76 = zext nneg i8 %75 to i32
   %77 = shl nuw i32 1, %76
   %78 = and i32 %77, %67
-  %.not202.i = icmp eq i32 %78, 0
-  br i1 %.not202.i, label %79, label %ra_evict.exit
+  %.not201.i = icmp eq i32 %78, 0
+  br i1 %.not201.i, label %79, label %ra_evict.exit
 
 79:                                               ; preds = %69
   %80 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %68, i1 true)

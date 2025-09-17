@@ -8545,9 +8545,8 @@ _ZNSt3__122__indic_conjunct_break14__get_propertyB8ne210000EDi.exit.thread.i: ; 
   br label %_ZNSt3__19__unicode33__extended_grapheme_cluster_break36__evaluate_GB9c_indic_conjunct_breakB8ne210000EDiNS_44__extended_grapheme_custer_property_boundary10__propertyE.exit
 
 39:                                               ; preds = %32
-  %.off.i = add nsw i8 %29, -1
-  %switch16.i = icmp ult i8 %.off.i, 2
-  br i1 %switch16.i, label %_ZNSt3__19__unicode33__extended_grapheme_cluster_break36__evaluate_GB9c_indic_conjunct_breakB8ne210000EDiNS_44__extended_grapheme_custer_property_boundary10__propertyE.exit, label %40
+  %.not.i = icmp eq i8 %29, 0
+  br i1 %.not.i, label %40, label %_ZNSt3__19__unicode33__extended_grapheme_cluster_break36__evaluate_GB9c_indic_conjunct_breakB8ne210000EDiNS_44__extended_grapheme_custer_property_boundary10__propertyE.exit
 
 40:                                               ; preds = %39
   store i32 0, ptr %33, align 4, !tbaa !412

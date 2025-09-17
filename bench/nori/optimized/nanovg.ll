@@ -25512,9 +25512,8 @@ define dso_local i32 @nvgTextBreakLines(ptr noundef captures(none) %0, ptr nound
   %.2247 = select i1 %or.cond21.not, float %.0245303, float %153
   %.2240 = select i1 %or.cond21.not, float %.0238306, float %157
   %.2233 = select i1 %or.cond21.not, ptr %.0231309, ptr %155
-  %158 = and i32 %.0211316, -2
-  %or.cond23 = icmp eq i32 %158, 2
-  %or.cond25 = and i1 %or.cond23, %or.cond21.not
+  %158 = icmp samesign ugt i32 %.0211316, 1
+  %or.cond25 = and i1 %158, %or.cond21.not
   %or.cond27 = or i1 %154, %or.cond25
   %159 = load ptr, ptr %102, align 8
   %.2219 = select i1 %or.cond27, ptr %159, ptr %.0217313

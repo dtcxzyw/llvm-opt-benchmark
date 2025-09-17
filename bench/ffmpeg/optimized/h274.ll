@@ -693,11 +693,11 @@ generate.exit.us:                                 ; preds = %.preheader127.us.lv
   %382 = load i8, ptr %381, align 1, !tbaa !9
   %383 = sext i8 %382 to i32
   %384 = add nsw i32 %383, %380
-  %.not.i.i.us = icmp ult i32 %384, 256
+  %385 = icmp ugt i32 %384, 255
   %isnotneg.i.i.us = icmp sgt i32 %384, -1
-  %385 = sext i1 %isnotneg.i.i.us to i8
-  %386 = trunc nuw i32 %384 to i8
-  %.0.i.i.us = select i1 %.not.i.i.us, i8 %386, i8 %385
+  %386 = sext i1 %isnotneg.i.i.us to i8
+  %387 = trunc nuw i32 %384 to i8
+  %.0.i.i.us = select i1 %385, i8 %386, i8 %387
   store i8 %.0.i.i.us, ptr %381, align 1, !tbaa !9
   %indvars.iv.next.i120.us = add nuw nsw i64 %indvars.iv.i119.us, 1
   %exitcond.not.i121.us = icmp eq i64 %indvars.iv.next.i120.us, %wide.trip.count.i

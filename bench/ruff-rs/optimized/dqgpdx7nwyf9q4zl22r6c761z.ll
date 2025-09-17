@@ -2281,7 +2281,7 @@ define internal fastcc void @"_ZN4core3ptr83drop_in_place$LT$alloc..boxed..Box$L
   %4 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %4)
   invoke void %2(ptr noundef nonnull %.0.val)
-          to label %5 unwind label %15
+          to label %5 unwind label %14
 
 5:                                                ; preds = %3, %0
   %6 = icmp ne ptr %.0.val, null
@@ -2290,38 +2290,36 @@ define internal fastcc void @"_ZN4core3ptr83drop_in_place$LT$alloc..boxed..Box$L
   %8 = load i64, ptr %7, align 8, !range !305, !invariant.load !3
   %9 = getelementptr inbounds nuw i8, ptr %.8.val, i64 16
   %10 = load i64, ptr %9, align 8, !range !306, !invariant.load !3
-  %11 = add i64 %10, -1
-  %12 = icmp sgt i64 %11, -1
-  tail call void @llvm.assume(i1 %12)
-  %13 = icmp eq i64 %8, 0
-  br i1 %13, label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he4b71634a6563934E.exit", label %14
+  %11 = icmp ult i64 %10, -9223372036854775807
+  tail call void @llvm.assume(i1 %11)
+  %12 = icmp eq i64 %8, 0
+  br i1 %12, label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he4b71634a6563934E.exit", label %13
 
-14:                                               ; preds = %5
+13:                                               ; preds = %5
   tail call void @_RNvCscSpY9Juk0HT_7___rustc14___rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef range(i64 1, 0) %8, i64 noundef range(i64 1, -9223372036854775807) %10) #24
   br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he4b71634a6563934E.exit"
 
-"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he4b71634a6563934E.exit": ; preds = %5, %14
+"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he4b71634a6563934E.exit": ; preds = %5, %13
   ret void
 
-15:                                               ; preds = %3
-  %16 = landingpad { ptr, i32 }
+14:                                               ; preds = %3
+  %15 = landingpad { ptr, i32 }
           cleanup
-  %17 = getelementptr inbounds nuw i8, ptr %.8.val, i64 8
-  %18 = load i64, ptr %17, align 8, !range !305, !invariant.load !3
-  %19 = getelementptr inbounds nuw i8, ptr %.8.val, i64 16
-  %20 = load i64, ptr %19, align 8, !range !306, !invariant.load !3
-  %21 = add i64 %20, -1
-  %22 = icmp sgt i64 %21, -1
-  tail call void @llvm.assume(i1 %22)
-  %23 = icmp eq i64 %18, 0
-  br i1 %23, label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he4b71634a6563934E.exit4", label %24
+  %16 = getelementptr inbounds nuw i8, ptr %.8.val, i64 8
+  %17 = load i64, ptr %16, align 8, !range !305, !invariant.load !3
+  %18 = getelementptr inbounds nuw i8, ptr %.8.val, i64 16
+  %19 = load i64, ptr %18, align 8, !range !306, !invariant.load !3
+  %20 = icmp ult i64 %19, -9223372036854775807
+  tail call void @llvm.assume(i1 %20)
+  %21 = icmp eq i64 %17, 0
+  br i1 %21, label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he4b71634a6563934E.exit4", label %22
 
-24:                                               ; preds = %15
-  tail call void @_RNvCscSpY9Juk0HT_7___rustc14___rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef range(i64 1, 0) %18, i64 noundef range(i64 1, -9223372036854775807) %20) #24
+22:                                               ; preds = %14
+  tail call void @_RNvCscSpY9Juk0HT_7___rustc14___rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef range(i64 1, 0) %17, i64 noundef range(i64 1, -9223372036854775807) %19) #24
   br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he4b71634a6563934E.exit4"
 
-"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he4b71634a6563934E.exit4": ; preds = %24, %15
-  resume { ptr, i32 } %16
+"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he4b71634a6563934E.exit4": ; preds = %22, %14
+  resume { ptr, i32 } %15
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -48013,9 +48011,8 @@ define hidden noundef i32 @_ZN18ty_python_semantic5types8generics14GenericContex
   %6 = alloca [16 x i8], align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 55
   %8 = load i8, ptr %7, align 1, !range !3251, !noundef !3
-  %9 = and i8 %8, -2
-  %.not = icmp eq i8 %9, -38
-  br i1 %.not, label %18, label %.sink.split
+  %9 = icmp ugt i8 %8, -39
+  br i1 %9, label %18, label %.sink.split
 
 .sink.split:                                      ; preds = %4
   %10 = tail call noundef i32 @_ZN18ty_python_semantic14semantic_index13SemanticIndex24expect_single_definition17h01d46b543fff45ebE(ptr noalias noundef nonnull readonly align 8 dereferenceable(408) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.24707c9813366632d6460d300f68d204.369)
@@ -48993,38 +48990,37 @@ define hidden noundef range(i32 1, 0) i32 @_ZN18ty_python_semantic5types8generic
 ; Function Attrs: nonlazybind uwtable
 define noundef zeroext i1 @"_ZN96_$LT$ty_python_semantic..types..generics..GenericContextOrigin$u20$as$u20$core..fmt..Display$GT$3fmt17hf4fbbc033c9ec015E"(ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %3 = load i8, ptr %0, align 1, !range !321, !noundef !3
-  %4 = add nsw i8 %3, -2
-  %5 = icmp ult i8 %4, 3
-  %6 = zext nneg i8 %3 to i64
-  %7 = add nsw i64 %6, -1
-  %8 = select i1 %5, i64 %7, i64 0
-  switch i64 %8, label %9 [
-    i64 0, label %10
+  %4 = icmp samesign ugt i8 %3, 1
+  %5 = zext nneg i8 %3 to i64
+  %6 = add nsw i64 %5, -1
+  %7 = select i1 %4, i64 %6, i64 0
+  switch i64 %7, label %8 [
+    i64 0, label %9
     i64 1, label %_ZN18ty_python_semantic5types8generics20GenericContextOrigin6as_str17h7a807da6aa03b5f1E.exit
-    i64 2, label %12
-    i64 3, label %13
+    i64 2, label %11
+    i64 3, label %12
   ]
 
-9:                                                ; preds = %2
+8:                                                ; preds = %2
   unreachable
 
-10:                                               ; preds = %2
-  %11 = trunc nuw i8 %3 to i1
-  %..i.i = select i1 %11, i64 29, i64 16
-  %anon.24707c9813366632d6460d300f68d204.386.anon.24707c9813366632d6460d300f68d204.385.i.i = select i1 %11, ptr @anon.24707c9813366632d6460d300f68d204.386, ptr @anon.24707c9813366632d6460d300f68d204.385
+9:                                                ; preds = %2
+  %10 = trunc nuw i8 %3 to i1
+  %..i.i = select i1 %10, i64 29, i64 16
+  %anon.24707c9813366632d6460d300f68d204.386.anon.24707c9813366632d6460d300f68d204.385.i.i = select i1 %10, ptr @anon.24707c9813366632d6460d300f68d204.386, ptr @anon.24707c9813366632d6460d300f68d204.385
+  br label %_ZN18ty_python_semantic5types8generics20GenericContextOrigin6as_str17h7a807da6aa03b5f1E.exit
+
+11:                                               ; preds = %2
   br label %_ZN18ty_python_semantic5types8generics20GenericContextOrigin6as_str17h7a807da6aa03b5f1E.exit
 
 12:                                               ; preds = %2
   br label %_ZN18ty_python_semantic5types8generics20GenericContextOrigin6as_str17h7a807da6aa03b5f1E.exit
 
-13:                                               ; preds = %2
-  br label %_ZN18ty_python_semantic5types8generics20GenericContextOrigin6as_str17h7a807da6aa03b5f1E.exit
-
-_ZN18ty_python_semantic5types8generics20GenericContextOrigin6as_str17h7a807da6aa03b5f1E.exit: ; preds = %2, %10, %12, %13
-  %.sroa.02.0.i = phi ptr [ %anon.24707c9813366632d6460d300f68d204.386.anon.24707c9813366632d6460d300f68d204.385.i.i, %10 ], [ @anon.24707c9813366632d6460d300f68d204.383, %12 ], [ @anon.24707c9813366632d6460d300f68d204.384, %13 ], [ @anon.24707c9813366632d6460d300f68d204.382, %2 ]
-  %.sroa.5.0.i = phi i64 [ %..i.i, %10 ], [ 23, %12 ], [ 19, %13 ], [ 9, %2 ]
-  %14 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h448b00798f40aad6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %.sroa.02.0.i, i64 noundef %.sroa.5.0.i)
-  ret i1 %14
+_ZN18ty_python_semantic5types8generics20GenericContextOrigin6as_str17h7a807da6aa03b5f1E.exit: ; preds = %2, %9, %11, %12
+  %.sroa.02.0.i = phi ptr [ %anon.24707c9813366632d6460d300f68d204.386.anon.24707c9813366632d6460d300f68d204.385.i.i, %9 ], [ @anon.24707c9813366632d6460d300f68d204.383, %11 ], [ @anon.24707c9813366632d6460d300f68d204.384, %12 ], [ @anon.24707c9813366632d6460d300f68d204.382, %2 ]
+  %.sroa.5.0.i = phi i64 [ %..i.i, %9 ], [ 23, %11 ], [ 19, %12 ], [ 9, %2 ]
+  %13 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h448b00798f40aad6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %.sroa.02.0.i, i64 noundef %.sroa.5.0.i)
+  ret i1 %13
 }
 
 ; Function Attrs: nonlazybind uwtable

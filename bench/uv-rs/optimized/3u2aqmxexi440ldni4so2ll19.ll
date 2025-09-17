@@ -5194,51 +5194,48 @@ define hidden void @_ZN4core4hash6Hasher9write_str17h33f70ef2e230d4f4E.llvm.5746
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN4core5error5Error5cause17hd7a86bdd008a57dfE(ptr noalias noundef readonly align 8 dereferenceable(64) %0) unnamed_addr #2 {
   %2 = load i64, ptr %0, align 8, !range !1227, !alias.scope !1228, !noundef !3
-  %3 = add nsw i64 %2, -13
-  %4 = icmp ult i64 %3, 7
-  %5 = add nsw i64 %2, -12
-  %6 = select i1 %4, i64 %5, i64 0
-  switch i64 %6, label %7 [
-    i64 0, label %8
-    i64 1, label %12
-    i64 2, label %17
-    i64 3, label %19
+  %3 = tail call i64 @llvm.usub.sat.i64(i64 %2, i64 12)
+  switch i64 %3, label %default.unreachable [
+    i64 0, label %4
+    i64 1, label %8
+    i64 2, label %13
+    i64 3, label %15
     i64 4, label %"_ZN79_$LT$uv_distribution..metadata..MetadataError$u20$as$u20$core..error..Error$GT$6source17hb7c1fc5c6c7bd495E.exit"
     i64 5, label %"_ZN79_$LT$uv_distribution..metadata..MetadataError$u20$as$u20$core..error..Error$GT$6source17hb7c1fc5c6c7bd495E.exit"
     i64 6, label %"_ZN79_$LT$uv_distribution..metadata..MetadataError$u20$as$u20$core..error..Error$GT$6source17hb7c1fc5c6c7bd495E.exit"
     i64 7, label %"_ZN79_$LT$uv_distribution..metadata..MetadataError$u20$as$u20$core..error..Error$GT$6source17hb7c1fc5c6c7bd495E.exit"
   ]
 
-7:                                                ; preds = %1
+default.unreachable:                              ; preds = %1
   unreachable
 
+4:                                                ; preds = %1
+  %5 = tail call { ptr, ptr } @"_ZN78_$LT$uv_workspace..workspace..WorkspaceError$u20$as$u20$core..error..Error$GT$6source17h46d323e938d00051E"(ptr noundef nonnull readonly align 8 dereferenceable(64) %0)
+  %6 = extractvalue { ptr, ptr } %5, 0
+  %7 = extractvalue { ptr, ptr } %5, 1
+  br label %"_ZN79_$LT$uv_distribution..metadata..MetadataError$u20$as$u20$core..error..Error$GT$6source17hb7c1fc5c6c7bd495E.exit"
+
 8:                                                ; preds = %1
-  %9 = tail call { ptr, ptr } @"_ZN78_$LT$uv_workspace..workspace..WorkspaceError$u20$as$u20$core..error..Error$GT$6source17h46d323e938d00051E"(ptr noundef nonnull readonly align 8 dereferenceable(64) %0)
-  %10 = extractvalue { ptr, ptr } %9, 0
-  %11 = extractvalue { ptr, ptr } %9, 1
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %10 = tail call { ptr, ptr } @"_ZN92_$LT$uv_workspace..dependency_groups..DependencyGroupError$u20$as$u20$core..error..Error$GT$6source17h8bfbbb3ab8289489E"(ptr noundef nonnull readonly align 1 %9)
+  %11 = extractvalue { ptr, ptr } %10, 0
+  %12 = extractvalue { ptr, ptr } %10, 1
   br label %"_ZN79_$LT$uv_distribution..metadata..MetadataError$u20$as$u20$core..error..Error$GT$6source17hb7c1fc5c6c7bd495E.exit"
 
-12:                                               ; preds = %1
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %14 = tail call { ptr, ptr } @"_ZN92_$LT$uv_workspace..dependency_groups..DependencyGroupError$u20$as$u20$core..error..Error$GT$6source17h8bfbbb3ab8289489E"(ptr noundef nonnull readonly align 1 %13)
-  %15 = extractvalue { ptr, ptr } %14, 0
-  %16 = extractvalue { ptr, ptr } %14, 1
+13:                                               ; preds = %1
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %"_ZN79_$LT$uv_distribution..metadata..MetadataError$u20$as$u20$core..error..Error$GT$6source17hb7c1fc5c6c7bd495E.exit"
 
-17:                                               ; preds = %1
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
+15:                                               ; preds = %1
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %"_ZN79_$LT$uv_distribution..metadata..MetadataError$u20$as$u20$core..error..Error$GT$6source17hb7c1fc5c6c7bd495E.exit"
 
-19:                                               ; preds = %1
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  br label %"_ZN79_$LT$uv_distribution..metadata..MetadataError$u20$as$u20$core..error..Error$GT$6source17hb7c1fc5c6c7bd495E.exit"
-
-"_ZN79_$LT$uv_distribution..metadata..MetadataError$u20$as$u20$core..error..Error$GT$6source17hb7c1fc5c6c7bd495E.exit": ; preds = %1, %1, %1, %1, %8, %12, %17, %19
-  %.sroa.9.0.i = phi ptr [ %11, %8 ], [ %16, %12 ], [ @anon.d43ca56429a9eca305d592e0dd2a07be.229.llvm.11454047785800490792, %17 ], [ @anon.d43ca56429a9eca305d592e0dd2a07be.229.llvm.11454047785800490792, %19 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ]
-  %.sroa.0.0.i = phi ptr [ %10, %8 ], [ %15, %12 ], [ %18, %17 ], [ %20, %19 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ]
-  %21 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
-  %22 = insertvalue { ptr, ptr } %21, ptr %.sroa.9.0.i, 1
-  ret { ptr, ptr } %22
+"_ZN79_$LT$uv_distribution..metadata..MetadataError$u20$as$u20$core..error..Error$GT$6source17hb7c1fc5c6c7bd495E.exit": ; preds = %1, %1, %1, %1, %4, %8, %13, %15
+  %.sroa.9.0.i = phi ptr [ %7, %4 ], [ %12, %8 ], [ @anon.d43ca56429a9eca305d592e0dd2a07be.229.llvm.11454047785800490792, %13 ], [ @anon.d43ca56429a9eca305d592e0dd2a07be.229.llvm.11454047785800490792, %15 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ]
+  %.sroa.0.0.i = phi ptr [ %6, %4 ], [ %11, %8 ], [ %14, %13 ], [ %16, %15 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ]
+  %17 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
+  %18 = insertvalue { ptr, ptr } %17, ptr %.sroa.9.0.i, 1
+  ret { ptr, ptr } %18
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable

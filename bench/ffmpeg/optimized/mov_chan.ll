@@ -742,7 +742,7 @@ define range(i32 -2147483648, 1) i32 @ff_mov_read_chnl(ptr noundef %0, ptr nound
   %7 = tail call i32 @avio_r8(ptr noundef %1) #3
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 56, ptr noundef nonnull @.str.7, i32 noundef %7) #3
   %.not55 = icmp eq i32 %7, 0
-  br i1 %.not55, label %8, label %35
+  br i1 %.not55, label %8, label %34
 
 8:                                                ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -764,8 +764,8 @@ define range(i32 -2147483648, 1) i32 @ff_mov_read_chnl(ptr noundef %0, ptr nound
   %wide.trip.count = zext nneg i32 %13 to i64
   br label %18
 
-18:                                               ; preds = %.lr.ph, %30
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %30 ]
+18:                                               ; preds = %.lr.ph, %29
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %29 ]
   %19 = tail call i32 @avio_r8(ptr noundef %1) #3
   %20 = icmp eq i32 %19, 126
   br i1 %20, label %.thread, label %22
@@ -782,99 +782,98 @@ define range(i32 -2147483648, 1) i32 @ff_mov_read_chnl(ptr noundef %0, ptr nound
   %25 = zext nneg i32 %19 to i64
   %26 = getelementptr inbounds nuw i32, ptr @iso_channel_position, i64 %25
   %27 = load i32, ptr %26, align 4, !tbaa !20
-  %28 = add nsw i32 %19, -32
-  %29 = icmp ult i32 %28, 11
-  br i1 %29, label %.thread58, label %30
+  %28 = icmp samesign ugt i32 %19, 31
+  br i1 %28, label %.thread58, label %29
 
 .thread58:                                        ; preds = %.thread, %22, %24
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 24, ptr noundef nonnull @.str.8, i32 noundef %19) #3
-  br label %30
+  br label %29
 
-30:                                               ; preds = %.thread58, %24
+29:                                               ; preds = %.thread58, %24
   %.146 = phi i32 [ 768, %.thread58 ], [ %27, %24 ]
-  %31 = load ptr, ptr %17, align 8, !tbaa !23
-  %32 = getelementptr inbounds nuw %struct.AVChannelCustom, ptr %31, i64 %indvars.iv
-  store i32 %.146, ptr %32, align 8, !tbaa !52
+  %30 = load ptr, ptr %17, align 8, !tbaa !23
+  %31 = getelementptr inbounds nuw %struct.AVChannelCustom, ptr %30, i64 %indvars.iv
+  store i32 %.146, ptr %31, align 8, !tbaa !52
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %18, !llvm.loop !59
 
-._crit_edge:                                      ; preds = %30, %.preheader
-  %33 = tail call i32 @av_channel_layout_retype(ptr noundef nonnull %11, i32 noundef 0, i32 noundef 2) #3
-  %34 = icmp sgt i32 %33, -1
-  br i1 %34, label %ff_mov_get_channel_layout_from_config.exit.thread, label %.thread67
+._crit_edge:                                      ; preds = %29, %.preheader
+  %32 = tail call i32 @av_channel_layout_retype(ptr noundef nonnull %11, i32 noundef 0, i32 noundef 2) #3
+  %33 = icmp sgt i32 %32, -1
+  br i1 %33, label %ff_mov_get_channel_layout_from_config.exit.thread, label %.thread67
 
-35:                                               ; preds = %6
-  %36 = tail call i64 @avio_rb64(ptr noundef %1) #3
-  %37 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %38 = load ptr, ptr %37, align 8, !tbaa !31
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 128
-  %40 = icmp sgt i32 %7, 0
-  br i1 %40, label %41, label %ff_mov_get_channel_layout_from_config.exit.thread
+34:                                               ; preds = %6
+  %35 = tail call i64 @avio_rb64(ptr noundef %1) #3
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %37 = load ptr, ptr %36, align 8, !tbaa !31
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 128
+  %39 = icmp sgt i32 %7, 0
+  br i1 %39, label %40, label %ff_mov_get_channel_layout_from_config.exit.thread
 
-41:                                               ; preds = %35
-  %42 = trunc i64 %36 to i32
-  %43 = lshr i32 %42, 1
-  %44 = and i32 %43, 1431655765
-  %45 = sub i32 %42, %44
-  %46 = and i32 %45, 858993459
-  %47 = lshr i32 %45, 2
-  %48 = and i32 %47, 858993459
-  %49 = add nuw nsw i32 %48, %46
-  %50 = lshr i32 %49, 4
-  %51 = add nuw nsw i32 %50, %49
-  %52 = and i32 %51, 252645135
-  %53 = lshr i32 %52, 8
-  %54 = add nuw nsw i32 %53, %52
-  %55 = lshr i32 %54, 16
-  %56 = add nuw nsw i32 %55, %54
-  %57 = and i32 %56, 63
-  %58 = lshr i64 %36, 32
-  %59 = trunc nuw i64 %58 to i32
-  %60 = lshr i32 %59, 1
-  %61 = and i32 %60, 1431655765
-  %62 = sub i32 %59, %61
-  %63 = and i32 %62, 858993459
-  %64 = lshr i32 %62, 2
-  %65 = and i32 %64, 858993459
-  %66 = add nuw nsw i32 %65, %63
-  %67 = lshr i32 %66, 4
-  %68 = add nuw nsw i32 %67, %66
-  %69 = and i32 %68, 252645135
-  %70 = lshr i32 %69, 8
-  %71 = add nuw nsw i32 %70, %69
-  %72 = lshr i32 %71, 16
-  %73 = add nuw nsw i32 %72, %71
-  %74 = and i32 %73, 63
-  %75 = add nuw nsw i32 %74, %57
-  %76 = getelementptr inbounds nuw i8, ptr %38, i64 132
-  %77 = load i32, ptr %76, align 4, !tbaa !21
-  %78 = icmp slt i32 %77, 1
-  %79 = xor i32 %75, 65535
-  %80 = icmp sgt i32 %77, %79
-  %or.cond.i = select i1 %78, i1 true, i1 %80
+40:                                               ; preds = %34
+  %41 = trunc i64 %35 to i32
+  %42 = lshr i32 %41, 1
+  %43 = and i32 %42, 1431655765
+  %44 = sub i32 %41, %43
+  %45 = and i32 %44, 858993459
+  %46 = lshr i32 %44, 2
+  %47 = and i32 %46, 858993459
+  %48 = add nuw nsw i32 %47, %45
+  %49 = lshr i32 %48, 4
+  %50 = add nuw nsw i32 %49, %48
+  %51 = and i32 %50, 252645135
+  %52 = lshr i32 %51, 8
+  %53 = add nuw nsw i32 %52, %51
+  %54 = lshr i32 %53, 16
+  %55 = add nuw nsw i32 %54, %53
+  %56 = and i32 %55, 63
+  %57 = lshr i64 %35, 32
+  %58 = trunc nuw i64 %57 to i32
+  %59 = lshr i32 %58, 1
+  %60 = and i32 %59, 1431655765
+  %61 = sub i32 %58, %60
+  %62 = and i32 %61, 858993459
+  %63 = lshr i32 %61, 2
+  %64 = and i32 %63, 858993459
+  %65 = add nuw nsw i32 %64, %62
+  %66 = lshr i32 %65, 4
+  %67 = add nuw nsw i32 %66, %65
+  %68 = and i32 %67, 252645135
+  %69 = lshr i32 %68, 8
+  %70 = add nuw nsw i32 %69, %68
+  %71 = lshr i32 %70, 16
+  %72 = add nuw nsw i32 %71, %70
+  %73 = and i32 %72, 63
+  %74 = add nuw nsw i32 %73, %56
+  %75 = getelementptr inbounds nuw i8, ptr %37, i64 132
+  %76 = load i32, ptr %75, align 4, !tbaa !21
+  %77 = icmp slt i32 %76, 1
+  %78 = xor i32 %74, 65535
+  %79 = icmp sgt i32 %76, %78
+  %or.cond.i = select i1 %77, i1 true, i1 %79
   br i1 %or.cond.i, label %.thread67, label %ff_mov_get_channel_layout_from_config.exit
 
-ff_mov_get_channel_layout_from_config.exit:       ; preds = %41
-  %81 = shl i32 %7, 16
-  %82 = add nuw nsw i32 %77, %75
-  %83 = or i32 %82, %81
-  %84 = tail call fastcc i32 @mov_get_channel_layout(ptr noundef nonnull %39, i32 noundef %83, i64 noundef %36, ptr noundef nonnull @iso_ch_layout_map)
-  %85 = icmp sgt i32 %84, -1
-  br i1 %85, label %ff_mov_get_channel_layout_from_config.exit.thread, label %.thread67
+ff_mov_get_channel_layout_from_config.exit:       ; preds = %40
+  %80 = shl i32 %7, 16
+  %81 = add nuw nsw i32 %76, %74
+  %82 = or i32 %81, %80
+  %83 = tail call fastcc i32 @mov_get_channel_layout(ptr noundef nonnull %38, i32 noundef %82, i64 noundef %35, ptr noundef nonnull @iso_ch_layout_map)
+  %84 = icmp sgt i32 %83, -1
+  br i1 %84, label %ff_mov_get_channel_layout_from_config.exit.thread, label %.thread67
 
-ff_mov_get_channel_layout_from_config.exit.thread: ; preds = %35, %ff_mov_get_channel_layout_from_config.exit, %._crit_edge, %3
-  %86 = and i32 %4, 2
-  %.not56 = icmp eq i32 %86, 0
-  br i1 %.not56, label %.thread67, label %87
+ff_mov_get_channel_layout_from_config.exit.thread: ; preds = %34, %ff_mov_get_channel_layout_from_config.exit, %._crit_edge, %3
+  %85 = and i32 %4, 2
+  %.not56 = icmp eq i32 %85, 0
+  br i1 %.not56, label %.thread67, label %86
 
-87:                                               ; preds = %ff_mov_get_channel_layout_from_config.exit.thread
-  %88 = tail call i32 @avio_r8(ptr noundef %1) #3
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 56, ptr noundef nonnull @.str.9, i32 noundef %88) #3
+86:                                               ; preds = %ff_mov_get_channel_layout_from_config.exit.thread
+  %87 = tail call i32 @avio_r8(ptr noundef %1) #3
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 56, ptr noundef nonnull @.str.9, i32 noundef %87) #3
   br label %.thread67
 
-.thread67:                                        ; preds = %41, %8, %._crit_edge, %ff_mov_get_channel_layout_from_config.exit, %ff_mov_get_channel_layout_from_config.exit.thread, %87
-  %.4 = phi i32 [ 0, %87 ], [ 0, %ff_mov_get_channel_layout_from_config.exit.thread ], [ %33, %._crit_edge ], [ %84, %ff_mov_get_channel_layout_from_config.exit ], [ %14, %8 ], [ -1094995529, %41 ]
+.thread67:                                        ; preds = %40, %8, %._crit_edge, %ff_mov_get_channel_layout_from_config.exit, %ff_mov_get_channel_layout_from_config.exit.thread, %86
+  %.4 = phi i32 [ 0, %86 ], [ 0, %ff_mov_get_channel_layout_from_config.exit.thread ], [ %32, %._crit_edge ], [ %83, %ff_mov_get_channel_layout_from_config.exit ], [ %14, %8 ], [ -1094995529, %40 ]
   ret i32 %.4
 }
 

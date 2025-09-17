@@ -1711,9 +1711,9 @@ _ZN4core3ops8function6FnOnce9call_once17h4512bb2dbf32f5f8E.exit.i.i.i.i.i: ; pre
 
 77:                                               ; preds = %.noexc.i
   invoke void @_ZN3std6thread5local18panic_access_error17h1cbe5b7716798dd3E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.27424d4101a04a50f059183b2ade9e02.24.llvm.16446591400338671976) #18
-          to label %.noexc9.i unwind label %199, !noalias !221
+          to label %.noexc10.i unwind label %199, !noalias !221
 
-.noexc9.i:                                        ; preds = %77
+.noexc10.i:                                       ; preds = %77
   unreachable
 
 "_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h82c06912d5fcf010E.exit.i.i.i": ; preds = %.noexc.i, %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h06d84edb39d03c8aE.exit.thread.i.i
@@ -1956,16 +1956,16 @@ _ZN4core3ops8function6FnOnce9call_once17h4512bb2dbf32f5f8E.exit.i.i.i.i.i: ; pre
 
 .noexc18.i.i.i:                                   ; preds = %177
   %181 = invoke noundef zeroext i1 @_ZN3std9panicking11panic_count17is_zero_slow_path17hd758f1b9d3b19a22E()
-          to label %.noexc11.i unwind label %199, !noalias !221
+          to label %.noexc12.i unwind label %199, !noalias !221
 
-.noexc11.i:                                       ; preds = %.noexc18.i.i.i
+.noexc12.i:                                       ; preds = %.noexc18.i.i.i
   br i1 %181, label %_ZN3std4sync6poison4Flag4done17hfa9f992a19b42526E.exit.i.i.i.i.i, label %182
 
-182:                                              ; preds = %.noexc11.i
+182:                                              ; preds = %.noexc12.i
   store atomic i8 1, ptr %149 monotonic, align 1, !noalias !221
   br label %_ZN3std4sync6poison4Flag4done17hfa9f992a19b42526E.exit.i.i.i.i.i
 
-_ZN3std4sync6poison4Flag4done17hfa9f992a19b42526E.exit.i.i.i.i.i: ; preds = %182, %.noexc11.i, %177, %171
+_ZN3std4sync6poison4Flag4done17hfa9f992a19b42526E.exit.i.i.i.i.i: ; preds = %182, %.noexc12.i, %177, %171
   %183 = atomicrmw xchg ptr %146, i32 0 release, align 4, !noalias !221
   %184 = icmp eq i32 %183, 2
   br i1 %184, label %185, label %201, !prof !21
@@ -2021,9 +2021,9 @@ _ZN3std4sync6poison4Flag4done17hfa9f992a19b42526E.exit.i.i.i.i.i: ; preds = %182
   call void @llvm.lifetime.start.p0(ptr nonnull %22), !noalias !244
   store ptr null, ptr %22, align 8, !noalias !244
   invoke void @_ZN4core9panicking13assert_failed17h078dd15f75a47e13E(i8 noundef 1, ptr noalias noundef readonly align 8 dereferenceable(8) @_ZN14regex_automata4util4pool5inner17THREAD_ID_DROPPED17h7aeb48974d2c32d6E, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %23, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %22, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.27424d4101a04a50f059183b2ade9e02.12) #18
-          to label %.noexc13.i unwind label %199, !noalias !221
+          to label %.noexc14.i unwind label %199, !noalias !221
 
-.noexc13.i:                                       ; preds = %.noexc7.i.i
+.noexc14.i:                                       ; preds = %.noexc7.i.i
   unreachable
 
 .noexc8.i.i:                                      ; preds = %116

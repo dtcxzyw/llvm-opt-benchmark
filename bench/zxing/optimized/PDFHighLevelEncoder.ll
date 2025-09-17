@@ -145,9 +145,8 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit.i:        ; preds = %.noexc, %23
           to label %_ZN5ZXing6Pdf417L11EncodingECIEiRSt6vectorIiSaIiEE.exit unwind label %72
 
 31:                                               ; preds = %18
-  %32 = add i32 %17, -900
-  %or.cond3.i = icmp ult i32 %32, 810000
-  br i1 %or.cond3.i, label %33, label %53
+  %32 = icmp ult i32 %17, 810900
+  br i1 %32, label %33, label %53
 
 33:                                               ; preds = %31
   %34 = load ptr, ptr %12, align 8, !tbaa !13

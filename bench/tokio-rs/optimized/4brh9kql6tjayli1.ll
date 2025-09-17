@@ -11883,8 +11883,7 @@ define hidden void @_ZN5tokio7runtime4task5waker10drop_waker17h9412626e8e4268f0E
   unreachable
 
 _ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit.i: ; preds = %1
-  %.mask.i.i = and i64 %3, -64
-  %5 = icmp eq i64 %.mask.i.i, 64
+  %5 = icmp ult i64 %3, 128
   br i1 %5, label %6, label %"_ZN5tokio7runtime4task7harness52_$LT$impl$u20$tokio..runtime..task..raw..RawTask$GT$14drop_reference17hb11b1191b0e49c09E.exit"
 
 6:                                                ; preds = %_ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit.i
@@ -11934,8 +11933,7 @@ default.unreachable:                              ; preds = %1
   unreachable
 
 _ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit.i.i: ; preds = %5
-  %.mask.i.i.i = and i64 %10, -64
-  %12 = icmp eq i64 %.mask.i.i.i, 64
+  %12 = icmp ult i64 %10, 128
   br i1 %12, label %"_ZN5tokio7runtime4task7harness52_$LT$impl$u20$tokio..runtime..task..raw..RawTask$GT$14drop_reference17hb11b1191b0e49c09E.exit.sink.split.i", label %"_ZN5tokio7runtime4task7harness52_$LT$impl$u20$tokio..runtime..task..raw..RawTask$GT$11wake_by_val17he4b3fea78e49617dE.exit"
 
 13:                                               ; preds = %1

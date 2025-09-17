@@ -1161,9 +1161,8 @@ add_tcpdump_interfaces.exit:                      ; preds = %130, %142, %114, %.
   br label %.backedge
 
 174:                                              ; preds = %159
-  %175 = add i32 %157, -17
-  %or.cond5 = icmp ult i32 %175, 4
-  br i1 %or.cond5, label %176, label %.backedge
+  %175 = icmp sgt i32 %157, 16
+  br i1 %175, label %176, label %.backedge
 
 176:                                              ; preds = %174
   %177 = call fastcc i32 @adb_connect_transport(ptr noundef %1, ptr noundef %2, ptr noundef nonnull %11)

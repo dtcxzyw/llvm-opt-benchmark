@@ -358,66 +358,66 @@ define hidden void @_ZN22CompactHashtableWriter14allocate_tableEv(ptr noundef no
   br i1 %exitcond.not, label %._crit_edge, label %7, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %19
-  %.not = icmp ult i32 %.1, 1073741824
-  br i1 %.not, label %._crit_edge.thread, label %20
+  %20 = icmp ugt i32 %.1, 1073741823
+  br i1 %20, label %21, label %._crit_edge.thread
 
-20:                                               ; preds = %._crit_edge
+21:                                               ; preds = %._crit_edge
   tail call void @_Z29vm_exit_during_initializationPKcS0_(ptr noundef nonnull @.str, ptr noundef null) #14
   %.pre = load i32, ptr %2, align 4
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %1, %20, %._crit_edge
-  %.0.lcssa20 = phi i32 [ %.1, %20 ], [ %.1, %._crit_edge ], [ 0, %1 ]
-  %21 = phi i32 [ %.pre, %20 ], [ %3, %._crit_edge ], [ %3, %1 ]
-  %22 = add nsw i32 %21, 1
-  %23 = tail call i32 @llvm.smax.i32(i32 %22, i32 1)
-  %24 = add nsw i32 %23, -1
-  %25 = zext nneg i32 %24 to i64
-  %26 = shl nuw nsw i64 %25, 2
-  %27 = add nuw nsw i64 %26, 8
-  %28 = load ptr, ptr @_ZN14ArchiveBuilder8_currentE, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 336
-  %30 = tail call noundef ptr @_ZN10DumpRegion8allocateEm(ptr noundef nonnull align 8 dereferenceable(64) %29, i64 noundef %27) #14
-  store i32 %22, ptr %30, align 4
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %30, ptr %31, align 8
-  %32 = tail call i32 @llvm.smax.i32(i32 %.0.lcssa20, i32 1)
-  %33 = add nsw i32 %32, -1
-  %34 = zext nneg i32 %33 to i64
-  %35 = shl nuw nsw i64 %34, 2
-  %36 = add nuw nsw i64 %35, 8
-  %37 = load ptr, ptr @_ZN14ArchiveBuilder8_currentE, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 336
-  %39 = tail call noundef ptr @_ZN10DumpRegion8allocateEm(ptr noundef nonnull align 8 dereferenceable(64) %38, i64 noundef %36) #14
-  store i32 %.0.lcssa20, ptr %39, align 4
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %39, ptr %40, align 8
-  %41 = load i32, ptr %2, align 4
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  store i32 %41, ptr %44, align 4
-  %45 = load ptr, ptr %31, align 8
-  %46 = load i32, ptr %45, align 4
-  %47 = tail call i32 @llvm.smax.i32(i32 %46, i32 1)
-  %48 = shl i32 %47, 2
-  %tr.sh.diff = add i32 %48, 11
-  %49 = and i32 %tr.sh.diff, -8
-  %50 = load ptr, ptr %42, align 8
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 12
-  store i32 %49, ptr %51, align 4
-  %52 = load i32, ptr %0, align 8
-  %53 = load ptr, ptr %42, align 8
-  store i32 %52, ptr %53, align 4
-  %54 = load ptr, ptr %40, align 8
-  %55 = load i32, ptr %54, align 4
-  %56 = tail call i32 @llvm.smax.i32(i32 %55, i32 1)
-  %57 = shl i32 %56, 2
-  %tr.sh.diff13 = add i32 %57, 11
-  %58 = and i32 %tr.sh.diff13, -8
-  %59 = load ptr, ptr %42, align 8
-  %60 = getelementptr inbounds nuw i8, ptr %59, i64 4
-  store i32 %58, ptr %60, align 4
+._crit_edge.thread:                               ; preds = %1, %21, %._crit_edge
+  %.0.lcssa19 = phi i32 [ %.1, %21 ], [ %.1, %._crit_edge ], [ 0, %1 ]
+  %22 = phi i32 [ %.pre, %21 ], [ %3, %._crit_edge ], [ %3, %1 ]
+  %23 = add nsw i32 %22, 1
+  %24 = tail call i32 @llvm.smax.i32(i32 %23, i32 1)
+  %25 = add nsw i32 %24, -1
+  %26 = zext nneg i32 %25 to i64
+  %27 = shl nuw nsw i64 %26, 2
+  %28 = add nuw nsw i64 %27, 8
+  %29 = load ptr, ptr @_ZN14ArchiveBuilder8_currentE, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 336
+  %31 = tail call noundef ptr @_ZN10DumpRegion8allocateEm(ptr noundef nonnull align 8 dereferenceable(64) %30, i64 noundef %28) #14
+  store i32 %23, ptr %31, align 4
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store ptr %31, ptr %32, align 8
+  %33 = tail call i32 @llvm.smax.i32(i32 %.0.lcssa19, i32 1)
+  %34 = add nsw i32 %33, -1
+  %35 = zext nneg i32 %34 to i64
+  %36 = shl nuw nsw i64 %35, 2
+  %37 = add nuw nsw i64 %36, 8
+  %38 = load ptr, ptr @_ZN14ArchiveBuilder8_currentE, align 8
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 336
+  %40 = tail call noundef ptr @_ZN10DumpRegion8allocateEm(ptr noundef nonnull align 8 dereferenceable(64) %39, i64 noundef %37) #14
+  store i32 %.0.lcssa19, ptr %40, align 4
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store ptr %40, ptr %41, align 8
+  %42 = load i32, ptr %2, align 4
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
+  store i32 %42, ptr %45, align 4
+  %46 = load ptr, ptr %32, align 8
+  %47 = load i32, ptr %46, align 4
+  %48 = tail call i32 @llvm.smax.i32(i32 %47, i32 1)
+  %49 = shl i32 %48, 2
+  %tr.sh.diff = add i32 %49, 11
+  %50 = and i32 %tr.sh.diff, -8
+  %51 = load ptr, ptr %43, align 8
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 12
+  store i32 %50, ptr %52, align 4
+  %53 = load i32, ptr %0, align 8
+  %54 = load ptr, ptr %43, align 8
+  store i32 %53, ptr %54, align 4
+  %55 = load ptr, ptr %41, align 8
+  %56 = load i32, ptr %55, align 4
+  %57 = tail call i32 @llvm.smax.i32(i32 %56, i32 1)
+  %58 = shl i32 %57, 2
+  %tr.sh.diff13 = add i32 %58, 11
+  %59 = and i32 %tr.sh.diff13, -8
+  %60 = load ptr, ptr %43, align 8
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 4
+  store i32 %59, ptr %61, align 4
   ret void
 }
 

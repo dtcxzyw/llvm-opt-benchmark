@@ -3785,9 +3785,8 @@ dissect_tds7_login.exit:                          ; preds = %686, %690
   br i1 %703, label %713, label %706
 
 704:                                              ; preds = %698
-  %705 = add nsw i32 %700, -28672
-  %or.cond18.i = icmp samesign ult i32 %705, 1025
-  br i1 %or.cond18.i, label %dissect_tds_query_packet.exit, label %708
+  %705 = icmp samesign ult i32 %700, 29697
+  br i1 %705, label %dissect_tds_query_packet.exit, label %708
 
 706:                                              ; preds = %702
   %707 = add nsw i32 %696, -28672

@@ -3804,9 +3804,8 @@ define dso_local void @_ZN30btGeneric6DofSpring2Constraint8setParamEifi(ptr noun
   br label %.sink.split
 
 22:                                               ; preds = %4
-  %23 = add i32 %3, -3
-  %or.cond3 = icmp ult i32 %23, 3
-  br i1 %or.cond3, label %24, label %46
+  %23 = icmp ult i32 %3, 6
+  br i1 %23, label %24, label %46
 
 24:                                               ; preds = %22
   switch i32 %1, label %46 [
@@ -3900,9 +3899,8 @@ define dso_local noundef float @_ZNK30btGeneric6DofSpring2Constraint8getParamEii
   br label %48
 
 25:                                               ; preds = %3
-  %26 = add i32 %2, -3
-  %or.cond3 = icmp ult i32 %26, 3
-  br i1 %or.cond3, label %27, label %48
+  %26 = icmp ult i32 %2, 6
+  br i1 %26, label %27, label %48
 
 27:                                               ; preds = %25
   switch i32 %1, label %48 [

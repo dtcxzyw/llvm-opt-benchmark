@@ -1134,9 +1134,8 @@ _watermark_get_svgdoc.exit:                       ; preds = %._crit_edge.i, %84
   br i1 %or.cond, label %417, label %407
 
 407:                                              ; preds = %384
-  %408 = add i32 %406, -3
-  %or.cond444 = icmp ult i32 %408, 3
-  br i1 %or.cond444, label %409, label %412
+  %408 = icmp ult i32 %406, 6
+  br i1 %408, label %409, label %412
 
 409:                                              ; preds = %407
   %410 = fmul reassoc nsz arcp contract afn float %241, 5.000000e-01

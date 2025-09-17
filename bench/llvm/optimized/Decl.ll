@@ -1694,171 +1694,168 @@ define dso_local range(i8 0, 64) i8 @_ZN5clang15LinkageComputer28getLVForTemplat
 define dso_local void @_ZN5clang15LinkageComputer15mergeTemplateLVERNS_11LinkageInfoEPKNS_12FunctionDeclEPKNS_34FunctionTemplateSpecializationInfoENS_17LVComputationKindE(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull align 1 captures(none) dereferenceable(1) %1, ptr noundef %2, ptr noundef readonly captures(none) %3, i32 %4) local_unnamed_addr #2 align 2 {
   %6 = getelementptr i8, ptr %3, i64 16
   %.val = load i64, ptr %6, align 8
-  %7 = trunc i64 %.val to i32
-  %8 = lshr i32 %7, 1
-  %9 = and i32 %8, 3
-  %.off.i.i.i = add nsw i32 %9, -1
-  %switch.i.i.i = icmp ult i32 %.off.i.i.i, 3
-  br i1 %switch.i.i.i, label %10, label %_ZL32shouldConsiderTemplateVisibilityPKN5clang12FunctionDeclEPKNS_34FunctionTemplateSpecializationInfoE.exit
+  %7 = and i64 %.val, 6
+  %.not.i = icmp eq i64 %7, 0
+  br i1 %.not.i, label %_ZL32shouldConsiderTemplateVisibilityPKN5clang12FunctionDeclEPKNS_34FunctionTemplateSpecializationInfoE.exit, label %8
 
-10:                                               ; preds = %5
-  %11 = getelementptr inbounds nuw i8, ptr %2, i64 28
-  %12 = load i32, ptr %11, align 4
-  %13 = and i32 %12, 256
-  %.not.i.i = icmp eq i32 %13, 0
-  br i1 %.not.i.i, label %_ZL32shouldConsiderTemplateVisibilityPKN5clang12FunctionDeclEPKNS_34FunctionTemplateSpecializationInfoE.exit, label %14
+8:                                                ; preds = %5
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 28
+  %10 = load i32, ptr %9, align 4
+  %11 = and i32 %10, 256
+  %.not.i.i = icmp eq i32 %11, 0
+  br i1 %.not.i.i, label %_ZL32shouldConsiderTemplateVisibilityPKN5clang12FunctionDeclEPKNS_34FunctionTemplateSpecializationInfoE.exit, label %12
 
-14:                                               ; preds = %10
-  %15 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5clang4Decl8getAttrsEv(ptr noundef nonnull align 8 dereferenceable(33) %2) #31
-  %16 = load ptr, ptr %15, align 8, !tbaa !460
-  %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %18 = load i32, ptr %17, align 8, !tbaa !461
-  %19 = zext i32 %18 to i64
-  %.idx.i.i.i = shl nuw nsw i64 %19, 3
-  %20 = getelementptr inbounds nuw i8, ptr %16, i64 %.idx.i.i.i
-  %.not.i.i.i = icmp eq i32 %18, 0
+12:                                               ; preds = %8
+  %13 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5clang4Decl8getAttrsEv(ptr noundef nonnull align 8 dereferenceable(33) %2) #31
+  %14 = load ptr, ptr %13, align 8, !tbaa !460
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %16 = load i32, ptr %15, align 8, !tbaa !461
+  %17 = zext i32 %16 to i64
+  %.idx.i.i.i = shl nuw nsw i64 %17, 3
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx.i.i.i
+  %.not.i.i.i = icmp eq i32 %16, 0
   br i1 %.not.i.i.i, label %_ZL32shouldConsiderTemplateVisibilityPKN5clang12FunctionDeclEPKNS_34FunctionTemplateSpecializationInfoE.exit, label %.lr.ph.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i:                               ; preds = %14, %25
-  %.sroa.07.1.i.i.i.i.i = phi ptr [ %26, %25 ], [ %16, %14 ]
-  %21 = load ptr, ptr %.sroa.07.1.i.i.i.i.i, align 8, !tbaa !462
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 32
-  %23 = load i16, ptr %22, align 8
-  %24 = icmp eq i16 %23, 386
-  br i1 %24, label %_ZN5clangneENS_22specific_attr_iteratorINS_14VisibilityAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i.i, label %25
+.lr.ph.i.i.i.i.i.i:                               ; preds = %12, %23
+  %.sroa.07.1.i.i.i.i.i = phi ptr [ %24, %23 ], [ %14, %12 ]
+  %19 = load ptr, ptr %.sroa.07.1.i.i.i.i.i, align 8, !tbaa !462
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 32
+  %21 = load i16, ptr %20, align 8
+  %22 = icmp eq i16 %21, 386
+  br i1 %22, label %_ZN5clangneENS_22specific_attr_iteratorINS_14VisibilityAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i.i, label %23
 
-25:                                               ; preds = %.lr.ph.i.i.i.i.i.i
-  %26 = getelementptr inbounds nuw i8, ptr %.sroa.07.1.i.i.i.i.i, i64 8
-  %.not.i.i.i.i.i.i = icmp eq ptr %26, %20
+23:                                               ; preds = %.lr.ph.i.i.i.i.i.i
+  %24 = getelementptr inbounds nuw i8, ptr %.sroa.07.1.i.i.i.i.i, i64 8
+  %.not.i.i.i.i.i.i = icmp eq ptr %24, %18
   br i1 %.not.i.i.i.i.i.i, label %_ZN5clangneENS_22specific_attr_iteratorINS_14VisibilityAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !468
 
-_ZN5clangneENS_22specific_attr_iteratorINS_14VisibilityAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i.i: ; preds = %25, %.lr.ph.i.i.i.i.i.i
-  %.sroa.07.0.i.i.ph.i.i.i = phi ptr [ %.sroa.07.1.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ], [ %20, %25 ]
-  %27 = icmp eq ptr %.sroa.07.0.i.i.ph.i.i.i, %20
+_ZN5clangneENS_22specific_attr_iteratorINS_14VisibilityAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i.i: ; preds = %23, %.lr.ph.i.i.i.i.i.i
+  %.sroa.07.0.i.i.ph.i.i.i = phi ptr [ %.sroa.07.1.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ], [ %18, %23 ]
+  %25 = icmp eq ptr %.sroa.07.0.i.i.ph.i.i.i, %18
   br label %_ZL32shouldConsiderTemplateVisibilityPKN5clang12FunctionDeclEPKNS_34FunctionTemplateSpecializationInfoE.exit
 
-_ZL32shouldConsiderTemplateVisibilityPKN5clang12FunctionDeclEPKNS_34FunctionTemplateSpecializationInfoE.exit: ; preds = %5, %10, %14, %_ZN5clangneENS_22specific_attr_iteratorINS_14VisibilityAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i.i
-  %.0.i = phi i1 [ true, %5 ], [ true, %10 ], [ true, %14 ], [ %27, %_ZN5clangneENS_22specific_attr_iteratorINS_14VisibilityAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i.i ]
+_ZL32shouldConsiderTemplateVisibilityPKN5clang12FunctionDeclEPKNS_34FunctionTemplateSpecializationInfoE.exit: ; preds = %5, %8, %12, %_ZN5clangneENS_22specific_attr_iteratorINS_14VisibilityAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i.i
+  %.0.i = phi i1 [ true, %5 ], [ true, %8 ], [ true, %12 ], [ %25, %_ZN5clangneENS_22specific_attr_iteratorINS_14VisibilityAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i.i ]
   %.0.copyload.i.i.i.i = load i64, ptr %6, align 8
-  %28 = and i64 %.0.copyload.i.i.i.i, -8
-  %29 = inttoptr i64 %28 to ptr
-  %30 = tail call i8 @_ZN5clang15LinkageComputer12getLVForDeclEPKNS_9NamedDeclENS_17LVComputationKindE(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef %29, i32 %4)
-  %31 = and i8 %30, 7
-  %32 = load i8, ptr %1, align 1
-  %33 = and i8 %32, -8
-  %34 = or disjoint i8 %33, %31
-  store i8 %34, ptr %1, align 1
-  %35 = getelementptr inbounds nuw i8, ptr %29, i64 56
-  %36 = load ptr, ptr %35, align 8, !tbaa !446
-  %37 = tail call i8 @_ZN5clang15LinkageComputer29getLVForTemplateParameterListEPKNS_21TemplateParameterListENS_17LVComputationKindE(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef %36, i32 %4)
+  %26 = and i64 %.0.copyload.i.i.i.i, -8
+  %27 = inttoptr i64 %26 to ptr
+  %28 = tail call i8 @_ZN5clang15LinkageComputer12getLVForDeclEPKNS_9NamedDeclENS_17LVComputationKindE(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef %27, i32 %4)
+  %29 = and i8 %28, 7
+  %30 = load i8, ptr %1, align 1
+  %31 = and i8 %30, -8
+  %32 = or disjoint i8 %31, %29
+  store i8 %32, ptr %1, align 1
+  %33 = getelementptr inbounds nuw i8, ptr %27, i64 56
+  %34 = load ptr, ptr %33, align 8, !tbaa !446
+  %35 = tail call i8 @_ZN5clang15LinkageComputer29getLVForTemplateParameterListEPKNS_21TemplateParameterListENS_17LVComputationKindE(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef %34, i32 %4)
+  %36 = and i8 %35, 7
+  %37 = load i8, ptr %1, align 1
   %38 = and i8 %37, 7
-  %39 = load i8, ptr %1, align 1
-  %40 = and i8 %39, 7
+  %39 = icmp eq i8 %36, 4
+  br i1 %39, label %.thread.i.i.i.i, label %40
+
+40:                                               ; preds = %_ZL32shouldConsiderTemplateVisibilityPKN5clang12FunctionDeclEPKNS_34FunctionTemplateSpecializationInfoE.exit
   %41 = icmp eq i8 %38, 4
-  br i1 %41, label %.thread.i.i.i.i, label %42
+  br i1 %41, label %.thread.i.i.i.i, label %43
 
-42:                                               ; preds = %_ZL32shouldConsiderTemplateVisibilityPKN5clang12FunctionDeclEPKNS_34FunctionTemplateSpecializationInfoE.exit
-  %43 = icmp eq i8 %40, 4
-  br i1 %43, label %.thread.i.i.i.i, label %45
+.thread.i.i.i.i:                                  ; preds = %40, %_ZL32shouldConsiderTemplateVisibilityPKN5clang12FunctionDeclEPKNS_34FunctionTemplateSpecializationInfoE.exit
+  %.0713.i.i.i.i = phi i8 [ %36, %40 ], [ %38, %_ZL32shouldConsiderTemplateVisibilityPKN5clang12FunctionDeclEPKNS_34FunctionTemplateSpecializationInfoE.exit ]
+  %42 = and i8 %.0713.i.i.i.i, 6
+  %switch.i.i.i.i = icmp eq i8 %42, 2
+  br i1 %switch.i.i.i.i, label %_ZN5clang11LinkageInfo12mergeLinkageES0_.exit.i, label %43
 
-.thread.i.i.i.i:                                  ; preds = %42, %_ZL32shouldConsiderTemplateVisibilityPKN5clang12FunctionDeclEPKNS_34FunctionTemplateSpecializationInfoE.exit
-  %.0713.i.i.i.i = phi i8 [ %38, %42 ], [ %40, %_ZL32shouldConsiderTemplateVisibilityPKN5clang12FunctionDeclEPKNS_34FunctionTemplateSpecializationInfoE.exit ]
-  %44 = and i8 %.0713.i.i.i.i, 6
-  %switch.i.i.i.i = icmp eq i8 %44, 2
-  br i1 %switch.i.i.i.i, label %_ZN5clang11LinkageInfo12mergeLinkageES0_.exit.i, label %45
-
-45:                                               ; preds = %.thread.i.i.i.i, %42
-  %.0714.i.i.i.i = phi i8 [ %.0713.i.i.i.i, %.thread.i.i.i.i ], [ %38, %42 ]
-  %.0811.i.i.i.i = phi i8 [ 4, %.thread.i.i.i.i ], [ %40, %42 ]
-  %46 = tail call i8 @llvm.umin.i8(i8 %.0811.i.i.i.i, i8 %.0714.i.i.i.i)
+43:                                               ; preds = %.thread.i.i.i.i, %40
+  %.0714.i.i.i.i = phi i8 [ %.0713.i.i.i.i, %.thread.i.i.i.i ], [ %36, %40 ]
+  %.0811.i.i.i.i = phi i8 [ 4, %.thread.i.i.i.i ], [ %38, %40 ]
+  %44 = tail call i8 @llvm.umin.i8(i8 %.0811.i.i.i.i, i8 %.0714.i.i.i.i)
   br label %_ZN5clang11LinkageInfo12mergeLinkageES0_.exit.i
 
-_ZN5clang11LinkageInfo12mergeLinkageES0_.exit.i:  ; preds = %45, %.thread.i.i.i.i
-  %.0.i.i.i.i = phi i8 [ %46, %45 ], [ 1, %.thread.i.i.i.i ]
-  %47 = and i8 %39, -8
-  %48 = or disjoint i8 %.0.i.i.i.i, %47
-  store i8 %48, ptr %1, align 1
-  br i1 %.0.i, label %49, label %_ZN5clang11LinkageInfo24mergeMaybeWithVisibilityES0_b.exit
+_ZN5clang11LinkageInfo12mergeLinkageES0_.exit.i:  ; preds = %43, %.thread.i.i.i.i
+  %.0.i.i.i.i = phi i8 [ %44, %43 ], [ 1, %.thread.i.i.i.i ]
+  %45 = and i8 %37, -8
+  %46 = or disjoint i8 %.0.i.i.i.i, %45
+  store i8 %46, ptr %1, align 1
+  br i1 %.0.i, label %47, label %_ZN5clang11LinkageInfo24mergeMaybeWithVisibilityES0_b.exit
 
-49:                                               ; preds = %_ZN5clang11LinkageInfo12mergeLinkageES0_.exit.i
-  %50 = lshr i8 %37, 3
-  %51 = and i8 %50, 3
-  %52 = and i8 %37, 32
-  %53 = icmp ne i8 %52, 0
-  %54 = lshr i8 %48, 3
-  %55 = and i8 %54, 3
-  %56 = icmp samesign ule i8 %51, %55
-  %57 = icmp ne i8 %51, %55
-  %or.cond.i.i.i = or i1 %53, %57
-  %or.cond9.i.i.i = and i1 %56, %or.cond.i.i.i
-  br i1 %or.cond9.i.i.i, label %58, label %_ZN5clang11LinkageInfo24mergeMaybeWithVisibilityES0_b.exit
+47:                                               ; preds = %_ZN5clang11LinkageInfo12mergeLinkageES0_.exit.i
+  %48 = lshr i8 %35, 3
+  %49 = and i8 %48, 3
+  %50 = and i8 %35, 32
+  %51 = icmp ne i8 %50, 0
+  %52 = lshr i8 %46, 3
+  %53 = and i8 %52, 3
+  %54 = icmp samesign ule i8 %49, %53
+  %55 = icmp ne i8 %49, %53
+  %or.cond.i.i.i = or i1 %51, %55
+  %or.cond9.i.i.i = and i1 %54, %or.cond.i.i.i
+  br i1 %or.cond9.i.i.i, label %56, label %_ZN5clang11LinkageInfo24mergeMaybeWithVisibilityES0_b.exit
 
-58:                                               ; preds = %49
-  %59 = shl nuw nsw i8 %51, 3
-  %60 = and i8 %48, -57
-  %61 = or disjoint i8 %60, %59
-  %62 = or disjoint i8 %61, %52
-  store i8 %62, ptr %1, align 1
+56:                                               ; preds = %47
+  %57 = shl nuw nsw i8 %49, 3
+  %58 = and i8 %46, -57
+  %59 = or disjoint i8 %58, %57
+  %60 = or disjoint i8 %59, %50
+  store i8 %60, ptr %1, align 1
   br label %_ZN5clang11LinkageInfo24mergeMaybeWithVisibilityES0_b.exit
 
-_ZN5clang11LinkageInfo24mergeMaybeWithVisibilityES0_b.exit: ; preds = %_ZN5clang11LinkageInfo12mergeLinkageES0_.exit.i, %49, %58
-  %63 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %64 = load ptr, ptr %63, align 8, !tbaa !469
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
-  %66 = load i32, ptr %64, align 8, !tbaa !466
-  %67 = zext i32 %66 to i64
-  %68 = tail call i8 @_ZN5clang15LinkageComputer28getLVForTemplateArgumentListEN4llvm8ArrayRefINS_16TemplateArgumentEEENS_17LVComputationKindE(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr nonnull %65, i64 %67, i32 %4)
+_ZN5clang11LinkageInfo24mergeMaybeWithVisibilityES0_b.exit: ; preds = %_ZN5clang11LinkageInfo12mergeLinkageES0_.exit.i, %47, %56
+  %61 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %62 = load ptr, ptr %61, align 8, !tbaa !469
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %64 = load i32, ptr %62, align 8, !tbaa !466
+  %65 = zext i32 %64 to i64
+  %66 = tail call i8 @_ZN5clang15LinkageComputer28getLVForTemplateArgumentListEN4llvm8ArrayRefINS_16TemplateArgumentEEENS_17LVComputationKindE(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr nonnull %63, i64 %65, i32 %4)
+  %67 = and i8 %66, 7
+  %68 = load i8, ptr %1, align 1
   %69 = and i8 %68, 7
-  %70 = load i8, ptr %1, align 1
-  %71 = and i8 %70, 7
+  %70 = icmp eq i8 %67, 4
+  br i1 %70, label %.thread.i.i.i.i27, label %71
+
+71:                                               ; preds = %_ZN5clang11LinkageInfo24mergeMaybeWithVisibilityES0_b.exit
   %72 = icmp eq i8 %69, 4
-  br i1 %72, label %.thread.i.i.i.i27, label %73
+  br i1 %72, label %.thread.i.i.i.i27, label %74
 
-73:                                               ; preds = %_ZN5clang11LinkageInfo24mergeMaybeWithVisibilityES0_b.exit
-  %74 = icmp eq i8 %71, 4
-  br i1 %74, label %.thread.i.i.i.i27, label %76
+.thread.i.i.i.i27:                                ; preds = %71, %_ZN5clang11LinkageInfo24mergeMaybeWithVisibilityES0_b.exit
+  %.0713.i.i.i.i28 = phi i8 [ %67, %71 ], [ %69, %_ZN5clang11LinkageInfo24mergeMaybeWithVisibilityES0_b.exit ]
+  %73 = and i8 %.0713.i.i.i.i28, 6
+  %switch.i.i.i.i29 = icmp eq i8 %73, 2
+  br i1 %switch.i.i.i.i29, label %_ZN5clang11LinkageInfo12mergeLinkageES0_.exit.i23, label %74
 
-.thread.i.i.i.i27:                                ; preds = %73, %_ZN5clang11LinkageInfo24mergeMaybeWithVisibilityES0_b.exit
-  %.0713.i.i.i.i28 = phi i8 [ %69, %73 ], [ %71, %_ZN5clang11LinkageInfo24mergeMaybeWithVisibilityES0_b.exit ]
-  %75 = and i8 %.0713.i.i.i.i28, 6
-  %switch.i.i.i.i29 = icmp eq i8 %75, 2
-  br i1 %switch.i.i.i.i29, label %_ZN5clang11LinkageInfo12mergeLinkageES0_.exit.i23, label %76
-
-76:                                               ; preds = %.thread.i.i.i.i27, %73
-  %.0714.i.i.i.i21 = phi i8 [ %.0713.i.i.i.i28, %.thread.i.i.i.i27 ], [ %69, %73 ]
-  %.0811.i.i.i.i22 = phi i8 [ 4, %.thread.i.i.i.i27 ], [ %71, %73 ]
-  %77 = tail call i8 @llvm.umin.i8(i8 %.0811.i.i.i.i22, i8 %.0714.i.i.i.i21)
+74:                                               ; preds = %.thread.i.i.i.i27, %71
+  %.0714.i.i.i.i21 = phi i8 [ %.0713.i.i.i.i28, %.thread.i.i.i.i27 ], [ %67, %71 ]
+  %.0811.i.i.i.i22 = phi i8 [ 4, %.thread.i.i.i.i27 ], [ %69, %71 ]
+  %75 = tail call i8 @llvm.umin.i8(i8 %.0811.i.i.i.i22, i8 %.0714.i.i.i.i21)
   br label %_ZN5clang11LinkageInfo12mergeLinkageES0_.exit.i23
 
-_ZN5clang11LinkageInfo12mergeLinkageES0_.exit.i23: ; preds = %76, %.thread.i.i.i.i27
-  %.0.i.i.i.i24 = phi i8 [ %77, %76 ], [ 1, %.thread.i.i.i.i27 ]
-  %78 = and i8 %70, -8
-  %79 = or disjoint i8 %.0.i.i.i.i24, %78
-  store i8 %79, ptr %1, align 1
-  br i1 %.0.i, label %80, label %_ZN5clang11LinkageInfo24mergeMaybeWithVisibilityES0_b.exit30
+_ZN5clang11LinkageInfo12mergeLinkageES0_.exit.i23: ; preds = %74, %.thread.i.i.i.i27
+  %.0.i.i.i.i24 = phi i8 [ %75, %74 ], [ 1, %.thread.i.i.i.i27 ]
+  %76 = and i8 %68, -8
+  %77 = or disjoint i8 %.0.i.i.i.i24, %76
+  store i8 %77, ptr %1, align 1
+  br i1 %.0.i, label %78, label %_ZN5clang11LinkageInfo24mergeMaybeWithVisibilityES0_b.exit30
 
-80:                                               ; preds = %_ZN5clang11LinkageInfo12mergeLinkageES0_.exit.i23
-  %81 = lshr i8 %68, 3
-  %82 = and i8 %81, 3
-  %83 = and i8 %68, 32
-  %84 = icmp ne i8 %83, 0
-  %85 = lshr i8 %79, 3
-  %86 = and i8 %85, 3
-  %87 = icmp samesign ule i8 %82, %86
-  %88 = icmp ne i8 %82, %86
-  %or.cond.i.i.i25 = or i1 %84, %88
-  %or.cond9.i.i.i26 = and i1 %87, %or.cond.i.i.i25
-  br i1 %or.cond9.i.i.i26, label %89, label %_ZN5clang11LinkageInfo24mergeMaybeWithVisibilityES0_b.exit30
+78:                                               ; preds = %_ZN5clang11LinkageInfo12mergeLinkageES0_.exit.i23
+  %79 = lshr i8 %66, 3
+  %80 = and i8 %79, 3
+  %81 = and i8 %66, 32
+  %82 = icmp ne i8 %81, 0
+  %83 = lshr i8 %77, 3
+  %84 = and i8 %83, 3
+  %85 = icmp samesign ule i8 %80, %84
+  %86 = icmp ne i8 %80, %84
+  %or.cond.i.i.i25 = or i1 %82, %86
+  %or.cond9.i.i.i26 = and i1 %85, %or.cond.i.i.i25
+  br i1 %or.cond9.i.i.i26, label %87, label %_ZN5clang11LinkageInfo24mergeMaybeWithVisibilityES0_b.exit30
 
-89:                                               ; preds = %80
-  %90 = shl nuw nsw i8 %82, 3
-  %91 = and i8 %79, -57
-  %92 = or disjoint i8 %91, %90
-  %93 = or disjoint i8 %92, %83
-  store i8 %93, ptr %1, align 1
+87:                                               ; preds = %78
+  %88 = shl nuw nsw i8 %80, 3
+  %89 = and i8 %77, -57
+  %90 = or disjoint i8 %89, %88
+  %91 = or disjoint i8 %90, %81
+  store i8 %91, ptr %1, align 1
   br label %_ZN5clang11LinkageInfo24mergeMaybeWithVisibilityES0_b.exit30
 
-_ZN5clang11LinkageInfo24mergeMaybeWithVisibilityES0_b.exit30: ; preds = %_ZN5clang11LinkageInfo12mergeLinkageES0_.exit.i23, %80, %89
+_ZN5clang11LinkageInfo24mergeMaybeWithVisibilityES0_b.exit30: ; preds = %_ZN5clang11LinkageInfo12mergeLinkageES0_.exit.i23, %78, %87
   ret void
 }
 

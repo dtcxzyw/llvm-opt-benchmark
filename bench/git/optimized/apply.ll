@@ -9756,9 +9756,8 @@ short_time_len.exit.i:                            ; preds = %short_time_len.exit
   br i1 %.not30.i.i, label %diff_timestamp_len.exit.thread, label %248
 
 248:                                              ; preds = %241
-  %249 = and i64 %197, -2
-  %.not31.i.i = icmp eq i64 %249, 8
-  br i1 %.not31.i.i, label %date_len.exit.i, label %250
+  %249 = icmp ult i64 %197, 10
+  br i1 %249, label %date_len.exit.i, label %250
 
 250:                                              ; preds = %248
   %251 = getelementptr inbounds i8, ptr %200, i64 -9

@@ -2498,9 +2498,8 @@ define void @qasm_recordNamedPhaseFunc(ptr noundef readonly byval(%struct.Qureg)
   br label %.loopexit
 
 86:                                               ; preds = %17
-  %87 = add i32 %5, -5
-  %or.cond21 = icmp ult i32 %87, 4
-  br i1 %or.cond21, label %88, label %154
+  %87 = icmp ult i32 %5, 9
+  br i1 %87, label %88, label %154
 
 88:                                               ; preds = %86
   switch i32 %5, label %96 [

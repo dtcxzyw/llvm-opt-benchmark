@@ -10281,9 +10281,8 @@ define internal fastcc range(i32 0, 2) i32 @find_same_type(ptr noundef readonly 
   %43 = zext nneg i32 %39 to i64
   %44 = getelementptr inbounds nuw i32, ptr @obj_type_order, i64 %43
   %45 = load i32, ptr %44, align 4, !tbaa !31
-  %46 = add nsw i32 %39, -1
-  %or.cond3.i.i = icmp ult i32 %46, 13
-  %or.cond15.i.i = and i1 %8, %or.cond3.i.i
+  %46 = icmp ne i32 %39, 0
+  %or.cond15.i.i = and i1 %8, %46
   %47 = icmp ne i32 %45, %42
   %or.cond10 = select i1 %or.cond15.i.i, i1 true, i1 %47
   br i1 %or.cond10, label %63, label %48

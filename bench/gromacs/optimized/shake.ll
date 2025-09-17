@@ -111,9 +111,8 @@ define void @_ZN3gmx24make_shake_sblock_serialEPNS_9shakedataEP22InteractionDefi
   unreachable
 
 _ZNSt6vectorIN3gmx11t_sortblockESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; preds = %28
-  %33 = add i32 %14, -3
-  %.not.i.i.i.i = icmp ult i32 %33, -5
-  br i1 %.not.i.i.i.i, label %34, label %._crit_edge
+  %33 = icmp sgt i32 %14, 2
+  br i1 %33, label %34, label %._crit_edge
 
 34:                                               ; preds = %_ZNSt6vectorIN3gmx11t_sortblockESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
   %35 = shl nuw nsw i64 %30, 4
@@ -267,7 +266,7 @@ _ZN3gmxL12pr_sortblockEP8_IO_FILEPKcNS_8ArrayRefIKNS_11t_sortblockEEE.exit: ; pr
   br i1 %exitcond.not.i65, label %_ZN3gmxL12pr_sortblockEP8_IO_FILEPKcNS_8ArrayRefIKNS_11t_sortblockEEE.exit66, label %.lr.ph.i63, !llvm.loop !23
 
 _ZN3gmxL12pr_sortblockEP8_IO_FILEPKcNS_8ArrayRefIKNS_11t_sortblockEEE.exit66: ; preds = %.lr.ph.i63, %86, %84
-  br i1 %.not.i.i.i.i, label %.preheader.preheader, label %._crit_edge124
+  br i1 %33, label %.preheader.preheader, label %._crit_edge124
 
 .preheader.preheader:                             ; preds = %_ZN3gmxL12pr_sortblockEP8_IO_FILEPKcNS_8ArrayRefIKNS_11t_sortblockEEE.exit66
   %wide.trip.count142 = zext nneg i32 %15 to i64
@@ -294,7 +293,7 @@ _ZN3gmxL12pr_sortblockEP8_IO_FILEPKcNS_8ArrayRefIKNS_11t_sortblockEEE.exit66: ; 
 
 _ZNSt6vectorIiSaIiEE5clearEv.exit:                ; preds = %._crit_edge124, %104
   %105 = phi ptr [ %103, %._crit_edge124 ], [ %101, %104 ]
-  br i1 %.not.i.i.i.i, label %.lr.ph, label %._crit_edge127
+  br i1 %33, label %.lr.ph, label %._crit_edge127
 
 .lr.ph:                                           ; preds = %_ZNSt6vectorIiSaIiEE5clearEv.exit
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 128

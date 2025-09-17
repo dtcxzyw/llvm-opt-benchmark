@@ -3575,9 +3575,8 @@ common.resume:                                    ; preds = %.body.i, %.body.i.i
 
 "_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17h06424953c9d99f32E.llvm.9405825265181994393.exit.i.i": ; preds = %40
   %45 = load i16, ptr %32, align 8, !range !468, !alias.scope !469, !noundef !5
-  %46 = add nsw i16 %45, -3
-  %switch.i.i.i = icmp ult i16 %46, 2
-  br i1 %switch.i.i.i, label %"_ZN4core3ptr76drop_in_place$LT$aws_smithy_runtime_api..client..result..DispatchFailure$GT$17h92b311bc000189c1E.exit", label %47
+  %46 = icmp samesign ugt i16 %45, 2
+  br i1 %46, label %"_ZN4core3ptr76drop_in_place$LT$aws_smithy_runtime_api..client..result..DispatchFailure$GT$17h92b311bc000189c1E.exit", label %47
 
 47:                                               ; preds = %"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17h06424953c9d99f32E.llvm.9405825265181994393.exit.i.i"
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -3938,9 +3937,8 @@ common.resume:                                    ; preds = %.body.i, %.body.i.i
 
 "_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17h06424953c9d99f32E.llvm.9405825265181994393.exit.i.i": ; preds = %40
   %45 = load i16, ptr %32, align 8, !range !468, !alias.scope !521, !noundef !5
-  %46 = add nsw i16 %45, -3
-  %switch.i.i.i = icmp ult i16 %46, 2
-  br i1 %switch.i.i.i, label %"_ZN4core3ptr76drop_in_place$LT$aws_smithy_runtime_api..client..result..DispatchFailure$GT$17h92b311bc000189c1E.exit", label %47
+  %46 = icmp samesign ugt i16 %45, 2
+  br i1 %46, label %"_ZN4core3ptr76drop_in_place$LT$aws_smithy_runtime_api..client..result..DispatchFailure$GT$17h92b311bc000189c1E.exit", label %47
 
 47:                                               ; preds = %"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17h06424953c9d99f32E.llvm.9405825265181994393.exit.i.i"
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -4137,9 +4135,8 @@ common.resume:                                    ; preds = %.body.i, %.body.i.i
 
 "_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17h06424953c9d99f32E.llvm.9405825265181994393.exit.i.i": ; preds = %40
   %45 = load i16, ptr %32, align 8, !range !468, !alias.scope !555, !noundef !5
-  %46 = add nsw i16 %45, -3
-  %switch.i.i.i = icmp ult i16 %46, 2
-  br i1 %switch.i.i.i, label %"_ZN4core3ptr76drop_in_place$LT$aws_smithy_runtime_api..client..result..DispatchFailure$GT$17h92b311bc000189c1E.exit", label %47
+  %46 = icmp samesign ugt i16 %45, 2
+  br i1 %46, label %"_ZN4core3ptr76drop_in_place$LT$aws_smithy_runtime_api..client..result..DispatchFailure$GT$17h92b311bc000189c1E.exit", label %47
 
 47:                                               ; preds = %"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17h06424953c9d99f32E.llvm.9405825265181994393.exit.i.i"
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -4336,9 +4333,8 @@ common.resume:                                    ; preds = %.body.i, %.body.i.i
 
 "_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17h06424953c9d99f32E.llvm.9405825265181994393.exit.i.i": ; preds = %40
   %45 = load i16, ptr %32, align 8, !range !468, !alias.scope !589, !noundef !5
-  %46 = add nsw i16 %45, -3
-  %switch.i.i.i = icmp ult i16 %46, 2
-  br i1 %switch.i.i.i, label %"_ZN4core3ptr76drop_in_place$LT$aws_smithy_runtime_api..client..result..DispatchFailure$GT$17h92b311bc000189c1E.exit", label %47
+  %46 = icmp samesign ugt i16 %45, 2
+  br i1 %46, label %"_ZN4core3ptr76drop_in_place$LT$aws_smithy_runtime_api..client..result..DispatchFailure$GT$17h92b311bc000189c1E.exit", label %47
 
 47:                                               ; preds = %"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17h06424953c9d99f32E.llvm.9405825265181994393.exit.i.i"
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -4535,9 +4531,8 @@ common.resume:                                    ; preds = %.body.i, %.body.i.i
 
 "_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17h06424953c9d99f32E.llvm.9405825265181994393.exit.i.i": ; preds = %40
   %45 = load i16, ptr %32, align 8, !range !468, !alias.scope !623, !noundef !5
-  %46 = add nsw i16 %45, -3
-  %switch.i.i.i = icmp ult i16 %46, 2
-  br i1 %switch.i.i.i, label %"_ZN4core3ptr76drop_in_place$LT$aws_smithy_runtime_api..client..result..DispatchFailure$GT$17h92b311bc000189c1E.exit", label %47
+  %46 = icmp samesign ugt i16 %45, 2
+  br i1 %46, label %"_ZN4core3ptr76drop_in_place$LT$aws_smithy_runtime_api..client..result..DispatchFailure$GT$17h92b311bc000189c1E.exit", label %47
 
 47:                                               ; preds = %"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17h06424953c9d99f32E.llvm.9405825265181994393.exit.i.i"
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 72

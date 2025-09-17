@@ -641,7 +641,7 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit31.i: ; pred
 
 55:                                               ; preds = %52
   %.017.le.i = inttoptr i64 %20 to ptr
-  %56 = icmp eq i64 %22, 30
+  %56 = icmp samesign ugt i64 %22, 29
   br i1 %56, label %61, label %78
 
 57:                                               ; preds = %52

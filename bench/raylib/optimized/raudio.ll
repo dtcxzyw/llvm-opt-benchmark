@@ -37815,9 +37815,8 @@ ma_channel_map_get_channel.exit.us:               ; preds = %.lr.ph, %.loopexit.
   ]
 
 5:                                                ; preds = %ma_channel_map_get_channel.exit.us
-  %6 = add nsw i8 %4, -20
-  %or.cond8.i.us = icmp ult i8 %6, 32
-  br i1 %or.cond8.i.us, label %.loopexit.us, label %.preheader.i.us
+  %6 = icmp samesign ugt i8 %4, 19
+  br i1 %6, label %.loopexit.us, label %.preheader.i.us
 
 .preheader.i.us:                                  ; preds = %5
   %7 = zext nneg i8 %4 to i64

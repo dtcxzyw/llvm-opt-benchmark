@@ -8961,25 +8961,24 @@ define hidden noundef zeroext i1 @"_ZN82_$LT$hir_ty..display..HirDisplayWrapper$
 "_ZN6hir_ty7display26HirDisplayWrapper$LT$T$GT$8write_to17hcde269ffce02c743E.exit": ; preds = %42, %45, %49
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !3544
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !3542
-  %.off = add nsw i8 %39, -3
-  %switch = icmp ult i8 %.off, 2
-  br i1 %switch, label %54, label %56
+  %54 = icmp samesign ugt i8 %39, 2
+  br i1 %54, label %55, label %57
 
-54:                                               ; preds = %"_ZN6hir_ty7display26HirDisplayWrapper$LT$T$GT$8write_to17hcde269ffce02c743E.exit"
-  %55 = icmp ne i8 %39, 4
-  ret i1 %55
+55:                                               ; preds = %"_ZN6hir_ty7display26HirDisplayWrapper$LT$T$GT$8write_to17hcde269ffce02c743E.exit"
+  %56 = icmp ne i8 %39, 4
+  ret i1 %56
 
-56:                                               ; preds = %"_ZN6hir_ty7display26HirDisplayWrapper$LT$T$GT$8write_to17hcde269ffce02c743E.exit"
+57:                                               ; preds = %"_ZN6hir_ty7display26HirDisplayWrapper$LT$T$GT$8write_to17hcde269ffce02c743E.exit"
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr @anon.b50abfc125287865c025e05748b5ef82.64, ptr %5, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 1, ptr %57, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store ptr null, ptr %58, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr @anon.b50abfc125287865c025e05748b5ef82.12.llvm.4163704288782389842, ptr %59, align 8
-  %60 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store i64 0, ptr %60, align 8
+  %58 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i64 1, ptr %58, align 8
+  %59 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  store ptr null, ptr %59, align 8
+  %60 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr @anon.b50abfc125287865c025e05748b5ef82.12.llvm.4163704288782389842, ptr %60, align 8
+  %61 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  store i64 0, ptr %61, align 8
   call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b50abfc125287865c025e05748b5ef82.66) #34
   unreachable
 }

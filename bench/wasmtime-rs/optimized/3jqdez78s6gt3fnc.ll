@@ -3264,87 +3264,86 @@ define hidden noundef zeroext i1 @"_ZN78_$LT$target_lexicon..targets..Architectu
 define hidden noundef zeroext i1 @"_ZN79_$LT$wasmparser..readers..core..types..HeapType$u20$as$u20$core..fmt..Debug$GT$3fmt17hcb3f6143a19178b2E.llvm.7808069312437652055"(ptr noalias noundef readonly align 4 dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #8 {
   %3 = alloca ptr, align 8
   %4 = load i32, ptr %0, align 4, !range !413, !noundef !4
-  %5 = add nsw i32 %4, -3
-  %6 = icmp ult i32 %5, 12
-  %7 = zext nneg i32 %4 to i64
-  %8 = add nsw i64 %7, -2
-  %9 = select i1 %6, i64 %8, i64 0
-  switch i64 %9, label %10 [
-    i64 0, label %11
-    i64 1, label %13
-    i64 2, label %15
-    i64 3, label %17
-    i64 4, label %19
-    i64 5, label %21
-    i64 6, label %23
-    i64 7, label %25
-    i64 8, label %27
-    i64 9, label %29
-    i64 10, label %31
-    i64 11, label %33
-    i64 12, label %35
+  %5 = icmp samesign ugt i32 %4, 2
+  %6 = zext nneg i32 %4 to i64
+  %7 = add nsw i64 %6, -2
+  %8 = select i1 %5, i64 %7, i64 0
+  switch i64 %8, label %9 [
+    i64 0, label %10
+    i64 1, label %12
+    i64 2, label %14
+    i64 3, label %16
+    i64 4, label %18
+    i64 5, label %20
+    i64 6, label %22
+    i64 7, label %24
+    i64 8, label %26
+    i64 9, label %28
+    i64 10, label %30
+    i64 11, label %32
+    i64 12, label %34
   ]
 
-10:                                               ; preds = %2
+9:                                                ; preds = %2
   unreachable
 
-11:                                               ; preds = %2
+10:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %0, ptr %3, align 8
-  %12 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h2963dbee503a3d8bE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.b49665e3d092988c0d1a394dee34fb25.98, i64 noundef 8, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b49665e3d092988c0d1a394dee34fb25.99)
+  %11 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h2963dbee503a3d8bE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.b49665e3d092988c0d1a394dee34fb25.98, i64 noundef 8, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b49665e3d092988c0d1a394dee34fb25.99)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %37
+  br label %36
 
-13:                                               ; preds = %2
-  %14 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.b49665e3d092988c0d1a394dee34fb25.100, i64 noundef 4)
-  br label %37
+12:                                               ; preds = %2
+  %13 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.b49665e3d092988c0d1a394dee34fb25.100, i64 noundef 4)
+  br label %36
 
-15:                                               ; preds = %2
-  %16 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.b49665e3d092988c0d1a394dee34fb25.101, i64 noundef 6)
-  br label %37
+14:                                               ; preds = %2
+  %15 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.b49665e3d092988c0d1a394dee34fb25.101, i64 noundef 6)
+  br label %36
 
-17:                                               ; preds = %2
-  %18 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.b49665e3d092988c0d1a394dee34fb25.102, i64 noundef 3)
-  br label %37
+16:                                               ; preds = %2
+  %17 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.b49665e3d092988c0d1a394dee34fb25.102, i64 noundef 3)
+  br label %36
 
-19:                                               ; preds = %2
-  %20 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.b49665e3d092988c0d1a394dee34fb25.103, i64 noundef 4)
-  br label %37
+18:                                               ; preds = %2
+  %19 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.b49665e3d092988c0d1a394dee34fb25.103, i64 noundef 4)
+  br label %36
 
-21:                                               ; preds = %2
-  %22 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.b49665e3d092988c0d1a394dee34fb25.104, i64 noundef 8)
-  br label %37
+20:                                               ; preds = %2
+  %21 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.b49665e3d092988c0d1a394dee34fb25.104, i64 noundef 8)
+  br label %36
 
-23:                                               ; preds = %2
-  %24 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.b49665e3d092988c0d1a394dee34fb25.105, i64 noundef 6)
-  br label %37
+22:                                               ; preds = %2
+  %23 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.b49665e3d092988c0d1a394dee34fb25.105, i64 noundef 6)
+  br label %36
 
-25:                                               ; preds = %2
-  %26 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.b49665e3d092988c0d1a394dee34fb25.106, i64 noundef 2)
-  br label %37
+24:                                               ; preds = %2
+  %25 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.b49665e3d092988c0d1a394dee34fb25.106, i64 noundef 2)
+  br label %36
 
-27:                                               ; preds = %2
-  %28 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.b49665e3d092988c0d1a394dee34fb25.107, i64 noundef 6)
-  br label %37
+26:                                               ; preds = %2
+  %27 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.b49665e3d092988c0d1a394dee34fb25.107, i64 noundef 6)
+  br label %36
 
-29:                                               ; preds = %2
-  %30 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.b49665e3d092988c0d1a394dee34fb25.108, i64 noundef 5)
-  br label %37
+28:                                               ; preds = %2
+  %29 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.b49665e3d092988c0d1a394dee34fb25.108, i64 noundef 5)
+  br label %36
 
-31:                                               ; preds = %2
-  %32 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.b49665e3d092988c0d1a394dee34fb25.109, i64 noundef 3)
-  br label %37
+30:                                               ; preds = %2
+  %31 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.b49665e3d092988c0d1a394dee34fb25.109, i64 noundef 3)
+  br label %36
 
-33:                                               ; preds = %2
-  %34 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.b49665e3d092988c0d1a394dee34fb25.110, i64 noundef 3)
-  br label %37
+32:                                               ; preds = %2
+  %33 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.b49665e3d092988c0d1a394dee34fb25.110, i64 noundef 3)
+  br label %36
 
-35:                                               ; preds = %2
-  %36 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.b49665e3d092988c0d1a394dee34fb25.111, i64 noundef 5)
-  br label %37
+34:                                               ; preds = %2
+  %35 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.b49665e3d092988c0d1a394dee34fb25.111, i64 noundef 5)
+  br label %36
 
-37:                                               ; preds = %35, %33, %31, %29, %27, %25, %23, %21, %19, %17, %15, %13, %11
-  %.0.in = phi i1 [ %12, %11 ], [ %14, %13 ], [ %16, %15 ], [ %18, %17 ], [ %20, %19 ], [ %22, %21 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ %30, %29 ], [ %32, %31 ], [ %34, %33 ], [ %36, %35 ]
+36:                                               ; preds = %34, %32, %30, %28, %26, %24, %22, %20, %18, %16, %14, %12, %10
+  %.0.in = phi i1 [ %11, %10 ], [ %13, %12 ], [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %21, %20 ], [ %23, %22 ], [ %25, %24 ], [ %27, %26 ], [ %29, %28 ], [ %31, %30 ], [ %33, %32 ], [ %35, %34 ]
   ret i1 %.0.in
 }
 
@@ -3928,127 +3927,126 @@ define hidden void @_ZN18wasmtime_cranelift8compiler9component18TrampolineCompil
   %3 = alloca { i8, [15 x i8] }, align 8
   %4 = alloca { i8, [15 x i8] }, align 8
   %5 = load i32, ptr %1, align 4, !range !455, !noundef !4
-  %6 = add nsw i32 %5, -2
-  %7 = icmp ult i32 %6, 9
-  %8 = zext nneg i32 %5 to i64
-  %9 = add nsw i64 %8, -1
-  %10 = select i1 %7, i64 %9, i64 0
-  switch i64 %10, label %11 [
-    i64 0, label %12
-    i64 1, label %17
-    i64 2, label %20
-    i64 3, label %29
-    i64 4, label %32
-    i64 5, label %35
-    i64 6, label %38
-    i64 7, label %39
-    i64 8, label %40
-    i64 9, label %41
+  %6 = icmp samesign ugt i32 %5, 1
+  %7 = zext nneg i32 %5 to i64
+  %8 = add nsw i64 %7, -1
+  %9 = select i1 %6, i64 %8, i64 0
+  switch i64 %9, label %10 [
+    i64 0, label %11
+    i64 1, label %16
+    i64 2, label %19
+    i64 3, label %28
+    i64 4, label %31
+    i64 5, label %34
+    i64 6, label %37
+    i64 7, label %38
+    i64 8, label %39
+    i64 9, label %40
   ]
 
-11:                                               ; preds = %2
+10:                                               ; preds = %2
   unreachable
 
-12:                                               ; preds = %2
-  %13 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %14 = load i32, ptr %13, align 4, !noundef !4
-  %15 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %16 = load i32, ptr %15, align 4, !noundef !4
-  tail call void @_ZN18wasmtime_cranelift8compiler9component18TrampolineCompiler22translate_lower_import17h4b154e82ae6455a1E.llvm.7808069312437652055(ptr noalias noundef nonnull align 8 dereferenceable(160) %0, i32 noundef %14, ptr noalias noundef nonnull readonly align 4 dereferenceable(32) %1, i32 noundef %16)
-  br label %42
+11:                                               ; preds = %2
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %13 = load i32, ptr %12, align 4, !noundef !4
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 36
+  %15 = load i32, ptr %14, align 4, !noundef !4
+  tail call void @_ZN18wasmtime_cranelift8compiler9component18TrampolineCompiler22translate_lower_import17h4b154e82ae6455a1E.llvm.7808069312437652055(ptr noalias noundef nonnull align 8 dereferenceable(160) %0, i32 noundef %13, ptr noalias noundef nonnull readonly align 4 dereferenceable(32) %1, i32 noundef %15)
+  br label %41
 
-17:                                               ; preds = %2
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %19 = load i8, ptr %18, align 8, !range !411, !noundef !4
-  %switch = icmp eq i8 %19, 0
-  br i1 %switch, label %43, label %56
+16:                                               ; preds = %2
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %18 = load i8, ptr %17, align 8, !range !411, !noundef !4
+  %switch = icmp eq i8 %18, 0
+  br i1 %switch, label %42, label %55
 
-20:                                               ; preds = %2
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %22 = tail call { ptr, i32 } @_ZN18cranelift_frontend8frontend15FunctionBuilder3ins17he9e2e4271efe181dE(ptr noalias noundef nonnull align 8 dereferenceable(24) %21)
-  %23 = extractvalue { ptr, i32 } %22, 0
-  %24 = extractvalue { ptr, i32 } %22, 1
+19:                                               ; preds = %2
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %21 = tail call { ptr, i32 } @_ZN18cranelift_frontend8frontend15FunctionBuilder3ins17he9e2e4271efe181dE(ptr noalias noundef nonnull align 8 dereferenceable(24) %20)
+  %22 = extractvalue { ptr, i32 } %21, 0
+  %23 = extractvalue { ptr, i32 } %21, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !456
-  %25 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  store i8 5, ptr %25, align 1, !noalias !459
-  %26 = getelementptr inbounds nuw i8, ptr %4, i64 2
-  store i16 11, ptr %26, align 2, !noalias !459
-  %27 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store i16 100, ptr %27, align 4, !noalias !459
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 1
+  store i8 5, ptr %24, align 1, !noalias !459
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 2
+  store i16 11, ptr %25, align 2, !noalias !459
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  store i16 100, ptr %26, align 4, !noalias !459
   store i8 29, ptr %4, align 8, !noalias !459
-  %28 = call { i32, ptr } @"_ZN113_$LT$cranelift_frontend..frontend..FuncInstBuilder$u20$as$u20$cranelift_codegen..ir..builder..InstBuilderBase$GT$5build17h4da45ded74cc4ea2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %23, i32 noundef %24, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %4, i16 noundef 0)
+  %27 = call { i32, ptr } @"_ZN113_$LT$cranelift_frontend..frontend..FuncInstBuilder$u20$as$u20$cranelift_codegen..ir..builder..InstBuilderBase$GT$5build17h4da45ded74cc4ea2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %22, i32 noundef %23, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %4, i16 noundef 0)
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !456
-  br label %42
+  br label %41
 
-29:                                               ; preds = %2
-  %30 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %31 = load i32, ptr %30, align 4, !noundef !4
-  tail call void @_ZN18wasmtime_cranelift8compiler9component18TrampolineCompiler22translate_resource_new17ha3d16e6f83431b31E.llvm.7808069312437652055(ptr noalias noundef nonnull align 8 dereferenceable(160) %0, i32 noundef %31)
-  br label %42
+28:                                               ; preds = %2
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %30 = load i32, ptr %29, align 4, !noundef !4
+  tail call void @_ZN18wasmtime_cranelift8compiler9component18TrampolineCompiler22translate_resource_new17ha3d16e6f83431b31E.llvm.7808069312437652055(ptr noalias noundef nonnull align 8 dereferenceable(160) %0, i32 noundef %30)
+  br label %41
 
-32:                                               ; preds = %2
-  %33 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %34 = load i32, ptr %33, align 4, !noundef !4
-  tail call void @_ZN18wasmtime_cranelift8compiler9component18TrampolineCompiler22translate_resource_rep17h951b57175e3f2ee6E.llvm.7808069312437652055(ptr noalias noundef nonnull align 8 dereferenceable(160) %0, i32 noundef %34)
-  br label %42
+31:                                               ; preds = %2
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %33 = load i32, ptr %32, align 4, !noundef !4
+  tail call void @_ZN18wasmtime_cranelift8compiler9component18TrampolineCompiler22translate_resource_rep17h951b57175e3f2ee6E.llvm.7808069312437652055(ptr noalias noundef nonnull align 8 dereferenceable(160) %0, i32 noundef %33)
+  br label %41
 
-35:                                               ; preds = %2
-  %36 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %37 = load i32, ptr %36, align 4, !noundef !4
-  tail call void @_ZN18wasmtime_cranelift8compiler9component18TrampolineCompiler23translate_resource_drop17h649ed2f5b20394fbE.llvm.7808069312437652055(ptr noalias noundef nonnull align 8 dereferenceable(160) %0, i32 noundef %37)
-  br label %42
+34:                                               ; preds = %2
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %36 = load i32, ptr %35, align 4, !noundef !4
+  tail call void @_ZN18wasmtime_cranelift8compiler9component18TrampolineCompiler23translate_resource_drop17h649ed2f5b20394fbE.llvm.7808069312437652055(ptr noalias noundef nonnull align 8 dereferenceable(160) %0, i32 noundef %36)
+  br label %41
+
+37:                                               ; preds = %2
+  tail call void @_ZN18wasmtime_cranelift8compiler9component18TrampolineCompiler26translate_resource_libcall17h66d1789bd26273e4E.llvm.7808069312437652055(ptr noalias noundef nonnull align 8 dereferenceable(160) %0, ptr noundef nonnull @_ZN18wasmtime_cranelift8compiler9component4host21resource_transfer_own17h07193a97afce74b6E.llvm.7808069312437652055)
+  br label %41
 
 38:                                               ; preds = %2
-  tail call void @_ZN18wasmtime_cranelift8compiler9component18TrampolineCompiler26translate_resource_libcall17h66d1789bd26273e4E.llvm.7808069312437652055(ptr noalias noundef nonnull align 8 dereferenceable(160) %0, ptr noundef nonnull @_ZN18wasmtime_cranelift8compiler9component4host21resource_transfer_own17h07193a97afce74b6E.llvm.7808069312437652055)
-  br label %42
+  tail call void @_ZN18wasmtime_cranelift8compiler9component18TrampolineCompiler26translate_resource_libcall17h66d1789bd26273e4E.llvm.7808069312437652055(ptr noalias noundef nonnull align 8 dereferenceable(160) %0, ptr noundef nonnull @_ZN18wasmtime_cranelift8compiler9component4host24resource_transfer_borrow17h41e422641721f6e3E.llvm.7808069312437652055)
+  br label %41
 
 39:                                               ; preds = %2
-  tail call void @_ZN18wasmtime_cranelift8compiler9component18TrampolineCompiler26translate_resource_libcall17h66d1789bd26273e4E.llvm.7808069312437652055(ptr noalias noundef nonnull align 8 dereferenceable(160) %0, ptr noundef nonnull @_ZN18wasmtime_cranelift8compiler9component4host24resource_transfer_borrow17h41e422641721f6e3E.llvm.7808069312437652055)
-  br label %42
+  tail call void @_ZN18wasmtime_cranelift8compiler9component18TrampolineCompiler26translate_resource_libcall17h66d1789bd26273e4E.llvm.7808069312437652055(ptr noalias noundef nonnull align 8 dereferenceable(160) %0, ptr noundef nonnull @_ZN18wasmtime_cranelift8compiler9component4host19resource_enter_call17h855eb6386dbaf49fE.llvm.7808069312437652055)
+  br label %41
 
 40:                                               ; preds = %2
-  tail call void @_ZN18wasmtime_cranelift8compiler9component18TrampolineCompiler26translate_resource_libcall17h66d1789bd26273e4E.llvm.7808069312437652055(ptr noalias noundef nonnull align 8 dereferenceable(160) %0, ptr noundef nonnull @_ZN18wasmtime_cranelift8compiler9component4host19resource_enter_call17h855eb6386dbaf49fE.llvm.7808069312437652055)
-  br label %42
-
-41:                                               ; preds = %2
   tail call void @_ZN18wasmtime_cranelift8compiler9component18TrampolineCompiler26translate_resource_libcall17h66d1789bd26273e4E.llvm.7808069312437652055(ptr noalias noundef nonnull align 8 dereferenceable(160) %0, ptr noundef nonnull @_ZN18wasmtime_cranelift8compiler9component4host18resource_exit_call17h566ae3b0dacd0e1bE.llvm.7808069312437652055)
-  br label %42
+  br label %41
 
-42:                                               ; preds = %43, %56, %41, %40, %39, %38, %35, %32, %29, %20, %12
+41:                                               ; preds = %42, %55, %40, %39, %38, %37, %34, %31, %28, %19, %11
   ret void
 
-43:                                               ; preds = %17
-  %44 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %45 = load i8, ptr %44, align 4, !range !462, !noundef !4
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %47 = load i32, ptr %46, align 4, !noundef !4
-  %48 = getelementptr inbounds nuw i8, ptr %1, i64 13
-  %49 = load i8, ptr %48, align 1, !range !121, !noundef !4
-  %50 = trunc nuw i8 %49 to i1
-  %51 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %52 = load i32, ptr %51, align 4, !noundef !4
-  %53 = getelementptr inbounds nuw i8, ptr %1, i64 14
-  %54 = load i8, ptr %53, align 2, !range !121, !noundef !4
-  %55 = trunc nuw i8 %54 to i1
-  tail call void @_ZN18wasmtime_cranelift8compiler9component18TrampolineCompiler19translate_transcode17h8a44d9fb45cb5971E.llvm.7808069312437652055(ptr noalias noundef nonnull align 8 dereferenceable(160) %0, i8 noundef %45, i32 noundef %47, i1 noundef zeroext %50, i32 noundef %52, i1 noundef zeroext %55)
-  br label %42
+42:                                               ; preds = %16
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %44 = load i8, ptr %43, align 4, !range !462, !noundef !4
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %46 = load i32, ptr %45, align 4, !noundef !4
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 13
+  %48 = load i8, ptr %47, align 1, !range !121, !noundef !4
+  %49 = trunc nuw i8 %48 to i1
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %51 = load i32, ptr %50, align 4, !noundef !4
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 14
+  %53 = load i8, ptr %52, align 2, !range !121, !noundef !4
+  %54 = trunc nuw i8 %53 to i1
+  tail call void @_ZN18wasmtime_cranelift8compiler9component18TrampolineCompiler19translate_transcode17h8a44d9fb45cb5971E.llvm.7808069312437652055(ptr noalias noundef nonnull align 8 dereferenceable(160) %0, i8 noundef %44, i32 noundef %46, i1 noundef zeroext %49, i32 noundef %51, i1 noundef zeroext %54)
+  br label %41
 
-56:                                               ; preds = %17
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %58 = tail call { ptr, i32 } @_ZN18cranelift_frontend8frontend15FunctionBuilder3ins17he9e2e4271efe181dE(ptr noalias noundef nonnull align 8 dereferenceable(24) %57)
-  %59 = extractvalue { ptr, i32 } %58, 0
-  %60 = extractvalue { ptr, i32 } %58, 1
+55:                                               ; preds = %16
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %57 = tail call { ptr, i32 } @_ZN18cranelift_frontend8frontend15FunctionBuilder3ins17he9e2e4271efe181dE(ptr noalias noundef nonnull align 8 dereferenceable(24) %56)
+  %58 = extractvalue { ptr, i32 } %57, 0
+  %59 = extractvalue { ptr, i32 } %57, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !463
-  %61 = getelementptr inbounds nuw i8, ptr %3, i64 1
-  store i8 5, ptr %61, align 1, !noalias !466
-  %62 = getelementptr inbounds nuw i8, ptr %3, i64 2
-  store i16 11, ptr %62, align 2, !noalias !466
-  %63 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i16 -1, ptr %63, align 4, !noalias !466
+  %60 = getelementptr inbounds nuw i8, ptr %3, i64 1
+  store i8 5, ptr %60, align 1, !noalias !466
+  %61 = getelementptr inbounds nuw i8, ptr %3, i64 2
+  store i16 11, ptr %61, align 2, !noalias !466
+  %62 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store i16 -1, ptr %62, align 4, !noalias !466
   store i8 29, ptr %3, align 8, !noalias !466
-  %64 = call { i32, ptr } @"_ZN113_$LT$cranelift_frontend..frontend..FuncInstBuilder$u20$as$u20$cranelift_codegen..ir..builder..InstBuilderBase$GT$5build17h4da45ded74cc4ea2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %59, i32 noundef %60, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %3, i16 noundef 0)
+  %63 = call { i32, ptr } @"_ZN113_$LT$cranelift_frontend..frontend..FuncInstBuilder$u20$as$u20$cranelift_codegen..ir..builder..InstBuilderBase$GT$5build17h4da45ded74cc4ea2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %58, i32 noundef %59, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %3, i16 noundef 0)
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !463
-  br label %42
+  br label %41
 }
 
 ; Function Attrs: nonlazybind uwtable

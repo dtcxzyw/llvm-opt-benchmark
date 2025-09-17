@@ -156,34 +156,34 @@ define internal i32 @vaapi_encode_h265_init(ptr noundef %0) #0 {
 
 18:                                               ; preds = %15, %11
   %19 = phi i32 [ %17, %15 ], [ %13, %11 ]
-  %.not = icmp eq i32 %19, -99
-  %.not20 = icmp ult i32 %19, 256
-  %or.cond = or i1 %.not, %.not20
-  br i1 %or.cond, label %21, label %20
-
-20:                                               ; preds = %18
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.82, i32 noundef %19) #9
-  br label %30
+  %.not = icmp ne i32 %19, -99
+  %20 = icmp ugt i32 %19, 255
+  %or.cond = and i1 %.not, %20
+  br i1 %or.cond, label %21, label %22
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds nuw i8, ptr %3, i64 1220
-  store i32 13, ptr %22, align 4, !tbaa !74
-  %23 = getelementptr inbounds nuw i8, ptr %3, i64 1992
-  %24 = load i32, ptr %23, align 8, !tbaa !75
-  %25 = icmp sgt i32 %24, 0
-  br i1 %25, label %26, label %28
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.82, i32 noundef %19) #9
+  br label %31
 
-26:                                               ; preds = %21
-  %27 = getelementptr inbounds nuw i8, ptr %3, i64 1216
-  store i32 %24, ptr %27, align 8, !tbaa !76
-  br label %28
+22:                                               ; preds = %18
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 1220
+  store i32 13, ptr %23, align 4, !tbaa !74
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 1992
+  %25 = load i32, ptr %24, align 8, !tbaa !75
+  %26 = icmp sgt i32 %25, 0
+  br i1 %26, label %27, label %29
 
-28:                                               ; preds = %26, %21
-  %29 = tail call i32 @ff_vaapi_encode_init(ptr noundef nonnull %0) #9
-  br label %30
+27:                                               ; preds = %22
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 1216
+  store i32 %25, ptr %28, align 8, !tbaa !76
+  br label %29
 
-30:                                               ; preds = %28, %20
-  %.0 = phi i32 [ -22, %20 ], [ %29, %28 ]
+29:                                               ; preds = %27, %22
+  %30 = tail call i32 @ff_vaapi_encode_init(ptr noundef nonnull %0) #9
+  br label %31
+
+31:                                               ; preds = %29, %21
+  %.0 = phi i32 [ -22, %21 ], [ %30, %29 ]
   ret i32 %.0
 }
 

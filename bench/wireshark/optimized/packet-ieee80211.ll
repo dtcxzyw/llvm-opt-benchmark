@@ -23756,9 +23756,8 @@ define internal void @eht_ru_allocation_base_custom(ptr noundef %0, i32 noundef 
   br i1 %9, label %31, label %10
 
 10:                                               ; preds = %8
-  %11 = add i32 %1, -65
-  %or.cond7 = icmp ult i32 %11, 2
-  br i1 %or.cond7, label %31, label %12
+  %11 = icmp ult i32 %1, 67
+  br i1 %11, label %31, label %12
 
 12:                                               ; preds = %10
   %switch.tableidx = add i32 %1, -67
@@ -23794,9 +23793,8 @@ define internal void @eht_ru_allocation_base_custom(ptr noundef %0, i32 noundef 
   br i1 %27, label %31, label %28
 
 28:                                               ; preds = %26
-  %29 = add i32 %1, -105
-  %or.cond21 = icmp ult i32 %29, 2
-  %.str.9482..str.594 = select i1 %or.cond21, ptr @.str.9482, ptr @.str.594
+  %29 = icmp ult i32 %1, 107
+  %.str.9482..str.594 = select i1 %29, ptr @.str.9482, ptr @.str.594
   br label %31
 
 switch.lookup:                                    ; preds = %12

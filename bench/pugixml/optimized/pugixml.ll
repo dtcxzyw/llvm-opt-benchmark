@@ -8857,9 +8857,8 @@ _ZN4pugi4impl12_GLOBAL__N_117make_parse_resultENS_16xml_parse_statusEl.exit: ; p
   br label %_ZN4pugi4impl12_GLOBAL__N_114convert_bufferERPcRmNS_12xml_encodingEPKvmb.exit
 
 38:                                               ; preds = %27
-  %39 = and i32 %17, -2
-  %or.cond.i = icmp eq i32 %39, 2
-  br i1 %or.cond.i, label %40, label %285
+  %39 = icmp ult i32 %17, 4
+  br i1 %39, label %40, label %285
 
 40:                                               ; preds = %38
   %41 = icmp eq i32 %17, 2

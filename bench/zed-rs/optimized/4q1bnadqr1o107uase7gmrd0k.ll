@@ -92049,9 +92049,8 @@ _ZN4gpui3app10entity_map9EntityMap5lease17h82bb98ccc1d8e800E.exit: ; preds = %3
   br i1 %cond.i.i, label %"_ZN3vim3Vim11switch_mode28_$u7b$$u7b$closure$u7d$$u7d$17h476b08d16d82bd45E.exit.i", label %48
 
 47:                                               ; preds = %48
-  %.off.i.i = add nsw i8 %46, -1
-  %switch.i.i = icmp ult i8 %.off.i.i, 2
-  br i1 %switch.i.i, label %64, label %"_ZN3vim3Vim11switch_mode28_$u7b$$u7b$closure$u7d$$u7d$17h476b08d16d82bd45E.exit.i"
+  %.not.i.i = icmp eq i8 %46, 0
+  br i1 %.not.i.i, label %"_ZN3vim3Vim11switch_mode28_$u7b$$u7b$closure$u7d$$u7d$17h476b08d16d82bd45E.exit.i", label %64
 
 48:                                               ; preds = %"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h9219cb83a98541fcE.exit"
   %switch.i.i.i = icmp samesign ugt i8 %46, 2

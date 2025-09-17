@@ -6336,9 +6336,9 @@ define internal range(i32 -2147483648, 1) i32 @inet_validate_link_af(ptr noundef
   %26 = getelementptr i8, ptr %19, i64 4
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %41
-  %27 = phi ptr [ %46, %41 ], [ %26, %.lr.ph.preheader ]
-  %28 = phi i32 [ %44, %41 ], [ %25, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %40
+  %27 = phi ptr [ %45, %40 ], [ %26, %.lr.ph.preheader ]
+  %28 = phi i32 [ %43, %40 ], [ %25, %.lr.ph.preheader ]
   %29 = load i16, ptr %27, align 2
   %30 = icmp ult i16 %29, 4
   %31 = zext i16 %29 to i32
@@ -6347,31 +6347,30 @@ define internal range(i32 -2147483648, 1) i32 @inet_validate_link_af(ptr noundef
   br i1 %or.cond, label %.critedge, label %32
 
 32:                                               ; preds = %.lr.ph
-  %33 = and i16 %29, -4
-  %34 = icmp eq i16 %33, 4
-  br i1 %34, label %.critedge, label %35
+  %33 = icmp ult i16 %29, 8
+  br i1 %33, label %.critedge, label %34
 
-35:                                               ; preds = %32
-  %36 = getelementptr inbounds nuw i8, ptr %27, i64 2
-  %37 = load i16, ptr %36, align 2
-  %38 = and i16 %37, 16383
-  %39 = add nsw i16 %38, -1
-  %40 = icmp ult i16 %39, 33
-  br i1 %40, label %41, label %.critedge
+34:                                               ; preds = %32
+  %35 = getelementptr inbounds nuw i8, ptr %27, i64 2
+  %36 = load i16, ptr %35, align 2
+  %37 = and i16 %36, 16383
+  %38 = add nsw i16 %37, -1
+  %39 = icmp ult i16 %38, 33
+  br i1 %39, label %40, label %.critedge
 
-41:                                               ; preds = %35
-  %42 = add nuw nsw i32 %31, 3
-  %43 = and i32 %42, 131068
-  %44 = sub nsw i32 %28, %43
-  %45 = zext nneg i32 %43 to i64
-  %46 = getelementptr i8, ptr %27, i64 %45
-  %47 = icmp sgt i32 %44, 3
-  br i1 %47, label %.lr.ph, label %.critedge, !llvm.loop !146
+40:                                               ; preds = %34
+  %41 = add nuw nsw i32 %31, 3
+  %42 = and i32 %41, 131068
+  %43 = sub nsw i32 %28, %42
+  %44 = zext nneg i32 %42 to i64
+  %45 = getelementptr i8, ptr %27, i64 %44
+  %46 = icmp sgt i32 %43, 3
+  br i1 %46, label %.lr.ph, label %.critedge, !llvm.loop !146
 
-.critedge:                                        ; preds = %32, %35, %41, %.lr.ph, %21, %17, %10, %6
-  %48 = phi i32 [ -97, %6 ], [ %15, %10 ], [ 0, %17 ], [ 0, %21 ], [ -22, %32 ], [ -22, %35 ], [ 0, %41 ], [ 0, %.lr.ph ]
+.critedge:                                        ; preds = %32, %34, %40, %.lr.ph, %21, %17, %10, %6
+  %47 = phi i32 [ -97, %6 ], [ %15, %10 ], [ 0, %17 ], [ 0, %21 ], [ -22, %32 ], [ -22, %34 ], [ 0, %40 ], [ 0, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i32 %48
+  ret i32 %47
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

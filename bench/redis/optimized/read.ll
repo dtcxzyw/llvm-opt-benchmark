@@ -1569,8 +1569,7 @@ __redisReaderSetError.exit.i.i:                   ; preds = %413, %410, %408, %.
   br label %processItem.exit.thread.thread
 
 string2ll.exit.i49.i:                             ; preds = %403
-  %notsub.i.i = add i64 %.0.lcssa.i.i39.i, -1
-  %417 = icmp sgt i64 %notsub.i.i, 0
+  %417 = icmp ugt i64 %.0.lcssa.i.i39.i, 1
   br i1 %417, label %418, label %429
 
 418:                                              ; preds = %string2ll.exit.i49.i

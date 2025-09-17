@@ -47,9 +47,9 @@ define internal range(i32 0, 52) i32 @probe(ptr noundef readonly captures(none) 
   %wide.trip.count = zext i16 %14 to i64
   br label %21
 
-21:                                               ; preds = %.preheader, %64
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %64 ]
-  %.04271 = phi i32 [ 0, %.preheader ], [ %.143, %64 ]
+21:                                               ; preds = %.preheader, %65
+  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %65 ]
+  %.04270 = phi i32 [ 0, %.preheader ], [ %.143, %65 ]
   %22 = shl nuw nsw i64 %indvars.iv, 4
   %23 = add nuw nsw i64 %22, 22
   %.not50 = icmp samesign ugt i64 %23, %20
@@ -58,91 +58,91 @@ define internal range(i32 0, 52) i32 @probe(ptr noundef readonly captures(none) 
 24:                                               ; preds = %21
   %25 = getelementptr inbounds nuw i8, ptr %16, i64 %22
   %26 = load i16, ptr %25, align 1, !tbaa !12
-  %.not52 = icmp ult i16 %26, 2
-  br i1 %.not52, label %30, label %27
+  %27 = icmp ugt i16 %26, 1
+  br i1 %27, label %28, label %31
 
-27:                                               ; preds = %24
-  %28 = trunc nuw nsw i64 %indvars.iv to i32
-  %29 = tail call i32 @llvm.umin.i32(i32 %28, i32 25)
+28:                                               ; preds = %24
+  %29 = trunc nuw nsw i64 %indvars.iv to i32
+  %30 = tail call i32 @llvm.umin.i32(i32 %29, i32 25)
   br label %.thread
 
-30:                                               ; preds = %24
-  %31 = getelementptr inbounds nuw i8, ptr %7, i64 %22
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 13
-  %33 = load i8, ptr %32, align 1, !tbaa !12
-  %.not53 = icmp eq i8 %33, 0
-  br i1 %.not53, label %37, label %34
+31:                                               ; preds = %24
+  %32 = getelementptr inbounds nuw i8, ptr %7, i64 %22
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 13
+  %34 = load i8, ptr %33, align 1, !tbaa !12
+  %.not52 = icmp eq i8 %34, 0
+  br i1 %.not52, label %38, label %35
 
-34:                                               ; preds = %30
-  %35 = trunc nuw nsw i64 %indvars.iv to i32
-  %36 = tail call i32 @llvm.umin.i32(i32 %35, i32 25)
+35:                                               ; preds = %31
+  %36 = trunc nuw nsw i64 %indvars.iv to i32
+  %37 = tail call i32 @llvm.umin.i32(i32 %36, i32 25)
   br label %.thread
 
-37:                                               ; preds = %30
-  %38 = getelementptr inbounds nuw i8, ptr %17, i64 %22
-  %39 = load i32, ptr %38, align 1, !tbaa !12
-  %40 = icmp ult i32 %39, 40
-  br i1 %40, label %41, label %44
+38:                                               ; preds = %31
+  %39 = getelementptr inbounds nuw i8, ptr %17, i64 %22
+  %40 = load i32, ptr %39, align 1, !tbaa !12
+  %41 = icmp ult i32 %40, 40
+  br i1 %41, label %42, label %45
 
-41:                                               ; preds = %37
-  %42 = trunc nuw nsw i64 %indvars.iv to i32
-  %43 = tail call i32 @llvm.umin.i32(i32 %42, i32 25)
+42:                                               ; preds = %38
+  %43 = trunc nuw nsw i64 %indvars.iv to i32
+  %44 = tail call i32 @llvm.umin.i32(i32 %43, i32 25)
   br label %.thread
 
-44:                                               ; preds = %37
-  %45 = getelementptr inbounds nuw i8, ptr %18, i64 %22
-  %46 = load i32, ptr %45, align 1, !tbaa !12
-  %47 = icmp ult i32 %46, 22
-  br i1 %47, label %48, label %51
+45:                                               ; preds = %38
+  %46 = getelementptr inbounds nuw i8, ptr %18, i64 %22
+  %47 = load i32, ptr %46, align 1, !tbaa !12
+  %48 = icmp ult i32 %47, 22
+  br i1 %48, label %49, label %52
 
-48:                                               ; preds = %44
-  %49 = trunc nuw nsw i64 %indvars.iv to i32
-  %50 = tail call i32 @llvm.umin.i32(i32 %49, i32 25)
+49:                                               ; preds = %45
+  %50 = trunc nuw nsw i64 %indvars.iv to i32
+  %51 = tail call i32 @llvm.umin.i32(i32 %50, i32 25)
   br label %.thread
 
-51:                                               ; preds = %44
-  %52 = icmp ugt i32 %46, %19
-  br i1 %52, label %64, label %53
+52:                                               ; preds = %45
+  %53 = icmp ugt i32 %47, %19
+  br i1 %53, label %65, label %54
 
-53:                                               ; preds = %51
-  %54 = zext nneg i32 %46 to i64
-  %55 = getelementptr inbounds nuw i8, ptr %7, i64 %54
-  %56 = load i8, ptr %55, align 1, !tbaa !12
-  %.not54 = icmp eq i8 %56, 40
-  br i1 %.not54, label %62, label %57
+54:                                               ; preds = %52
+  %55 = zext nneg i32 %47 to i64
+  %56 = getelementptr inbounds nuw i8, ptr %7, i64 %55
+  %57 = load i8, ptr %56, align 1, !tbaa !12
+  %.not53 = icmp eq i8 %57, 40
+  br i1 %.not53, label %63, label %58
 
-57:                                               ; preds = %53
-  %58 = load i64, ptr %55, align 1, !tbaa !12
-  %.not55 = icmp eq i64 %58, 727905341920923785
-  br i1 %.not55, label %62, label %59
+58:                                               ; preds = %54
+  %59 = load i64, ptr %56, align 1, !tbaa !12
+  %.not54 = icmp eq i64 %59, 727905341920923785
+  br i1 %.not54, label %63, label %60
 
-59:                                               ; preds = %57
-  %60 = trunc nuw nsw i64 %indvars.iv to i32
-  %61 = tail call i32 @llvm.umin.i32(i32 %60, i32 25)
+60:                                               ; preds = %58
+  %61 = trunc nuw nsw i64 %indvars.iv to i32
+  %62 = tail call i32 @llvm.umin.i32(i32 %61, i32 25)
   br label %.thread
 
-62:                                               ; preds = %57, %53
-  %63 = add i32 %.04271, 1
-  br label %64
+63:                                               ; preds = %58, %54
+  %64 = add i32 %.04270, 1
+  br label %65
 
-64:                                               ; preds = %62, %51
-  %.143 = phi i32 [ %63, %62 ], [ %.04271, %51 ]
+65:                                               ; preds = %63, %52
+  %.143 = phi i32 [ %64, %63 ], [ %.04270, %52 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %21, !llvm.loop !13
 
-.critedge:                                        ; preds = %64, %21
-  %.042.lcssa = phi i32 [ %.143, %64 ], [ %.04271, %21 ]
-  %65 = icmp ult i32 %.042.lcssa, %15
-  br i1 %65, label %66, label %.thread
+.critedge:                                        ; preds = %65, %21
+  %.042.lcssa = phi i32 [ %.143, %65 ], [ %.04270, %21 ]
+  %66 = icmp ult i32 %.042.lcssa, %15
+  br i1 %66, label %67, label %.thread
 
-66:                                               ; preds = %.critedge
+67:                                               ; preds = %.critedge
   %.not51 = icmp eq i32 %.042.lcssa, 0
-  %67 = select i1 %.not51, i32 25, i32 26
+  %68 = select i1 %.not51, i32 25, i32 26
   br label %.thread
 
-.thread:                                          ; preds = %59, %48, %41, %34, %27, %.critedge, %12, %1, %5, %9, %66
-  %.0 = phi i32 [ %67, %66 ], [ 0, %9 ], [ 0, %5 ], [ 0, %1 ], [ 0, %12 ], [ 51, %.critedge ], [ %61, %59 ], [ %50, %48 ], [ %43, %41 ], [ %36, %34 ], [ %29, %27 ]
+.thread:                                          ; preds = %60, %49, %42, %35, %28, %.critedge, %12, %1, %5, %9, %67
+  %.0 = phi i32 [ %68, %67 ], [ 0, %9 ], [ 0, %5 ], [ 0, %1 ], [ 0, %12 ], [ 51, %.critedge ], [ %62, %60 ], [ %51, %49 ], [ %44, %42 ], [ %37, %35 ], [ %30, %28 ]
   ret i32 %.0
 }
 

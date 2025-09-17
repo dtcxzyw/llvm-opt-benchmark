@@ -2396,7 +2396,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @tile_do_block(ptr noundef 
 .lr.ph.us.i:                                      ; preds = %._crit_edge.us.i, %.lr.ph.us.preheader.i
   %indvars.iv86.i = phi i64 [ %99, %.lr.ph.us.preheader.i ], [ %indvars.iv.next87.i, %._crit_edge.us.i ]
   %indvars.iv84.i = phi i64 [ %97, %.lr.ph.us.preheader.i ], [ %indvars.iv.next85.i, %._crit_edge.us.i ]
-  %.06679.us.i = phi i32 [ 0, %.lr.ph.us.preheader.i ], [ %111, %._crit_edge.us.i ]
+  %.06679.us.i = phi i32 [ 0, %.lr.ph.us.preheader.i ], [ %112, %._crit_edge.us.i ]
   %101 = getelementptr inbounds i8, ptr %76, i64 %indvars.iv86.i
   %102 = getelementptr inbounds i8, ptr %72, i64 %indvars.iv84.i
   br label %103
@@ -2407,13 +2407,13 @@ define internal fastcc range(i32 -1094995529, 1) i32 @tile_do_block(ptr noundef 
   %105 = load i8, ptr %104, align 1, !tbaa !29
   %106 = zext i8 %105 to i32
   %107 = add nsw i32 %9, %106
-  %.not.i.us.i = icmp ult i32 %107, 256
+  %108 = icmp ugt i32 %107, 255
   %isnotneg.i.us.i = icmp sgt i32 %107, -1
-  %108 = sext i1 %isnotneg.i.us.i to i8
-  %109 = trunc nuw i32 %107 to i8
-  %.0.i.us.i = select i1 %.not.i.us.i, i8 %109, i8 %108
-  %110 = getelementptr inbounds nuw i8, ptr %101, i64 %indvars.iv.i24
-  store i8 %.0.i.us.i, ptr %110, align 1, !tbaa !29
+  %109 = sext i1 %isnotneg.i.us.i to i8
+  %110 = trunc nuw i32 %107 to i8
+  %.0.i.us.i = select i1 %108, i8 %109, i8 %110
+  %111 = getelementptr inbounds nuw i8, ptr %101, i64 %indvars.iv.i24
+  store i8 %.0.i.us.i, ptr %111, align 1, !tbaa !29
   %indvars.iv.next.i25 = add nuw nsw i64 %indvars.iv.i24, 1
   %exitcond.not.i26 = icmp eq i64 %indvars.iv.next.i25, %wide.trip.count.i
   br i1 %exitcond.not.i26, label %._crit_edge.us.i, label %103, !llvm.loop !113
@@ -2421,8 +2421,8 @@ define internal fastcc range(i32 -1094995529, 1) i32 @tile_do_block(ptr noundef 
 ._crit_edge.us.i:                                 ; preds = %103
   %indvars.iv.next87.i = add nsw i64 %indvars.iv86.i, %100
   %indvars.iv.next85.i = add nsw i64 %indvars.iv84.i, %98
-  %111 = add nuw nsw i32 %.06679.us.i, 1
-  %exitcond91.not.i = icmp eq i32 %111, %8
+  %112 = add nuw nsw i32 %.06679.us.i, 1
+  %exitcond91.not.i = icmp eq i32 %112, %8
   br i1 %exitcond91.not.i, label %copy_block.exit, label %.lr.ph.us.i, !llvm.loop !114
 
 copy_block.exit:                                  ; preds = %._crit_edge.us.i, %57, %.preheader.i, %86, %80, %61, %35, %25, %19, %15

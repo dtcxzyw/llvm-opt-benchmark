@@ -3894,9 +3894,8 @@ _ZN10ttf_parser6tables3svg16SvgDocumentsList4find17h603d677cde62fc58E.exit: ; pr
 
 175:                                              ; preds = %171
   %176 = load i8, ptr %174, align 8, !range !774, !alias.scope !775, !noundef !37
-  %177 = add nsw i8 %176, -30
-  %switch.i.i = icmp ult i8 %177, 4
-  br i1 %switch.i.i, label %180, label %178
+  %177 = icmp samesign ugt i8 %176, 29
+  br i1 %177, label %180, label %178
 
 178:                                              ; preds = %175
   invoke fastcc void @"_ZN4core3ptr44drop_in_place$LT$roxmltree..parse..Error$GT$17h5d61505306eea4a6E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %174)

@@ -21,8 +21,8 @@ define void @ff_h264_idct_add_8_c(ptr noundef captures(none) %0, ptr noundef cap
   %9 = sext i32 %6 to i64
   %10 = sext i32 %7 to i64
   %invariant.gep = getelementptr i8, ptr %0, i64 %8
-  %invariant.gep104 = getelementptr i8, ptr %0, i64 %9
-  %invariant.gep106 = getelementptr i8, ptr %0, i64 %10
+  %invariant.gep101 = getelementptr i8, ptr %0, i64 %9
+  %invariant.gep103 = getelementptr i8, ptr %0, i64 %10
   br label %38
 
 11:                                               ; preds = %3, %11
@@ -62,8 +62,8 @@ define void @ff_h264_idct_add_8_c(ptr noundef captures(none) %0, ptr noundef cap
   br i1 %exitcond.not, label %.preheader, label %11, !llvm.loop !8
 
 38:                                               ; preds = %.preheader, %38
-  %indvars.iv100 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next101, %38 ]
-  %.idx = shl nuw nsw i64 %indvars.iv100, 3
+  %indvars.iv97 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next98, %38 ]
+  %.idx = shl nuw nsw i64 %indvars.iv97, 3
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %40 = load i16, ptr %39, align 2, !tbaa !4
   %41 = sext i16 %40 to i32
@@ -82,59 +82,59 @@ define void @ff_h264_idct_add_8_c(ptr noundef captures(none) %0, ptr noundef cap
   %54 = sub nsw i32 %50, %53
   %55 = ashr i32 %53, 1
   %56 = add nsw i32 %55, %49
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv100
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv97
   %58 = load i8, ptr %57, align 1, !tbaa !10
   %59 = zext i8 %58 to i32
   %60 = add nsw i32 %56, %45
   %61 = ashr i32 %60, 6
   %62 = add nsw i32 %61, %59
-  %.not.i = icmp ult i32 %62, 256
+  %63 = icmp ugt i32 %62, 255
   %isnotneg.i = icmp sgt i32 %62, -1
-  %63 = sext i1 %isnotneg.i to i8
-  %64 = trunc nuw i32 %62 to i8
-  %.0.i = select i1 %.not.i, i8 %64, i8 %63
+  %64 = sext i1 %isnotneg.i to i8
+  %65 = trunc nuw i32 %62 to i8
+  %.0.i = select i1 %63, i8 %64, i8 %65
   store i8 %.0.i, ptr %57, align 1, !tbaa !10
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv100
-  %65 = load i8, ptr %gep, align 1, !tbaa !10
-  %66 = zext i8 %65 to i32
-  %67 = add nsw i32 %54, %46
-  %68 = ashr i32 %67, 6
-  %69 = add nsw i32 %68, %66
-  %.not.i88 = icmp ult i32 %69, 256
-  %isnotneg.i89 = icmp sgt i32 %69, -1
-  %70 = sext i1 %isnotneg.i89 to i8
-  %71 = trunc nuw i32 %69 to i8
-  %.0.i90 = select i1 %.not.i88, i8 %71, i8 %70
-  store i8 %.0.i90, ptr %gep, align 1, !tbaa !10
-  %gep105 = getelementptr i8, ptr %invariant.gep104, i64 %indvars.iv100
-  %72 = load i8, ptr %gep105, align 1, !tbaa !10
-  %73 = zext i8 %72 to i32
-  %74 = sub nsw i32 %46, %54
-  %75 = ashr i32 %74, 6
-  %76 = add nsw i32 %75, %73
-  %.not.i91 = icmp ult i32 %76, 256
-  %isnotneg.i92 = icmp sgt i32 %76, -1
-  %77 = sext i1 %isnotneg.i92 to i8
-  %78 = trunc nuw i32 %76 to i8
-  %.0.i93 = select i1 %.not.i91, i8 %78, i8 %77
-  store i8 %.0.i93, ptr %gep105, align 1, !tbaa !10
-  %gep107 = getelementptr i8, ptr %invariant.gep106, i64 %indvars.iv100
-  %79 = load i8, ptr %gep107, align 1, !tbaa !10
-  %80 = zext i8 %79 to i32
-  %81 = sub nsw i32 %45, %56
-  %82 = ashr i32 %81, 6
-  %83 = add nsw i32 %82, %80
-  %.not.i94 = icmp ult i32 %83, 256
-  %isnotneg.i95 = icmp sgt i32 %83, -1
-  %84 = sext i1 %isnotneg.i95 to i8
-  %85 = trunc nuw i32 %83 to i8
-  %.0.i96 = select i1 %.not.i94, i8 %85, i8 %84
-  store i8 %.0.i96, ptr %gep107, align 1, !tbaa !10
-  %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100, 1
-  %exitcond103.not = icmp eq i64 %indvars.iv.next101, 4
-  br i1 %exitcond103.not, label %86, label %38, !llvm.loop !11
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv97
+  %66 = load i8, ptr %gep, align 1, !tbaa !10
+  %67 = zext i8 %66 to i32
+  %68 = add nsw i32 %54, %46
+  %69 = ashr i32 %68, 6
+  %70 = add nsw i32 %69, %67
+  %71 = icmp ugt i32 %70, 255
+  %isnotneg.i88 = icmp sgt i32 %70, -1
+  %72 = sext i1 %isnotneg.i88 to i8
+  %73 = trunc nuw i32 %70 to i8
+  %.0.i89 = select i1 %71, i8 %72, i8 %73
+  store i8 %.0.i89, ptr %gep, align 1, !tbaa !10
+  %gep102 = getelementptr i8, ptr %invariant.gep101, i64 %indvars.iv97
+  %74 = load i8, ptr %gep102, align 1, !tbaa !10
+  %75 = zext i8 %74 to i32
+  %76 = sub nsw i32 %46, %54
+  %77 = ashr i32 %76, 6
+  %78 = add nsw i32 %77, %75
+  %79 = icmp ugt i32 %78, 255
+  %isnotneg.i90 = icmp sgt i32 %78, -1
+  %80 = sext i1 %isnotneg.i90 to i8
+  %81 = trunc nuw i32 %78 to i8
+  %.0.i91 = select i1 %79, i8 %80, i8 %81
+  store i8 %.0.i91, ptr %gep102, align 1, !tbaa !10
+  %gep104 = getelementptr i8, ptr %invariant.gep103, i64 %indvars.iv97
+  %82 = load i8, ptr %gep104, align 1, !tbaa !10
+  %83 = zext i8 %82 to i32
+  %84 = sub nsw i32 %45, %56
+  %85 = ashr i32 %84, 6
+  %86 = add nsw i32 %85, %83
+  %87 = icmp ugt i32 %86, 255
+  %isnotneg.i92 = icmp sgt i32 %86, -1
+  %88 = sext i1 %isnotneg.i92 to i8
+  %89 = trunc nuw i32 %86 to i8
+  %.0.i93 = select i1 %87, i8 %88, i8 %89
+  store i8 %.0.i93, ptr %gep104, align 1, !tbaa !10
+  %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
+  %exitcond100.not = icmp eq i64 %indvars.iv.next98, 4
+  br i1 %exitcond100.not, label %90, label %38, !llvm.loop !11
 
-86:                                               ; preds = %38
+90:                                               ; preds = %38
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(32) %1, i8 0, i64 32, i1 false)
   ret void
 }
@@ -164,12 +164,12 @@ define void @ff_h264_idct8_add_8_c(ptr noundef captures(none) %0, ptr noundef ca
   %17 = sext i32 %10 to i64
   %18 = sext i32 %11 to i64
   %invariant.gep = getelementptr i8, ptr %0, i64 %12
-  %invariant.gep275 = getelementptr i8, ptr %0, i64 %13
-  %invariant.gep277 = getelementptr i8, ptr %0, i64 %14
-  %invariant.gep279 = getelementptr i8, ptr %0, i64 %15
-  %invariant.gep281 = getelementptr i8, ptr %0, i64 %16
-  %invariant.gep283 = getelementptr i8, ptr %0, i64 %17
-  %invariant.gep285 = getelementptr i8, ptr %0, i64 %18
+  %invariant.gep268 = getelementptr i8, ptr %0, i64 %13
+  %invariant.gep270 = getelementptr i8, ptr %0, i64 %14
+  %invariant.gep272 = getelementptr i8, ptr %0, i64 %15
+  %invariant.gep274 = getelementptr i8, ptr %0, i64 %16
+  %invariant.gep276 = getelementptr i8, ptr %0, i64 %17
+  %invariant.gep278 = getelementptr i8, ptr %0, i64 %18
   br label %94
 
 19:                                               ; preds = %3, %19
@@ -261,8 +261,8 @@ define void @ff_h264_idct8_add_8_c(ptr noundef captures(none) %0, ptr noundef ca
   br i1 %exitcond.not, label %.preheader, label %19, !llvm.loop !12
 
 94:                                               ; preds = %.preheader, %94
-  %indvars.iv271 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next272, %94 ]
-  %.idx = shl nuw nsw i64 %indvars.iv271, 4
+  %indvars.iv264 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next265, %94 ]
+  %.idx = shl nuw nsw i64 %indvars.iv264, 4
   %95 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %96 = load i16, ptr %95, align 2, !tbaa !4
   %97 = sext i16 %96 to i32
@@ -321,107 +321,107 @@ define void @ff_h264_idct8_add_8_c(ptr noundef captures(none) %0, ptr noundef ca
   %150 = sub nsw i32 %149, %140
   %151 = ashr i32 %129, 2
   %152 = sub nsw i32 %144, %151
-  %153 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv271
+  %153 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv264
   %154 = load i8, ptr %153, align 1, !tbaa !10
   %155 = zext i8 %154 to i32
   %156 = add nsw i32 %152, %113
   %157 = ashr i32 %156, 6
   %158 = add nsw i32 %157, %155
-  %.not.i250 = icmp ult i32 %158, 256
-  %isnotneg.i251 = icmp sgt i32 %158, -1
-  %159 = sext i1 %isnotneg.i251 to i8
-  %160 = trunc nuw i32 %158 to i8
-  %.0.i252 = select i1 %.not.i250, i8 %160, i8 %159
-  store i8 %.0.i252, ptr %153, align 1, !tbaa !10
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv271
-  %161 = load i8, ptr %gep, align 1, !tbaa !10
-  %162 = zext i8 %161 to i32
-  %163 = add nsw i32 %150, %114
-  %164 = ashr i32 %163, 6
-  %165 = add nsw i32 %164, %162
-  %.not.i247 = icmp ult i32 %165, 256
-  %isnotneg.i248 = icmp sgt i32 %165, -1
-  %166 = sext i1 %isnotneg.i248 to i8
-  %167 = trunc nuw i32 %165 to i8
-  %.0.i249 = select i1 %.not.i247, i8 %167, i8 %166
-  store i8 %.0.i249, ptr %gep, align 1, !tbaa !10
-  %gep276 = getelementptr i8, ptr %invariant.gep275, i64 %indvars.iv271
-  %168 = load i8, ptr %gep276, align 1, !tbaa !10
-  %169 = zext i8 %168 to i32
-  %170 = add nsw i32 %148, %115
-  %171 = ashr i32 %170, 6
-  %172 = add nsw i32 %171, %169
-  %.not.i244 = icmp ult i32 %172, 256
-  %isnotneg.i245 = icmp sgt i32 %172, -1
-  %173 = sext i1 %isnotneg.i245 to i8
-  %174 = trunc nuw i32 %172 to i8
-  %.0.i246 = select i1 %.not.i244, i8 %174, i8 %173
-  store i8 %.0.i246, ptr %gep276, align 1, !tbaa !10
-  %gep278 = getelementptr i8, ptr %invariant.gep277, i64 %indvars.iv271
-  %175 = load i8, ptr %gep278, align 1, !tbaa !10
-  %176 = zext i8 %175 to i32
-  %177 = add nsw i32 %146, %116
-  %178 = ashr i32 %177, 6
-  %179 = add nsw i32 %178, %176
-  %.not.i241 = icmp ult i32 %179, 256
-  %isnotneg.i242 = icmp sgt i32 %179, -1
-  %180 = sext i1 %isnotneg.i242 to i8
-  %181 = trunc nuw i32 %179 to i8
-  %.0.i243 = select i1 %.not.i241, i8 %181, i8 %180
-  store i8 %.0.i243, ptr %gep278, align 1, !tbaa !10
-  %gep280 = getelementptr i8, ptr %invariant.gep279, i64 %indvars.iv271
-  %182 = load i8, ptr %gep280, align 1, !tbaa !10
-  %183 = zext i8 %182 to i32
-  %184 = sub nsw i32 %116, %146
-  %185 = ashr i32 %184, 6
-  %186 = add nsw i32 %185, %183
-  %.not.i238 = icmp ult i32 %186, 256
-  %isnotneg.i239 = icmp sgt i32 %186, -1
-  %187 = sext i1 %isnotneg.i239 to i8
-  %188 = trunc nuw i32 %186 to i8
-  %.0.i240 = select i1 %.not.i238, i8 %188, i8 %187
-  store i8 %.0.i240, ptr %gep280, align 1, !tbaa !10
-  %gep282 = getelementptr i8, ptr %invariant.gep281, i64 %indvars.iv271
-  %189 = load i8, ptr %gep282, align 1, !tbaa !10
-  %190 = zext i8 %189 to i32
-  %191 = sub nsw i32 %115, %148
-  %192 = ashr i32 %191, 6
-  %193 = add nsw i32 %192, %190
-  %.not.i235 = icmp ult i32 %193, 256
-  %isnotneg.i236 = icmp sgt i32 %193, -1
-  %194 = sext i1 %isnotneg.i236 to i8
-  %195 = trunc nuw i32 %193 to i8
-  %.0.i237 = select i1 %.not.i235, i8 %195, i8 %194
-  store i8 %.0.i237, ptr %gep282, align 1, !tbaa !10
-  %gep284 = getelementptr i8, ptr %invariant.gep283, i64 %indvars.iv271
-  %196 = load i8, ptr %gep284, align 1, !tbaa !10
-  %197 = zext i8 %196 to i32
-  %198 = sub nsw i32 %114, %150
-  %199 = ashr i32 %198, 6
-  %200 = add nsw i32 %199, %197
-  %.not.i232 = icmp ult i32 %200, 256
-  %isnotneg.i233 = icmp sgt i32 %200, -1
-  %201 = sext i1 %isnotneg.i233 to i8
-  %202 = trunc nuw i32 %200 to i8
-  %.0.i234 = select i1 %.not.i232, i8 %202, i8 %201
-  store i8 %.0.i234, ptr %gep284, align 1, !tbaa !10
-  %gep286 = getelementptr i8, ptr %invariant.gep285, i64 %indvars.iv271
-  %203 = load i8, ptr %gep286, align 1, !tbaa !10
-  %204 = zext i8 %203 to i32
-  %205 = sub nsw i32 %113, %152
-  %206 = ashr i32 %205, 6
-  %207 = add nsw i32 %206, %204
-  %.not.i = icmp ult i32 %207, 256
-  %isnotneg.i = icmp sgt i32 %207, -1
-  %208 = sext i1 %isnotneg.i to i8
-  %209 = trunc nuw i32 %207 to i8
-  %.0.i = select i1 %.not.i, i8 %209, i8 %208
-  store i8 %.0.i, ptr %gep286, align 1, !tbaa !10
-  %indvars.iv.next272 = add nuw nsw i64 %indvars.iv271, 1
-  %exitcond274.not = icmp eq i64 %indvars.iv.next272, 8
-  br i1 %exitcond274.not, label %210, label %94, !llvm.loop !13
+  %159 = icmp ugt i32 %158, 255
+  %isnotneg.i244 = icmp sgt i32 %158, -1
+  %160 = sext i1 %isnotneg.i244 to i8
+  %161 = trunc nuw i32 %158 to i8
+  %.0.i245 = select i1 %159, i8 %160, i8 %161
+  store i8 %.0.i245, ptr %153, align 1, !tbaa !10
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv264
+  %162 = load i8, ptr %gep, align 1, !tbaa !10
+  %163 = zext i8 %162 to i32
+  %164 = add nsw i32 %150, %114
+  %165 = ashr i32 %164, 6
+  %166 = add nsw i32 %165, %163
+  %167 = icmp ugt i32 %166, 255
+  %isnotneg.i242 = icmp sgt i32 %166, -1
+  %168 = sext i1 %isnotneg.i242 to i8
+  %169 = trunc nuw i32 %166 to i8
+  %.0.i243 = select i1 %167, i8 %168, i8 %169
+  store i8 %.0.i243, ptr %gep, align 1, !tbaa !10
+  %gep269 = getelementptr i8, ptr %invariant.gep268, i64 %indvars.iv264
+  %170 = load i8, ptr %gep269, align 1, !tbaa !10
+  %171 = zext i8 %170 to i32
+  %172 = add nsw i32 %148, %115
+  %173 = ashr i32 %172, 6
+  %174 = add nsw i32 %173, %171
+  %175 = icmp ugt i32 %174, 255
+  %isnotneg.i240 = icmp sgt i32 %174, -1
+  %176 = sext i1 %isnotneg.i240 to i8
+  %177 = trunc nuw i32 %174 to i8
+  %.0.i241 = select i1 %175, i8 %176, i8 %177
+  store i8 %.0.i241, ptr %gep269, align 1, !tbaa !10
+  %gep271 = getelementptr i8, ptr %invariant.gep270, i64 %indvars.iv264
+  %178 = load i8, ptr %gep271, align 1, !tbaa !10
+  %179 = zext i8 %178 to i32
+  %180 = add nsw i32 %146, %116
+  %181 = ashr i32 %180, 6
+  %182 = add nsw i32 %181, %179
+  %183 = icmp ugt i32 %182, 255
+  %isnotneg.i238 = icmp sgt i32 %182, -1
+  %184 = sext i1 %isnotneg.i238 to i8
+  %185 = trunc nuw i32 %182 to i8
+  %.0.i239 = select i1 %183, i8 %184, i8 %185
+  store i8 %.0.i239, ptr %gep271, align 1, !tbaa !10
+  %gep273 = getelementptr i8, ptr %invariant.gep272, i64 %indvars.iv264
+  %186 = load i8, ptr %gep273, align 1, !tbaa !10
+  %187 = zext i8 %186 to i32
+  %188 = sub nsw i32 %116, %146
+  %189 = ashr i32 %188, 6
+  %190 = add nsw i32 %189, %187
+  %191 = icmp ugt i32 %190, 255
+  %isnotneg.i236 = icmp sgt i32 %190, -1
+  %192 = sext i1 %isnotneg.i236 to i8
+  %193 = trunc nuw i32 %190 to i8
+  %.0.i237 = select i1 %191, i8 %192, i8 %193
+  store i8 %.0.i237, ptr %gep273, align 1, !tbaa !10
+  %gep275 = getelementptr i8, ptr %invariant.gep274, i64 %indvars.iv264
+  %194 = load i8, ptr %gep275, align 1, !tbaa !10
+  %195 = zext i8 %194 to i32
+  %196 = sub nsw i32 %115, %148
+  %197 = ashr i32 %196, 6
+  %198 = add nsw i32 %197, %195
+  %199 = icmp ugt i32 %198, 255
+  %isnotneg.i234 = icmp sgt i32 %198, -1
+  %200 = sext i1 %isnotneg.i234 to i8
+  %201 = trunc nuw i32 %198 to i8
+  %.0.i235 = select i1 %199, i8 %200, i8 %201
+  store i8 %.0.i235, ptr %gep275, align 1, !tbaa !10
+  %gep277 = getelementptr i8, ptr %invariant.gep276, i64 %indvars.iv264
+  %202 = load i8, ptr %gep277, align 1, !tbaa !10
+  %203 = zext i8 %202 to i32
+  %204 = sub nsw i32 %114, %150
+  %205 = ashr i32 %204, 6
+  %206 = add nsw i32 %205, %203
+  %207 = icmp ugt i32 %206, 255
+  %isnotneg.i232 = icmp sgt i32 %206, -1
+  %208 = sext i1 %isnotneg.i232 to i8
+  %209 = trunc nuw i32 %206 to i8
+  %.0.i233 = select i1 %207, i8 %208, i8 %209
+  store i8 %.0.i233, ptr %gep277, align 1, !tbaa !10
+  %gep279 = getelementptr i8, ptr %invariant.gep278, i64 %indvars.iv264
+  %210 = load i8, ptr %gep279, align 1, !tbaa !10
+  %211 = zext i8 %210 to i32
+  %212 = sub nsw i32 %113, %152
+  %213 = ashr i32 %212, 6
+  %214 = add nsw i32 %213, %211
+  %215 = icmp ugt i32 %214, 255
+  %isnotneg.i = icmp sgt i32 %214, -1
+  %216 = sext i1 %isnotneg.i to i8
+  %217 = trunc nuw i32 %214 to i8
+  %.0.i = select i1 %215, i8 %216, i8 %217
+  store i8 %.0.i, ptr %gep279, align 1, !tbaa !10
+  %indvars.iv.next265 = add nuw nsw i64 %indvars.iv264, 1
+  %exitcond267.not = icmp eq i64 %indvars.iv.next265, 8
+  br i1 %exitcond267.not, label %218, label %94, !llvm.loop !13
 
-210:                                              ; preds = %94
+218:                                              ; preds = %94
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(128) %1, i8 0, i64 128, i1 false)
   ret void
 }
@@ -436,9 +436,9 @@ define void @ff_h264_idct_dc_add_8_c(ptr noundef captures(none) %0, ptr noundef 
   store i16 0, ptr %1, align 2, !tbaa !4
   br label %.preheader
 
-.preheader:                                       ; preds = %3, %16
-  %.01519 = phi ptr [ %0, %3 ], [ %17, %16 ]
-  %.01618 = phi i32 [ 0, %3 ], [ %18, %16 ]
+.preheader:                                       ; preds = %3, %17
+  %.01519 = phi ptr [ %0, %3 ], [ %18, %17 ]
+  %.01618 = phi i32 [ 0, %3 ], [ %19, %17 ]
   br label %9
 
 9:                                                ; preds = %.preheader, %9
@@ -447,23 +447,23 @@ define void @ff_h264_idct_dc_add_8_c(ptr noundef captures(none) %0, ptr noundef 
   %11 = load i8, ptr %10, align 1, !tbaa !10
   %12 = zext i8 %11 to i32
   %13 = add nsw i32 %7, %12
-  %.not.i = icmp ult i32 %13, 256
+  %14 = icmp ugt i32 %13, 255
   %isnotneg.i = icmp sgt i32 %13, -1
-  %14 = sext i1 %isnotneg.i to i8
-  %15 = trunc nuw i32 %13 to i8
-  %.0.i = select i1 %.not.i, i8 %15, i8 %14
+  %15 = sext i1 %isnotneg.i to i8
+  %16 = trunc nuw i32 %13 to i8
+  %.0.i = select i1 %14, i8 %15, i8 %16
   store i8 %.0.i, ptr %10, align 1, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %16, label %9, !llvm.loop !14
+  br i1 %exitcond.not, label %17, label %9, !llvm.loop !14
 
-16:                                               ; preds = %9
-  %17 = getelementptr inbounds i8, ptr %.01519, i64 %8
-  %18 = add nuw nsw i32 %.01618, 1
-  %exitcond21.not = icmp eq i32 %18, 4
-  br i1 %exitcond21.not, label %19, label %.preheader, !llvm.loop !15
+17:                                               ; preds = %9
+  %18 = getelementptr inbounds i8, ptr %.01519, i64 %8
+  %19 = add nuw nsw i32 %.01618, 1
+  %exitcond21.not = icmp eq i32 %19, 4
+  br i1 %exitcond21.not, label %20, label %.preheader, !llvm.loop !15
 
-19:                                               ; preds = %16
+20:                                               ; preds = %17
   ret void
 }
 
@@ -477,9 +477,9 @@ define void @ff_h264_idct8_dc_add_8_c(ptr noundef captures(none) %0, ptr noundef
   %8 = sext i32 %2 to i64
   br label %.preheader
 
-.preheader:                                       ; preds = %3, %16
-  %.01519 = phi ptr [ %0, %3 ], [ %17, %16 ]
-  %.01618 = phi i32 [ 0, %3 ], [ %18, %16 ]
+.preheader:                                       ; preds = %3, %17
+  %.01519 = phi ptr [ %0, %3 ], [ %18, %17 ]
+  %.01618 = phi i32 [ 0, %3 ], [ %19, %17 ]
   br label %9
 
 9:                                                ; preds = %.preheader, %9
@@ -488,23 +488,23 @@ define void @ff_h264_idct8_dc_add_8_c(ptr noundef captures(none) %0, ptr noundef
   %11 = load i8, ptr %10, align 1, !tbaa !10
   %12 = zext i8 %11 to i32
   %13 = add nsw i32 %7, %12
-  %.not.i = icmp ult i32 %13, 256
+  %14 = icmp ugt i32 %13, 255
   %isnotneg.i = icmp sgt i32 %13, -1
-  %14 = sext i1 %isnotneg.i to i8
-  %15 = trunc nuw i32 %13 to i8
-  %.0.i = select i1 %.not.i, i8 %15, i8 %14
+  %15 = sext i1 %isnotneg.i to i8
+  %16 = trunc nuw i32 %13 to i8
+  %.0.i = select i1 %14, i8 %15, i8 %16
   store i8 %.0.i, ptr %10, align 1, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %16, label %9, !llvm.loop !16
+  br i1 %exitcond.not, label %17, label %9, !llvm.loop !16
 
-16:                                               ; preds = %9
-  %17 = getelementptr inbounds i8, ptr %.01519, i64 %8
-  %18 = add nuw nsw i32 %.01618, 1
-  %exitcond21.not = icmp eq i32 %18, 8
-  br i1 %exitcond21.not, label %19, label %.preheader, !llvm.loop !17
+17:                                               ; preds = %9
+  %18 = getelementptr inbounds i8, ptr %.01519, i64 %8
+  %19 = add nuw nsw i32 %.01618, 1
+  %exitcond21.not = icmp eq i32 %19, 8
+  br i1 %exitcond21.not, label %20, label %.preheader, !llvm.loop !17
 
-19:                                               ; preds = %16
+20:                                               ; preds = %17
   ret void
 }
 
@@ -527,14 +527,14 @@ define void @ff_h264_idct_add16_8_c(ptr noundef captures(none) %0, ptr noundef r
 
 ._crit_edge:                                      ; preds = %7
   %.pre = shl nuw nsw i64 %indvars.iv, 4
-  br label %35
+  br label %36
 
 13:                                               ; preds = %7
   %14 = shl nuw nsw i64 %indvars.iv, 4
   %15 = getelementptr inbounds nuw i16, ptr %2, i64 %14
   %16 = load i16, ptr %15, align 2, !tbaa !4
   %.not20 = icmp eq i16 %16, 0
-  br i1 %.not20, label %35, label %17
+  br i1 %.not20, label %36, label %17
 
 17:                                               ; preds = %13
   %18 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
@@ -547,9 +547,9 @@ define void @ff_h264_idct_add16_8_c(ptr noundef captures(none) %0, ptr noundef r
   store i16 0, ptr %15, align 2, !tbaa !4
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %32, %17
-  %.01519.i = phi ptr [ %21, %17 ], [ %33, %32 ]
-  %.01618.i = phi i32 [ 0, %17 ], [ %34, %32 ]
+.preheader.i:                                     ; preds = %33, %17
+  %.01519.i = phi ptr [ %21, %17 ], [ %34, %33 ]
+  %.01618.i = phi i32 [ 0, %17 ], [ %35, %33 ]
   br label %25
 
 25:                                               ; preds = %25, %.preheader.i
@@ -558,38 +558,38 @@ define void @ff_h264_idct_add16_8_c(ptr noundef captures(none) %0, ptr noundef r
   %27 = load i8, ptr %26, align 1, !tbaa !10
   %28 = zext i8 %27 to i32
   %29 = add nsw i32 %24, %28
-  %.not.i.i = icmp ult i32 %29, 256
+  %30 = icmp ugt i32 %29, 255
   %isnotneg.i.i = icmp sgt i32 %29, -1
-  %30 = sext i1 %isnotneg.i.i to i8
-  %31 = trunc nuw i32 %29 to i8
-  %.0.i.i = select i1 %.not.i.i, i8 %31, i8 %30
+  %31 = sext i1 %isnotneg.i.i to i8
+  %32 = trunc nuw i32 %29 to i8
+  %.0.i.i = select i1 %30, i8 %31, i8 %32
   store i8 %.0.i.i, ptr %26, align 1, !tbaa !10
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %32, label %25, !llvm.loop !14
+  br i1 %exitcond.not.i, label %33, label %25, !llvm.loop !14
 
-32:                                               ; preds = %25
-  %33 = getelementptr inbounds i8, ptr %.01519.i, i64 %6
-  %34 = add nuw nsw i32 %.01618.i, 1
-  %exitcond21.not.i = icmp eq i32 %34, 4
+33:                                               ; preds = %25
+  %34 = getelementptr inbounds i8, ptr %.01519.i, i64 %6
+  %35 = add nuw nsw i32 %.01618.i, 1
+  %exitcond21.not.i = icmp eq i32 %35, 4
   br i1 %exitcond21.not.i, label %ff_h264_idct_dc_add_8_c.exit, label %.preheader.i, !llvm.loop !15
 
-35:                                               ; preds = %._crit_edge, %13
+36:                                               ; preds = %._crit_edge, %13
   %.pre-phi = phi i64 [ %.pre, %._crit_edge ], [ %14, %13 ]
-  %36 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
-  %37 = load i32, ptr %36, align 4, !tbaa !18
-  %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds i8, ptr %0, i64 %38
-  %40 = getelementptr inbounds nuw i16, ptr %2, i64 %.pre-phi
-  tail call void @ff_h264_idct_add_8_c(ptr noundef %39, ptr noundef %40, i32 noundef %3)
+  %37 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %38 = load i32, ptr %37, align 4, !tbaa !18
+  %39 = sext i32 %38 to i64
+  %40 = getelementptr inbounds i8, ptr %0, i64 %39
+  %41 = getelementptr inbounds nuw i16, ptr %2, i64 %.pre-phi
+  tail call void @ff_h264_idct_add_8_c(ptr noundef %40, ptr noundef %41, i32 noundef %3)
   br label %ff_h264_idct_dc_add_8_c.exit
 
-ff_h264_idct_dc_add_8_c.exit:                     ; preds = %32, %7, %35
+ff_h264_idct_dc_add_8_c.exit:                     ; preds = %33, %7, %36
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %41, label %7, !llvm.loop !20
+  br i1 %exitcond.not, label %42, label %7, !llvm.loop !20
 
-41:                                               ; preds = %ff_h264_idct_dc_add_8_c.exit
+42:                                               ; preds = %ff_h264_idct_dc_add_8_c.exit
   ret void
 }
 
@@ -636,9 +636,9 @@ define void @ff_h264_idct_add16intra_8_c(ptr noundef captures(none) %0, ptr noun
   store i16 0, ptr %20, align 2, !tbaa !4
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %37, %22
-  %.01519.i = phi ptr [ %26, %22 ], [ %38, %37 ]
-  %.01618.i = phi i32 [ 0, %22 ], [ %39, %37 ]
+.preheader.i:                                     ; preds = %38, %22
+  %.01519.i = phi ptr [ %26, %22 ], [ %39, %38 ]
+  %.01618.i = phi i32 [ 0, %22 ], [ %40, %38 ]
   br label %30
 
 30:                                               ; preds = %30, %.preheader.i
@@ -647,28 +647,28 @@ define void @ff_h264_idct_add16intra_8_c(ptr noundef captures(none) %0, ptr noun
   %32 = load i8, ptr %31, align 1, !tbaa !10
   %33 = zext i8 %32 to i32
   %34 = add nsw i32 %29, %33
-  %.not.i.i = icmp ult i32 %34, 256
+  %35 = icmp ugt i32 %34, 255
   %isnotneg.i.i = icmp sgt i32 %34, -1
-  %35 = sext i1 %isnotneg.i.i to i8
-  %36 = trunc nuw i32 %34 to i8
-  %.0.i.i = select i1 %.not.i.i, i8 %36, i8 %35
+  %36 = sext i1 %isnotneg.i.i to i8
+  %37 = trunc nuw i32 %34 to i8
+  %.0.i.i = select i1 %35, i8 %36, i8 %37
   store i8 %.0.i.i, ptr %31, align 1, !tbaa !10
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %37, label %30, !llvm.loop !14
+  br i1 %exitcond.not.i, label %38, label %30, !llvm.loop !14
 
-37:                                               ; preds = %30
-  %38 = getelementptr inbounds i8, ptr %.01519.i, i64 %6
-  %39 = add nuw nsw i32 %.01618.i, 1
-  %exitcond21.not.i = icmp eq i32 %39, 4
+38:                                               ; preds = %30
+  %39 = getelementptr inbounds i8, ptr %.01519.i, i64 %6
+  %40 = add nuw nsw i32 %.01618.i, 1
+  %exitcond21.not.i = icmp eq i32 %40, 4
   br i1 %exitcond21.not.i, label %ff_h264_idct_dc_add_8_c.exit, label %.preheader.i, !llvm.loop !15
 
-ff_h264_idct_dc_add_8_c.exit:                     ; preds = %37, %13, %19
+ff_h264_idct_dc_add_8_c.exit:                     ; preds = %38, %13, %19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %40, label %7, !llvm.loop !21
+  br i1 %exitcond.not, label %41, label %7, !llvm.loop !21
 
-40:                                               ; preds = %ff_h264_idct_dc_add_8_c.exit
+41:                                               ; preds = %ff_h264_idct_dc_add_8_c.exit
   ret void
 }
 
@@ -691,14 +691,14 @@ define void @ff_h264_idct8_add4_8_c(ptr noundef captures(none) %0, ptr noundef r
 
 ._crit_edge:                                      ; preds = %7
   %.pre = shl nuw nsw i64 %indvars.iv, 4
-  br label %35
+  br label %36
 
 13:                                               ; preds = %7
   %14 = shl nuw nsw i64 %indvars.iv, 4
   %15 = getelementptr inbounds nuw i16, ptr %2, i64 %14
   %16 = load i16, ptr %15, align 2, !tbaa !4
   %.not20 = icmp eq i16 %16, 0
-  br i1 %.not20, label %35, label %17
+  br i1 %.not20, label %36, label %17
 
 17:                                               ; preds = %13
   %18 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
@@ -711,9 +711,9 @@ define void @ff_h264_idct8_add4_8_c(ptr noundef captures(none) %0, ptr noundef r
   store i16 0, ptr %15, align 2, !tbaa !4
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %32, %17
-  %.01519.i = phi ptr [ %21, %17 ], [ %33, %32 ]
-  %.01618.i = phi i32 [ 0, %17 ], [ %34, %32 ]
+.preheader.i:                                     ; preds = %33, %17
+  %.01519.i = phi ptr [ %21, %17 ], [ %34, %33 ]
+  %.01618.i = phi i32 [ 0, %17 ], [ %35, %33 ]
   br label %25
 
 25:                                               ; preds = %25, %.preheader.i
@@ -722,38 +722,38 @@ define void @ff_h264_idct8_add4_8_c(ptr noundef captures(none) %0, ptr noundef r
   %27 = load i8, ptr %26, align 1, !tbaa !10
   %28 = zext i8 %27 to i32
   %29 = add nsw i32 %24, %28
-  %.not.i.i = icmp ult i32 %29, 256
+  %30 = icmp ugt i32 %29, 255
   %isnotneg.i.i = icmp sgt i32 %29, -1
-  %30 = sext i1 %isnotneg.i.i to i8
-  %31 = trunc nuw i32 %29 to i8
-  %.0.i.i = select i1 %.not.i.i, i8 %31, i8 %30
+  %31 = sext i1 %isnotneg.i.i to i8
+  %32 = trunc nuw i32 %29 to i8
+  %.0.i.i = select i1 %30, i8 %31, i8 %32
   store i8 %.0.i.i, ptr %26, align 1, !tbaa !10
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %32, label %25, !llvm.loop !16
+  br i1 %exitcond.not.i, label %33, label %25, !llvm.loop !16
 
-32:                                               ; preds = %25
-  %33 = getelementptr inbounds i8, ptr %.01519.i, i64 %6
-  %34 = add nuw nsw i32 %.01618.i, 1
-  %exitcond21.not.i = icmp eq i32 %34, 8
+33:                                               ; preds = %25
+  %34 = getelementptr inbounds i8, ptr %.01519.i, i64 %6
+  %35 = add nuw nsw i32 %.01618.i, 1
+  %exitcond21.not.i = icmp eq i32 %35, 8
   br i1 %exitcond21.not.i, label %ff_h264_idct8_dc_add_8_c.exit, label %.preheader.i, !llvm.loop !17
 
-35:                                               ; preds = %._crit_edge, %13
+36:                                               ; preds = %._crit_edge, %13
   %.pre-phi = phi i64 [ %.pre, %._crit_edge ], [ %14, %13 ]
-  %36 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
-  %37 = load i32, ptr %36, align 4, !tbaa !18
-  %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds i8, ptr %0, i64 %38
-  %40 = getelementptr inbounds nuw i16, ptr %2, i64 %.pre-phi
-  tail call void @ff_h264_idct8_add_8_c(ptr noundef %39, ptr noundef %40, i32 noundef %3)
+  %37 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %38 = load i32, ptr %37, align 4, !tbaa !18
+  %39 = sext i32 %38 to i64
+  %40 = getelementptr inbounds i8, ptr %0, i64 %39
+  %41 = getelementptr inbounds nuw i16, ptr %2, i64 %.pre-phi
+  tail call void @ff_h264_idct8_add_8_c(ptr noundef %40, ptr noundef %41, i32 noundef %3)
   br label %ff_h264_idct8_dc_add_8_c.exit
 
-ff_h264_idct8_dc_add_8_c.exit:                    ; preds = %32, %7, %35
+ff_h264_idct8_dc_add_8_c.exit:                    ; preds = %33, %7, %36
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
-  %41 = icmp samesign ult i64 %indvars.iv, 12
-  br i1 %41, label %7, label %42, !llvm.loop !22
+  %42 = icmp samesign ult i64 %indvars.iv, 12
+  br i1 %42, label %7, label %43, !llvm.loop !22
 
-42:                                               ; preds = %ff_h264_idct8_dc_add_8_c.exit
+43:                                               ; preds = %ff_h264_idct8_dc_add_8_c.exit
   ret void
 }
 
@@ -767,29 +767,29 @@ define void @ff_h264_idct_add8_8_c(ptr noundef readonly captures(none) %0, ptr n
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %._crit_edge, %5
-  %exitcond46.not = phi i1 [ false, %5 ], [ true, %._crit_edge ]
-  %indvars.iv41 = phi i64 [ 1, %5 ], [ 2, %._crit_edge ]
-  %indvars.iv39 = phi i64 [ 20, %5 ], [ %indvars.iv.next40, %._crit_edge ]
+  %exitcond45.not = phi i1 [ false, %5 ], [ true, %._crit_edge ]
+  %indvars.iv40 = phi i64 [ 1, %5 ], [ 2, %._crit_edge ]
+  %indvars.iv38 = phi i64 [ 20, %5 ], [ %indvars.iv.next39, %._crit_edge ]
   %indvars.iv = phi i64 [ 16, %5 ], [ %indvars.iv.next, %._crit_edge ]
-  %11 = getelementptr ptr, ptr %0, i64 %indvars.iv41
+  %11 = getelementptr ptr, ptr %0, i64 %indvars.iv40
   %12 = getelementptr i8, ptr %11, i64 -8
   br label %13
 
 13:                                               ; preds = %.lr.ph, %ff_h264_idct_dc_add_8_c.exit
-  %indvars.iv34 = phi i64 [ %indvars.iv, %.lr.ph ], [ %indvars.iv.next35, %ff_h264_idct_dc_add_8_c.exit ]
-  %14 = getelementptr inbounds nuw i8, ptr @scan8, i64 %indvars.iv34
+  %indvars.iv33 = phi i64 [ %indvars.iv, %.lr.ph ], [ %indvars.iv.next34, %ff_h264_idct_dc_add_8_c.exit ]
+  %14 = getelementptr inbounds nuw i8, ptr @scan8, i64 %indvars.iv33
   %15 = load i8, ptr %14, align 1, !tbaa !10
   %16 = zext i8 %15 to i64
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 %16
   %18 = load i8, ptr %17, align 1, !tbaa !10
   %.not = icmp eq i8 %18, 0
-  br i1 %.not, label %103, label %19
+  br i1 %.not, label %107, label %19
 
 19:                                               ; preds = %13
   %20 = load ptr, ptr %12, align 8, !tbaa !23
-  %21 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv34
+  %21 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv33
   %22 = load i32, ptr %21, align 4, !tbaa !18
-  %.idx = shl nsw i64 %indvars.iv34, 5
+  %.idx = shl nsw i64 %indvars.iv33, 5
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
   %24 = load i16, ptr %23, align 2, !tbaa !4
   %25 = add i16 %24, 32
@@ -800,8 +800,8 @@ define void @ff_h264_idct_add8_8_c(ptr noundef readonly captures(none) %0, ptr n
   %26 = sext i32 %22 to i64
   %27 = getelementptr inbounds i8, ptr %20, i64 %26
   %invariant.gep.i = getelementptr i8, ptr %27, i64 %8
-  %invariant.gep104.i = getelementptr i8, ptr %27, i64 %9
-  %invariant.gep106.i = getelementptr i8, ptr %27, i64 %10
+  %invariant.gep101.i = getelementptr i8, ptr %27, i64 %9
+  %invariant.gep103.i = getelementptr i8, ptr %27, i64 %10
   br label %55
 
 28:                                               ; preds = %28, %19
@@ -841,8 +841,8 @@ define void @ff_h264_idct_add8_8_c(ptr noundef readonly captures(none) %0, ptr n
   br i1 %exitcond.not.i, label %.preheader.i, label %28, !llvm.loop !8
 
 55:                                               ; preds = %55, %.preheader.i
-  %indvars.iv100.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next101.i, %55 ]
-  %.idx.i = shl nuw nsw i64 %indvars.iv100.i, 3
+  %indvars.iv97.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next98.i, %55 ]
+  %.idx.i = shl nuw nsw i64 %indvars.iv97.i, 3
   %56 = getelementptr inbounds nuw i8, ptr %23, i64 %.idx.i
   %57 = load i16, ptr %56, align 2, !tbaa !4
   %58 = sext i16 %57 to i32
@@ -861,119 +861,119 @@ define void @ff_h264_idct_add8_8_c(ptr noundef readonly captures(none) %0, ptr n
   %71 = sub nsw i32 %67, %70
   %72 = ashr i32 %70, 1
   %73 = add nsw i32 %72, %66
-  %74 = getelementptr inbounds nuw i8, ptr %27, i64 %indvars.iv100.i
+  %74 = getelementptr inbounds nuw i8, ptr %27, i64 %indvars.iv97.i
   %75 = load i8, ptr %74, align 1, !tbaa !10
   %76 = zext i8 %75 to i32
   %77 = add nsw i32 %73, %62
   %78 = ashr i32 %77, 6
   %79 = add nsw i32 %78, %76
-  %.not.i.i = icmp ult i32 %79, 256
+  %80 = icmp ugt i32 %79, 255
   %isnotneg.i.i = icmp sgt i32 %79, -1
-  %80 = sext i1 %isnotneg.i.i to i8
-  %81 = trunc nuw i32 %79 to i8
-  %.0.i.i = select i1 %.not.i.i, i8 %81, i8 %80
+  %81 = sext i1 %isnotneg.i.i to i8
+  %82 = trunc nuw i32 %79 to i8
+  %.0.i.i = select i1 %80, i8 %81, i8 %82
   store i8 %.0.i.i, ptr %74, align 1, !tbaa !10
-  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %indvars.iv100.i
-  %82 = load i8, ptr %gep.i, align 1, !tbaa !10
-  %83 = zext i8 %82 to i32
-  %84 = add nsw i32 %71, %63
-  %85 = ashr i32 %84, 6
-  %86 = add nsw i32 %85, %83
-  %.not.i88.i = icmp ult i32 %86, 256
-  %isnotneg.i89.i = icmp sgt i32 %86, -1
-  %87 = sext i1 %isnotneg.i89.i to i8
-  %88 = trunc nuw i32 %86 to i8
-  %.0.i90.i = select i1 %.not.i88.i, i8 %88, i8 %87
-  store i8 %.0.i90.i, ptr %gep.i, align 1, !tbaa !10
-  %gep105.i = getelementptr i8, ptr %invariant.gep104.i, i64 %indvars.iv100.i
-  %89 = load i8, ptr %gep105.i, align 1, !tbaa !10
-  %90 = zext i8 %89 to i32
-  %91 = sub nsw i32 %63, %71
-  %92 = ashr i32 %91, 6
-  %93 = add nsw i32 %92, %90
-  %.not.i91.i = icmp ult i32 %93, 256
-  %isnotneg.i92.i = icmp sgt i32 %93, -1
-  %94 = sext i1 %isnotneg.i92.i to i8
-  %95 = trunc nuw i32 %93 to i8
-  %.0.i93.i = select i1 %.not.i91.i, i8 %95, i8 %94
-  store i8 %.0.i93.i, ptr %gep105.i, align 1, !tbaa !10
-  %gep107.i = getelementptr i8, ptr %invariant.gep106.i, i64 %indvars.iv100.i
-  %96 = load i8, ptr %gep107.i, align 1, !tbaa !10
-  %97 = zext i8 %96 to i32
-  %98 = sub nsw i32 %62, %73
-  %99 = ashr i32 %98, 6
-  %100 = add nsw i32 %99, %97
-  %.not.i94.i = icmp ult i32 %100, 256
-  %isnotneg.i95.i = icmp sgt i32 %100, -1
-  %101 = sext i1 %isnotneg.i95.i to i8
-  %102 = trunc nuw i32 %100 to i8
-  %.0.i96.i = select i1 %.not.i94.i, i8 %102, i8 %101
-  store i8 %.0.i96.i, ptr %gep107.i, align 1, !tbaa !10
-  %indvars.iv.next101.i = add nuw nsw i64 %indvars.iv100.i, 1
-  %exitcond103.not.i = icmp eq i64 %indvars.iv.next101.i, 4
-  br i1 %exitcond103.not.i, label %ff_h264_idct_add_8_c.exit, label %55, !llvm.loop !11
+  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %indvars.iv97.i
+  %83 = load i8, ptr %gep.i, align 1, !tbaa !10
+  %84 = zext i8 %83 to i32
+  %85 = add nsw i32 %71, %63
+  %86 = ashr i32 %85, 6
+  %87 = add nsw i32 %86, %84
+  %88 = icmp ugt i32 %87, 255
+  %isnotneg.i88.i = icmp sgt i32 %87, -1
+  %89 = sext i1 %isnotneg.i88.i to i8
+  %90 = trunc nuw i32 %87 to i8
+  %.0.i89.i = select i1 %88, i8 %89, i8 %90
+  store i8 %.0.i89.i, ptr %gep.i, align 1, !tbaa !10
+  %gep102.i = getelementptr i8, ptr %invariant.gep101.i, i64 %indvars.iv97.i
+  %91 = load i8, ptr %gep102.i, align 1, !tbaa !10
+  %92 = zext i8 %91 to i32
+  %93 = sub nsw i32 %63, %71
+  %94 = ashr i32 %93, 6
+  %95 = add nsw i32 %94, %92
+  %96 = icmp ugt i32 %95, 255
+  %isnotneg.i90.i = icmp sgt i32 %95, -1
+  %97 = sext i1 %isnotneg.i90.i to i8
+  %98 = trunc nuw i32 %95 to i8
+  %.0.i91.i = select i1 %96, i8 %97, i8 %98
+  store i8 %.0.i91.i, ptr %gep102.i, align 1, !tbaa !10
+  %gep104.i = getelementptr i8, ptr %invariant.gep103.i, i64 %indvars.iv97.i
+  %99 = load i8, ptr %gep104.i, align 1, !tbaa !10
+  %100 = zext i8 %99 to i32
+  %101 = sub nsw i32 %62, %73
+  %102 = ashr i32 %101, 6
+  %103 = add nsw i32 %102, %100
+  %104 = icmp ugt i32 %103, 255
+  %isnotneg.i92.i = icmp sgt i32 %103, -1
+  %105 = sext i1 %isnotneg.i92.i to i8
+  %106 = trunc nuw i32 %103 to i8
+  %.0.i93.i = select i1 %104, i8 %105, i8 %106
+  store i8 %.0.i93.i, ptr %gep104.i, align 1, !tbaa !10
+  %indvars.iv.next98.i = add nuw nsw i64 %indvars.iv97.i, 1
+  %exitcond100.not.i = icmp eq i64 %indvars.iv.next98.i, 4
+  br i1 %exitcond100.not.i, label %ff_h264_idct_add_8_c.exit, label %55, !llvm.loop !11
 
 ff_h264_idct_add_8_c.exit:                        ; preds = %55
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(32) %23, i8 0, i64 32, i1 false)
   br label %ff_h264_idct_dc_add_8_c.exit
 
-103:                                              ; preds = %13
-  %.idx48 = shl nsw i64 %indvars.iv34, 5
-  %104 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx48
-  %105 = load i16, ptr %104, align 2, !tbaa !4
-  %.not24 = icmp eq i16 %105, 0
-  br i1 %.not24, label %ff_h264_idct_dc_add_8_c.exit, label %106
+107:                                              ; preds = %13
+  %.idx47 = shl nsw i64 %indvars.iv33, 5
+  %108 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx47
+  %109 = load i16, ptr %108, align 2, !tbaa !4
+  %.not24 = icmp eq i16 %109, 0
+  br i1 %.not24, label %ff_h264_idct_dc_add_8_c.exit, label %110
 
-106:                                              ; preds = %103
-  %107 = load ptr, ptr %12, align 8, !tbaa !23
-  %108 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv34
-  %109 = load i32, ptr %108, align 4, !tbaa !18
-  %110 = sext i32 %109 to i64
-  %111 = getelementptr inbounds i8, ptr %107, i64 %110
-  %112 = sext i16 %105 to i32
-  %113 = add nsw i32 %112, 32
-  %114 = ashr i32 %113, 6
-  store i16 0, ptr %104, align 2, !tbaa !4
+110:                                              ; preds = %107
+  %111 = load ptr, ptr %12, align 8, !tbaa !23
+  %112 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv33
+  %113 = load i32, ptr %112, align 4, !tbaa !18
+  %114 = sext i32 %113 to i64
+  %115 = getelementptr inbounds i8, ptr %111, i64 %114
+  %116 = sext i16 %109 to i32
+  %117 = add nsw i32 %116, 32
+  %118 = ashr i32 %117, 6
+  store i16 0, ptr %108, align 2, !tbaa !4
   br label %.preheader.i25
 
-.preheader.i25:                                   ; preds = %122, %106
-  %.01519.i = phi ptr [ %111, %106 ], [ %123, %122 ]
-  %.01618.i = phi i32 [ 0, %106 ], [ %124, %122 ]
-  br label %115
+.preheader.i25:                                   ; preds = %127, %110
+  %.01519.i = phi ptr [ %115, %110 ], [ %128, %127 ]
+  %.01618.i = phi i32 [ 0, %110 ], [ %129, %127 ]
+  br label %119
 
-115:                                              ; preds = %115, %.preheader.i25
-  %indvars.iv.i26 = phi i64 [ 0, %.preheader.i25 ], [ %indvars.iv.next.i30, %115 ]
-  %116 = getelementptr inbounds nuw i8, ptr %.01519.i, i64 %indvars.iv.i26
-  %117 = load i8, ptr %116, align 1, !tbaa !10
-  %118 = zext i8 %117 to i32
-  %119 = add nsw i32 %114, %118
-  %.not.i.i27 = icmp ult i32 %119, 256
-  %isnotneg.i.i28 = icmp sgt i32 %119, -1
-  %120 = sext i1 %isnotneg.i.i28 to i8
-  %121 = trunc nuw i32 %119 to i8
-  %.0.i.i29 = select i1 %.not.i.i27, i8 %121, i8 %120
-  store i8 %.0.i.i29, ptr %116, align 1, !tbaa !10
-  %indvars.iv.next.i30 = add nuw nsw i64 %indvars.iv.i26, 1
-  %exitcond.not.i31 = icmp eq i64 %indvars.iv.next.i30, 4
-  br i1 %exitcond.not.i31, label %122, label %115, !llvm.loop !14
+119:                                              ; preds = %119, %.preheader.i25
+  %indvars.iv.i26 = phi i64 [ 0, %.preheader.i25 ], [ %indvars.iv.next.i29, %119 ]
+  %120 = getelementptr inbounds nuw i8, ptr %.01519.i, i64 %indvars.iv.i26
+  %121 = load i8, ptr %120, align 1, !tbaa !10
+  %122 = zext i8 %121 to i32
+  %123 = add nsw i32 %118, %122
+  %124 = icmp ugt i32 %123, 255
+  %isnotneg.i.i27 = icmp sgt i32 %123, -1
+  %125 = sext i1 %isnotneg.i.i27 to i8
+  %126 = trunc nuw i32 %123 to i8
+  %.0.i.i28 = select i1 %124, i8 %125, i8 %126
+  store i8 %.0.i.i28, ptr %120, align 1, !tbaa !10
+  %indvars.iv.next.i29 = add nuw nsw i64 %indvars.iv.i26, 1
+  %exitcond.not.i30 = icmp eq i64 %indvars.iv.next.i29, 4
+  br i1 %exitcond.not.i30, label %127, label %119, !llvm.loop !14
 
-122:                                              ; preds = %115
-  %123 = getelementptr inbounds i8, ptr %.01519.i, i64 %8
-  %124 = add nuw nsw i32 %.01618.i, 1
-  %exitcond21.not.i = icmp eq i32 %124, 4
+127:                                              ; preds = %119
+  %128 = getelementptr inbounds i8, ptr %.01519.i, i64 %8
+  %129 = add nuw nsw i32 %.01618.i, 1
+  %exitcond21.not.i = icmp eq i32 %129, 4
   br i1 %exitcond21.not.i, label %ff_h264_idct_dc_add_8_c.exit, label %.preheader.i25, !llvm.loop !15
 
-ff_h264_idct_dc_add_8_c.exit:                     ; preds = %122, %ff_h264_idct_add_8_c.exit, %103
-  %indvars.iv.next35 = add nuw nsw i64 %indvars.iv34, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next35, %indvars.iv39
+ff_h264_idct_dc_add_8_c.exit:                     ; preds = %127, %ff_h264_idct_add_8_c.exit, %107
+  %indvars.iv.next34 = add nuw nsw i64 %indvars.iv33, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next34, %indvars.iv38
   br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %ff_h264_idct_dc_add_8_c.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 16
-  %indvars.iv.next40 = add nuw nsw i64 %indvars.iv39, 16
-  br i1 %exitcond46.not, label %125, label %.lr.ph, !llvm.loop !27
+  %indvars.iv.next39 = add nuw nsw i64 %indvars.iv38, 16
+  br i1 %exitcond45.not, label %130, label %.lr.ph, !llvm.loop !27
 
-125:                                              ; preds = %._crit_edge
+130:                                              ; preds = %._crit_edge
   ret void
 }
 
@@ -987,29 +987,29 @@ define void @ff_h264_idct_add8_422_8_c(ptr noundef readonly captures(none) %0, p
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %._crit_edge, %5
-  %exitcond116.not = phi i1 [ false, %5 ], [ true, %._crit_edge ]
-  %indvars.iv111 = phi i64 [ 1, %5 ], [ 2, %._crit_edge ]
-  %indvars.iv109 = phi i64 [ 20, %5 ], [ %indvars.iv.next110, %._crit_edge ]
+  %exitcond110.not = phi i1 [ false, %5 ], [ true, %._crit_edge ]
+  %indvars.iv105 = phi i64 [ 1, %5 ], [ 2, %._crit_edge ]
+  %indvars.iv103 = phi i64 [ 20, %5 ], [ %indvars.iv.next104, %._crit_edge ]
   %indvars.iv = phi i64 [ 16, %5 ], [ %indvars.iv.next, %._crit_edge ]
-  %11 = getelementptr ptr, ptr %0, i64 %indvars.iv111
+  %11 = getelementptr ptr, ptr %0, i64 %indvars.iv105
   %12 = getelementptr i8, ptr %11, i64 -8
   br label %13
 
 13:                                               ; preds = %.lr.ph, %ff_h264_idct_dc_add_8_c.exit
-  %indvars.iv104 = phi i64 [ %indvars.iv, %.lr.ph ], [ %indvars.iv.next105, %ff_h264_idct_dc_add_8_c.exit ]
-  %14 = getelementptr inbounds nuw i8, ptr @scan8, i64 %indvars.iv104
+  %indvars.iv98 = phi i64 [ %indvars.iv, %.lr.ph ], [ %indvars.iv.next99, %ff_h264_idct_dc_add_8_c.exit ]
+  %14 = getelementptr inbounds nuw i8, ptr @scan8, i64 %indvars.iv98
   %15 = load i8, ptr %14, align 1, !tbaa !10
   %16 = zext i8 %15 to i64
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 %16
   %18 = load i8, ptr %17, align 1, !tbaa !10
   %.not50 = icmp eq i8 %18, 0
-  br i1 %.not50, label %103, label %19
+  br i1 %.not50, label %107, label %19
 
 19:                                               ; preds = %13
   %20 = load ptr, ptr %12, align 8, !tbaa !23
-  %21 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv104
+  %21 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv98
   %22 = load i32, ptr %21, align 4, !tbaa !18
-  %.idx = shl nsw i64 %indvars.iv104, 5
+  %.idx = shl nsw i64 %indvars.iv98, 5
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
   %24 = load i16, ptr %23, align 2, !tbaa !4
   %25 = add i16 %24, 32
@@ -1020,8 +1020,8 @@ define void @ff_h264_idct_add8_422_8_c(ptr noundef readonly captures(none) %0, p
   %26 = sext i32 %22 to i64
   %27 = getelementptr inbounds i8, ptr %20, i64 %26
   %invariant.gep.i = getelementptr i8, ptr %27, i64 %8
-  %invariant.gep104.i = getelementptr i8, ptr %27, i64 %9
-  %invariant.gep106.i = getelementptr i8, ptr %27, i64 %10
+  %invariant.gep101.i = getelementptr i8, ptr %27, i64 %9
+  %invariant.gep103.i = getelementptr i8, ptr %27, i64 %10
   br label %55
 
 28:                                               ; preds = %28, %19
@@ -1061,8 +1061,8 @@ define void @ff_h264_idct_add8_422_8_c(ptr noundef readonly captures(none) %0, p
   br i1 %exitcond.not.i, label %.preheader.i, label %28, !llvm.loop !8
 
 55:                                               ; preds = %55, %.preheader.i
-  %indvars.iv100.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next101.i, %55 ]
-  %.idx.i = shl nuw nsw i64 %indvars.iv100.i, 3
+  %indvars.iv97.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next98.i, %55 ]
+  %.idx.i = shl nuw nsw i64 %indvars.iv97.i, 3
   %56 = getelementptr inbounds nuw i8, ptr %23, i64 %.idx.i
   %57 = load i16, ptr %56, align 2, !tbaa !4
   %58 = sext i16 %57 to i32
@@ -1081,327 +1081,327 @@ define void @ff_h264_idct_add8_422_8_c(ptr noundef readonly captures(none) %0, p
   %71 = sub nsw i32 %67, %70
   %72 = ashr i32 %70, 1
   %73 = add nsw i32 %72, %66
-  %74 = getelementptr inbounds nuw i8, ptr %27, i64 %indvars.iv100.i
+  %74 = getelementptr inbounds nuw i8, ptr %27, i64 %indvars.iv97.i
   %75 = load i8, ptr %74, align 1, !tbaa !10
   %76 = zext i8 %75 to i32
   %77 = add nsw i32 %73, %62
   %78 = ashr i32 %77, 6
   %79 = add nsw i32 %78, %76
-  %.not.i.i = icmp ult i32 %79, 256
+  %80 = icmp ugt i32 %79, 255
   %isnotneg.i.i = icmp sgt i32 %79, -1
-  %80 = sext i1 %isnotneg.i.i to i8
-  %81 = trunc nuw i32 %79 to i8
-  %.0.i.i = select i1 %.not.i.i, i8 %81, i8 %80
+  %81 = sext i1 %isnotneg.i.i to i8
+  %82 = trunc nuw i32 %79 to i8
+  %.0.i.i = select i1 %80, i8 %81, i8 %82
   store i8 %.0.i.i, ptr %74, align 1, !tbaa !10
-  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %indvars.iv100.i
-  %82 = load i8, ptr %gep.i, align 1, !tbaa !10
-  %83 = zext i8 %82 to i32
-  %84 = add nsw i32 %71, %63
-  %85 = ashr i32 %84, 6
-  %86 = add nsw i32 %85, %83
-  %.not.i88.i = icmp ult i32 %86, 256
-  %isnotneg.i89.i = icmp sgt i32 %86, -1
-  %87 = sext i1 %isnotneg.i89.i to i8
-  %88 = trunc nuw i32 %86 to i8
-  %.0.i90.i = select i1 %.not.i88.i, i8 %88, i8 %87
-  store i8 %.0.i90.i, ptr %gep.i, align 1, !tbaa !10
-  %gep105.i = getelementptr i8, ptr %invariant.gep104.i, i64 %indvars.iv100.i
-  %89 = load i8, ptr %gep105.i, align 1, !tbaa !10
-  %90 = zext i8 %89 to i32
-  %91 = sub nsw i32 %63, %71
-  %92 = ashr i32 %91, 6
-  %93 = add nsw i32 %92, %90
-  %.not.i91.i = icmp ult i32 %93, 256
-  %isnotneg.i92.i = icmp sgt i32 %93, -1
-  %94 = sext i1 %isnotneg.i92.i to i8
-  %95 = trunc nuw i32 %93 to i8
-  %.0.i93.i = select i1 %.not.i91.i, i8 %95, i8 %94
-  store i8 %.0.i93.i, ptr %gep105.i, align 1, !tbaa !10
-  %gep107.i = getelementptr i8, ptr %invariant.gep106.i, i64 %indvars.iv100.i
-  %96 = load i8, ptr %gep107.i, align 1, !tbaa !10
-  %97 = zext i8 %96 to i32
-  %98 = sub nsw i32 %62, %73
-  %99 = ashr i32 %98, 6
-  %100 = add nsw i32 %99, %97
-  %.not.i94.i = icmp ult i32 %100, 256
-  %isnotneg.i95.i = icmp sgt i32 %100, -1
-  %101 = sext i1 %isnotneg.i95.i to i8
-  %102 = trunc nuw i32 %100 to i8
-  %.0.i96.i = select i1 %.not.i94.i, i8 %102, i8 %101
-  store i8 %.0.i96.i, ptr %gep107.i, align 1, !tbaa !10
-  %indvars.iv.next101.i = add nuw nsw i64 %indvars.iv100.i, 1
-  %exitcond103.not.i = icmp eq i64 %indvars.iv.next101.i, 4
-  br i1 %exitcond103.not.i, label %ff_h264_idct_add_8_c.exit, label %55, !llvm.loop !11
+  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %indvars.iv97.i
+  %83 = load i8, ptr %gep.i, align 1, !tbaa !10
+  %84 = zext i8 %83 to i32
+  %85 = add nsw i32 %71, %63
+  %86 = ashr i32 %85, 6
+  %87 = add nsw i32 %86, %84
+  %88 = icmp ugt i32 %87, 255
+  %isnotneg.i88.i = icmp sgt i32 %87, -1
+  %89 = sext i1 %isnotneg.i88.i to i8
+  %90 = trunc nuw i32 %87 to i8
+  %.0.i89.i = select i1 %88, i8 %89, i8 %90
+  store i8 %.0.i89.i, ptr %gep.i, align 1, !tbaa !10
+  %gep102.i = getelementptr i8, ptr %invariant.gep101.i, i64 %indvars.iv97.i
+  %91 = load i8, ptr %gep102.i, align 1, !tbaa !10
+  %92 = zext i8 %91 to i32
+  %93 = sub nsw i32 %63, %71
+  %94 = ashr i32 %93, 6
+  %95 = add nsw i32 %94, %92
+  %96 = icmp ugt i32 %95, 255
+  %isnotneg.i90.i = icmp sgt i32 %95, -1
+  %97 = sext i1 %isnotneg.i90.i to i8
+  %98 = trunc nuw i32 %95 to i8
+  %.0.i91.i = select i1 %96, i8 %97, i8 %98
+  store i8 %.0.i91.i, ptr %gep102.i, align 1, !tbaa !10
+  %gep104.i = getelementptr i8, ptr %invariant.gep103.i, i64 %indvars.iv97.i
+  %99 = load i8, ptr %gep104.i, align 1, !tbaa !10
+  %100 = zext i8 %99 to i32
+  %101 = sub nsw i32 %62, %73
+  %102 = ashr i32 %101, 6
+  %103 = add nsw i32 %102, %100
+  %104 = icmp ugt i32 %103, 255
+  %isnotneg.i92.i = icmp sgt i32 %103, -1
+  %105 = sext i1 %isnotneg.i92.i to i8
+  %106 = trunc nuw i32 %103 to i8
+  %.0.i93.i = select i1 %104, i8 %105, i8 %106
+  store i8 %.0.i93.i, ptr %gep104.i, align 1, !tbaa !10
+  %indvars.iv.next98.i = add nuw nsw i64 %indvars.iv97.i, 1
+  %exitcond100.not.i = icmp eq i64 %indvars.iv.next98.i, 4
+  br i1 %exitcond100.not.i, label %ff_h264_idct_add_8_c.exit, label %55, !llvm.loop !11
 
 ff_h264_idct_add_8_c.exit:                        ; preds = %55
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(32) %23, i8 0, i64 32, i1 false)
   br label %ff_h264_idct_dc_add_8_c.exit
 
-103:                                              ; preds = %13
-  %.idx136 = shl nsw i64 %indvars.iv104, 5
-  %104 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx136
-  %105 = load i16, ptr %104, align 2, !tbaa !4
-  %.not51 = icmp eq i16 %105, 0
-  br i1 %.not51, label %ff_h264_idct_dc_add_8_c.exit, label %106
+107:                                              ; preds = %13
+  %.idx130 = shl nsw i64 %indvars.iv98, 5
+  %108 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx130
+  %109 = load i16, ptr %108, align 2, !tbaa !4
+  %.not51 = icmp eq i16 %109, 0
+  br i1 %.not51, label %ff_h264_idct_dc_add_8_c.exit, label %110
 
-106:                                              ; preds = %103
-  %107 = load ptr, ptr %12, align 8, !tbaa !23
-  %108 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv104
-  %109 = load i32, ptr %108, align 4, !tbaa !18
-  %110 = sext i32 %109 to i64
-  %111 = getelementptr inbounds i8, ptr %107, i64 %110
-  %112 = sext i16 %105 to i32
-  %113 = add nsw i32 %112, 32
-  %114 = ashr i32 %113, 6
-  store i16 0, ptr %104, align 2, !tbaa !4
+110:                                              ; preds = %107
+  %111 = load ptr, ptr %12, align 8, !tbaa !23
+  %112 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv98
+  %113 = load i32, ptr %112, align 4, !tbaa !18
+  %114 = sext i32 %113 to i64
+  %115 = getelementptr inbounds i8, ptr %111, i64 %114
+  %116 = sext i16 %109 to i32
+  %117 = add nsw i32 %116, 32
+  %118 = ashr i32 %117, 6
+  store i16 0, ptr %108, align 2, !tbaa !4
   br label %.preheader.i52
 
-.preheader.i52:                                   ; preds = %122, %106
-  %.01519.i = phi ptr [ %111, %106 ], [ %123, %122 ]
-  %.01618.i = phi i32 [ 0, %106 ], [ %124, %122 ]
-  br label %115
+.preheader.i52:                                   ; preds = %127, %110
+  %.01519.i = phi ptr [ %115, %110 ], [ %128, %127 ]
+  %.01618.i = phi i32 [ 0, %110 ], [ %129, %127 ]
+  br label %119
 
-115:                                              ; preds = %115, %.preheader.i52
-  %indvars.iv.i53 = phi i64 [ 0, %.preheader.i52 ], [ %indvars.iv.next.i57, %115 ]
-  %116 = getelementptr inbounds nuw i8, ptr %.01519.i, i64 %indvars.iv.i53
-  %117 = load i8, ptr %116, align 1, !tbaa !10
-  %118 = zext i8 %117 to i32
-  %119 = add nsw i32 %114, %118
-  %.not.i.i54 = icmp ult i32 %119, 256
-  %isnotneg.i.i55 = icmp sgt i32 %119, -1
-  %120 = sext i1 %isnotneg.i.i55 to i8
-  %121 = trunc nuw i32 %119 to i8
-  %.0.i.i56 = select i1 %.not.i.i54, i8 %121, i8 %120
-  store i8 %.0.i.i56, ptr %116, align 1, !tbaa !10
-  %indvars.iv.next.i57 = add nuw nsw i64 %indvars.iv.i53, 1
-  %exitcond.not.i58 = icmp eq i64 %indvars.iv.next.i57, 4
-  br i1 %exitcond.not.i58, label %122, label %115, !llvm.loop !14
+119:                                              ; preds = %119, %.preheader.i52
+  %indvars.iv.i53 = phi i64 [ 0, %.preheader.i52 ], [ %indvars.iv.next.i56, %119 ]
+  %120 = getelementptr inbounds nuw i8, ptr %.01519.i, i64 %indvars.iv.i53
+  %121 = load i8, ptr %120, align 1, !tbaa !10
+  %122 = zext i8 %121 to i32
+  %123 = add nsw i32 %118, %122
+  %124 = icmp ugt i32 %123, 255
+  %isnotneg.i.i54 = icmp sgt i32 %123, -1
+  %125 = sext i1 %isnotneg.i.i54 to i8
+  %126 = trunc nuw i32 %123 to i8
+  %.0.i.i55 = select i1 %124, i8 %125, i8 %126
+  store i8 %.0.i.i55, ptr %120, align 1, !tbaa !10
+  %indvars.iv.next.i56 = add nuw nsw i64 %indvars.iv.i53, 1
+  %exitcond.not.i57 = icmp eq i64 %indvars.iv.next.i56, 4
+  br i1 %exitcond.not.i57, label %127, label %119, !llvm.loop !14
 
-122:                                              ; preds = %115
-  %123 = getelementptr inbounds i8, ptr %.01519.i, i64 %8
-  %124 = add nuw nsw i32 %.01618.i, 1
-  %exitcond21.not.i = icmp eq i32 %124, 4
+127:                                              ; preds = %119
+  %128 = getelementptr inbounds i8, ptr %.01519.i, i64 %8
+  %129 = add nuw nsw i32 %.01618.i, 1
+  %exitcond21.not.i = icmp eq i32 %129, 4
   br i1 %exitcond21.not.i, label %ff_h264_idct_dc_add_8_c.exit, label %.preheader.i52, !llvm.loop !15
 
-ff_h264_idct_dc_add_8_c.exit:                     ; preds = %122, %ff_h264_idct_add_8_c.exit, %103
-  %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next105, %indvars.iv109
+ff_h264_idct_dc_add_8_c.exit:                     ; preds = %127, %ff_h264_idct_add_8_c.exit, %107
+  %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next99, %indvars.iv103
   br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %ff_h264_idct_dc_add_8_c.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 16
-  %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 16
-  br i1 %exitcond116.not, label %.lr.ph101, label %.lr.ph, !llvm.loop !29
+  %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 16
+  br i1 %exitcond110.not, label %.lr.ph95, label %.lr.ph, !llvm.loop !29
 
-.lr.ph101:                                        ; preds = %._crit_edge, %._crit_edge102
-  %exitcond132.not = phi i1 [ true, %._crit_edge102 ], [ false, %._crit_edge ]
-  %indvars.iv127 = phi i64 [ 2, %._crit_edge102 ], [ 1, %._crit_edge ]
-  %indvars.iv125 = phi i64 [ %indvars.iv.next126, %._crit_edge102 ], [ 24, %._crit_edge ]
-  %indvars.iv117 = phi i64 [ %indvars.iv.next118, %._crit_edge102 ], [ 20, %._crit_edge ]
-  %125 = getelementptr ptr, ptr %0, i64 %indvars.iv127
-  %126 = getelementptr i8, ptr %125, i64 -8
-  br label %127
+.lr.ph95:                                         ; preds = %._crit_edge, %._crit_edge96
+  %exitcond126.not = phi i1 [ true, %._crit_edge96 ], [ false, %._crit_edge ]
+  %indvars.iv121 = phi i64 [ 2, %._crit_edge96 ], [ 1, %._crit_edge ]
+  %indvars.iv119 = phi i64 [ %indvars.iv.next120, %._crit_edge96 ], [ 24, %._crit_edge ]
+  %indvars.iv111 = phi i64 [ %indvars.iv.next112, %._crit_edge96 ], [ 20, %._crit_edge ]
+  %130 = getelementptr ptr, ptr %0, i64 %indvars.iv121
+  %131 = getelementptr i8, ptr %130, i64 -8
+  br label %132
 
-127:                                              ; preds = %.lr.ph101, %ff_h264_idct_dc_add_8_c.exit96
-  %indvars.iv119 = phi i64 [ %indvars.iv117, %.lr.ph101 ], [ %indvars.iv.next120, %ff_h264_idct_dc_add_8_c.exit96 ]
-  %128 = add nuw nsw i64 %indvars.iv119, 4
-  %129 = getelementptr inbounds nuw i8, ptr @scan8, i64 %128
-  %130 = load i8, ptr %129, align 1, !tbaa !10
-  %131 = zext i8 %130 to i64
-  %132 = getelementptr inbounds nuw i8, ptr %4, i64 %131
-  %133 = load i8, ptr %132, align 1, !tbaa !10
-  %.not = icmp eq i8 %133, 0
-  br i1 %.not, label %218, label %134
+132:                                              ; preds = %.lr.ph95, %ff_h264_idct_dc_add_8_c.exit90
+  %indvars.iv113 = phi i64 [ %indvars.iv111, %.lr.ph95 ], [ %indvars.iv.next114, %ff_h264_idct_dc_add_8_c.exit90 ]
+  %133 = add nuw nsw i64 %indvars.iv113, 4
+  %134 = getelementptr inbounds nuw i8, ptr @scan8, i64 %133
+  %135 = load i8, ptr %134, align 1, !tbaa !10
+  %136 = zext i8 %135 to i64
+  %137 = getelementptr inbounds nuw i8, ptr %4, i64 %136
+  %138 = load i8, ptr %137, align 1, !tbaa !10
+  %.not = icmp eq i8 %138, 0
+  br i1 %.not, label %227, label %139
 
-134:                                              ; preds = %127
-  %135 = load ptr, ptr %126, align 8, !tbaa !23
-  %136 = getelementptr inbounds nuw i32, ptr %1, i64 %128
-  %137 = load i32, ptr %136, align 4, !tbaa !18
-  %.idx137 = shl nsw i64 %indvars.iv119, 5
-  %138 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx137
-  %139 = load i16, ptr %138, align 2, !tbaa !4
-  %140 = add i16 %139, 32
-  store i16 %140, ptr %138, align 2, !tbaa !4
-  br label %143
+139:                                              ; preds = %132
+  %140 = load ptr, ptr %131, align 8, !tbaa !23
+  %141 = getelementptr inbounds nuw i32, ptr %1, i64 %133
+  %142 = load i32, ptr %141, align 4, !tbaa !18
+  %.idx131 = shl nsw i64 %indvars.iv113, 5
+  %143 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx131
+  %144 = load i16, ptr %143, align 2, !tbaa !4
+  %145 = add i16 %144, 32
+  store i16 %145, ptr %143, align 2, !tbaa !4
+  br label %148
 
-.preheader.i62:                                   ; preds = %143
-  %141 = sext i32 %137 to i64
-  %142 = getelementptr inbounds i8, ptr %135, i64 %141
-  %invariant.gep.i63 = getelementptr i8, ptr %142, i64 %8
-  %invariant.gep104.i64 = getelementptr i8, ptr %142, i64 %9
-  %invariant.gep106.i65 = getelementptr i8, ptr %142, i64 %10
-  br label %170
+.preheader.i61:                                   ; preds = %148
+  %146 = sext i32 %142 to i64
+  %147 = getelementptr inbounds i8, ptr %140, i64 %146
+  %invariant.gep.i62 = getelementptr i8, ptr %147, i64 %8
+  %invariant.gep101.i63 = getelementptr i8, ptr %147, i64 %9
+  %invariant.gep103.i64 = getelementptr i8, ptr %147, i64 %10
+  br label %175
 
-143:                                              ; preds = %143, %134
-  %indvars.iv.i59 = phi i64 [ 0, %134 ], [ %indvars.iv.next.i60, %143 ]
-  %144 = getelementptr inbounds nuw i16, ptr %138, i64 %indvars.iv.i59
-  %145 = load i16, ptr %144, align 2, !tbaa !4
-  %146 = zext i16 %145 to i32
-  %147 = getelementptr inbounds nuw i8, ptr %144, i64 16
-  %148 = load i16, ptr %147, align 2, !tbaa !4
-  %149 = zext i16 %148 to i32
-  %150 = add nuw nsw i32 %149, %146
-  %151 = sub nsw i32 %146, %149
-  %152 = getelementptr inbounds nuw i8, ptr %144, i64 8
+148:                                              ; preds = %148, %139
+  %indvars.iv.i58 = phi i64 [ 0, %139 ], [ %indvars.iv.next.i59, %148 ]
+  %149 = getelementptr inbounds nuw i16, ptr %143, i64 %indvars.iv.i58
+  %150 = load i16, ptr %149, align 2, !tbaa !4
+  %151 = zext i16 %150 to i32
+  %152 = getelementptr inbounds nuw i8, ptr %149, i64 16
   %153 = load i16, ptr %152, align 2, !tbaa !4
-  %154 = sext i16 %153 to i32
-  %155 = ashr i32 %154, 1
-  %156 = getelementptr inbounds nuw i8, ptr %144, i64 24
-  %157 = load i16, ptr %156, align 2, !tbaa !4
-  %158 = sext i16 %157 to i32
-  %159 = sub nsw i32 %155, %158
-  %160 = ashr i32 %158, 1
-  %161 = add nsw i32 %160, %154
-  %162 = add nsw i32 %161, %150
-  %163 = trunc i32 %162 to i16
-  store i16 %163, ptr %144, align 2, !tbaa !4
-  %164 = add nsw i32 %159, %151
-  %165 = trunc i32 %164 to i16
-  store i16 %165, ptr %152, align 2, !tbaa !4
-  %166 = sub nsw i32 %151, %159
-  %167 = trunc i32 %166 to i16
-  store i16 %167, ptr %147, align 2, !tbaa !4
-  %168 = sub nsw i32 %150, %161
-  %169 = trunc i32 %168 to i16
-  store i16 %169, ptr %156, align 2, !tbaa !4
-  %indvars.iv.next.i60 = add nuw nsw i64 %indvars.iv.i59, 1
-  %exitcond.not.i61 = icmp eq i64 %indvars.iv.next.i60, 4
-  br i1 %exitcond.not.i61, label %.preheader.i62, label %143, !llvm.loop !8
+  %154 = zext i16 %153 to i32
+  %155 = add nuw nsw i32 %154, %151
+  %156 = sub nsw i32 %151, %154
+  %157 = getelementptr inbounds nuw i8, ptr %149, i64 8
+  %158 = load i16, ptr %157, align 2, !tbaa !4
+  %159 = sext i16 %158 to i32
+  %160 = ashr i32 %159, 1
+  %161 = getelementptr inbounds nuw i8, ptr %149, i64 24
+  %162 = load i16, ptr %161, align 2, !tbaa !4
+  %163 = sext i16 %162 to i32
+  %164 = sub nsw i32 %160, %163
+  %165 = ashr i32 %163, 1
+  %166 = add nsw i32 %165, %159
+  %167 = add nsw i32 %166, %155
+  %168 = trunc i32 %167 to i16
+  store i16 %168, ptr %149, align 2, !tbaa !4
+  %169 = add nsw i32 %164, %156
+  %170 = trunc i32 %169 to i16
+  store i16 %170, ptr %157, align 2, !tbaa !4
+  %171 = sub nsw i32 %156, %164
+  %172 = trunc i32 %171 to i16
+  store i16 %172, ptr %152, align 2, !tbaa !4
+  %173 = sub nsw i32 %155, %166
+  %174 = trunc i32 %173 to i16
+  store i16 %174, ptr %161, align 2, !tbaa !4
+  %indvars.iv.next.i59 = add nuw nsw i64 %indvars.iv.i58, 1
+  %exitcond.not.i60 = icmp eq i64 %indvars.iv.next.i59, 4
+  br i1 %exitcond.not.i60, label %.preheader.i61, label %148, !llvm.loop !8
 
-170:                                              ; preds = %170, %.preheader.i62
-  %indvars.iv100.i66 = phi i64 [ 0, %.preheader.i62 ], [ %indvars.iv.next101.i83, %170 ]
-  %.idx.i67 = shl nuw nsw i64 %indvars.iv100.i66, 3
-  %171 = getelementptr inbounds nuw i8, ptr %138, i64 %.idx.i67
-  %172 = load i16, ptr %171, align 2, !tbaa !4
-  %173 = sext i16 %172 to i32
-  %174 = getelementptr inbounds nuw i8, ptr %171, i64 4
-  %175 = load i16, ptr %174, align 2, !tbaa !4
-  %176 = sext i16 %175 to i32
-  %177 = add nsw i32 %176, %173
-  %178 = sub nsw i32 %173, %176
-  %179 = getelementptr inbounds nuw i8, ptr %171, i64 2
+175:                                              ; preds = %175, %.preheader.i61
+  %indvars.iv97.i65 = phi i64 [ 0, %.preheader.i61 ], [ %indvars.iv.next98.i78, %175 ]
+  %.idx.i66 = shl nuw nsw i64 %indvars.iv97.i65, 3
+  %176 = getelementptr inbounds nuw i8, ptr %143, i64 %.idx.i66
+  %177 = load i16, ptr %176, align 2, !tbaa !4
+  %178 = sext i16 %177 to i32
+  %179 = getelementptr inbounds nuw i8, ptr %176, i64 4
   %180 = load i16, ptr %179, align 2, !tbaa !4
   %181 = sext i16 %180 to i32
-  %182 = ashr i32 %181, 1
-  %183 = getelementptr inbounds nuw i8, ptr %171, i64 6
-  %184 = load i16, ptr %183, align 2, !tbaa !4
-  %185 = sext i16 %184 to i32
-  %186 = sub nsw i32 %182, %185
-  %187 = ashr i32 %185, 1
-  %188 = add nsw i32 %187, %181
-  %189 = getelementptr inbounds nuw i8, ptr %142, i64 %indvars.iv100.i66
-  %190 = load i8, ptr %189, align 1, !tbaa !10
-  %191 = zext i8 %190 to i32
-  %192 = add nsw i32 %188, %177
-  %193 = ashr i32 %192, 6
-  %194 = add nsw i32 %193, %191
-  %.not.i.i68 = icmp ult i32 %194, 256
-  %isnotneg.i.i69 = icmp sgt i32 %194, -1
-  %195 = sext i1 %isnotneg.i.i69 to i8
-  %196 = trunc nuw i32 %194 to i8
-  %.0.i.i70 = select i1 %.not.i.i68, i8 %196, i8 %195
-  store i8 %.0.i.i70, ptr %189, align 1, !tbaa !10
-  %gep.i71 = getelementptr i8, ptr %invariant.gep.i63, i64 %indvars.iv100.i66
-  %197 = load i8, ptr %gep.i71, align 1, !tbaa !10
-  %198 = zext i8 %197 to i32
-  %199 = add nsw i32 %186, %178
-  %200 = ashr i32 %199, 6
-  %201 = add nsw i32 %200, %198
-  %.not.i88.i72 = icmp ult i32 %201, 256
-  %isnotneg.i89.i73 = icmp sgt i32 %201, -1
-  %202 = sext i1 %isnotneg.i89.i73 to i8
-  %203 = trunc nuw i32 %201 to i8
-  %.0.i90.i74 = select i1 %.not.i88.i72, i8 %203, i8 %202
-  store i8 %.0.i90.i74, ptr %gep.i71, align 1, !tbaa !10
-  %gep105.i75 = getelementptr i8, ptr %invariant.gep104.i64, i64 %indvars.iv100.i66
-  %204 = load i8, ptr %gep105.i75, align 1, !tbaa !10
-  %205 = zext i8 %204 to i32
-  %206 = sub nsw i32 %178, %186
-  %207 = ashr i32 %206, 6
-  %208 = add nsw i32 %207, %205
-  %.not.i91.i76 = icmp ult i32 %208, 256
-  %isnotneg.i92.i77 = icmp sgt i32 %208, -1
-  %209 = sext i1 %isnotneg.i92.i77 to i8
-  %210 = trunc nuw i32 %208 to i8
-  %.0.i93.i78 = select i1 %.not.i91.i76, i8 %210, i8 %209
-  store i8 %.0.i93.i78, ptr %gep105.i75, align 1, !tbaa !10
-  %gep107.i79 = getelementptr i8, ptr %invariant.gep106.i65, i64 %indvars.iv100.i66
-  %211 = load i8, ptr %gep107.i79, align 1, !tbaa !10
+  %182 = add nsw i32 %181, %178
+  %183 = sub nsw i32 %178, %181
+  %184 = getelementptr inbounds nuw i8, ptr %176, i64 2
+  %185 = load i16, ptr %184, align 2, !tbaa !4
+  %186 = sext i16 %185 to i32
+  %187 = ashr i32 %186, 1
+  %188 = getelementptr inbounds nuw i8, ptr %176, i64 6
+  %189 = load i16, ptr %188, align 2, !tbaa !4
+  %190 = sext i16 %189 to i32
+  %191 = sub nsw i32 %187, %190
+  %192 = ashr i32 %190, 1
+  %193 = add nsw i32 %192, %186
+  %194 = getelementptr inbounds nuw i8, ptr %147, i64 %indvars.iv97.i65
+  %195 = load i8, ptr %194, align 1, !tbaa !10
+  %196 = zext i8 %195 to i32
+  %197 = add nsw i32 %193, %182
+  %198 = ashr i32 %197, 6
+  %199 = add nsw i32 %198, %196
+  %200 = icmp ugt i32 %199, 255
+  %isnotneg.i.i67 = icmp sgt i32 %199, -1
+  %201 = sext i1 %isnotneg.i.i67 to i8
+  %202 = trunc nuw i32 %199 to i8
+  %.0.i.i68 = select i1 %200, i8 %201, i8 %202
+  store i8 %.0.i.i68, ptr %194, align 1, !tbaa !10
+  %gep.i69 = getelementptr i8, ptr %invariant.gep.i62, i64 %indvars.iv97.i65
+  %203 = load i8, ptr %gep.i69, align 1, !tbaa !10
+  %204 = zext i8 %203 to i32
+  %205 = add nsw i32 %191, %183
+  %206 = ashr i32 %205, 6
+  %207 = add nsw i32 %206, %204
+  %208 = icmp ugt i32 %207, 255
+  %isnotneg.i88.i70 = icmp sgt i32 %207, -1
+  %209 = sext i1 %isnotneg.i88.i70 to i8
+  %210 = trunc nuw i32 %207 to i8
+  %.0.i89.i71 = select i1 %208, i8 %209, i8 %210
+  store i8 %.0.i89.i71, ptr %gep.i69, align 1, !tbaa !10
+  %gep102.i72 = getelementptr i8, ptr %invariant.gep101.i63, i64 %indvars.iv97.i65
+  %211 = load i8, ptr %gep102.i72, align 1, !tbaa !10
   %212 = zext i8 %211 to i32
-  %213 = sub nsw i32 %177, %188
+  %213 = sub nsw i32 %183, %191
   %214 = ashr i32 %213, 6
   %215 = add nsw i32 %214, %212
-  %.not.i94.i80 = icmp ult i32 %215, 256
-  %isnotneg.i95.i81 = icmp sgt i32 %215, -1
-  %216 = sext i1 %isnotneg.i95.i81 to i8
-  %217 = trunc nuw i32 %215 to i8
-  %.0.i96.i82 = select i1 %.not.i94.i80, i8 %217, i8 %216
-  store i8 %.0.i96.i82, ptr %gep107.i79, align 1, !tbaa !10
-  %indvars.iv.next101.i83 = add nuw nsw i64 %indvars.iv100.i66, 1
-  %exitcond103.not.i84 = icmp eq i64 %indvars.iv.next101.i83, 4
-  br i1 %exitcond103.not.i84, label %ff_h264_idct_add_8_c.exit85, label %170, !llvm.loop !11
+  %216 = icmp ugt i32 %215, 255
+  %isnotneg.i90.i73 = icmp sgt i32 %215, -1
+  %217 = sext i1 %isnotneg.i90.i73 to i8
+  %218 = trunc nuw i32 %215 to i8
+  %.0.i91.i74 = select i1 %216, i8 %217, i8 %218
+  store i8 %.0.i91.i74, ptr %gep102.i72, align 1, !tbaa !10
+  %gep104.i75 = getelementptr i8, ptr %invariant.gep103.i64, i64 %indvars.iv97.i65
+  %219 = load i8, ptr %gep104.i75, align 1, !tbaa !10
+  %220 = zext i8 %219 to i32
+  %221 = sub nsw i32 %182, %193
+  %222 = ashr i32 %221, 6
+  %223 = add nsw i32 %222, %220
+  %224 = icmp ugt i32 %223, 255
+  %isnotneg.i92.i76 = icmp sgt i32 %223, -1
+  %225 = sext i1 %isnotneg.i92.i76 to i8
+  %226 = trunc nuw i32 %223 to i8
+  %.0.i93.i77 = select i1 %224, i8 %225, i8 %226
+  store i8 %.0.i93.i77, ptr %gep104.i75, align 1, !tbaa !10
+  %indvars.iv.next98.i78 = add nuw nsw i64 %indvars.iv97.i65, 1
+  %exitcond100.not.i79 = icmp eq i64 %indvars.iv.next98.i78, 4
+  br i1 %exitcond100.not.i79, label %ff_h264_idct_add_8_c.exit80, label %175, !llvm.loop !11
 
-ff_h264_idct_add_8_c.exit85:                      ; preds = %170
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(32) %138, i8 0, i64 32, i1 false)
-  br label %ff_h264_idct_dc_add_8_c.exit96
+ff_h264_idct_add_8_c.exit80:                      ; preds = %175
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(32) %143, i8 0, i64 32, i1 false)
+  br label %ff_h264_idct_dc_add_8_c.exit90
 
-218:                                              ; preds = %127
-  %.idx138 = shl nsw i64 %indvars.iv119, 5
-  %219 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx138
-  %220 = load i16, ptr %219, align 2, !tbaa !4
-  %.not49 = icmp eq i16 %220, 0
-  br i1 %.not49, label %ff_h264_idct_dc_add_8_c.exit96, label %221
+227:                                              ; preds = %132
+  %.idx132 = shl nsw i64 %indvars.iv113, 5
+  %228 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx132
+  %229 = load i16, ptr %228, align 2, !tbaa !4
+  %.not49 = icmp eq i16 %229, 0
+  br i1 %.not49, label %ff_h264_idct_dc_add_8_c.exit90, label %230
 
-221:                                              ; preds = %218
-  %222 = load ptr, ptr %126, align 8, !tbaa !23
-  %223 = getelementptr inbounds nuw i32, ptr %1, i64 %128
-  %224 = load i32, ptr %223, align 4, !tbaa !18
-  %225 = sext i32 %224 to i64
-  %226 = getelementptr inbounds i8, ptr %222, i64 %225
-  %227 = sext i16 %220 to i32
-  %228 = add nsw i32 %227, 32
-  %229 = ashr i32 %228, 6
-  store i16 0, ptr %219, align 2, !tbaa !4
-  br label %.preheader.i86
+230:                                              ; preds = %227
+  %231 = load ptr, ptr %131, align 8, !tbaa !23
+  %232 = getelementptr inbounds nuw i32, ptr %1, i64 %133
+  %233 = load i32, ptr %232, align 4, !tbaa !18
+  %234 = sext i32 %233 to i64
+  %235 = getelementptr inbounds i8, ptr %231, i64 %234
+  %236 = sext i16 %229 to i32
+  %237 = add nsw i32 %236, 32
+  %238 = ashr i32 %237, 6
+  store i16 0, ptr %228, align 2, !tbaa !4
+  br label %.preheader.i81
 
-.preheader.i86:                                   ; preds = %237, %221
-  %.01519.i87 = phi ptr [ %226, %221 ], [ %238, %237 ]
-  %.01618.i88 = phi i32 [ 0, %221 ], [ %239, %237 ]
-  br label %230
+.preheader.i81:                                   ; preds = %247, %230
+  %.01519.i82 = phi ptr [ %235, %230 ], [ %248, %247 ]
+  %.01618.i83 = phi i32 [ 0, %230 ], [ %249, %247 ]
+  br label %239
 
-230:                                              ; preds = %230, %.preheader.i86
-  %indvars.iv.i89 = phi i64 [ 0, %.preheader.i86 ], [ %indvars.iv.next.i93, %230 ]
-  %231 = getelementptr inbounds nuw i8, ptr %.01519.i87, i64 %indvars.iv.i89
-  %232 = load i8, ptr %231, align 1, !tbaa !10
-  %233 = zext i8 %232 to i32
-  %234 = add nsw i32 %229, %233
-  %.not.i.i90 = icmp ult i32 %234, 256
-  %isnotneg.i.i91 = icmp sgt i32 %234, -1
-  %235 = sext i1 %isnotneg.i.i91 to i8
-  %236 = trunc nuw i32 %234 to i8
-  %.0.i.i92 = select i1 %.not.i.i90, i8 %236, i8 %235
-  store i8 %.0.i.i92, ptr %231, align 1, !tbaa !10
-  %indvars.iv.next.i93 = add nuw nsw i64 %indvars.iv.i89, 1
-  %exitcond.not.i94 = icmp eq i64 %indvars.iv.next.i93, 4
-  br i1 %exitcond.not.i94, label %237, label %230, !llvm.loop !14
+239:                                              ; preds = %239, %.preheader.i81
+  %indvars.iv.i84 = phi i64 [ 0, %.preheader.i81 ], [ %indvars.iv.next.i87, %239 ]
+  %240 = getelementptr inbounds nuw i8, ptr %.01519.i82, i64 %indvars.iv.i84
+  %241 = load i8, ptr %240, align 1, !tbaa !10
+  %242 = zext i8 %241 to i32
+  %243 = add nsw i32 %238, %242
+  %244 = icmp ugt i32 %243, 255
+  %isnotneg.i.i85 = icmp sgt i32 %243, -1
+  %245 = sext i1 %isnotneg.i.i85 to i8
+  %246 = trunc nuw i32 %243 to i8
+  %.0.i.i86 = select i1 %244, i8 %245, i8 %246
+  store i8 %.0.i.i86, ptr %240, align 1, !tbaa !10
+  %indvars.iv.next.i87 = add nuw nsw i64 %indvars.iv.i84, 1
+  %exitcond.not.i88 = icmp eq i64 %indvars.iv.next.i87, 4
+  br i1 %exitcond.not.i88, label %247, label %239, !llvm.loop !14
 
-237:                                              ; preds = %230
-  %238 = getelementptr inbounds i8, ptr %.01519.i87, i64 %8
-  %239 = add nuw nsw i32 %.01618.i88, 1
-  %exitcond21.not.i95 = icmp eq i32 %239, 4
-  br i1 %exitcond21.not.i95, label %ff_h264_idct_dc_add_8_c.exit96, label %.preheader.i86, !llvm.loop !15
+247:                                              ; preds = %239
+  %248 = getelementptr inbounds i8, ptr %.01519.i82, i64 %8
+  %249 = add nuw nsw i32 %.01618.i83, 1
+  %exitcond21.not.i89 = icmp eq i32 %249, 4
+  br i1 %exitcond21.not.i89, label %ff_h264_idct_dc_add_8_c.exit90, label %.preheader.i81, !llvm.loop !15
 
-ff_h264_idct_dc_add_8_c.exit96:                   ; preds = %237, %ff_h264_idct_add_8_c.exit85, %218
-  %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 1
-  %exitcond124.not = icmp eq i64 %indvars.iv.next120, %indvars.iv125
-  br i1 %exitcond124.not, label %._crit_edge102, label %127, !llvm.loop !30
+ff_h264_idct_dc_add_8_c.exit90:                   ; preds = %247, %ff_h264_idct_add_8_c.exit80, %227
+  %indvars.iv.next114 = add nuw nsw i64 %indvars.iv113, 1
+  %exitcond118.not = icmp eq i64 %indvars.iv.next114, %indvars.iv119
+  br i1 %exitcond118.not, label %._crit_edge96, label %132, !llvm.loop !30
 
-._crit_edge102:                                   ; preds = %ff_h264_idct_dc_add_8_c.exit96
-  %indvars.iv.next118 = add nuw nsw i64 %indvars.iv117, 16
-  %indvars.iv.next126 = add nuw nsw i64 %indvars.iv125, 16
-  br i1 %exitcond132.not, label %240, label %.lr.ph101, !llvm.loop !31
+._crit_edge96:                                    ; preds = %ff_h264_idct_dc_add_8_c.exit90
+  %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 16
+  %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 16
+  br i1 %exitcond126.not, label %250, label %.lr.ph95, !llvm.loop !31
 
-240:                                              ; preds = %._crit_edge102
+250:                                              ; preds = %._crit_edge96
   ret void
 }
 

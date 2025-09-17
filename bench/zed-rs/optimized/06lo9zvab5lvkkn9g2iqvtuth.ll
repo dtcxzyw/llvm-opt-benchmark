@@ -1884,12 +1884,12 @@ _ZN21git_hosting_providers9providers6github25pull_request_number_regex17hfbd9a6c
   call void @llvm.experimental.noalias.scope.decl(metadata !543)
   call void @llvm.lifetime.start.p0(ptr nonnull %20), !noalias !546
   store i32 0, ptr %20, align 8, !noalias !546
-  %.sroa.418.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %20, i64 8
-  store ptr %47, ptr %.sroa.418.0..sroa_idx.i, align 8, !noalias !546
-  %.sroa.519.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %20, i64 16
-  store i64 %48, ptr %.sroa.519.0..sroa_idx.i, align 8, !noalias !546
-  %.sroa.7.0..sroa_idx20.i = getelementptr inbounds nuw i8, ptr %20, i64 24
-  store i64 0, ptr %.sroa.7.0..sroa_idx20.i, align 8, !noalias !546
+  %.sroa.419.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %20, i64 8
+  store ptr %47, ptr %.sroa.419.0..sroa_idx.i, align 8, !noalias !546
+  %.sroa.520.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %20, i64 16
+  store i64 %48, ptr %.sroa.520.0..sroa_idx.i, align 8, !noalias !546
+  %.sroa.7.0..sroa_idx21.i = getelementptr inbounds nuw i8, ptr %20, i64 24
+  store i64 0, ptr %.sroa.7.0..sroa_idx21.i, align 8, !noalias !546
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %20, i64 32
   store i64 %48, ptr %.sroa.9.0..sroa_idx.i, align 8, !noalias !546
   %.sroa.11.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %20, i64 40
@@ -1966,9 +1966,9 @@ _ZN4core3ops8function6FnOnce9call_once17h7b72d60020c59c6cE.exit.i.i.i.i: ; preds
 
 83:                                               ; preds = %.noexc.i
   invoke void @_ZN4core6result13unwrap_failed17hfa79a499befff387E(ptr noalias noundef nonnull readonly align 1 @anon.435c323b8e1918452ea3dcb7b732f1ab.2, i64 noundef 70, ptr noundef nonnull align 1 %6, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.435c323b8e1918452ea3dcb7b732f1ab.51, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.435c323b8e1918452ea3dcb7b732f1ab.4) #16
-          to label %.noexc12.i unwind label %206, !noalias !549
+          to label %.noexc13.i unwind label %206, !noalias !549
 
-.noexc12.i:                                       ; preds = %83
+.noexc13.i:                                       ; preds = %83
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17h433083b7fdb0d52cE.exit.i.i.i": ; preds = %.noexc.i, %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h79cfc6c18ba3c86aE.exit.thread.i.i
@@ -2182,16 +2182,16 @@ _ZN4core3ops8function6FnOnce9call_once17h7b72d60020c59c6cE.exit.i.i10.i.i: ; pre
 
 .noexc17.i.i.i:                                   ; preds = %172
   %176 = invoke noundef zeroext i1 @_ZN3std9panicking11panic_count17is_zero_slow_path17hdb1c1ed658baa990E()
-          to label %.noexc14.i unwind label %206, !noalias !549
+          to label %.noexc15.i unwind label %206, !noalias !549
 
-.noexc14.i:                                       ; preds = %.noexc17.i.i.i
+.noexc15.i:                                       ; preds = %.noexc17.i.i.i
   br i1 %176, label %_ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.exit.i.i.i.i.i, label %177
 
-177:                                              ; preds = %.noexc14.i
+177:                                              ; preds = %.noexc15.i
   store atomic i8 1, ptr %170 monotonic, align 4, !noalias !549
   br label %_ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.exit.i.i.i.i.i
 
-_ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.exit.i.i.i.i.i: ; preds = %177, %.noexc14.i, %172, %165
+_ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.exit.i.i.i.i.i: ; preds = %177, %.noexc15.i, %172, %165
   %178 = atomicrmw xchg ptr %153, i32 0 release, align 4, !noalias !549
   %179 = icmp eq i32 %178, 2
   br i1 %179, label %180, label %208
@@ -2286,9 +2286,9 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.12343268999733872074.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !575
   store ptr null, ptr %15, align 8, !noalias !575
   invoke void @_ZN4core9panicking13assert_failed17h0f3ffea389744cb4E(i8 noundef 1, ptr noalias noundef readonly align 8 dereferenceable(8) @_ZN14regex_automata4util4pool5inner17THREAD_ID_DROPPED17h94d1c6cbdc4022a5E, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %16, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %15, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.435c323b8e1918452ea3dcb7b732f1ab.8) #16
-          to label %.noexc16.i unwind label %206, !noalias !549
+          to label %.noexc17.i unwind label %206, !noalias !549
 
-.noexc16.i:                                       ; preds = %.noexc7.i.i
+.noexc17.i:                                       ; preds = %.noexc7.i.i
   unreachable
 
 .noexc8.i.i:                                      ; preds = %120

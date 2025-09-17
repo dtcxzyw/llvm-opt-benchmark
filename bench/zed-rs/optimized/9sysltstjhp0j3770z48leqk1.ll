@@ -47720,32 +47720,30 @@ define hidden void @"_ZN99_$LT$futures_util..stream..stream..next..Next$LT$St$GT
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !9483
   call void @"_ZN87_$LT$postage..channels..watch..Receiver$LT$T$GT$$u20$as$u20$postage..stream..Stream$GT$9poll_recv17h82bc9f5098602b38E.llvm.12224484746067164868"(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %4, ptr noalias noundef nonnull align 8 dereferenceable(16) %6, ptr noalias noundef nonnull align 8 dereferenceable(8) %5), !noalias !9488
   %8 = load i64, ptr %4, align 8, !range !1077, !noalias !9483, !noundef !4
-  %9 = add i64 %8, 9223372036854775807
-  %10 = icmp ult i64 %9, 2
-  %11 = xor i64 %8, -9223372036854775808
-  %12 = select i1 %10, i64 %11, i64 0
-  switch i64 %12, label %13 [
-    i64 0, label %14
-    i64 1, label %15
-    i64 2, label %16
+  %9 = call i64 @llvm.umax.i64(i64 %8, i64 -9223372036854775808)
+  %10 = and i64 %9, 9223372036854775807
+  switch i64 %10, label %11 [
+    i64 0, label %12
+    i64 1, label %13
+    i64 2, label %14
   ]
 
-13:                                               ; preds = %3
+11:                                               ; preds = %3
   unreachable
 
-14:                                               ; preds = %3
+12:                                               ; preds = %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %4, i64 72, i1 false), !noalias !9489
   br label %_ZN12futures_util6stream6stream9StreamExt15poll_next_unpin17h4eae5c01d95e490bE.exit
 
-15:                                               ; preds = %3
+13:                                               ; preds = %3
   store i64 -9223372036854775806, ptr %0, align 8, !alias.scope !9490, !noalias !9489
   br label %_ZN12futures_util6stream6stream9StreamExt15poll_next_unpin17h4eae5c01d95e490bE.exit
 
-16:                                               ; preds = %3
+14:                                               ; preds = %3
   store i64 -9223372036854775807, ptr %0, align 8, !alias.scope !9490, !noalias !9489
   br label %_ZN12futures_util6stream6stream9StreamExt15poll_next_unpin17h4eae5c01d95e490bE.exit
 
-_ZN12futures_util6stream6stream9StreamExt15poll_next_unpin17h4eae5c01d95e490bE.exit: ; preds = %14, %15, %16
+_ZN12futures_util6stream6stream9StreamExt15poll_next_unpin17h4eae5c01d95e490bE.exit: ; preds = %12, %13, %14
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !9483
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !9483
   ret void

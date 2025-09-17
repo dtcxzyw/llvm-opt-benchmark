@@ -510,62 +510,61 @@ _ZN13GrowableArrayIPN20RangeCheckEliminator17AccessIndexedInfoEEC2EiiRKS2_.exit:
 _ZN14CompilerConfig10is_c1_onlyEv.exit.i.i:       ; preds = %_ZN13GrowableArrayIPN20RangeCheckEliminator17AccessIndexedInfoEEC2EiiRKS2_.exit
   %48 = load i8, ptr @TieredCompilation, align 1
   %49 = trunc i8 %48 to i1
-  %50 = add i64 %45, -1
-  %51 = icmp ult i64 %50, 3
-  %spec.select.i.i.i = select i1 %49, i1 %51, i1 false
-  %52 = load i32, ptr @_ZN19CompilationModeFlag5_modeE, align 4
-  %53 = icmp eq i32 %52, 1
-  %54 = or i1 %spec.select.i.i.i, %53
-  %55 = load i8, ptr @EnableJVMCI, align 1
-  %56 = trunc i8 %55 to i1
-  %not..i = xor i1 %54, true
-  %57 = select i1 %not..i, i1 true, i1 %56
-  br i1 %57, label %_ZN11Compilation13is_optimisticEv.exit, label %58
+  %50 = icmp ult i64 %45, 4
+  %spec.select.i.i.i = select i1 %49, i1 %50, i1 false
+  %51 = load i32, ptr @_ZN19CompilationModeFlag5_modeE, align 4
+  %52 = icmp eq i32 %51, 1
+  %53 = or i1 %spec.select.i.i.i, %52
+  %54 = load i8, ptr @EnableJVMCI, align 1
+  %55 = trunc i8 %54 to i1
+  %not..i = xor i1 %53, true
+  %56 = select i1 %not..i, i1 true, i1 %55
+  br i1 %56, label %_ZN11Compilation13is_optimisticEv.exit, label %57
 
-58:                                               ; preds = %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i
-  %59 = getelementptr inbounds nuw i8, ptr %42, i64 32
-  %60 = load ptr, ptr %59, align 8
-  %61 = tail call noundef i32 @_ZN5ciEnv10comp_levelEv(ptr noundef nonnull align 8 dereferenceable(1265) %60) #13
-  %62 = icmp eq i32 %61, 3
-  br i1 %62, label %_ZN11Compilation13is_optimisticEv.exit, label %_ZN11Compilation12is_profilingEv.exit.i
+57:                                               ; preds = %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i
+  %58 = getelementptr inbounds nuw i8, ptr %42, i64 32
+  %59 = load ptr, ptr %58, align 8
+  %60 = tail call noundef i32 @_ZN5ciEnv10comp_levelEv(ptr noundef nonnull align 8 dereferenceable(1265) %59) #13
+  %61 = icmp eq i32 %60, 3
+  br i1 %61, label %_ZN11Compilation13is_optimisticEv.exit, label %_ZN11Compilation12is_profilingEv.exit.i
 
-_ZN11Compilation12is_profilingEv.exit.i:          ; preds = %58
-  %63 = load ptr, ptr %59, align 8
-  %64 = tail call noundef i32 @_ZN5ciEnv10comp_levelEv(ptr noundef nonnull align 8 dereferenceable(1265) %63) #13
-  %65 = icmp eq i32 %64, 2
-  br i1 %65, label %_ZN11Compilation13is_optimisticEv.exit, label %66
+_ZN11Compilation12is_profilingEv.exit.i:          ; preds = %57
+  %62 = load ptr, ptr %58, align 8
+  %63 = tail call noundef i32 @_ZN5ciEnv10comp_levelEv(ptr noundef nonnull align 8 dereferenceable(1265) %62) #13
+  %64 = icmp eq i32 %63, 2
+  br i1 %64, label %_ZN11Compilation13is_optimisticEv.exit, label %65
 
-66:                                               ; preds = %_ZN11Compilation12is_profilingEv.exit.i
-  %67 = load i8, ptr @RangeCheckElimination, align 1
-  %68 = trunc i8 %67 to i1
-  %69 = load i8, ptr @UseLoopInvariantCodeMotion, align 1
-  %70 = trunc i8 %69 to i1
-  %or.cond.i = select i1 %68, i1 true, i1 %70
-  br i1 %or.cond.i, label %71, label %_ZN11Compilation13is_optimisticEv.exit
+65:                                               ; preds = %_ZN11Compilation12is_profilingEv.exit.i
+  %66 = load i8, ptr @RangeCheckElimination, align 1
+  %67 = trunc i8 %66 to i1
+  %68 = load i8, ptr @UseLoopInvariantCodeMotion, align 1
+  %69 = trunc i8 %68 to i1
+  %or.cond.i = select i1 %67, i1 true, i1 %69
+  br i1 %or.cond.i, label %70, label %_ZN11Compilation13is_optimisticEv.exit
 
-71:                                               ; preds = %66
-  %72 = getelementptr inbounds nuw i8, ptr %42, i64 48
-  %73 = load ptr, ptr %72, align 8
-  %74 = tail call noundef ptr @_ZN8ciMethod11method_dataEv(ptr noundef nonnull align 8 dereferenceable(160) %73) #13
-  %75 = getelementptr inbounds nuw i8, ptr %74, i64 112
-  %76 = load i8, ptr %75, align 1
-  %77 = icmp eq i8 %76, 0
-  %78 = zext i1 %77 to i8
+70:                                               ; preds = %65
+  %71 = getelementptr inbounds nuw i8, ptr %42, i64 48
+  %72 = load ptr, ptr %71, align 8
+  %73 = tail call noundef ptr @_ZN8ciMethod11method_dataEv(ptr noundef nonnull align 8 dereferenceable(160) %72) #13
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 112
+  %75 = load i8, ptr %74, align 1
+  %76 = icmp eq i8 %75, 0
+  %77 = zext i1 %76 to i8
   br label %_ZN11Compilation13is_optimisticEv.exit
 
-_ZN11Compilation13is_optimisticEv.exit:           ; preds = %_ZN13GrowableArrayIPN20RangeCheckEliminator17AccessIndexedInfoEEC2EiiRKS2_.exit, %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i, %58, %_ZN11Compilation12is_profilingEv.exit.i, %66, %71
-  %79 = phi i8 [ 0, %_ZN11Compilation12is_profilingEv.exit.i ], [ %78, %71 ], [ 0, %66 ], [ 0, %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i ], [ 0, %_ZN13GrowableArrayIPN20RangeCheckEliminator17AccessIndexedInfoEEC2EiiRKS2_.exit ], [ 0, %58 ]
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i8 %79, ptr %80, align 4
-  %81 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %82 = load ptr, ptr %81, align 8
-  %83 = getelementptr inbounds nuw i8, ptr %82, i64 72
-  %84 = load ptr, ptr %83, align 8
-  %85 = tail call noundef zeroext i1 @_ZN20RangeCheckEliminator23set_process_block_flagsEP10BlockBegin(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %84)
-  %86 = load ptr, ptr %81, align 8
-  %87 = getelementptr inbounds nuw i8, ptr %86, i64 72
-  %88 = load ptr, ptr %87, align 8
-  tail call void @_ZN20RangeCheckEliminator11calc_boundsEP10BlockBeginS1_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %88, ptr noundef null)
+_ZN11Compilation13is_optimisticEv.exit:           ; preds = %_ZN13GrowableArrayIPN20RangeCheckEliminator17AccessIndexedInfoEEC2EiiRKS2_.exit, %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i, %57, %_ZN11Compilation12is_profilingEv.exit.i, %65, %70
+  %78 = phi i8 [ 0, %_ZN11Compilation12is_profilingEv.exit.i ], [ %77, %70 ], [ 0, %65 ], [ 0, %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i ], [ 0, %_ZN13GrowableArrayIPN20RangeCheckEliminator17AccessIndexedInfoEEC2EiiRKS2_.exit ], [ 0, %57 ]
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i8 %78, ptr %79, align 4
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %81 = load ptr, ptr %80, align 8
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 72
+  %83 = load ptr, ptr %82, align 8
+  %84 = tail call noundef zeroext i1 @_ZN20RangeCheckEliminator23set_process_block_flagsEP10BlockBegin(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %83)
+  %85 = load ptr, ptr %80, align 8
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 72
+  %87 = load ptr, ptr %86, align 8
+  tail call void @_ZN20RangeCheckEliminator11calc_boundsEP10BlockBeginS1_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %87, ptr noundef null)
   ret void
 }
 

@@ -1657,40 +1657,39 @@ define hidden void @lj_gc_fullgc(ptr noundef %0) local_unnamed_addr #0 {
   br label %.critedge.preheader
 
 15:                                               ; preds = %1
-  %.off21 = add i8 %8, -3
-  %switch22 = icmp ult i8 %.off21, 2
-  br i1 %switch22, label %.critedge.preheader, label %._crit_edge
+  %16 = icmp ult i8 %8, 5
+  br i1 %16, label %.critedge.preheader, label %._crit_edge
 
 .critedge.preheader:                              ; preds = %.thread, %15
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.preheader, %.critedge
-  %16 = tail call fastcc i64 @gc_onestep(ptr noundef nonnull %0)
-  %17 = load i8, ptr %7, align 1, !tbaa !70
-  %.off = add i8 %17, -3
+  %17 = tail call fastcc i64 @gc_onestep(ptr noundef nonnull %0)
+  %18 = load i8, ptr %7, align 1, !tbaa !70
+  %.off = add i8 %18, -3
   %switch = icmp ult i8 %.off, 2
   br i1 %switch, label %.critedge, label %._crit_edge, !llvm.loop !99
 
 ._crit_edge:                                      ; preds = %.critedge, %15
   store i8 0, ptr %7, align 1, !tbaa !70
-  br label %18
+  br label %19
 
-18:                                               ; preds = %18, %._crit_edge
-  %19 = tail call fastcc i64 @gc_onestep(ptr noundef nonnull %0)
-  %20 = load i8, ptr %7, align 1, !tbaa !70
-  %.not = icmp eq i8 %20, 0
-  br i1 %.not, label %21, label %18, !llvm.loop !100
+19:                                               ; preds = %19, %._crit_edge
+  %20 = tail call fastcc i64 @gc_onestep(ptr noundef nonnull %0)
+  %21 = load i8, ptr %7, align 1, !tbaa !70
+  %.not = icmp eq i8 %21, 0
+  br i1 %.not, label %22, label %19, !llvm.loop !100
 
-21:                                               ; preds = %18
-  %22 = getelementptr inbounds nuw i8, ptr %4, i64 96
-  %23 = load i64, ptr %22, align 8, !tbaa !71
-  %24 = udiv i64 %23, 100
-  %25 = getelementptr inbounds nuw i8, ptr %4, i64 108
-  %26 = load i32, ptr %25, align 4, !tbaa !72
-  %27 = zext i32 %26 to i64
-  %28 = mul i64 %24, %27
-  %29 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i64 %28, ptr %29, align 8, !tbaa !41
+22:                                               ; preds = %19
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 96
+  %24 = load i64, ptr %23, align 8, !tbaa !71
+  %25 = udiv i64 %24, 100
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 108
+  %27 = load i32, ptr %26, align 4, !tbaa !72
+  %28 = zext i32 %27 to i64
+  %29 = mul i64 %25, %28
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store i64 %29, ptr %30, align 8, !tbaa !41
   store volatile i32 %6, ptr %5, align 8, !tbaa !66
   ret void
 }

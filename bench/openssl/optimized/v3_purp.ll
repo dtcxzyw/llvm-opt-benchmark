@@ -69,9 +69,8 @@ X509_PURPOSE_get_by_id.exit.thread:               ; preds = %10, %13
   br label %26
 
 15:                                               ; preds = %13
-  %narrow.i = add nuw i32 %14, 10
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %16 = icmp slt i32 %narrow.i, 0
+  %16 = icmp samesign ugt i32 %14, 2147483637
   br i1 %16, label %X509_PURPOSE_get0.exit, label %20
 
 17:                                               ; preds = %8

@@ -365,10 +365,9 @@ define hidden void @_ZN12rustc_errors11translation9Translate17translate_message1
   %22 = alloca { ptr, ptr, ptr }, align 8
   %23 = alloca ptr, align 8
   %24 = load i64, ptr %2, align 8, !range !12, !noundef !5
-  %25 = add i64 %24, 9223372036854775807
-  %switch = icmp ult i64 %25, 2
+  %25 = icmp ugt i64 %24, -9223372036854775808
   %.pn1.in.i = getelementptr inbounds nuw i8, ptr %2, i64 24
-  br i1 %switch, label %32, label %26
+  br i1 %25, label %32, label %26
 
 26:                                               ; preds = %.critedge
   call void @llvm.lifetime.start.p0(ptr nonnull %23)

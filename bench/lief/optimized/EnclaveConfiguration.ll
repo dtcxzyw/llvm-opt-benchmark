@@ -1268,8 +1268,8 @@ define linkonce_odr hidden i64 @_ZNK4LIEF12BinaryStream10read_arrayIhLm16EEEN2tl
 
 16:                                               ; preds = %9
   %17 = load i64, ptr %3, align 8, !tbaa !6
-  %or.cond.i = icmp ult i64 %17, 9223372036854775792
-  br i1 %or.cond.i, label %_ZNK4LIEF12BinaryStream10peek_arrayIhLm16EEEN2tl8expectedINS_4ok_tE11lief_errorsEERSt5arrayIT_XT0_EE.exit, label %_ZNK4LIEF12BinaryStream10peek_arrayIhLm16EEEN2tl8expectedINS_4ok_tE11lief_errorsEERSt5arrayIT_XT0_EE.exit.thread
+  %spec.select.i = icmp ult i64 %17, 9223372036854775792
+  br i1 %spec.select.i, label %_ZNK4LIEF12BinaryStream10peek_arrayIhLm16EEEN2tl8expectedINS_4ok_tE11lief_errorsEERSt5arrayIT_XT0_EE.exit, label %_ZNK4LIEF12BinaryStream10peek_arrayIhLm16EEEN2tl8expectedINS_4ok_tE11lief_errorsEERSt5arrayIT_XT0_EE.exit.thread
 
 _ZNK4LIEF12BinaryStream10peek_arrayIhLm16EEEN2tl8expectedINS_4ok_tE11lief_errorsEERSt5arrayIT_XT0_EE.exit: ; preds = %16
   %18 = load ptr, ptr %0, align 8, !tbaa !15
@@ -1286,8 +1286,8 @@ _ZNK4LIEF12BinaryStream10peek_arrayIhLm16EEEN2tl8expectedINS_4ok_tE11lief_errors
   store i64 %25, ptr %3, align 8, !tbaa !6
   br label %_ZNK4LIEF12BinaryStream10peek_arrayIhLm16EEEN2tl8expectedINS_4ok_tE11lief_errorsEERSt5arrayIT_XT0_EE.exit.thread
 
-_ZNK4LIEF12BinaryStream10peek_arrayIhLm16EEEN2tl8expectedINS_4ok_tE11lief_errorsEERSt5arrayIT_XT0_EE.exit.thread: ; preds = %2, %9, %16, %_ZNK4LIEF12BinaryStream10peek_arrayIhLm16EEEN2tl8expectedINS_4ok_tE11lief_errorsEERSt5arrayIT_XT0_EE.exit, %23
-  %.sroa.2.0 = phi i64 [ 4294967297, %23 ], [ 1, %_ZNK4LIEF12BinaryStream10peek_arrayIhLm16EEEN2tl8expectedINS_4ok_tE11lief_errorsEERSt5arrayIT_XT0_EE.exit ], [ 1, %16 ], [ 1, %9 ], [ 1, %2 ]
+_ZNK4LIEF12BinaryStream10peek_arrayIhLm16EEEN2tl8expectedINS_4ok_tE11lief_errorsEERSt5arrayIT_XT0_EE.exit.thread: ; preds = %16, %2, %9, %_ZNK4LIEF12BinaryStream10peek_arrayIhLm16EEEN2tl8expectedINS_4ok_tE11lief_errorsEERSt5arrayIT_XT0_EE.exit, %23
+  %.sroa.2.0 = phi i64 [ 4294967297, %23 ], [ 1, %_ZNK4LIEF12BinaryStream10peek_arrayIhLm16EEEN2tl8expectedINS_4ok_tE11lief_errorsEERSt5arrayIT_XT0_EE.exit ], [ 1, %9 ], [ 1, %2 ], [ 1, %16 ]
   ret i64 %.sroa.2.0
 }
 

@@ -4206,10 +4206,10 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17h40ef4c55e06877ddE.exit: ; preds 
   %334 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %335 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %.sroa.0.sroa.0.i.sroa.4.24..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.0.sroa.0.i.sroa.4.i.i, i64 16
-  %.sroa.49.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %25, i64 8
-  %.sroa.5.0..sroa_idx10.i.i.i = getelementptr inbounds nuw i8, ptr %25, i64 16
+  %.sroa.410.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %25, i64 8
+  %.sroa.5.0..sroa_idx11.i.i.i = getelementptr inbounds nuw i8, ptr %25, i64 16
   %.sroa.7.0..sroa_idx.i.i.i782 = getelementptr inbounds nuw i8, ptr %25, i64 24
-  %.sroa.9.0..sroa_idx11.i.i.i = getelementptr inbounds nuw i8, ptr %25, i64 32
+  %.sroa.9.0..sroa_idx12.i.i.i = getelementptr inbounds nuw i8, ptr %25, i64 32
   %.sroa.11.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %25, i64 40
   %336 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %337 = getelementptr inbounds nuw i8, ptr %20, i64 8
@@ -4661,10 +4661,10 @@ _ZN21ruff_python_formatter6string9docstring18indent_with_suffix17h264dccdd8fbe47
 ._crit_edge.i.i.i.i:                              ; preds = %.noexc798, %472
   call void @llvm.lifetime.start.p0(ptr nonnull %25), !noalias !423
   store i32 0, ptr %25, align 8, !noalias !423
-  store ptr %.sroa.04.0.i, ptr %.sroa.49.0..sroa_idx.i.i.i, align 8, !noalias !423
-  store i64 %.sroa.46.0.i, ptr %.sroa.5.0..sroa_idx10.i.i.i, align 8, !noalias !423
+  store ptr %.sroa.04.0.i, ptr %.sroa.410.0..sroa_idx.i.i.i, align 8, !noalias !423
+  store i64 %.sroa.46.0.i, ptr %.sroa.5.0..sroa_idx11.i.i.i, align 8, !noalias !423
   store i64 0, ptr %.sroa.7.0..sroa_idx.i.i.i782, align 8, !noalias !423
-  store i64 %.sroa.46.0.i, ptr %.sroa.9.0..sroa_idx11.i.i.i, align 8, !noalias !423
+  store i64 %.sroa.46.0.i, ptr %.sroa.9.0..sroa_idx12.i.i.i, align 8, !noalias !423
   store i8 1, ptr %.sroa.11.0..sroa_idx.i.i.i, align 8, !noalias !423
   call void @llvm.lifetime.start.p0(ptr nonnull %24), !noalias !423
   %476 = load ptr, ptr @_ZN21ruff_python_formatter6string9docstring14CodeExampleRst14new_code_block15DIRECTIVE_START17h1ef30c51ae223fe9E, align 8, !noalias !427, !nonnull !3, !noundef !3
@@ -5186,9 +5186,9 @@ _ZN14regex_automata4meta5regex9RegexInfo13is_impossible17hffb708d4c365dd83E.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !480
   store ptr null, ptr %5, align 8, !noalias !480
   invoke void @_ZN4core9panicking13assert_failed17h339f742946b17157E(i8 noundef 1, ptr noalias noundef readonly align 8 dereferenceable(8) @_ZN14regex_automata4util4pool5inner17THREAD_ID_DROPPED17h63205b1339210929E, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f4df14553971ce38a1f8ddb4f9816598.12) #22
-          to label %.noexc11.i.i.i unwind label %.loopexit.split-lp875, !noalias !477
+          to label %.noexc12.i.i.i unwind label %.loopexit.split-lp875, !noalias !477
 
-.noexc11.i.i.i:                                   ; preds = %.noexc5.i.i.i51.i
+.noexc12.i.i.i:                                   ; preds = %.noexc5.i.i.i51.i
   unreachable
 
 .noexc6.i.i.i.i:                                  ; preds = %652

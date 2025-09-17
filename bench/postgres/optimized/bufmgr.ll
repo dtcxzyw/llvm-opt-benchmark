@@ -6667,7 +6667,7 @@ define internal fastcc void @FlushBuffer(ptr noundef %0, ptr noundef %1, i32 nou
   %7 = alloca %struct.ErrorContextCallback, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = tail call fastcc zeroext i1 @StartBufferIO(ptr noundef %0, i1 noundef zeroext false, i1 noundef zeroext false)
-  br i1 %8, label %9, label %71
+  br i1 %8, label %9, label %72
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -6728,86 +6728,86 @@ LockBufHdr.exit:                                  ; preds = %.lr.ph.i, %18
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !4
   %35 = and i32 %.lcssa.i, -272629761
   store volatile i32 %35, ptr %24, align 4
-  %.not = icmp sgt i32 %.lcssa.i, -1
-  br i1 %.not, label %38, label %36
+  %36 = icmp slt i32 %.lcssa.i, 0
+  br i1 %36, label %37, label %39
 
-36:                                               ; preds = %LockBufHdr.exit
-  %37 = call i64 @llvm.fshl.i64(i64 %.val26, i64 %.val26, i64 32)
-  call void @XLogFlush(i64 noundef %37) #16
-  br label %38
+37:                                               ; preds = %LockBufHdr.exit
+  %38 = call i64 @llvm.fshl.i64(i64 %.val26, i64 %.val26, i64 32)
+  call void @XLogFlush(i64 noundef %38) #16
+  br label %39
 
-38:                                               ; preds = %36, %LockBufHdr.exit
-  %39 = load ptr, ptr @BufferBlocks, align 8
-  %40 = load i32, ptr %30, align 4
-  %41 = sext i32 %40 to i64
-  %42 = shl nsw i64 %41, 13
-  %43 = getelementptr inbounds nuw i8, ptr %39, i64 %42
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %45 = load i32, ptr %44, align 4
-  %46 = call ptr @PageSetChecksumCopy(ptr noundef %43, i32 noundef %45) #16
-  %47 = load i8, ptr @track_io_timing, align 1, !range !5, !noundef !6
-  %48 = trunc nuw i8 %47 to i1
-  %49 = call i64 @pgstat_prepare_io_time(i1 noundef zeroext %48) #16
-  %50 = getelementptr i8, ptr %0, i64 12
-  %.val = load i32, ptr %50, align 4
-  %51 = load i32, ptr %44, align 4
+39:                                               ; preds = %37, %LockBufHdr.exit
+  %40 = load ptr, ptr @BufferBlocks, align 8
+  %41 = load i32, ptr %30, align 4
+  %42 = sext i32 %41 to i64
+  %43 = shl nsw i64 %42, 13
+  %44 = getelementptr inbounds nuw i8, ptr %40, i64 %43
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %46 = load i32, ptr %45, align 4
+  %47 = call ptr @PageSetChecksumCopy(ptr noundef %44, i32 noundef %46) #16
+  %48 = load i8, ptr @track_io_timing, align 1, !range !5, !noundef !6
+  %49 = trunc nuw i8 %48 to i1
+  %50 = call i64 @pgstat_prepare_io_time(i1 noundef zeroext %49) #16
+  %51 = getelementptr i8, ptr %0, i64 12
+  %.val = load i32, ptr %51, align 4
+  %52 = load i32, ptr %45, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  store ptr %46, ptr %5, align 8
-  call void @smgrwritev(ptr noundef %.0, i32 noundef %.val, i32 noundef %51, ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext false) #16
+  store ptr %47, ptr %5, align 8
+  call void @smgrwritev(ptr noundef %.0, i32 noundef %.val, i32 noundef %52, ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext false) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  call void @pgstat_count_io_op_time(i32 noundef 0, i32 noundef %2, i32 noundef 7, i64 %49, i32 noundef 1, i64 noundef 8192) #16
-  %52 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pgBufferUsage, i64 24), align 8
-  %53 = add i64 %52, 1
-  store i64 %53, ptr getelementptr inbounds nuw (i8, ptr @pgBufferUsage, i64 24), align 8
+  call void @pgstat_count_io_op_time(i32 noundef 0, i32 noundef %2, i32 noundef 7, i64 %50, i32 noundef 1, i64 noundef 8192) #16
+  %53 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pgBufferUsage, i64 24), align 8
+  %54 = add i64 %53, 1
+  store i64 %54, ptr getelementptr inbounds nuw (i8, ptr @pgBufferUsage, i64 24), align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store i32 0, ptr %54, align 4
-  %55 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i32 0, ptr %55, align 8
-  %56 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr @.str.3, ptr %56, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i32 5707, ptr %57, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store ptr @__func__.LockBufHdr, ptr %58, align 8
-  %59 = atomicrmw or ptr %24, i32 4194304 seq_cst, align 4
-  %60 = and i32 %59, 4194304
-  %.not2.i.i = icmp eq i32 %60, 0
+  %55 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  store i32 0, ptr %55, align 4
+  %56 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i32 0, ptr %56, align 8
+  %57 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store ptr @.str.3, ptr %57, align 8
+  %58 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store i32 5707, ptr %58, align 8
+  %59 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  store ptr @__func__.LockBufHdr, ptr %59, align 8
+  %60 = atomicrmw or ptr %24, i32 4194304 seq_cst, align 4
+  %61 = and i32 %60, 4194304
+  %.not2.i.i = icmp eq i32 %61, 0
   br i1 %.not2.i.i, label %TerminateBufferIO.exit, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %38, %.lr.ph.i.i
+.lr.ph.i.i:                                       ; preds = %39, %.lr.ph.i.i
   call void @perform_spin_delay(ptr noundef nonnull %4) #16
-  %61 = atomicrmw or ptr %24, i32 4194304 seq_cst, align 4
-  %62 = and i32 %61, 4194304
-  %.not.i.i = icmp eq i32 %62, 0
+  %62 = atomicrmw or ptr %24, i32 4194304 seq_cst, align 4
+  %63 = and i32 %62, 4194304
+  %.not.i.i = icmp eq i32 %63, 0
   br i1 %.not.i.i, label %TerminateBufferIO.exit, label %.lr.ph.i.i
 
-TerminateBufferIO.exit:                           ; preds = %.lr.ph.i.i, %38
-  %.lcssa.i.i = phi i32 [ %59, %38 ], [ %61, %.lr.ph.i.i ]
+TerminateBufferIO.exit:                           ; preds = %.lr.ph.i.i, %39
+  %.lcssa.i.i = phi i32 [ %60, %39 ], [ %62, %.lr.ph.i.i ]
   call void @finish_spin_delay(ptr noundef nonnull %4) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %63 = and i32 %.lcssa.i.i, 268435456
-  %.not.i27 = icmp eq i32 %63, 0
+  %64 = and i32 %.lcssa.i.i, 268435456
+  %.not.i27 = icmp eq i32 %64, 0
   %.0.v.i = select i1 %.not.i27, i32 -1556086785, i32 -205520897
   %.0.i = and i32 %.0.v.i, %.lcssa.i.i
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !4
   store volatile i32 %.0.i, ptr %24, align 4
-  %64 = load ptr, ptr @CurrentResourceOwner, align 8
+  %65 = load ptr, ptr @CurrentResourceOwner, align 8
   %.val.i28 = load i32, ptr %30, align 4
-  %65 = add i32 %.val.i28, 1
-  %66 = sext i32 %65 to i64
-  call void @ResourceOwnerForget(ptr noundef %64, i64 noundef %66, ptr noundef nonnull @buffer_io_resowner_desc) #16
+  %66 = add i32 %.val.i28, 1
+  %67 = sext i32 %66 to i64
+  call void @ResourceOwnerForget(ptr noundef %65, i64 noundef %67, ptr noundef nonnull @buffer_io_resowner_desc) #16
   %.val11.i = load i32, ptr %30, align 4
-  %67 = load ptr, ptr @BufferIOCVArray, align 8
-  %68 = sext i32 %.val11.i to i64
-  %69 = getelementptr inbounds %union.ConditionVariableMinimallyPadded, ptr %67, i64 %68
-  call void @ConditionVariableBroadcast(ptr noundef %69) #16
-  %70 = load ptr, ptr %7, align 8
-  store ptr %70, ptr @error_context_stack, align 8
-  br label %71
+  %68 = load ptr, ptr @BufferIOCVArray, align 8
+  %69 = sext i32 %.val11.i to i64
+  %70 = getelementptr inbounds %union.ConditionVariableMinimallyPadded, ptr %68, i64 %69
+  call void @ConditionVariableBroadcast(ptr noundef %70) #16
+  %71 = load ptr, ptr %7, align 8
+  store ptr %71, ptr @error_context_stack, align 8
+  br label %72
 
-71:                                               ; preds = %3, %TerminateBufferIO.exit
+72:                                               ; preds = %3, %TerminateBufferIO.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }

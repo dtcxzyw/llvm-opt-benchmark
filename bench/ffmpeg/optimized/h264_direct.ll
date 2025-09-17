@@ -134,11 +134,11 @@ define void @ff_h264_direct_dist_scale_factor(ptr noundef readonly captures(none
   %73 = add nsw i32 %72, 32
   %74 = ashr i32 %73, 6
   %75 = tail call i32 @llvm.smax.i32(i32 %74, i32 -1024)
-  %.0.i29.i = tail call i32 @llvm.smin.i32(i32 %75, i32 1023)
+  %.0.i28.i = tail call i32 @llvm.smin.i32(i32 %75, i32 1023)
   br label %get_scale_factor.exit
 
 get_scale_factor.exit:                            ; preds = %51, %53, %71
-  %.0.i = phi i32 [ %.0.i29.i, %71 ], [ 256, %53 ], [ 256, %51 ]
+  %.0.i = phi i32 [ %.0.i28.i, %71 ], [ 256, %53 ], [ 256, %51 ]
   %indvars.iv.masked = and i64 %indvars.iv, 4294967295
   %76 = xor i64 %indvars.iv.masked, %indvars.iv55
   %77 = getelementptr inbounds nuw i32, ptr %34, i64 %76
@@ -232,11 +232,11 @@ get_scale_factor.exit:                            ; preds = %51, %53, %71
   %127 = add nsw i32 %126, 32
   %128 = ashr i32 %127, 6
   %129 = tail call i32 @llvm.smax.i32(i32 %128, i32 -1024)
-  %.0.i29.i44 = tail call i32 @llvm.smin.i32(i32 %129, i32 1023)
+  %.0.i28.i44 = tail call i32 @llvm.smin.i32(i32 %129, i32 1023)
   br label %get_scale_factor.exit45
 
 get_scale_factor.exit45:                          ; preds = %105, %107, %125
-  %.0.i38 = phi i32 [ %.0.i29.i44, %125 ], [ 256, %107 ], [ 256, %105 ]
+  %.0.i38 = phi i32 [ %.0.i28.i44, %125 ], [ 256, %107 ], [ 256, %105 ]
   %130 = getelementptr inbounds nuw i32, ptr %88, i64 %indvars.iv58
   store i32 %.0.i38, ptr %130, align 4, !tbaa !65
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1

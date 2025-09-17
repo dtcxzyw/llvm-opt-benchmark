@@ -9904,17 +9904,17 @@ _ZNKSt8functionIFRN4llvm19TargetTransformInfoERNS0_8FunctionEEEclES4_.exit: ; pr
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 32
   br label %34
 
-._crit_edge.loopexit:                             ; preds = %76
+._crit_edge.loopexit:                             ; preds = %72
   %33 = call i32 @llvm.smax.i32(i32 %.1, i32 0)
   br label %._crit_edge
 
-34:                                               ; preds = %.lr.ph, %76
-  %.sroa.027.036 = phi ptr [ %.sroa.027.033, %.lr.ph ], [ %.sroa.027.0, %76 ]
-  %.02035 = phi i32 [ 0, %.lr.ph ], [ %.1, %76 ]
+34:                                               ; preds = %.lr.ph, %72
+  %.sroa.027.036 = phi ptr [ %.sroa.027.033, %.lr.ph ], [ %.sroa.027.0, %72 ]
+  %.02035 = phi i32 [ 0, %.lr.ph ], [ %.1, %72 ]
   %35 = getelementptr inbounds nuw i8, ptr %.sroa.027.036, i64 24
   %36 = load ptr, ptr %35, align 8, !tbaa !73
   %37 = load i8, ptr %36, align 8, !tbaa !78
-  switch i8 %37, label %76 [
+  switch i8 %37, label %72 [
     i8 85, label %38
     i8 34, label %38
   ]
@@ -9923,14 +9923,14 @@ _ZNKSt8functionIFRN4llvm19TargetTransformInfoERNS0_8FunctionEEEclES4_.exit: ; pr
   %39 = getelementptr inbounds i8, ptr %36, i64 -32
   %40 = load ptr, ptr %39, align 8, !tbaa !132
   %.not22 = icmp eq ptr %40, %1
-  br i1 %.not22, label %41, label %76
+  br i1 %.not22, label %41, label %72
 
 41:                                               ; preds = %38
   %42 = getelementptr inbounds nuw i8, ptr %36, i64 80
   %43 = load ptr, ptr %42, align 8, !tbaa !183
   %44 = load ptr, ptr %20, align 8, !tbaa !179
   %.not23 = icmp eq ptr %43, %44
-  br i1 %.not23, label %45, label %76
+  br i1 %.not23, label %45, label %72
 
 45:                                               ; preds = %41
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -9946,70 +9946,67 @@ _ZNKSt8functionIFRN4llvm19TargetTransformInfoERNS0_8FunctionEEEclES4_.exit: ; pr
   store ptr null, ptr %8, align 8, !tbaa !435
   call void @_ZN4llvm13getInlineCostERNS_8CallBaseEPNS_8FunctionERKNS_12InlineParamsERNS_19TargetTransformInfoENS_12function_refIFRNS_15AssumptionCacheERS2_EEENS9_IFRKNS_17TargetLibraryInfoESC_EEENS9_IFRNS_18BlockFrequencyInfoESC_EEEPNS_18ProfileSummaryInfoEPNS_25OptimizationRemarkEmitterE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::InlineCost") align 8 %5, ptr noundef nonnull align 8 dereferenceable(88) %36, ptr noundef nonnull %9, ptr noundef nonnull align 4 dereferenceable(66) %4, ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull byval(%"class.llvm::function_ref") align 8 %6, ptr noundef nonnull byval(%"class.llvm::function_ref.351") align 8 %7, ptr noundef nonnull byval(%"class.llvm::function_ref.352") align 8 %8, ptr noundef null, ptr noundef null) #17
   %48 = load i32, ptr %5, align 8, !tbaa !437
-  %49 = icmp eq i32 %48, -2147483648
-  br i1 %49, label %50, label %53
+  switch i32 %48, label %52 [
+    i32 -2147483648, label %49
+    i32 2147483647, label %56
+  ]
 
-50:                                               ; preds = %45
-  %51 = load i32, ptr %4, align 4, !tbaa !419
-  %52 = add nsw i32 %51, %.02035
-  br label %60
+49:                                               ; preds = %45
+  %50 = load i32, ptr %4, align 4, !tbaa !419
+  %51 = add nsw i32 %50, %.02035
+  br label %56
 
-53:                                               ; preds = %45
-  %54 = add i32 %48, 2147483647
-  %55 = icmp ult i32 %54, -2
-  br i1 %55, label %56, label %60
+52:                                               ; preds = %45
+  %53 = load i32, ptr %27, align 4, !tbaa !444
+  %54 = sub nsw i32 %53, %48
+  %55 = call i32 @llvm.smax.i32(i32 %54, i32 0)
+  %spec.select = add nsw i32 %55, %.02035
+  br label %56
 
-56:                                               ; preds = %53
-  %57 = load i32, ptr %27, align 4, !tbaa !444
-  %58 = sub nsw i32 %57, %48
-  %59 = call i32 @llvm.smax.i32(i32 %58, i32 0)
-  %spec.select = add nsw i32 %59, %.02035
-  br label %60
+56:                                               ; preds = %45, %52, %49
+  %.3 = phi i32 [ %51, %49 ], [ %spec.select, %52 ], [ %.02035, %45 ]
+  %57 = load i8, ptr %29, align 8, !tbaa !445, !range !48, !noundef !49
+  %58 = trunc nuw i8 %57 to i1
+  br i1 %58, label %59, label %_ZN4llvm10InlineCostD2Ev.exit
 
-60:                                               ; preds = %56, %50, %53
-  %.3 = phi i32 [ %52, %50 ], [ %.02035, %53 ], [ %spec.select, %56 ]
-  %61 = load i8, ptr %29, align 8, !tbaa !445, !range !48, !noundef !49
-  %62 = trunc nuw i8 %61 to i1
-  br i1 %62, label %63, label %_ZN4llvm10InlineCostD2Ev.exit
-
-63:                                               ; preds = %60
+59:                                               ; preds = %56
   store i8 0, ptr %29, align 8, !tbaa !445
-  %64 = load i32, ptr %30, align 8, !tbaa !195
-  %65 = icmp ugt i32 %64, 64
-  br i1 %65, label %66, label %_ZN4llvm5APIntD2Ev.exit.i.i.i.i.i.i
+  %60 = load i32, ptr %30, align 8, !tbaa !195
+  %61 = icmp ugt i32 %60, 64
+  br i1 %61, label %62, label %_ZN4llvm5APIntD2Ev.exit.i.i.i.i.i.i
 
-66:                                               ; preds = %63
-  %67 = load ptr, ptr %31, align 8, !tbaa !197
-  %68 = icmp eq ptr %67, null
-  br i1 %68, label %_ZN4llvm5APIntD2Ev.exit.i.i.i.i.i.i, label %69
+62:                                               ; preds = %59
+  %63 = load ptr, ptr %31, align 8, !tbaa !197
+  %64 = icmp eq ptr %63, null
+  br i1 %64, label %_ZN4llvm5APIntD2Ev.exit.i.i.i.i.i.i, label %65
 
-69:                                               ; preds = %66
-  call void @_ZdaPv(ptr noundef nonnull %67) #20
+65:                                               ; preds = %62
+  call void @_ZdaPv(ptr noundef nonnull %63) #20
   br label %_ZN4llvm5APIntD2Ev.exit.i.i.i.i.i.i
 
-_ZN4llvm5APIntD2Ev.exit.i.i.i.i.i.i:              ; preds = %69, %66, %63
-  %70 = load i32, ptr %32, align 8, !tbaa !195
-  %71 = icmp ugt i32 %70, 64
-  br i1 %71, label %72, label %_ZN4llvm10InlineCostD2Ev.exit
+_ZN4llvm5APIntD2Ev.exit.i.i.i.i.i.i:              ; preds = %65, %62, %59
+  %66 = load i32, ptr %32, align 8, !tbaa !195
+  %67 = icmp ugt i32 %66, 64
+  br i1 %67, label %68, label %_ZN4llvm10InlineCostD2Ev.exit
 
-72:                                               ; preds = %_ZN4llvm5APIntD2Ev.exit.i.i.i.i.i.i
-  %73 = load ptr, ptr %28, align 8, !tbaa !197
-  %74 = icmp eq ptr %73, null
-  br i1 %74, label %_ZN4llvm10InlineCostD2Ev.exit, label %75
+68:                                               ; preds = %_ZN4llvm5APIntD2Ev.exit.i.i.i.i.i.i
+  %69 = load ptr, ptr %28, align 8, !tbaa !197
+  %70 = icmp eq ptr %69, null
+  br i1 %70, label %_ZN4llvm10InlineCostD2Ev.exit, label %71
 
-75:                                               ; preds = %72
-  call void @_ZdaPv(ptr noundef nonnull %73) #20
+71:                                               ; preds = %68
+  call void @_ZdaPv(ptr noundef nonnull %69) #20
   br label %_ZN4llvm10InlineCostD2Ev.exit
 
-_ZN4llvm10InlineCostD2Ev.exit:                    ; preds = %60, %_ZN4llvm5APIntD2Ev.exit.i.i.i.i.i.i, %72, %75
+_ZN4llvm10InlineCostD2Ev.exit:                    ; preds = %56, %_ZN4llvm5APIntD2Ev.exit.i.i.i.i.i.i, %68, %71
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %76
+  br label %72
 
-76:                                               ; preds = %34, %_ZN4llvm10InlineCostD2Ev.exit, %38, %41
+72:                                               ; preds = %34, %_ZN4llvm10InlineCostD2Ev.exit, %38, %41
   %.1 = phi i32 [ %.3, %_ZN4llvm10InlineCostD2Ev.exit ], [ %.02035, %38 ], [ %.02035, %41 ], [ %.02035, %34 ]
-  %77 = getelementptr inbounds nuw i8, ptr %.sroa.027.036, i64 8
-  %.sroa.027.0 = load ptr, ptr %77, align 8, !tbaa !131
+  %73 = getelementptr inbounds nuw i8, ptr %.sroa.027.036, i64 8
+  %.sroa.027.0 = load ptr, ptr %73, align 8, !tbaa !131
   %.not32 = icmp eq ptr %.sroa.027.0, null
   br i1 %.not32, label %._crit_edge.loopexit, label %34
 

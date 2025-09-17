@@ -624,51 +624,51 @@ define internal noundef ptr @_queue_SimpleQueue_put(ptr noundef %0, ptr noundef 
   %5 = alloca [3 x ptr], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %8, label %.thread
+  br i1 %.not, label %8, label %.thread45
 
-.thread:                                          ; preds = %4
+.thread45:                                        ; preds = %4
   %6 = getelementptr i8, ptr %3, i64 16
   %.val = load i64, ptr %6, align 8, !tbaa !43
   %7 = add i64 %.val, %2
-  br label %12
+  br label %13
 
 8:                                                ; preds = %4
   %9 = add i64 %2, -1
   %10 = icmp ult i64 %9, 3
   %11 = icmp ne ptr %1, null
-  %or.cond5 = and i1 %11, %10
-  br i1 %or.cond5, label %.thread42, label %12
+  %12 = and i1 %11, %10
+  br i1 %12, label %.thread, label %13
 
-12:                                               ; preds = %8, %.thread
-  %13 = phi i64 [ %7, %.thread ], [ %2, %8 ]
-  %14 = call ptr @_PyArg_UnpackKeywords(ptr noundef %1, i64 noundef %2, ptr noundef null, ptr noundef %3, ptr noundef nonnull @_queue_SimpleQueue_put._parser, i32 noundef 1, i32 noundef 3, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %5) #7
-  %.not36 = icmp eq ptr %14, null
-  br i1 %.not36, label %26, label %.thread42
+13:                                               ; preds = %.thread45, %8
+  %14 = phi i64 [ %7, %.thread45 ], [ %2, %8 ]
+  %15 = call ptr @_PyArg_UnpackKeywords(ptr noundef %1, i64 noundef %2, ptr noundef null, ptr noundef %3, ptr noundef nonnull @_queue_SimpleQueue_put._parser, i32 noundef 1, i32 noundef 3, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %5) #7
+  %.not36 = icmp eq ptr %15, null
+  br i1 %.not36, label %27, label %.thread
 
-.thread42:                                        ; preds = %8, %12
-  %15 = phi ptr [ %14, %12 ], [ %1, %8 ]
-  %16 = phi i64 [ %13, %12 ], [ %2, %8 ]
-  %17 = load ptr, ptr %15, align 8, !tbaa !17
+.thread:                                          ; preds = %8, %13
+  %16 = phi i64 [ %14, %13 ], [ %2, %8 ]
+  %17 = phi ptr [ %15, %13 ], [ %1, %8 ]
+  %18 = load ptr, ptr %17, align 8, !tbaa !17
   %.not37 = icmp eq i64 %16, 1
-  br i1 %.not37, label %24, label %18
+  br i1 %.not37, label %25, label %19
 
-18:                                               ; preds = %.thread42
-  %19 = getelementptr i8, ptr %15, i64 8
-  %20 = load ptr, ptr %19, align 8, !tbaa !17
-  %.not38 = icmp eq ptr %20, null
-  br i1 %.not38, label %24, label %21
+19:                                               ; preds = %.thread
+  %20 = getelementptr i8, ptr %17, i64 8
+  %21 = load ptr, ptr %20, align 8, !tbaa !17
+  %.not38 = icmp eq ptr %21, null
+  br i1 %.not38, label %25, label %22
 
-21:                                               ; preds = %18
-  %22 = call i32 @PyObject_IsTrue(ptr noundef nonnull %20) #7
-  %23 = icmp slt i32 %22, 0
-  br i1 %23, label %26, label %24
+22:                                               ; preds = %19
+  %23 = call i32 @PyObject_IsTrue(ptr noundef nonnull %21) #7
+  %24 = icmp slt i32 %23, 0
+  br i1 %24, label %27, label %25
 
-24:                                               ; preds = %21, %18, %.thread42
-  %25 = call fastcc ptr @_queue_SimpleQueue_put_impl(ptr noundef %0, ptr noundef %17)
-  br label %26
+25:                                               ; preds = %22, %19, %.thread
+  %26 = call fastcc ptr @_queue_SimpleQueue_put_impl(ptr noundef %0, ptr noundef %18)
+  br label %27
 
-26:                                               ; preds = %21, %12, %24
-  %.029 = phi ptr [ null, %21 ], [ %25, %24 ], [ null, %12 ]
+27:                                               ; preds = %22, %13, %25
+  %.029 = phi ptr [ null, %22 ], [ %26, %25 ], [ null, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.029
 }

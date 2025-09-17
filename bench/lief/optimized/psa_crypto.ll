@@ -5866,10 +5866,9 @@ psa_generate_random_internal.exit.thread:         ; preds = %49, %.thread61, %.p
   br i1 %or.cond22.i, label %psa_aead_check_nonce_length.exit.i, label %psa_aead_check_nonce_length.exit.thread17.i
 
 64:                                               ; preds = %59
-  %65 = add nsw i64 %53, -7
-  %or.cond.i.i = icmp ult i64 %65, 7
+  %65 = icmp ugt i64 %53, 6
   %cond.i.old.old.i = icmp eq i32 %54, 1
-  %or.cond23.i = and i1 %or.cond.i.i, %cond.i.old.old.i
+  %or.cond23.i = and i1 %65, %cond.i.old.old.i
   br i1 %or.cond23.i, label %psa_aead_check_nonce_length.exit.i, label %psa_aead_check_nonce_length.exit.thread17.i
 
 psa_aead_get_base_algorithm.exit.i.i:             ; preds = %59
@@ -9293,9 +9292,8 @@ psa_get_and_lock_transparent_key_slot_with_policy.exit: ; preds = %14
   %27 = load i32, ptr %0, align 8, !tbaa !74
   %28 = and i32 %27, -151060480
   %29 = or disjoint i32 %28, 150994944
-  %30 = and i32 %29, -16777216
-  %or.cond.i.i = icmp eq i32 %30, 150994944
-  br i1 %or.cond.i.i, label %31, label %psa_crypto_local_input_alloc.exit.thread51
+  %30 = icmp ult i32 %29, 167772160
+  br i1 %30, label %31, label %psa_crypto_local_input_alloc.exit.thread51
 
 31:                                               ; preds = %26
   %32 = getelementptr inbounds nuw i8, ptr %15, i64 40

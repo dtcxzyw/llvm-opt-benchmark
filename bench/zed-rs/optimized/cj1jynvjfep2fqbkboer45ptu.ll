@@ -37164,45 +37164,42 @@ define internal noundef zeroext i1 @"_ZN70_$LT$blade_graphics..NotSupportedError
   %3 = alloca [8 x i8], align 8
   %4 = alloca [8 x i8], align 8
   %5 = load i64, ptr %0, align 8, !range !4833, !noundef !9
-  %6 = add i64 %5, 9223372036854775790
-  %7 = icmp ult i64 %6, 3
-  %8 = add nsw i64 %5, 9223372036854775791
-  %9 = select i1 %7, i64 %8, i64 0
-  switch i64 %9, label %10 [
-    i64 0, label %11
-    i64 1, label %13
-    i64 2, label %16
-    i64 3, label %18
+  %6 = tail call i64 @llvm.usub.sat.i64(i64 %5, i64 -9223372036854775791)
+  switch i64 %6, label %7 [
+    i64 0, label %8
+    i64 1, label %10
+    i64 2, label %13
+    i64 3, label %15
   ]
 
-10:                                               ; preds = %2
+7:                                                ; preds = %2
   unreachable
 
-11:                                               ; preds = %2
+8:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %0, ptr %4, align 8
-  %12 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17hc799394d65cd7c75E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.a22c35433011442b18091cbc43717a7e.157, i64 noundef 18, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.a22c35433011442b18091cbc43717a7e.156)
+  %9 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17hc799394d65cd7c75E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.a22c35433011442b18091cbc43717a7e.157, i64 noundef 18, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.a22c35433011442b18091cbc43717a7e.156)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %20
+  br label %17
+
+10:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %11, ptr %3, align 8
+  %12 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17hc799394d65cd7c75E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.a22c35433011442b18091cbc43717a7e.159, i64 noundef 11, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.a22c35433011442b18091cbc43717a7e.158)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  br label %17
 
 13:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %14, ptr %3, align 8
-  %15 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17hc799394d65cd7c75E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.a22c35433011442b18091cbc43717a7e.159, i64 noundef 11, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.a22c35433011442b18091cbc43717a7e.158)
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %20
+  %14 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha11c1118505c1ec2E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.a22c35433011442b18091cbc43717a7e.160, i64 noundef 22)
+  br label %17
 
-16:                                               ; preds = %2
-  %17 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha11c1118505c1ec2E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.a22c35433011442b18091cbc43717a7e.160, i64 noundef 22)
-  br label %20
+15:                                               ; preds = %2
+  %16 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha11c1118505c1ec2E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.a22c35433011442b18091cbc43717a7e.161, i64 noundef 20)
+  br label %17
 
-18:                                               ; preds = %2
-  %19 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha11c1118505c1ec2E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.a22c35433011442b18091cbc43717a7e.161, i64 noundef 20)
-  br label %20
-
-20:                                               ; preds = %18, %16, %13, %11
-  %.sroa.0.0.in = phi i1 [ %12, %11 ], [ %15, %13 ], [ %17, %16 ], [ %19, %18 ]
+17:                                               ; preds = %15, %13, %10, %8
+  %.sroa.0.0.in = phi i1 [ %9, %8 ], [ %12, %10 ], [ %14, %13 ], [ %16, %15 ]
   ret i1 %.sroa.0.0.in
 }
 
@@ -172121,11 +172118,9 @@ _ZN4gpui6window13WindowContext18dispatch_key_event17h2ca8877837d14d78E.exit: ; p
 
 826:                                              ; preds = %819
   %827 = load i32, ptr %1, align 8, !range !4740, !noundef !9
-  %828 = add nsw i32 %827, -4
-  %narrow123 = call i32 @llvm.umin.i32(i32 %828, i32 8)
-  %narrow123.off = add nsw i32 %narrow123, -2
-  %switch = icmp ult i32 %narrow123.off, 7
-  br i1 %switch, label %821, label %829
+  %828 = and i32 %827, 14
+  %.not = icmp eq i32 %828, 4
+  br i1 %.not, label %829, label %821
 
 829:                                              ; preds = %826
   call fastcc void @"_ZN4core3ptr53drop_in_place$LT$gpui..interactive..PlatformInput$GT$17h61902eab8987cfc7E"(ptr noalias noundef align 8 dereferenceable(72) %1)

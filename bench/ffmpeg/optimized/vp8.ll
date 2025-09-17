@@ -20296,13 +20296,13 @@ copy_chroma.exit:                                 ; preds = %._crit_edge.us.i, %
   %101 = ashr i32 %100, 8
   %102 = add nsw i32 %1, %99
   %103 = add nsw i32 %102, %101
-  %.not.i.us.i = icmp ult i32 %103, 256
+  %104 = icmp ugt i32 %103, 255
   %isnotneg.i.us.i = icmp sgt i32 %103, -1
-  %104 = sext i1 %isnotneg.i.us.i to i8
-  %105 = trunc nuw i32 %103 to i8
-  %.0.i.us.i = select i1 %.not.i.us.i, i8 %105, i8 %104
-  %106 = getelementptr inbounds nuw i8, ptr %95, i64 %indvars.iv.i49
-  store i8 %.0.i.us.i, ptr %106, align 1, !tbaa !56
+  %105 = sext i1 %isnotneg.i.us.i to i8
+  %106 = trunc nuw i32 %103 to i8
+  %.0.i.us.i = select i1 %104, i8 %105, i8 %106
+  %107 = getelementptr inbounds nuw i8, ptr %95, i64 %indvars.iv.i49
+  store i8 %.0.i.us.i, ptr %107, align 1, !tbaa !56
   %indvars.iv.next.i50 = add nuw nsw i64 %indvars.iv.i49, 1
   %exitcond.not.i51 = icmp eq i64 %indvars.iv.next.i50, %wide.trip.count.i
   br i1 %exitcond.not.i51, label %._crit_edge.us.i52, label %96, !llvm.loop !269

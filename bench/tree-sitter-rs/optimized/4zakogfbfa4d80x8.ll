@@ -166,9 +166,8 @@ _ZN14regex_automata4util6search5Input8set_span17hd421a50804d66c51E.exit: ; preds
 75:                                               ; preds = %70
   tail call void @llvm.experimental.noalias.scope.decl(metadata !40)
   %76 = load i32, ptr %15, align 8, !range !43, !alias.scope !44, !noalias !45, !noundef !4
-  %.off.i.i.i = add nsw i32 %76, -1
-  %switch.i1.i.i = icmp ult i32 %.off.i.i.i, 2
-  br i1 %switch.i1.i.i, label %_ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17h866587a57d3f7a31E.exit.thread.i.i, label %_ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17h866587a57d3f7a31E.exit.i.i
+  %.not.i.i = icmp eq i32 %76, 0
+  br i1 %.not.i.i, label %_ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17h866587a57d3f7a31E.exit.i.i, label %_ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17h866587a57d3f7a31E.exit.thread.i.i
 
 _ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17h866587a57d3f7a31E.exit.i.i: ; preds = %75
   %77 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 60
@@ -430,9 +429,8 @@ _ZN14regex_automata4util6search5Input8set_span17hd421a50804d66c51E.exit: ; preds
 65:                                               ; preds = %60
   tail call void @llvm.experimental.noalias.scope.decl(metadata !96)
   %66 = load i32, ptr %16, align 8, !range !43, !alias.scope !99, !noalias !100, !noundef !4
-  %.off.i.i.i = add nsw i32 %66, -1
-  %switch.i1.i.i = icmp ult i32 %.off.i.i.i, 2
-  br i1 %switch.i1.i.i, label %_ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17h866587a57d3f7a31E.exit.thread.i.i, label %_ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17h866587a57d3f7a31E.exit.i.i
+  %.not.i.i = icmp eq i32 %66, 0
+  br i1 %.not.i.i, label %_ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17h866587a57d3f7a31E.exit.i.i, label %_ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17h866587a57d3f7a31E.exit.thread.i.i
 
 _ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17h866587a57d3f7a31E.exit.i.i: ; preds = %65
   %67 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 60

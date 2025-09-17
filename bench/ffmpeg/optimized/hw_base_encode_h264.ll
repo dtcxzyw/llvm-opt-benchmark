@@ -55,7 +55,7 @@ define range(i32 -22, 1) i32 @ff_hw_base_encode_init_params_h264(ptr noundef rea
 24:                                               ; preds = %21, %18, %14
   %25 = load ptr, ptr %12, align 8, !tbaa !28
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %1, i32 noundef 16, ptr noundef nonnull @.str.3, ptr noundef %25) #5
-  br label %334
+  br label %336
 
 26:                                               ; preds = %21
   %27 = getelementptr inbounds nuw i8, ptr %12, i64 40
@@ -360,10 +360,10 @@ define range(i32 -22, 1) i32 @ff_hw_base_encode_init_params_h264(ptr noundef rea
   store i8 %193, ptr %194, align 2, !tbaa !116
   %.not220 = icmp eq i32 %184, 2
   %.not221 = icmp eq i32 %188, 2
-  %or.cond239 = select i1 %.not220, i1 %.not221, i1 false
+  %or.cond237 = select i1 %.not220, i1 %.not221, i1 false
   %.not222 = icmp eq i32 %192, 2
-  %or.cond240 = select i1 %or.cond239, i1 %.not222, i1 false
-  br i1 %or.cond240, label %197, label %195
+  %or.cond238 = select i1 %or.cond237, i1 %.not222, i1 false
+  br i1 %or.cond238, label %197, label %195
 
 195:                                              ; preds = %176
   %196 = getelementptr inbounds nuw i8, ptr %2, i64 1871
@@ -431,18 +431,18 @@ define range(i32 -22, 1) i32 @ff_hw_base_encode_init_params_h264(ptr noundef rea
   br label %229
 
 229:                                              ; preds = %223, %221
-  %.sink264 = phi i32 [ %228, %223 ], [ %215, %221 ]
-  %.sink260 = phi i8 [ 0, %223 ], [ 1, %221 ]
+  %.sink262 = phi i32 [ %228, %223 ], [ %215, %221 ]
+  %.sink258 = phi i8 [ 0, %223 ], [ 1, %221 ]
   %.neg = phi i8 [ 1, %223 ], [ 0, %221 ]
-  %230 = shl nsw i32 %.sink264, 1
+  %230 = shl nsw i32 %.sink262, 1
   %231 = getelementptr inbounds nuw i8, ptr %2, i64 1884
   store i32 %230, ptr %231, align 4, !tbaa !127
   %232 = getelementptr inbounds nuw i8, ptr %2, i64 1888
-  store i8 %.sink260, ptr %232, align 4, !tbaa !128
+  store i8 %.sink258, ptr %232, align 4, !tbaa !128
   %233 = load i32, ptr %3, align 8, !tbaa !129
   %234 = and i32 %233, 1
   %.not226 = icmp eq i32 %234, 0
-  br i1 %.not226, label %297, label %235
+  br i1 %.not226, label %299, label %235
 
 235:                                              ; preds = %229
   %236 = getelementptr inbounds nuw i8, ptr %2, i64 1892
@@ -453,10 +453,10 @@ define range(i32 -22, 1) i32 @ff_hw_base_encode_init_params_h264(ptr noundef rea
   %239 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %240 = load i64, ptr %239, align 8, !tbaa !69
   %241 = trunc i64 %240 to i32
-  %.not.i232 = icmp ult i32 %241, 65536
+  %.not.i = icmp ult i32 %241, 65536
   %242 = lshr i32 %241, 16
-  %spec.select.i = select i1 %.not.i232, i32 %241, i32 %242
-  %spec.select12.i = select i1 %.not.i232, i32 0, i32 16
+  %spec.select.i = select i1 %.not.i, i32 %241, i32 %242
+  %spec.select12.i = select i1 %.not.i, i32 0, i32 16
   %.not11.i = icmp samesign ult i32 %spec.select.i, 256
   %243 = lshr i32 %spec.select.i, 8
   %244 = or disjoint i32 %spec.select12.i, 8
@@ -468,157 +468,157 @@ define range(i32 -22, 1) i32 @ff_hw_base_encode_init_params_h264(ptr noundef rea
   %248 = zext i8 %247 to i32
   %249 = add nuw nsw i32 %.1.i, %248
   %250 = add nsw i32 %249, -21
-  %.not.i = icmp ult i32 %250, 16
+  %251 = icmp ugt i32 %250, 15
   %isnotneg.inv.i = icmp samesign ult i32 %249, 21
-  %251 = select i1 %isnotneg.inv.i, i32 0, i32 15
-  %.0.i = select i1 %.not.i, i32 %250, i32 %251
-  %252 = trunc i32 %.0.i to i8
-  %253 = getelementptr inbounds nuw i8, ptr %2, i64 1893
-  store i8 %252, ptr %253, align 1, !tbaa !133
-  %254 = and i32 %.0.i, 255
-  %255 = add nuw nsw i32 %254, 6
-  %256 = zext nneg i32 %255 to i64
-  %257 = ashr i64 %240, %256
-  %258 = trunc i64 %257 to i32
-  %259 = add i32 %258, -1
-  %260 = getelementptr inbounds nuw i8, ptr %2, i64 1896
-  store i32 %259, ptr %260, align 4, !tbaa !99
-  %261 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %262 = load i64, ptr %261, align 8, !tbaa !134
-  %263 = trunc i64 %262 to i32
-  %.not.i233 = icmp ult i32 %263, 65536
-  %264 = lshr i32 %263, 16
-  %spec.select.i234 = select i1 %.not.i233, i32 %263, i32 %264
-  %spec.select12.i235 = select i1 %.not.i233, i32 0, i32 16
-  %.not11.i236 = icmp samesign ult i32 %spec.select.i234, 256
-  %265 = lshr i32 %spec.select.i234, 8
-  %266 = or disjoint i32 %spec.select12.i235, 8
-  %.110.i237 = select i1 %.not11.i236, i32 %spec.select.i234, i32 %265
-  %.1.i238 = select i1 %.not11.i236, i32 %spec.select12.i235, i32 %266
-  %267 = zext nneg i32 %.110.i237 to i64
-  %268 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %267
-  %269 = load i8, ptr %268, align 1, !tbaa !132
-  %270 = zext i8 %269 to i32
-  %271 = add nuw nsw i32 %.1.i238, %270
-  %272 = add nsw i32 %271, -19
-  %.not.i229 = icmp ult i32 %272, 16
-  %isnotneg.inv.i230 = icmp samesign ult i32 %271, 19
-  %273 = select i1 %isnotneg.inv.i230, i32 0, i32 15
-  %.0.i231 = select i1 %.not.i229, i32 %272, i32 %273
-  %274 = trunc i32 %.0.i231 to i8
-  %275 = getelementptr inbounds nuw i8, ptr %2, i64 1894
-  store i8 %274, ptr %275, align 2, !tbaa !135
-  %276 = and i32 %.0.i231, 255
-  %277 = add nuw nsw i32 %276, 4
-  %278 = zext nneg i32 %277 to i64
-  %279 = lshr i64 %262, %278
-  %280 = trunc i64 %279 to i32
-  %281 = add i32 %280, -1
-  %282 = getelementptr inbounds nuw i8, ptr %2, i64 2024
-  store i32 %281, ptr %282, align 4, !tbaa !99
-  %283 = getelementptr inbounds nuw i8, ptr %2, i64 2152
-  store i8 0, ptr %283, align 4, !tbaa !132
-  %284 = getelementptr inbounds nuw i8, ptr %2, i64 2184
-  store i8 23, ptr %284, align 4, !tbaa !136
-  %285 = getelementptr inbounds nuw i8, ptr %2, i64 2185
-  store i8 23, ptr %285, align 1, !tbaa !137
-  %286 = getelementptr inbounds nuw i8, ptr %2, i64 2186
-  store i8 7, ptr %286, align 2, !tbaa !138
-  %287 = getelementptr inbounds nuw i8, ptr %2, i64 2187
-  store i8 0, ptr %287, align 1, !tbaa !139
-  %288 = load i8, ptr %96, align 1, !tbaa !77
-  store i8 %288, ptr %237, align 4, !tbaa !140
-  %289 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %290 = load i64, ptr %289, align 8, !tbaa !141
-  %291 = mul i64 %290, 90000
-  %292 = load i64, ptr %261, align 8, !tbaa !134
-  %293 = udiv i64 %291, %292
-  %294 = trunc i64 %293 to i32
-  %295 = getelementptr inbounds nuw i8, ptr %2, i64 3388
-  store i32 %294, ptr %295, align 4, !tbaa !99
-  %296 = getelementptr inbounds nuw i8, ptr %2, i64 3516
-  store i32 0, ptr %296, align 4, !tbaa !99
-  br label %300
+  %252 = select i1 %isnotneg.inv.i, i32 0, i32 15
+  %.0.i = select i1 %251, i32 %252, i32 %250
+  %253 = trunc i32 %.0.i to i8
+  %254 = getelementptr inbounds nuw i8, ptr %2, i64 1893
+  store i8 %253, ptr %254, align 1, !tbaa !133
+  %255 = and i32 %.0.i, 255
+  %256 = add nuw nsw i32 %255, 6
+  %257 = zext nneg i32 %256 to i64
+  %258 = ashr i64 %240, %257
+  %259 = trunc i64 %258 to i32
+  %260 = add i32 %259, -1
+  %261 = getelementptr inbounds nuw i8, ptr %2, i64 1896
+  store i32 %260, ptr %261, align 4, !tbaa !99
+  %262 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %263 = load i64, ptr %262, align 8, !tbaa !134
+  %264 = trunc i64 %263 to i32
+  %.not.i231 = icmp ult i32 %264, 65536
+  %265 = lshr i32 %264, 16
+  %spec.select.i232 = select i1 %.not.i231, i32 %264, i32 %265
+  %spec.select12.i233 = select i1 %.not.i231, i32 0, i32 16
+  %.not11.i234 = icmp samesign ult i32 %spec.select.i232, 256
+  %266 = lshr i32 %spec.select.i232, 8
+  %267 = or disjoint i32 %spec.select12.i233, 8
+  %.110.i235 = select i1 %.not11.i234, i32 %spec.select.i232, i32 %266
+  %.1.i236 = select i1 %.not11.i234, i32 %spec.select12.i233, i32 %267
+  %268 = zext nneg i32 %.110.i235 to i64
+  %269 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %268
+  %270 = load i8, ptr %269, align 1, !tbaa !132
+  %271 = zext i8 %270 to i32
+  %272 = add nuw nsw i32 %.1.i236, %271
+  %273 = add nsw i32 %272, -19
+  %274 = icmp ugt i32 %273, 15
+  %isnotneg.inv.i229 = icmp samesign ult i32 %272, 19
+  %275 = select i1 %isnotneg.inv.i229, i32 0, i32 15
+  %.0.i230 = select i1 %274, i32 %275, i32 %273
+  %276 = trunc i32 %.0.i230 to i8
+  %277 = getelementptr inbounds nuw i8, ptr %2, i64 1894
+  store i8 %276, ptr %277, align 2, !tbaa !135
+  %278 = and i32 %.0.i230, 255
+  %279 = add nuw nsw i32 %278, 4
+  %280 = zext nneg i32 %279 to i64
+  %281 = lshr i64 %263, %280
+  %282 = trunc i64 %281 to i32
+  %283 = add i32 %282, -1
+  %284 = getelementptr inbounds nuw i8, ptr %2, i64 2024
+  store i32 %283, ptr %284, align 4, !tbaa !99
+  %285 = getelementptr inbounds nuw i8, ptr %2, i64 2152
+  store i8 0, ptr %285, align 4, !tbaa !132
+  %286 = getelementptr inbounds nuw i8, ptr %2, i64 2184
+  store i8 23, ptr %286, align 4, !tbaa !136
+  %287 = getelementptr inbounds nuw i8, ptr %2, i64 2185
+  store i8 23, ptr %287, align 1, !tbaa !137
+  %288 = getelementptr inbounds nuw i8, ptr %2, i64 2186
+  store i8 7, ptr %288, align 2, !tbaa !138
+  %289 = getelementptr inbounds nuw i8, ptr %2, i64 2187
+  store i8 0, ptr %289, align 1, !tbaa !139
+  %290 = load i8, ptr %96, align 1, !tbaa !77
+  store i8 %290, ptr %237, align 4, !tbaa !140
+  %291 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %292 = load i64, ptr %291, align 8, !tbaa !141
+  %293 = mul i64 %292, 90000
+  %294 = load i64, ptr %262, align 8, !tbaa !134
+  %295 = udiv i64 %293, %294
+  %296 = trunc i64 %295 to i32
+  %297 = getelementptr inbounds nuw i8, ptr %2, i64 3388
+  store i32 %296, ptr %297, align 4, !tbaa !99
+  %298 = getelementptr inbounds nuw i8, ptr %2, i64 3516
+  store i32 0, ptr %298, align 4, !tbaa !99
+  br label %302
 
-297:                                              ; preds = %229
-  %298 = getelementptr inbounds nuw i8, ptr %2, i64 1889
-  store i8 0, ptr %298, align 1, !tbaa !130
-  %299 = getelementptr inbounds nuw i8, ptr %2, i64 2488
-  store i8 %.neg, ptr %299, align 4, !tbaa !142
-  br label %300
+299:                                              ; preds = %229
+  %300 = getelementptr inbounds nuw i8, ptr %2, i64 1889
+  store i8 0, ptr %300, align 1, !tbaa !130
+  %301 = getelementptr inbounds nuw i8, ptr %2, i64 2488
+  store i8 %.neg, ptr %301, align 4, !tbaa !142
+  br label %302
 
-300:                                              ; preds = %297, %235
-  %301 = getelementptr inbounds nuw i8, ptr %2, i64 2490
-  store i8 1, ptr %301, align 2, !tbaa !143
-  %302 = getelementptr inbounds nuw i8, ptr %2, i64 2491
-  store i8 1, ptr %302, align 1, !tbaa !144
-  %303 = getelementptr inbounds nuw i8, ptr %2, i64 2494
-  store i8 15, ptr %303, align 2, !tbaa !145
-  %304 = getelementptr inbounds nuw i8, ptr %2, i64 2495
-  store i8 15, ptr %304, align 1, !tbaa !146
-  %305 = load i32, ptr %103, align 8, !tbaa !60
-  %306 = trunc i32 %305 to i8
-  %307 = getelementptr inbounds nuw i8, ptr %2, i64 2496
-  store i8 %306, ptr %307, align 4, !tbaa !147
-  %308 = add i8 %306, 1
-  %309 = getelementptr inbounds nuw i8, ptr %2, i64 2497
-  store i8 %308, ptr %309, align 1, !tbaa !148
+302:                                              ; preds = %299, %235
+  %303 = getelementptr inbounds nuw i8, ptr %2, i64 2490
+  store i8 1, ptr %303, align 2, !tbaa !143
+  %304 = getelementptr inbounds nuw i8, ptr %2, i64 2491
+  store i8 1, ptr %304, align 1, !tbaa !144
+  %305 = getelementptr inbounds nuw i8, ptr %2, i64 2494
+  store i8 15, ptr %305, align 2, !tbaa !145
+  %306 = getelementptr inbounds nuw i8, ptr %2, i64 2495
+  store i8 15, ptr %306, align 1, !tbaa !146
+  %307 = load i32, ptr %103, align 8, !tbaa !60
+  %308 = trunc i32 %307 to i8
+  %309 = getelementptr inbounds nuw i8, ptr %2, i64 2496
+  store i8 %308, ptr %309, align 4, !tbaa !147
+  %310 = add i8 %308, 1
+  %311 = getelementptr inbounds nuw i8, ptr %2, i64 2497
+  store i8 %310, ptr %311, align 1, !tbaa !148
   store i8 3, ptr %7, align 8, !tbaa !149
-  %310 = getelementptr inbounds nuw i8, ptr %2, i64 2505
-  store i8 8, ptr %310, align 1, !tbaa !150
-  %311 = getelementptr inbounds nuw i8, ptr %2, i64 2508
-  store i8 0, ptr %311, align 4, !tbaa !151
-  %312 = getelementptr inbounds nuw i8, ptr %2, i64 2509
-  store i8 0, ptr %312, align 1, !tbaa !152
-  %313 = load i8, ptr %33, align 4, !tbaa !53
-  switch i8 %313, label %314 [
-    i8 66, label %317
-    i8 88, label %317
+  %312 = getelementptr inbounds nuw i8, ptr %2, i64 2505
+  store i8 8, ptr %312, align 1, !tbaa !150
+  %313 = getelementptr inbounds nuw i8, ptr %2, i64 2508
+  store i8 0, ptr %313, align 4, !tbaa !151
+  %314 = getelementptr inbounds nuw i8, ptr %2, i64 2509
+  store i8 0, ptr %314, align 1, !tbaa !152
+  %315 = load i8, ptr %33, align 4, !tbaa !53
+  switch i8 %315, label %316 [
+    i8 66, label %319
+    i8 88, label %319
   ]
 
-314:                                              ; preds = %300
-  %315 = icmp ne i8 %313, 44
-  %316 = zext i1 %315 to i8
-  br label %317
+316:                                              ; preds = %302
+  %317 = icmp ne i8 %315, 44
+  %318 = zext i1 %317 to i8
+  br label %319
 
-317:                                              ; preds = %300, %300, %314
-  %318 = phi i8 [ 0, %300 ], [ %316, %314 ], [ 0, %300 ]
-  %319 = getelementptr inbounds nuw i8, ptr %2, i64 2510
-  %320 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %321 = load i32, ptr %320, align 8, !tbaa !153
-  %.not227.not = icmp eq i32 %321, 0
-  %spec.store.select = select i1 %.not227.not, i8 0, i8 %318
-  store i8 %spec.store.select, ptr %319, align 2
-  %322 = getelementptr inbounds nuw i8, ptr %2, i64 2584
-  store i8 0, ptr %322, align 8, !tbaa !154
-  %323 = getelementptr inbounds nuw i8, ptr %2, i64 2585
-  store i8 0, ptr %323, align 1, !tbaa !155
-  %324 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %325 = load i32, ptr %324, align 4, !tbaa !156
-  %326 = trunc i32 %325 to i8
-  %327 = add i8 %326, -26
-  %328 = getelementptr inbounds nuw i8, ptr %2, i64 2588
-  store i8 %327, ptr %328, align 4, !tbaa !157
-  switch i8 %313, label %331 [
-    i8 66, label %329
-    i8 88, label %329
-    i8 77, label %329
+319:                                              ; preds = %302, %302, %316
+  %320 = phi i8 [ 0, %302 ], [ %318, %316 ], [ 0, %302 ]
+  %321 = getelementptr inbounds nuw i8, ptr %2, i64 2510
+  %322 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %323 = load i32, ptr %322, align 8, !tbaa !153
+  %.not227.not = icmp eq i32 %323, 0
+  %spec.store.select = select i1 %.not227.not, i8 0, i8 %320
+  store i8 %spec.store.select, ptr %321, align 2
+  %324 = getelementptr inbounds nuw i8, ptr %2, i64 2584
+  store i8 0, ptr %324, align 8, !tbaa !154
+  %325 = getelementptr inbounds nuw i8, ptr %2, i64 2585
+  store i8 0, ptr %325, align 1, !tbaa !155
+  %326 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %327 = load i32, ptr %326, align 4, !tbaa !156
+  %328 = trunc i32 %327 to i8
+  %329 = add i8 %328, -26
+  %330 = getelementptr inbounds nuw i8, ptr %2, i64 2588
+  store i8 %329, ptr %330, align 4, !tbaa !157
+  switch i8 %315, label %333 [
+    i8 66, label %331
+    i8 88, label %331
+    i8 77, label %331
   ]
 
-329:                                              ; preds = %317, %317, %317
-  %330 = getelementptr inbounds nuw i8, ptr %2, i64 2593
-  store i8 0, ptr %330, align 1, !tbaa !158
-  br label %334
-
-331:                                              ; preds = %317
+331:                                              ; preds = %319, %319, %319
   %332 = getelementptr inbounds nuw i8, ptr %2, i64 2593
-  store i8 1, ptr %332, align 1, !tbaa !158
-  %333 = getelementptr inbounds nuw i8, ptr %2, i64 2595
-  store i8 1, ptr %333, align 1, !tbaa !159
-  br label %334
+  store i8 0, ptr %332, align 1, !tbaa !158
+  br label %336
 
-334:                                              ; preds = %329, %331, %24
-  %.0 = phi i32 [ -22, %24 ], [ 0, %331 ], [ 0, %329 ]
+333:                                              ; preds = %319
+  %334 = getelementptr inbounds nuw i8, ptr %2, i64 2593
+  store i8 1, ptr %334, align 1, !tbaa !158
+  %335 = getelementptr inbounds nuw i8, ptr %2, i64 2595
+  store i8 1, ptr %335, align 1, !tbaa !159
+  br label %336
+
+336:                                              ; preds = %331, %333, %24
+  %.0 = phi i32 [ -22, %24 ], [ 0, %333 ], [ 0, %331 ]
   ret i32 %.0
 }
 

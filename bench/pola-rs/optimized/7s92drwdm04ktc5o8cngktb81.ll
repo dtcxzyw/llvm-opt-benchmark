@@ -19700,710 +19700,704 @@ define internal fastcc noundef zeroext i1 @"_ZN75_$LT$sqlparser..ast..query..Gro
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal fastcc noundef zeroext i1 @"_ZN75_$LT$sqlparser..ast..query..TableFactor$u20$as$u20$core..cmp..PartialEq$GT$2eq17h88baa484cd87d3edE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(568) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(568) %1) unnamed_addr #0 {
   %3 = load i64, ptr %0, align 8, !range !804, !noundef !4
-  %4 = add nsw i64 %3, -71
-  %5 = icmp ult i64 %4, 10
-  %6 = add nsw i64 %3, -70
-  %7 = select i1 %5, i64 %6, i64 0
-  %8 = load i64, ptr %1, align 8, !range !804, !noundef !4
-  %9 = add nsw i64 %8, -71
-  %10 = icmp ult i64 %9, 10
-  %11 = add nsw i64 %8, -70
-  %12 = select i1 %10, i64 %11, i64 0
-  %13 = icmp eq i64 %7, %12
-  br i1 %13, label %14, label %.critedge
+  %4 = tail call i64 @llvm.usub.sat.i64(i64 %3, i64 70)
+  %5 = load i64, ptr %1, align 8, !range !804, !noundef !4
+  %6 = tail call i64 @llvm.usub.sat.i64(i64 %5, i64 70)
+  %7 = icmp eq i64 %4, %6
+  br i1 %7, label %8, label %.critedge
 
-14:                                               ; preds = %2
-  switch i64 %7, label %15 [
-    i64 0, label %16
-    i64 1, label %22
-    i64 2, label %28
-    i64 3, label %32
-    i64 4, label %38
-    i64 5, label %44
-    i64 6, label %48
-    i64 7, label %52
-    i64 8, label %63
-    i64 9, label %71
-    i64 10, label %79
+8:                                                ; preds = %2
+  switch i64 %4, label %9 [
+    i64 0, label %10
+    i64 1, label %16
+    i64 2, label %22
+    i64 3, label %26
+    i64 4, label %32
+    i64 5, label %38
+    i64 6, label %42
+    i64 7, label %46
+    i64 8, label %57
+    i64 9, label %65
+    i64 10, label %73
   ]
 
-.critedge:                                        ; preds = %374, %311, %291, %259, %251, %227, %177, %157, %149, %131, %52, %"_ZN78_$LT$sqlparser..ast..query..AfterMatchSkip$u20$as$u20$core..cmp..PartialEq$GT$2eq17h97c57ceb9c0434feE.exit", %353, %289, %243, %209, %187, %117, %105, %95, %380, %368, %"_ZN78_$LT$sqlparser..ast..query..AfterMatchSkip$u20$as$u20$core..cmp..PartialEq$GT$2eq17h97c57ceb9c0434feE.exit.thread", %361, %344, %331, %325, %319, %79, %359, %351, %345, %343, %71, %299, %303, %305, %297, %288, %279, %273, %267, %63, %287, %"_ZN78_$LT$sqlparser..ast..query..TableWithJoins$u20$as$u20$core..cmp..PartialEq$GT$2eq17h437db91afa078898E.exit", %257, %241, %245, %242, %48, %44, %217, %221, %211, %207, %185, %208, %195, %189, %186, %32, %165, %171, %28, %22, %143, %137, %115, %103, %93, %125, %119, %116, %107, %104, %94, %16, %2, %317, %265, %233, %183, %163, %155
-  %.sroa.0.0 = phi i1 [ %156, %155 ], [ %164, %163 ], [ %184, %183 ], [ %234, %233 ], [ %266, %265 ], [ %318, %317 ], [ false, %2 ], [ %142, %137 ], [ false, %115 ], [ false, %103 ], [ false, %93 ], [ false, %125 ], [ false, %119 ], [ false, %116 ], [ false, %107 ], [ false, %104 ], [ false, %94 ], [ false, %16 ], [ false, %143 ], [ false, %22 ], [ false, %28 ], [ false, %171 ], [ false, %165 ], [ false, %32 ], [ %216, %211 ], [ false, %207 ], [ false, %185 ], [ false, %208 ], [ false, %195 ], [ false, %189 ], [ false, %186 ], [ false, %221 ], [ false, %217 ], [ false, %44 ], [ %258, %257 ], [ false, %241 ], [ false, %245 ], [ false, %242 ], [ false, %48 ], [ false, %"_ZN78_$LT$sqlparser..ast..query..TableWithJoins$u20$as$u20$core..cmp..PartialEq$GT$2eq17h437db91afa078898E.exit" ], [ %298, %297 ], [ false, %288 ], [ false, %279 ], [ false, %273 ], [ false, %267 ], [ false, %63 ], [ false, %287 ], [ false, %305 ], [ false, %303 ], [ false, %299 ], [ false, %71 ], [ %381, %380 ], [ false, %368 ], [ false, %"_ZN78_$LT$sqlparser..ast..query..AfterMatchSkip$u20$as$u20$core..cmp..PartialEq$GT$2eq17h97c57ceb9c0434feE.exit.thread" ], [ false, %361 ], [ false, %344 ], [ false, %331 ], [ false, %325 ], [ false, %319 ], [ false, %79 ], [ false, %359 ], [ false, %351 ], [ false, %345 ], [ false, %343 ], [ false, %95 ], [ false, %105 ], [ false, %117 ], [ false, %187 ], [ false, %209 ], [ false, %243 ], [ false, %289 ], [ false, %353 ], [ false, %"_ZN78_$LT$sqlparser..ast..query..AfterMatchSkip$u20$as$u20$core..cmp..PartialEq$GT$2eq17h97c57ceb9c0434feE.exit" ], [ false, %52 ], [ %.mux, %131 ], [ %.mux131, %149 ], [ %.mux133, %157 ], [ %.mux135, %177 ], [ %.mux137, %227 ], [ %.mux139, %251 ], [ %.mux141, %259 ], [ %.mux143, %291 ], [ %.mux145, %311 ], [ %.mux147, %374 ]
+.critedge:                                        ; preds = %368, %305, %285, %253, %245, %221, %171, %151, %143, %125, %46, %"_ZN78_$LT$sqlparser..ast..query..AfterMatchSkip$u20$as$u20$core..cmp..PartialEq$GT$2eq17h97c57ceb9c0434feE.exit", %347, %283, %237, %203, %181, %111, %99, %89, %374, %362, %"_ZN78_$LT$sqlparser..ast..query..AfterMatchSkip$u20$as$u20$core..cmp..PartialEq$GT$2eq17h97c57ceb9c0434feE.exit.thread", %355, %338, %325, %319, %313, %73, %353, %345, %339, %337, %65, %293, %297, %299, %291, %282, %273, %267, %261, %57, %281, %"_ZN78_$LT$sqlparser..ast..query..TableWithJoins$u20$as$u20$core..cmp..PartialEq$GT$2eq17h437db91afa078898E.exit", %251, %235, %239, %236, %42, %38, %211, %215, %205, %201, %179, %202, %189, %183, %180, %26, %159, %165, %22, %16, %137, %131, %109, %97, %87, %119, %113, %110, %101, %98, %88, %10, %2, %311, %259, %227, %177, %157, %149
+  %.sroa.0.0 = phi i1 [ %150, %149 ], [ %158, %157 ], [ %178, %177 ], [ %228, %227 ], [ %260, %259 ], [ %312, %311 ], [ false, %2 ], [ %136, %131 ], [ false, %109 ], [ false, %97 ], [ false, %87 ], [ false, %119 ], [ false, %113 ], [ false, %110 ], [ false, %101 ], [ false, %98 ], [ false, %88 ], [ false, %10 ], [ false, %137 ], [ false, %16 ], [ false, %22 ], [ false, %165 ], [ false, %159 ], [ false, %26 ], [ %210, %205 ], [ false, %201 ], [ false, %179 ], [ false, %202 ], [ false, %189 ], [ false, %183 ], [ false, %180 ], [ false, %215 ], [ false, %211 ], [ false, %38 ], [ %252, %251 ], [ false, %235 ], [ false, %239 ], [ false, %236 ], [ false, %42 ], [ false, %"_ZN78_$LT$sqlparser..ast..query..TableWithJoins$u20$as$u20$core..cmp..PartialEq$GT$2eq17h437db91afa078898E.exit" ], [ %292, %291 ], [ false, %282 ], [ false, %273 ], [ false, %267 ], [ false, %261 ], [ false, %57 ], [ false, %281 ], [ false, %299 ], [ false, %297 ], [ false, %293 ], [ false, %65 ], [ %375, %374 ], [ false, %362 ], [ false, %"_ZN78_$LT$sqlparser..ast..query..AfterMatchSkip$u20$as$u20$core..cmp..PartialEq$GT$2eq17h97c57ceb9c0434feE.exit.thread" ], [ false, %355 ], [ false, %338 ], [ false, %325 ], [ false, %319 ], [ false, %313 ], [ false, %73 ], [ false, %353 ], [ false, %345 ], [ false, %339 ], [ false, %337 ], [ false, %89 ], [ false, %99 ], [ false, %111 ], [ false, %181 ], [ false, %203 ], [ false, %237 ], [ false, %283 ], [ false, %347 ], [ false, %"_ZN78_$LT$sqlparser..ast..query..AfterMatchSkip$u20$as$u20$core..cmp..PartialEq$GT$2eq17h97c57ceb9c0434feE.exit" ], [ false, %46 ], [ %.mux, %125 ], [ %.mux131, %143 ], [ %.mux133, %151 ], [ %.mux135, %171 ], [ %.mux137, %221 ], [ %.mux139, %245 ], [ %.mux141, %253 ], [ %.mux143, %285 ], [ %.mux145, %305 ], [ %.mux147, %368 ]
   ret i1 %.sroa.0.0
 
-15:                                               ; preds = %14
+9:                                                ; preds = %8
   unreachable
 
-16:                                               ; preds = %14
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 336
-  %.val73 = load ptr, ptr %17, align 8, !nonnull !4, !noundef !4
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 344
-  %.val74 = load i64, ptr %18, align 8, !noundef !4
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 336
-  %.val75 = load ptr, ptr %19, align 8, !nonnull !4, !noundef !4
-  %20 = getelementptr inbounds nuw i8, ptr %1, i64 344
-  %.val76 = load i64, ptr %20, align 8, !noundef !4
-  %21 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5420c5986c532e4fE"(ptr noalias noundef nonnull readonly align 8 %.val73, i64 noundef %.val74, ptr noalias noundef nonnull readonly align 8 %.val75, i64 noundef %.val76)
-  br i1 %21, label %87, label %.critedge
+10:                                               ; preds = %8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 336
+  %.val73 = load ptr, ptr %11, align 8, !nonnull !4, !noundef !4
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 344
+  %.val74 = load i64, ptr %12, align 8, !noundef !4
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 336
+  %.val75 = load ptr, ptr %13, align 8, !nonnull !4, !noundef !4
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 344
+  %.val76 = load i64, ptr %14, align 8, !noundef !4
+  %15 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5420c5986c532e4fE"(ptr noalias noundef nonnull readonly align 8 %.val73, i64 noundef %.val74, ptr noalias noundef nonnull readonly align 8 %.val75, i64 noundef %.val76)
+  br i1 %15, label %81, label %.critedge
 
-22:                                               ; preds = %14
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %24 = load i8, ptr %23, align 8, !range !14, !noundef !4
-  %25 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %26 = load i8, ptr %25, align 8, !range !14, !noundef !4
-  %27 = icmp eq i8 %24, %26
-  br i1 %27, label %143, label %.critedge
+16:                                               ; preds = %8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %18 = load i8, ptr %17, align 8, !range !14, !noundef !4
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  %20 = load i8, ptr %19, align 8, !range !14, !noundef !4
+  %21 = icmp eq i8 %18, %20
+  br i1 %21, label %137, label %.critedge
 
-28:                                               ; preds = %14
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %31 = tail call fastcc noundef zeroext i1 @"_ZN61_$LT$sqlparser..ast..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h35bb663b0d0eef03E"(ptr noalias noundef readonly align 8 dereferenceable(328) %29, ptr noalias noundef readonly align 8 dereferenceable(328) %30)
-  br i1 %31, label %157, label %.critedge
+22:                                               ; preds = %8
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %25 = tail call fastcc noundef zeroext i1 @"_ZN61_$LT$sqlparser..ast..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h35bb663b0d0eef03E"(ptr noalias noundef readonly align 8 dereferenceable(328) %23, ptr noalias noundef readonly align 8 dereferenceable(328) %24)
+  br i1 %25, label %151, label %.critedge
 
-32:                                               ; preds = %14
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %34 = load i8, ptr %33, align 8, !range !14, !noundef !4
-  %35 = getelementptr inbounds nuw i8, ptr %1, i64 144
-  %36 = load i8, ptr %35, align 8, !range !14, !noundef !4
-  %37 = icmp eq i8 %34, %36
-  br i1 %37, label %165, label %.critedge
+26:                                               ; preds = %8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %28 = load i8, ptr %27, align 8, !range !14, !noundef !4
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 144
+  %30 = load i8, ptr %29, align 8, !range !14, !noundef !4
+  %31 = icmp eq i8 %28, %30
+  br i1 %31, label %159, label %.critedge
 
-38:                                               ; preds = %14
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %40 = load i64, ptr %39, align 8, !range !3, !noundef !4
-  %.not34 = icmp eq i64 %40, -9223372036854775808
-  %41 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %42 = load i64, ptr %41, align 8, !range !3, !noundef !4
-  %43 = icmp eq i64 %42, -9223372036854775808
-  br i1 %.not34, label %186, label %185
+32:                                               ; preds = %8
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %34 = load i64, ptr %33, align 8, !range !3, !noundef !4
+  %.not34 = icmp eq i64 %34, -9223372036854775808
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %36 = load i64, ptr %35, align 8, !range !3, !noundef !4
+  %37 = icmp eq i64 %36, -9223372036854775808
+  br i1 %.not34, label %180, label %179
 
-44:                                               ; preds = %14
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %47 = tail call fastcc noundef zeroext i1 @"_ZN61_$LT$sqlparser..ast..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h35bb663b0d0eef03E"(ptr noalias noundef readonly align 8 dereferenceable(328) %45, ptr noalias noundef readonly align 8 dereferenceable(328) %46)
-  br i1 %47, label %217, label %.critedge
+38:                                               ; preds = %8
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %41 = tail call fastcc noundef zeroext i1 @"_ZN61_$LT$sqlparser..ast..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h35bb663b0d0eef03E"(ptr noalias noundef readonly align 8 dereferenceable(328) %39, ptr noalias noundef readonly align 8 dereferenceable(328) %40)
+  br i1 %41, label %211, label %.critedge
 
-48:                                               ; preds = %14
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %50 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %51 = tail call fastcc noundef zeroext i1 @"_ZN61_$LT$sqlparser..ast..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h35bb663b0d0eef03E"(ptr noalias noundef readonly align 8 dereferenceable(328) %49, ptr noalias noundef readonly align 8 dereferenceable(328) %50)
-  br i1 %51, label %235, label %.critedge
+42:                                               ; preds = %8
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %45 = tail call fastcc noundef zeroext i1 @"_ZN61_$LT$sqlparser..ast..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h35bb663b0d0eef03E"(ptr noalias noundef readonly align 8 dereferenceable(328) %43, ptr noalias noundef readonly align 8 dereferenceable(328) %44)
+  br i1 %45, label %229, label %.critedge
 
-52:                                               ; preds = %14
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %54 = load ptr, ptr %53, align 8, !nonnull !4, !noundef !4
-  %55 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %56 = load ptr, ptr %55, align 8, !nonnull !4, !noundef !4
+46:                                               ; preds = %8
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %48 = load ptr, ptr %47, align 8, !nonnull !4, !noundef !4
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  %50 = load ptr, ptr %49, align 8, !nonnull !4, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !805)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !808)
-  %57 = tail call fastcc noundef zeroext i1 @"_ZN75_$LT$sqlparser..ast..query..TableFactor$u20$as$u20$core..cmp..PartialEq$GT$2eq17h88baa484cd87d3edE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(592) %54, ptr noalias noundef nonnull readonly align 8 dereferenceable(592) %56)
-  br i1 %57, label %"_ZN78_$LT$sqlparser..ast..query..TableWithJoins$u20$as$u20$core..cmp..PartialEq$GT$2eq17h437db91afa078898E.exit", label %.critedge
+  %51 = tail call fastcc noundef zeroext i1 @"_ZN75_$LT$sqlparser..ast..query..TableFactor$u20$as$u20$core..cmp..PartialEq$GT$2eq17h88baa484cd87d3edE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(592) %48, ptr noalias noundef nonnull readonly align 8 dereferenceable(592) %50)
+  br i1 %51, label %"_ZN78_$LT$sqlparser..ast..query..TableWithJoins$u20$as$u20$core..cmp..PartialEq$GT$2eq17h437db91afa078898E.exit", label %.critedge
 
-"_ZN78_$LT$sqlparser..ast..query..TableWithJoins$u20$as$u20$core..cmp..PartialEq$GT$2eq17h437db91afa078898E.exit": ; preds = %52
-  %58 = getelementptr i8, ptr %54, i64 576
-  %.val.i = load ptr, ptr %58, align 8, !alias.scope !805, !noalias !808, !nonnull !4, !noundef !4
-  %59 = getelementptr i8, ptr %54, i64 584
-  %.val1.i = load i64, ptr %59, align 8, !alias.scope !805, !noalias !808, !noundef !4
-  %60 = getelementptr i8, ptr %56, i64 576
-  %.val2.i = load ptr, ptr %60, align 8, !alias.scope !808, !noalias !805, !nonnull !4, !noundef !4
-  %61 = getelementptr i8, ptr %56, i64 584
-  %.val3.i = load i64, ptr %61, align 8, !alias.scope !808, !noalias !805, !noundef !4
-  %62 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h589a018c94f96fd8E"(ptr noalias noundef nonnull readonly align 8 %.val.i, i64 noundef %.val1.i, ptr noalias noundef nonnull readonly align 8 %.val2.i, i64 noundef %.val3.i)
-  br i1 %62, label %259, label %.critedge
+"_ZN78_$LT$sqlparser..ast..query..TableWithJoins$u20$as$u20$core..cmp..PartialEq$GT$2eq17h437db91afa078898E.exit": ; preds = %46
+  %52 = getelementptr i8, ptr %48, i64 576
+  %.val.i = load ptr, ptr %52, align 8, !alias.scope !805, !noalias !808, !nonnull !4, !noundef !4
+  %53 = getelementptr i8, ptr %48, i64 584
+  %.val1.i = load i64, ptr %53, align 8, !alias.scope !805, !noalias !808, !noundef !4
+  %54 = getelementptr i8, ptr %50, i64 576
+  %.val2.i = load ptr, ptr %54, align 8, !alias.scope !808, !noalias !805, !nonnull !4, !noundef !4
+  %55 = getelementptr i8, ptr %50, i64 584
+  %.val3.i = load i64, ptr %55, align 8, !alias.scope !808, !noalias !805, !noundef !4
+  %56 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h589a018c94f96fd8E"(ptr noalias noundef nonnull readonly align 8 %.val.i, i64 noundef %.val1.i, ptr noalias noundef nonnull readonly align 8 %.val2.i, i64 noundef %.val3.i)
+  br i1 %56, label %253, label %.critedge
 
-63:                                               ; preds = %14
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %65 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 504
-  %67 = load ptr, ptr %66, align 8, !nonnull !4, !noundef !4
-  %68 = getelementptr inbounds nuw i8, ptr %1, i64 504
+57:                                               ; preds = %8
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 504
+  %61 = load ptr, ptr %60, align 8, !nonnull !4, !noundef !4
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 504
+  %63 = load ptr, ptr %62, align 8, !nonnull !4, !noundef !4
+  %64 = tail call fastcc noundef zeroext i1 @"_ZN75_$LT$sqlparser..ast..query..TableFactor$u20$as$u20$core..cmp..PartialEq$GT$2eq17h88baa484cd87d3edE"(ptr noalias noundef readonly align 8 dereferenceable(568) %61, ptr noalias noundef readonly align 8 dereferenceable(568) %63)
+  br i1 %64, label %261, label %.critedge
+
+65:                                               ; preds = %8
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %67 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %69 = load ptr, ptr %68, align 8, !nonnull !4, !noundef !4
-  %70 = tail call fastcc noundef zeroext i1 @"_ZN75_$LT$sqlparser..ast..query..TableFactor$u20$as$u20$core..cmp..PartialEq$GT$2eq17h88baa484cd87d3edE"(ptr noalias noundef readonly align 8 dereferenceable(568) %67, ptr noalias noundef readonly align 8 dereferenceable(568) %69)
-  br i1 %70, label %267, label %.critedge
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 248
+  %71 = load ptr, ptr %70, align 8, !nonnull !4, !noundef !4
+  %72 = tail call fastcc noundef zeroext i1 @"_ZN75_$LT$sqlparser..ast..query..TableFactor$u20$as$u20$core..cmp..PartialEq$GT$2eq17h88baa484cd87d3edE"(ptr noalias noundef readonly align 8 dereferenceable(568) %69, ptr noalias noundef readonly align 8 dereferenceable(568) %71)
+  br i1 %72, label %293, label %.critedge
 
-71:                                               ; preds = %14
-  %72 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %73 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %74 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %75 = load ptr, ptr %74, align 8, !nonnull !4, !noundef !4
-  %76 = getelementptr inbounds nuw i8, ptr %1, i64 248
+73:                                               ; preds = %8
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  %75 = getelementptr inbounds nuw i8, ptr %1, i64 264
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %77 = load ptr, ptr %76, align 8, !nonnull !4, !noundef !4
-  %78 = tail call fastcc noundef zeroext i1 @"_ZN75_$LT$sqlparser..ast..query..TableFactor$u20$as$u20$core..cmp..PartialEq$GT$2eq17h88baa484cd87d3edE"(ptr noalias noundef readonly align 8 dereferenceable(568) %75, ptr noalias noundef readonly align 8 dereferenceable(568) %77)
-  br i1 %78, label %299, label %.critedge
+  %78 = getelementptr inbounds nuw i8, ptr %1, i64 336
+  %79 = load ptr, ptr %78, align 8, !nonnull !4, !noundef !4
+  %80 = tail call fastcc noundef zeroext i1 @"_ZN75_$LT$sqlparser..ast..query..TableFactor$u20$as$u20$core..cmp..PartialEq$GT$2eq17h88baa484cd87d3edE"(ptr noalias noundef readonly align 8 dereferenceable(568) %77, ptr noalias noundef readonly align 8 dereferenceable(568) %79)
+  br i1 %80, label %313, label %.critedge
 
-79:                                               ; preds = %14
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %81 = getelementptr inbounds nuw i8, ptr %1, i64 264
-  %82 = getelementptr inbounds nuw i8, ptr %0, i64 336
-  %83 = load ptr, ptr %82, align 8, !nonnull !4, !noundef !4
-  %84 = getelementptr inbounds nuw i8, ptr %1, i64 336
-  %85 = load ptr, ptr %84, align 8, !nonnull !4, !noundef !4
-  %86 = tail call fastcc noundef zeroext i1 @"_ZN75_$LT$sqlparser..ast..query..TableFactor$u20$as$u20$core..cmp..PartialEq$GT$2eq17h88baa484cd87d3edE"(ptr noalias noundef readonly align 8 dereferenceable(568) %83, ptr noalias noundef readonly align 8 dereferenceable(568) %85)
-  br i1 %86, label %319, label %.critedge
+81:                                               ; preds = %10
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 400
+  %83 = load i64, ptr %82, align 8, !range !3, !noundef !4
+  %.not44 = icmp eq i64 %83, -9223372036854775808
+  %84 = getelementptr inbounds nuw i8, ptr %1, i64 400
+  %85 = load i64, ptr %84, align 8, !range !3, !noundef !4
+  %86 = icmp eq i64 %85, -9223372036854775808
+  br i1 %.not44, label %88, label %87
 
-87:                                               ; preds = %16
-  %88 = getelementptr inbounds nuw i8, ptr %0, i64 400
-  %89 = load i64, ptr %88, align 8, !range !3, !noundef !4
-  %.not44 = icmp eq i64 %89, -9223372036854775808
-  %90 = getelementptr inbounds nuw i8, ptr %1, i64 400
-  %91 = load i64, ptr %90, align 8, !range !3, !noundef !4
-  %92 = icmp eq i64 %91, -9223372036854775808
-  br i1 %.not44, label %94, label %93
+87:                                               ; preds = %81
+  br i1 %86, label %.critedge, label %89
 
-93:                                               ; preds = %87
-  br i1 %92, label %.critedge, label %95
+88:                                               ; preds = %81
+  br i1 %86, label %91, label %.critedge
 
-94:                                               ; preds = %87
-  br i1 %92, label %97, label %.critedge
+89:                                               ; preds = %87
+  %90 = tail call fastcc noundef zeroext i1 @"_ZN74_$LT$sqlparser..ast..query..TableAlias$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6c57bdd9cd1efb2E"(ptr noalias noundef readonly align 8 dereferenceable(88) %82, ptr noalias noundef readonly align 8 dereferenceable(88) %84)
+  br i1 %90, label %91, label %.critedge
 
-95:                                               ; preds = %93
-  %96 = tail call fastcc noundef zeroext i1 @"_ZN74_$LT$sqlparser..ast..query..TableAlias$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6c57bdd9cd1efb2E"(ptr noalias noundef readonly align 8 dereferenceable(88) %88, ptr noalias noundef readonly align 8 dereferenceable(88) %90)
-  br i1 %96, label %97, label %.critedge
+91:                                               ; preds = %89, %88
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 488
+  %93 = load i64, ptr %92, align 8, !range !3, !noundef !4
+  %.not46 = icmp eq i64 %93, -9223372036854775808
+  %94 = getelementptr inbounds nuw i8, ptr %1, i64 488
+  %95 = load i64, ptr %94, align 8, !range !3, !noundef !4
+  %96 = icmp eq i64 %95, -9223372036854775808
+  br i1 %.not46, label %98, label %97
 
-97:                                               ; preds = %95, %94
-  %98 = getelementptr inbounds nuw i8, ptr %0, i64 488
-  %99 = load i64, ptr %98, align 8, !range !3, !noundef !4
-  %.not46 = icmp eq i64 %99, -9223372036854775808
-  %100 = getelementptr inbounds nuw i8, ptr %1, i64 488
-  %101 = load i64, ptr %100, align 8, !range !3, !noundef !4
-  %102 = icmp eq i64 %101, -9223372036854775808
-  br i1 %.not46, label %104, label %103
+97:                                               ; preds = %91
+  br i1 %96, label %.critedge, label %99
 
-103:                                              ; preds = %97
-  br i1 %102, label %.critedge, label %105
+98:                                               ; preds = %91
+  br i1 %96, label %101, label %.critedge
 
-104:                                              ; preds = %97
-  br i1 %102, label %107, label %.critedge
+99:                                               ; preds = %97
+  %100 = tail call fastcc noundef zeroext i1 @"_ZN81_$LT$sqlparser..ast..query..TableFunctionArgs$u20$as$u20$core..cmp..PartialEq$GT$2eq17he3aa0cd9aa729266E"(ptr noalias noundef readonly align 8 dereferenceable(48) %92, ptr noalias noundef readonly align 8 dereferenceable(48) %94)
+  br i1 %100, label %101, label %.critedge
 
-105:                                              ; preds = %103
-  %106 = tail call fastcc noundef zeroext i1 @"_ZN81_$LT$sqlparser..ast..query..TableFunctionArgs$u20$as$u20$core..cmp..PartialEq$GT$2eq17he3aa0cd9aa729266E"(ptr noalias noundef readonly align 8 dereferenceable(48) %98, ptr noalias noundef readonly align 8 dereferenceable(48) %100)
+101:                                              ; preds = %99, %98
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 360
+  %.val85 = load ptr, ptr %102, align 8, !nonnull !4, !noundef !4
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 368
+  %.val86 = load i64, ptr %103, align 8, !noundef !4
+  %104 = getelementptr inbounds nuw i8, ptr %1, i64 360
+  %.val87 = load ptr, ptr %104, align 8, !nonnull !4, !noundef !4
+  %105 = getelementptr inbounds nuw i8, ptr %1, i64 368
+  %.val88 = load i64, ptr %105, align 8, !noundef !4
+  %106 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h998c99af45e81baeE"(ptr noalias noundef nonnull readonly align 8 %.val85, i64 noundef %.val86, ptr noalias noundef nonnull readonly align 8 %.val87, i64 noundef %.val88)
   br i1 %106, label %107, label %.critedge
 
-107:                                              ; preds = %105, %104
-  %108 = getelementptr inbounds nuw i8, ptr %0, i64 360
-  %.val85 = load ptr, ptr %108, align 8, !nonnull !4, !noundef !4
-  %109 = getelementptr inbounds nuw i8, ptr %0, i64 368
-  %.val86 = load i64, ptr %109, align 8, !noundef !4
-  %110 = getelementptr inbounds nuw i8, ptr %1, i64 360
-  %.val87 = load ptr, ptr %110, align 8, !nonnull !4, !noundef !4
-  %111 = getelementptr inbounds nuw i8, ptr %1, i64 368
-  %.val88 = load i64, ptr %111, align 8, !noundef !4
-  %112 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h998c99af45e81baeE"(ptr noalias noundef nonnull readonly align 8 %.val85, i64 noundef %.val86, ptr noalias noundef nonnull readonly align 8 %.val87, i64 noundef %.val88)
+107:                                              ; preds = %101
+  %.not48 = icmp eq i64 %3, 70
+  %108 = icmp eq i64 %5, 70
+  br i1 %.not48, label %110, label %109
+
+109:                                              ; preds = %107
+  br i1 %108, label %.critedge, label %111
+
+110:                                              ; preds = %107
+  br i1 %108, label %113, label %.critedge
+
+111:                                              ; preds = %109
+  %112 = tail call fastcc noundef zeroext i1 @"_ZN61_$LT$sqlparser..ast..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h35bb663b0d0eef03E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(328) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(328) %1)
   br i1 %112, label %113, label %.critedge
 
-113:                                              ; preds = %107
-  %.not48 = icmp eq i64 %3, 70
-  %114 = icmp eq i64 %8, 70
-  br i1 %.not48, label %116, label %115
-
-115:                                              ; preds = %113
-  br i1 %114, label %.critedge, label %117
-
-116:                                              ; preds = %113
-  br i1 %114, label %119, label %.critedge
-
-117:                                              ; preds = %115
-  %118 = tail call fastcc noundef zeroext i1 @"_ZN61_$LT$sqlparser..ast..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h35bb663b0d0eef03E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(328) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(328) %1)
+113:                                              ; preds = %111, %110
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 560
+  %115 = load i8, ptr %114, align 8, !range !14, !noundef !4
+  %116 = getelementptr inbounds nuw i8, ptr %1, i64 560
+  %117 = load i8, ptr %116, align 8, !range !14, !noundef !4
+  %118 = icmp eq i8 %115, %117
   br i1 %118, label %119, label %.critedge
 
-119:                                              ; preds = %117, %116
-  %120 = getelementptr inbounds nuw i8, ptr %0, i64 560
-  %121 = load i8, ptr %120, align 8, !range !14, !noundef !4
-  %122 = getelementptr inbounds nuw i8, ptr %1, i64 560
-  %123 = load i8, ptr %122, align 8, !range !14, !noundef !4
-  %124 = icmp eq i8 %121, %123
+119:                                              ; preds = %113
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 384
+  %.val69 = load ptr, ptr %120, align 8, !nonnull !4, !noundef !4
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 392
+  %.val70 = load i64, ptr %121, align 8, !noundef !4
+  %122 = getelementptr inbounds nuw i8, ptr %1, i64 384
+  %.val71 = load ptr, ptr %122, align 8, !nonnull !4, !noundef !4
+  %123 = getelementptr inbounds nuw i8, ptr %1, i64 392
+  %.val72 = load i64, ptr %123, align 8, !noundef !4
+  %124 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5420c5986c532e4fE"(ptr noalias noundef nonnull readonly align 8 %.val69, i64 noundef %.val70, ptr noalias noundef nonnull readonly align 8 %.val71, i64 noundef %.val72)
   br i1 %124, label %125, label %.critedge
 
 125:                                              ; preds = %119
-  %126 = getelementptr inbounds nuw i8, ptr %0, i64 384
-  %.val69 = load ptr, ptr %126, align 8, !nonnull !4, !noundef !4
-  %127 = getelementptr inbounds nuw i8, ptr %0, i64 392
-  %.val70 = load i64, ptr %127, align 8, !noundef !4
-  %128 = getelementptr inbounds nuw i8, ptr %1, i64 384
-  %.val71 = load ptr, ptr %128, align 8, !nonnull !4, !noundef !4
-  %129 = getelementptr inbounds nuw i8, ptr %1, i64 392
-  %.val72 = load i64, ptr %129, align 8, !noundef !4
-  %130 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5420c5986c532e4fE"(ptr noalias noundef nonnull readonly align 8 %.val69, i64 noundef %.val70, ptr noalias noundef nonnull readonly align 8 %.val71, i64 noundef %.val72)
-  br i1 %130, label %131, label %.critedge
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 536
+  %127 = load i64, ptr %126, align 8, !range !3, !noundef !4
+  %.not50 = icmp eq i64 %127, -9223372036854775808
+  %128 = getelementptr inbounds nuw i8, ptr %1, i64 536
+  %129 = load i64, ptr %128, align 8, !range !3, !noundef !4
+  %130 = icmp eq i64 %129, -9223372036854775808
+  %brmerge = or i1 %.not50, %130
+  %.mux = and i1 %.not50, %130
+  br i1 %brmerge, label %.critedge, label %131
 
 131:                                              ; preds = %125
-  %132 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  %133 = load i64, ptr %132, align 8, !range !3, !noundef !4
-  %.not50 = icmp eq i64 %133, -9223372036854775808
-  %134 = getelementptr inbounds nuw i8, ptr %1, i64 536
-  %135 = load i64, ptr %134, align 8, !range !3, !noundef !4
-  %136 = icmp eq i64 %135, -9223372036854775808
-  %brmerge = or i1 %.not50, %136
-  %.mux = and i1 %.not50, %136
-  br i1 %brmerge, label %.critedge, label %137
-
-137:                                              ; preds = %131
-  %138 = getelementptr inbounds nuw i8, ptr %0, i64 544
-  %.val93 = load ptr, ptr %138, align 8, !nonnull !4, !noundef !4
-  %139 = getelementptr inbounds nuw i8, ptr %0, i64 552
-  %.val94 = load i64, ptr %139, align 8, !noundef !4
-  %140 = getelementptr inbounds nuw i8, ptr %1, i64 544
-  %.val95 = load ptr, ptr %140, align 8, !nonnull !4, !noundef !4
-  %141 = getelementptr inbounds nuw i8, ptr %1, i64 552
-  %.val96 = load i64, ptr %141, align 8, !noundef !4
-  %142 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hc3e59cb5d961678cE"(ptr noalias noundef nonnull readonly align 8 %.val93, i64 noundef %.val94, ptr noalias noundef nonnull readonly align 8 %.val95, i64 noundef %.val96)
+  %132 = getelementptr inbounds nuw i8, ptr %0, i64 544
+  %.val93 = load ptr, ptr %132, align 8, !nonnull !4, !noundef !4
+  %133 = getelementptr inbounds nuw i8, ptr %0, i64 552
+  %.val94 = load i64, ptr %133, align 8, !noundef !4
+  %134 = getelementptr inbounds nuw i8, ptr %1, i64 544
+  %.val95 = load ptr, ptr %134, align 8, !nonnull !4, !noundef !4
+  %135 = getelementptr inbounds nuw i8, ptr %1, i64 552
+  %.val96 = load i64, ptr %135, align 8, !noundef !4
+  %136 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hc3e59cb5d961678cE"(ptr noalias noundef nonnull readonly align 8 %.val93, i64 noundef %.val94, ptr noalias noundef nonnull readonly align 8 %.val95, i64 noundef %.val96)
   br label %.critedge
 
-143:                                              ; preds = %22
-  %144 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %145 = load ptr, ptr %144, align 8, !nonnull !4, !noundef !4
-  %146 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %147 = load ptr, ptr %146, align 8, !nonnull !4, !noundef !4
-  %148 = tail call fastcc noundef zeroext i1 @"_ZN69_$LT$sqlparser..ast..query..Query$u20$as$u20$core..cmp..PartialEq$GT$2eq17hb2f01d427898414aE"(ptr noalias noundef readonly align 8 dereferenceable(1376) %145, ptr noalias noundef readonly align 8 dereferenceable(1376) %147)
-  br i1 %148, label %149, label %.critedge
+137:                                              ; preds = %16
+  %138 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %139 = load ptr, ptr %138, align 8, !nonnull !4, !noundef !4
+  %140 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  %141 = load ptr, ptr %140, align 8, !nonnull !4, !noundef !4
+  %142 = tail call fastcc noundef zeroext i1 @"_ZN69_$LT$sqlparser..ast..query..Query$u20$as$u20$core..cmp..PartialEq$GT$2eq17hb2f01d427898414aE"(ptr noalias noundef readonly align 8 dereferenceable(1376) %139, ptr noalias noundef readonly align 8 dereferenceable(1376) %141)
+  br i1 %142, label %143, label %.critedge
+
+143:                                              ; preds = %137
+  %144 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %145 = load i64, ptr %144, align 8, !range !3, !noundef !4
+  %.not42 = icmp eq i64 %145, -9223372036854775808
+  %146 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %147 = load i64, ptr %146, align 8, !range !3, !noundef !4
+  %148 = icmp eq i64 %147, -9223372036854775808
+  %brmerge130 = or i1 %.not42, %148
+  %.mux131 = and i1 %.not42, %148
+  br i1 %brmerge130, label %.critedge, label %149
 
 149:                                              ; preds = %143
-  %150 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %151 = load i64, ptr %150, align 8, !range !3, !noundef !4
-  %.not42 = icmp eq i64 %151, -9223372036854775808
-  %152 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %150 = tail call fastcc noundef zeroext i1 @"_ZN74_$LT$sqlparser..ast..query..TableAlias$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6c57bdd9cd1efb2E"(ptr noalias noundef readonly align 8 dereferenceable(88) %144, ptr noalias noundef readonly align 8 dereferenceable(88) %146)
+  br label %.critedge
+
+151:                                              ; preds = %22
+  %152 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %153 = load i64, ptr %152, align 8, !range !3, !noundef !4
-  %154 = icmp eq i64 %153, -9223372036854775808
-  %brmerge130 = or i1 %.not42, %154
-  %.mux131 = and i1 %.not42, %154
-  br i1 %brmerge130, label %.critedge, label %155
+  %.not40 = icmp eq i64 %153, -9223372036854775808
+  %154 = getelementptr inbounds nuw i8, ptr %1, i64 336
+  %155 = load i64, ptr %154, align 8, !range !3, !noundef !4
+  %156 = icmp eq i64 %155, -9223372036854775808
+  %brmerge132 = or i1 %.not40, %156
+  %.mux133 = and i1 %.not40, %156
+  br i1 %brmerge132, label %.critedge, label %157
 
-155:                                              ; preds = %149
-  %156 = tail call fastcc noundef zeroext i1 @"_ZN74_$LT$sqlparser..ast..query..TableAlias$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6c57bdd9cd1efb2E"(ptr noalias noundef readonly align 8 dereferenceable(88) %150, ptr noalias noundef readonly align 8 dereferenceable(88) %152)
+157:                                              ; preds = %151
+  %158 = tail call fastcc noundef zeroext i1 @"_ZN74_$LT$sqlparser..ast..query..TableAlias$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6c57bdd9cd1efb2E"(ptr noalias noundef readonly align 8 dereferenceable(88) %152, ptr noalias noundef readonly align 8 dereferenceable(88) %154)
   br label %.critedge
 
-157:                                              ; preds = %28
-  %158 = getelementptr inbounds nuw i8, ptr %0, i64 336
-  %159 = load i64, ptr %158, align 8, !range !3, !noundef !4
-  %.not40 = icmp eq i64 %159, -9223372036854775808
-  %160 = getelementptr inbounds nuw i8, ptr %1, i64 336
-  %161 = load i64, ptr %160, align 8, !range !3, !noundef !4
-  %162 = icmp eq i64 %161, -9223372036854775808
-  %brmerge132 = or i1 %.not40, %162
-  %.mux133 = and i1 %.not40, %162
-  br i1 %brmerge132, label %.critedge, label %163
+159:                                              ; preds = %26
+  %160 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.val65 = load ptr, ptr %160, align 8, !nonnull !4, !noundef !4
+  %161 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.val66 = load i64, ptr %161, align 8, !noundef !4
+  %162 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.val67 = load ptr, ptr %162, align 8, !nonnull !4, !noundef !4
+  %163 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %.val68 = load i64, ptr %163, align 8, !noundef !4
+  %164 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5420c5986c532e4fE"(ptr noalias noundef nonnull readonly align 8 %.val65, i64 noundef %.val66, ptr noalias noundef nonnull readonly align 8 %.val67, i64 noundef %.val68)
+  br i1 %164, label %165, label %.critedge
 
-163:                                              ; preds = %157
-  %164 = tail call fastcc noundef zeroext i1 @"_ZN74_$LT$sqlparser..ast..query..TableAlias$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6c57bdd9cd1efb2E"(ptr noalias noundef readonly align 8 dereferenceable(88) %158, ptr noalias noundef readonly align 8 dereferenceable(88) %160)
-  br label %.critedge
-
-165:                                              ; preds = %32
-  %166 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.val65 = load ptr, ptr %166, align 8, !nonnull !4, !noundef !4
-  %167 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.val66 = load i64, ptr %167, align 8, !noundef !4
-  %168 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.val67 = load ptr, ptr %168, align 8, !nonnull !4, !noundef !4
-  %169 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.val68 = load i64, ptr %169, align 8, !noundef !4
-  %170 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5420c5986c532e4fE"(ptr noalias noundef nonnull readonly align 8 %.val65, i64 noundef %.val66, ptr noalias noundef nonnull readonly align 8 %.val67, i64 noundef %.val68)
+165:                                              ; preds = %159
+  %166 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %.val89 = load ptr, ptr %166, align 8, !nonnull !4, !noundef !4
+  %167 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %.val90 = load i64, ptr %167, align 8, !noundef !4
+  %168 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %.val91 = load ptr, ptr %168, align 8, !nonnull !4, !noundef !4
+  %169 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %.val92 = load i64, ptr %169, align 8, !noundef !4
+  %170 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h8799d4dd62983975E"(ptr noalias noundef nonnull readonly align 8 %.val89, i64 noundef %.val90, ptr noalias noundef nonnull readonly align 8 %.val91, i64 noundef %.val92)
   br i1 %170, label %171, label %.critedge
 
 171:                                              ; preds = %165
-  %172 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %.val89 = load ptr, ptr %172, align 8, !nonnull !4, !noundef !4
-  %173 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %.val90 = load i64, ptr %173, align 8, !noundef !4
-  %174 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %.val91 = load ptr, ptr %174, align 8, !nonnull !4, !noundef !4
-  %175 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %.val92 = load i64, ptr %175, align 8, !noundef !4
-  %176 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h8799d4dd62983975E"(ptr noalias noundef nonnull readonly align 8 %.val89, i64 noundef %.val90, ptr noalias noundef nonnull readonly align 8 %.val91, i64 noundef %.val92)
-  br i1 %176, label %177, label %.critedge
+  %172 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %173 = load i64, ptr %172, align 8, !range !3, !noundef !4
+  %.not38 = icmp eq i64 %173, -9223372036854775808
+  %174 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %175 = load i64, ptr %174, align 8, !range !3, !noundef !4
+  %176 = icmp eq i64 %175, -9223372036854775808
+  %brmerge134 = or i1 %.not38, %176
+  %.mux135 = and i1 %.not38, %176
+  br i1 %brmerge134, label %.critedge, label %177
 
 177:                                              ; preds = %171
-  %178 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %179 = load i64, ptr %178, align 8, !range !3, !noundef !4
-  %.not38 = icmp eq i64 %179, -9223372036854775808
-  %180 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %181 = load i64, ptr %180, align 8, !range !3, !noundef !4
-  %182 = icmp eq i64 %181, -9223372036854775808
-  %brmerge134 = or i1 %.not38, %182
-  %.mux135 = and i1 %.not38, %182
-  br i1 %brmerge134, label %.critedge, label %183
-
-183:                                              ; preds = %177
-  %184 = tail call fastcc noundef zeroext i1 @"_ZN74_$LT$sqlparser..ast..query..TableAlias$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6c57bdd9cd1efb2E"(ptr noalias noundef readonly align 8 dereferenceable(88) %178, ptr noalias noundef readonly align 8 dereferenceable(88) %180)
+  %178 = tail call fastcc noundef zeroext i1 @"_ZN74_$LT$sqlparser..ast..query..TableAlias$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6c57bdd9cd1efb2E"(ptr noalias noundef readonly align 8 dereferenceable(88) %172, ptr noalias noundef readonly align 8 dereferenceable(88) %174)
   br label %.critedge
 
-185:                                              ; preds = %38
-  br i1 %43, label %.critedge, label %187
+179:                                              ; preds = %32
+  br i1 %37, label %.critedge, label %181
 
-186:                                              ; preds = %38
-  br i1 %43, label %189, label %.critedge
+180:                                              ; preds = %32
+  br i1 %37, label %183, label %.critedge
 
-187:                                              ; preds = %185
-  %188 = tail call fastcc noundef zeroext i1 @"_ZN74_$LT$sqlparser..ast..query..TableAlias$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6c57bdd9cd1efb2E"(ptr noalias noundef readonly align 8 dereferenceable(88) %39, ptr noalias noundef readonly align 8 dereferenceable(88) %41)
+181:                                              ; preds = %179
+  %182 = tail call fastcc noundef zeroext i1 @"_ZN74_$LT$sqlparser..ast..query..TableAlias$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6c57bdd9cd1efb2E"(ptr noalias noundef readonly align 8 dereferenceable(88) %33, ptr noalias noundef readonly align 8 dereferenceable(88) %35)
+  br i1 %182, label %183, label %.critedge
+
+183:                                              ; preds = %181, %180
+  %184 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.val81 = load ptr, ptr %184, align 8, !nonnull !4, !noundef !4
+  %185 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.val82 = load i64, ptr %185, align 8, !noundef !4
+  %186 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.val83 = load ptr, ptr %186, align 8, !nonnull !4, !noundef !4
+  %187 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %.val84 = load i64, ptr %187, align 8, !noundef !4
+  %188 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h998c99af45e81baeE"(ptr noalias noundef nonnull readonly align 8 %.val81, i64 noundef %.val82, ptr noalias noundef nonnull readonly align 8 %.val83, i64 noundef %.val84)
   br i1 %188, label %189, label %.critedge
 
-189:                                              ; preds = %187, %186
-  %190 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.val81 = load ptr, ptr %190, align 8, !nonnull !4, !noundef !4
-  %191 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.val82 = load i64, ptr %191, align 8, !noundef !4
-  %192 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.val83 = load ptr, ptr %192, align 8, !nonnull !4, !noundef !4
-  %193 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.val84 = load i64, ptr %193, align 8, !noundef !4
-  %194 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h998c99af45e81baeE"(ptr noalias noundef nonnull readonly align 8 %.val81, i64 noundef %.val82, ptr noalias noundef nonnull readonly align 8 %.val83, i64 noundef %.val84)
+189:                                              ; preds = %183
+  %190 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %191 = load i8, ptr %190, align 8, !range !14, !noundef !4
+  %192 = getelementptr inbounds nuw i8, ptr %1, i64 184
+  %193 = load i8, ptr %192, align 8, !range !14, !noundef !4
+  %194 = icmp eq i8 %191, %193
   br i1 %194, label %195, label %.critedge
 
 195:                                              ; preds = %189
-  %196 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %197 = load i8, ptr %196, align 8, !range !14, !noundef !4
-  %198 = getelementptr inbounds nuw i8, ptr %1, i64 184
-  %199 = load i8, ptr %198, align 8, !range !14, !noundef !4
-  %200 = icmp eq i8 %197, %199
-  br i1 %200, label %201, label %.critedge
+  %196 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %197 = load i64, ptr %196, align 8, !range !3, !noundef !4
+  %.not36 = icmp eq i64 %197, -9223372036854775808
+  %198 = getelementptr inbounds nuw i8, ptr %1, i64 120
+  %199 = load i64, ptr %198, align 8, !range !3, !noundef !4
+  %200 = icmp eq i64 %199, -9223372036854775808
+  br i1 %.not36, label %202, label %201
 
 201:                                              ; preds = %195
-  %202 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %203 = load i64, ptr %202, align 8, !range !3, !noundef !4
-  %.not36 = icmp eq i64 %203, -9223372036854775808
-  %204 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  %205 = load i64, ptr %204, align 8, !range !3, !noundef !4
-  %206 = icmp eq i64 %205, -9223372036854775808
-  br i1 %.not36, label %208, label %207
+  br i1 %200, label %.critedge, label %203
 
-207:                                              ; preds = %201
-  br i1 %206, label %.critedge, label %209
+202:                                              ; preds = %195
+  br i1 %200, label %205, label %.critedge
 
-208:                                              ; preds = %201
-  br i1 %206, label %211, label %.critedge
+203:                                              ; preds = %201
+  %204 = tail call noundef zeroext i1 @"_ZN62_$LT$sqlparser..ast..Ident$u20$as$u20$core..cmp..PartialEq$GT$2eq17hfc3227cbe9084188E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %196, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %198)
+  br i1 %204, label %205, label %.critedge
 
-209:                                              ; preds = %207
-  %210 = tail call noundef zeroext i1 @"_ZN62_$LT$sqlparser..ast..Ident$u20$as$u20$core..cmp..PartialEq$GT$2eq17hfc3227cbe9084188E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %202, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %204)
-  br i1 %210, label %211, label %.critedge
-
-211:                                              ; preds = %209, %208
-  %212 = getelementptr inbounds nuw i8, ptr %0, i64 185
-  %213 = load i8, ptr %212, align 1, !range !14, !noundef !4
-  %214 = getelementptr inbounds nuw i8, ptr %1, i64 185
-  %215 = load i8, ptr %214, align 1, !range !14, !noundef !4
-  %216 = icmp eq i8 %213, %215
+205:                                              ; preds = %203, %202
+  %206 = getelementptr inbounds nuw i8, ptr %0, i64 185
+  %207 = load i8, ptr %206, align 1, !range !14, !noundef !4
+  %208 = getelementptr inbounds nuw i8, ptr %1, i64 185
+  %209 = load i8, ptr %208, align 1, !range !14, !noundef !4
+  %210 = icmp eq i8 %207, %209
   br label %.critedge
 
-217:                                              ; preds = %44
-  %218 = getelementptr inbounds nuw i8, ptr %1, i64 448
-  %219 = getelementptr inbounds nuw i8, ptr %0, i64 448
-  %220 = tail call fastcc noundef zeroext i1 @"_ZN69_$LT$sqlparser..ast..value..Value$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6eef177422d6cf1E"(ptr noalias noundef readonly align 8 dereferenceable(48) %219, ptr noalias noundef readonly align 8 dereferenceable(48) %218)
+211:                                              ; preds = %38
+  %212 = getelementptr inbounds nuw i8, ptr %1, i64 448
+  %213 = getelementptr inbounds nuw i8, ptr %0, i64 448
+  %214 = tail call fastcc noundef zeroext i1 @"_ZN69_$LT$sqlparser..ast..value..Value$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6eef177422d6cf1E"(ptr noalias noundef readonly align 8 dereferenceable(48) %213, ptr noalias noundef readonly align 8 dereferenceable(48) %212)
+  br i1 %214, label %215, label %.critedge
+
+215:                                              ; preds = %211
+  %216 = getelementptr inbounds nuw i8, ptr %0, i64 344
+  %.val97 = load ptr, ptr %216, align 8, !nonnull !4, !noundef !4
+  %217 = getelementptr inbounds nuw i8, ptr %0, i64 352
+  %.val98 = load i64, ptr %217, align 8, !noundef !4
+  %218 = getelementptr inbounds nuw i8, ptr %1, i64 344
+  %.val99 = load ptr, ptr %218, align 8, !nonnull !4, !noundef !4
+  %219 = getelementptr inbounds nuw i8, ptr %1, i64 352
+  %.val100 = load i64, ptr %219, align 8, !noundef !4
+  %220 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h572269a9de398808E"(ptr noalias noundef nonnull readonly align 8 %.val97, i64 noundef %.val98, ptr noalias noundef nonnull readonly align 8 %.val99, i64 noundef %.val100)
   br i1 %220, label %221, label %.critedge
 
-221:                                              ; preds = %217
-  %222 = getelementptr inbounds nuw i8, ptr %0, i64 344
-  %.val97 = load ptr, ptr %222, align 8, !nonnull !4, !noundef !4
-  %223 = getelementptr inbounds nuw i8, ptr %0, i64 352
-  %.val98 = load i64, ptr %223, align 8, !noundef !4
-  %224 = getelementptr inbounds nuw i8, ptr %1, i64 344
-  %.val99 = load ptr, ptr %224, align 8, !nonnull !4, !noundef !4
-  %225 = getelementptr inbounds nuw i8, ptr %1, i64 352
-  %.val100 = load i64, ptr %225, align 8, !noundef !4
-  %226 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h572269a9de398808E"(ptr noalias noundef nonnull readonly align 8 %.val97, i64 noundef %.val98, ptr noalias noundef nonnull readonly align 8 %.val99, i64 noundef %.val100)
-  br i1 %226, label %227, label %.critedge
+221:                                              ; preds = %215
+  %222 = getelementptr inbounds nuw i8, ptr %0, i64 360
+  %223 = load i64, ptr %222, align 8, !range !3, !noundef !4
+  %.not32 = icmp eq i64 %223, -9223372036854775808
+  %224 = getelementptr inbounds nuw i8, ptr %1, i64 360
+  %225 = load i64, ptr %224, align 8, !range !3, !noundef !4
+  %226 = icmp eq i64 %225, -9223372036854775808
+  %brmerge136 = or i1 %.not32, %226
+  %.mux137 = and i1 %.not32, %226
+  br i1 %brmerge136, label %.critedge, label %227
 
 227:                                              ; preds = %221
-  %228 = getelementptr inbounds nuw i8, ptr %0, i64 360
-  %229 = load i64, ptr %228, align 8, !range !3, !noundef !4
-  %.not32 = icmp eq i64 %229, -9223372036854775808
-  %230 = getelementptr inbounds nuw i8, ptr %1, i64 360
-  %231 = load i64, ptr %230, align 8, !range !3, !noundef !4
-  %232 = icmp eq i64 %231, -9223372036854775808
-  %brmerge136 = or i1 %.not32, %232
-  %.mux137 = and i1 %.not32, %232
-  br i1 %brmerge136, label %.critedge, label %233
-
-233:                                              ; preds = %227
-  %234 = tail call fastcc noundef zeroext i1 @"_ZN74_$LT$sqlparser..ast..query..TableAlias$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6c57bdd9cd1efb2E"(ptr noalias noundef readonly align 8 dereferenceable(88) %228, ptr noalias noundef readonly align 8 dereferenceable(88) %230)
+  %228 = tail call fastcc noundef zeroext i1 @"_ZN74_$LT$sqlparser..ast..query..TableAlias$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6c57bdd9cd1efb2E"(ptr noalias noundef readonly align 8 dereferenceable(88) %222, ptr noalias noundef readonly align 8 dereferenceable(88) %224)
   br label %.critedge
 
-235:                                              ; preds = %48
-  %236 = getelementptr inbounds nuw i8, ptr %0, i64 448
-  %237 = load i64, ptr %236, align 8, !range !457, !noundef !4
-  %.not28 = icmp eq i64 %237, -9223372036854775787
-  %238 = getelementptr inbounds nuw i8, ptr %1, i64 448
-  %239 = load i64, ptr %238, align 8, !range !457, !noundef !4
-  %240 = icmp eq i64 %239, -9223372036854775787
-  br i1 %.not28, label %242, label %241
+229:                                              ; preds = %42
+  %230 = getelementptr inbounds nuw i8, ptr %0, i64 448
+  %231 = load i64, ptr %230, align 8, !range !457, !noundef !4
+  %.not28 = icmp eq i64 %231, -9223372036854775787
+  %232 = getelementptr inbounds nuw i8, ptr %1, i64 448
+  %233 = load i64, ptr %232, align 8, !range !457, !noundef !4
+  %234 = icmp eq i64 %233, -9223372036854775787
+  br i1 %.not28, label %236, label %235
 
-241:                                              ; preds = %235
-  br i1 %240, label %.critedge, label %243
+235:                                              ; preds = %229
+  br i1 %234, label %.critedge, label %237
 
-242:                                              ; preds = %235
-  br i1 %240, label %245, label %.critedge
+236:                                              ; preds = %229
+  br i1 %234, label %239, label %.critedge
 
-243:                                              ; preds = %241
-  %244 = tail call fastcc noundef zeroext i1 @"_ZN69_$LT$sqlparser..ast..value..Value$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6eef177422d6cf1E"(ptr noalias noundef readonly align 8 dereferenceable(48) %236, ptr noalias noundef readonly align 8 dereferenceable(48) %238)
+237:                                              ; preds = %235
+  %238 = tail call fastcc noundef zeroext i1 @"_ZN69_$LT$sqlparser..ast..value..Value$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6eef177422d6cf1E"(ptr noalias noundef readonly align 8 dereferenceable(48) %230, ptr noalias noundef readonly align 8 dereferenceable(48) %232)
+  br i1 %238, label %239, label %.critedge
+
+239:                                              ; preds = %237, %236
+  %240 = getelementptr inbounds nuw i8, ptr %0, i64 344
+  %.val101 = load ptr, ptr %240, align 8, !nonnull !4, !noundef !4
+  %241 = getelementptr inbounds nuw i8, ptr %0, i64 352
+  %.val102 = load i64, ptr %241, align 8, !noundef !4
+  %242 = getelementptr inbounds nuw i8, ptr %1, i64 344
+  %.val103 = load ptr, ptr %242, align 8, !nonnull !4, !noundef !4
+  %243 = getelementptr inbounds nuw i8, ptr %1, i64 352
+  %.val104 = load i64, ptr %243, align 8, !noundef !4
+  %244 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2ad98421ebd9c62aE"(ptr noalias noundef nonnull readonly align 8 %.val101, i64 noundef %.val102, ptr noalias noundef nonnull readonly align 8 %.val103, i64 noundef %.val104)
   br i1 %244, label %245, label %.critedge
 
-245:                                              ; preds = %243, %242
-  %246 = getelementptr inbounds nuw i8, ptr %0, i64 344
-  %.val101 = load ptr, ptr %246, align 8, !nonnull !4, !noundef !4
-  %247 = getelementptr inbounds nuw i8, ptr %0, i64 352
-  %.val102 = load i64, ptr %247, align 8, !noundef !4
-  %248 = getelementptr inbounds nuw i8, ptr %1, i64 344
-  %.val103 = load ptr, ptr %248, align 8, !nonnull !4, !noundef !4
-  %249 = getelementptr inbounds nuw i8, ptr %1, i64 352
-  %.val104 = load i64, ptr %249, align 8, !noundef !4
-  %250 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2ad98421ebd9c62aE"(ptr noalias noundef nonnull readonly align 8 %.val101, i64 noundef %.val102, ptr noalias noundef nonnull readonly align 8 %.val103, i64 noundef %.val104)
-  br i1 %250, label %251, label %.critedge
+245:                                              ; preds = %239
+  %246 = getelementptr inbounds nuw i8, ptr %0, i64 360
+  %247 = load i64, ptr %246, align 8, !range !3, !noundef !4
+  %.not30 = icmp eq i64 %247, -9223372036854775808
+  %248 = getelementptr inbounds nuw i8, ptr %1, i64 360
+  %249 = load i64, ptr %248, align 8, !range !3, !noundef !4
+  %250 = icmp eq i64 %249, -9223372036854775808
+  %brmerge138 = or i1 %.not30, %250
+  %.mux139 = and i1 %.not30, %250
+  br i1 %brmerge138, label %.critedge, label %251
 
 251:                                              ; preds = %245
-  %252 = getelementptr inbounds nuw i8, ptr %0, i64 360
-  %253 = load i64, ptr %252, align 8, !range !3, !noundef !4
-  %.not30 = icmp eq i64 %253, -9223372036854775808
-  %254 = getelementptr inbounds nuw i8, ptr %1, i64 360
+  %252 = tail call fastcc noundef zeroext i1 @"_ZN74_$LT$sqlparser..ast..query..TableAlias$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6c57bdd9cd1efb2E"(ptr noalias noundef readonly align 8 dereferenceable(88) %246, ptr noalias noundef readonly align 8 dereferenceable(88) %248)
+  br label %.critedge
+
+253:                                              ; preds = %"_ZN78_$LT$sqlparser..ast..query..TableWithJoins$u20$as$u20$core..cmp..PartialEq$GT$2eq17h437db91afa078898E.exit"
+  %254 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %255 = load i64, ptr %254, align 8, !range !3, !noundef !4
-  %256 = icmp eq i64 %255, -9223372036854775808
-  %brmerge138 = or i1 %.not30, %256
-  %.mux139 = and i1 %.not30, %256
-  br i1 %brmerge138, label %.critedge, label %257
+  %.not26 = icmp eq i64 %255, -9223372036854775808
+  %256 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %257 = load i64, ptr %256, align 8, !range !3, !noundef !4
+  %258 = icmp eq i64 %257, -9223372036854775808
+  %brmerge140 = or i1 %.not26, %258
+  %.mux141 = and i1 %.not26, %258
+  br i1 %brmerge140, label %.critedge, label %259
 
-257:                                              ; preds = %251
-  %258 = tail call fastcc noundef zeroext i1 @"_ZN74_$LT$sqlparser..ast..query..TableAlias$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6c57bdd9cd1efb2E"(ptr noalias noundef readonly align 8 dereferenceable(88) %252, ptr noalias noundef readonly align 8 dereferenceable(88) %254)
+259:                                              ; preds = %253
+  %260 = tail call fastcc noundef zeroext i1 @"_ZN74_$LT$sqlparser..ast..query..TableAlias$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6c57bdd9cd1efb2E"(ptr noalias noundef readonly align 8 dereferenceable(88) %254, ptr noalias noundef readonly align 8 dereferenceable(88) %256)
   br label %.critedge
 
-259:                                              ; preds = %"_ZN78_$LT$sqlparser..ast..query..TableWithJoins$u20$as$u20$core..cmp..PartialEq$GT$2eq17h437db91afa078898E.exit"
-  %260 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %261 = load i64, ptr %260, align 8, !range !3, !noundef !4
-  %.not26 = icmp eq i64 %261, -9223372036854775808
-  %262 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %263 = load i64, ptr %262, align 8, !range !3, !noundef !4
-  %264 = icmp eq i64 %263, -9223372036854775808
-  %brmerge140 = or i1 %.not26, %264
-  %.mux141 = and i1 %.not26, %264
-  br i1 %brmerge140, label %.critedge, label %265
+261:                                              ; preds = %57
+  %262 = getelementptr inbounds nuw i8, ptr %0, i64 376
+  %.val105 = load ptr, ptr %262, align 8, !nonnull !4, !noundef !4
+  %263 = getelementptr inbounds nuw i8, ptr %0, i64 384
+  %.val106 = load i64, ptr %263, align 8, !noundef !4
+  %264 = getelementptr inbounds nuw i8, ptr %1, i64 376
+  %.val107 = load ptr, ptr %264, align 8, !nonnull !4, !noundef !4
+  %265 = getelementptr inbounds nuw i8, ptr %1, i64 384
+  %.val108 = load i64, ptr %265, align 8, !noundef !4
+  %266 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h017fbe548b61619cE"(ptr noalias noundef nonnull readonly align 8 %.val105, i64 noundef %.val106, ptr noalias noundef nonnull readonly align 8 %.val107, i64 noundef %.val108)
+  br i1 %266, label %267, label %.critedge
 
-265:                                              ; preds = %259
-  %266 = tail call fastcc noundef zeroext i1 @"_ZN74_$LT$sqlparser..ast..query..TableAlias$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6c57bdd9cd1efb2E"(ptr noalias noundef readonly align 8 dereferenceable(88) %260, ptr noalias noundef readonly align 8 dereferenceable(88) %262)
-  br label %.critedge
-
-267:                                              ; preds = %63
-  %268 = getelementptr inbounds nuw i8, ptr %0, i64 376
-  %.val105 = load ptr, ptr %268, align 8, !nonnull !4, !noundef !4
-  %269 = getelementptr inbounds nuw i8, ptr %0, i64 384
-  %.val106 = load i64, ptr %269, align 8, !noundef !4
-  %270 = getelementptr inbounds nuw i8, ptr %1, i64 376
-  %.val107 = load ptr, ptr %270, align 8, !nonnull !4, !noundef !4
-  %271 = getelementptr inbounds nuw i8, ptr %1, i64 384
-  %.val108 = load i64, ptr %271, align 8, !noundef !4
-  %272 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h017fbe548b61619cE"(ptr noalias noundef nonnull readonly align 8 %.val105, i64 noundef %.val106, ptr noalias noundef nonnull readonly align 8 %.val107, i64 noundef %.val108)
+267:                                              ; preds = %261
+  %268 = getelementptr inbounds nuw i8, ptr %0, i64 400
+  %.val61 = load ptr, ptr %268, align 8, !nonnull !4, !noundef !4
+  %269 = getelementptr inbounds nuw i8, ptr %0, i64 408
+  %.val62 = load i64, ptr %269, align 8, !noundef !4
+  %270 = getelementptr inbounds nuw i8, ptr %1, i64 400
+  %.val63 = load ptr, ptr %270, align 8, !nonnull !4, !noundef !4
+  %271 = getelementptr inbounds nuw i8, ptr %1, i64 408
+  %.val64 = load i64, ptr %271, align 8, !noundef !4
+  %272 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5420c5986c532e4fE"(ptr noalias noundef nonnull readonly align 8 %.val61, i64 noundef %.val62, ptr noalias noundef nonnull readonly align 8 %.val63, i64 noundef %.val64)
   br i1 %272, label %273, label %.critedge
 
 273:                                              ; preds = %267
-  %274 = getelementptr inbounds nuw i8, ptr %0, i64 400
-  %.val61 = load ptr, ptr %274, align 8, !nonnull !4, !noundef !4
-  %275 = getelementptr inbounds nuw i8, ptr %0, i64 408
-  %.val62 = load i64, ptr %275, align 8, !noundef !4
-  %276 = getelementptr inbounds nuw i8, ptr %1, i64 400
-  %.val63 = load ptr, ptr %276, align 8, !nonnull !4, !noundef !4
-  %277 = getelementptr inbounds nuw i8, ptr %1, i64 408
-  %.val64 = load i64, ptr %277, align 8, !noundef !4
-  %278 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5420c5986c532e4fE"(ptr noalias noundef nonnull readonly align 8 %.val61, i64 noundef %.val62, ptr noalias noundef nonnull readonly align 8 %.val63, i64 noundef %.val64)
-  br i1 %278, label %279, label %.critedge
+  %274 = tail call fastcc noundef zeroext i1 @"_ZN80_$LT$sqlparser..ast..query..PivotValueSource$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5b3879bc0844bcc4E"(ptr noalias noundef readonly align 8 dereferenceable(32) %58, ptr noalias noundef readonly align 8 dereferenceable(32) %59)
+  br i1 %274, label %275, label %.critedge
 
-279:                                              ; preds = %273
-  %280 = tail call fastcc noundef zeroext i1 @"_ZN80_$LT$sqlparser..ast..query..PivotValueSource$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5b3879bc0844bcc4E"(ptr noalias noundef readonly align 8 dereferenceable(32) %64, ptr noalias noundef readonly align 8 dereferenceable(32) %65)
-  br i1 %280, label %281, label %.critedge
+275:                                              ; preds = %273
+  %276 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %277 = load i64, ptr %276, align 8, !range !34, !noundef !4
+  %.not22 = icmp eq i64 %277, 70
+  %278 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %279 = load i64, ptr %278, align 8, !range !34, !noundef !4
+  %280 = icmp eq i64 %279, 70
+  br i1 %.not22, label %282, label %281
 
-281:                                              ; preds = %279
-  %282 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %283 = load i64, ptr %282, align 8, !range !34, !noundef !4
-  %.not22 = icmp eq i64 %283, 70
-  %284 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %285 = load i64, ptr %284, align 8, !range !34, !noundef !4
-  %286 = icmp eq i64 %285, 70
-  br i1 %.not22, label %288, label %287
+281:                                              ; preds = %275
+  br i1 %280, label %.critedge, label %283
 
-287:                                              ; preds = %281
-  br i1 %286, label %.critedge, label %289
+282:                                              ; preds = %275
+  br i1 %280, label %285, label %.critedge
 
-288:                                              ; preds = %281
-  br i1 %286, label %291, label %.critedge
+283:                                              ; preds = %281
+  %284 = tail call fastcc noundef zeroext i1 @"_ZN61_$LT$sqlparser..ast..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h35bb663b0d0eef03E"(ptr noalias noundef readonly align 8 dereferenceable(328) %276, ptr noalias noundef readonly align 8 dereferenceable(328) %278)
+  br i1 %284, label %285, label %.critedge
 
-289:                                              ; preds = %287
-  %290 = tail call fastcc noundef zeroext i1 @"_ZN61_$LT$sqlparser..ast..Expr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h35bb663b0d0eef03E"(ptr noalias noundef readonly align 8 dereferenceable(328) %282, ptr noalias noundef readonly align 8 dereferenceable(328) %284)
-  br i1 %290, label %291, label %.critedge
+285:                                              ; preds = %283, %282
+  %286 = getelementptr inbounds nuw i8, ptr %0, i64 416
+  %287 = load i64, ptr %286, align 8, !range !3, !noundef !4
+  %.not24 = icmp eq i64 %287, -9223372036854775808
+  %288 = getelementptr inbounds nuw i8, ptr %1, i64 416
+  %289 = load i64, ptr %288, align 8, !range !3, !noundef !4
+  %290 = icmp eq i64 %289, -9223372036854775808
+  %brmerge142 = or i1 %.not24, %290
+  %.mux143 = and i1 %.not24, %290
+  br i1 %brmerge142, label %.critedge, label %291
 
-291:                                              ; preds = %289, %288
-  %292 = getelementptr inbounds nuw i8, ptr %0, i64 416
-  %293 = load i64, ptr %292, align 8, !range !3, !noundef !4
-  %.not24 = icmp eq i64 %293, -9223372036854775808
-  %294 = getelementptr inbounds nuw i8, ptr %1, i64 416
-  %295 = load i64, ptr %294, align 8, !range !3, !noundef !4
-  %296 = icmp eq i64 %295, -9223372036854775808
-  %brmerge142 = or i1 %.not24, %296
-  %.mux143 = and i1 %.not24, %296
-  br i1 %brmerge142, label %.critedge, label %297
-
-297:                                              ; preds = %291
-  %298 = tail call fastcc noundef zeroext i1 @"_ZN74_$LT$sqlparser..ast..query..TableAlias$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6c57bdd9cd1efb2E"(ptr noalias noundef readonly align 8 dereferenceable(88) %292, ptr noalias noundef readonly align 8 dereferenceable(88) %294)
+291:                                              ; preds = %285
+  %292 = tail call fastcc noundef zeroext i1 @"_ZN74_$LT$sqlparser..ast..query..TableAlias$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6c57bdd9cd1efb2E"(ptr noalias noundef readonly align 8 dereferenceable(88) %286, ptr noalias noundef readonly align 8 dereferenceable(88) %288)
   br label %.critedge
 
-299:                                              ; preds = %71
-  %300 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %301 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %302 = tail call noundef zeroext i1 @"_ZN62_$LT$sqlparser..ast..Ident$u20$as$u20$core..cmp..PartialEq$GT$2eq17hfc3227cbe9084188E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %301, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %300)
-  br i1 %302, label %303, label %.critedge
+293:                                              ; preds = %65
+  %294 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %295 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %296 = tail call noundef zeroext i1 @"_ZN62_$LT$sqlparser..ast..Ident$u20$as$u20$core..cmp..PartialEq$GT$2eq17hfc3227cbe9084188E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %295, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %294)
+  br i1 %296, label %297, label %.critedge
 
-303:                                              ; preds = %299
-  %304 = tail call noundef zeroext i1 @"_ZN62_$LT$sqlparser..ast..Ident$u20$as$u20$core..cmp..PartialEq$GT$2eq17hfc3227cbe9084188E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %72, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %73)
+297:                                              ; preds = %293
+  %298 = tail call noundef zeroext i1 @"_ZN62_$LT$sqlparser..ast..Ident$u20$as$u20$core..cmp..PartialEq$GT$2eq17hfc3227cbe9084188E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %66, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %67)
+  br i1 %298, label %299, label %.critedge
+
+299:                                              ; preds = %297
+  %300 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %.val = load ptr, ptr %300, align 8, !nonnull !4, !noundef !4
+  %301 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %.val58 = load i64, ptr %301, align 8, !noundef !4
+  %302 = getelementptr inbounds nuw i8, ptr %1, i64 144
+  %.val59 = load ptr, ptr %302, align 8, !nonnull !4, !noundef !4
+  %303 = getelementptr inbounds nuw i8, ptr %1, i64 152
+  %.val60 = load i64, ptr %303, align 8, !noundef !4
+  %304 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5420c5986c532e4fE"(ptr noalias noundef nonnull readonly align 8 %.val, i64 noundef %.val58, ptr noalias noundef nonnull readonly align 8 %.val59, i64 noundef %.val60)
   br i1 %304, label %305, label %.critedge
 
-305:                                              ; preds = %303
-  %306 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %.val = load ptr, ptr %306, align 8, !nonnull !4, !noundef !4
-  %307 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %.val58 = load i64, ptr %307, align 8, !noundef !4
-  %308 = getelementptr inbounds nuw i8, ptr %1, i64 144
-  %.val59 = load ptr, ptr %308, align 8, !nonnull !4, !noundef !4
-  %309 = getelementptr inbounds nuw i8, ptr %1, i64 152
-  %.val60 = load i64, ptr %309, align 8, !noundef !4
-  %310 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5420c5986c532e4fE"(ptr noalias noundef nonnull readonly align 8 %.val, i64 noundef %.val58, ptr noalias noundef nonnull readonly align 8 %.val59, i64 noundef %.val60)
-  br i1 %310, label %311, label %.critedge
+305:                                              ; preds = %299
+  %306 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %307 = load i64, ptr %306, align 8, !range !3, !noundef !4
+  %.not20 = icmp eq i64 %307, -9223372036854775808
+  %308 = getelementptr inbounds nuw i8, ptr %1, i64 160
+  %309 = load i64, ptr %308, align 8, !range !3, !noundef !4
+  %310 = icmp eq i64 %309, -9223372036854775808
+  %brmerge144 = or i1 %.not20, %310
+  %.mux145 = and i1 %.not20, %310
+  br i1 %brmerge144, label %.critedge, label %311
 
 311:                                              ; preds = %305
-  %312 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %313 = load i64, ptr %312, align 8, !range !3, !noundef !4
-  %.not20 = icmp eq i64 %313, -9223372036854775808
-  %314 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  %315 = load i64, ptr %314, align 8, !range !3, !noundef !4
-  %316 = icmp eq i64 %315, -9223372036854775808
-  %brmerge144 = or i1 %.not20, %316
-  %.mux145 = and i1 %.not20, %316
-  br i1 %brmerge144, label %.critedge, label %317
-
-317:                                              ; preds = %311
-  %318 = tail call fastcc noundef zeroext i1 @"_ZN74_$LT$sqlparser..ast..query..TableAlias$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6c57bdd9cd1efb2E"(ptr noalias noundef readonly align 8 dereferenceable(88) %312, ptr noalias noundef readonly align 8 dereferenceable(88) %314)
+  %312 = tail call fastcc noundef zeroext i1 @"_ZN74_$LT$sqlparser..ast..query..TableAlias$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6c57bdd9cd1efb2E"(ptr noalias noundef readonly align 8 dereferenceable(88) %306, ptr noalias noundef readonly align 8 dereferenceable(88) %308)
   br label %.critedge
 
-319:                                              ; preds = %79
-  %320 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %.val77 = load ptr, ptr %320, align 8, !nonnull !4, !noundef !4
-  %321 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %.val78 = load i64, ptr %321, align 8, !noundef !4
-  %322 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %.val79 = load ptr, ptr %322, align 8, !nonnull !4, !noundef !4
-  %323 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %.val80 = load i64, ptr %323, align 8, !noundef !4
-  %324 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h998c99af45e81baeE"(ptr noalias noundef nonnull readonly align 8 %.val77, i64 noundef %.val78, ptr noalias noundef nonnull readonly align 8 %.val79, i64 noundef %.val80)
+313:                                              ; preds = %73
+  %314 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %.val77 = load ptr, ptr %314, align 8, !nonnull !4, !noundef !4
+  %315 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %.val78 = load i64, ptr %315, align 8, !noundef !4
+  %316 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %.val79 = load ptr, ptr %316, align 8, !nonnull !4, !noundef !4
+  %317 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  %.val80 = load i64, ptr %317, align 8, !noundef !4
+  %318 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h998c99af45e81baeE"(ptr noalias noundef nonnull readonly align 8 %.val77, i64 noundef %.val78, ptr noalias noundef nonnull readonly align 8 %.val79, i64 noundef %.val80)
+  br i1 %318, label %319, label %.critedge
+
+319:                                              ; preds = %313
+  %320 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %.val109 = load ptr, ptr %320, align 8, !nonnull !4, !noundef !4
+  %321 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %.val110 = load i64, ptr %321, align 8, !noundef !4
+  %322 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  %.val111 = load ptr, ptr %322, align 8, !nonnull !4, !noundef !4
+  %323 = getelementptr inbounds nuw i8, ptr %1, i64 120
+  %.val112 = load i64, ptr %323, align 8, !noundef !4
+  %324 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e07b811c897a2aaE"(ptr noalias noundef nonnull readonly align 8 %.val109, i64 noundef %.val110, ptr noalias noundef nonnull readonly align 8 %.val111, i64 noundef %.val112)
   br i1 %324, label %325, label %.critedge
 
 325:                                              ; preds = %319
-  %326 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %.val109 = load ptr, ptr %326, align 8, !nonnull !4, !noundef !4
-  %327 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %.val110 = load i64, ptr %327, align 8, !noundef !4
-  %328 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %.val111 = load ptr, ptr %328, align 8, !nonnull !4, !noundef !4
-  %329 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  %.val112 = load i64, ptr %329, align 8, !noundef !4
-  %330 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9e07b811c897a2aaE"(ptr noalias noundef nonnull readonly align 8 %.val109, i64 noundef %.val110, ptr noalias noundef nonnull readonly align 8 %.val111, i64 noundef %.val112)
+  %326 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %.val113 = load ptr, ptr %326, align 8, !nonnull !4, !noundef !4
+  %327 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %.val114 = load i64, ptr %327, align 8, !noundef !4
+  %328 = getelementptr inbounds nuw i8, ptr %1, i64 136
+  %.val115 = load ptr, ptr %328, align 8, !nonnull !4, !noundef !4
+  %329 = getelementptr inbounds nuw i8, ptr %1, i64 144
+  %.val116 = load i64, ptr %329, align 8, !noundef !4
+  %330 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h191c2f4e268d2137E"(ptr noalias noundef nonnull readonly align 8 %.val113, i64 noundef %.val114, ptr noalias noundef nonnull readonly align 8 %.val115, i64 noundef %.val116)
   br i1 %330, label %331, label %.critedge
 
 331:                                              ; preds = %325
-  %332 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %.val113 = load ptr, ptr %332, align 8, !nonnull !4, !noundef !4
-  %333 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %.val114 = load i64, ptr %333, align 8, !noundef !4
-  %334 = getelementptr inbounds nuw i8, ptr %1, i64 136
-  %.val115 = load ptr, ptr %334, align 8, !nonnull !4, !noundef !4
-  %335 = getelementptr inbounds nuw i8, ptr %1, i64 144
-  %.val116 = load i64, ptr %335, align 8, !noundef !4
-  %336 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h191c2f4e268d2137E"(ptr noalias noundef nonnull readonly align 8 %.val113, i64 noundef %.val114, ptr noalias noundef nonnull readonly align 8 %.val115, i64 noundef %.val116)
-  br i1 %336, label %337, label %.critedge
+  %332 = getelementptr inbounds nuw i8, ptr %0, i64 344
+  %333 = load i8, ptr %332, align 8, !range !41, !noundef !4
+  %.not = icmp eq i8 %333, 5
+  %334 = getelementptr inbounds nuw i8, ptr %1, i64 344
+  %335 = load i8, ptr %334, align 8, !range !41, !noundef !4
+  %336 = icmp eq i8 %335, 5
+  br i1 %.not, label %338, label %337
 
 337:                                              ; preds = %331
-  %338 = getelementptr inbounds nuw i8, ptr %0, i64 344
-  %339 = load i8, ptr %338, align 8, !range !41, !noundef !4
-  %.not = icmp eq i8 %339, 5
-  %340 = getelementptr inbounds nuw i8, ptr %1, i64 344
-  %341 = load i8, ptr %340, align 8, !range !41, !noundef !4
-  %342 = icmp eq i8 %341, 5
-  br i1 %.not, label %344, label %343
+  br i1 %336, label %.critedge, label %339
 
-343:                                              ; preds = %337
-  br i1 %342, label %.critedge, label %345
+338:                                              ; preds = %331
+  br i1 %336, label %.critedge55, label %.critedge
 
-344:                                              ; preds = %337
-  br i1 %342, label %.critedge55, label %.critedge
+339:                                              ; preds = %337
+  %340 = icmp ne i8 %333, 4
+  %341 = icmp ne i8 %335, 4
+  %342 = xor i1 %340, %341
+  br i1 %342, label %.critedge, label %343
 
-345:                                              ; preds = %343
-  %346 = icmp ne i8 %339, 4
-  %347 = icmp ne i8 %341, 4
-  %348 = xor i1 %346, %347
-  br i1 %348, label %.critedge, label %349
+343:                                              ; preds = %339
+  %or.cond = and i1 %340, %341
+  br i1 %or.cond, label %344, label %.critedge55
 
-349:                                              ; preds = %345
-  %or.cond = and i1 %346, %347
-  br i1 %or.cond, label %350, label %.critedge55
+344:                                              ; preds = %343
+  %.not14 = icmp eq i8 %333, 3
+  br i1 %.not14, label %347, label %345
 
-350:                                              ; preds = %349
-  %.not14 = icmp eq i8 %339, 3
-  br i1 %.not14, label %353, label %351
+345:                                              ; preds = %344
+  %346 = icmp eq i8 %333, %335
+  br i1 %346, label %.critedge55, label %.critedge
 
-351:                                              ; preds = %350
-  %352 = icmp eq i8 %339, %341
-  br i1 %352, label %.critedge55, label %.critedge
+347:                                              ; preds = %344
+  %348 = icmp eq i8 %335, 3
+  br i1 %348, label %.critedge55, label %.critedge
 
-353:                                              ; preds = %350
-  %354 = icmp eq i8 %341, 3
-  br i1 %354, label %.critedge55, label %.critedge
+.critedge55:                                      ; preds = %345, %347, %343, %338
+  %349 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %350 = load i64, ptr %349, align 8, !range !465, !noundef !4
+  %.not16 = icmp eq i64 %350, 4
+  %351 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %352 = load i64, ptr %351, align 8, !range !465, !noundef !4
+  br i1 %.not16, label %355, label %353
 
-.critedge55:                                      ; preds = %351, %353, %349, %344
-  %355 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %356 = load i64, ptr %355, align 8, !range !465, !noundef !4
-  %.not16 = icmp eq i64 %356, 4
-  %357 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %358 = load i64, ptr %357, align 8, !range !465, !noundef !4
-  br i1 %.not16, label %361, label %359
+353:                                              ; preds = %.critedge55
+  %354 = icmp eq i64 %350, %352
+  br i1 %354, label %357, label %.critedge
 
-359:                                              ; preds = %.critedge55
-  %360 = icmp eq i64 %356, %358
-  br i1 %360, label %363, label %.critedge
+355:                                              ; preds = %.critedge55
+  %356 = icmp eq i64 %352, 4
+  br i1 %356, label %"_ZN78_$LT$sqlparser..ast..query..AfterMatchSkip$u20$as$u20$core..cmp..PartialEq$GT$2eq17h97c57ceb9c0434feE.exit.thread", label %.critedge
 
-361:                                              ; preds = %.critedge55
-  %362 = icmp eq i64 %358, 4
-  br i1 %362, label %"_ZN78_$LT$sqlparser..ast..query..AfterMatchSkip$u20$as$u20$core..cmp..PartialEq$GT$2eq17h97c57ceb9c0434feE.exit.thread", label %.critedge
-
-363:                                              ; preds = %359
-  %switch.not.i = icmp samesign ult i64 %356, 2
+357:                                              ; preds = %353
+  %switch.not.i = icmp samesign ult i64 %350, 2
   br i1 %switch.not.i, label %"_ZN78_$LT$sqlparser..ast..query..AfterMatchSkip$u20$as$u20$core..cmp..PartialEq$GT$2eq17h97c57ceb9c0434feE.exit.thread", label %"_ZN78_$LT$sqlparser..ast..query..AfterMatchSkip$u20$as$u20$core..cmp..PartialEq$GT$2eq17h97c57ceb9c0434feE.exit"
 
-"_ZN78_$LT$sqlparser..ast..query..AfterMatchSkip$u20$as$u20$core..cmp..PartialEq$GT$2eq17h97c57ceb9c0434feE.exit": ; preds = %363
-  %364 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %365 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %366 = tail call noundef zeroext i1 @"_ZN62_$LT$sqlparser..ast..Ident$u20$as$u20$core..cmp..PartialEq$GT$2eq17hfc3227cbe9084188E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %364, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %365)
-  br i1 %366, label %"_ZN78_$LT$sqlparser..ast..query..AfterMatchSkip$u20$as$u20$core..cmp..PartialEq$GT$2eq17h97c57ceb9c0434feE.exit.thread", label %.critedge
+"_ZN78_$LT$sqlparser..ast..query..AfterMatchSkip$u20$as$u20$core..cmp..PartialEq$GT$2eq17h97c57ceb9c0434feE.exit": ; preds = %357
+  %358 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %359 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %360 = tail call noundef zeroext i1 @"_ZN62_$LT$sqlparser..ast..Ident$u20$as$u20$core..cmp..PartialEq$GT$2eq17hfc3227cbe9084188E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %358, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %359)
+  br i1 %360, label %"_ZN78_$LT$sqlparser..ast..query..AfterMatchSkip$u20$as$u20$core..cmp..PartialEq$GT$2eq17h97c57ceb9c0434feE.exit.thread", label %.critedge
 
-"_ZN78_$LT$sqlparser..ast..query..AfterMatchSkip$u20$as$u20$core..cmp..PartialEq$GT$2eq17h97c57ceb9c0434feE.exit.thread": ; preds = %363, %"_ZN78_$LT$sqlparser..ast..query..AfterMatchSkip$u20$as$u20$core..cmp..PartialEq$GT$2eq17h97c57ceb9c0434feE.exit", %361
-  %367 = tail call fastcc noundef zeroext i1 @"_ZN85_$LT$sqlparser..ast..query..MatchRecognizePattern$u20$as$u20$core..cmp..PartialEq$GT$2eq17hdcbe6e5bffe8dd0eE"(ptr noalias noundef readonly align 8 dereferenceable(72) %80, ptr noalias noundef readonly align 8 dereferenceable(72) %81)
+"_ZN78_$LT$sqlparser..ast..query..AfterMatchSkip$u20$as$u20$core..cmp..PartialEq$GT$2eq17h97c57ceb9c0434feE.exit.thread": ; preds = %357, %"_ZN78_$LT$sqlparser..ast..query..AfterMatchSkip$u20$as$u20$core..cmp..PartialEq$GT$2eq17h97c57ceb9c0434feE.exit", %355
+  %361 = tail call fastcc noundef zeroext i1 @"_ZN85_$LT$sqlparser..ast..query..MatchRecognizePattern$u20$as$u20$core..cmp..PartialEq$GT$2eq17hdcbe6e5bffe8dd0eE"(ptr noalias noundef readonly align 8 dereferenceable(72) %74, ptr noalias noundef readonly align 8 dereferenceable(72) %75)
+  br i1 %361, label %362, label %.critedge
+
+362:                                              ; preds = %"_ZN78_$LT$sqlparser..ast..query..AfterMatchSkip$u20$as$u20$core..cmp..PartialEq$GT$2eq17h97c57ceb9c0434feE.exit.thread"
+  %363 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %.val117 = load ptr, ptr %363, align 8, !nonnull !4, !noundef !4
+  %364 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %.val118 = load i64, ptr %364, align 8, !noundef !4
+  %365 = getelementptr inbounds nuw i8, ptr %1, i64 160
+  %.val119 = load ptr, ptr %365, align 8, !nonnull !4, !noundef !4
+  %366 = getelementptr inbounds nuw i8, ptr %1, i64 168
+  %.val120 = load i64, ptr %366, align 8, !noundef !4
+  %367 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h41df797f5602c576E"(ptr noalias noundef nonnull readonly align 8 %.val117, i64 noundef %.val118, ptr noalias noundef nonnull readonly align 8 %.val119, i64 noundef %.val120)
   br i1 %367, label %368, label %.critedge
 
-368:                                              ; preds = %"_ZN78_$LT$sqlparser..ast..query..AfterMatchSkip$u20$as$u20$core..cmp..PartialEq$GT$2eq17h97c57ceb9c0434feE.exit.thread"
-  %369 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %.val117 = load ptr, ptr %369, align 8, !nonnull !4, !noundef !4
-  %370 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %.val118 = load i64, ptr %370, align 8, !noundef !4
-  %371 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  %.val119 = load ptr, ptr %371, align 8, !nonnull !4, !noundef !4
-  %372 = getelementptr inbounds nuw i8, ptr %1, i64 168
-  %.val120 = load i64, ptr %372, align 8, !noundef !4
-  %373 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h41df797f5602c576E"(ptr noalias noundef nonnull readonly align 8 %.val117, i64 noundef %.val118, ptr noalias noundef nonnull readonly align 8 %.val119, i64 noundef %.val120)
-  br i1 %373, label %374, label %.critedge
+368:                                              ; preds = %362
+  %369 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %370 = load i64, ptr %369, align 8, !range !3, !noundef !4
+  %.not18 = icmp eq i64 %370, -9223372036854775808
+  %371 = getelementptr inbounds nuw i8, ptr %1, i64 176
+  %372 = load i64, ptr %371, align 8, !range !3, !noundef !4
+  %373 = icmp eq i64 %372, -9223372036854775808
+  %brmerge146 = or i1 %.not18, %373
+  %.mux147 = and i1 %.not18, %373
+  br i1 %brmerge146, label %.critedge, label %374
 
 374:                                              ; preds = %368
-  %375 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %376 = load i64, ptr %375, align 8, !range !3, !noundef !4
-  %.not18 = icmp eq i64 %376, -9223372036854775808
-  %377 = getelementptr inbounds nuw i8, ptr %1, i64 176
-  %378 = load i64, ptr %377, align 8, !range !3, !noundef !4
-  %379 = icmp eq i64 %378, -9223372036854775808
-  %brmerge146 = or i1 %.not18, %379
-  %.mux147 = and i1 %.not18, %379
-  br i1 %brmerge146, label %.critedge, label %380
-
-380:                                              ; preds = %374
-  %381 = tail call fastcc noundef zeroext i1 @"_ZN74_$LT$sqlparser..ast..query..TableAlias$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6c57bdd9cd1efb2E"(ptr noalias noundef readonly align 8 dereferenceable(88) %375, ptr noalias noundef readonly align 8 dereferenceable(88) %377)
+  %375 = tail call fastcc noundef zeroext i1 @"_ZN74_$LT$sqlparser..ast..query..TableAlias$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6c57bdd9cd1efb2E"(ptr noalias noundef readonly align 8 dereferenceable(88) %369, ptr noalias noundef readonly align 8 dereferenceable(88) %371)
   br label %.critedge
 }
 
@@ -25249,6 +25243,9 @@ declare i64 @llvm.umin.i64(i64, i64) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #9
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.usub.sat.i64(i64, i64) #8
 
 attributes #0 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

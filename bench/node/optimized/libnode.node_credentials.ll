@@ -3381,8 +3381,8 @@ if.then58:                                        ; preds = %_ZN2v810MaybeLocalI
   %24 = load ptr, ptr %args, align 8
   %arrayidx.i107 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %conv62 = add i32 %conv40, 1
-  %cmp.i213 = icmp sgt i32 %conv62, -1
-  br i1 %cmp.i213, label %if.then.i228, label %if.end.i215
+  %25 = icmp sgt i32 %conv62, -1
+  br i1 %25, label %if.then.i228, label %if.end.i215
 
 if.then.i228:                                     ; preds = %if.then58
   %conv.i223 = zext nneg i32 %conv62 to i64
@@ -3392,28 +3392,28 @@ if.then.i228:                                     ; preds = %if.then58
 
 if.end.i215:                                      ; preds = %if.then58
   %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %25 = load ptr, ptr %arrayidx.i.i, align 8
-  %call3.i = call ptr @_ZN2v87Integer15NewFromUnsignedEPNS_7IsolateEj(ptr noundef %25, i32 noundef %conv62) #19
+  %26 = load ptr, ptr %arrayidx.i.i, align 8
+  %call3.i = call ptr @_ZN2v87Integer15NewFromUnsignedEPNS_7IsolateEj(ptr noundef %26, i32 noundef %conv62) #19
   %cmp.i.i293 = icmp eq ptr %call3.i, null
   br i1 %cmp.i.i293, label %if.then.i298, label %if.else.i295
 
 if.then.i298:                                     ; preds = %if.end.i215
-  %26 = load ptr, ptr %arrayidx.i.i, align 8
-  %27 = ptrtoint ptr %26 to i64
-  %add1.i.i.i305 = add i64 %27, 616
-  %28 = inttoptr i64 %add1.i.i.i305 to ptr
-  %29 = load i64, ptr %28, align 8
-  store i64 %29, ptr %arrayidx.i107, align 8
-  br label %cleanup
-
-if.else.i295:                                     ; preds = %if.end.i215
-  %30 = load i64, ptr %call3.i, align 8
+  %27 = load ptr, ptr %arrayidx.i.i, align 8
+  %28 = ptrtoint ptr %27 to i64
+  %add1.i.i.i305 = add i64 %28, 616
+  %29 = inttoptr i64 %add1.i.i.i305 to ptr
+  %30 = load i64, ptr %29, align 8
   store i64 %30, ptr %arrayidx.i107, align 8
   br label %cleanup
 
+if.else.i295:                                     ; preds = %if.end.i215
+  %31 = load i64, ptr %call3.i, align 8
+  store i64 %31, ptr %arrayidx.i107, align 8
+  br label %cleanup
+
 if.end63:                                         ; preds = %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit
-  %31 = load i64, ptr %groups, align 8
-  %cmp.not.i = icmp ult i64 %i.059, %31
+  %32 = load i64, ptr %groups, align 8
+  %cmp.not.i = icmp ult i64 %i.059, %32
   br i1 %cmp.not.i, label %_ZN4node16MaybeStackBufferIjLm64EEixEm.exit, label %do.body4.i
 
 do.body4.i:                                       ; preds = %if.end63
@@ -3422,43 +3422,43 @@ do.body4.i:                                       ; preds = %if.end63
   unreachable
 
 _ZN4node16MaybeStackBufferIjLm64EEixEm.exit:      ; preds = %if.end63
-  %32 = load ptr, ptr %buf_.i.i, align 8
-  %arrayidx.i49 = getelementptr inbounds nuw i32, ptr %32, i64 %i.059
+  %33 = load ptr, ptr %buf_.i.i, align 8
+  %arrayidx.i49 = getelementptr inbounds nuw i32, ptr %33, i64 %i.059
   store i32 %call5645, ptr %arrayidx.i49, align 4
   %inc = add nuw nsw i64 %i.059, 1
   %exitcond.not = icmp eq i64 %inc, %conv
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !11
 
 for.end:                                          ; preds = %_ZN4node16MaybeStackBufferIjLm64EEixEm.exit, %_ZN4node16MaybeStackBufferIjLm64EEC2Em.exit
-  %33 = load ptr, ptr %buf_.i.i, align 8
-  %call66 = call i32 @setgroups(i64 noundef %conv, ptr noundef %33) #19
+  %34 = load ptr, ptr %buf_.i.i, align 8
+  %call66 = call i32 @setgroups(i64 noundef %conv, ptr noundef %34) #19
   %cmp67 = icmp eq i32 %call66, -1
   br i1 %cmp67, label %if.then68, label %if.then.i241
 
 if.then68:                                        ; preds = %for.end
   %call69 = tail call ptr @__errno_location() #24
-  %34 = load i32, ptr %call69, align 4
+  %35 = load i32, ptr %call69, align 4
   %isolate_.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i, i64 88
-  %35 = load ptr, ptr %isolate_.i.i, align 8
-  %call3.i51 = call ptr @_ZN4node14ErrnoExceptionEPN2v87IsolateEiPKcS4_S4_(ptr noundef %35, i32 noundef %34, ptr noundef nonnull @.str.67, ptr noundef null, ptr noundef null) #19
-  %call9.i = call ptr @_ZN2v87Isolate14ThrowExceptionENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %35, ptr %call3.i51) #19
+  %36 = load ptr, ptr %isolate_.i.i, align 8
+  %call3.i51 = call ptr @_ZN4node14ErrnoExceptionEPN2v87IsolateEiPKcS4_S4_(ptr noundef %36, i32 noundef %35, ptr noundef nonnull @.str.67, ptr noundef null, ptr noundef null) #19
+  %call9.i = call ptr @_ZN2v87Isolate14ThrowExceptionENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %36, ptr %call3.i51) #19
   br label %cleanup
 
 if.then.i241:                                     ; preds = %for.end
-  %36 = load ptr, ptr %args, align 8
-  %arrayidx.i = getelementptr inbounds nuw i8, ptr %36, i64 24
+  %37 = load ptr, ptr %args, align 8
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %37, i64 24
   store i64 0, ptr %arrayidx.i, align 8
   br label %cleanup
 
 cleanup:                                          ; preds = %if.then.i228, %if.else.i295, %if.then.i298, %if.then.i241, %if.then68
-  %37 = load ptr, ptr %buf_.i.i, align 8
-  %cmp.i.i.i52 = icmp ne ptr %37, null
-  %cmp.i.i54 = icmp ne ptr %37, %buf_st_.i.i
-  %38 = and i1 %cmp.i.i.i52, %cmp.i.i54
-  br i1 %38, label %if.then.i56, label %_ZN4node16MaybeStackBufferIjLm64EED2Ev.exit
+  %38 = load ptr, ptr %buf_.i.i, align 8
+  %cmp.i.i.i52 = icmp ne ptr %38, null
+  %cmp.i.i54 = icmp ne ptr %38, %buf_st_.i.i
+  %39 = and i1 %cmp.i.i.i52, %cmp.i.i54
+  br i1 %39, label %if.then.i56, label %_ZN4node16MaybeStackBufferIjLm64EED2Ev.exit
 
 if.then.i56:                                      ; preds = %cleanup
-  call void @free(ptr noundef nonnull %37) #19
+  call void @free(ptr noundef nonnull %38) #19
   br label %_ZN4node16MaybeStackBufferIjLm64EED2Ev.exit
 
 _ZN4node16MaybeStackBufferIjLm64EED2Ev.exit:      ; preds = %cleanup, %if.then.i56

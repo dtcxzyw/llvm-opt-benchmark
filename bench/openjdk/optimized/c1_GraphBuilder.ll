@@ -5627,115 +5627,114 @@ define linkonce_odr hidden noundef ptr @_ZN12GraphBuilder25copy_state_indexed_ac
 _ZN14CompilerConfig10is_c1_onlyEv.exit.i.i:       ; preds = %1
   %9 = load i8, ptr @TieredCompilation, align 1
   %10 = trunc i8 %9 to i1
-  %11 = add i64 %6, -1
-  %12 = icmp ult i64 %11, 3
-  %spec.select.i.i.i = select i1 %10, i1 %12, i1 false
-  %13 = load i32, ptr @_ZN19CompilationModeFlag5_modeE, align 4
-  %14 = icmp eq i32 %13, 1
-  %15 = or i1 %spec.select.i.i.i, %14
-  %16 = load i8, ptr @EnableJVMCI, align 1
-  %17 = trunc i8 %16 to i1
-  %not..i = xor i1 %15, true
-  %18 = select i1 %not..i, i1 true, i1 %17
-  br i1 %18, label %_ZN11Compilation13is_optimisticEv.exit.thread, label %19
+  %11 = icmp ult i64 %6, 4
+  %spec.select.i.i.i = select i1 %10, i1 %11, i1 false
+  %12 = load i32, ptr @_ZN19CompilationModeFlag5_modeE, align 4
+  %13 = icmp eq i32 %12, 1
+  %14 = or i1 %spec.select.i.i.i, %13
+  %15 = load i8, ptr @EnableJVMCI, align 1
+  %16 = trunc i8 %15 to i1
+  %not..i = xor i1 %14, true
+  %17 = select i1 %not..i, i1 true, i1 %16
+  br i1 %17, label %_ZN11Compilation13is_optimisticEv.exit.thread, label %18
 
-19:                                               ; preds = %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i
-  %20 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %21 = load ptr, ptr %20, align 8
-  %22 = tail call noundef i32 @_ZN5ciEnv10comp_levelEv(ptr noundef nonnull align 8 dereferenceable(1265) %21) #19
-  %23 = icmp eq i32 %22, 3
-  br i1 %23, label %_ZN11Compilation13is_optimisticEv.exit.thread, label %_ZN11Compilation12is_profilingEv.exit.i
+18:                                               ; preds = %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %20 = load ptr, ptr %19, align 8
+  %21 = tail call noundef i32 @_ZN5ciEnv10comp_levelEv(ptr noundef nonnull align 8 dereferenceable(1265) %20) #19
+  %22 = icmp eq i32 %21, 3
+  br i1 %22, label %_ZN11Compilation13is_optimisticEv.exit.thread, label %_ZN11Compilation12is_profilingEv.exit.i
 
-_ZN11Compilation12is_profilingEv.exit.i:          ; preds = %19
-  %24 = load ptr, ptr %20, align 8
-  %25 = tail call noundef i32 @_ZN5ciEnv10comp_levelEv(ptr noundef nonnull align 8 dereferenceable(1265) %24) #19
-  %26 = icmp eq i32 %25, 2
-  br i1 %26, label %_ZN11Compilation13is_optimisticEv.exit.thread, label %27
+_ZN11Compilation12is_profilingEv.exit.i:          ; preds = %18
+  %23 = load ptr, ptr %19, align 8
+  %24 = tail call noundef i32 @_ZN5ciEnv10comp_levelEv(ptr noundef nonnull align 8 dereferenceable(1265) %23) #19
+  %25 = icmp eq i32 %24, 2
+  br i1 %25, label %_ZN11Compilation13is_optimisticEv.exit.thread, label %26
 
-27:                                               ; preds = %_ZN11Compilation12is_profilingEv.exit.i
-  %28 = load i8, ptr @RangeCheckElimination, align 1
-  %29 = trunc i8 %28 to i1
-  %30 = load i8, ptr @UseLoopInvariantCodeMotion, align 1
-  %31 = trunc i8 %30 to i1
-  %or.cond.i = select i1 %29, i1 true, i1 %31
+26:                                               ; preds = %_ZN11Compilation12is_profilingEv.exit.i
+  %27 = load i8, ptr @RangeCheckElimination, align 1
+  %28 = trunc i8 %27 to i1
+  %29 = load i8, ptr @UseLoopInvariantCodeMotion, align 1
+  %30 = trunc i8 %29 to i1
+  %or.cond.i = select i1 %28, i1 true, i1 %30
   br i1 %or.cond.i, label %_ZN11Compilation13is_optimisticEv.exit, label %_ZN11Compilation13is_optimisticEv.exit.thread
 
-_ZN11Compilation13is_optimisticEv.exit:           ; preds = %27
-  %32 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %33 = load ptr, ptr %32, align 8
-  %34 = tail call noundef ptr @_ZN8ciMethod11method_dataEv(ptr noundef nonnull align 8 dereferenceable(160) %33) #19
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 112
-  %36 = load i8, ptr %35, align 1
-  %37 = icmp eq i8 %36, 0
-  br i1 %37, label %38, label %_ZN11Compilation13is_optimisticEv.exit.thread
+_ZN11Compilation13is_optimisticEv.exit:           ; preds = %26
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  %32 = load ptr, ptr %31, align 8
+  %33 = tail call noundef ptr @_ZN8ciMethod11method_dataEv(ptr noundef nonnull align 8 dereferenceable(160) %32) #19
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 112
+  %35 = load i8, ptr %34, align 1
+  %36 = icmp eq i8 %35, 0
+  br i1 %36, label %37, label %_ZN11Compilation13is_optimisticEv.exit.thread
 
-38:                                               ; preds = %_ZN11Compilation13is_optimisticEv.exit
-  %39 = load ptr, ptr %0, align 8
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 32
-  %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
-  %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds nuw i8, ptr %41, i64 40
-  %45 = load ptr, ptr %44, align 8
-  %46 = ptrtoint ptr %43 to i64
-  %47 = ptrtoint ptr %45 to i64
-  %48 = sub i64 %46, %47
-  %49 = trunc i64 %48 to i32
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %51 = load ptr, ptr %50, align 8
-  %52 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
-  %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 1808
-  %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 128
+37:                                               ; preds = %_ZN11Compilation13is_optimisticEv.exit
+  %38 = load ptr, ptr %0, align 8
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 32
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
+  %42 = load ptr, ptr %41, align 8
+  %43 = getelementptr inbounds nuw i8, ptr %40, i64 40
+  %44 = load ptr, ptr %43, align 8
+  %45 = ptrtoint ptr %42 to i64
+  %46 = ptrtoint ptr %44 to i64
+  %47 = sub i64 %45, %46
+  %48 = trunc i64 %47 to i32
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %50 = load ptr, ptr %49, align 8
+  %51 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
+  %52 = load ptr, ptr %51, align 8
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 1808
+  %54 = load ptr, ptr %53, align 8
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 128
+  %56 = load ptr, ptr %55, align 8
   %57 = load ptr, ptr %56, align 8
-  %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %58, i64 40
-  %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds nuw i8, ptr %58, i64 32
-  %62 = load ptr, ptr %61, align 8
-  %63 = ptrtoint ptr %60 to i64
-  %64 = ptrtoint ptr %62 to i64
-  %65 = sub i64 %63, %64
-  %.not.i.i.i.i.i.i = icmp ult i64 %65, 88
-  br i1 %.not.i.i.i.i.i.i, label %68, label %66
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 40
+  %59 = load ptr, ptr %58, align 8
+  %60 = getelementptr inbounds nuw i8, ptr %57, i64 32
+  %61 = load ptr, ptr %60, align 8
+  %62 = ptrtoint ptr %59 to i64
+  %63 = ptrtoint ptr %61 to i64
+  %64 = sub i64 %62, %63
+  %.not.i.i.i.i.i.i = icmp ult i64 %64, 88
+  br i1 %.not.i.i.i.i.i.i, label %67, label %65
 
-66:                                               ; preds = %38
-  %67 = getelementptr inbounds nuw i8, ptr %62, i64 88
-  store ptr %67, ptr %61, align 8
+65:                                               ; preds = %37
+  %66 = getelementptr inbounds nuw i8, ptr %61, i64 88
+  store ptr %66, ptr %60, align 8
   br label %_ZN22CompilationResourceObjnwEm.exit.i.i.i
 
-68:                                               ; preds = %38
-  %69 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %58, i64 noundef 88, i32 noundef 0) #19
+67:                                               ; preds = %37
+  %68 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %57, i64 noundef 88, i32 noundef 0) #19
   br label %_ZN22CompilationResourceObjnwEm.exit.i.i.i
 
-_ZN22CompilationResourceObjnwEm.exit.i.i.i:       ; preds = %68, %66
-  %.0.i.i.i.i.i.i = phi ptr [ %62, %66 ], [ %69, %68 ]
-  %70 = icmp eq ptr %.0.i.i.i.i.i.i, null
-  br i1 %70, label %_ZN12GraphBuilder17copy_state_beforeEv.exit, label %71
+_ZN22CompilationResourceObjnwEm.exit.i.i.i:       ; preds = %67, %65
+  %.0.i.i.i.i.i.i = phi ptr [ %61, %65 ], [ %68, %67 ]
+  %69 = icmp eq ptr %.0.i.i.i.i.i.i, null
+  br i1 %69, label %_ZN12GraphBuilder17copy_state_beforeEv.exit, label %70
 
-71:                                               ; preds = %_ZN22CompilationResourceObjnwEm.exit.i.i.i
-  tail call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(81) %51, i32 noundef 2, i32 noundef %49) #19
+70:                                               ; preds = %_ZN22CompilationResourceObjnwEm.exit.i.i.i
+  tail call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(81) %50, i32 noundef 2, i32 noundef %48) #19
   br label %_ZN12GraphBuilder17copy_state_beforeEv.exit
 
-_ZN11Compilation13is_optimisticEv.exit.thread:    ; preds = %19, %1, %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i, %27, %_ZN11Compilation12is_profilingEv.exit.i, %_ZN11Compilation13is_optimisticEv.exit
-  %72 = load ptr, ptr %0, align 8
-  %73 = getelementptr inbounds nuw i8, ptr %72, i64 32
-  %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds nuw i8, ptr %74, i64 16
-  %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds nuw i8, ptr %74, i64 40
-  %78 = load ptr, ptr %77, align 8
-  %79 = ptrtoint ptr %76 to i64
-  %80 = ptrtoint ptr %78 to i64
-  %81 = sub i64 %79, %80
-  %82 = trunc i64 %81 to i32
-  %83 = tail call noundef ptr @_ZN12GraphBuilder33copy_state_for_exception_with_bciEi(ptr noundef nonnull readonly align 8 dereferenceable(97) %0, i32 noundef %82)
+_ZN11Compilation13is_optimisticEv.exit.thread:    ; preds = %18, %1, %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i, %26, %_ZN11Compilation12is_profilingEv.exit.i, %_ZN11Compilation13is_optimisticEv.exit
+  %71 = load ptr, ptr %0, align 8
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 32
+  %73 = load ptr, ptr %72, align 8
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 16
+  %75 = load ptr, ptr %74, align 8
+  %76 = getelementptr inbounds nuw i8, ptr %73, i64 40
+  %77 = load ptr, ptr %76, align 8
+  %78 = ptrtoint ptr %75 to i64
+  %79 = ptrtoint ptr %77 to i64
+  %80 = sub i64 %78, %79
+  %81 = trunc i64 %80 to i32
+  %82 = tail call noundef ptr @_ZN12GraphBuilder33copy_state_for_exception_with_bciEi(ptr noundef nonnull readonly align 8 dereferenceable(97) %0, i32 noundef %81)
   br label %_ZN12GraphBuilder17copy_state_beforeEv.exit
 
-_ZN12GraphBuilder17copy_state_beforeEv.exit:      ; preds = %71, %_ZN22CompilationResourceObjnwEm.exit.i.i.i, %_ZN11Compilation13is_optimisticEv.exit.thread
-  %84 = phi ptr [ %83, %_ZN11Compilation13is_optimisticEv.exit.thread ], [ null, %_ZN22CompilationResourceObjnwEm.exit.i.i.i ], [ %.0.i.i.i.i.i.i, %71 ]
-  ret ptr %84
+_ZN12GraphBuilder17copy_state_beforeEv.exit:      ; preds = %70, %_ZN22CompilationResourceObjnwEm.exit.i.i.i, %_ZN11Compilation13is_optimisticEv.exit.thread
+  %83 = phi ptr [ %82, %_ZN11Compilation13is_optimisticEv.exit.thread ], [ null, %_ZN22CompilationResourceObjnwEm.exit.i.i.i ], [ %.0.i.i.i.i.i.i, %70 ]
+  ret ptr %83
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -9301,10 +9300,10 @@ _ZNK16ciBytecodeStream8get_destEv.exit:           ; preds = %5, %14
 _ZN11InstructionnwEm.exit:                        ; preds = %72, %74
   %.0.i.i.i = phi ptr [ %68, %72 ], [ %75, %74 ]
   %76 = icmp eq ptr %.0.i.i.i, null
-  br i1 %76, label %117, label %77
+  br i1 %76, label %116, label %77
 
 77:                                               ; preds = %_ZN11InstructionnwEm.exit
-  br i1 %57, label %115, label %78
+  br i1 %57, label %114, label %78
 
 78:                                               ; preds = %77
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -9319,242 +9318,241 @@ _ZN11InstructionnwEm.exit:                        ; preds = %72, %74
 _ZN14CompilerConfig10is_c1_onlyEv.exit.i.i:       ; preds = %78
   %86 = load i8, ptr @TieredCompilation, align 1
   %87 = trunc i8 %86 to i1
-  %88 = add i64 %83, -1
-  %89 = icmp ult i64 %88, 3
-  %spec.select.i.i.i = select i1 %87, i1 %89, i1 false
-  %90 = load i32, ptr @_ZN19CompilationModeFlag5_modeE, align 4
-  %91 = icmp eq i32 %90, 1
-  %92 = or i1 %spec.select.i.i.i, %91
-  %93 = load i8, ptr @EnableJVMCI, align 1
-  %94 = trunc i8 %93 to i1
-  %not..i = xor i1 %92, true
-  %95 = select i1 %not..i, i1 true, i1 %94
-  br i1 %95, label %_ZN11Compilation13is_optimisticEv.exit.thread, label %96
+  %88 = icmp ult i64 %83, 4
+  %spec.select.i.i.i = select i1 %87, i1 %88, i1 false
+  %89 = load i32, ptr @_ZN19CompilationModeFlag5_modeE, align 4
+  %90 = icmp eq i32 %89, 1
+  %91 = or i1 %spec.select.i.i.i, %90
+  %92 = load i8, ptr @EnableJVMCI, align 1
+  %93 = trunc i8 %92 to i1
+  %not..i = xor i1 %91, true
+  %94 = select i1 %not..i, i1 true, i1 %93
+  br i1 %94, label %_ZN11Compilation13is_optimisticEv.exit.thread, label %95
 
-96:                                               ; preds = %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i
-  %97 = getelementptr inbounds nuw i8, ptr %80, i64 32
-  %98 = load ptr, ptr %97, align 8
-  %99 = tail call noundef i32 @_ZN5ciEnv10comp_levelEv(ptr noundef nonnull align 8 dereferenceable(1265) %98) #19
-  %100 = icmp eq i32 %99, 3
-  br i1 %100, label %_ZN11Compilation13is_optimisticEv.exit.thread, label %_ZN11Compilation12is_profilingEv.exit.i
+95:                                               ; preds = %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i
+  %96 = getelementptr inbounds nuw i8, ptr %80, i64 32
+  %97 = load ptr, ptr %96, align 8
+  %98 = tail call noundef i32 @_ZN5ciEnv10comp_levelEv(ptr noundef nonnull align 8 dereferenceable(1265) %97) #19
+  %99 = icmp eq i32 %98, 3
+  br i1 %99, label %_ZN11Compilation13is_optimisticEv.exit.thread, label %_ZN11Compilation12is_profilingEv.exit.i
 
-_ZN11Compilation12is_profilingEv.exit.i:          ; preds = %96
-  %101 = load ptr, ptr %97, align 8
-  %102 = tail call noundef i32 @_ZN5ciEnv10comp_levelEv(ptr noundef nonnull align 8 dereferenceable(1265) %101) #19
-  %103 = icmp eq i32 %102, 2
-  br i1 %103, label %_ZN11Compilation13is_optimisticEv.exit.thread, label %104
+_ZN11Compilation12is_profilingEv.exit.i:          ; preds = %95
+  %100 = load ptr, ptr %96, align 8
+  %101 = tail call noundef i32 @_ZN5ciEnv10comp_levelEv(ptr noundef nonnull align 8 dereferenceable(1265) %100) #19
+  %102 = icmp eq i32 %101, 2
+  br i1 %102, label %_ZN11Compilation13is_optimisticEv.exit.thread, label %103
 
-104:                                              ; preds = %_ZN11Compilation12is_profilingEv.exit.i
-  %105 = load i8, ptr @RangeCheckElimination, align 1
-  %106 = trunc i8 %105 to i1
-  %107 = load i8, ptr @UseLoopInvariantCodeMotion, align 1
-  %108 = trunc i8 %107 to i1
-  %or.cond.i = select i1 %106, i1 true, i1 %108
+103:                                              ; preds = %_ZN11Compilation12is_profilingEv.exit.i
+  %104 = load i8, ptr @RangeCheckElimination, align 1
+  %105 = trunc i8 %104 to i1
+  %106 = load i8, ptr @UseLoopInvariantCodeMotion, align 1
+  %107 = trunc i8 %106 to i1
+  %or.cond.i = select i1 %105, i1 true, i1 %107
   br i1 %or.cond.i, label %_ZN11Compilation13is_optimisticEv.exit, label %_ZN11Compilation13is_optimisticEv.exit.thread
 
-_ZN11Compilation13is_optimisticEv.exit:           ; preds = %104
-  %109 = getelementptr inbounds nuw i8, ptr %80, i64 48
-  %110 = load ptr, ptr %109, align 8
-  %111 = tail call noundef ptr @_ZN8ciMethod11method_dataEv(ptr noundef nonnull align 8 dereferenceable(160) %110) #19
-  %112 = getelementptr inbounds nuw i8, ptr %111, i64 112
-  %113 = load i8, ptr %112, align 1
-  %114 = icmp eq i8 %113, 0
-  br i1 %114, label %115, label %_ZN11Compilation13is_optimisticEv.exit.thread
+_ZN11Compilation13is_optimisticEv.exit:           ; preds = %103
+  %108 = getelementptr inbounds nuw i8, ptr %80, i64 48
+  %109 = load ptr, ptr %108, align 8
+  %110 = tail call noundef ptr @_ZN8ciMethod11method_dataEv(ptr noundef nonnull align 8 dereferenceable(160) %109) #19
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 112
+  %112 = load i8, ptr %111, align 1
+  %113 = icmp eq i8 %112, 0
+  br i1 %113, label %114, label %_ZN11Compilation13is_optimisticEv.exit.thread
 
-115:                                              ; preds = %_ZN11Compilation13is_optimisticEv.exit, %77
+114:                                              ; preds = %_ZN11Compilation13is_optimisticEv.exit, %77
   br label %_ZN11Compilation13is_optimisticEv.exit.thread
 
-_ZN11Compilation13is_optimisticEv.exit.thread:    ; preds = %96, %78, %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i, %104, %_ZN11Compilation12is_profilingEv.exit.i, %_ZN11Compilation13is_optimisticEv.exit, %115
-  %116 = phi ptr [ %4, %115 ], [ null, %_ZN11Compilation13is_optimisticEv.exit ], [ null, %_ZN11Compilation12is_profilingEv.exit.i ], [ null, %104 ], [ null, %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i ], [ null, %78 ], [ null, %96 ]
-  tail call void @_ZN2IfC2EP11InstructionNS0_9ConditionEbS1_P10BlockBeginS4_P10ValueStackb(ptr noundef nonnull align 8 dereferenceable(149) %.0.i.i.i, ptr noundef %1, i32 noundef %2, i1 noundef zeroext false, ptr noundef %3, ptr noundef nonnull %25, ptr noundef %37, ptr noundef %116, i1 noundef zeroext %57)
-  br label %117
+_ZN11Compilation13is_optimisticEv.exit.thread:    ; preds = %95, %78, %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i, %103, %_ZN11Compilation12is_profilingEv.exit.i, %_ZN11Compilation13is_optimisticEv.exit, %114
+  %115 = phi ptr [ %4, %114 ], [ null, %_ZN11Compilation13is_optimisticEv.exit ], [ null, %_ZN11Compilation12is_profilingEv.exit.i ], [ null, %103 ], [ null, %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i ], [ null, %78 ], [ null, %95 ]
+  tail call void @_ZN2IfC2EP11InstructionNS0_9ConditionEbS1_P10BlockBeginS4_P10ValueStackb(ptr noundef nonnull align 8 dereferenceable(149) %.0.i.i.i, ptr noundef %1, i32 noundef %2, i1 noundef zeroext false, ptr noundef %3, ptr noundef nonnull %25, ptr noundef %37, ptr noundef %115, i1 noundef zeroext %57)
+  br label %116
 
-117:                                              ; preds = %_ZN11Compilation13is_optimisticEv.exit.thread, %_ZN11InstructionnwEm.exit
-  %118 = load ptr, ptr %0, align 8
-  %119 = getelementptr inbounds nuw i8, ptr %118, i64 32
-  %120 = load ptr, ptr %119, align 8
-  %121 = getelementptr inbounds nuw i8, ptr %120, i64 16
-  %122 = load ptr, ptr %121, align 8
-  %123 = getelementptr inbounds nuw i8, ptr %120, i64 40
-  %124 = load ptr, ptr %123, align 8
-  %125 = ptrtoint ptr %122 to i64
-  %126 = ptrtoint ptr %124 to i64
-  %127 = sub i64 %125, %126
-  %128 = trunc i64 %127 to i32
-  %129 = tail call noundef ptr @_ZN12GraphBuilder15append_with_bciEP11Instructioni(ptr noundef nonnull align 8 dereferenceable(97) %0, ptr noundef %.0.i.i.i, i32 noundef %128)
-  %130 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %131 = load ptr, ptr %130, align 8
-  %132 = getelementptr inbounds nuw i8, ptr %131, i64 32
-  %133 = load ptr, ptr %132, align 8
-  %134 = tail call noundef i32 @_ZN5ciEnv10comp_levelEv(ptr noundef nonnull align 8 dereferenceable(1265) %133) #19
-  %135 = icmp eq i32 %134, 3
-  br i1 %135, label %_ZN12GraphBuilder12is_profilingEv.exit.thread, label %_ZN12GraphBuilder12is_profilingEv.exit
+116:                                              ; preds = %_ZN11Compilation13is_optimisticEv.exit.thread, %_ZN11InstructionnwEm.exit
+  %117 = load ptr, ptr %0, align 8
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 32
+  %119 = load ptr, ptr %118, align 8
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 16
+  %121 = load ptr, ptr %120, align 8
+  %122 = getelementptr inbounds nuw i8, ptr %119, i64 40
+  %123 = load ptr, ptr %122, align 8
+  %124 = ptrtoint ptr %121 to i64
+  %125 = ptrtoint ptr %123 to i64
+  %126 = sub i64 %124, %125
+  %127 = trunc i64 %126 to i32
+  %128 = tail call noundef ptr @_ZN12GraphBuilder15append_with_bciEP11Instructioni(ptr noundef nonnull align 8 dereferenceable(97) %0, ptr noundef %.0.i.i.i, i32 noundef %127)
+  %129 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %130 = load ptr, ptr %129, align 8
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 32
+  %132 = load ptr, ptr %131, align 8
+  %133 = tail call noundef i32 @_ZN5ciEnv10comp_levelEv(ptr noundef nonnull align 8 dereferenceable(1265) %132) #19
+  %134 = icmp eq i32 %133, 3
+  br i1 %134, label %_ZN12GraphBuilder12is_profilingEv.exit.thread, label %_ZN12GraphBuilder12is_profilingEv.exit
 
-_ZN12GraphBuilder12is_profilingEv.exit:           ; preds = %117
-  %136 = load ptr, ptr %132, align 8
-  %137 = tail call noundef i32 @_ZN5ciEnv10comp_levelEv(ptr noundef nonnull align 8 dereferenceable(1265) %136) #19
-  %138 = icmp eq i32 %137, 2
-  br i1 %138, label %_ZN12GraphBuilder12is_profilingEv.exit.thread, label %_ZN12GraphBuilder16profile_branchesEv.exit.thread
+_ZN12GraphBuilder12is_profilingEv.exit:           ; preds = %116
+  %135 = load ptr, ptr %131, align 8
+  %136 = tail call noundef i32 @_ZN5ciEnv10comp_levelEv(ptr noundef nonnull align 8 dereferenceable(1265) %135) #19
+  %137 = icmp eq i32 %136, 2
+  br i1 %137, label %_ZN12GraphBuilder12is_profilingEv.exit.thread, label %_ZN12GraphBuilder16profile_branchesEv.exit.thread
 
-_ZN12GraphBuilder12is_profilingEv.exit.thread:    ; preds = %117, %_ZN12GraphBuilder12is_profilingEv.exit
-  %139 = load ptr, ptr %129, align 8
-  %140 = getelementptr inbounds nuw i8, ptr %139, i64 328
-  %141 = load ptr, ptr %140, align 8
-  %142 = tail call noundef ptr %141(ptr noundef nonnull align 8 dereferenceable(96) %129) #19
-  %.not = icmp eq ptr %142, null
-  br i1 %.not, label %185, label %143
+_ZN12GraphBuilder12is_profilingEv.exit.thread:    ; preds = %116, %_ZN12GraphBuilder12is_profilingEv.exit
+  %138 = load ptr, ptr %128, align 8
+  %139 = getelementptr inbounds nuw i8, ptr %138, i64 328
+  %140 = load ptr, ptr %139, align 8
+  %141 = tail call noundef ptr %140(ptr noundef nonnull align 8 dereferenceable(96) %128) #19
+  %.not = icmp eq ptr %141, null
+  br i1 %.not, label %184, label %142
 
-143:                                              ; preds = %_ZN12GraphBuilder12is_profilingEv.exit.thread
-  %144 = load ptr, ptr %130, align 8
-  %145 = getelementptr inbounds nuw i8, ptr %144, i64 100
-  store i8 1, ptr %145, align 4
-  %146 = load ptr, ptr %0, align 8
-  %147 = getelementptr inbounds nuw i8, ptr %146, i64 32
-  %148 = load ptr, ptr %147, align 8
-  %149 = getelementptr inbounds nuw i8, ptr %148, i64 16
-  %150 = load ptr, ptr %149, align 8
-  %151 = getelementptr inbounds nuw i8, ptr %148, i64 40
-  %152 = load ptr, ptr %151, align 8
-  %153 = ptrtoint ptr %150 to i64
-  %154 = ptrtoint ptr %152 to i64
-  %155 = sub i64 %153, %154
-  %156 = trunc i64 %155 to i32
-  %157 = getelementptr inbounds nuw i8, ptr %142, i64 144
-  store i32 %156, ptr %157, align 8
-  %158 = load ptr, ptr %130, align 8
-  %159 = getelementptr inbounds nuw i8, ptr %158, i64 32
-  %160 = load ptr, ptr %159, align 8
-  %161 = tail call noundef i32 @_ZN5ciEnv10comp_levelEv(ptr noundef nonnull align 8 dereferenceable(1265) %160) #19
-  %162 = icmp eq i32 %161, 3
-  %163 = load i8, ptr @C1UpdateMethodData, align 1
-  %164 = trunc i8 %163 to i1
-  %or.cond.i.i = select i1 %162, i1 %164, i1 false
-  %165 = load i8, ptr @C1ProfileBranches, align 1
-  %166 = trunc i8 %165 to i1
-  %or.cond = select i1 %or.cond.i.i, i1 %166, i1 false
-  br i1 %or.cond, label %167, label %_ZN12GraphBuilder16profile_branchesEv.exit.thread
+142:                                              ; preds = %_ZN12GraphBuilder12is_profilingEv.exit.thread
+  %143 = load ptr, ptr %129, align 8
+  %144 = getelementptr inbounds nuw i8, ptr %143, i64 100
+  store i8 1, ptr %144, align 4
+  %145 = load ptr, ptr %0, align 8
+  %146 = getelementptr inbounds nuw i8, ptr %145, i64 32
+  %147 = load ptr, ptr %146, align 8
+  %148 = getelementptr inbounds nuw i8, ptr %147, i64 16
+  %149 = load ptr, ptr %148, align 8
+  %150 = getelementptr inbounds nuw i8, ptr %147, i64 40
+  %151 = load ptr, ptr %150, align 8
+  %152 = ptrtoint ptr %149 to i64
+  %153 = ptrtoint ptr %151 to i64
+  %154 = sub i64 %152, %153
+  %155 = trunc i64 %154 to i32
+  %156 = getelementptr inbounds nuw i8, ptr %141, i64 144
+  store i32 %155, ptr %156, align 8
+  %157 = load ptr, ptr %129, align 8
+  %158 = getelementptr inbounds nuw i8, ptr %157, i64 32
+  %159 = load ptr, ptr %158, align 8
+  %160 = tail call noundef i32 @_ZN5ciEnv10comp_levelEv(ptr noundef nonnull align 8 dereferenceable(1265) %159) #19
+  %161 = icmp eq i32 %160, 3
+  %162 = load i8, ptr @C1UpdateMethodData, align 1
+  %163 = trunc i8 %162 to i1
+  %or.cond.i.i = select i1 %161, i1 %163, i1 false
+  %164 = load i8, ptr @C1ProfileBranches, align 1
+  %165 = trunc i8 %164 to i1
+  %or.cond = select i1 %or.cond.i.i, i1 %165, i1 false
+  br i1 %or.cond, label %166, label %_ZN12GraphBuilder16profile_branchesEv.exit.thread
 
-167:                                              ; preds = %143
-  %168 = load ptr, ptr %0, align 8
-  %169 = getelementptr inbounds nuw i8, ptr %168, i64 16
-  %170 = load ptr, ptr %169, align 8
-  %171 = getelementptr inbounds nuw i8, ptr %170, i64 24
-  %172 = load ptr, ptr %171, align 8
-  %173 = getelementptr inbounds nuw i8, ptr %142, i64 136
-  store ptr %172, ptr %173, align 8
-  %174 = getelementptr inbounds nuw i8, ptr %142, i64 56
-  %175 = load i32, ptr %174, align 8
-  %176 = or i32 %175, 32768
-  store i32 %176, ptr %174, align 8
-  %177 = getelementptr inbounds nuw i8, ptr %142, i64 104
-  %178 = load ptr, ptr %177, align 8
-  %179 = getelementptr inbounds nuw i8, ptr %178, i64 8
+166:                                              ; preds = %142
+  %167 = load ptr, ptr %0, align 8
+  %168 = getelementptr inbounds nuw i8, ptr %167, i64 16
+  %169 = load ptr, ptr %168, align 8
+  %170 = getelementptr inbounds nuw i8, ptr %169, i64 24
+  %171 = load ptr, ptr %170, align 8
+  %172 = getelementptr inbounds nuw i8, ptr %141, i64 136
+  store ptr %171, ptr %172, align 8
+  %173 = getelementptr inbounds nuw i8, ptr %141, i64 56
+  %174 = load i32, ptr %173, align 8
+  %175 = or i32 %174, 32768
+  store i32 %175, ptr %173, align 8
+  %176 = getelementptr inbounds nuw i8, ptr %141, i64 104
+  %177 = load ptr, ptr %176, align 8
+  %178 = getelementptr inbounds nuw i8, ptr %177, i64 8
+  %179 = load ptr, ptr %178, align 8
   %180 = load ptr, ptr %179, align 8
-  %181 = load ptr, ptr %180, align 8
-  %182 = icmp eq ptr %181, %37
-  br i1 %182, label %183, label %_ZN12GraphBuilder16profile_branchesEv.exit.thread
+  %181 = icmp eq ptr %180, %37
+  br i1 %181, label %182, label %_ZN12GraphBuilder16profile_branchesEv.exit.thread
 
-183:                                              ; preds = %167
-  %184 = getelementptr inbounds nuw i8, ptr %142, i64 148
-  store i8 1, ptr %184, align 4
+182:                                              ; preds = %166
+  %183 = getelementptr inbounds nuw i8, ptr %141, i64 148
+  store i8 1, ptr %183, align 4
   br label %_ZN12GraphBuilder16profile_branchesEv.exit.thread
 
-185:                                              ; preds = %_ZN12GraphBuilder12is_profilingEv.exit.thread
-  %186 = load ptr, ptr %129, align 8
-  %187 = getelementptr inbounds nuw i8, ptr %186, i64 320
-  %188 = load ptr, ptr %187, align 8
-  %189 = tail call noundef ptr %188(ptr noundef nonnull align 8 dereferenceable(96) %129) #19
-  %.not31 = icmp eq ptr %189, null
-  br i1 %.not31, label %_ZN12GraphBuilder16profile_branchesEv.exit.thread, label %190
+184:                                              ; preds = %_ZN12GraphBuilder12is_profilingEv.exit.thread
+  %185 = load ptr, ptr %128, align 8
+  %186 = getelementptr inbounds nuw i8, ptr %185, i64 320
+  %187 = load ptr, ptr %186, align 8
+  %188 = tail call noundef ptr %187(ptr noundef nonnull align 8 dereferenceable(96) %128) #19
+  %.not31 = icmp eq ptr %188, null
+  br i1 %.not31, label %_ZN12GraphBuilder16profile_branchesEv.exit.thread, label %189
 
-190:                                              ; preds = %185
-  %191 = load ptr, ptr %130, align 8
-  %192 = getelementptr inbounds nuw i8, ptr %191, i64 100
-  store i8 1, ptr %192, align 4
-  %193 = load ptr, ptr %0, align 8
-  %194 = getelementptr inbounds nuw i8, ptr %193, i64 32
-  %195 = load ptr, ptr %194, align 8
-  %196 = getelementptr inbounds nuw i8, ptr %195, i64 16
-  %197 = load ptr, ptr %196, align 8
-  %198 = getelementptr inbounds nuw i8, ptr %195, i64 40
-  %199 = load ptr, ptr %198, align 8
-  %200 = ptrtoint ptr %197 to i64
-  %201 = ptrtoint ptr %199 to i64
-  %202 = sub i64 %200, %201
-  %203 = trunc i64 %202 to i32
-  %204 = getelementptr inbounds nuw i8, ptr %189, i64 120
-  store i32 %203, ptr %204, align 8
-  %205 = load ptr, ptr %130, align 8
-  %206 = getelementptr inbounds nuw i8, ptr %205, i64 32
-  %207 = load ptr, ptr %206, align 8
-  %208 = tail call noundef i32 @_ZN5ciEnv10comp_levelEv(ptr noundef nonnull align 8 dereferenceable(1265) %207) #19
-  %209 = icmp eq i32 %208, 3
-  %210 = load i8, ptr @C1UpdateMethodData, align 1
-  %211 = trunc i8 %210 to i1
-  %or.cond.i.i33 = select i1 %209, i1 %211, i1 false
-  %212 = load i8, ptr @C1ProfileBranches, align 1
-  %213 = trunc i8 %212 to i1
-  %or.cond39 = select i1 %or.cond.i.i33, i1 %213, i1 false
-  br i1 %or.cond39, label %214, label %_ZN12GraphBuilder16profile_branchesEv.exit.thread
+189:                                              ; preds = %184
+  %190 = load ptr, ptr %129, align 8
+  %191 = getelementptr inbounds nuw i8, ptr %190, i64 100
+  store i8 1, ptr %191, align 4
+  %192 = load ptr, ptr %0, align 8
+  %193 = getelementptr inbounds nuw i8, ptr %192, i64 32
+  %194 = load ptr, ptr %193, align 8
+  %195 = getelementptr inbounds nuw i8, ptr %194, i64 16
+  %196 = load ptr, ptr %195, align 8
+  %197 = getelementptr inbounds nuw i8, ptr %194, i64 40
+  %198 = load ptr, ptr %197, align 8
+  %199 = ptrtoint ptr %196 to i64
+  %200 = ptrtoint ptr %198 to i64
+  %201 = sub i64 %199, %200
+  %202 = trunc i64 %201 to i32
+  %203 = getelementptr inbounds nuw i8, ptr %188, i64 120
+  store i32 %202, ptr %203, align 8
+  %204 = load ptr, ptr %129, align 8
+  %205 = getelementptr inbounds nuw i8, ptr %204, i64 32
+  %206 = load ptr, ptr %205, align 8
+  %207 = tail call noundef i32 @_ZN5ciEnv10comp_levelEv(ptr noundef nonnull align 8 dereferenceable(1265) %206) #19
+  %208 = icmp eq i32 %207, 3
+  %209 = load i8, ptr @C1UpdateMethodData, align 1
+  %210 = trunc i8 %209 to i1
+  %or.cond.i.i33 = select i1 %208, i1 %210, i1 false
+  %211 = load i8, ptr @C1ProfileBranches, align 1
+  %212 = trunc i8 %211 to i1
+  %or.cond39 = select i1 %or.cond.i.i33, i1 %212, i1 false
+  br i1 %or.cond39, label %213, label %_ZN12GraphBuilder16profile_branchesEv.exit.thread
 
-214:                                              ; preds = %190
-  %215 = load ptr, ptr %0, align 8
-  %216 = getelementptr inbounds nuw i8, ptr %215, i64 16
-  %217 = load ptr, ptr %216, align 8
-  %218 = getelementptr inbounds nuw i8, ptr %217, i64 24
-  %219 = load ptr, ptr %218, align 8
-  %220 = getelementptr inbounds nuw i8, ptr %189, i64 112
-  store ptr %219, ptr %220, align 8
-  %221 = getelementptr inbounds nuw i8, ptr %189, i64 56
-  %222 = load i32, ptr %221, align 8
-  %223 = or i32 %222, 32768
-  store i32 %223, ptr %221, align 8
-  %224 = getelementptr inbounds nuw i8, ptr %189, i64 104
-  %225 = load ptr, ptr %224, align 8
-  %.not.i.i = icmp eq ptr %225, null
-  br i1 %.not.i.i, label %_ZNK8BlockEnd11default_suxEv.exit, label %226
+213:                                              ; preds = %189
+  %214 = load ptr, ptr %0, align 8
+  %215 = getelementptr inbounds nuw i8, ptr %214, i64 16
+  %216 = load ptr, ptr %215, align 8
+  %217 = getelementptr inbounds nuw i8, ptr %216, i64 24
+  %218 = load ptr, ptr %217, align 8
+  %219 = getelementptr inbounds nuw i8, ptr %188, i64 112
+  store ptr %218, ptr %219, align 8
+  %220 = getelementptr inbounds nuw i8, ptr %188, i64 56
+  %221 = load i32, ptr %220, align 8
+  %222 = or i32 %221, 32768
+  store i32 %222, ptr %220, align 8
+  %223 = getelementptr inbounds nuw i8, ptr %188, i64 104
+  %224 = load ptr, ptr %223, align 8
+  %.not.i.i = icmp eq ptr %224, null
+  br i1 %.not.i.i, label %_ZNK8BlockEnd11default_suxEv.exit, label %225
 
-226:                                              ; preds = %214
-  %227 = load i32, ptr %225, align 4
-  %228 = add nsw i32 %227, -1
-  %229 = sext i32 %228 to i64
+225:                                              ; preds = %213
+  %226 = load i32, ptr %224, align 4
+  %227 = add nsw i32 %226, -1
+  %228 = sext i32 %227 to i64
   br label %_ZNK8BlockEnd11default_suxEv.exit
 
-_ZNK8BlockEnd11default_suxEv.exit:                ; preds = %214, %226
-  %230 = phi i64 [ %229, %226 ], [ -1, %214 ]
-  %231 = getelementptr inbounds nuw i8, ptr %225, i64 8
-  %232 = load ptr, ptr %231, align 8
-  %233 = getelementptr inbounds ptr, ptr %232, i64 %230
-  %234 = load ptr, ptr %233, align 8
-  %235 = icmp eq ptr %234, %25
-  br i1 %235, label %236, label %_ZNK8BlockEnd11default_suxEv.exit36
+_ZNK8BlockEnd11default_suxEv.exit:                ; preds = %213, %225
+  %229 = phi i64 [ %228, %225 ], [ -1, %213 ]
+  %230 = getelementptr inbounds nuw i8, ptr %224, i64 8
+  %231 = load ptr, ptr %230, align 8
+  %232 = getelementptr inbounds ptr, ptr %231, i64 %229
+  %233 = load ptr, ptr %232, align 8
+  %234 = icmp eq ptr %233, %25
+  br i1 %234, label %235, label %_ZNK8BlockEnd11default_suxEv.exit36
 
-236:                                              ; preds = %_ZNK8BlockEnd11default_suxEv.exit
-  %237 = getelementptr inbounds nuw i8, ptr %189, i64 124
-  store i32 1, ptr %237, align 4
+235:                                              ; preds = %_ZNK8BlockEnd11default_suxEv.exit
+  %236 = getelementptr inbounds nuw i8, ptr %188, i64 124
+  store i32 1, ptr %236, align 4
   br label %_ZN12GraphBuilder16profile_branchesEv.exit.thread
 
 _ZNK8BlockEnd11default_suxEv.exit36:              ; preds = %_ZNK8BlockEnd11default_suxEv.exit
-  %238 = load i32, ptr %225, align 4
-  %239 = sext i32 %238 to i64
-  %240 = getelementptr ptr, ptr %232, i64 %239
-  %241 = getelementptr i8, ptr %240, i64 -8
-  %242 = load ptr, ptr %241, align 8
-  %243 = icmp eq ptr %242, %37
-  br i1 %243, label %244, label %246
+  %237 = load i32, ptr %224, align 4
+  %238 = sext i32 %237 to i64
+  %239 = getelementptr ptr, ptr %231, i64 %238
+  %240 = getelementptr i8, ptr %239, i64 -8
+  %241 = load ptr, ptr %240, align 8
+  %242 = icmp eq ptr %241, %37
+  br i1 %242, label %243, label %245
 
-244:                                              ; preds = %_ZNK8BlockEnd11default_suxEv.exit36
-  %245 = getelementptr inbounds nuw i8, ptr %189, i64 124
-  store i32 2, ptr %245, align 4
+243:                                              ; preds = %_ZNK8BlockEnd11default_suxEv.exit36
+  %244 = getelementptr inbounds nuw i8, ptr %188, i64 124
+  store i32 2, ptr %244, align 4
   br label %_ZN12GraphBuilder16profile_branchesEv.exit.thread
 
-246:                                              ; preds = %_ZNK8BlockEnd11default_suxEv.exit36
-  %247 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %247, align 1
+245:                                              ; preds = %_ZNK8BlockEnd11default_suxEv.exit36
+  %246 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %246, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str.4, i32 noundef 1354) #20
   unreachable
 
-_ZN12GraphBuilder16profile_branchesEv.exit.thread: ; preds = %190, %143, %185, %244, %236, %183, %167, %_ZN12GraphBuilder12is_profilingEv.exit
+_ZN12GraphBuilder16profile_branchesEv.exit.thread: ; preds = %189, %142, %184, %243, %235, %182, %166, %_ZN12GraphBuilder12is_profilingEv.exit
   ret void
 }
 
@@ -10997,7 +10995,7 @@ declare noundef i32 @_ZN5ciEnv10comp_levelEv(ptr noundef nonnull align 8 derefer
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN12GraphBuilder16copy_state_if_bbEb(ptr noundef nonnull align 8 dereferenceable(97) %0, i1 noundef zeroext %1) local_unnamed_addr #0 comdat align 2 {
-  br i1 %1, label %40, label %3
+  br i1 %1, label %39, label %3
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -11012,100 +11010,99 @@ define linkonce_odr hidden noundef ptr @_ZN12GraphBuilder16copy_state_if_bbEb(pt
 _ZN14CompilerConfig10is_c1_onlyEv.exit.i.i:       ; preds = %3
   %11 = load i8, ptr @TieredCompilation, align 1
   %12 = trunc i8 %11 to i1
-  %13 = add i64 %8, -1
-  %14 = icmp ult i64 %13, 3
-  %spec.select.i.i.i = select i1 %12, i1 %14, i1 false
-  %15 = load i32, ptr @_ZN19CompilationModeFlag5_modeE, align 4
-  %16 = icmp eq i32 %15, 1
-  %17 = or i1 %spec.select.i.i.i, %16
-  %18 = load i8, ptr @EnableJVMCI, align 1
-  %19 = trunc i8 %18 to i1
-  %not..i = xor i1 %17, true
-  %20 = select i1 %not..i, i1 true, i1 %19
-  br i1 %20, label %_ZN12GraphBuilder17copy_state_beforeEv.exit, label %21
+  %13 = icmp ult i64 %8, 4
+  %spec.select.i.i.i = select i1 %12, i1 %13, i1 false
+  %14 = load i32, ptr @_ZN19CompilationModeFlag5_modeE, align 4
+  %15 = icmp eq i32 %14, 1
+  %16 = or i1 %spec.select.i.i.i, %15
+  %17 = load i8, ptr @EnableJVMCI, align 1
+  %18 = trunc i8 %17 to i1
+  %not..i = xor i1 %16, true
+  %19 = select i1 %not..i, i1 true, i1 %18
+  br i1 %19, label %_ZN12GraphBuilder17copy_state_beforeEv.exit, label %20
 
-21:                                               ; preds = %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i
-  %22 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %23 = load ptr, ptr %22, align 8
-  %24 = tail call noundef i32 @_ZN5ciEnv10comp_levelEv(ptr noundef nonnull align 8 dereferenceable(1265) %23) #19
-  %25 = icmp eq i32 %24, 3
-  br i1 %25, label %_ZN12GraphBuilder17copy_state_beforeEv.exit, label %_ZN11Compilation12is_profilingEv.exit.i
+20:                                               ; preds = %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %22 = load ptr, ptr %21, align 8
+  %23 = tail call noundef i32 @_ZN5ciEnv10comp_levelEv(ptr noundef nonnull align 8 dereferenceable(1265) %22) #19
+  %24 = icmp eq i32 %23, 3
+  br i1 %24, label %_ZN12GraphBuilder17copy_state_beforeEv.exit, label %_ZN11Compilation12is_profilingEv.exit.i
 
-_ZN11Compilation12is_profilingEv.exit.i:          ; preds = %21
-  %26 = load ptr, ptr %22, align 8
-  %27 = tail call noundef i32 @_ZN5ciEnv10comp_levelEv(ptr noundef nonnull align 8 dereferenceable(1265) %26) #19
-  %28 = icmp eq i32 %27, 2
-  br i1 %28, label %_ZN12GraphBuilder17copy_state_beforeEv.exit, label %29
+_ZN11Compilation12is_profilingEv.exit.i:          ; preds = %20
+  %25 = load ptr, ptr %21, align 8
+  %26 = tail call noundef i32 @_ZN5ciEnv10comp_levelEv(ptr noundef nonnull align 8 dereferenceable(1265) %25) #19
+  %27 = icmp eq i32 %26, 2
+  br i1 %27, label %_ZN12GraphBuilder17copy_state_beforeEv.exit, label %28
 
-29:                                               ; preds = %_ZN11Compilation12is_profilingEv.exit.i
-  %30 = load i8, ptr @RangeCheckElimination, align 1
-  %31 = trunc i8 %30 to i1
-  %32 = load i8, ptr @UseLoopInvariantCodeMotion, align 1
-  %33 = trunc i8 %32 to i1
-  %or.cond.i = select i1 %31, i1 true, i1 %33
+28:                                               ; preds = %_ZN11Compilation12is_profilingEv.exit.i
+  %29 = load i8, ptr @RangeCheckElimination, align 1
+  %30 = trunc i8 %29 to i1
+  %31 = load i8, ptr @UseLoopInvariantCodeMotion, align 1
+  %32 = trunc i8 %31 to i1
+  %or.cond.i = select i1 %30, i1 true, i1 %32
   br i1 %or.cond.i, label %_ZN11Compilation13is_optimisticEv.exit, label %_ZN12GraphBuilder17copy_state_beforeEv.exit
 
-_ZN11Compilation13is_optimisticEv.exit:           ; preds = %29
-  %34 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  %35 = load ptr, ptr %34, align 8
-  %36 = tail call noundef ptr @_ZN8ciMethod11method_dataEv(ptr noundef nonnull align 8 dereferenceable(160) %35) #19
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 112
-  %38 = load i8, ptr %37, align 1
-  %39 = icmp eq i8 %38, 0
-  br i1 %39, label %40, label %_ZN12GraphBuilder17copy_state_beforeEv.exit
+_ZN11Compilation13is_optimisticEv.exit:           ; preds = %28
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  %34 = load ptr, ptr %33, align 8
+  %35 = tail call noundef ptr @_ZN8ciMethod11method_dataEv(ptr noundef nonnull align 8 dereferenceable(160) %34) #19
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 112
+  %37 = load i8, ptr %36, align 1
+  %38 = icmp eq i8 %37, 0
+  br i1 %38, label %39, label %_ZN12GraphBuilder17copy_state_beforeEv.exit
 
-40:                                               ; preds = %_ZN11Compilation13is_optimisticEv.exit, %2
-  %41 = load ptr, ptr %0, align 8
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 32
-  %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %43, i64 40
-  %47 = load ptr, ptr %46, align 8
-  %48 = ptrtoint ptr %45 to i64
-  %49 = ptrtoint ptr %47 to i64
-  %50 = sub i64 %48, %49
-  %51 = trunc i64 %50 to i32
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %53 = load ptr, ptr %52, align 8
-  %54 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
-  %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 1808
-  %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 128
+39:                                               ; preds = %_ZN11Compilation13is_optimisticEv.exit, %2
+  %40 = load ptr, ptr %0, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 32
+  %42 = load ptr, ptr %41, align 8
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %42, i64 40
+  %46 = load ptr, ptr %45, align 8
+  %47 = ptrtoint ptr %44 to i64
+  %48 = ptrtoint ptr %46 to i64
+  %49 = sub i64 %47, %48
+  %50 = trunc i64 %49 to i32
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %52 = load ptr, ptr %51, align 8
+  %53 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
+  %54 = load ptr, ptr %53, align 8
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 1808
+  %56 = load ptr, ptr %55, align 8
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 128
+  %58 = load ptr, ptr %57, align 8
   %59 = load ptr, ptr %58, align 8
-  %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 40
-  %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds nuw i8, ptr %60, i64 32
-  %64 = load ptr, ptr %63, align 8
-  %65 = ptrtoint ptr %62 to i64
-  %66 = ptrtoint ptr %64 to i64
-  %67 = sub i64 %65, %66
-  %.not.i.i.i.i.i.i = icmp ult i64 %67, 88
-  br i1 %.not.i.i.i.i.i.i, label %70, label %68
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 40
+  %61 = load ptr, ptr %60, align 8
+  %62 = getelementptr inbounds nuw i8, ptr %59, i64 32
+  %63 = load ptr, ptr %62, align 8
+  %64 = ptrtoint ptr %61 to i64
+  %65 = ptrtoint ptr %63 to i64
+  %66 = sub i64 %64, %65
+  %.not.i.i.i.i.i.i = icmp ult i64 %66, 88
+  br i1 %.not.i.i.i.i.i.i, label %69, label %67
 
-68:                                               ; preds = %40
-  %69 = getelementptr inbounds nuw i8, ptr %64, i64 88
-  store ptr %69, ptr %63, align 8
+67:                                               ; preds = %39
+  %68 = getelementptr inbounds nuw i8, ptr %63, i64 88
+  store ptr %68, ptr %62, align 8
   br label %_ZN22CompilationResourceObjnwEm.exit.i.i.i
 
-70:                                               ; preds = %40
-  %71 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %60, i64 noundef 88, i32 noundef 0) #19
+69:                                               ; preds = %39
+  %70 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %59, i64 noundef 88, i32 noundef 0) #19
   br label %_ZN22CompilationResourceObjnwEm.exit.i.i.i
 
-_ZN22CompilationResourceObjnwEm.exit.i.i.i:       ; preds = %70, %68
-  %.0.i.i.i.i.i.i = phi ptr [ %64, %68 ], [ %71, %70 ]
-  %72 = icmp eq ptr %.0.i.i.i.i.i.i, null
-  br i1 %72, label %_ZN12GraphBuilder17copy_state_beforeEv.exit, label %73
+_ZN22CompilationResourceObjnwEm.exit.i.i.i:       ; preds = %69, %67
+  %.0.i.i.i.i.i.i = phi ptr [ %63, %67 ], [ %70, %69 ]
+  %71 = icmp eq ptr %.0.i.i.i.i.i.i, null
+  br i1 %71, label %_ZN12GraphBuilder17copy_state_beforeEv.exit, label %72
 
-73:                                               ; preds = %_ZN22CompilationResourceObjnwEm.exit.i.i.i
-  tail call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(81) %53, i32 noundef 2, i32 noundef %51) #19
+72:                                               ; preds = %_ZN22CompilationResourceObjnwEm.exit.i.i.i
+  tail call void @_ZN10ValueStackC1EPS_NS_4KindEi(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(81) %52, i32 noundef 2, i32 noundef %50) #19
   br label %_ZN12GraphBuilder17copy_state_beforeEv.exit
 
-_ZN12GraphBuilder17copy_state_beforeEv.exit:      ; preds = %21, %3, %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i, %29, %_ZN11Compilation12is_profilingEv.exit.i, %73, %_ZN22CompilationResourceObjnwEm.exit.i.i.i, %_ZN11Compilation13is_optimisticEv.exit
-  %74 = phi ptr [ null, %_ZN11Compilation13is_optimisticEv.exit ], [ null, %_ZN22CompilationResourceObjnwEm.exit.i.i.i ], [ %.0.i.i.i.i.i.i, %73 ], [ null, %_ZN11Compilation12is_profilingEv.exit.i ], [ null, %29 ], [ null, %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i ], [ null, %3 ], [ null, %21 ]
-  ret ptr %74
+_ZN12GraphBuilder17copy_state_beforeEv.exit:      ; preds = %20, %3, %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i, %28, %_ZN11Compilation12is_profilingEv.exit.i, %72, %_ZN22CompilationResourceObjnwEm.exit.i.i.i, %_ZN11Compilation13is_optimisticEv.exit
+  %73 = phi ptr [ null, %_ZN11Compilation13is_optimisticEv.exit ], [ null, %_ZN22CompilationResourceObjnwEm.exit.i.i.i ], [ %.0.i.i.i.i.i.i, %72 ], [ null, %_ZN11Compilation12is_profilingEv.exit.i ], [ null, %28 ], [ null, %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i ], [ null, %3 ], [ null, %20 ]
+  ret ptr %73
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

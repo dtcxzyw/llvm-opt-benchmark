@@ -668,9 +668,8 @@ rb_num2int_inline.exit:                           ; preds = %11, %13
 29:                                               ; preds = %.thread
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %.014, ptr %30, align 8, !tbaa !29
-  %31 = add nuw i64 %.014, 4611686018427387904
-  %or.cond.i = icmp sgt i64 %31, -1
-  br i1 %or.cond.i, label %32, label %35
+  %31 = icmp slt i64 %.014, 4611686018427387904
+  br i1 %31, label %32, label %35
 
 32:                                               ; preds = %29
   %33 = shl nuw nsw i64 %.014, 1

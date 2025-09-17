@@ -853,9 +853,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit485: ; preds = %_Z
   br label %772
 
 128:                                              ; preds = %119
-  %129 = add nsw i32 %73, -5
-  %.not431 = icmp ult i32 %129, 3
-  br i1 %.not431, label %130, label %143
+  %129 = icmp samesign ugt i32 %73, 4
+  br i1 %129, label %130, label %143
 
 130:                                              ; preds = %128
   call void @llvm.lifetime.start.p0(ptr nonnull %27)

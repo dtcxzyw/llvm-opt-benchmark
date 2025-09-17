@@ -504,9 +504,8 @@ switch.lookup:                                    ; preds = %16
   br label %.thread78
 
 61:                                               ; preds = %56
-  %62 = add nsw i32 %8, -3
-  %or.cond9 = icmp ult i32 %62, 2
-  br i1 %or.cond9, label %63, label %.thread78
+  %62 = icmp samesign ugt i32 %8, 2
+  br i1 %62, label %63, label %.thread78
 
 63:                                               ; preds = %61
   %64 = icmp eq i32 %8, 3

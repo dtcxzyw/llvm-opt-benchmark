@@ -194,7 +194,7 @@ define i32 @cli_ole2_summary_json(ptr noundef %0, i32 noundef %1, i32 noundef %2
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str) #10
   %6 = icmp eq ptr %0, null
-  br i1 %6, label %83, label %7
+  br i1 %6, label %82, label %7
 
 7:                                                ; preds = %3
   %8 = icmp slt i32 %1, 0
@@ -202,7 +202,7 @@ define i32 @cli_ole2_summary_json(ptr noundef %0, i32 noundef %1, i32 noundef %2
 
 9:                                                ; preds = %7
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1) #10
-  br label %83
+  br label %82
 
 10:                                               ; preds = %7
   %or.cond = icmp ugt i32 %2, 2
@@ -210,7 +210,7 @@ define i32 @cli_ole2_summary_json(ptr noundef %0, i32 noundef %1, i32 noundef %2
 
 11:                                               ; preds = %10
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.2) #10
-  br label %83
+  br label %82
 
 12:                                               ; preds = %10
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -224,7 +224,7 @@ define i32 @cli_ole2_summary_json(ptr noundef %0, i32 noundef %1, i32 noundef %2
 
 17:                                               ; preds = %12
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.3) #10
-  br label %83
+  br label %82
 
 18:                                               ; preds = %12
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 48
@@ -237,7 +237,7 @@ define i32 @cli_ole2_summary_json(ptr noundef %0, i32 noundef %1, i32 noundef %2
 
 23:                                               ; preds = %18
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.4) #10
-  br label %83
+  br label %82
 
 24:                                               ; preds = %18
   %25 = getelementptr inbounds nuw i8, ptr %21, i64 88
@@ -260,7 +260,7 @@ define i32 @cli_ole2_summary_json(ptr noundef %0, i32 noundef %1, i32 noundef %2
 32:                                               ; preds = %24
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.9) #10
   %33 = call fastcc i32 @cli_ole2_summary_json_cleanup(ptr noundef %4, i32 noundef 20)
-  br label %83
+  br label %82
 
 34:                                               ; preds = %24
   %35 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -274,7 +274,7 @@ define i32 @cli_ole2_summary_json(ptr noundef %0, i32 noundef %1, i32 noundef %2
   %39 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i32 1, ptr %39, align 8, !tbaa !38
   %40 = call fastcc i32 @cli_ole2_summary_json_cleanup(ptr noundef %4, i32 noundef 26)
-  br label %83
+  br label %82
 
 41:                                               ; preds = %34
   %42 = getelementptr inbounds nuw i8, ptr %21, i64 104
@@ -287,7 +287,7 @@ define i32 @cli_ole2_summary_json(ptr noundef %0, i32 noundef %1, i32 noundef %2
   %46 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i32 4, ptr %46, align 8, !tbaa !38
   %47 = call fastcc i32 @cli_ole2_summary_json_cleanup(ptr noundef %4, i32 noundef 12)
-  br label %83
+  br label %82
 
 48:                                               ; preds = %41
   %.sroa.06.0.copyload = load i16, ptr %44, align 1
@@ -302,7 +302,7 @@ define i32 @cli_ole2_summary_json(ptr noundef %0, i32 noundef %1, i32 noundef %2
   %51 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i32 8, ptr %51, align 8, !tbaa !38
   %52 = call fastcc i32 @cli_ole2_summary_json_cleanup(ptr noundef %4, i32 noundef 26)
-  br label %83
+  br label %82
 
 53:                                               ; preds = %48
   %54 = add i32 %.sroa.1210.0.copyload, -3
@@ -314,61 +314,60 @@ define i32 @cli_ole2_summary_json(ptr noundef %0, i32 noundef %1, i32 noundef %2
   %56 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i32 8, ptr %56, align 8, !tbaa !38
   %57 = call fastcc i32 @cli_ole2_summary_json_cleanup(ptr noundef %4, i32 noundef 26)
-  br label %83
+  br label %82
 
 58:                                               ; preds = %53
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.12, i32 noundef 65534) #10
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.13, i32 noundef %.sroa.1210.0.copyload) #10
-  %59 = add i64 %26, -28
-  %60 = icmp ult i64 %59, 20
-  br i1 %60, label %61, label %64
+  %59 = icmp ult i64 %26, 48
+  br i1 %59, label %60, label %63
 
-61:                                               ; preds = %58
-  %62 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  store i32 1, ptr %62, align 8, !tbaa !38
-  %63 = call fastcc i32 @cli_ole2_summary_json_cleanup(ptr noundef %4, i32 noundef 26)
-  br label %83
+60:                                               ; preds = %58
+  %61 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  store i32 1, ptr %61, align 8, !tbaa !38
+  %62 = call fastcc i32 @cli_ole2_summary_json_cleanup(ptr noundef %4, i32 noundef 26)
+  br label %82
 
-64:                                               ; preds = %58
-  %65 = load ptr, ptr %42, align 8, !tbaa !39
-  %66 = tail call ptr %65(ptr noundef nonnull %21, i64 noundef 28, i64 noundef 20, i32 noundef 0) #10
-  %.not48 = icmp eq ptr %66, null
-  br i1 %.not48, label %67, label %70
+63:                                               ; preds = %58
+  %64 = load ptr, ptr %42, align 8, !tbaa !39
+  %65 = tail call ptr %64(ptr noundef nonnull %21, i64 noundef 28, i64 noundef 20, i32 noundef 0) #10
+  %.not48 = icmp eq ptr %65, null
+  br i1 %.not48, label %66, label %69
 
-67:                                               ; preds = %64
-  %68 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  store i32 4, ptr %68, align 8, !tbaa !38
-  %69 = call fastcc i32 @cli_ole2_summary_json_cleanup(ptr noundef %4, i32 noundef 12)
-  br label %83
+66:                                               ; preds = %63
+  %67 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  store i32 4, ptr %67, align 8, !tbaa !38
+  %68 = call fastcc i32 @cli_ole2_summary_json_cleanup(ptr noundef %4, i32 noundef 12)
+  br label %82
 
-70:                                               ; preds = %64
-  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %66, i64 16
+69:                                               ; preds = %63
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %65, i64 16
   %.sroa.3.0.copyload = load i32, ptr %.sroa.3.0..sroa_idx, align 1
-  %71 = zext i32 %.sroa.3.0.copyload to i64
-  %72 = call fastcc i32 @ole2_summary_propset_json(ptr noundef %4, i64 noundef %71)
-  %.not49 = icmp eq i32 %72, 0
-  br i1 %.not49, label %75, label %73
+  %70 = zext i32 %.sroa.3.0.copyload to i64
+  %71 = call fastcc i32 @ole2_summary_propset_json(ptr noundef %4, i64 noundef %70)
+  %.not49 = icmp eq i32 %71, 0
+  br i1 %.not49, label %74, label %72
 
-73:                                               ; preds = %70
-  %74 = call fastcc i32 @cli_ole2_summary_json_cleanup(ptr noundef %4, i32 noundef %72)
-  br label %83
+72:                                               ; preds = %69
+  %73 = call fastcc i32 @cli_ole2_summary_json_cleanup(ptr noundef %4, i32 noundef %71)
+  br label %82
 
-75:                                               ; preds = %70
-  %76 = icmp eq i32 %.sroa.1210.0.copyload, 2
-  br i1 %76, label %77, label %81
+74:                                               ; preds = %69
+  %75 = icmp eq i32 %.sroa.1210.0.copyload, 2
+  br i1 %75, label %76, label %80
 
-77:                                               ; preds = %75
-  %78 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %79 = load ptr, ptr %78, align 8, !tbaa !25
-  %80 = call i32 @cli_jsonbool(ptr noundef %79, ptr noundef nonnull @.str.14, i32 noundef 1) #10
-  br label %81
+76:                                               ; preds = %74
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %78 = load ptr, ptr %77, align 8, !tbaa !25
+  %79 = call i32 @cli_jsonbool(ptr noundef %78, ptr noundef nonnull @.str.14, i32 noundef 1) #10
+  br label %80
 
-81:                                               ; preds = %77, %75
-  %82 = call fastcc i32 @cli_ole2_summary_json_cleanup(ptr noundef %4, i32 noundef 0)
-  br label %83
+80:                                               ; preds = %76, %74
+  %81 = call fastcc i32 @cli_ole2_summary_json_cleanup(ptr noundef %4, i32 noundef 0)
+  br label %82
 
-83:                                               ; preds = %3, %81, %73, %67, %61, %55, %49, %45, %38, %32, %23, %17, %11, %9
-  %.0 = phi i32 [ 2, %9 ], [ 2, %11 ], [ 11, %17 ], [ 26, %38 ], [ 26, %49 ], [ 26, %55 ], [ 26, %61 ], [ %72, %73 ], [ 0, %81 ], [ 12, %67 ], [ 12, %45 ], [ 20, %32 ], [ 19, %23 ], [ 2, %3 ]
+82:                                               ; preds = %3, %80, %72, %66, %60, %55, %49, %45, %38, %32, %23, %17, %11, %9
+  %.0 = phi i32 [ 2, %9 ], [ 2, %11 ], [ 11, %17 ], [ 26, %38 ], [ 26, %49 ], [ 26, %55 ], [ 26, %60 ], [ %71, %72 ], [ 0, %80 ], [ 12, %66 ], [ 12, %45 ], [ 20, %32 ], [ 19, %23 ], [ 2, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0

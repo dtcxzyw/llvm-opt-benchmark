@@ -1054,8 +1054,7 @@ define dso_local void @hugetlb_fix_reserve_counts(ptr noundef readonly captures(
   br label %.thread
 
 30:                                               ; preds = %27
-  %notsub = add i64 %25, -2
-  %31 = icmp slt i64 %notsub, -1
+  %31 = icmp samesign ugt i64 %25, -9223372036854775807
   br i1 %31, label %.thread, label %.critedge
 
 .thread:                                          ; preds = %1, %.thread5, %30

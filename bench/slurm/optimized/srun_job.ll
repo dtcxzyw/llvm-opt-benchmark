@@ -4992,30 +4992,26 @@ _run_srun_epilog.exit:                            ; preds = %.thread, %39, %46, 
   %53 = tail call i32 @step_ctx_destroy(ptr noundef %52) #15
   %54 = load i32, ptr %2, align 4
   %55 = and i32 %54, 127
-  %56 = icmp eq i32 %55, 0
-  br i1 %56, label %57, label %60
+  switch i32 %55, label %59 [
+    i32 0, label %56
+    i32 127, label %61
+  ]
 
-57:                                               ; preds = %_run_srun_epilog.exit
-  %58 = lshr i32 %54, 8
-  %59 = and i32 %58, 255
-  br label %.sink.split25
+56:                                               ; preds = %_run_srun_epilog.exit
+  %57 = lshr i32 %54, 8
+  %58 = and i32 %57, 255
+  br label %.sink.split26
 
-60:                                               ; preds = %_run_srun_epilog.exit
-  %61 = shl nuw nsw i32 %55, 24
-  %sext = add nuw i32 %61, 16777216
-  %62 = icmp sgt i32 %sext, 33554431
-  br i1 %62, label %63, label %65
+59:                                               ; preds = %_run_srun_epilog.exit
+  %60 = or disjoint i32 %55, 128
+  br label %.sink.split26
 
-63:                                               ; preds = %60
-  %64 = or disjoint i32 %55, 128
-  br label %.sink.split25
+.sink.split26:                                    ; preds = %56, %59
+  %.sink27 = phi i32 [ %60, %59 ], [ %58, %56 ]
+  store i32 %.sink27, ptr %2, align 4
+  br label %61
 
-.sink.split25:                                    ; preds = %57, %63
-  %.sink26 = phi i32 [ %64, %63 ], [ %59, %57 ]
-  store i32 %.sink26, ptr %2, align 4
-  br label %65
-
-65:                                               ; preds = %.sink.split25, %60
+61:                                               ; preds = %.sink.split26, %_run_srun_epilog.exit
   tail call void @mpir_cleanup() #15
   ret void
 }

@@ -3069,9 +3069,8 @@ define internal fastcc void @decompTest(ptr noundef nonnull %0, ptr noundef %1, 
   br i1 %20, label %.thread.us, label %.loopexit, !llvm.loop !38
 
 .lr.ph.split:                                     ; preds = %.lr.ph
-  %21 = add nsw i32 %6, -5
-  %or.cond5 = icmp ult i32 %21, 2
-  br i1 %or.cond5, label %.lr.ph.split.split.us, label %.lr.ph.split.split.split.us
+  %21 = icmp samesign ugt i32 %6, 4
+  br i1 %21, label %.lr.ph.split.split.us, label %.lr.ph.split.split.split.us
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %.thread.us4
   %22 = phi i32 [ %31, %.thread.us4 ], [ %13, %.lr.ph.split ]

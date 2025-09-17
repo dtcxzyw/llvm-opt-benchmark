@@ -13768,9 +13768,8 @@ define internal range(i64 0, 21) i64 @rb_thread_stop_p(i64 noundef %0) #0 {
   %3 = getelementptr i8, ptr %2, i64 240
   %.val = load i8, ptr %3, align 8
   %4 = and i8 %.val, 3
-  %5 = add nsw i8 %4, -1
-  %6 = icmp ult i8 %5, 3
-  %.0 = select i1 %6, i64 20, i64 0
+  %.not = icmp eq i8 %4, 0
+  %.0 = select i1 %.not, i64 0, i64 20
   ret i64 %.0
 }
 

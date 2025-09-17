@@ -4498,14 +4498,15 @@ define internal ptr @blobopen(ptr noundef %0, ptr noundef %1, i64 noundef %2, pt
   br i1 %or.cond5, label %.thread74, label %14
 
 14:                                               ; preds = %11, %.thread
-  %15 = phi i64 [ %10, %.thread ], [ %2, %11 ]
+  %.in = phi i64 [ %10, %.thread ], [ %2, %11 ]
+  %15 = add i64 %.in, -3
   %16 = call ptr @_PyArg_UnpackKeywords(ptr noundef %1, i64 noundef %2, ptr noundef null, ptr noundef %3, ptr noundef nonnull @blobopen._parser, i32 noundef 3, i32 noundef 3, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %5) #7
   %.not54 = icmp eq ptr %16, null
   br i1 %.not54, label %81, label %.thread74
 
 .thread74:                                        ; preds = %11, %14
   %17 = phi ptr [ %16, %14 ], [ %1, %11 ]
-  %18 = phi i64 [ %15, %14 ], [ 3, %11 ]
+  %18 = phi i64 [ %15, %14 ], [ 0, %11 ]
   %19 = load ptr, ptr %17, align 8, !tbaa !25
   %20 = getelementptr i8, ptr %19, i64 8
   %.val66 = load ptr, ptr %20, align 8, !tbaa !16
@@ -4589,7 +4590,7 @@ sqlite3_int64_converter.exit:                     ; preds = %47
   br i1 %.not3.i.not, label %56, label %81
 
 56:                                               ; preds = %sqlite3_int64_converter.exit
-  %.not60 = icmp eq i64 %18, 3
+  %.not60 = icmp eq i64 %18, 0
   br i1 %.not60, label %79, label %57
 
 57:                                               ; preds = %56
@@ -4604,7 +4605,7 @@ sqlite3_int64_converter.exit:                     ; preds = %47
   br i1 %62, label %81, label %63
 
 63:                                               ; preds = %60
-  %.not62 = icmp eq i64 %18, 4
+  %.not62 = icmp eq i64 %18, 1
   br i1 %.not62, label %79, label %64
 
 64:                                               ; preds = %63, %57

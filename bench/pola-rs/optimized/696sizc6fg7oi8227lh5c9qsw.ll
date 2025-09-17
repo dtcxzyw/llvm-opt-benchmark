@@ -373,7 +373,7 @@ _ZN3std4sync6poison4once4Once9call_once17h411f3af38dcc71daE.exit.i.i.i: ; preds 
 
 .thread:                                          ; preds = %.lr.ph.i.i.i, %.noexc
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !14
-  br label %81
+  br label %79
 
 41:                                               ; preds = %.body
   %42 = extractvalue { ptr, ptr } %38, 0
@@ -393,7 +393,7 @@ _ZN3std4sync6poison4once4Once9call_once17h411f3af38dcc71daE.exit.i.i.i: ; preds 
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 40
   %52 = load ptr, ptr %51, align 8, !invariant.load !3, !nonnull !3
   invoke void %52(ptr noundef nonnull align 1 %47, ptr noundef nonnull align 1 %42, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %43)
-          to label %81 unwind label %53
+          to label %79 unwind label %53
 
 53:                                               ; preds = %48
   %54 = landingpad { ptr, i32 }
@@ -401,7 +401,7 @@ _ZN3std4sync6poison4once4Once9call_once17h411f3af38dcc71daE.exit.i.i.i: ; preds 
   invoke void @"_ZN4core3ptr53drop_in_place$LT$rayon_core..unwind..AbortIfPanic$GT$17hd715c736b6d94381E"(ptr noalias noundef nonnull align 1 %3) #20
           to label %common.resume unwind label %55
 
-55:                                               ; preds = %79, %53
+55:                                               ; preds = %77, %53
   %56 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #18
@@ -409,7 +409,7 @@ _ZN3std4sync6poison4once4Once9call_once17h411f3af38dcc71daE.exit.i.i.i: ; preds 
 
 57:                                               ; preds = %41
   invoke void @"_ZN4core3ptr53drop_in_place$LT$rayon_core..unwind..AbortIfPanic$GT$17hd715c736b6d94381E"(ptr noalias noundef nonnull align 1 %3)
-          to label %.thread39 unwind label %79
+          to label %.thread39 unwind label %77
 
 .thread39:                                        ; preds = %57
   %58 = load ptr, ptr %43, align 8, !invariant.load !3
@@ -418,51 +418,49 @@ _ZN3std4sync6poison4once4Once9call_once17h411f3af38dcc71daE.exit.i.i.i: ; preds 
 
 59:                                               ; preds = %.thread39
   invoke void %58(ptr noundef nonnull %42)
-          to label %60 unwind label %69
+          to label %60 unwind label %68
 
 60:                                               ; preds = %59, %.thread39
   %61 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %62 = load i64, ptr %61, align 8, !range !23, !invariant.load !3
   %63 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %64 = load i64, ptr %63, align 8, !range !24, !invariant.load !3
-  %65 = add i64 %64, -1
-  %66 = icmp sgt i64 %65, -1
-  call void @llvm.assume(i1 %66)
-  %67 = icmp eq i64 %62, 0
-  br i1 %67, label %81, label %68
+  %65 = icmp ult i64 %64, -9223372036854775807
+  call void @llvm.assume(i1 %65)
+  %66 = icmp eq i64 %62, 0
+  br i1 %66, label %79, label %67
 
-68:                                               ; preds = %60
+67:                                               ; preds = %60
   call void @_RNvCsjH7bwORMyv9_7___rustc14___rust_dealloc(ptr noundef nonnull %42, i64 noundef range(i64 1, -9223372036854775808) %62, i64 noundef range(i64 1, -9223372036854775807) %64) #21
-  br label %81
+  br label %79
 
-69:                                               ; preds = %59
-  %70 = landingpad { ptr, i32 }
+68:                                               ; preds = %59
+  %69 = landingpad { ptr, i32 }
           cleanup
-  %71 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  %72 = load i64, ptr %71, align 8, !range !23, !invariant.load !3
-  %73 = getelementptr inbounds nuw i8, ptr %43, i64 16
-  %74 = load i64, ptr %73, align 8, !range !24, !invariant.load !3
-  %75 = add i64 %74, -1
-  %76 = icmp sgt i64 %75, -1
-  call void @llvm.assume(i1 %76)
-  %77 = icmp eq i64 %72, 0
-  br i1 %77, label %common.resume, label %78
+  %70 = getelementptr inbounds nuw i8, ptr %43, i64 8
+  %71 = load i64, ptr %70, align 8, !range !23, !invariant.load !3
+  %72 = getelementptr inbounds nuw i8, ptr %43, i64 16
+  %73 = load i64, ptr %72, align 8, !range !24, !invariant.load !3
+  %74 = icmp ult i64 %73, -9223372036854775807
+  call void @llvm.assume(i1 %74)
+  %75 = icmp eq i64 %71, 0
+  br i1 %75, label %common.resume, label %76
 
-78:                                               ; preds = %69
-  call void @_RNvCsjH7bwORMyv9_7___rustc14___rust_dealloc(ptr noundef nonnull %42, i64 noundef range(i64 1, -9223372036854775808) %72, i64 noundef range(i64 1, -9223372036854775807) %74) #21
+76:                                               ; preds = %68
+  call void @_RNvCsjH7bwORMyv9_7___rustc14___rust_dealloc(ptr noundef nonnull %42, i64 noundef range(i64 1, -9223372036854775808) %71, i64 noundef range(i64 1, -9223372036854775807) %73) #21
   br label %common.resume
 
-common.resume:                                    ; preds = %79, %53, %69, %78
-  %common.resume.op = phi { ptr, i32 } [ %70, %78 ], [ %70, %69 ], [ %80, %79 ], [ %54, %53 ]
+common.resume:                                    ; preds = %77, %53, %68, %76
+  %common.resume.op = phi { ptr, i32 } [ %69, %76 ], [ %69, %68 ], [ %78, %77 ], [ %54, %53 ]
   resume { ptr, i32 } %common.resume.op
 
-79:                                               ; preds = %57
-  %80 = landingpad { ptr, i32 }
+77:                                               ; preds = %57
+  %78 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$17h4095d3f02cf5fa36E"(ptr nonnull %42, ptr nonnull %43) #20
           to label %common.resume unwind label %55
 
-81:                                               ; preds = %.thread, %48, %60, %68
+79:                                               ; preds = %.thread, %48, %60, %67
   ret void
 }
 
@@ -1486,7 +1484,7 @@ define internal fastcc void @"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$L
   %4 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %4)
   invoke void %2(ptr noundef nonnull %.0.val)
-          to label %5 unwind label %15
+          to label %5 unwind label %14
 
 5:                                                ; preds = %3, %0
   %6 = icmp ne ptr %.0.val, null
@@ -1495,38 +1493,36 @@ define internal fastcc void @"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$L
   %8 = load i64, ptr %7, align 8, !range !23, !invariant.load !3
   %9 = getelementptr inbounds nuw i8, ptr %.8.val, i64 16
   %10 = load i64, ptr %9, align 8, !range !24, !invariant.load !3
-  %11 = add i64 %10, -1
-  %12 = icmp sgt i64 %11, -1
-  tail call void @llvm.assume(i1 %12)
-  %13 = icmp eq i64 %8, 0
-  br i1 %13, label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha4923b77dfa3ff09E.exit", label %14
+  %11 = icmp ult i64 %10, -9223372036854775807
+  tail call void @llvm.assume(i1 %11)
+  %12 = icmp eq i64 %8, 0
+  br i1 %12, label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha4923b77dfa3ff09E.exit", label %13
 
-14:                                               ; preds = %5
+13:                                               ; preds = %5
   tail call void @_RNvCsjH7bwORMyv9_7___rustc14___rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef range(i64 1, -9223372036854775808) %8, i64 noundef range(i64 1, -9223372036854775807) %10) #21
   br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha4923b77dfa3ff09E.exit"
 
-"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha4923b77dfa3ff09E.exit": ; preds = %5, %14
+"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha4923b77dfa3ff09E.exit": ; preds = %5, %13
   ret void
 
-15:                                               ; preds = %3
-  %16 = landingpad { ptr, i32 }
+14:                                               ; preds = %3
+  %15 = landingpad { ptr, i32 }
           cleanup
-  %17 = getelementptr inbounds nuw i8, ptr %.8.val, i64 8
-  %18 = load i64, ptr %17, align 8, !range !23, !invariant.load !3
-  %19 = getelementptr inbounds nuw i8, ptr %.8.val, i64 16
-  %20 = load i64, ptr %19, align 8, !range !24, !invariant.load !3
-  %21 = add i64 %20, -1
-  %22 = icmp sgt i64 %21, -1
-  tail call void @llvm.assume(i1 %22)
-  %23 = icmp eq i64 %18, 0
-  br i1 %23, label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha4923b77dfa3ff09E.exit4", label %24
+  %16 = getelementptr inbounds nuw i8, ptr %.8.val, i64 8
+  %17 = load i64, ptr %16, align 8, !range !23, !invariant.load !3
+  %18 = getelementptr inbounds nuw i8, ptr %.8.val, i64 16
+  %19 = load i64, ptr %18, align 8, !range !24, !invariant.load !3
+  %20 = icmp ult i64 %19, -9223372036854775807
+  tail call void @llvm.assume(i1 %20)
+  %21 = icmp eq i64 %17, 0
+  br i1 %21, label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha4923b77dfa3ff09E.exit4", label %22
 
-24:                                               ; preds = %15
-  tail call void @_RNvCsjH7bwORMyv9_7___rustc14___rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef range(i64 1, -9223372036854775808) %18, i64 noundef range(i64 1, -9223372036854775807) %20) #21
+22:                                               ; preds = %14
+  tail call void @_RNvCsjH7bwORMyv9_7___rustc14___rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef range(i64 1, -9223372036854775808) %17, i64 noundef range(i64 1, -9223372036854775807) %19) #21
   br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha4923b77dfa3ff09E.exit4"
 
-"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha4923b77dfa3ff09E.exit4": ; preds = %24, %15
-  resume { ptr, i32 } %16
+"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha4923b77dfa3ff09E.exit4": ; preds = %22, %14
+  resume { ptr, i32 } %15
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)

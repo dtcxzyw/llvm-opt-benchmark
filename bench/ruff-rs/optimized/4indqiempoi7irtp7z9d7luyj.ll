@@ -66815,9 +66815,8 @@ _ZN3std4sync6poison4once4Once9call_once17ha079334f4a4a5dc9E.exit: ; preds = %.no
           to label %168 unwind label %162
 
 168:                                              ; preds = %_ZN3std4sync6poison4once4Once9call_once17ha079334f4a4a5dc9E.exit
-  %.off = add nsw i8 %167, -1
-  %switch = icmp ult i8 %.off, 2
-  br i1 %switch, label %179, label %169
+  %.not68 = icmp eq i8 %167, 0
+  br i1 %.not68, label %169, label %179
 
 169:                                              ; preds = %168
   call void @llvm.lifetime.start.p0(ptr nonnull %11)

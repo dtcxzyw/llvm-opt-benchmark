@@ -28386,15 +28386,14 @@ define internal fastcc void @"_ZN4core3ptr244drop_in_place$LT$core..result..Resu
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr257drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$$LP$$RP$$C$aws_smithy_runtime_api..client..result..SdkError$LT$aws_smithy_runtime_api..client..interceptors..context..Error$C$aws_smithy_runtime_api..http..response..Response$GT$$GT$$GT$$GT$17h28fbeacd4fababdbE.llvm.16214660704857022774"(ptr noalias noundef align 8 dereferenceable(256) %0) unnamed_addr #0 {
   %2 = load i64, ptr %0, align 8, !range !4, !noundef !5
-  %.off = add nsw i64 %2, -7
-  %switch = icmp ult i64 %.off, 2
-  br i1 %switch, label %"_ZN4core3ptr227drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$aws_smithy_runtime_api..client..result..SdkError$LT$aws_smithy_runtime_api..client..interceptors..context..Error$C$aws_smithy_runtime_api..http..response..Response$GT$$GT$$GT$17h6b7807a3564ea058E.llvm.16214660704857022774.exit", label %3
+  %3 = icmp samesign ugt i64 %2, 6
+  br i1 %3, label %"_ZN4core3ptr227drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$aws_smithy_runtime_api..client..result..SdkError$LT$aws_smithy_runtime_api..client..interceptors..context..Error$C$aws_smithy_runtime_api..http..response..Response$GT$$GT$$GT$17h6b7807a3564ea058E.llvm.16214660704857022774.exit", label %4
 
-3:                                                ; preds = %1
+4:                                                ; preds = %1
   tail call void @"_ZN4core3ptr188drop_in_place$LT$aws_smithy_runtime_api..client..result..SdkError$LT$aws_smithy_runtime_api..client..interceptors..context..Error$C$aws_smithy_runtime_api..http..response..Response$GT$$GT$17h60a04393a5d20e44E.llvm.16214660704857022774"(ptr noalias noundef nonnull align 8 dereferenceable(256) %0)
   br label %"_ZN4core3ptr227drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$aws_smithy_runtime_api..client..result..SdkError$LT$aws_smithy_runtime_api..client..interceptors..context..Error$C$aws_smithy_runtime_api..http..response..Response$GT$$GT$$GT$17h6b7807a3564ea058E.llvm.16214660704857022774.exit"
 
-"_ZN4core3ptr227drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$aws_smithy_runtime_api..client..result..SdkError$LT$aws_smithy_runtime_api..client..interceptors..context..Error$C$aws_smithy_runtime_api..http..response..Response$GT$$GT$$GT$17h6b7807a3564ea058E.llvm.16214660704857022774.exit": ; preds = %1, %3
+"_ZN4core3ptr227drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$aws_smithy_runtime_api..client..result..SdkError$LT$aws_smithy_runtime_api..client..interceptors..context..Error$C$aws_smithy_runtime_api..http..response..Response$GT$$GT$$GT$17h6b7807a3564ea058E.llvm.16214660704857022774.exit": ; preds = %1, %4
   ret void
 }
 

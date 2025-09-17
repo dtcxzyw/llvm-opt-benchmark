@@ -3429,9 +3429,8 @@ _ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit:       ; preds = %3
   %16 = load ptr, ptr %1, align 8, !tbaa !11
   %.0.copyload.i.i = load i32, ptr %16, align 1
   store i32 %.0.copyload.i.i, ptr %2, align 4, !tbaa !162
-  %17 = and i64 %11, -4
-  %.not = icmp eq i64 %17, 4
-  br i1 %.not, label %_ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit5, label %20
+  %17 = icmp ult i64 %11, 8
+  br i1 %17, label %_ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit5, label %20
 
 _ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit5:      ; preds = %15
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -3790,9 +3789,8 @@ _ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit:       ; preds = %45
   %52 = zext i32 %.0.copyload.i.i7 to i64
   %53 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i64 %52, ptr %53, align 8, !tbaa !155
-  %54 = and i64 %46, -4
-  %.not = icmp eq i64 %54, 4
-  br i1 %.not, label %_ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit9, label %57
+  %54 = icmp ult i64 %46, 8
+  br i1 %54, label %_ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit9, label %57
 
 _ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit9:      ; preds = %50
   call void @llvm.lifetime.start.p0(ptr nonnull %12)

@@ -631,11 +631,10 @@ define dso_local void @_ZN4llvm7objcarc8PtrState5MergeERKS1_b(ptr noundef nonnul
   br i1 %2, label %17, label %20
 
 17:                                               ; preds = %14
-  %18 = add nsw i32 %15, -1
-  %or.cond3.i = icmp samesign ult i32 %18, 2
+  %18 = icmp samesign ult i32 %15, 3
   %19 = and i32 %16, 254
   %or.cond5.i = icmp eq i32 %19, 2
-  %or.cond29.i = and i1 %or.cond3.i, %or.cond5.i
+  %or.cond29.i = and i1 %18, %or.cond5.i
   br i1 %or.cond29.i, label %_ZL9MergeSeqsN4llvm7objcarc8SequenceES1_b.exit.thread, label %_ZL9MergeSeqsN4llvm7objcarc8SequenceES1_b.exit.thread10
 
 20:                                               ; preds = %14

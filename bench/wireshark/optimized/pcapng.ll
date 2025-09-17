@@ -509,7 +509,7 @@ declare i32 @wtap_block_add_bytes_option(ptr noundef, i32 noundef, ptr noundef, 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define noundef zeroext i1 @pcapng_process_options(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4, i32 noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = icmp eq i32 %3, 0
-  br i1 %9, label %148, label %10
+  br i1 %9, label %147, label %10
 
 10:                                               ; preds = %8
   %11 = zext i32 %3 to i64
@@ -519,7 +519,7 @@ define noundef zeroext i1 @pcapng_process_options(ptr noundef %0, ptr noundef %1
 
 14:                                               ; preds = %10
   store i32 12, ptr %6, align 4
-  br label %148
+  br label %147
 
 15:                                               ; preds = %10
   %16 = tail call zeroext i1 @wtap_read_bytes(ptr noundef %0, ptr noundef nonnull %12, i32 noundef %3, ptr noundef %6, ptr noundef %7)
@@ -537,11 +537,11 @@ define noundef zeroext i1 @pcapng_process_options(ptr noundef %0, ptr noundef %1
 
 24:                                               ; preds = %15
   tail call void @g_free(ptr noundef nonnull %12)
-  br label %148
+  br label %147
 
-25:                                               ; preds = %.preheader, %143
-  %.07794 = phi i32 [ %3, %.preheader ], [ %146, %143 ]
-  %.07893 = phi ptr [ %12, %.preheader ], [ %145, %143 ]
+25:                                               ; preds = %.preheader, %142
+  %.07794 = phi i32 [ %3, %.preheader ], [ %145, %142 ]
+  %.07893 = phi ptr [ %12, %.preheader ], [ %144, %142 ]
   %26 = icmp ult i32 %.07794, 4
   br i1 %26, label %27, label %29
 
@@ -550,7 +550,7 @@ define noundef zeroext i1 @pcapng_process_options(ptr noundef %0, ptr noundef %1
   %28 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.4)
   store ptr %28, ptr %7, align 8
   tail call void @g_free(ptr noundef nonnull %12)
-  br label %148
+  br label %147
 
 29:                                               ; preds = %25
   %30 = load i16, ptr %.07893, align 2
@@ -581,7 +581,7 @@ define noundef zeroext i1 @pcapng_process_options(ptr noundef %0, ptr noundef %1
   store i32 -21, ptr %6, align 4
   %39 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.5, i32 noundef %5)
   store ptr %39, ptr %7, align 8
-  br label %148
+  br label %147
 
 40:                                               ; preds = %29, %33, %36, %37
   %.076 = phi i16 [ %rev86, %36 ], [ %30, %33 ], [ %rev, %37 ], [ %30, %29 ]
@@ -599,11 +599,11 @@ define noundef zeroext i1 @pcapng_process_options(ptr noundef %0, ptr noundef %1
   %48 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.6, i32 noundef %43)
   store ptr %48, ptr %7, align 8
   tail call void @g_free(ptr noundef nonnull %12)
-  br label %148
+  br label %147
 
 49:                                               ; preds = %40
-  switch i16 %.076, label %139 [
-    i16 0, label %143
+  switch i16 %.076, label %138 [
+    i16 0, label %142
     i16 1, label %50
     i16 2988, label %55
     i16 2989, label %55
@@ -616,7 +616,7 @@ define noundef zeroext i1 @pcapng_process_options(ptr noundef %0, ptr noundef %1
   %52 = tail call ptr @ws_utf8_make_valid(ptr noundef null, ptr noundef %41, i64 noundef %51)
   %53 = load ptr, ptr %17, align 8
   %54 = tail call i32 @wtap_block_add_string_option_owned(ptr noundef %53, i32 noundef 1, ptr noundef %52)
-  br label %143
+  br label %142
 
 55:                                               ; preds = %49, %49, %49, %49
   %56 = icmp ult i16 %.075, 4
@@ -655,101 +655,100 @@ default.unreachable:                              ; preds = %59
 thread-pre-split.i:                               ; preds = %66, %64, %61, %59
   %68 = phi i32 [ %65, %64 ], [ %67, %66 ], [ %60, %61 ], [ %60, %59 ]
   %cond.i = icmp eq i32 %68, 10949
-  br i1 %cond.i, label %69, label %127
+  br i1 %cond.i, label %69, label %126
 
 69:                                               ; preds = %thread-pre-split.i
-  %70 = and i16 %.075, -4
-  %71 = icmp eq i16 %70, 4
-  br i1 %71, label %pcapng_process_custom_option.exit.thread, label %72
+  %70 = icmp ult i16 %.075, 8
+  br i1 %70, label %pcapng_process_custom_option.exit.thread, label %71
 
-72:                                               ; preds = %69
-  %73 = getelementptr i8, ptr %.07893, i64 8
-  %74 = load i32, ptr %73, align 1
-  %75 = getelementptr i8, ptr %.07893, i64 12
-  %76 = add i16 %.075, -8
-  switch i32 %74, label %pcapng_process_custom_option.exit [
-    i32 1, label %77
-    i32 2, label %81
-    i32 4, label %124
+71:                                               ; preds = %69
+  %72 = getelementptr i8, ptr %.07893, i64 8
+  %73 = load i32, ptr %72, align 1
+  %74 = getelementptr i8, ptr %.07893, i64 12
+  %75 = add i16 %.075, -8
+  switch i32 %73, label %pcapng_process_custom_option.exit [
+    i32 1, label %76
+    i32 2, label %80
+    i32 4, label %123
   ]
 
-77:                                               ; preds = %72
-  %78 = icmp eq i16 %76, 4
-  br i1 %78, label %79, label %pcapng_process_custom_option.exit
+76:                                               ; preds = %71
+  %77 = icmp eq i16 %75, 4
+  br i1 %77, label %78, label %pcapng_process_custom_option.exit
 
-79:                                               ; preds = %77
-  %80 = load i32, ptr %75, align 1
-  store i32 %80, ptr %22, align 8
+78:                                               ; preds = %76
+  %79 = load i32, ptr %74, align 1
+  store i32 %79, ptr %22, align 8
   br label %pcapng_process_custom_option.exit
 
-81:                                               ; preds = %72
-  %82 = load i32, ptr %1, align 8
-  %83 = icmp eq i32 %82, 2989
-  br i1 %83, label %84, label %pcapng_process_custom_option.exit
+80:                                               ; preds = %71
+  %81 = load i32, ptr %1, align 8
+  %82 = icmp eq i32 %81, 2989
+  br i1 %82, label %83, label %pcapng_process_custom_option.exit
 
-84:                                               ; preds = %81
-  %85 = load ptr, ptr %20, align 8
-  %86 = getelementptr inbounds nuw i8, ptr %85, i64 280
-  %87 = zext i16 %76 to i64
-  tail call void @ws_buffer_assure_space(ptr noundef nonnull %86, i64 noundef %87)
-  %88 = zext i16 %76 to i32
-  %89 = add nuw nsw i32 %88, 4
-  %90 = load ptr, ptr %20, align 8
-  %91 = getelementptr inbounds nuw i8, ptr %90, i64 64
-  store i32 %89, ptr %91, align 8
-  %92 = load ptr, ptr %20, align 8
-  %93 = getelementptr inbounds nuw i8, ptr %92, i64 280
-  %.val.i.i = load ptr, ptr %93, align 8
-  %94 = getelementptr i8, ptr %92, i64 296
-  %.val37.i.i = load i64, ptr %94, align 8
-  %95 = getelementptr i8, ptr %.val.i.i, i64 %.val37.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %95, ptr noundef align 1 %75, i64 noundef %87, i1 noundef false) #20
-  %96 = load i64, ptr %75, align 1
-  %97 = load i64, ptr %18, align 8
-  %98 = add i64 %97, %96
-  %99 = load ptr, ptr %20, align 8
-  %100 = getelementptr inbounds nuw i8, ptr %99, i64 16
-  store i64 %98, ptr %100, align 8
-  %101 = getelementptr i8, ptr %.07893, i64 20
-  %102 = load i64, ptr %101, align 1
-  %103 = load i64, ptr %19, align 8
-  %104 = add i64 %103, %102
-  %105 = trunc i64 %104 to i32
-  %106 = mul i32 %105, 1000
-  %107 = load ptr, ptr %20, align 8
-  %108 = getelementptr inbounds nuw i8, ptr %107, i64 24
-  store i32 %106, ptr %108, align 8
-  %109 = load ptr, ptr %20, align 8
-  %110 = getelementptr inbounds nuw i8, ptr %109, i64 24
-  %111 = load i32, ptr %110, align 8
-  %112 = icmp sgt i32 %111, 999999999
-  br i1 %112, label %113, label %121
+83:                                               ; preds = %80
+  %84 = load ptr, ptr %20, align 8
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 280
+  %86 = zext i16 %75 to i64
+  tail call void @ws_buffer_assure_space(ptr noundef nonnull %85, i64 noundef %86)
+  %87 = zext i16 %75 to i32
+  %88 = add nuw nsw i32 %87, 4
+  %89 = load ptr, ptr %20, align 8
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 64
+  store i32 %88, ptr %90, align 8
+  %91 = load ptr, ptr %20, align 8
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 280
+  %.val.i.i = load ptr, ptr %92, align 8
+  %93 = getelementptr i8, ptr %91, i64 296
+  %.val37.i.i = load i64, ptr %93, align 8
+  %94 = getelementptr i8, ptr %.val.i.i, i64 %.val37.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %94, ptr noundef align 1 %74, i64 noundef %86, i1 noundef false) #20
+  %95 = load i64, ptr %74, align 1
+  %96 = load i64, ptr %18, align 8
+  %97 = add i64 %96, %95
+  %98 = load ptr, ptr %20, align 8
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 16
+  store i64 %97, ptr %99, align 8
+  %100 = getelementptr i8, ptr %.07893, i64 20
+  %101 = load i64, ptr %100, align 1
+  %102 = load i64, ptr %19, align 8
+  %103 = add i64 %102, %101
+  %104 = trunc i64 %103 to i32
+  %105 = mul i32 %104, 1000
+  %106 = load ptr, ptr %20, align 8
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 24
+  store i32 %105, ptr %107, align 8
+  %108 = load ptr, ptr %20, align 8
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 24
+  %110 = load i32, ptr %109, align 8
+  %111 = icmp sgt i32 %110, 999999999
+  br i1 %111, label %112, label %120
 
-113:                                              ; preds = %84
-  %114 = getelementptr inbounds nuw i8, ptr %109, i64 16
-  %115 = load i64, ptr %114, align 8
-  %116 = add i64 %115, 1
-  store i64 %116, ptr %114, align 8
-  %117 = load ptr, ptr %20, align 8
-  %118 = getelementptr inbounds nuw i8, ptr %117, i64 24
-  %119 = load i32, ptr %118, align 8
-  %120 = add i32 %119, -1000000000
-  store i32 %120, ptr %118, align 8
+112:                                              ; preds = %83
+  %113 = getelementptr inbounds nuw i8, ptr %108, i64 16
+  %114 = load i64, ptr %113, align 8
+  %115 = add i64 %114, 1
+  store i64 %115, ptr %113, align 8
+  %116 = load ptr, ptr %20, align 8
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 24
+  %118 = load i32, ptr %117, align 8
+  %119 = add i32 %118, -1000000000
+  store i32 %119, ptr %117, align 8
   %.pre.i.i = load ptr, ptr %20, align 8
-  br label %121
+  br label %120
 
-121:                                              ; preds = %113, %84
-  %122 = phi ptr [ %.pre.i.i, %113 ], [ %109, %84 ]
-  %123 = getelementptr inbounds nuw i8, ptr %122, i64 4
-  store i32 1, ptr %123, align 4
+120:                                              ; preds = %112, %83
+  %121 = phi ptr [ %.pre.i.i, %112 ], [ %108, %83 ]
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 4
+  store i32 1, ptr %122, align 4
   store i8 0, ptr %21, align 4
   br label %pcapng_process_custom_option.exit
 
-124:                                              ; preds = %72
-  %125 = icmp eq i16 %76, 208
-  br i1 %125, label %126, label %pcapng_process_custom_option.exit
+123:                                              ; preds = %71
+  %124 = icmp eq i16 %75, 208
+  br i1 %124, label %125, label %pcapng_process_custom_option.exit
 
-126:                                              ; preds = %124
+125:                                              ; preds = %123
   %.sroa.3.0..sroa_idx.i.i = getelementptr i8, ptr %.07893, i64 68
   %.sroa.3.0.copyload.i.i = load i64, ptr %.sroa.3.0..sroa_idx.i.i, align 1
   %.sroa.4.0..sroa_idx.i.i = getelementptr i8, ptr %.07893, i64 76
@@ -758,52 +757,52 @@ thread-pre-split.i:                               ; preds = %66, %64, %61, %59
   store i64 %.sroa.4.0.copyload.i.i, ptr %19, align 8
   br label %pcapng_process_custom_option.exit
 
-127:                                              ; preds = %thread-pre-split.i
-  %128 = load ptr, ptr %17, align 8
-  %129 = zext nneg i16 %.076 to i32
-  %130 = getelementptr i8, ptr %.07893, i64 8
-  %131 = add nsw i32 %43, -4
-  %132 = zext nneg i32 %131 to i64
-  %133 = tail call i32 @wtap_block_add_custom_option(ptr noundef %128, i32 noundef %129, i32 noundef %68, ptr noundef %130, i64 noundef %132)
-  %134 = icmp eq i32 %133, 0
-  br i1 %134, label %143, label %pcapng_process_custom_option.exit.thread
+126:                                              ; preds = %thread-pre-split.i
+  %127 = load ptr, ptr %17, align 8
+  %128 = zext nneg i16 %.076 to i32
+  %129 = getelementptr i8, ptr %.07893, i64 8
+  %130 = add nsw i32 %43, -4
+  %131 = zext nneg i32 %130 to i64
+  %132 = tail call i32 @wtap_block_add_custom_option(ptr noundef %127, i32 noundef %128, i32 noundef %68, ptr noundef %129, i64 noundef %131)
+  %133 = icmp eq i32 %132, 0
+  br i1 %133, label %142, label %pcapng_process_custom_option.exit.thread
 
-pcapng_process_custom_option.exit:                ; preds = %72, %77, %79, %81, %121, %124, %126
-  %135 = load ptr, ptr %17, align 8
-  %136 = zext i16 %76 to i64
-  %137 = tail call i32 @wtap_block_add_nflx_custom_option(ptr noundef %135, i32 noundef %74, ptr noundef %75, i64 noundef %136)
-  %138 = icmp eq i32 %137, 0
-  br i1 %138, label %143, label %pcapng_process_custom_option.exit.thread
+pcapng_process_custom_option.exit:                ; preds = %71, %76, %78, %80, %120, %123, %125
+  %134 = load ptr, ptr %17, align 8
+  %135 = zext i16 %75 to i64
+  %136 = tail call i32 @wtap_block_add_nflx_custom_option(ptr noundef %134, i32 noundef %73, ptr noundef %74, i64 noundef %135)
+  %137 = icmp eq i32 %136, 0
+  br i1 %137, label %142, label %pcapng_process_custom_option.exit.thread
 
-pcapng_process_custom_option.exit.thread:         ; preds = %69, %127, %pcapng_process_custom_option.exit, %57
+pcapng_process_custom_option.exit.thread:         ; preds = %69, %126, %pcapng_process_custom_option.exit, %57
   tail call void @g_free(ptr noundef nonnull %12)
-  br label %148
+  br label %147
 
-139:                                              ; preds = %49
-  br i1 %23, label %142, label %140
+138:                                              ; preds = %49
+  br i1 %23, label %141, label %139
 
-140:                                              ; preds = %139
-  %141 = tail call zeroext i1 %4(ptr noundef %1, ptr noundef %2, i16 noundef zeroext %.076, i16 noundef zeroext %.075, ptr noundef %41, ptr noundef %6, ptr noundef %7)
-  br i1 %141, label %143, label %142
+139:                                              ; preds = %138
+  %140 = tail call zeroext i1 %4(ptr noundef %1, ptr noundef %2, i16 noundef zeroext %.076, i16 noundef zeroext %.075, ptr noundef %41, ptr noundef %6, ptr noundef %7)
+  br i1 %140, label %142, label %141
 
-142:                                              ; preds = %140, %139
+141:                                              ; preds = %139, %138
   tail call void @g_free(ptr noundef nonnull %12)
-  br label %148
+  br label %147
 
-143:                                              ; preds = %127, %49, %140, %pcapng_process_custom_option.exit, %50
-  %.1 = phi i32 [ %42, %140 ], [ %42, %50 ], [ %42, %pcapng_process_custom_option.exit ], [ %45, %49 ], [ %42, %127 ]
-  %144 = zext nneg i32 %45 to i64
-  %145 = getelementptr i8, ptr %41, i64 %144
-  %146 = sub i32 %.1, %45
-  %.not = icmp eq i32 %146, 0
-  br i1 %.not, label %147, label %25, !llvm.loop !20
+142:                                              ; preds = %126, %49, %139, %pcapng_process_custom_option.exit, %50
+  %.1 = phi i32 [ %42, %139 ], [ %42, %50 ], [ %42, %pcapng_process_custom_option.exit ], [ %45, %49 ], [ %42, %126 ]
+  %143 = zext nneg i32 %45 to i64
+  %144 = getelementptr i8, ptr %41, i64 %143
+  %145 = sub i32 %.1, %45
+  %.not = icmp eq i32 %145, 0
+  br i1 %.not, label %146, label %25, !llvm.loop !20
 
-147:                                              ; preds = %143
+146:                                              ; preds = %142
   tail call void @g_free(ptr noundef nonnull %12)
-  br label %148
+  br label %147
 
-148:                                              ; preds = %8, %147, %142, %pcapng_process_custom_option.exit.thread, %47, %38, %27, %24, %14
-  %.0 = phi i1 [ false, %14 ], [ false, %27 ], [ false, %38 ], [ false, %47 ], [ false, %142 ], [ false, %pcapng_process_custom_option.exit.thread ], [ true, %147 ], [ false, %24 ], [ true, %8 ]
+147:                                              ; preds = %8, %146, %141, %pcapng_process_custom_option.exit.thread, %47, %38, %27, %24, %14
+  %.0 = phi i1 [ false, %14 ], [ false, %27 ], [ false, %38 ], [ false, %47 ], [ false, %141 ], [ false, %pcapng_process_custom_option.exit.thread ], [ true, %146 ], [ false, %24 ], [ true, %8 ]
   ret i1 %.0
 }
 

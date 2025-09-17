@@ -952,7 +952,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6exp32fEPKfPfi(ptr noundef readonly 
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline6exp32fEPKfPfiE25__cv_trace_location_fn514)
   %5 = invoke noundef ptr @_ZN2cv7details12getExpTab32fEv()
-          to label %.preheader unwind label %35
+          to label %.preheader unwind label %36
 
 .preheader:                                       ; preds = %3
   %6 = icmp sgt i32 %2, 0
@@ -978,53 +978,53 @@ define hidden void @_ZN2cv3hal12cpu_baseline6exp32fEPKfPfi(ptr noundef readonly 
   %16 = fmul float %15, 1.562500e-02
   %17 = ashr i32 %13, 6
   %18 = add nsw i32 %17, 127
-  %.not = icmp ult i32 %18, 256
-  %19 = icmp slt i32 %17, -127
-  %20 = select i1 %19, i32 0, i32 255
-  %21 = select i1 %.not, i32 %18, i32 %20
-  %22 = shl nuw nsw i32 %21, 23
-  %23 = bitcast i32 %22 to float
-  %24 = and i32 %13, 63
-  %25 = zext nneg i32 %24 to i64
-  %26 = getelementptr inbounds nuw float, ptr %5, i64 %25
-  %27 = load float, ptr %26, align 4, !tbaa !3
-  %28 = fmul float %27, %23
-  %29 = fadd float %16, 0x4016F547A0000000
-  %30 = call float @llvm.fmuladd.f32(float %29, float %16, float 0x4038D76C80000000)
-  %31 = call float @llvm.fmuladd.f32(float %30, float %16, float 0x4051EB5AC0000000)
-  %32 = call float @llvm.fmuladd.f32(float %31, float %16, float 0x4059DA2740000000)
-  %33 = fmul float %28, %32
-  %34 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
-  store float %33, ptr %34, align 4, !tbaa !3
+  %19 = icmp ugt i32 %18, 255
+  %20 = icmp slt i32 %17, -127
+  %21 = select i1 %20, i32 0, i32 255
+  %22 = select i1 %19, i32 %21, i32 %18
+  %23 = shl nuw nsw i32 %22, 23
+  %24 = bitcast i32 %23 to float
+  %25 = and i32 %13, 63
+  %26 = zext nneg i32 %25 to i64
+  %27 = getelementptr inbounds nuw float, ptr %5, i64 %26
+  %28 = load float, ptr %27, align 4, !tbaa !3
+  %29 = fmul float %28, %24
+  %30 = fadd float %16, 0x4016F547A0000000
+  %31 = call float @llvm.fmuladd.f32(float %30, float %16, float 0x4038D76C80000000)
+  %32 = call float @llvm.fmuladd.f32(float %31, float %16, float 0x4051EB5AC0000000)
+  %33 = call float @llvm.fmuladd.f32(float %32, float %16, float 0x4059DA2740000000)
+  %34 = fmul float %29, %33
+  %35 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
+  store float %34, ptr %35, align 4, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !32
 
-35:                                               ; preds = %3
-  %36 = landingpad { ptr, i32 }
+36:                                               ; preds = %3
+  %37 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %4) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  resume { ptr, i32 } %36
+  resume { ptr, i32 } %37
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  %37 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %38 = load i32, ptr %37, align 8, !tbaa !9
-  %.not.i = icmp eq i32 %38, 0
-  br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %39
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %39 = load i32, ptr %38, align 8, !tbaa !9
+  %.not.i = icmp eq i32 %39, 0
+  br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %40
 
-39:                                               ; preds = %._crit_edge
+40:                                               ; preds = %._crit_edge
   invoke void @_ZN2cv5utils5trace7details6Region7destroyEv(ptr noundef nonnull align 8 dereferenceable(12) %4)
-          to label %_ZN2cv5utils5trace7details6RegionD2Ev.exit unwind label %40
+          to label %_ZN2cv5utils5trace7details6RegionD2Ev.exit unwind label %41
 
-40:                                               ; preds = %39
-  %41 = landingpad { ptr, i32 }
+41:                                               ; preds = %40
+  %42 = landingpad { ptr, i32 }
           catch ptr null
-  %42 = extractvalue { ptr, i32 } %41, 0
-  call void @__clang_call_terminate(ptr %42) #12
+  %43 = extractvalue { ptr, i32 } %42, 0
+  call void @__clang_call_terminate(ptr %43) #12
   unreachable
 
-_ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %._crit_edge, %39
+_ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %._crit_edge, %40
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
@@ -1037,7 +1037,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6exp64fEPKdPdi(ptr noundef readonly 
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal12cpu_baseline6exp64fEPKdPdiE25__cv_trace_location_fn627)
   %5 = invoke noundef ptr @_ZN2cv7details12getExpTab64fEv()
-          to label %.preheader unwind label %37
+          to label %.preheader unwind label %38
 
 .preheader:                                       ; preds = %3
   %6 = icmp sgt i32 %2, 0
@@ -1063,55 +1063,55 @@ define hidden void @_ZN2cv3hal12cpu_baseline6exp64fEPKdPdi(ptr noundef readonly 
   %16 = fmul double %15, 1.562500e-02
   %17 = ashr i32 %13, 6
   %18 = add nsw i32 %17, 1023
-  %.not = icmp ult i32 %18, 2048
-  %19 = icmp slt i32 %17, -1023
-  %20 = select i1 %19, i32 0, i32 2047
-  %21 = select i1 %.not, i32 %18, i32 %20
-  %22 = zext nneg i32 %21 to i64
-  %23 = shl nuw nsw i64 %22, 52
-  %24 = bitcast i64 %23 to double
-  %25 = and i32 %13, 63
-  %26 = zext nneg i32 %25 to i64
-  %27 = getelementptr inbounds nuw double, ptr %5, i64 %26
-  %28 = load double, ptr %27, align 8, !tbaa !14
-  %29 = fmul double %28, %24
-  %30 = call double @llvm.fmuladd.f64(double %16, double 0x3FC1B251FAD369CD, double 0x3FEFD3B7B51209EA)
-  %31 = call double @llvm.fmuladd.f64(double %30, double %16, double 0x4016F55AF73548B8)
-  %32 = call double @llvm.fmuladd.f64(double %31, double %16, double 0x4038D76C6C8C38D3)
-  %33 = call double @llvm.fmuladd.f64(double %32, double %16, double 0x4051EB5AB9AE5E70)
-  %34 = call double @llvm.fmuladd.f64(double %33, double %16, double 0x4059DA2747AF5C7E)
-  %35 = fmul double %29, %34
-  %36 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv
-  store double %35, ptr %36, align 8, !tbaa !14
+  %19 = icmp ugt i32 %18, 2047
+  %20 = icmp slt i32 %17, -1023
+  %21 = select i1 %20, i32 0, i32 2047
+  %22 = select i1 %19, i32 %21, i32 %18
+  %23 = zext nneg i32 %22 to i64
+  %24 = shl nuw nsw i64 %23, 52
+  %25 = bitcast i64 %24 to double
+  %26 = and i32 %13, 63
+  %27 = zext nneg i32 %26 to i64
+  %28 = getelementptr inbounds nuw double, ptr %5, i64 %27
+  %29 = load double, ptr %28, align 8, !tbaa !14
+  %30 = fmul double %29, %25
+  %31 = call double @llvm.fmuladd.f64(double %16, double 0x3FC1B251FAD369CD, double 0x3FEFD3B7B51209EA)
+  %32 = call double @llvm.fmuladd.f64(double %31, double %16, double 0x4016F55AF73548B8)
+  %33 = call double @llvm.fmuladd.f64(double %32, double %16, double 0x4038D76C6C8C38D3)
+  %34 = call double @llvm.fmuladd.f64(double %33, double %16, double 0x4051EB5AB9AE5E70)
+  %35 = call double @llvm.fmuladd.f64(double %34, double %16, double 0x4059DA2747AF5C7E)
+  %36 = fmul double %30, %35
+  %37 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv
+  store double %36, ptr %37, align 8, !tbaa !14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !33
 
-37:                                               ; preds = %3
-  %38 = landingpad { ptr, i32 }
+38:                                               ; preds = %3
+  %39 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %4) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  resume { ptr, i32 } %38
+  resume { ptr, i32 } %39
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  %39 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %40 = load i32, ptr %39, align 8, !tbaa !9
-  %.not.i = icmp eq i32 %40, 0
-  br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %41
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %41 = load i32, ptr %40, align 8, !tbaa !9
+  %.not.i = icmp eq i32 %41, 0
+  br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %42
 
-41:                                               ; preds = %._crit_edge
+42:                                               ; preds = %._crit_edge
   invoke void @_ZN2cv5utils5trace7details6Region7destroyEv(ptr noundef nonnull align 8 dereferenceable(12) %4)
-          to label %_ZN2cv5utils5trace7details6RegionD2Ev.exit unwind label %42
+          to label %_ZN2cv5utils5trace7details6RegionD2Ev.exit unwind label %43
 
-42:                                               ; preds = %41
-  %43 = landingpad { ptr, i32 }
+43:                                               ; preds = %42
+  %44 = landingpad { ptr, i32 }
           catch ptr null
-  %44 = extractvalue { ptr, i32 } %43, 0
-  call void @__clang_call_terminate(ptr %44) #12
+  %45 = extractvalue { ptr, i32 } %44, 0
+  call void @__clang_call_terminate(ptr %45) #12
   unreachable
 
-_ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %._crit_edge, %41
+_ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %._crit_edge, %42
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }

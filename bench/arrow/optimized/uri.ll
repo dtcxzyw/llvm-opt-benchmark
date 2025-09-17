@@ -5030,42 +5030,43 @@ define linkonce_odr noundef zeroext i1 @_ZN5arrow8internal33StringToUnsignedIntC
   %70 = load i8, ptr %60, align 1, !tbaa !12
   %71 = add i8 %70, -48
   %72 = mul nuw i16 %66, 10
-  %73 = icmp ult i8 %71, 10
-  %74 = zext nneg i8 %71 to i16
-  %75 = add nuw i16 %72, %74
-  br i1 %73, label %76, label %_ZN5arrow8internal8ParseHexItEEbPKcmPT_.exit
+  %73 = add i64 %.01725, -4
+  %74 = icmp ult i8 %71, 10
+  %75 = zext nneg i8 %71 to i16
+  %76 = add nuw i16 %72, %75
+  br i1 %74, label %77, label %_ZN5arrow8internal8ParseHexItEEbPKcmPT_.exit
 
-76:                                               ; preds = %68
-  %.not73.i = icmp eq i64 %.01725, 4
-  br i1 %.not73.i, label %_ZN5arrow8internal8ParseHexItEEbPKcmPT_.exit.sink.split, label %77
+77:                                               ; preds = %68
+  %.not73.i = icmp eq i64 %73, 0
+  br i1 %.not73.i, label %_ZN5arrow8internal8ParseHexItEEbPKcmPT_.exit.sink.split, label %78
 
-77:                                               ; preds = %76
-  %78 = icmp ugt i16 %75, 6553
-  br i1 %78, label %_ZN5arrow8internal8ParseHexItEEbPKcmPT_.exit, label %79, !prof !110
+78:                                               ; preds = %77
+  %79 = icmp ugt i16 %76, 6553
+  br i1 %79, label %_ZN5arrow8internal8ParseHexItEEbPKcmPT_.exit, label %80, !prof !110
 
-79:                                               ; preds = %77
-  %80 = load i8, ptr %69, align 1, !tbaa !12
-  %81 = add i8 %80, -48
-  %.not74.i = icmp ne i64 %.01725, 5
-  %82 = icmp ugt i8 %81, 9
-  %or.cond.i21 = or i1 %.not74.i, %82
-  br i1 %or.cond.i21, label %_ZN5arrow8internal8ParseHexItEEbPKcmPT_.exit, label %83, !prof !245
+80:                                               ; preds = %78
+  %81 = load i8, ptr %69, align 1, !tbaa !12
+  %82 = add i8 %81, -48
+  %.not74.i = icmp ne i64 %73, 1
+  %83 = icmp ugt i8 %82, 9
+  %or.cond.i21 = or i1 %.not74.i, %83
+  br i1 %or.cond.i21, label %_ZN5arrow8internal8ParseHexItEEbPKcmPT_.exit, label %84, !prof !245
 
-83:                                               ; preds = %79
-  %84 = mul nuw i16 %75, 10
-  %85 = zext nneg i8 %81 to i16
-  %86 = add i16 %84, %85
-  %.not76.i = icmp ult i16 %86, %84
-  %.75.i = tail call i16 @llvm.umax.i16(i16 %86, i16 %84)
+84:                                               ; preds = %80
+  %85 = mul nuw i16 %76, 10
+  %86 = zext nneg i8 %82 to i16
+  %87 = add i16 %85, %86
+  %.not76.i = icmp ult i16 %87, %85
+  %.75.i = tail call i16 @llvm.umax.i16(i16 %87, i16 %85)
   br i1 %.not76.i, label %_ZN5arrow8internal8ParseHexItEEbPKcmPT_.exit, label %_ZN5arrow8internal8ParseHexItEEbPKcmPT_.exit.sink.split
 
-_ZN5arrow8internal8ParseHexItEEbPKcmPT_.exit.sink.split: ; preds = %38, %43, %50, %58, %67, %76, %83
-  %.151.i.sink = phi i16 [ %.75.i, %83 ], [ %75, %76 ], [ %66, %67 ], [ %57, %58 ], [ %49, %50 ], [ 0, %43 ], [ %.2.i, %38 ]
+_ZN5arrow8internal8ParseHexItEEbPKcmPT_.exit.sink.split: ; preds = %38, %43, %50, %58, %67, %77, %84
+  %.151.i.sink = phi i16 [ %.75.i, %84 ], [ %76, %77 ], [ %66, %67 ], [ %57, %58 ], [ %49, %50 ], [ 0, %43 ], [ %.2.i, %38 ]
   store i16 %.151.i.sink, ptr %4, align 2, !tbaa !177
   br label %_ZN5arrow8internal8ParseHexItEEbPKcmPT_.exit
 
-_ZN5arrow8internal8ParseHexItEEbPKcmPT_.exit:     ; preds = %32, %_ZN5arrow8internal8ParseHexItEEbPKcmPT_.exit.sink.split, %83, %79, %77, %68, %59, %51, %.critedge, %15, %5
-  %.0 = phi i1 [ false, %5 ], [ false, %15 ], [ false, %83 ], [ false, %68 ], [ false, %59 ], [ false, %51 ], [ false, %.critedge ], [ false, %77 ], [ false, %79 ], [ true, %_ZN5arrow8internal8ParseHexItEEbPKcmPT_.exit.sink.split ], [ false, %32 ]
+_ZN5arrow8internal8ParseHexItEEbPKcmPT_.exit:     ; preds = %32, %_ZN5arrow8internal8ParseHexItEEbPKcmPT_.exit.sink.split, %84, %80, %78, %68, %59, %51, %.critedge, %15, %5
+  %.0 = phi i1 [ false, %5 ], [ false, %15 ], [ false, %84 ], [ false, %68 ], [ false, %59 ], [ false, %51 ], [ false, %.critedge ], [ false, %78 ], [ false, %80 ], [ true, %_ZN5arrow8internal8ParseHexItEEbPKcmPT_.exit.sink.split ], [ false, %32 ]
   ret i1 %.0
 }
 

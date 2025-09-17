@@ -710,9 +710,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit179: ; preds = %_Z
   store i32 %4, ptr %120, align 8, !tbaa !60
   %121 = getelementptr inbounds nuw i8, ptr %97, i64 372
   store i32 %4, ptr %121, align 4, !tbaa !61
-  %122 = add nsw i32 %4, -3
-  %or.cond9 = icmp ult i32 %122, 2
-  br i1 %or.cond9, label %128, label %123
+  %122 = icmp samesign ugt i32 %4, 2
+  br i1 %122, label %128, label %123
 
 123:                                              ; preds = %96
   %124 = getelementptr inbounds nuw i8, ptr %97, i64 384

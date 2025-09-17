@@ -11296,8 +11296,7 @@ Abc_UtilStrsav.exit145:                           ; preds = %Abc_UtilStrsav.exit
   br label %798
 
 177:                                              ; preds = %167
-  %.mask = and i32 %171, -16777216
-  %178 = icmp eq i32 %.mask, 16777216
+  %178 = icmp ult i32 %171, 33554432
   br i1 %178, label %179, label %190
 
 179:                                              ; preds = %177

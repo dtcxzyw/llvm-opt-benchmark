@@ -756,52 +756,46 @@ define internal range(i32 -1, 1) i32 @_run_subpath_command(ptr noundef %0, ptr n
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr %9, align 4
   %.not = icmp eq i32 %10, 0
-  br i1 %.not, label %29, label %11
+  br i1 %.not, label %23, label %11
 
 11:                                               ; preds = %2
   %12 = and i32 %10, 127
-  %13 = icmp eq i32 %12, 0
-  br i1 %13, label %14, label %20
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %14 = load ptr, ptr %13, align 8
+  switch i32 %12, label %19 [
+    i32 0, label %15
+    i32 127, label %21
+  ]
 
-14:                                               ; preds = %11
-  %15 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %16 = load ptr, ptr %15, align 8
-  %17 = lshr i32 %10, 8
-  %18 = and i32 %17, 255
-  %19 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.7, ptr noundef %16, i32 noundef %18, ptr noundef %7) #6
-  br label %37
+15:                                               ; preds = %11
+  %16 = lshr i32 %10, 8
+  %17 = and i32 %16, 255
+  %18 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.7, ptr noundef %14, i32 noundef %17, ptr noundef %7) #6
+  br label %31
 
-20:                                               ; preds = %11
-  %21 = shl nuw nsw i32 %12, 24
-  %sext = add nuw i32 %21, 16777216
-  %22 = icmp sgt i32 %sext, 33554431
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %24 = load ptr, ptr %23, align 8
-  br i1 %22, label %25, label %27
+19:                                               ; preds = %11
+  %20 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.8, ptr noundef %14, i32 noundef %12, ptr noundef %7) #6
+  br label %31
 
-25:                                               ; preds = %20
-  %26 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.8, ptr noundef %24, i32 noundef %12, ptr noundef %7) #6
-  br label %37
+21:                                               ; preds = %11
+  %22 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.9, ptr noundef %14, i32 noundef %10, ptr noundef %7) #6
+  br label %31
 
-27:                                               ; preds = %20
-  %28 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.9, ptr noundef %24, i32 noundef %10, ptr noundef %7) #6
-  br label %37
+23:                                               ; preds = %2
+  %24 = tail call i32 @get_log_level() #6
+  %25 = icmp sgt i32 %24, 5
+  br i1 %25, label %26, label %31
 
-29:                                               ; preds = %2
-  %30 = tail call i32 @get_log_level() #6
-  %31 = icmp sgt i32 %30, 5
-  br i1 %31, label %32, label %37
+26:                                               ; preds = %23
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %28 = load ptr, ptr %27, align 8
+  %29 = load ptr, ptr %8, align 8
+  %30 = load i32, ptr %29, align 4
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.10, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._run_subpath_command, ptr noundef %28, i32 noundef %30, ptr noundef %7) #6
+  br label %31
 
-32:                                               ; preds = %29
-  %33 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %34 = load ptr, ptr %33, align 8
-  %35 = load ptr, ptr %8, align 8
-  %36 = load i32, ptr %35, align 4
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.10, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._run_subpath_command, ptr noundef %34, i32 noundef %36, ptr noundef %7) #6
-  br label %37
-
-37:                                               ; preds = %14, %27, %25, %29, %32
-  %.0 = phi i32 [ 0, %32 ], [ 0, %29 ], [ -1, %25 ], [ -1, %27 ], [ -1, %14 ]
+31:                                               ; preds = %15, %21, %19, %23, %26
+  %.0 = phi i32 [ 0, %26 ], [ 0, %23 ], [ -1, %19 ], [ -1, %21 ], [ -1, %15 ]
   call void @slurm_xfree(ptr noundef nonnull %3) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0

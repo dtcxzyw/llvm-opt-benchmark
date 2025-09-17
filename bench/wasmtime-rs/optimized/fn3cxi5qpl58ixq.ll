@@ -17754,57 +17754,54 @@ define hidden void @"_ZN4core3ptr60drop_in_place$LT$gimli..write..abbrev..Abbrev
 ; Function Attrs: nounwind nonlazybind uwtable
 define hidden void @"_ZN4core3ptr60drop_in_place$LT$wasmtime_environ..compile..CompileError$GT$17hc2f855fd0ba87f38E.llvm.3191862155771161713"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !8054, !noundef !4
-  %3 = add i64 %2, 9223372036854775805
-  %4 = icmp ult i64 %3, 2
-  %5 = add nsw i64 %2, 9223372036854775806
-  %6 = select i1 %4, i64 %5, i64 0
-  switch i64 %6, label %"_ZN4core3ptr53drop_in_place$LT$wasmtime_types..error..WasmError$GT$17h640c65cdb3dfedf9E.llvm.3191862155771161713.exit" [
-    i64 0, label %9
-    i64 1, label %23
+  %3 = tail call i64 @llvm.usub.sat.i64(i64 %2, i64 -9223372036854775806)
+  switch i64 %3, label %"_ZN4core3ptr53drop_in_place$LT$wasmtime_types..error..WasmError$GT$17h640c65cdb3dfedf9E.llvm.3191862155771161713.exit" [
+    i64 0, label %6
+    i64 1, label %20
   ]
 
-"_ZN4core3ptr53drop_in_place$LT$wasmtime_types..error..WasmError$GT$17h640c65cdb3dfedf9E.llvm.3191862155771161713.exit.sink.split": ; preds = %23, %13, %17, %19
-  %.sink = phi i64 [ 16, %13 ], [ 8, %17 ], [ 16, %19 ], [ 16, %23 ]
-  %.sink4 = phi i64 [ %15, %13 ], [ %2, %17 ], [ %21, %19 ], [ %25, %23 ]
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink
-  %8 = load ptr, ptr %7, align 8, !noalias !4, !nonnull !4, !noundef !4
-  tail call void @__rust_dealloc(ptr noundef nonnull %8, i64 noundef %.sink4, i64 noundef 1) #24, !noalias !4
+"_ZN4core3ptr53drop_in_place$LT$wasmtime_types..error..WasmError$GT$17h640c65cdb3dfedf9E.llvm.3191862155771161713.exit.sink.split": ; preds = %20, %10, %14, %16
+  %.sink = phi i64 [ 16, %10 ], [ 8, %14 ], [ 16, %16 ], [ 16, %20 ]
+  %.sink4 = phi i64 [ %12, %10 ], [ %2, %14 ], [ %18, %16 ], [ %22, %20 ]
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink
+  %5 = load ptr, ptr %4, align 8, !noalias !4, !nonnull !4, !noundef !4
+  tail call void @__rust_dealloc(ptr noundef nonnull %5, i64 noundef %.sink4, i64 noundef 1) #24, !noalias !4
   br label %"_ZN4core3ptr53drop_in_place$LT$wasmtime_types..error..WasmError$GT$17h640c65cdb3dfedf9E.llvm.3191862155771161713.exit"
 
-"_ZN4core3ptr53drop_in_place$LT$wasmtime_types..error..WasmError$GT$17h640c65cdb3dfedf9E.llvm.3191862155771161713.exit": ; preds = %"_ZN4core3ptr53drop_in_place$LT$wasmtime_types..error..WasmError$GT$17h640c65cdb3dfedf9E.llvm.3191862155771161713.exit.sink.split", %23, %19, %17, %13, %9, %1
+"_ZN4core3ptr53drop_in_place$LT$wasmtime_types..error..WasmError$GT$17h640c65cdb3dfedf9E.llvm.3191862155771161713.exit": ; preds = %"_ZN4core3ptr53drop_in_place$LT$wasmtime_types..error..WasmError$GT$17h640c65cdb3dfedf9E.llvm.3191862155771161713.exit.sink.split", %20, %16, %14, %10, %6, %1
   ret void
 
-9:                                                ; preds = %1
-  %10 = icmp slt i64 %2, -9223372036854775805
-  %11 = add i64 %2, -9223372036854775807
-  %12 = select i1 %10, i64 %11, i64 0
-  switch i64 %12, label %13 [
-    i64 0, label %17
-    i64 1, label %19
+6:                                                ; preds = %1
+  %7 = icmp slt i64 %2, -9223372036854775805
+  %8 = add i64 %2, -9223372036854775807
+  %9 = select i1 %7, i64 %8, i64 0
+  switch i64 %9, label %10 [
+    i64 0, label %14
+    i64 1, label %16
     i64 2, label %"_ZN4core3ptr53drop_in_place$LT$wasmtime_types..error..WasmError$GT$17h640c65cdb3dfedf9E.llvm.3191862155771161713.exit"
   ]
 
-13:                                               ; preds = %9
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %15 = load i64, ptr %14, align 8, !alias.scope !8055, !noalias !8068, !noundef !4
-  %16 = icmp eq i64 %15, 0
-  br i1 %16, label %"_ZN4core3ptr53drop_in_place$LT$wasmtime_types..error..WasmError$GT$17h640c65cdb3dfedf9E.llvm.3191862155771161713.exit", label %"_ZN4core3ptr53drop_in_place$LT$wasmtime_types..error..WasmError$GT$17h640c65cdb3dfedf9E.llvm.3191862155771161713.exit.sink.split"
+10:                                               ; preds = %6
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %12 = load i64, ptr %11, align 8, !alias.scope !8055, !noalias !8068, !noundef !4
+  %13 = icmp eq i64 %12, 0
+  br i1 %13, label %"_ZN4core3ptr53drop_in_place$LT$wasmtime_types..error..WasmError$GT$17h640c65cdb3dfedf9E.llvm.3191862155771161713.exit", label %"_ZN4core3ptr53drop_in_place$LT$wasmtime_types..error..WasmError$GT$17h640c65cdb3dfedf9E.llvm.3191862155771161713.exit.sink.split"
 
-17:                                               ; preds = %9
-  %18 = icmp eq i64 %2, 0
-  br i1 %18, label %"_ZN4core3ptr53drop_in_place$LT$wasmtime_types..error..WasmError$GT$17h640c65cdb3dfedf9E.llvm.3191862155771161713.exit", label %"_ZN4core3ptr53drop_in_place$LT$wasmtime_types..error..WasmError$GT$17h640c65cdb3dfedf9E.llvm.3191862155771161713.exit.sink.split"
+14:                                               ; preds = %6
+  %15 = icmp eq i64 %2, 0
+  br i1 %15, label %"_ZN4core3ptr53drop_in_place$LT$wasmtime_types..error..WasmError$GT$17h640c65cdb3dfedf9E.llvm.3191862155771161713.exit", label %"_ZN4core3ptr53drop_in_place$LT$wasmtime_types..error..WasmError$GT$17h640c65cdb3dfedf9E.llvm.3191862155771161713.exit.sink.split"
 
-19:                                               ; preds = %9
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %21 = load i64, ptr %20, align 8, !alias.scope !8070, !noalias !8081, !noundef !4
-  %22 = icmp eq i64 %21, 0
-  br i1 %22, label %"_ZN4core3ptr53drop_in_place$LT$wasmtime_types..error..WasmError$GT$17h640c65cdb3dfedf9E.llvm.3191862155771161713.exit", label %"_ZN4core3ptr53drop_in_place$LT$wasmtime_types..error..WasmError$GT$17h640c65cdb3dfedf9E.llvm.3191862155771161713.exit.sink.split"
+16:                                               ; preds = %6
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %18 = load i64, ptr %17, align 8, !alias.scope !8070, !noalias !8081, !noundef !4
+  %19 = icmp eq i64 %18, 0
+  br i1 %19, label %"_ZN4core3ptr53drop_in_place$LT$wasmtime_types..error..WasmError$GT$17h640c65cdb3dfedf9E.llvm.3191862155771161713.exit", label %"_ZN4core3ptr53drop_in_place$LT$wasmtime_types..error..WasmError$GT$17h640c65cdb3dfedf9E.llvm.3191862155771161713.exit.sink.split"
 
-23:                                               ; preds = %1
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %25 = load i64, ptr %24, align 8, !alias.scope !8083, !noalias !8094, !noundef !4
-  %26 = icmp eq i64 %25, 0
-  br i1 %26, label %"_ZN4core3ptr53drop_in_place$LT$wasmtime_types..error..WasmError$GT$17h640c65cdb3dfedf9E.llvm.3191862155771161713.exit", label %"_ZN4core3ptr53drop_in_place$LT$wasmtime_types..error..WasmError$GT$17h640c65cdb3dfedf9E.llvm.3191862155771161713.exit.sink.split"
+20:                                               ; preds = %1
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %22 = load i64, ptr %21, align 8, !alias.scope !8083, !noalias !8094, !noundef !4
+  %23 = icmp eq i64 %22, 0
+  br i1 %23, label %"_ZN4core3ptr53drop_in_place$LT$wasmtime_types..error..WasmError$GT$17h640c65cdb3dfedf9E.llvm.3191862155771161713.exit", label %"_ZN4core3ptr53drop_in_place$LT$wasmtime_types..error..WasmError$GT$17h640c65cdb3dfedf9E.llvm.3191862155771161713.exit.sink.split"
 }
 
 ; Function Attrs: nounwind nonlazybind uwtable
@@ -27715,56 +27712,53 @@ _ZN3std10sys_common4once5futex4Once5state17ha2d90c71d9d63f69E.llvm.3191862155771
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13126)
   %21 = load i64, ptr %20, align 8, !range !8054, !alias.scope !13126, !noundef !4
-  %22 = add i64 %21, 9223372036854775805
-  %23 = icmp ult i64 %22, 2
-  %24 = add nsw i64 %21, 9223372036854775806
-  %25 = select i1 %23, i64 %24, i64 0
-  switch i64 %25, label %"_ZN4core3ptr60drop_in_place$LT$wasmtime_environ..compile..CompileError$GT$17hc2f855fd0ba87f38E.llvm.3191862155771161713.exit" [
-    i64 0, label %28
-    i64 1, label %42
+  %22 = tail call i64 @llvm.usub.sat.i64(i64 %21, i64 -9223372036854775806)
+  switch i64 %22, label %"_ZN4core3ptr60drop_in_place$LT$wasmtime_environ..compile..CompileError$GT$17hc2f855fd0ba87f38E.llvm.3191862155771161713.exit" [
+    i64 0, label %25
+    i64 1, label %39
   ]
 
-"_ZN4core3ptr53drop_in_place$LT$wasmtime_types..error..WasmError$GT$17h640c65cdb3dfedf9E.llvm.3191862155771161713.exit.sink.split.i": ; preds = %42, %38, %36, %32
-  %.sink.i = phi i64 [ 16, %32 ], [ 8, %36 ], [ 16, %38 ], [ 16, %42 ]
-  %.sink4.i = phi i64 [ %34, %32 ], [ %21, %36 ], [ %40, %38 ], [ %44, %42 ]
-  %26 = getelementptr inbounds nuw i8, ptr %20, i64 %.sink.i
-  %27 = load ptr, ptr %26, align 8, !alias.scope !13126, !noalias !4, !nonnull !4, !noundef !4
-  tail call void @__rust_dealloc(ptr noundef nonnull %27, i64 noundef %.sink4.i, i64 noundef 1) #24, !noalias !13126
+"_ZN4core3ptr53drop_in_place$LT$wasmtime_types..error..WasmError$GT$17h640c65cdb3dfedf9E.llvm.3191862155771161713.exit.sink.split.i": ; preds = %39, %35, %33, %29
+  %.sink.i = phi i64 [ 16, %29 ], [ 8, %33 ], [ 16, %35 ], [ 16, %39 ]
+  %.sink4.i = phi i64 [ %31, %29 ], [ %21, %33 ], [ %37, %35 ], [ %41, %39 ]
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.sink.i
+  %24 = load ptr, ptr %23, align 8, !alias.scope !13126, !noalias !4, !nonnull !4, !noundef !4
+  tail call void @__rust_dealloc(ptr noundef nonnull %24, i64 noundef %.sink4.i, i64 noundef 1) #24, !noalias !13126
   br label %"_ZN4core3ptr60drop_in_place$LT$wasmtime_environ..compile..CompileError$GT$17hc2f855fd0ba87f38E.llvm.3191862155771161713.exit"
 
-28:                                               ; preds = %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hb1e370f68f6cf8efE.llvm.3191862155771161713.exit"
-  %29 = icmp slt i64 %21, -9223372036854775805
-  %30 = add i64 %21, -9223372036854775807
-  %31 = select i1 %29, i64 %30, i64 0
-  switch i64 %31, label %32 [
-    i64 0, label %36
-    i64 1, label %38
+25:                                               ; preds = %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hb1e370f68f6cf8efE.llvm.3191862155771161713.exit"
+  %26 = icmp slt i64 %21, -9223372036854775805
+  %27 = add i64 %21, -9223372036854775807
+  %28 = select i1 %26, i64 %27, i64 0
+  switch i64 %28, label %29 [
+    i64 0, label %33
+    i64 1, label %35
     i64 2, label %"_ZN4core3ptr60drop_in_place$LT$wasmtime_environ..compile..CompileError$GT$17hc2f855fd0ba87f38E.llvm.3191862155771161713.exit"
   ]
 
-32:                                               ; preds = %28
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %34 = load i64, ptr %33, align 8, !alias.scope !13129, !noalias !13142, !noundef !4
-  %35 = icmp eq i64 %34, 0
-  br i1 %35, label %"_ZN4core3ptr60drop_in_place$LT$wasmtime_environ..compile..CompileError$GT$17hc2f855fd0ba87f38E.llvm.3191862155771161713.exit", label %"_ZN4core3ptr53drop_in_place$LT$wasmtime_types..error..WasmError$GT$17h640c65cdb3dfedf9E.llvm.3191862155771161713.exit.sink.split.i"
+29:                                               ; preds = %25
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %31 = load i64, ptr %30, align 8, !alias.scope !13129, !noalias !13142, !noundef !4
+  %32 = icmp eq i64 %31, 0
+  br i1 %32, label %"_ZN4core3ptr60drop_in_place$LT$wasmtime_environ..compile..CompileError$GT$17hc2f855fd0ba87f38E.llvm.3191862155771161713.exit", label %"_ZN4core3ptr53drop_in_place$LT$wasmtime_types..error..WasmError$GT$17h640c65cdb3dfedf9E.llvm.3191862155771161713.exit.sink.split.i"
 
-36:                                               ; preds = %28
-  %37 = icmp eq i64 %21, 0
-  br i1 %37, label %"_ZN4core3ptr60drop_in_place$LT$wasmtime_environ..compile..CompileError$GT$17hc2f855fd0ba87f38E.llvm.3191862155771161713.exit", label %"_ZN4core3ptr53drop_in_place$LT$wasmtime_types..error..WasmError$GT$17h640c65cdb3dfedf9E.llvm.3191862155771161713.exit.sink.split.i"
+33:                                               ; preds = %25
+  %34 = icmp eq i64 %21, 0
+  br i1 %34, label %"_ZN4core3ptr60drop_in_place$LT$wasmtime_environ..compile..CompileError$GT$17hc2f855fd0ba87f38E.llvm.3191862155771161713.exit", label %"_ZN4core3ptr53drop_in_place$LT$wasmtime_types..error..WasmError$GT$17h640c65cdb3dfedf9E.llvm.3191862155771161713.exit.sink.split.i"
 
-38:                                               ; preds = %28
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %40 = load i64, ptr %39, align 8, !alias.scope !13144, !noalias !13155, !noundef !4
-  %41 = icmp eq i64 %40, 0
-  br i1 %41, label %"_ZN4core3ptr60drop_in_place$LT$wasmtime_environ..compile..CompileError$GT$17hc2f855fd0ba87f38E.llvm.3191862155771161713.exit", label %"_ZN4core3ptr53drop_in_place$LT$wasmtime_types..error..WasmError$GT$17h640c65cdb3dfedf9E.llvm.3191862155771161713.exit.sink.split.i"
+35:                                               ; preds = %25
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %37 = load i64, ptr %36, align 8, !alias.scope !13144, !noalias !13155, !noundef !4
+  %38 = icmp eq i64 %37, 0
+  br i1 %38, label %"_ZN4core3ptr60drop_in_place$LT$wasmtime_environ..compile..CompileError$GT$17hc2f855fd0ba87f38E.llvm.3191862155771161713.exit", label %"_ZN4core3ptr53drop_in_place$LT$wasmtime_types..error..WasmError$GT$17h640c65cdb3dfedf9E.llvm.3191862155771161713.exit.sink.split.i"
 
-42:                                               ; preds = %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hb1e370f68f6cf8efE.llvm.3191862155771161713.exit"
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %44 = load i64, ptr %43, align 8, !alias.scope !13157, !noalias !13168, !noundef !4
-  %45 = icmp eq i64 %44, 0
-  br i1 %45, label %"_ZN4core3ptr60drop_in_place$LT$wasmtime_environ..compile..CompileError$GT$17hc2f855fd0ba87f38E.llvm.3191862155771161713.exit", label %"_ZN4core3ptr53drop_in_place$LT$wasmtime_types..error..WasmError$GT$17h640c65cdb3dfedf9E.llvm.3191862155771161713.exit.sink.split.i"
+39:                                               ; preds = %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hb1e370f68f6cf8efE.llvm.3191862155771161713.exit"
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %41 = load i64, ptr %40, align 8, !alias.scope !13157, !noalias !13168, !noundef !4
+  %42 = icmp eq i64 %41, 0
+  br i1 %42, label %"_ZN4core3ptr60drop_in_place$LT$wasmtime_environ..compile..CompileError$GT$17hc2f855fd0ba87f38E.llvm.3191862155771161713.exit", label %"_ZN4core3ptr53drop_in_place$LT$wasmtime_types..error..WasmError$GT$17h640c65cdb3dfedf9E.llvm.3191862155771161713.exit.sink.split.i"
 
-"_ZN4core3ptr60drop_in_place$LT$wasmtime_environ..compile..CompileError$GT$17hc2f855fd0ba87f38E.llvm.3191862155771161713.exit": ; preds = %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hb1e370f68f6cf8efE.llvm.3191862155771161713.exit", %"_ZN4core3ptr53drop_in_place$LT$wasmtime_types..error..WasmError$GT$17h640c65cdb3dfedf9E.llvm.3191862155771161713.exit.sink.split.i", %28, %32, %36, %38, %42
+"_ZN4core3ptr60drop_in_place$LT$wasmtime_environ..compile..CompileError$GT$17hc2f855fd0ba87f38E.llvm.3191862155771161713.exit": ; preds = %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hb1e370f68f6cf8efE.llvm.3191862155771161713.exit", %"_ZN4core3ptr53drop_in_place$LT$wasmtime_types..error..WasmError$GT$17h640c65cdb3dfedf9E.llvm.3191862155771161713.exit.sink.split.i", %25, %29, %33, %35, %39
   ret void
 }
 
@@ -39802,6 +39796,9 @@ declare i64 @llvm.umax.i64(i64, i64) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #23
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.usub.sat.i64(i64, i64) #22
 
 attributes #0 = { nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

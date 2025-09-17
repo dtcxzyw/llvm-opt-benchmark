@@ -7030,9 +7030,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit239: ; preds = %_Z
   br label %408
 
 _ZNK7AstNode6isQuadEv.exit:                       ; preds = %_ZNK7AstNode8isDoubleEv.exit, %_ZN7AstNode9privateIsI13AstBasicDTypeP12AstNodeDTypeEEbPKS_.exit.i
-  %347 = add i32 %115, -33
-  %spec.select.i = icmp ult i32 %347, 32
-  br i1 %spec.select.i, label %._crit_edge.i.i241, label %_ZNK7AstNode6isQuadEv.exit.thread
+  %347 = icmp sgt i32 %115, 32
+  br i1 %347, label %._crit_edge.i.i241, label %_ZNK7AstNode6isQuadEv.exit.thread
 
 ._crit_edge.i.i241:                               ; preds = %_ZNK7AstNode6isQuadEv.exit
   %348 = tail call noundef i64 @_ZNK8V3Number7toUQuadEv(ptr noundef nonnull align 8 dereferenceable(56) %19)
@@ -29726,9 +29725,8 @@ _ZNK7AstNode6isWideEv.exit.i:                     ; preds = %_ZNK7AstNode8isStri
   br i1 %50, label %_ZNK12AstNodeDType8charIQWNEv.exit, label %_ZNK7AstNode6isQuadEv.exit.i
 
 _ZNK7AstNode6isQuadEv.exit.i:                     ; preds = %_ZNK7AstNode6isWideEv.exit.i
-  %51 = add i32 %.fr.i, -33
-  %spec.select.i.i = icmp ult i32 %51, 32
-  %spec.select.i = select i1 %spec.select.i.i, ptr @.str.510, ptr @.str.511
+  %51 = icmp sgt i32 %.fr.i, 32
+  %spec.select.i = select i1 %51, ptr @.str.510, ptr @.str.511
   br label %_ZNK12AstNodeDType8charIQWNEv.exit
 
 _ZNK12AstNodeDType8charIQWNEv.exit:               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %_ZNK7AstNode8isStringEv.exit.i, %_ZNK7AstNode8isStringEv.exit.thread.i, %_ZNK7AstNode6isWideEv.exit.i, %_ZNK7AstNode6isQuadEv.exit.i
@@ -29802,9 +29800,8 @@ _ZNK7AstNode6isWideEv.exit.i55:                   ; preds = %_ZNK7AstNode8isStri
   br i1 %80, label %_ZNK12AstNodeDType8charIQWNEv.exit60, label %_ZNK7AstNode6isQuadEv.exit.i57
 
 _ZNK7AstNode6isQuadEv.exit.i57:                   ; preds = %_ZNK7AstNode6isWideEv.exit.i55
-  %81 = add i32 %.fr.i56, -33
-  %spec.select.i.i58 = icmp ult i32 %81, 32
-  %spec.select.i59 = select i1 %spec.select.i.i58, ptr @.str.510, ptr @.str.511
+  %81 = icmp sgt i32 %.fr.i56, 32
+  %spec.select.i59 = select i1 %81, ptr @.str.510, ptr @.str.511
   br label %_ZNK12AstNodeDType8charIQWNEv.exit60
 
 _ZNK12AstNodeDType8charIQWNEv.exit60:             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit47, %_ZNK7AstNode8isStringEv.exit.i50, %_ZNK7AstNode8isStringEv.exit.thread.i52, %_ZNK7AstNode6isWideEv.exit.i55, %_ZNK7AstNode6isQuadEv.exit.i57

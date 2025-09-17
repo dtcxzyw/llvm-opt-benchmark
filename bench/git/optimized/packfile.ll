@@ -3035,21 +3035,21 @@ define dso_local i64 @get_delta_base(ptr noundef %0, ptr noundef captures(none) 
   %10 = load i8, ptr %8, align 1, !tbaa !12
   %11 = and i8 %10, 127
   %12 = zext nneg i8 %11 to i64
-  %.not45 = icmp sgt i8 %10, -1
-  br i1 %.not45, label %._crit_edge, label %.lr.ph
+  %.not44 = icmp sgt i8 %10, -1
+  br i1 %.not44, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %9, %13
-  %.03147 = phi i32 [ %14, %13 ], [ 1, %9 ]
-  %.03246 = phi i64 [ %22, %13 ], [ %12, %9 ]
-  %or.cond = icmp ult i64 %.03246, 144115188075855871
-  br i1 %or.cond, label %13, label %.critedge
+  %.03146 = phi i32 [ %14, %13 ], [ 1, %9 ]
+  %.03245 = phi i64 [ %22, %13 ], [ %12, %9 ]
+  %or.cond = icmp ugt i64 %.03245, 144115188075855870
+  br i1 %or.cond, label %.critedge, label %13
 
 13:                                               ; preds = %.lr.ph
-  %14 = add i32 %.03147, 1
-  %15 = zext i32 %.03147 to i64
+  %14 = add i32 %.03146, 1
+  %15 = zext i32 %.03146 to i64
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 %15
   %17 = load i8, ptr %16, align 1, !tbaa !12
-  %18 = shl nuw i64 %.03246, 7
+  %18 = shl nuw i64 %.03245, 7
   %19 = add nuw i64 %18, 128
   %20 = and i8 %17, 127
   %21 = zext nneg i8 %20 to i64
@@ -3067,8 +3067,8 @@ define dso_local i64 @get_delta_base(ptr noundef %0, ptr noundef captures(none) 
   %24 = sub nsw i64 %4, %.032.lcssa
   %25 = icmp sgt i64 %24, 0
   %.not38 = icmp sgt i64 %.032.lcssa, 0
-  %or.cond41 = and i1 %.not38, %25
-  br i1 %or.cond41, label %26, label %.critedge
+  %or.cond40 = and i1 %.not38, %25
+  br i1 %or.cond40, label %26, label %.critedge
 
 26:                                               ; preds = %._crit_edge
   %27 = load i64, ptr %2, align 8, !tbaa !37
@@ -3742,35 +3742,35 @@ get_delta_base_oid.exit.thread110:                ; preds = %209, %.split.loop.e
   %215 = load i8, ptr %214, align 1, !tbaa !12
   %216 = and i8 %215, 127
   %217 = zext nneg i8 %216 to i64
-  %.not45.i.i = icmp sgt i8 %215, -1
-  br i1 %.not45.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i83
+  %.not44.i.i = icmp sgt i8 %215, -1
+  br i1 %.not44.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i83
 
 .lr.ph.i.i83:                                     ; preds = %213, %218
-  %.03147.i.i = phi i32 [ %219, %218 ], [ 1, %213 ]
-  %.03246.i.i = phi i64 [ %227, %218 ], [ %217, %213 ]
-  %or.cond.i.i84 = icmp ult i64 %.03246.i.i, 144115188075855871
-  br i1 %or.cond.i.i84, label %218, label %get_delta_base_oid.exit.thread112
+  %.03146.i.i = phi i32 [ %219, %218 ], [ 1, %213 ]
+  %.03245.i.i = phi i64 [ %227, %218 ], [ %217, %213 ]
+  %or.cond.i.i84 = icmp ugt i64 %.03245.i.i, 144115188075855870
+  br i1 %or.cond.i.i84, label %get_delta_base_oid.exit.thread112, label %218
 
 218:                                              ; preds = %.lr.ph.i.i83
-  %219 = add i32 %.03147.i.i, 1
-  %220 = zext i32 %.03147.i.i to i64
+  %219 = add i32 %.03146.i.i, 1
+  %220 = zext i32 %.03146.i.i to i64
   %221 = getelementptr inbounds nuw i8, ptr %214, i64 %220
   %222 = load i8, ptr %221, align 1, !tbaa !12
-  %223 = shl nuw i64 %.03246.i.i, 7
+  %223 = shl nuw i64 %.03245.i.i, 7
   %224 = add nuw i64 %223, 128
   %225 = and i8 %222, 127
   %226 = zext nneg i8 %225 to i64
   %227 = or disjoint i64 %224, %226
-  %.not.i.i87 = icmp sgt i8 %222, -1
-  br i1 %.not.i.i87, label %._crit_edge.i.i, label %.lr.ph.i.i83, !llvm.loop !152
+  %.not.i.i85 = icmp sgt i8 %222, -1
+  br i1 %.not.i.i85, label %._crit_edge.i.i, label %.lr.ph.i.i83, !llvm.loop !152
 
 ._crit_edge.i.i:                                  ; preds = %218, %213
   %.032.lcssa.i.i = phi i64 [ %217, %213 ], [ %227, %218 ]
   %228 = sub nsw i64 %2, %.032.lcssa.i.i
   %229 = icmp sgt i64 %228, 0
   %.not38.i.i = icmp sgt i64 %.032.lcssa.i.i, 0
-  %or.cond41.i.i = and i1 %.not38.i.i, %229
-  br i1 %or.cond41.i.i, label %get_delta_base.exit.i, label %get_delta_base_oid.exit.thread112
+  %or.cond40.i.i = and i1 %.not38.i.i, %229
+  br i1 %or.cond40.i.i, label %get_delta_base.exit.i, label %get_delta_base_oid.exit.thread112
 
 get_delta_base.exit.i:                            ; preds = %._crit_edge.i.i
   %230 = call i32 @offset_to_pack_pos(ptr noundef %1, i64 noundef %228, ptr noundef nonnull %7) #21

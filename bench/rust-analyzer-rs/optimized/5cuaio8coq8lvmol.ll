@@ -23582,9 +23582,8 @@ define noundef zeroext i1 @_ZN10hir_expand10MacroDefId20is_env_or_option_env17h1
   %3 = icmp eq i8 %2, 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %5 = load i8, ptr %4, align 1, !range !877
-  %.off.i = add nsw i8 %5, -7
-  %switch.i = icmp ult i8 %.off.i, 2
-  %.0 = select i1 %3, i1 %switch.i, i1 false
+  %6 = icmp samesign ugt i8 %5, 6
+  %.0 = select i1 %3, i1 %6, i1 false
   ret i1 %.0
 }
 

@@ -745,8 +745,7 @@ define i32 @If_CutSopBalancePinDelays(ptr noundef readonly captures(none) %0, pt
   br i1 %10, label %65, label %11
 
 11:                                               ; preds = %3
-  %.mask = and i32 %9, -16777216
-  %12 = icmp eq i32 %.mask, 16777216
+  %12 = icmp ult i32 %9, 33554432
   br i1 %12, label %13, label %24
 
 13:                                               ; preds = %11
@@ -2084,8 +2083,7 @@ define i32 @If_CutLutBalancePinDelays(ptr noundef readonly captures(none) %0, pt
   br i1 %7, label %.loopexit, label %8
 
 8:                                                ; preds = %3
-  %.mask = and i32 %6, -16777216
-  %9 = icmp eq i32 %.mask, 16777216
+  %9 = icmp ult i32 %6, 33554432
   br i1 %9, label %10, label %.lr.ph
 
 10:                                               ; preds = %8
@@ -2220,8 +2218,7 @@ define i32 @If_CutLutBalanceEval(ptr noundef readonly captures(none) %0, ptr nou
   br i1 %12, label %113, label %13
 
 13:                                               ; preds = %2
-  %.mask = and i32 %11, -16777216
-  %14 = icmp eq i32 %.mask, 16777216
+  %14 = icmp ult i32 %11, 33554432
   br i1 %14, label %15, label %.lr.ph
 
 15:                                               ; preds = %13
@@ -2410,8 +2407,7 @@ define i32 @If_LutDecEval(ptr noundef readonly captures(none) %0, ptr noundef ca
   br i1 %16, label %152, label %17
 
 17:                                               ; preds = %5
-  %.mask = and i32 %15, -16777216
-  %18 = icmp eq i32 %.mask, 16777216
+  %18 = icmp ult i32 %15, 33554432
   br i1 %18, label %19, label %.lr.ph
 
 19:                                               ; preds = %17
@@ -2693,8 +2689,7 @@ define i32 @If_Lut2DecEval(ptr noundef readonly captures(none) %0, ptr noundef c
   br i1 %16, label %147, label %17
 
 17:                                               ; preds = %5
-  %.mask = and i32 %15, -16777216
-  %18 = icmp eq i32 %.mask, 16777216
+  %18 = icmp ult i32 %15, 33554432
   br i1 %18, label %19, label %.lr.ph
 
 19:                                               ; preds = %17
@@ -2959,8 +2954,7 @@ define i32 @If_LutDecReEval(ptr noundef readonly captures(none) %0, ptr noundef 
   br i1 %6, label %.loopexit, label %7
 
 7:                                                ; preds = %2
-  %.mask = and i32 %5, -16777216
-  %8 = icmp eq i32 %.mask, 16777216
+  %8 = icmp ult i32 %5, 33554432
   br i1 %8, label %16, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
@@ -3027,8 +3021,7 @@ define float @If_LutDecPinRequired(ptr noundef readnone captures(none) %0, ptr n
   br i1 %8, label %20, label %9
 
 9:                                                ; preds = %4
-  %.mask = and i32 %7, -16777216
-  %10 = icmp eq i32 %.mask, 16777216
+  %10 = icmp ult i32 %7, 33554432
   br i1 %10, label %20, label %11
 
 11:                                               ; preds = %9

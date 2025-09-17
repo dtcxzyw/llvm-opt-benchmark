@@ -451,11 +451,11 @@ define internal ptr @zlib_compress(ptr noundef %0, ptr noundef %1, i64 noundef %
 
 11:                                               ; preds = %4, %9
   %12 = phi i64 [ %.val, %9 ], [ 0, %4 ]
-  %13 = add i64 %12, %2
+  %13 = add i64 %2, -1
+  %14 = add i64 %13, %12
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %8, i8 0, i64 80, i1 false)
-  %14 = add i64 %2, -1
-  %15 = icmp ult i64 %14, 3
+  %15 = icmp ult i64 %13, 3
   %16 = icmp ne ptr %1, null
   %17 = and i1 %16, %15
   %or.cond5 = and i1 %.not, %17
@@ -474,7 +474,7 @@ define internal ptr @zlib_compress(ptr noundef %0, ptr noundef %1, i64 noundef %
   br i1 %.not38, label %23, label %128
 
 23:                                               ; preds = %.thread
-  %.not39 = icmp eq i64 %13, 1
+  %.not39 = icmp eq i64 %14, 0
   br i1 %.not39, label %40, label %24
 
 24:                                               ; preds = %23
@@ -494,7 +494,7 @@ define internal ptr @zlib_compress(ptr noundef %0, ptr noundef %1, i64 noundef %
   br i1 %.not41, label %32, label %128
 
 32:                                               ; preds = %30, %27
-  %.not42 = icmp eq i64 %13, 2
+  %.not42 = icmp eq i64 %14, 1
   br i1 %.not42, label %40, label %33
 
 33:                                               ; preds = %32, %24
@@ -1154,11 +1154,11 @@ define internal ptr @zlib_decompress(ptr noundef %0, ptr noundef %1, i64 noundef
 
 11:                                               ; preds = %4, %9
   %12 = phi i64 [ %.val, %9 ], [ 0, %4 ]
-  %13 = add i64 %12, %2
+  %13 = add i64 %2, -1
+  %14 = add i64 %13, %12
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %8, i8 0, i64 80, i1 false)
-  %14 = add i64 %2, -1
-  %15 = icmp ult i64 %14, 3
+  %15 = icmp ult i64 %13, 3
   %16 = icmp ne ptr %1, null
   %17 = and i1 %16, %15
   %or.cond5 = and i1 %.not, %17
@@ -1177,7 +1177,7 @@ define internal ptr @zlib_decompress(ptr noundef %0, ptr noundef %1, i64 noundef
   br i1 %.not47, label %23, label %162
 
 23:                                               ; preds = %.thread
-  %.not48 = icmp eq i64 %13, 1
+  %.not48 = icmp eq i64 %14, 0
   br i1 %.not48, label %.thread61, label %24
 
 24:                                               ; preds = %23
@@ -1197,7 +1197,7 @@ define internal ptr @zlib_decompress(ptr noundef %0, ptr noundef %1, i64 noundef
   br i1 %.not50, label %32, label %162
 
 32:                                               ; preds = %30, %27
-  %.not51 = icmp eq i64 %13, 2
+  %.not51 = icmp eq i64 %14, 1
   br i1 %.not51, label %.thread61, label %33
 
 33:                                               ; preds = %32, %24

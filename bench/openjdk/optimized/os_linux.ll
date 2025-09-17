@@ -3446,26 +3446,26 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
 51:                                               ; preds = %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %49
   %.3 = phi ptr [ %spec.select88, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ %50, %49 ]
   %.not79 = icmp eq ptr %.3, null
-  br i1 %.not79, label %52, label %109
+  br i1 %.not79, label %52, label %108
 
 52:                                               ; preds = %51
   %53 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #27
   %54 = sext i32 %2 to i64
   %55 = sub i64 %54, %53
   %56 = icmp slt i64 %55, 1
-  br i1 %56, label %109, label %57
+  br i1 %56, label %108, label %57
 
 57:                                               ; preds = %52
   %58 = getelementptr inbounds i8, ptr %1, i64 %53
   %59 = call i32 (ptr, i32, ...) @open64(ptr noundef %0, i32 noundef 2048) #26
   %60 = icmp slt i32 %59, 0
-  br i1 %60, label %109, label %61
+  br i1 %60, label %108, label %61
 
 61:                                               ; preds = %57
   %62 = call i64 @read(i32 noundef %59, ptr noundef nonnull %5, i64 noundef 52) #26
   %.not80 = icmp eq i64 %62, 52
   %63 = call i32 @close(i32 noundef %59) #26
-  br i1 %.not80, label %64, label %109
+  br i1 %.not80, label %64, label %108
 
 64:                                               ; preds = %61
   %65 = getelementptr inbounds nuw i8, ptr %5, i64 5
@@ -3476,98 +3476,97 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
 ._crit_edge:                                      ; preds = %64
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 18
   %.pre = load i16, ptr %.phi.trans.insert, align 2
-  br label %72
+  br label %71
 
 67:                                               ; preds = %64
-  %68 = add i8 %66, -3
-  %or.cond6 = icmp ult i8 %68, -2
-  br i1 %or.cond6, label %109, label %69
+  %.not97 = icmp eq i8 %66, 2
+  br i1 %.not97, label %68, label %108
 
-69:                                               ; preds = %67
-  %70 = getelementptr inbounds nuw i8, ptr %5, i64 18
-  %71 = load i16, ptr %70, align 2
-  %rev.i = call noundef i16 @llvm.bswap.i16(i16 %71)
-  store i16 %rev.i, ptr %70, align 2
-  br label %72
+68:                                               ; preds = %67
+  %69 = getelementptr inbounds nuw i8, ptr %5, i64 18
+  %70 = load i16, ptr %69, align 2
+  %rev.i = call noundef i16 @llvm.bswap.i16(i16 %70)
+  store i16 %rev.i, ptr %69, align 2
+  br label %71
 
-72:                                               ; preds = %._crit_edge, %69
-  %73 = phi i16 [ %.pre, %._crit_edge ], [ %rev.i, %69 ]
-  %74 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %75 = load i8, ptr %74, align 4
-  br label %76
+71:                                               ; preds = %._crit_edge, %68
+  %72 = phi i16 [ %.pre, %._crit_edge ], [ %rev.i, %68 ]
+  %73 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %74 = load i8, ptr %73, align 4
+  br label %75
 
-76:                                               ; preds = %72, %85
-  %indvars.iv = phi i64 [ 0, %72 ], [ %indvars.iv.next, %85 ]
-  %.sroa.3.090 = phi i16 [ 0, %72 ], [ %.sroa.3.1, %85 ]
-  %.sroa.13.089 = phi ptr [ null, %72 ], [ %.sroa.13.1, %85 ]
-  %77 = getelementptr inbounds nuw %struct.arch_t, ptr @_ZZN2os8dll_loadEPKcPciE10arch_array, i64 %indvars.iv
-  %78 = load i16, ptr %77, align 16
-  %79 = icmp eq i16 %73, %78
-  br i1 %79, label %80, label %85
+75:                                               ; preds = %71, %84
+  %indvars.iv = phi i64 [ 0, %71 ], [ %indvars.iv.next, %84 ]
+  %.sroa.3.090 = phi i16 [ 0, %71 ], [ %.sroa.3.1, %84 ]
+  %.sroa.13.089 = phi ptr [ null, %71 ], [ %.sroa.13.1, %84 ]
+  %76 = getelementptr inbounds nuw %struct.arch_t, ptr @_ZZN2os8dll_loadEPKcPciE10arch_array, i64 %indvars.iv
+  %77 = load i16, ptr %76, align 16
+  %78 = icmp eq i16 %72, %77
+  br i1 %78, label %79, label %84
 
-80:                                               ; preds = %76
-  %81 = getelementptr inbounds nuw i8, ptr %77, i64 2
-  %82 = load i16, ptr %81, align 2
-  %83 = getelementptr inbounds nuw i8, ptr %77, i64 8
-  %84 = load ptr, ptr %83, align 8
-  br label %85
+79:                                               ; preds = %75
+  %80 = getelementptr inbounds nuw i8, ptr %76, i64 2
+  %81 = load i16, ptr %80, align 2
+  %82 = getelementptr inbounds nuw i8, ptr %76, i64 8
+  %83 = load ptr, ptr %82, align 8
+  br label %84
 
-85:                                               ; preds = %76, %80
-  %.sroa.13.1 = phi ptr [ %84, %80 ], [ %.sroa.13.089, %76 ]
-  %.sroa.3.1 = phi i16 [ %82, %80 ], [ %.sroa.3.090, %76 ]
+84:                                               ; preds = %75, %79
+  %.sroa.13.1 = phi ptr [ %83, %79 ], [ %.sroa.13.089, %75 ]
+  %.sroa.3.1 = phi i16 [ %81, %79 ], [ %.sroa.3.090, %75 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 20
-  br i1 %exitcond.not, label %86, label %76, !llvm.loop !19
+  br i1 %exitcond.not, label %85, label %75, !llvm.loop !19
+
+85:                                               ; preds = %84
+  %.not82 = icmp eq i16 %.sroa.3.1, 62
+  br i1 %.not82, label %93, label %86
 
 86:                                               ; preds = %85
-  %.not82 = icmp eq i16 %.sroa.3.1, 62
-  br i1 %.not82, label %94, label %87
-
-87:                                               ; preds = %86
   %.not85 = icmp eq ptr %.sroa.13.1, null
-  %88 = add nsw i64 %55, -1
-  br i1 %.not85, label %91, label %89
+  %87 = add nsw i64 %55, -1
+  br i1 %.not85, label %90, label %88
 
-89:                                               ; preds = %87
-  %90 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %58, i64 noundef %88, ptr noundef nonnull @.str.68, ptr noundef nonnull %.sroa.13.1, ptr noundef nonnull @.str.52) #26
-  br label %109
+88:                                               ; preds = %86
+  %89 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %58, i64 noundef %87, ptr noundef nonnull @.str.68, ptr noundef nonnull %.sroa.13.1, ptr noundef nonnull @.str.52) #26
+  br label %108
 
-91:                                               ; preds = %87
-  %92 = zext i16 %73 to i32
-  %93 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %58, i64 noundef %88, ptr noundef nonnull @.str.69, i32 noundef %92, ptr noundef nonnull @.str.52) #26
-  br label %109
+90:                                               ; preds = %86
+  %91 = zext i16 %72 to i32
+  %92 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %58, i64 noundef %87, ptr noundef nonnull @.str.69, i32 noundef %91, ptr noundef nonnull @.str.52) #26
+  br label %108
 
-94:                                               ; preds = %86
-  br i1 %.not81, label %98, label %95
+93:                                               ; preds = %85
+  br i1 %.not81, label %97, label %94
 
-95:                                               ; preds = %94
-  %96 = add nsw i64 %55, -1
-  %97 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %58, i64 noundef %96, ptr noundef nonnull @.str.70) #26
-  br label %109
+94:                                               ; preds = %93
+  %95 = add nsw i64 %55, -1
+  %96 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %58, i64 noundef %95, ptr noundef nonnull @.str.70) #26
+  br label %108
 
-98:                                               ; preds = %94
-  %99 = add i8 %75, -3
-  %or.cond10 = icmp ult i8 %99, -2
-  br i1 %or.cond10, label %100, label %103
+97:                                               ; preds = %93
+  %98 = add i8 %74, -3
+  %or.cond10 = icmp ult i8 %98, -2
+  br i1 %or.cond10, label %99, label %102
 
-100:                                              ; preds = %98
-  %101 = add nsw i64 %55, -1
-  %102 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %58, i64 noundef %101, ptr noundef nonnull @.str.71) #26
-  br label %109
+99:                                               ; preds = %97
+  %100 = add nsw i64 %55, -1
+  %101 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %58, i64 noundef %100, ptr noundef nonnull @.str.71) #26
+  br label %108
 
-103:                                              ; preds = %98
-  %.not84 = icmp eq i8 %75, 2
-  br i1 %.not84, label %109, label %104
+102:                                              ; preds = %97
+  %.not84 = icmp eq i8 %74, 2
+  br i1 %.not84, label %108, label %103
 
-104:                                              ; preds = %103
-  %105 = add nsw i64 %55, -1
-  %106 = shl nuw nsw i8 %75, 5
-  %107 = zext nneg i8 %106 to i32
-  %108 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %58, i64 noundef %105, ptr noundef nonnull @.str.72, i32 noundef %107, i32 noundef 64) #26
-  br label %109
+103:                                              ; preds = %102
+  %104 = add nsw i64 %55, -1
+  %105 = shl nuw nsw i8 %74, 5
+  %106 = zext nneg i8 %105 to i32
+  %107 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %58, i64 noundef %104, ptr noundef nonnull @.str.72, i32 noundef %106, i32 noundef 64) #26
+  br label %108
 
-109:                                              ; preds = %103, %89, %91, %67, %61, %57, %52, %51, %104, %100, %95
-  %.068 = phi ptr [ null, %95 ], [ null, %100 ], [ null, %104 ], [ %.3, %51 ], [ null, %52 ], [ null, %57 ], [ null, %61 ], [ null, %67 ], [ null, %91 ], [ null, %89 ], [ null, %103 ]
+108:                                              ; preds = %102, %88, %90, %67, %61, %57, %52, %51, %103, %99, %94
+  %.068 = phi ptr [ null, %94 ], [ null, %99 ], [ null, %103 ], [ %.3, %51 ], [ null, %52 ], [ null, %57 ], [ null, %61 ], [ null, %67 ], [ null, %90 ], [ null, %88 ], [ null, %102 ]
   ret ptr %.068
 }
 

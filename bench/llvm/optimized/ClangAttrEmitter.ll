@@ -37496,9 +37496,8 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_127PragmaClangAttribu
 
 9:                                                ; preds = %2
   %10 = call fastcc noundef i32 @_ZL20getLateAttrParseKindPKN4llvm6RecordE(ptr noundef nonnull %1)
-  %.off = add nsw i32 %10, -1
-  %switch = icmp ult i32 %.off, 2
-  br i1 %switch, label %66, label %11
+  %.not65 = icmp eq i32 %10, 0
+  br i1 %.not65, label %11, label %66
 
 11:                                               ; preds = %9
   call void @llvm.lifetime.start.p0(ptr nonnull %3)

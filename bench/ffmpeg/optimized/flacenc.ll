@@ -5690,17 +5690,17 @@ define internal fastcc range(i32 0, 2) i32 @lpc_encode_choose_datapath(ptr nound
 
 ._crit_edge.thread:                               ; preds = %9
   %15 = icmp sgt i32 %1, 32
-  br i1 %15, label %.preheader.lr.ph.split.i, label %.thread115
+  br i1 %15, label %.preheader.lr.ph.split.i, label %.thread116
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.05099 = phi i64 [ 0, %.lr.ph.preheader ], [ %21, %.lr.ph ]
+  %.05098 = phi i64 [ 0, %.lr.ph.preheader ], [ %21, %.lr.ph ]
   %16 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
   %17 = load i32, ptr %16, align 4, !tbaa !45
   %18 = sext i32 %17 to i64
   %19 = shl i64 %18, %11
   %20 = tail call i64 @llvm.abs.i64(i64 %19, i1 true)
-  %21 = add i64 %20, %.05099
+  %21 = add i64 %20, %.05098
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !206
@@ -5803,134 +5803,130 @@ define internal fastcc range(i32 0, 2) i32 @lpc_encode_choose_datapath(ptr nound
   %59 = lshr i64 %21, %58
   %60 = add i64 %59, %12
   %61 = icmp ugt i64 %60, 2147483647
-  br i1 %61, label %.lr.ph.preheader.i66, label %lpc_encode_with_residual_limit_33bps.exit.sink.split
+  br i1 %61, label %.lr.ph.preheader.i65, label %lpc_encode_with_residual_limit_33bps.exit.sink.split
 
-.thread115:                                       ; preds = %._crit_edge.thread
+.thread116:                                       ; preds = %._crit_edge.thread
   %62 = icmp ugt i32 %10, 30
   br i1 %62, label %.preheader.lr.ph.split.i55, label %lpc_encode_with_residual_limit_33bps.exit.sink.split
 
-.lr.ph.preheader.i66:                             ; preds = %57
-  %wide.trip.count.i67 = zext nneg i32 %6 to i64
-  br label %.lr.ph.i68
+.lr.ph.preheader.i65:                             ; preds = %57
+  %wide.trip.count.i66 = zext nneg i32 %6 to i64
+  br label %.lr.ph.i67
 
-.preheader41.i72:                                 ; preds = %.lr.ph.i68
-  %.not46.i73 = icmp samesign ult i32 %6, %5
-  br i1 %.not46.i73, label %.preheader.lr.ph.i74, label %lpc_encode_with_residual_limit_33bps.exit
+.preheader41.i71:                                 ; preds = %.lr.ph.i67
+  %.not46.i72 = icmp samesign ult i32 %6, %5
+  br i1 %.not46.i72, label %.preheader.lr.ph.i73, label %lpc_encode_with_residual_limit_33bps.exit
 
-.preheader.lr.ph.i74:                             ; preds = %.preheader41.i72
-  %wide.trip.count72.i75 = zext nneg i32 %5 to i64
-  br label %.preheader.us.i77
+.preheader.lr.ph.i73:                             ; preds = %.preheader41.i71
+  %wide.trip.count72.i74 = zext nneg i32 %5 to i64
+  br label %.preheader.us.i76
 
-.preheader.us.i77:                                ; preds = %63, %.preheader.lr.ph.i74
-  %indvars.iv69.i78 = phi i64 [ %wide.trip.count.i67, %.preheader.lr.ph.i74 ], [ %indvars.iv.next70.i86, %63 ]
+.preheader.us.i76:                                ; preds = %63, %.preheader.lr.ph.i73
+  %indvars.iv69.i77 = phi i64 [ %wide.trip.count.i66, %.preheader.lr.ph.i73 ], [ %indvars.iv.next70.i85, %63 ]
   br label %66
 
-63:                                               ; preds = %._crit_edge.us.i84
+63:                                               ; preds = %._crit_edge.us.i83
   %64 = trunc nsw i64 %82 to i32
-  %65 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv69.i78
+  %65 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv69.i77
   store i32 %64, ptr %65, align 4, !tbaa !45
-  %indvars.iv.next70.i86 = add nuw nsw i64 %indvars.iv69.i78, 1
-  %exitcond73.not.i87 = icmp eq i64 %indvars.iv.next70.i86, %wide.trip.count72.i75
-  br i1 %exitcond73.not.i87, label %lpc_encode_with_residual_limit_33bps.exit, label %.preheader.us.i77, !llvm.loop !210
+  %indvars.iv.next70.i85 = add nuw nsw i64 %indvars.iv69.i77, 1
+  %exitcond73.not.i86 = icmp eq i64 %indvars.iv.next70.i85, %wide.trip.count72.i74
+  br i1 %exitcond73.not.i86, label %lpc_encode_with_residual_limit_33bps.exit, label %.preheader.us.i76, !llvm.loop !210
 
-66:                                               ; preds = %66, %.preheader.us.i77
-  %indvars.iv64.i79 = phi i64 [ 0, %.preheader.us.i77 ], [ %indvars.iv.next65.i82, %66 ]
-  %.03443.us.i80 = phi i64 [ 0, %.preheader.us.i77 ], [ %77, %66 ]
-  %67 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv64.i79
+66:                                               ; preds = %66, %.preheader.us.i76
+  %indvars.iv64.i78 = phi i64 [ 0, %.preheader.us.i76 ], [ %indvars.iv.next65.i81, %66 ]
+  %.03443.us.i79 = phi i64 [ 0, %.preheader.us.i76 ], [ %77, %66 ]
+  %67 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv64.i78
   %68 = load i32, ptr %67, align 4, !tbaa !45
   %69 = sext i32 %68 to i64
-  %70 = xor i64 %indvars.iv64.i79, -1
-  %71 = add nsw i64 %indvars.iv69.i78, %70
-  %sext.i81 = shl i64 %71, 32
-  %72 = ashr exact i64 %sext.i81, 30
+  %70 = xor i64 %indvars.iv64.i78, -1
+  %71 = add nsw i64 %indvars.iv69.i77, %70
+  %sext.i80 = shl i64 %71, 32
+  %72 = ashr exact i64 %sext.i80, 30
   %73 = getelementptr inbounds i8, ptr %3, i64 %72
   %74 = load i32, ptr %73, align 4, !tbaa !45
   %75 = sext i32 %74 to i64
   %76 = mul nsw i64 %75, %69
-  %77 = add nsw i64 %76, %.03443.us.i80
-  %indvars.iv.next65.i82 = add nuw nsw i64 %indvars.iv64.i79, 1
-  %exitcond68.not.i83 = icmp eq i64 %indvars.iv.next65.i82, %wide.trip.count.i67
-  br i1 %exitcond68.not.i83, label %._crit_edge.us.i84, label %66, !llvm.loop !211
+  %77 = add nsw i64 %76, %.03443.us.i79
+  %indvars.iv.next65.i81 = add nuw nsw i64 %indvars.iv64.i78, 1
+  %exitcond68.not.i82 = icmp eq i64 %indvars.iv.next65.i81, %wide.trip.count.i66
+  br i1 %exitcond68.not.i82, label %._crit_edge.us.i83, label %66, !llvm.loop !211
 
-._crit_edge.us.i84:                               ; preds = %66
+._crit_edge.us.i83:                               ; preds = %66
   %78 = ashr i64 %77, %58
-  %79 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv69.i78
+  %79 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv69.i77
   %80 = load i32, ptr %79, align 4, !tbaa !45
   %81 = sext i32 %80 to i64
   %82 = sub nsw i64 %81, %78
   %83 = add i64 %82, 2147483647
-  %or.cond.us.i85 = icmp ult i64 %83, 4294967295
-  br i1 %or.cond.us.i85, label %63, label %lpc_encode_with_residual_limit_33bps.exit
+  %or.cond.us.i84 = icmp ult i64 %83, 4294967295
+  br i1 %or.cond.us.i84, label %63, label %lpc_encode_with_residual_limit_33bps.exit
 
-.preheader.lr.ph.split.i55:                       ; preds = %.thread115
+.preheader.lr.ph.split.i55:                       ; preds = %.thread116
   %84 = sext i32 %6 to i64
   %85 = getelementptr inbounds i32, ptr %3, i64 %84
   %86 = load i32, ptr %85, align 4, !tbaa !45
-  %87 = sext i32 %86 to i64
-  %88 = add nsw i64 %87, 2147483647
-  %or.cond53.i56 = icmp ult i64 %88, 4294967295
-  br i1 %or.cond53.i56, label %.lr.ph55.preheader.i58, label %lpc_encode_with_residual_limit_33bps.exit
+  %.not.i56 = icmp eq i32 %86, -2147483648
+  br i1 %.not.i56, label %lpc_encode_with_residual_limit_33bps.exit, label %.lr.ph55.preheader.i57
 
-.lr.ph55.preheader.i58:                           ; preds = %.preheader.lr.ph.split.i55
-  %89 = add nsw i32 %5, -1
-  %wide.trip.count62.i59 = zext nneg i32 %89 to i64
-  br label %.lr.ph55.i60
+.lr.ph55.preheader.i57:                           ; preds = %.preheader.lr.ph.split.i55
+  %87 = add nsw i32 %5, -1
+  %wide.trip.count62.i58 = zext nneg i32 %87 to i64
+  br label %.lr.ph55.i59
 
-.lr.ph.i68:                                       ; preds = %.lr.ph.i68, %.lr.ph.preheader.i66
-  %indvars.iv.i69 = phi i64 [ 0, %.lr.ph.preheader.i66 ], [ %indvars.iv.next.i70, %.lr.ph.i68 ]
-  %90 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.i69
-  %91 = load i32, ptr %90, align 4, !tbaa !45
-  %92 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.i69
-  store i32 %91, ptr %92, align 4, !tbaa !45
-  %indvars.iv.next.i70 = add nuw nsw i64 %indvars.iv.i69, 1
-  %exitcond.not.i71 = icmp eq i64 %indvars.iv.next.i70, %wide.trip.count.i67
-  br i1 %exitcond.not.i71, label %.preheader41.i72, label %.lr.ph.i68, !llvm.loop !212
+.lr.ph.i67:                                       ; preds = %.lr.ph.i67, %.lr.ph.preheader.i65
+  %indvars.iv.i68 = phi i64 [ 0, %.lr.ph.preheader.i65 ], [ %indvars.iv.next.i69, %.lr.ph.i67 ]
+  %88 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.i68
+  %89 = load i32, ptr %88, align 4, !tbaa !45
+  %90 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.i68
+  store i32 %89, ptr %90, align 4, !tbaa !45
+  %indvars.iv.next.i69 = add nuw nsw i64 %indvars.iv.i68, 1
+  %exitcond.not.i70 = icmp eq i64 %indvars.iv.next.i69, %wide.trip.count.i66
+  br i1 %exitcond.not.i70, label %.preheader41.i71, label %.lr.ph.i67, !llvm.loop !212
 
-.preheader.i63:                                   ; preds = %.lr.ph55.i60
-  %indvars.iv.next60.i64 = add nsw i64 %indvars.iv59.i61, 1
-  %93 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv.next60.i64
-  %94 = load i32, ptr %93, align 4, !tbaa !45
-  %95 = sext i32 %94 to i64
-  %96 = add nsw i64 %95, 2147483647
-  %or.cond.i65 = icmp ult i64 %96, 4294967295
-  br i1 %or.cond.i65, label %.lr.ph55.i60, label %lpc_encode_with_residual_limit_33bps.exit, !llvm.loop !210
+.preheader.i62:                                   ; preds = %.lr.ph55.i59
+  %indvars.iv.next60.i63 = add nsw i64 %indvars.iv59.i60, 1
+  %91 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv.next60.i63
+  %92 = load i32, ptr %91, align 4, !tbaa !45
+  %.not75.i = icmp eq i32 %92, -2147483648
+  br i1 %.not75.i, label %lpc_encode_with_residual_limit_33bps.exit, label %.lr.ph55.i59, !llvm.loop !210
 
-.lr.ph55.i60:                                     ; preds = %.preheader.i63, %.lr.ph55.preheader.i58
-  %indvars.iv59.i61 = phi i64 [ %84, %.lr.ph55.preheader.i58 ], [ %indvars.iv.next60.i64, %.preheader.i63 ]
-  %97 = phi i32 [ %86, %.lr.ph55.preheader.i58 ], [ %94, %.preheader.i63 ]
-  %98 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv59.i61
-  store i32 %97, ptr %98, align 4, !tbaa !45
-  %exitcond63.not.i62 = icmp eq i64 %indvars.iv59.i61, %wide.trip.count62.i59
-  br i1 %exitcond63.not.i62, label %lpc_encode_with_residual_limit_33bps.exit, label %.preheader.i63, !llvm.loop !210
+.lr.ph55.i59:                                     ; preds = %.preheader.i62, %.lr.ph55.preheader.i57
+  %indvars.iv59.i60 = phi i64 [ %84, %.lr.ph55.preheader.i57 ], [ %indvars.iv.next60.i63, %.preheader.i62 ]
+  %93 = phi i32 [ %86, %.lr.ph55.preheader.i57 ], [ %92, %.preheader.i62 ]
+  %94 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv59.i60
+  store i32 %93, ptr %94, align 4, !tbaa !45
+  %exitcond63.not.i61 = icmp eq i64 %indvars.iv59.i60, %wide.trip.count62.i58
+  br i1 %exitcond63.not.i61, label %lpc_encode_with_residual_limit_33bps.exit, label %.preheader.i62, !llvm.loop !210
 
-lpc_encode_with_residual_limit_33bps.exit.sink.split: ; preds = %.thread115, %57
-  %99 = getelementptr inbounds nuw i8, ptr %0, i64 7349960
-  %100 = load i32, ptr %99, align 8, !tbaa !136
+lpc_encode_with_residual_limit_33bps.exit.sink.split: ; preds = %.thread116, %57
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 7349960
+  %96 = load i32, ptr %95, align 8, !tbaa !136
   %.not.i = icmp ult i32 %6, 65536
-  %101 = lshr i32 %6, 16
-  %spec.select.i = select i1 %.not.i, i32 %6, i32 %101
+  %97 = lshr i32 %6, 16
+  %spec.select.i = select i1 %.not.i, i32 %6, i32 %97
   %spec.select12.i = select i1 %.not.i, i32 0, i32 16
   %.not11.i = icmp samesign ult i32 %spec.select.i, 256
-  %102 = lshr i32 %spec.select.i, 8
-  %103 = or disjoint i32 %spec.select12.i, 8
-  %.110.i = select i1 %.not11.i, i32 %spec.select.i, i32 %102
-  %.1.i = select i1 %.not11.i, i32 %spec.select12.i, i32 %103
-  %104 = zext nneg i32 %.110.i to i64
-  %105 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %104
-  %106 = load i8, ptr %105, align 1, !tbaa !68
-  %107 = zext i8 %106 to i32
-  %108 = add nsw i32 %.1.i, %1
-  %109 = add i32 %108, %100
-  %110 = add i32 %109, %107
-  %111 = icmp slt i32 %110, 33
-  %. = select i1 %111, i64 7387800, i64 7387808
-  %112 = getelementptr inbounds nuw i8, ptr %0, i64 %.
-  %113 = load ptr, ptr %112, align 8, !tbaa !213
-  tail call void %113(ptr noundef %2, ptr noundef %3, i32 noundef %5, i32 noundef %6, ptr noundef %7, i32 noundef %8) #11
+  %98 = lshr i32 %spec.select.i, 8
+  %99 = or disjoint i32 %spec.select12.i, 8
+  %.110.i = select i1 %.not11.i, i32 %spec.select.i, i32 %98
+  %.1.i = select i1 %.not11.i, i32 %spec.select12.i, i32 %99
+  %100 = zext nneg i32 %.110.i to i64
+  %101 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %100
+  %102 = load i8, ptr %101, align 1, !tbaa !68
+  %103 = zext i8 %102 to i32
+  %104 = add nsw i32 %.1.i, %1
+  %105 = add i32 %104, %96
+  %106 = add i32 %105, %103
+  %107 = icmp slt i32 %106, 33
+  %. = select i1 %107, i64 7387800, i64 7387808
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 %.
+  %109 = load ptr, ptr %108, align 8, !tbaa !213
+  tail call void %109(ptr noundef %2, ptr noundef %3, i32 noundef %5, i32 noundef %6, ptr noundef %7, i32 noundef %8) #11
   br label %lpc_encode_with_residual_limit_33bps.exit
 
-lpc_encode_with_residual_limit_33bps.exit:        ; preds = %.lr.ph55.i60, %.preheader.i63, %.lr.ph55.i, %.preheader.i, %63, %._crit_edge.us.i84, %23, %._crit_edge.us.i, %lpc_encode_with_residual_limit_33bps.exit.sink.split, %.preheader41.i72, %.preheader41.i, %.preheader.lr.ph.split.i55, %.preheader.lr.ph.split.i
-  %.049 = phi i32 [ 1, %.preheader.lr.ph.split.i ], [ 1, %.preheader.lr.ph.split.i55 ], [ 0, %.preheader41.i ], [ 0, %.preheader41.i72 ], [ 0, %lpc_encode_with_residual_limit_33bps.exit.sink.split ], [ 0, %23 ], [ 1, %._crit_edge.us.i ], [ 0, %63 ], [ 1, %._crit_edge.us.i84 ], [ 0, %.lr.ph55.i ], [ 1, %.preheader.i ], [ 0, %.lr.ph55.i60 ], [ 1, %.preheader.i63 ]
+lpc_encode_with_residual_limit_33bps.exit:        ; preds = %.lr.ph55.i59, %.preheader.i62, %.lr.ph55.i, %.preheader.i, %63, %._crit_edge.us.i83, %23, %._crit_edge.us.i, %lpc_encode_with_residual_limit_33bps.exit.sink.split, %.preheader41.i71, %.preheader41.i, %.preheader.lr.ph.split.i55, %.preheader.lr.ph.split.i
+  %.049 = phi i32 [ 1, %.preheader.lr.ph.split.i ], [ 1, %.preheader.lr.ph.split.i55 ], [ 0, %.preheader41.i ], [ 0, %.preheader41.i71 ], [ 0, %lpc_encode_with_residual_limit_33bps.exit.sink.split ], [ 0, %23 ], [ 1, %._crit_edge.us.i ], [ 0, %63 ], [ 1, %._crit_edge.us.i83 ], [ 0, %.lr.ph55.i ], [ 1, %.preheader.i ], [ 0, %.lr.ph55.i59 ], [ 1, %.preheader.i62 ]
   ret i32 %.049
 }
 

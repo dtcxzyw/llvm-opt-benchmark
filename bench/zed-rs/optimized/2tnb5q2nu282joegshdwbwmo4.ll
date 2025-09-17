@@ -1045,37 +1045,35 @@ define hidden void @"_ZN15futures_channel4mpsc5queue14Queue$LT$T$GT$8pop_spin17h
   %3 = alloca [184 x i8], align 8
   br label %4
 
-4:                                                ; preds = %13, %2
+4:                                                ; preds = %11, %2
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @"_ZN15futures_channel4mpsc5queue14Queue$LT$T$GT$3pop17h89898e74104aa8a4E.llvm.5596008357701127451"(ptr noalias noundef nonnull sret([184 x i8]) align 8 captures(none) dereferenceable(184) %3, ptr noundef nonnull align 8 %1)
   %5 = load i64, ptr %3, align 8, !range !119, !noundef !13
-  %6 = add i64 %5, 9223372036854775807
-  %7 = icmp ult i64 %6, 2
-  %8 = xor i64 %5, -9223372036854775808
-  %9 = select i1 %7, i64 %8, i64 0
-  switch i64 %9, label %10 [
-    i64 0, label %11
-    i64 1, label %12
-    i64 2, label %13
+  %6 = tail call i64 @llvm.umax.i64(i64 %5, i64 -9223372036854775808)
+  %7 = and i64 %6, 9223372036854775807
+  switch i64 %7, label %8 [
+    i64 0, label %9
+    i64 1, label %10
+    i64 2, label %11
   ]
 
-10:                                               ; preds = %4
+8:                                                ; preds = %4
   unreachable
 
-11:                                               ; preds = %4
+9:                                                ; preds = %4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef nonnull align 8 dereferenceable(184) %3, i64 184, i1 false)
-  br label %14
+  br label %12
 
-12:                                               ; preds = %4
+10:                                               ; preds = %4
   store i64 -9223372036854775807, ptr %0, align 8
-  br label %14
+  br label %12
 
-13:                                               ; preds = %4
+11:                                               ; preds = %4
   tail call void @_ZN3std6thread9yield_now17h17a04a6f48076bfbE()
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %4
 
-14:                                               ; preds = %12, %11
+12:                                               ; preds = %10, %9
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -14466,6 +14464,9 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #33
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #34
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #31
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint mustprogress nofree norecurse nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

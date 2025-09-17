@@ -10216,9 +10216,8 @@ define internal fastcc noundef zeroext i1 @_ZN9grpc_core12_GLOBAL__N_126MatchWor
 _ZN4absl12lts_2024072210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i: ; preds = %2
   %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %1, ptr noundef nonnull dereferenceable(20) @.str.66, i64 20)
   %9 = icmp ne i32 %bcmp.i.i, 0
-  %10 = add i64 %0, -20
-  %.not.i.i20 = icmp ult i64 %10, 11
-  %or.cond = or i1 %9, %.not.i.i20
+  %10 = icmp ult i64 %0, 31
+  %or.cond = or i1 %9, %10
   br i1 %or.cond, label %_ZN4absl12lts_2024072213ConsumePrefixEPSt17basic_string_viewIcSt11char_traitsIcEES4_.exit.thread, label %_ZN4absl12lts_2024072210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i21
 
 _ZN4absl12lts_2024072210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i21: ; preds = %_ZN4absl12lts_2024072210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i

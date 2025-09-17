@@ -1601,9 +1601,8 @@ define internal fastcc nonnull ptr @_relative_date_fmt(i32 %.20.val, i32 %.28.va
   br i1 %or.cond, label %29, label %27
 
 27:                                               ; preds = %25
-  %28 = add nsw i32 %19, -7
-  %or.cond3 = icmp ult i32 %28, -8
-  %.str.41..str.42 = select i1 %or.cond3, ptr @.str.41, ptr @.str.42
+  %28 = icmp ugt i32 %19, 6
+  %.str.41..str.42 = select i1 %28, ptr @.str.41, ptr @.str.42
   br label %29
 
 29:                                               ; preds = %27, %25, %23, %21, %17

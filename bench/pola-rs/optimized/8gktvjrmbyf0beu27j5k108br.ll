@@ -25267,9 +25267,8 @@ define hidden void @_ZN9polars_io3csv4read7options14CsvReadOptions17map_parse_op
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %31 = getelementptr inbounds nuw i8, ptr %6, i64 55
   %32 = load i8, ptr %31, align 1, !range !1753, !alias.scope !2607, !noalias !2611, !noundef !7
-  %33 = and i8 %32, -2
-  %switch.i.i.i = icmp eq i8 %33, -38
-  br i1 %switch.i.i.i, label %59, label %34
+  %33 = icmp ugt i8 %32, -39
+  br i1 %33, label %59, label %34
 
 34:                                               ; preds = %29
   invoke void @"_ZN4core3ptr53drop_in_place$LT$polars_utils..pl_str..PlSmallStr$GT$17hb6116c9cdc00a838E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %30)

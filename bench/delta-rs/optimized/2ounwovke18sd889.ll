@@ -3851,9 +3851,8 @@ common.ret:                                       ; preds = %"_ZN4core3ptr45drop
   tail call void @llvm.experimental.noalias.scope.decl(metadata !742)
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %29 = load i64, ptr %28, align 8, !range !30, !alias.scope !745, !noundef !5
-  %30 = add i64 %29, 9223372036854775807
-  %switch.i.i = icmp ult i64 %30, 2
-  br i1 %switch.i.i, label %"_ZN4core3ptr42drop_in_place$LT$object_store..PutMode$GT$17h5ea1067c222b5d0fE.llvm.6150823513714300492.exit.i", label %31
+  %30 = icmp ugt i64 %29, -9223372036854775808
+  br i1 %30, label %"_ZN4core3ptr42drop_in_place$LT$object_store..PutMode$GT$17h5ea1067c222b5d0fE.llvm.6150823513714300492.exit.i", label %31
 
 31:                                               ; preds = %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h1d52bc23863ba8f0E.exit"
   invoke void @"_ZN4core3ptr48drop_in_place$LT$object_store..UpdateVersion$GT$17h17f13d520daa6676E.llvm.6150823513714300492"(ptr noalias noundef nonnull align 8 dereferenceable(48) %28)

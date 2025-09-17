@@ -2096,9 +2096,8 @@ define hidden { ptr, ptr } @_ZN7uu_tail6follow5watch8Observer9add_stdin17h601359
   %9 = alloca { { { { { i64, ptr, {} }, i64 } } } }, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 142
   %11 = load i8, ptr %10, align 2, !range !253, !noundef !4
-  %.off = add nsw i8 %11, -1
-  %switch = icmp ult i8 %.off, 2
-  br i1 %switch, label %12, label %34
+  %.not = icmp eq i8 %11, 0
+  br i1 %.not, label %34, label %12
 
 12:                                               ; preds = %6
   %13 = icmp eq ptr %3, null

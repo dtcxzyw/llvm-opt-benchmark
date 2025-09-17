@@ -645,7 +645,7 @@ define internal fastcc noundef zeroext i1 @register_io_tap(ptr noundef %0, i32 n
 112:                                              ; preds = %103
   %113 = getelementptr inbounds nuw i8, ptr %89, i64 16
   %114 = load i32, ptr %113, align 8
-  switch i32 %114, label %123 [
+  switch i32 %114, label %125 [
     i32 4, label %.thread
     i32 5, label %.thread
     i32 6, label %.thread
@@ -658,92 +658,90 @@ define internal fastcc noundef zeroext i1 @register_io_tap(ptr noundef %0, i32 n
     i32 19, label %.thread
     i32 22, label %115
     i32 23, label %115
-    i32 25, label %119
+    i32 25, label %120
   ]
 
 115:                                              ; preds = %112, %112
-  %.off = add i32 %111, -3
-  %switch = icmp ult i32 %.off, 5
-  br i1 %switch, label %.thread, label %116
+  %116 = icmp ult i32 %111, 8
+  br i1 %116, label %.thread, label %117
 
-116:                                              ; preds = %115
-  %117 = load ptr, ptr @stderr, align 8
-  %118 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %117, i32 noundef 2, ptr noundef nonnull @.str.14, ptr noundef %80, ptr noundef %40)
+117:                                              ; preds = %115
+  %118 = load ptr, ptr @stderr, align 8
+  %119 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %118, i32 noundef 2, ptr noundef nonnull @.str.14, ptr noundef %80, ptr noundef %40)
   tail call void @exit(i32 noundef 10) #19
   unreachable
 
-119:                                              ; preds = %112
-  %.off134 = add i32 %111, -3
-  %switch135 = icmp ult i32 %.off134, 6
-  br i1 %switch135, label %.thread, label %120
+120:                                              ; preds = %112
+  %121 = icmp ult i32 %111, 9
+  br i1 %121, label %.thread, label %122
 
-120:                                              ; preds = %119
-  %121 = load ptr, ptr @stderr, align 8
-  %122 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %121, i32 noundef 2, ptr noundef nonnull @.str.15, ptr noundef %80, ptr noundef %40)
+122:                                              ; preds = %120
+  %123 = load ptr, ptr @stderr, align 8
+  %124 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %123, i32 noundef 2, ptr noundef nonnull @.str.15, ptr noundef %80, ptr noundef %40)
   tail call void @exit(i32 noundef 10) #19
   unreachable
 
-123:                                              ; preds = %112
+125:                                              ; preds = %112
   %.not130 = icmp eq i32 %111, 3
-  br i1 %.not130, label %.thread, label %124
+  br i1 %.not130, label %.thread, label %126
 
-124:                                              ; preds = %123
-  %125 = load ptr, ptr @stderr, align 8
-  %126 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %125, i32 noundef 2, ptr noundef nonnull @.str.16, ptr noundef %80, ptr noundef %40)
+126:                                              ; preds = %125
+  %127 = load ptr, ptr @stderr, align 8
+  %128 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %127, i32 noundef 2, ptr noundef nonnull @.str.16, ptr noundef %80, ptr noundef %40)
   tail call void @exit(i32 noundef 10) #19
   unreachable
 
-.thread:                                          ; preds = %100, %.split.us, %75, %103, %119, %115, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %123
-  %.0112145 = phi ptr [ %80, %103 ], [ %80, %119 ], [ %80, %115 ], [ %80, %112 ], [ %80, %112 ], [ %80, %112 ], [ %80, %112 ], [ %80, %112 ], [ %80, %112 ], [ %80, %112 ], [ %80, %112 ], [ %80, %112 ], [ %80, %112 ], [ %80, %123 ], [ %80, %75 ], [ null, %.split.us ], [ null, %100 ]
-  %.1144 = phi ptr [ %84, %103 ], [ %84, %119 ], [ %84, %115 ], [ %84, %112 ], [ %84, %112 ], [ %84, %112 ], [ %84, %112 ], [ %84, %112 ], [ %84, %112 ], [ %84, %112 ], [ %84, %112 ], [ %84, %112 ], [ %84, %112 ], [ %84, %123 ], [ %84, %75 ], [ %spec.select.us, %.split.us ], [ %.3, %100 ]
+.thread:                                          ; preds = %100, %.split.us, %75, %103, %120, %115, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %125
+  %.0112145 = phi ptr [ %80, %103 ], [ %80, %120 ], [ %80, %115 ], [ %80, %112 ], [ %80, %112 ], [ %80, %112 ], [ %80, %112 ], [ %80, %112 ], [ %80, %112 ], [ %80, %112 ], [ %80, %112 ], [ %80, %112 ], [ %80, %112 ], [ %80, %125 ], [ %80, %75 ], [ null, %.split.us ], [ null, %100 ]
+  %.1144 = phi ptr [ %84, %103 ], [ %84, %120 ], [ %84, %115 ], [ %84, %112 ], [ %84, %112 ], [ %84, %112 ], [ %84, %112 ], [ %84, %112 ], [ %84, %112 ], [ %84, %112 ], [ %84, %112 ], [ %84, %112 ], [ %84, %112 ], [ %84, %125 ], [ %84, %75 ], [ %spec.select.us, %.split.us ], [ %.3, %100 ]
   tail call void @g_free(ptr noundef %.0112145)
-  %127 = load ptr, ptr %5, align 8
-  %128 = getelementptr %struct._io_stat_item_t, ptr %127, i64 %7
+  %129 = load ptr, ptr %5, align 8
+  %130 = getelementptr %struct._io_stat_item_t, ptr %129, i64 %7
   %.not131 = icmp eq i32 %1, 0
-  %129 = select i1 %.not131, ptr @iostat_draw, ptr null
-  %130 = tail call ptr @register_tap_listener(ptr noundef nonnull @.str.17, ptr noundef %128, ptr noundef %.1144, i32 noundef 1, ptr noundef null, ptr noundef nonnull @iostat_packet, ptr noundef %129, ptr noundef null)
-  %.not132 = icmp eq ptr %130, null
-  br i1 %.not132, label %150, label %131
+  %131 = select i1 %.not131, ptr @iostat_draw, ptr null
+  %132 = tail call ptr @register_tap_listener(ptr noundef nonnull @.str.17, ptr noundef %130, ptr noundef %.1144, i32 noundef 1, ptr noundef null, ptr noundef nonnull @iostat_packet, ptr noundef %131, ptr noundef null)
+  %.not132 = icmp eq ptr %132, null
+  br i1 %.not132, label %152, label %133
 
-131:                                              ; preds = %.thread
-  %132 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %133 = load i64, ptr %132, align 8
-  %.not133 = icmp eq i64 %133, 0
-  br i1 %.not133, label %g_string_append_c_inline.exit, label %134
+133:                                              ; preds = %.thread
+  %134 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %135 = load i64, ptr %134, align 8
+  %.not133 = icmp eq i64 %135, 0
+  br i1 %.not133, label %g_string_append_c_inline.exit, label %136
 
-134:                                              ; preds = %131
-  %135 = add i64 %133, 1
-  %136 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %137 = load i64, ptr %136, align 8
-  %138 = icmp ult i64 %135, %137
-  br i1 %138, label %139, label %145
+136:                                              ; preds = %133
+  %137 = add i64 %135, 1
+  %138 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %139 = load i64, ptr %138, align 8
+  %140 = icmp ult i64 %137, %139
+  br i1 %140, label %141, label %147
 
-139:                                              ; preds = %134
-  %140 = load ptr, ptr %3, align 8
-  store i64 %135, ptr %132, align 8
-  %141 = getelementptr i8, ptr %140, i64 %133
-  store i8 10, ptr %141, align 1
+141:                                              ; preds = %136
   %142 = load ptr, ptr %3, align 8
-  %143 = load i64, ptr %132, align 8
-  %144 = getelementptr i8, ptr %142, i64 %143
-  store i8 0, ptr %144, align 1
+  store i64 %137, ptr %134, align 8
+  %143 = getelementptr i8, ptr %142, i64 %135
+  store i8 10, ptr %143, align 1
+  %144 = load ptr, ptr %3, align 8
+  %145 = load i64, ptr %134, align 8
+  %146 = getelementptr i8, ptr %144, i64 %145
+  store i8 0, ptr %146, align 1
   br label %g_string_append_c_inline.exit
 
-145:                                              ; preds = %134
-  %146 = tail call ptr @g_string_insert_c(ptr noundef %3, i64 noundef -1, i8 noundef signext 10)
+147:                                              ; preds = %136
+  %148 = tail call ptr @g_string_insert_c(ptr noundef %3, i64 noundef -1, i8 noundef signext 10)
   br label %g_string_append_c_inline.exit
 
-g_string_append_c_inline.exit:                    ; preds = %145, %139, %131
-  %147 = load ptr, ptr %130, align 8
-  %148 = tail call ptr @g_string_append(ptr noundef %3, ptr noundef %147)
-  %149 = tail call ptr @g_string_free(ptr noundef nonnull %130, i32 noundef 1)
-  br label %152
+g_string_append_c_inline.exit:                    ; preds = %147, %141, %133
+  %149 = load ptr, ptr %132, align 8
+  %150 = tail call ptr @g_string_append(ptr noundef %3, ptr noundef %149)
+  %151 = tail call ptr @g_string_free(ptr noundef nonnull %132, i32 noundef 1)
+  br label %154
 
-150:                                              ; preds = %.thread
-  %151 = tail call ptr @g_string_truncate(ptr noundef %3, i64 noundef 0)
-  br label %152
+152:                                              ; preds = %.thread
+  %153 = tail call ptr @g_string_truncate(ptr noundef %3, i64 noundef 0)
+  br label %154
 
-152:                                              ; preds = %150, %g_string_append_c_inline.exit
+154:                                              ; preds = %152, %g_string_append_c_inline.exit
   ret i1 %.not132
 }
 

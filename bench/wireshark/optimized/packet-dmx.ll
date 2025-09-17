@@ -317,18 +317,17 @@ define internal i32 @dissect_dmx_chan(ptr noundef %0, ptr noundef readonly captu
   br i1 %42, label %43, label %51
 
 43:                                               ; preds = %39
-  %44 = zext i8 %40 to i16
-  %45 = mul nuw nsw i16 %44, 100
-  %.off = add nsw i16 %45, -25500
-  %46 = icmp ult i16 %.off, 255
-  br i1 %46, label %47, label %48
+  %44 = icmp eq i8 %40, -1
+  br i1 %44, label %45, label %46
 
-47:                                               ; preds = %43
+45:                                               ; preds = %43
   tail call void @wmem_strbuf_append(ptr noundef %11, ptr noundef nonnull @.str.103)
   br label %56
 
-48:                                               ; preds = %43
-  %49 = udiv i16 %45, 255
+46:                                               ; preds = %43
+  %47 = zext i8 %40 to i16
+  %48 = mul nuw nsw i16 %47, 100
+  %49 = udiv i16 %48, 255
   %50 = zext nneg i16 %49 to i32
   tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %11, ptr noundef nonnull @.str.96, i32 noundef %50)
   br label %56
@@ -341,7 +340,7 @@ define internal i32 @dissect_dmx_chan(ptr noundef %0, ptr noundef readonly captu
   tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %11, ptr noundef %54, i32 noundef %55)
   br label %56
 
-56:                                               ; preds = %51, %48, %47
+56:                                               ; preds = %51, %46, %45
   %57 = add i16 %.04654, 1
   %58 = zext i16 %57 to i32
   %59 = load i32, ptr @global_disp_col_count, align 4

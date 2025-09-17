@@ -825,7 +825,7 @@ luaL_fileresult.exit:                             ; preds = %3
   %6 = tail call ptr @strerror(i32 noundef %5) #19
   %7 = tail call ptr @lua_pushstring(ptr noundef %0, ptr noundef %6) #19
   %8 = sext i32 %5 to i64
-  br label %21
+  br label %19
 
 9:                                                ; preds = %3
   %10 = and i32 %1, 127
@@ -833,38 +833,36 @@ luaL_fileresult.exit:                             ; preds = %3
   br i1 %11, label %.thread, label %.thread20
 
 .thread20:                                        ; preds = %9
-  %12 = shl nuw nsw i32 %10, 24
-  %sext = add nuw i32 %12, 16777216
-  %13 = icmp sgt i32 %sext, 33554431
-  %spec.select = select i1 %13, i32 %10, i32 %1
-  %spec.select19 = select i1 %13, ptr @.str.23, ptr @.str.22
-  br label %17
+  %.not31 = icmp eq i32 %10, 127
+  %spec.select = select i1 %.not31, i32 %1, i32 %10
+  %spec.select19 = select i1 %.not31, ptr @.str.22, ptr @.str.23
+  br label %15
 
 .thread:                                          ; preds = %9
-  %14 = lshr i32 %1, 8
-  %15 = and i32 %14, 255
-  %16 = icmp eq i32 %15, 0
-  br i1 %16, label %.thread.thread, label %17
+  %12 = lshr i32 %1, 8
+  %13 = and i32 %12, 255
+  %14 = icmp eq i32 %13, 0
+  br i1 %14, label %.thread.thread, label %15
 
 .thread.thread:                                   ; preds = %2, %.thread
   tail call void @lua_pushboolean(ptr noundef %0, i32 noundef 1) #19
-  br label %19
+  br label %17
 
-17:                                               ; preds = %.thread20, %.thread
+15:                                               ; preds = %.thread20, %.thread
   %.027 = phi ptr [ %spec.select19, %.thread20 ], [ @.str.22, %.thread ]
-  %.01525 = phi i32 [ %spec.select, %.thread20 ], [ %15, %.thread ]
+  %.01525 = phi i32 [ %spec.select, %.thread20 ], [ %13, %.thread ]
   tail call void @lua_pushnil(ptr noundef %0) #19
-  %18 = sext i32 %.01525 to i64
+  %16 = sext i32 %.01525 to i64
+  br label %17
+
+17:                                               ; preds = %15, %.thread.thread
+  %.026 = phi ptr [ %.027, %15 ], [ @.str.22, %.thread.thread ]
+  %.01524 = phi i64 [ %16, %15 ], [ 0, %.thread.thread ]
+  %18 = tail call ptr @lua_pushstring(ptr noundef %0, ptr noundef nonnull %.026) #19
   br label %19
 
-19:                                               ; preds = %17, %.thread.thread
-  %.026 = phi ptr [ %.027, %17 ], [ @.str.22, %.thread.thread ]
-  %.01524 = phi i64 [ %18, %17 ], [ 0, %.thread.thread ]
-  %20 = tail call ptr @lua_pushstring(ptr noundef %0, ptr noundef nonnull %.026) #19
-  br label %21
-
-21:                                               ; preds = %19, %luaL_fileresult.exit
-  %.01524.sink = phi i64 [ %.01524, %19 ], [ %8, %luaL_fileresult.exit ]
+19:                                               ; preds = %17, %luaL_fileresult.exit
+  %.01524.sink = phi i64 [ %.01524, %17 ], [ %8, %luaL_fileresult.exit ]
   tail call void @lua_pushinteger(ptr noundef %0, i64 noundef %.01524.sink) #19
   ret i32 3
 }

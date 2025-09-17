@@ -3582,9 +3582,9 @@ define hidden void @_ZN9uv_pep5086marker8simplify11collect_dnf17h29752d1b30eb7f4
   %69 = add nsw i8 %68, -8
   %70 = icmp ult i8 %69, 7
   %narrow = select i1 %70, i8 %69, i8 5
-  %.sroa.gep988 = getelementptr inbounds nuw i8, ptr %36, i64 16
-  %.sroa.gep991 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  %.sroa.gep994 = getelementptr inbounds nuw i8, ptr %30, i64 16
+  %.sroa.gep989 = getelementptr inbounds nuw i8, ptr %36, i64 16
+  %.sroa.gep992 = getelementptr inbounds nuw i8, ptr %33, i64 16
+  %.sroa.gep995 = getelementptr inbounds nuw i8, ptr %30, i64 16
   switch i8 %narrow, label %71 [
     i8 0, label %72
     i8 1, label %77
@@ -3866,10 +3866,10 @@ define hidden void @_ZN9uv_pep5086marker8simplify11collect_dnf17h29752d1b30eb7f4
   %182 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %183 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %184 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %switch.cast902 = zext i8 %.sroa.6320.0.copyload to i64
-  %switch.shiftamt903 = shl nuw nsw i64 %switch.cast902, 3
-  %switch.downshift904 = lshr i64 2823567385889793, %switch.shiftamt903
-  %switch.masked905 = trunc i64 %switch.downshift904 to i8
+  %switch.cast903 = zext i8 %.sroa.6320.0.copyload to i64
+  %switch.shiftamt904 = shl nuw nsw i64 %switch.cast903, 3
+  %switch.downshift905 = lshr i64 2823567385889793, %switch.shiftamt904
+  %switch.masked906 = trunc i64 %switch.downshift905 to i8
   tail call void @llvm.assume(i1 %179)
   br label %switch.lookup
 
@@ -3898,11 +3898,11 @@ define hidden void @_ZN9uv_pep5086marker8simplify11collect_dnf17h29752d1b30eb7f4
   %192 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %193 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %194 = shl nuw nsw i8 %68, 3
-  %switch.shiftamt908 = zext nneg i8 %194 to i64
-  %switch.downshift909 = lshr i64 2823567385889793, %switch.shiftamt908
-  %switch.masked910 = trunc i64 %switch.downshift909 to i8
+  %switch.shiftamt909 = zext nneg i8 %194 to i64
+  %switch.downshift910 = lshr i64 2823567385889793, %switch.shiftamt909
+  %switch.masked911 = trunc i64 %switch.downshift910 to i8
   tail call void @llvm.assume(i1 %186)
-  br label %switch.lookup906
+  br label %switch.lookup907
 
 195:                                              ; preds = %3
   %.sroa.0343.0.copyload = load ptr, ptr %66, align 8
@@ -5651,9 +5651,9 @@ default.unreachable:                              ; preds = %.lr.ph557
   call void @llvm.lifetime.start.p0(ptr nonnull %37)
   %803 = load i8, ptr %157, align 8, !range !697, !alias.scope !1232, !noundef !14
   %804 = shl nuw nsw i8 %803, 3
-  %switch.shiftamt899 = zext nneg i8 %804 to i64
-  %switch.downshift900 = lshr i64 2823567385889793, %switch.shiftamt899
-  %switch.masked901 = trunc i64 %switch.downshift900 to i8
+  %switch.shiftamt900 = zext nneg i8 %804 to i64
+  %switch.downshift901 = lshr i64 2823567385889793, %switch.shiftamt900
+  %switch.masked902 = trunc i64 %switch.downshift901 to i8
   %805 = load i64, ptr %.sroa.3.0.i.pn.i433, align 8, !noalias !1235, !noundef !14
   %806 = and i64 %805, 1
   %807 = icmp eq i64 %806, 0
@@ -5677,7 +5677,7 @@ default.unreachable:                              ; preds = %.lr.ph557
   br label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.llvm.6142476940176993551.exit207"
 
 "_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.llvm.6142476940176993551.exit207": ; preds = %815, %812, %808, %.thread427
-  store i8 %switch.masked901, ptr %171, align 1
+  store i8 %switch.masked902, ptr %171, align 1
   store i8 %.sroa.0.0.i.pn.i432, ptr %172, align 2
   store ptr %.sroa.3.0.i.pn.i433, ptr %173, align 8
   store i8 2, ptr %37, align 8
@@ -5740,7 +5740,7 @@ default.unreachable:                              ; preds = %.lr.ph557
   br label %77
 
 switch.lookup:                                    ; preds = %178, %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$uv_pep508..marker..tree..MarkerExpression$GT$$GT$17h8941a2adb555377eE.exit225"
-  %.sroa.phi = phi ptr [ %36, %178 ], [ %.sroa.gep988, %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$uv_pep508..marker..tree..MarkerExpression$GT$$GT$17h8941a2adb555377eE.exit225" ]
+  %.sroa.phi = phi ptr [ %36, %178 ], [ %.sroa.gep989, %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$uv_pep508..marker..tree..MarkerExpression$GT$$GT$17h8941a2adb555377eE.exit225" ]
   %.not.i212 = phi i1 [ false, %178 ], [ true, %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$uv_pep508..marker..tree..MarkerExpression$GT$$GT$17h8941a2adb555377eE.exit225" ]
   %842 = phi i64 [ 1, %178 ], [ 2, %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$uv_pep508..marker..tree..MarkerExpression$GT$$GT$17h8941a2adb555377eE.exit225" ]
   store i64 %842, ptr %.sroa.5327.0..sroa_idx, align 8, !alias.scope !1250
@@ -5773,7 +5773,7 @@ switch.lookup:                                    ; preds = %178, %"_ZN4core3ptr
   br label %"_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.llvm.6142476940176993551.exit220"
 
 "_ZN62_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..clone..Clone$GT$5clone17h7ab6f5ceedc25313E.llvm.6142476940176993551.exit220": ; preds = %857, %854, %850, %switch.lookup
-  store i8 %switch.masked905, ptr %180, align 1
+  store i8 %switch.masked906, ptr %180, align 1
   store i8 %., ptr %181, align 2
   store ptr %846, ptr %182, align 8
   store i8 2, ptr %35, align 8
@@ -5837,16 +5837,16 @@ switch.lookup:                                    ; preds = %178, %"_ZN4core3ptr
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
   br label %77
 
-switch.lookup906:                                 ; preds = %185, %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$uv_pep508..marker..tree..MarkerExpression$GT$$GT$17h8941a2adb555377eE.exit240"
+switch.lookup907:                                 ; preds = %185, %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$uv_pep508..marker..tree..MarkerExpression$GT$$GT$17h8941a2adb555377eE.exit240"
   %.not.i226 = phi i1 [ false, %185 ], [ true, %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$uv_pep508..marker..tree..MarkerExpression$GT$$GT$17h8941a2adb555377eE.exit240" ]
-  %.sroa.phi989 = phi ptr [ %33, %185 ], [ %.sroa.gep991, %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$uv_pep508..marker..tree..MarkerExpression$GT$$GT$17h8941a2adb555377eE.exit240" ]
-  %883 = load i8, ptr %.sroa.phi989, align 8, !range !698, !alias.scope !1266, !noundef !14
-  %884 = getelementptr inbounds nuw i8, ptr %.sroa.phi989, i64 8
+  %.sroa.phi990 = phi ptr [ %33, %185 ], [ %.sroa.gep992, %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$uv_pep508..marker..tree..MarkerExpression$GT$$GT$17h8941a2adb555377eE.exit240" ]
+  %883 = load i8, ptr %.sroa.phi990, align 8, !range !698, !alias.scope !1266, !noundef !14
+  %884 = getelementptr inbounds nuw i8, ptr %.sroa.phi990, i64 8
   %885 = load i64, ptr %884, align 8, !alias.scope !1266, !noundef !14
   %.79 = sub nuw nsw i8 10, %883
   br i1 %187, label %891, label %.noexc233
 
-.noexc233:                                        ; preds = %switch.lookup906
+.noexc233:                                        ; preds = %switch.lookup907
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !1269
   call void @_ZN6arcstr7arc_str9ThinInner25try_allocate_maybe_uninit17h37242bf34e85183dE(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %8, i64 noundef range(i64 1, 0) %.sroa.4330.0.copyload, i1 noundef zeroext false, i1 noundef zeroext false)
   %886 = load i64, ptr %8, align 8, !range !1275, !noalias !1269, !noundef !14
@@ -5874,9 +5874,9 @@ _ZN6arcstr7arc_str9ThinInner8allocate17hae5a9c214a5f843eE.exit: ; preds = %.noex
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %890, ptr noundef nonnull readonly align 1 dereferenceable(1) %.sroa.0329.0.copyload, i64 range(i64 1, 0) %.sroa.4330.0.copyload, i1 false), !alias.scope !1276, !noalias !1280
   br label %891
 
-891:                                              ; preds = %_ZN6arcstr7arc_str9ThinInner8allocate17hae5a9c214a5f843eE.exit, %switch.lookup906
-  %.sroa.021.0 = phi ptr [ @anon.ab33c5e6ff14fe008f984d4f6957dda0.47, %switch.lookup906 ], [ %889, %_ZN6arcstr7arc_str9ThinInner8allocate17hae5a9c214a5f843eE.exit ]
-  store i8 %switch.masked910, ptr %189, align 1
+891:                                              ; preds = %_ZN6arcstr7arc_str9ThinInner8allocate17hae5a9c214a5f843eE.exit, %switch.lookup907
+  %.sroa.021.0 = phi ptr [ @anon.ab33c5e6ff14fe008f984d4f6957dda0.47, %switch.lookup907 ], [ %889, %_ZN6arcstr7arc_str9ThinInner8allocate17hae5a9c214a5f843eE.exit ]
+  store i8 %switch.masked911, ptr %189, align 1
   store i8 %.79, ptr %190, align 2
   store ptr %.sroa.021.0, ptr %191, align 8
   store i8 2, ptr %32, align 8
@@ -5934,19 +5934,19 @@ _ZN6arcstr7arc_str9ThinInner8allocate17hae5a9c214a5f843eE.exit: ; preds = %.noex
 
 "_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$uv_pep508..marker..tree..MarkerExpression$GT$$GT$17h8941a2adb555377eE.exit240": ; preds = %900, %914, %906
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
-  br i1 %.not.i226, label %882, label %switch.lookup906
+  br i1 %.not.i226, label %882, label %switch.lookup907
 
 915:                                              ; preds = %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$uv_pep508..marker..tree..MarkerExpression$GT$$GT$17h8941a2adb555377eE.exit252"
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
   br label %77
 
 916:                                              ; preds = %195, %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$uv_pep508..marker..tree..MarkerExpression$GT$$GT$17h8941a2adb555377eE.exit252"
-  %.sroa.phi992 = phi ptr [ %30, %195 ], [ %.sroa.gep994, %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$uv_pep508..marker..tree..MarkerExpression$GT$$GT$17h8941a2adb555377eE.exit252" ]
+  %.sroa.phi993 = phi ptr [ %30, %195 ], [ %.sroa.gep995, %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$uv_pep508..marker..tree..MarkerExpression$GT$$GT$17h8941a2adb555377eE.exit252" ]
   %.not.i241 = phi i1 [ false, %195 ], [ true, %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$uv_pep508..marker..tree..MarkerExpression$GT$$GT$17h8941a2adb555377eE.exit252" ]
   %917 = phi i64 [ 1, %195 ], [ 2, %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$uv_pep508..marker..tree..MarkerExpression$GT$$GT$17h8941a2adb555377eE.exit252" ]
   store i64 %917, ptr %.sroa.5352.0..sroa_idx, align 8, !alias.scope !1291
-  %918 = load i8, ptr %.sroa.phi992, align 8, !range !698, !alias.scope !1291, !noundef !14
-  %919 = getelementptr inbounds nuw i8, ptr %.sroa.phi992, i64 8
+  %918 = load i8, ptr %.sroa.phi993, align 8, !range !698, !alias.scope !1291, !noundef !14
+  %919 = getelementptr inbounds nuw i8, ptr %.sroa.phi993, i64 8
   %920 = load i64, ptr %919, align 8, !alias.scope !1291, !noundef !14
   call void @llvm.experimental.noalias.scope.decl(metadata !1294)
   %921 = load ptr, ptr %.sroa.0343.0.copyload, align 8, !alias.scope !1294, !nonnull !14, !noundef !14

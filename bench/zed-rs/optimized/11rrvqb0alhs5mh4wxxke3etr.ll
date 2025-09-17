@@ -3743,9 +3743,8 @@ _ZN2ui6styles7spacing7Spacing4rems17hbccda72e69aceb1aE.exit: ; preds = %.noexc45
   %83 = getelementptr inbounds nuw i8, ptr %1, i64 1168
   %84 = getelementptr inbounds nuw i8, ptr %1, i64 1212
   %85 = getelementptr inbounds nuw i8, ptr %1, i64 1188
-  %.off = add nsw i8 %80, -1
-  %switch = icmp ult i8 %.off, 2
-  br i1 %switch, label %86, label %87
+  %.not288 = icmp eq i8 %80, 0
+  br i1 %.not288, label %87, label %86
 
 86:                                               ; preds = %77
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(720) %23, ptr noundef nonnull align 8 dereferenceable(720) %22, i64 720, i1 false)

@@ -29543,9 +29543,8 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i1017:  ; preds = %300
   br i1 %301, label %302, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i1026
 
 302:                                              ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.i1017
-  %303 = add i64 %1, -5
-  %.not.i1021 = icmp ult i64 %303, 8
-  br i1 %.not.i1021, label %_ZNK4llvm9StringRef11starts_withES0_.exit211, label %304
+  %303 = icmp ult i64 %1, 13
+  br i1 %303, label %_ZNK4llvm9StringRef11starts_withES0_.exit211, label %304
 
 304:                                              ; preds = %302
   %305 = getelementptr inbounds nuw i8, ptr %0, i64 5
@@ -29952,9 +29951,8 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i1242:  ; preds = %_ZNK4llvm9StringRef
   br i1 %379, label %380, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i1251
 
 380:                                              ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.i1242
-  %381 = add i64 %1, -6
-  %.not.i1246 = icmp ult i64 %381, 6
-  br i1 %.not.i1246, label %_ZNK4llvm9StringRef11starts_withES0_.exit211, label %382
+  %381 = icmp ult i64 %1, 12
+  br i1 %381, label %_ZNK4llvm9StringRef11starts_withES0_.exit211, label %382
 
 382:                                              ; preds = %380
   %383 = getelementptr inbounds nuw i8, ptr %0, i64 6

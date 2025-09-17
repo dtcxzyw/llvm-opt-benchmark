@@ -1099,9 +1099,8 @@ define void @_ZN19OpenColorIO_v2_5dev15PackedImageDescC2EPvllNS_15ChannelOrderin
   br i1 %or.cond3, label %20, label %13
 
 13:                                               ; preds = %5
-  %14 = add i32 %4, -3
-  %or.cond5 = icmp ult i32 %14, 2
-  br i1 %or.cond5, label %20, label %15
+  %14 = icmp ult i32 %4, 5
+  br i1 %14, label %20, label %15
 
 15:                                               ; preds = %13
   %16 = tail call ptr @__cxa_allocate_exception(i64 16) #22
@@ -1172,9 +1171,8 @@ define void @_ZN19OpenColorIO_v2_5dev15PackedImageDescC2EPvllNS_15ChannelOrderin
   br i1 %or.cond3, label %24, label %17
 
 17:                                               ; preds = %9
-  %18 = add i32 %4, -3
-  %or.cond5 = icmp ult i32 %18, 2
-  br i1 %or.cond5, label %24, label %19
+  %18 = icmp ult i32 %4, 5
+  br i1 %18, label %24, label %19
 
 19:                                               ; preds = %17
   %20 = tail call ptr @__cxa_allocate_exception(i64 16) #22

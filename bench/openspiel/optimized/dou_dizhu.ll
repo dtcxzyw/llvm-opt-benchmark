@@ -1339,9 +1339,8 @@ _ZN4absl7debian28AlphaNumC2El.exit17:             ; preds = %_ZN4absl7debian28Al
   br label %81
 
 66:                                               ; preds = %56
-  %67 = add i64 %3, -4
-  %or.cond3 = icmp ult i64 %67, 26053
-  br i1 %or.cond3, label %68, label %73
+  %67 = icmp ult i64 %3, 26057
+  br i1 %67, label %68, label %73
 
 68:                                               ; preds = %66
   %69 = add nsw i64 %3, -516

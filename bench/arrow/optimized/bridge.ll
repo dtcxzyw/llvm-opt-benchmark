@@ -41120,7 +41120,7 @@ _ZN5arrow8internal8ParseHexIjEEbPKcmPT_.exit.thread: ; preds = %30, %_ZN5arrow8i
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN5arrow8internal13ParseUnsignedEPKcmPj(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #12 comdat {
   %.not = icmp eq i64 %1, 0
-  br i1 %.not, label %93, label %4
+  br i1 %.not, label %94, label %4
 
 4:                                                ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -41132,7 +41132,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5arrow8internal13ParseUnsignedEPKcmPj
 
 10:                                               ; preds = %4
   %.not136 = icmp eq i64 %1, 1
-  br i1 %.not136, label %93, label %11
+  br i1 %.not136, label %94, label %11
 
 11:                                               ; preds = %10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 2
@@ -41146,7 +41146,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5arrow8internal13ParseUnsignedEPKcmPj
 
 19:                                               ; preds = %11
   %.not137 = icmp eq i64 %1, 2
-  br i1 %.not137, label %93, label %20
+  br i1 %.not137, label %94, label %20
 
 20:                                               ; preds = %19
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 3
@@ -41160,7 +41160,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5arrow8internal13ParseUnsignedEPKcmPj
 
 28:                                               ; preds = %20
   %.not138 = icmp eq i64 %1, 3
-  br i1 %.not138, label %93, label %29
+  br i1 %.not138, label %94, label %29
 
 29:                                               ; preds = %28
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -41174,7 +41174,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5arrow8internal13ParseUnsignedEPKcmPj
 
 37:                                               ; preds = %29
   %.not139 = icmp eq i64 %1, 4
-  br i1 %.not139, label %93, label %38
+  br i1 %.not139, label %94, label %38
 
 38:                                               ; preds = %37
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 5
@@ -41188,7 +41188,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5arrow8internal13ParseUnsignedEPKcmPj
 
 46:                                               ; preds = %38
   %.not140 = icmp eq i64 %1, 5
-  br i1 %.not140, label %93, label %47
+  br i1 %.not140, label %94, label %47
 
 47:                                               ; preds = %46
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 6
@@ -41202,7 +41202,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5arrow8internal13ParseUnsignedEPKcmPj
 
 55:                                               ; preds = %47
   %.not141 = icmp eq i64 %1, 6
-  br i1 %.not141, label %93, label %56
+  br i1 %.not141, label %94, label %56
 
 56:                                               ; preds = %55
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 7
@@ -41216,7 +41216,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5arrow8internal13ParseUnsignedEPKcmPj
 
 64:                                               ; preds = %56
   %.not142 = icmp eq i64 %1, 7
-  br i1 %.not142, label %93, label %65
+  br i1 %.not142, label %94, label %65
 
 65:                                               ; preds = %64
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -41230,49 +41230,50 @@ define linkonce_odr noundef zeroext i1 @_ZN5arrow8internal13ParseUnsignedEPKcmPj
 
 73:                                               ; preds = %65
   %.not143 = icmp eq i64 %1, 8
-  br i1 %.not143, label %93, label %74
+  br i1 %.not143, label %94, label %74
 
 74:                                               ; preds = %73
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 9
   %76 = load i8, ptr %66, align 1, !tbaa !38
   %77 = add i8 %76, -48
   %78 = mul nuw nsw i32 %72, 10
-  %79 = icmp ult i8 %77, 10
-  %80 = zext i8 %77 to i32
-  %81 = add nuw nsw i32 %78, %80
-  br i1 %79, label %82, label %.critedge
+  %79 = add i64 %1, -9
+  %80 = icmp ult i8 %77, 10
+  %81 = zext i8 %77 to i32
+  %82 = add nuw nsw i32 %78, %81
+  br i1 %80, label %83, label %.critedge
 
-82:                                               ; preds = %74
-  %.not144 = icmp eq i64 %1, 9
-  br i1 %.not144, label %93, label %83
+83:                                               ; preds = %74
+  %.not144 = icmp eq i64 %79, 0
+  br i1 %.not144, label %94, label %84
 
-83:                                               ; preds = %82
-  %84 = icmp samesign ugt i32 %81, 429496729
-  br i1 %84, label %.critedge, label %85, !prof !195
+84:                                               ; preds = %83
+  %85 = icmp samesign ugt i32 %82, 429496729
+  br i1 %85, label %.critedge, label %86, !prof !195
 
-85:                                               ; preds = %83
-  %86 = load i8, ptr %75, align 1, !tbaa !38
-  %87 = add i8 %86, -48
-  %.not145 = icmp ne i64 %1, 10
-  %88 = icmp ugt i8 %87, 9
-  %or.cond = or i1 %.not145, %88
-  br i1 %or.cond, label %.critedge, label %89, !prof !2612
+86:                                               ; preds = %84
+  %87 = load i8, ptr %75, align 1, !tbaa !38
+  %88 = add i8 %87, -48
+  %.not145 = icmp ne i64 %79, 1
+  %89 = icmp ugt i8 %88, 9
+  %or.cond = or i1 %.not145, %89
+  br i1 %or.cond, label %.critedge, label %90, !prof !2612
 
-89:                                               ; preds = %85
-  %90 = mul nuw i32 %81, 10
-  %91 = zext nneg i8 %87 to i32
-  %92 = add i32 %90, %91
-  %.not147 = icmp ult i32 %92, %90
-  %.146 = tail call i32 @llvm.umax.i32(i32 %92, i32 %90)
-  br i1 %.not147, label %.critedge, label %93
+90:                                               ; preds = %86
+  %91 = mul nuw i32 %82, 10
+  %92 = zext nneg i8 %88 to i32
+  %93 = add i32 %91, %92
+  %.not147 = icmp ult i32 %93, %91
+  %.146 = tail call i32 @llvm.umax.i32(i32 %93, i32 %91)
+  br i1 %.not147, label %.critedge, label %94
 
-93:                                               ; preds = %89, %82, %73, %64, %55, %46, %37, %28, %19, %10, %3
-  %.196 = phi i32 [ %.146, %89 ], [ %81, %82 ], [ %72, %73 ], [ %63, %64 ], [ %54, %55 ], [ %45, %46 ], [ %36, %37 ], [ %27, %28 ], [ %18, %19 ], [ %9, %10 ], [ 0, %3 ]
+94:                                               ; preds = %90, %83, %73, %64, %55, %46, %37, %28, %19, %10, %3
+  %.196 = phi i32 [ %.146, %90 ], [ %82, %83 ], [ %72, %73 ], [ %63, %64 ], [ %54, %55 ], [ %45, %46 ], [ %36, %37 ], [ %27, %28 ], [ %18, %19 ], [ %9, %10 ], [ 0, %3 ]
   store i32 %.196, ptr %2, align 4, !tbaa !188
   br label %.critedge
 
-.critedge:                                        ; preds = %85, %83, %89, %74, %65, %56, %47, %38, %29, %20, %11, %4, %93
-  %.1 = phi i1 [ true, %93 ], [ false, %89 ], [ false, %74 ], [ false, %65 ], [ false, %56 ], [ false, %47 ], [ false, %38 ], [ false, %29 ], [ false, %20 ], [ false, %11 ], [ false, %4 ], [ false, %83 ], [ false, %85 ]
+.critedge:                                        ; preds = %86, %84, %90, %74, %65, %56, %47, %38, %29, %20, %11, %4, %94
+  %.1 = phi i1 [ true, %94 ], [ false, %90 ], [ false, %74 ], [ false, %65 ], [ false, %56 ], [ false, %47 ], [ false, %38 ], [ false, %29 ], [ false, %20 ], [ false, %11 ], [ false, %4 ], [ false, %84 ], [ false, %86 ]
   ret i1 %.1
 }
 
@@ -45987,60 +45988,61 @@ thread-pre-split:                                 ; preds = %7
   %50 = load i8, ptr %44, align 1, !tbaa !38
   %51 = add i8 %50, -48
   %narrow.i = mul nuw nsw i8 %45, 10
-  %52 = icmp ult i8 %51, 10
-  %53 = add i8 %51, %narrow.i
-  br i1 %52, label %54, label %_ZN5arrow8internal8ParseHexIhEEbPKcmPT_.exit.thread, !prof !2609
+  %52 = add i64 %.150, -2
+  %53 = icmp ult i8 %51, 10
+  %54 = add i8 %51, %narrow.i
+  br i1 %53, label %55, label %_ZN5arrow8internal8ParseHexIhEEbPKcmPT_.exit.thread, !prof !2609
 
-54:                                               ; preds = %48
-  %.not44.i = icmp eq i64 %.150, 2
-  br i1 %.not44.i, label %_ZN5arrow8internal13ParseUnsignedEPKcmPh.exit, label %55
+55:                                               ; preds = %48
+  %.not44.i = icmp eq i64 %52, 0
+  br i1 %.not44.i, label %_ZN5arrow8internal13ParseUnsignedEPKcmPh.exit, label %56
 
-55:                                               ; preds = %54
-  %56 = icmp ugt i8 %53, 25
-  br i1 %56, label %_ZN5arrow8internal8ParseHexIhEEbPKcmPT_.exit.thread, label %57, !prof !195
+56:                                               ; preds = %55
+  %57 = icmp ugt i8 %54, 25
+  br i1 %57, label %_ZN5arrow8internal8ParseHexIhEEbPKcmPT_.exit.thread, label %58, !prof !195
 
-57:                                               ; preds = %55
-  %58 = load i8, ptr %49, align 1, !tbaa !38
-  %59 = add i8 %58, -48
-  %.not45.i = icmp ne i64 %.150, 3
-  %60 = icmp ugt i8 %59, 9
-  %or.cond.i30 = or i1 %.not45.i, %60
-  br i1 %or.cond.i30, label %_ZN5arrow8internal8ParseHexIhEEbPKcmPT_.exit.thread, label %61, !prof !2612
+58:                                               ; preds = %56
+  %59 = load i8, ptr %49, align 1, !tbaa !38
+  %60 = add i8 %59, -48
+  %.not45.i = icmp ne i64 %52, 1
+  %61 = icmp ugt i8 %60, 9
+  %or.cond.i30 = or i1 %.not45.i, %61
+  br i1 %or.cond.i30, label %_ZN5arrow8internal8ParseHexIhEEbPKcmPT_.exit.thread, label %62, !prof !2612
 
-61:                                               ; preds = %57
-  %62 = mul nuw i8 %53, 10
-  %63 = add i8 %59, %62
-  %.not48.i = icmp ult i8 %63, %62
-  %.46.i = tail call i8 @llvm.umax.i8(i8 %63, i8 %62)
+62:                                               ; preds = %58
+  %63 = mul nuw i8 %54, 10
+  %64 = add i8 %60, %63
+  %.not48.i = icmp ult i8 %64, %63
+  %.46.i = tail call i8 @llvm.umax.i8(i8 %64, i8 %63)
   br i1 %.not48.i, label %_ZN5arrow8internal8ParseHexIhEEbPKcmPT_.exit.thread, label %_ZN5arrow8internal13ParseUnsignedEPKcmPh.exit, !prof !2791
 
-_ZN5arrow8internal13ParseUnsignedEPKcmPh.exit:    ; preds = %61, %54, %47
-  %.133 = phi i8 [ %53, %54 ], [ %45, %47 ], [ %.46.i, %61 ]
-  br i1 %37, label %64, label %67
+_ZN5arrow8internal13ParseUnsignedEPKcmPh.exit:    ; preds = %62, %55, %47
+  %.133 = phi i8 [ %54, %55 ], [ %45, %47 ], [ %.46.i, %62 ]
+  br i1 %37, label %65, label %68
 
 _ZN5arrow8internal13ParseUnsignedEPKcmPh.exit.thread38: ; preds = %41
   br i1 %37, label %.thread42, label %_ZN5arrow8internal8ParseHexIhEEbPKcmPT_.exit.thread.sink.split
 
-64:                                               ; preds = %_ZN5arrow8internal13ParseUnsignedEPKcmPh.exit
-  %65 = icmp ugt i8 %.133, -128
-  br i1 %65, label %_ZN5arrow8internal8ParseHexIhEEbPKcmPT_.exit.thread, label %.thread42, !prof !2792
+65:                                               ; preds = %_ZN5arrow8internal13ParseUnsignedEPKcmPh.exit
+  %66 = icmp ugt i8 %.133, -128
+  br i1 %66, label %_ZN5arrow8internal8ParseHexIhEEbPKcmPT_.exit.thread, label %.thread42, !prof !2792
 
-.thread42:                                        ; preds = %_ZN5arrow8internal13ParseUnsignedEPKcmPh.exit.thread38, %64
-  %.1334044 = phi i8 [ %.133, %64 ], [ 0, %_ZN5arrow8internal13ParseUnsignedEPKcmPh.exit.thread38 ]
-  %66 = sub i8 0, %.1334044
+.thread42:                                        ; preds = %_ZN5arrow8internal13ParseUnsignedEPKcmPh.exit.thread38, %65
+  %.1334044 = phi i8 [ %.133, %65 ], [ 0, %_ZN5arrow8internal13ParseUnsignedEPKcmPh.exit.thread38 ]
+  %67 = sub i8 0, %.1334044
   br label %_ZN5arrow8internal8ParseHexIhEEbPKcmPT_.exit.thread.sink.split
 
-67:                                               ; preds = %_ZN5arrow8internal13ParseUnsignedEPKcmPh.exit
-  %68 = icmp slt i8 %.133, 0
-  br i1 %68, label %_ZN5arrow8internal8ParseHexIhEEbPKcmPT_.exit.thread, label %_ZN5arrow8internal8ParseHexIhEEbPKcmPT_.exit.thread.sink.split, !prof !2792
+68:                                               ; preds = %_ZN5arrow8internal13ParseUnsignedEPKcmPh.exit
+  %69 = icmp slt i8 %.133, 0
+  br i1 %69, label %_ZN5arrow8internal8ParseHexIhEEbPKcmPT_.exit.thread, label %_ZN5arrow8internal8ParseHexIhEEbPKcmPT_.exit.thread.sink.split, !prof !2792
 
-_ZN5arrow8internal8ParseHexIhEEbPKcmPT_.exit.thread.sink.split: ; preds = %30, %.thread42, %67, %_ZN5arrow8internal13ParseUnsignedEPKcmPh.exit.thread38
-  %storemerge.sink = phi i8 [ %66, %.thread42 ], [ %.133, %67 ], [ 0, %_ZN5arrow8internal13ParseUnsignedEPKcmPh.exit.thread38 ], [ %.2.i, %30 ]
+_ZN5arrow8internal8ParseHexIhEEbPKcmPT_.exit.thread.sink.split: ; preds = %30, %.thread42, %68, %_ZN5arrow8internal13ParseUnsignedEPKcmPh.exit.thread38
+  %storemerge.sink = phi i8 [ %67, %.thread42 ], [ %.133, %68 ], [ 0, %_ZN5arrow8internal13ParseUnsignedEPKcmPh.exit.thread38 ], [ %.2.i, %30 ]
   store i8 %storemerge.sink, ptr %4, align 1, !tbaa !38
   br label %_ZN5arrow8internal8ParseHexIhEEbPKcmPT_.exit.thread
 
-_ZN5arrow8internal8ParseHexIhEEbPKcmPT_.exit.thread: ; preds = %26, %_ZN5arrow8internal8ParseHexIhEEbPKcmPT_.exit.thread.sink.split, %57, %55, %.critedge, %48, %61, %14, %67, %64, %33, %5
-  %.022 = phi i1 [ false, %5 ], [ false, %33 ], [ false, %64 ], [ false, %67 ], [ false, %14 ], [ false, %61 ], [ false, %48 ], [ false, %.critedge ], [ false, %55 ], [ false, %57 ], [ true, %_ZN5arrow8internal8ParseHexIhEEbPKcmPT_.exit.thread.sink.split ], [ false, %26 ]
+_ZN5arrow8internal8ParseHexIhEEbPKcmPT_.exit.thread: ; preds = %26, %_ZN5arrow8internal8ParseHexIhEEbPKcmPT_.exit.thread.sink.split, %58, %56, %.critedge, %48, %62, %14, %68, %65, %33, %5
+  %.022 = phi i1 [ false, %5 ], [ false, %33 ], [ false, %65 ], [ false, %68 ], [ false, %14 ], [ false, %62 ], [ false, %48 ], [ false, %.critedge ], [ false, %56 ], [ false, %58 ], [ true, %_ZN5arrow8internal8ParseHexIhEEbPKcmPT_.exit.thread.sink.split ], [ false, %26 ]
   ret i1 %.022
 }
 

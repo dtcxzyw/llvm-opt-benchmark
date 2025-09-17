@@ -1309,9 +1309,8 @@ define void @"_ZN83_$LT$proto..context_operation..InsertMessage$u20$as$u20$prost
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.experimental.noalias.scope.decl(metadata !87)
   %7 = load i64, ptr %6, align 8, !range !90, !alias.scope !91, !noundef !4
-  %8 = and i64 %7, -2
-  %switch.i.i.i = icmp eq i64 %8, -9223372036854775804
-  br i1 %switch.i.i.i, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$proto..ContextMessage$GT$$GT$17hcc5dd84ebc19e8bdE.exit", label %9
+  %8 = icmp ugt i64 %7, -9223372036854775805
+  br i1 %8, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$proto..ContextMessage$GT$$GT$17hcc5dd84ebc19e8bdE.exit", label %9
 
 9:                                                ; preds = %5
   %10 = icmp sgt i64 %7, -9223372036854775805
@@ -1422,9 +1421,8 @@ define void @"_ZN83_$LT$proto..context_operation..UpdateMessage$u20$as$u20$prost
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !110)
   %6 = load i64, ptr %5, align 8, !range !90, !alias.scope !110, !noundef !4
-  %7 = and i64 %6, -2
-  %switch.i = icmp eq i64 %7, -9223372036854775804
-  br i1 %switch.i, label %"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$proto..ContextMessageStatus$GT$$GT$17h599efef425d99a78E.exit", label %8
+  %7 = icmp ugt i64 %6, -9223372036854775805
+  br i1 %7, label %"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$proto..ContextMessageStatus$GT$$GT$17h599efef425d99a78E.exit", label %8
 
 8:                                                ; preds = %1
   %9 = icmp sgt i64 %6, -9223372036854775805
@@ -1838,9 +1836,8 @@ define noundef zeroext i1 @"_ZN194_$LT$proto..context_operation.._..$LT$impl$u20
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN85_$LT$proto..context_operation..BufferOperation$u20$as$u20$prost..message..Message$GT$5clear17h8cf2ded69c9e3502E"(ptr noalias noundef align 8 dereferenceable(80) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !90, !alias.scope !135, !noundef !4
-  %3 = and i64 %2, -2
-  %switch.i = icmp eq i64 %3, -9223372036854775804
-  br i1 %switch.i, label %"_ZN4core3ptr65drop_in_place$LT$core..option..Option$LT$proto..Operation$GT$$GT$17h8ff3bf4fa10ad17fE.exit", label %4
+  %3 = icmp ugt i64 %2, -9223372036854775805
+  br i1 %3, label %"_ZN4core3ptr65drop_in_place$LT$core..option..Option$LT$proto..Operation$GT$$GT$17h8ff3bf4fa10ad17fE.exit", label %4
 
 4:                                                ; preds = %1
   invoke void @"_ZN4core3ptr46drop_in_place$LT$proto..operation..Variant$GT$17ha506642d59df5052E.llvm.15179913521650988880"(ptr noalias noundef nonnull align 8 dereferenceable(80) %0)

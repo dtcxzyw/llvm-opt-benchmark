@@ -387,9 +387,8 @@ _ZNSt5arrayIiLm128EE4fillERKi.exit:               ; preds = %60
   store i32 %3, ptr %83, align 4, !tbaa !62
   %84 = getelementptr inbounds nuw i8, ptr %45, i64 144
   store i32 %3, ptr %84, align 8, !tbaa !63
-  %85 = add nsw i32 %3, -3
-  %or.cond17 = icmp ult i32 %85, 2
-  br i1 %or.cond17, label %86, label %87
+  %85 = icmp samesign ugt i32 %3, 2
+  br i1 %85, label %86, label %87
 
 86:                                               ; preds = %_ZNSt5arrayIiLm128EE4fillERKi.exit
   store i32 0, ptr %83, align 4, !tbaa !62
@@ -1745,7 +1744,7 @@ define hidden noundef zeroext i1 @_ZN15ContourScanner_11contourScanEiRiRN2cv6Poi
   br i1 %or.cond3, label %136, label %26
 
 26:                                               ; preds = %23
-  %.not = icmp samesign ult i32 %1, 2
+  %.not = icmp eq i32 %1, 1
   br i1 %.not, label %29, label %27
 
 27:                                               ; preds = %26

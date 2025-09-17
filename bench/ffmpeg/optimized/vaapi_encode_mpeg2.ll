@@ -781,9 +781,8 @@ define internal noundef i32 @vaapi_encode_mpeg2_init_picture_params(ptr noundef 
   %25 = select i1 %24, i8 3, i8 2
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 2724
   store i8 %25, ptr %26, align 4, !tbaa !168
-  %27 = and i32 %10, -2
-  %switch56 = icmp eq i32 %27, 2
-  br i1 %switch56, label %28, label %35
+  %27 = icmp ult i32 %10, 4
+  br i1 %27, label %28, label %35
 
 28:                                               ; preds = %16
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 2012

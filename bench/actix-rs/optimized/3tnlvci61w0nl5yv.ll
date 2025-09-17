@@ -231,9 +231,8 @@ define internal fastcc void @"_ZN110_$LT$core..iter..adapters..enumerate..Enumer
 51:                                               ; preds = %46
   tail call void @llvm.experimental.noalias.scope.decl(metadata !56)
   %52 = load i32, ptr %16, align 8, !range !59, !alias.scope !60, !noalias !61, !noundef !9
-  %.off.i.i.i.i.i.i = add nsw i32 %52, -1
-  %switch.i1.i.i.i.i.i = icmp ult i32 %.off.i.i.i.i.i.i, 2
-  br i1 %switch.i1.i.i.i.i.i, label %_ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17hb56f9c0aa2c58affE.exit.thread.i.i.i.i.i, label %_ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17hb56f9c0aa2c58affE.exit.i.i.i.i.i
+  %.not.i.i.i.i.i = icmp eq i32 %52, 0
+  br i1 %.not.i.i.i.i.i, label %_ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17hb56f9c0aa2c58affE.exit.i.i.i.i.i, label %_ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17hb56f9c0aa2c58affE.exit.thread.i.i.i.i.i
 
 _ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17hb56f9c0aa2c58affE.exit.i.i.i.i.i: ; preds = %51
   %53 = getelementptr inbounds nuw i8, ptr %.pre.i.i.i.i, i64 60
@@ -571,9 +570,8 @@ _ZN14regex_automata4meta5regex5Regex19static_captures_len17h3106f2148d8a6e64E.ex
 69:                                               ; preds = %64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !149)
   %70 = load i32, ptr %29, align 8, !range !59, !alias.scope !152, !noalias !153, !noundef !9
-  %.off.i.i.i.i.i.i.i = add nsw i32 %70, -1
-  %switch.i1.i.i.i.i.i.i = icmp ult i32 %.off.i.i.i.i.i.i.i, 2
-  br i1 %switch.i1.i.i.i.i.i.i, label %_ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17hb56f9c0aa2c58affE.exit.thread.i.i.i.i.i.i, label %_ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17hb56f9c0aa2c58affE.exit.i.i.i.i.i.i
+  %.not.i.i.i.i.i.i = icmp eq i32 %70, 0
+  br i1 %.not.i.i.i.i.i.i, label %_ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17hb56f9c0aa2c58affE.exit.i.i.i.i.i.i, label %_ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17hb56f9c0aa2c58affE.exit.thread.i.i.i.i.i.i
 
 _ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17hb56f9c0aa2c58affE.exit.i.i.i.i.i.i: ; preds = %69
   %71 = getelementptr inbounds nuw i8, ptr %20, i64 60
@@ -665,8 +663,8 @@ _ZN14regex_automata4meta5regex5Regex17search_slots_with17h6af6adf9f5a52a22E.exit
 123:                                              ; preds = %119
   %124 = add i64 %116, -1
   %125 = add i64 %121, -1
-  %.not.i.i.i.i.i.i = icmp ugt i64 %124, %125
-  br i1 %.not.i.i.i.i.i.i, label %126, label %131
+  %.not.i4.i.i.i.i.i = icmp ugt i64 %124, %125
+  br i1 %.not.i4.i.i.i.i.i, label %126, label %131
 
 126:                                              ; preds = %123
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !169

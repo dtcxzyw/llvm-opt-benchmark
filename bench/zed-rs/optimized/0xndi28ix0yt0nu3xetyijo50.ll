@@ -801,85 +801,84 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   %6 = load ptr, ptr %0, align 8, !nonnull !30, !align !64, !noundef !30
   tail call void @llvm.experimental.noalias.scope.decl(metadata !113)
   %7 = load i8, ptr %6, align 8, !range !116, !alias.scope !113, !noalias !117, !noundef !30
-  %8 = add nsw i8 %7, -21
-  %9 = icmp ult i8 %8, 10
-  %10 = zext nneg i8 %7 to i64
-  %11 = add nsw i64 %10, -20
-  %12 = select i1 %9, i64 %11, i64 0
-  switch i64 %12, label %13 [
-    i64 0, label %14
-    i64 1, label %16
-    i64 2, label %19
-    i64 3, label %21
-    i64 4, label %23
-    i64 5, label %25
-    i64 6, label %27
-    i64 7, label %29
-    i64 8, label %31
-    i64 9, label %33
-    i64 10, label %35
+  %8 = icmp samesign ugt i8 %7, 20
+  %9 = zext nneg i8 %7 to i64
+  %10 = add nsw i64 %9, -20
+  %11 = select i1 %8, i64 %10, i64 0
+  switch i64 %11, label %12 [
+    i64 0, label %13
+    i64 1, label %15
+    i64 2, label %18
+    i64 3, label %20
+    i64 4, label %22
+    i64 5, label %24
+    i64 6, label %26
+    i64 7, label %28
+    i64 8, label %30
+    i64 9, label %32
+    i64 10, label %34
   ]
 
-13:                                               ; preds = %2
+12:                                               ; preds = %2
   unreachable
 
-14:                                               ; preds = %2
+13:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !119
   store ptr %6, ptr %5, align 8, !noalias !119
-  %15 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17hc799394d65cd7c75E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.055f5b52a96c3685aa482f858b4dd42a.97, i64 noundef 5, ptr noundef nonnull align 1 %5, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.055f5b52a96c3685aa482f858b4dd42a.96)
+  %14 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17hc799394d65cd7c75E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.055f5b52a96c3685aa482f858b4dd42a.97, i64 noundef 5, ptr noundef nonnull align 1 %5, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.055f5b52a96c3685aa482f858b4dd42a.96)
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !119
   br label %"_ZN68_$LT$markdown..parser..MarkdownEvent$u20$as$u20$core..fmt..Debug$GT$3fmt17hc5a828d6b2db1bfaE.exit"
 
-16:                                               ; preds = %2
+15:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !119
-  %17 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  store ptr %17, ptr %4, align 8, !noalias !119
-  %18 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17hc799394d65cd7c75E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.055f5b52a96c3685aa482f858b4dd42a.99, i64 noundef 3, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.055f5b52a96c3685aa482f858b4dd42a.98)
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  store ptr %16, ptr %4, align 8, !noalias !119
+  %17 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17hc799394d65cd7c75E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.055f5b52a96c3685aa482f858b4dd42a.99, i64 noundef 3, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.055f5b52a96c3685aa482f858b4dd42a.98)
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !119
   br label %"_ZN68_$LT$markdown..parser..MarkdownEvent$u20$as$u20$core..fmt..Debug$GT$3fmt17hc5a828d6b2db1bfaE.exit"
 
-19:                                               ; preds = %2
-  %20 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha11c1118505c1ec2E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.055f5b52a96c3685aa482f858b4dd42a.100, i64 noundef 4), !noalias !113
+18:                                               ; preds = %2
+  %19 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha11c1118505c1ec2E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.055f5b52a96c3685aa482f858b4dd42a.100, i64 noundef 4), !noalias !113
   br label %"_ZN68_$LT$markdown..parser..MarkdownEvent$u20$as$u20$core..fmt..Debug$GT$3fmt17hc5a828d6b2db1bfaE.exit"
 
-21:                                               ; preds = %2
-  %22 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha11c1118505c1ec2E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.055f5b52a96c3685aa482f858b4dd42a.101, i64 noundef 4), !noalias !113
+20:                                               ; preds = %2
+  %21 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha11c1118505c1ec2E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.055f5b52a96c3685aa482f858b4dd42a.101, i64 noundef 4), !noalias !113
   br label %"_ZN68_$LT$markdown..parser..MarkdownEvent$u20$as$u20$core..fmt..Debug$GT$3fmt17hc5a828d6b2db1bfaE.exit"
 
-23:                                               ; preds = %2
-  %24 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha11c1118505c1ec2E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.055f5b52a96c3685aa482f858b4dd42a.102, i64 noundef 4), !noalias !113
+22:                                               ; preds = %2
+  %23 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha11c1118505c1ec2E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.055f5b52a96c3685aa482f858b4dd42a.102, i64 noundef 4), !noalias !113
   br label %"_ZN68_$LT$markdown..parser..MarkdownEvent$u20$as$u20$core..fmt..Debug$GT$3fmt17hc5a828d6b2db1bfaE.exit"
 
-25:                                               ; preds = %2
-  %26 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha11c1118505c1ec2E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.055f5b52a96c3685aa482f858b4dd42a.103, i64 noundef 10), !noalias !113
+24:                                               ; preds = %2
+  %25 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha11c1118505c1ec2E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.055f5b52a96c3685aa482f858b4dd42a.103, i64 noundef 10), !noalias !113
   br label %"_ZN68_$LT$markdown..parser..MarkdownEvent$u20$as$u20$core..fmt..Debug$GT$3fmt17hc5a828d6b2db1bfaE.exit"
 
-27:                                               ; preds = %2
-  %28 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha11c1118505c1ec2E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.055f5b52a96c3685aa482f858b4dd42a.104, i64 noundef 17), !noalias !113
+26:                                               ; preds = %2
+  %27 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha11c1118505c1ec2E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.055f5b52a96c3685aa482f858b4dd42a.104, i64 noundef 17), !noalias !113
   br label %"_ZN68_$LT$markdown..parser..MarkdownEvent$u20$as$u20$core..fmt..Debug$GT$3fmt17hc5a828d6b2db1bfaE.exit"
 
-29:                                               ; preds = %2
-  %30 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha11c1118505c1ec2E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.055f5b52a96c3685aa482f858b4dd42a.105, i64 noundef 9), !noalias !113
+28:                                               ; preds = %2
+  %29 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha11c1118505c1ec2E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.055f5b52a96c3685aa482f858b4dd42a.105, i64 noundef 9), !noalias !113
   br label %"_ZN68_$LT$markdown..parser..MarkdownEvent$u20$as$u20$core..fmt..Debug$GT$3fmt17hc5a828d6b2db1bfaE.exit"
 
-31:                                               ; preds = %2
-  %32 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha11c1118505c1ec2E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.055f5b52a96c3685aa482f858b4dd42a.106, i64 noundef 9), !noalias !113
+30:                                               ; preds = %2
+  %31 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha11c1118505c1ec2E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.055f5b52a96c3685aa482f858b4dd42a.106, i64 noundef 9), !noalias !113
   br label %"_ZN68_$LT$markdown..parser..MarkdownEvent$u20$as$u20$core..fmt..Debug$GT$3fmt17hc5a828d6b2db1bfaE.exit"
 
-33:                                               ; preds = %2
-  %34 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha11c1118505c1ec2E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.055f5b52a96c3685aa482f858b4dd42a.107, i64 noundef 4), !noalias !113
+32:                                               ; preds = %2
+  %33 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha11c1118505c1ec2E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.055f5b52a96c3685aa482f858b4dd42a.107, i64 noundef 4), !noalias !113
   br label %"_ZN68_$LT$markdown..parser..MarkdownEvent$u20$as$u20$core..fmt..Debug$GT$3fmt17hc5a828d6b2db1bfaE.exit"
 
-35:                                               ; preds = %2
+34:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !119
-  %36 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  store ptr %36, ptr %3, align 8, !noalias !119
-  %37 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17hc799394d65cd7c75E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.055f5b52a96c3685aa482f858b4dd42a.108, i64 noundef 14, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.055f5b52a96c3685aa482f858b4dd42a.36)
+  %35 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  store ptr %35, ptr %3, align 8, !noalias !119
+  %36 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17hc799394d65cd7c75E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.055f5b52a96c3685aa482f858b4dd42a.108, i64 noundef 14, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.055f5b52a96c3685aa482f858b4dd42a.36)
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !119
   br label %"_ZN68_$LT$markdown..parser..MarkdownEvent$u20$as$u20$core..fmt..Debug$GT$3fmt17hc5a828d6b2db1bfaE.exit"
 
-"_ZN68_$LT$markdown..parser..MarkdownEvent$u20$as$u20$core..fmt..Debug$GT$3fmt17hc5a828d6b2db1bfaE.exit": ; preds = %14, %16, %19, %21, %23, %25, %27, %29, %31, %33, %35
-  %.sroa.0.0.in.i = phi i1 [ %15, %14 ], [ %18, %16 ], [ %20, %19 ], [ %22, %21 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ %30, %29 ], [ %32, %31 ], [ %34, %33 ], [ %37, %35 ]
+"_ZN68_$LT$markdown..parser..MarkdownEvent$u20$as$u20$core..fmt..Debug$GT$3fmt17hc5a828d6b2db1bfaE.exit": ; preds = %13, %15, %18, %20, %22, %24, %26, %28, %30, %32, %34
+  %.sroa.0.0.in.i = phi i1 [ %14, %13 ], [ %17, %15 ], [ %19, %18 ], [ %21, %20 ], [ %23, %22 ], [ %25, %24 ], [ %27, %26 ], [ %29, %28 ], [ %31, %30 ], [ %33, %32 ], [ %36, %34 ]
   ret i1 %.sroa.0.0.in.i
 }
 

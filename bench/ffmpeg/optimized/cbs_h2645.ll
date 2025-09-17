@@ -4722,9 +4722,8 @@ switch.early.test410.i:                           ; preds = %1105
   %1129 = getelementptr inbounds nuw i8, ptr %862, i64 2157
   store i8 %1128, ptr %1129, align 1, !tbaa !178
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
-  %1130 = add nsw i8 %890, -3
-  %or.cond44.i = icmp ult i8 %1130, 2
-  br i1 %or.cond44.i, label %1131, label %1146
+  %1130 = icmp samesign ugt i8 %890, 2
+  br i1 %1130, label %1131, label %1146
 
 1131:                                             ; preds = %1126
   br i1 %892, label %1132, label %1139
@@ -6828,9 +6827,8 @@ switch.early.test486.i:                           ; preds = %979
   br i1 %1000, label %1001, label %.thread
 
 1001:                                             ; preds = %989
-  %1002 = add nsw i8 %746, -3
-  %or.cond44.i = icmp ult i8 %1002, 2
-  br i1 %or.cond44.i, label %1003, label %1016
+  %1002 = icmp samesign ugt i8 %746, 2
+  br i1 %1002, label %1003, label %1016
 
 1003:                                             ; preds = %1001
   br i1 %748, label %1004, label %1010

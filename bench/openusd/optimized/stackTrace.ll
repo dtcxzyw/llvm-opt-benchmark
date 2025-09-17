@@ -3558,7 +3558,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_17aswriteEiPKc.exit: ; preds =
   store i32 %41, ptr %20, align 4
   %46 = tail call i64 @write(i32 noundef 2, ptr noundef nonnull @.str.13, i64 noundef 1)
   store i32 %41, ptr %20, align 4
-  br label %171
+  br label %170
 
 47:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114nonLockingForkEv.exit
   %48 = tail call i32 @isatty(i32 noundef 0) #31
@@ -3593,9 +3593,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_17aswriteEiPKc.exit: ; preds =
   %.not33 = icmp eq ptr %3, null
   br label %60
 
-60:                                               ; preds = %159, %55
-  %.022 = phi i32 [ %2, %55 ], [ %160, %159 ]
-  %.021 = phi i32 [ 0, %55 ], [ %.1, %159 ]
+60:                                               ; preds = %158, %55
+  %.022 = phi i32 [ %2, %55 ], [ %159, %158 ]
+  %.021 = phi i32 [ 0, %55 ], [ %.1, %158 ]
   %61 = icmp sgt i32 %.022, 0
   br i1 %61, label %62, label %64
 
@@ -3608,14 +3608,14 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_17aswriteEiPKc.exit: ; preds =
   %65 = call i32 @waitpid(i32 noundef %.0.i, ptr noundef nonnull %10, i32 noundef 0)
   switch i32 %65, label %95 [
     i32 -1, label %66
-    i32 0, label %157
+    i32 0, label %156
   ]
 
 66:                                               ; preds = %64
   %67 = tail call ptr @__errno_location() #35
   %68 = load i32, ptr %67, align 4
   %.not32 = icmp eq i32 %68, 4
-  br i1 %.not32, label %157, label %69
+  br i1 %.not32, label %156, label %69
 
 69:                                               ; preds = %66
   %70 = sext i32 %68 to i64
@@ -3702,212 +3702,212 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_17aswriteEiPKc.exit62: ; preds
 95:                                               ; preds = %64
   %96 = load i32, ptr %10, align 4
   %97 = and i32 %96, 127
-  %98 = icmp eq i32 %97, 0
-  %99 = tail call ptr @__errno_location() #35
-  br i1 %98, label %100, label %106
+  switch i32 %97, label %105 [
+    i32 0, label %98
+    i32 127, label %128
+  ]
 
-100:                                              ; preds = %95
-  %101 = lshr i32 %96, 8
-  %102 = and i32 %101, 255
-  %103 = icmp eq i32 %102, 127
-  br i1 %103, label %104, label %._crit_edge
+98:                                               ; preds = %95
+  %99 = lshr i32 %96, 8
+  %100 = and i32 %99, 255
+  %101 = icmp eq i32 %100, 127
+  %102 = tail call ptr @__errno_location() #35
+  br i1 %101, label %103, label %._crit_edge
 
-104:                                              ; preds = %100
-  store i32 2, ptr %99, align 4
-  %105 = call i64 @write(i32 noundef 2, ptr noundef nonnull @.str.17, i64 noundef 35)
-  store i32 2, ptr %99, align 4
+103:                                              ; preds = %98
+  store i32 2, ptr %102, align 4
+  %104 = call i64 @write(i32 noundef 2, ptr noundef nonnull @.str.17, i64 noundef 35)
+  store i32 2, ptr %102, align 4
   br label %._crit_edge
 
-106:                                              ; preds = %95
-  %107 = shl nuw nsw i32 %97, 24
-  %sext = add nuw i32 %107, 16777216
-  %108 = icmp sgt i32 %sext, 33554431
-  store i32 4, ptr %99, align 4
-  %109 = load i32, ptr %10, align 4
-  br i1 %108, label %110, label %131
+105:                                              ; preds = %95
+  %106 = tail call ptr @__errno_location() #35
+  store i32 4, ptr %106, align 4
+  %107 = load i32, ptr %10, align 4
+  %108 = and i32 %107, 127
+  %109 = zext nneg i32 %108 to i64
+  %110 = icmp samesign ugt i32 %108, 9
+  br i1 %110, label %.lr.ph.i.i77, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111asNumDigitsEl.exit.i71
 
-110:                                              ; preds = %106
-  %111 = and i32 %109, 127
-  %112 = zext nneg i32 %111 to i64
-  %113 = icmp samesign ugt i32 %111, 9
-  br i1 %113, label %.lr.ph.i.i77, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111asNumDigitsEl.exit.i71
-
-.lr.ph.i.i77:                                     ; preds = %110, %.lr.ph.i.i77
-  %.113.i.i78 = phi i64 [ %114, %.lr.ph.i.i77 ], [ 1, %110 ]
-  %.1812.i.i79 = phi i64 [ %115, %.lr.ph.i.i77 ], [ %112, %110 ]
-  %114 = add i64 %.113.i.i78, 1
-  %115 = udiv i64 %.1812.i.i79, 10
-  %116 = icmp samesign ugt i64 %.1812.i.i79, 99
-  br i1 %116, label %.lr.ph.i.i77, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111asNumDigitsEl.exit.thread.i80, !llvm.loop !16
+.lr.ph.i.i77:                                     ; preds = %105, %.lr.ph.i.i77
+  %.113.i.i78 = phi i64 [ %111, %.lr.ph.i.i77 ], [ 1, %105 ]
+  %.1812.i.i79 = phi i64 [ %112, %.lr.ph.i.i77 ], [ %109, %105 ]
+  %111 = add i64 %.113.i.i78, 1
+  %112 = udiv i64 %.1812.i.i79, 10
+  %113 = icmp samesign ugt i64 %.1812.i.i79, 99
+  br i1 %113, label %.lr.ph.i.i77, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111asNumDigitsEl.exit.thread.i80, !llvm.loop !16
 
 _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111asNumDigitsEl.exit.thread.i80: ; preds = %.lr.ph.i.i77
-  %117 = getelementptr inbounds i8, ptr %12, i64 %114
-  store i8 0, ptr %117, align 1
+  %114 = getelementptr inbounds i8, ptr %12, i64 %111
+  store i8 0, ptr %114, align 1
   br label %.preheader.i73.preheader
 
 .preheader.i73.preheader:                         ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111asNumDigitsEl.exit.i71, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111asNumDigitsEl.exit.thread.i80
-  %.117.i74.ph = phi ptr [ %118, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111asNumDigitsEl.exit.i71 ], [ %117, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111asNumDigitsEl.exit.thread.i80 ]
+  %.117.i74.ph = phi ptr [ %115, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111asNumDigitsEl.exit.i71 ], [ %114, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111asNumDigitsEl.exit.thread.i80 ]
   br label %.preheader.i73
 
-_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111asNumDigitsEl.exit.i71: ; preds = %110
-  %118 = getelementptr inbounds nuw i8, ptr %12, i64 1
-  store i8 0, ptr %118, align 1
-  %119 = icmp eq i32 %111, 0
-  br i1 %119, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPcl.exit81.thread, label %.preheader.i73.preheader
+_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111asNumDigitsEl.exit.i71: ; preds = %105
+  %115 = getelementptr inbounds nuw i8, ptr %12, i64 1
+  store i8 0, ptr %115, align 1
+  %116 = icmp eq i32 %108, 0
+  br i1 %116, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPcl.exit81.thread, label %.preheader.i73.preheader
 
 _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPcl.exit81.thread: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111asNumDigitsEl.exit.i71
   store i8 48, ptr %12, align 16
-  %120 = call i64 @write(i32 noundef 2, ptr noundef nonnull @.str.18, i64 noundef 33)
-  store i32 4, ptr %99, align 4
+  %117 = call i64 @write(i32 noundef 2, ptr noundef nonnull @.str.18, i64 noundef 33)
+  store i32 4, ptr %106, align 4
   br label %.lr.ph.preheader.i.i86
 
 .preheader.i73:                                   ; preds = %.preheader.i73.preheader, %.preheader.i73
-  %.117.i74 = phi ptr [ %124, %.preheader.i73 ], [ %.117.i74.ph, %.preheader.i73.preheader ]
-  %.11316.i75 = phi i64 [ %125, %.preheader.i73 ], [ %112, %.preheader.i73.preheader ]
-  %121 = urem i64 %.11316.i75, 10
-  %122 = getelementptr inbounds nuw i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPclE5digit, i64 %121
-  %123 = load i8, ptr %122, align 1
-  %124 = getelementptr inbounds i8, ptr %.117.i74, i64 -1
-  store i8 %123, ptr %124, align 1
-  %125 = udiv i64 %.11316.i75, 10
+  %.117.i74 = phi ptr [ %121, %.preheader.i73 ], [ %.117.i74.ph, %.preheader.i73.preheader ]
+  %.11316.i75 = phi i64 [ %122, %.preheader.i73 ], [ %109, %.preheader.i73.preheader ]
+  %118 = urem i64 %.11316.i75, 10
+  %119 = getelementptr inbounds nuw i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPclE5digit, i64 %118
+  %120 = load i8, ptr %119, align 1
+  %121 = getelementptr inbounds i8, ptr %.117.i74, i64 -1
+  store i8 %120, ptr %121, align 1
+  %122 = udiv i64 %.11316.i75, 10
   %.not.i76 = icmp samesign ult i64 %.11316.i75, 10
   br i1 %.not.i76, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPcl.exit81, label %.preheader.i73, !llvm.loop !17
 
 _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPcl.exit81: ; preds = %.preheader.i73
   %.pr = load i8, ptr %12, align 16
-  %126 = icmp eq i8 %.pr, 0
-  %127 = call i64 @write(i32 noundef 2, ptr noundef nonnull @.str.18, i64 noundef 33)
-  store i32 4, ptr %99, align 4
-  br i1 %126, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_17aswriteEiPKc.exit90, label %.lr.ph.preheader.i.i86
+  %123 = icmp eq i8 %.pr, 0
+  %124 = call i64 @write(i32 noundef 2, ptr noundef nonnull @.str.18, i64 noundef 33)
+  store i32 4, ptr %106, align 4
+  br i1 %123, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_17aswriteEiPKc.exit90, label %.lr.ph.preheader.i.i86
 
 .lr.ph.preheader.i.i86:                           ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPcl.exit81.thread, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPcl.exit81
   %scevgep.i.i87 = getelementptr inbounds nuw i8, ptr %12, i64 1
   %strlen.i.i88 = call i64 @strlen(ptr nonnull readonly dereferenceable(1) %scevgep.i.i87)
-  %128 = add i64 %strlen.i.i88, 1
+  %125 = add i64 %strlen.i.i88, 1
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_17aswriteEiPKc.exit90
 
 _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_17aswriteEiPKc.exit90: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPcl.exit81, %.lr.ph.preheader.i.i86
-  %.0.i.i89 = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPcl.exit81 ], [ %128, %.lr.ph.preheader.i.i86 ]
-  %129 = call i64 @write(i32 noundef 2, ptr noundef nonnull readonly %12, i64 noundef %.0.i.i89)
-  store i32 4, ptr %99, align 4
-  %130 = call i64 @write(i32 noundef 2, ptr noundef nonnull @.str.13, i64 noundef 1)
-  store i32 4, ptr %99, align 4
+  %.0.i.i89 = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPcl.exit81 ], [ %125, %.lr.ph.preheader.i.i86 ]
+  %126 = call i64 @write(i32 noundef 2, ptr noundef nonnull readonly %12, i64 noundef %.0.i.i89)
+  store i32 4, ptr %106, align 4
+  %127 = call i64 @write(i32 noundef 2, ptr noundef nonnull @.str.13, i64 noundef 1)
+  store i32 4, ptr %106, align 4
   br label %._crit_edge
 
-131:                                              ; preds = %106
-  %132 = sext i32 %109 to i64
-  %133 = icmp slt i32 %109, 0
-  br i1 %133, label %134, label %137
+128:                                              ; preds = %95
+  %129 = tail call ptr @__errno_location() #35
+  store i32 4, ptr %129, align 4
+  %130 = load i32, ptr %10, align 4
+  %131 = sext i32 %130 to i64
+  %132 = icmp slt i32 %130, 0
+  br i1 %132, label %133, label %136
 
-134:                                              ; preds = %131
-  %135 = sub nsw i64 0, %132
-  %136 = getelementptr inbounds nuw i8, ptr %13, i64 1
+133:                                              ; preds = %128
+  %134 = sub nsw i64 0, %131
+  %135 = getelementptr inbounds nuw i8, ptr %13, i64 1
   store i8 45, ptr %13, align 16
-  br label %137
+  br label %136
 
-137:                                              ; preds = %134, %131
-  %.012.i94 = phi i64 [ %135, %134 ], [ %132, %131 ]
-  %.0.i95 = phi ptr [ %136, %134 ], [ %13, %131 ]
-  %138 = icmp samesign ugt i64 %.012.i94, 9
-  br i1 %138, label %.lr.ph.i.i102, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111asNumDigitsEl.exit.i96
+136:                                              ; preds = %133, %128
+  %.012.i94 = phi i64 [ %134, %133 ], [ %131, %128 ]
+  %.0.i95 = phi ptr [ %135, %133 ], [ %13, %128 ]
+  %137 = icmp samesign ugt i64 %.012.i94, 9
+  br i1 %137, label %.lr.ph.i.i102, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111asNumDigitsEl.exit.i96
 
-.lr.ph.i.i102:                                    ; preds = %137, %.lr.ph.i.i102
-  %.113.i.i103 = phi i64 [ %139, %.lr.ph.i.i102 ], [ 1, %137 ]
-  %.1812.i.i104 = phi i64 [ %140, %.lr.ph.i.i102 ], [ %.012.i94, %137 ]
-  %139 = add i64 %.113.i.i103, 1
-  %140 = udiv i64 %.1812.i.i104, 10
-  %141 = icmp samesign ugt i64 %.1812.i.i104, 99
-  br i1 %141, label %.lr.ph.i.i102, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111asNumDigitsEl.exit.thread.i105, !llvm.loop !16
+.lr.ph.i.i102:                                    ; preds = %136, %.lr.ph.i.i102
+  %.113.i.i103 = phi i64 [ %138, %.lr.ph.i.i102 ], [ 1, %136 ]
+  %.1812.i.i104 = phi i64 [ %139, %.lr.ph.i.i102 ], [ %.012.i94, %136 ]
+  %138 = add i64 %.113.i.i103, 1
+  %139 = udiv i64 %.1812.i.i104, 10
+  %140 = icmp samesign ugt i64 %.1812.i.i104, 99
+  br i1 %140, label %.lr.ph.i.i102, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111asNumDigitsEl.exit.thread.i105, !llvm.loop !16
 
 _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111asNumDigitsEl.exit.thread.i105: ; preds = %.lr.ph.i.i102
-  %142 = getelementptr inbounds i8, ptr %.0.i95, i64 %139
-  store i8 0, ptr %142, align 1
+  %141 = getelementptr inbounds i8, ptr %.0.i95, i64 %138
+  store i8 0, ptr %141, align 1
   br label %.preheader.i98.preheader
 
 .preheader.i98.preheader:                         ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111asNumDigitsEl.exit.i96, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111asNumDigitsEl.exit.thread.i105
-  %.117.i99.ph = phi ptr [ %143, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111asNumDigitsEl.exit.i96 ], [ %142, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111asNumDigitsEl.exit.thread.i105 ]
+  %.117.i99.ph = phi ptr [ %142, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111asNumDigitsEl.exit.i96 ], [ %141, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111asNumDigitsEl.exit.thread.i105 ]
   br label %.preheader.i98
 
-_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111asNumDigitsEl.exit.i96: ; preds = %137
-  %143 = getelementptr inbounds nuw i8, ptr %.0.i95, i64 1
-  store i8 0, ptr %143, align 1
-  %144 = icmp eq i64 %.012.i94, 0
-  br i1 %144, label %145, label %.preheader.i98.preheader
+_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111asNumDigitsEl.exit.i96: ; preds = %136
+  %142 = getelementptr inbounds nuw i8, ptr %.0.i95, i64 1
+  store i8 0, ptr %142, align 1
+  %143 = icmp eq i64 %.012.i94, 0
+  br i1 %143, label %144, label %.preheader.i98.preheader
 
-145:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111asNumDigitsEl.exit.i96
+144:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111asNumDigitsEl.exit.i96
   store i8 48, ptr %.0.i95, align 1
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPcl.exit106
 
 .preheader.i98:                                   ; preds = %.preheader.i98.preheader, %.preheader.i98
-  %.117.i99 = phi ptr [ %149, %.preheader.i98 ], [ %.117.i99.ph, %.preheader.i98.preheader ]
-  %.11316.i100 = phi i64 [ %150, %.preheader.i98 ], [ %.012.i94, %.preheader.i98.preheader ]
-  %146 = urem i64 %.11316.i100, 10
-  %147 = getelementptr inbounds nuw i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPclE5digit, i64 %146
-  %148 = load i8, ptr %147, align 1
-  %149 = getelementptr inbounds i8, ptr %.117.i99, i64 -1
-  store i8 %148, ptr %149, align 1
-  %150 = udiv i64 %.11316.i100, 10
+  %.117.i99 = phi ptr [ %148, %.preheader.i98 ], [ %.117.i99.ph, %.preheader.i98.preheader ]
+  %.11316.i100 = phi i64 [ %149, %.preheader.i98 ], [ %.012.i94, %.preheader.i98.preheader ]
+  %145 = urem i64 %.11316.i100, 10
+  %146 = getelementptr inbounds nuw i8, ptr @_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPclE5digit, i64 %145
+  %147 = load i8, ptr %146, align 1
+  %148 = getelementptr inbounds i8, ptr %.117.i99, i64 -1
+  store i8 %147, ptr %148, align 1
+  %149 = udiv i64 %.11316.i100, 10
   %.not.i101 = icmp samesign ult i64 %.11316.i100, 10
   br i1 %.not.i101, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPcl.exit106.loopexit, label %.preheader.i98, !llvm.loop !17
 
 _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPcl.exit106.loopexit: ; preds = %.preheader.i98
-  %.pre133 = load i32, ptr %99, align 4
+  %.pre133 = load i32, ptr %129, align 4
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPcl.exit106
 
-_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPcl.exit106: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPcl.exit106.loopexit, %145
-  %151 = phi i32 [ %.pre133, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPcl.exit106.loopexit ], [ 4, %145 ]
-  %152 = call i64 @write(i32 noundef 2, ptr noundef nonnull @.str.19, i64 noundef 43)
-  store i32 %151, ptr %99, align 4
-  %153 = load i8, ptr %13, align 16
-  %.not56.i.i110 = icmp eq i8 %153, 0
+_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPcl.exit106: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPcl.exit106.loopexit, %144
+  %150 = phi i32 [ %.pre133, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPcl.exit106.loopexit ], [ 4, %144 ]
+  %151 = call i64 @write(i32 noundef 2, ptr noundef nonnull @.str.19, i64 noundef 43)
+  store i32 %150, ptr %129, align 4
+  %152 = load i8, ptr %13, align 16
+  %.not56.i.i110 = icmp eq i8 %152, 0
   br i1 %.not56.i.i110, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_17aswriteEiPKc.exit115, label %.lr.ph.preheader.i.i111
 
 .lr.ph.preheader.i.i111:                          ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPcl.exit106
   %scevgep.i.i112 = getelementptr inbounds nuw i8, ptr %13, i64 1
   %strlen.i.i113 = call i64 @strlen(ptr nonnull readonly dereferenceable(1) %scevgep.i.i112)
-  %154 = add i64 %strlen.i.i113, 1
+  %153 = add i64 %strlen.i.i113, 1
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_17aswriteEiPKc.exit115
 
 _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_17aswriteEiPKc.exit115: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPcl.exit106, %.lr.ph.preheader.i.i111
-  %.0.i.i114 = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPcl.exit106 ], [ %154, %.lr.ph.preheader.i.i111 ]
-  %155 = call i64 @write(i32 noundef 2, ptr noundef nonnull readonly %13, i64 noundef %.0.i.i114)
-  store i32 %151, ptr %99, align 4
-  %156 = call i64 @write(i32 noundef 2, ptr noundef nonnull @.str.13, i64 noundef 1)
-  store i32 %151, ptr %99, align 4
+  %.0.i.i114 = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_16asitoaEPcl.exit106 ], [ %153, %.lr.ph.preheader.i.i111 ]
+  %154 = call i64 @write(i32 noundef 2, ptr noundef nonnull readonly %13, i64 noundef %.0.i.i114)
+  store i32 %150, ptr %129, align 4
+  %155 = call i64 @write(i32 noundef 2, ptr noundef nonnull @.str.13, i64 noundef 1)
+  store i32 %150, ptr %129, align 4
   br label %._crit_edge
 
-157:                                              ; preds = %64, %66
-  br i1 %.not33, label %159, label %158
+156:                                              ; preds = %64, %66
+  br i1 %.not33, label %158, label %157
 
-158:                                              ; preds = %157
+157:                                              ; preds = %156
   call void %3(ptr noundef %4)
-  br label %159
+  br label %158
 
-159:                                              ; preds = %158, %157
-  %160 = sub nsw i32 %.022, %.1
-  %161 = icmp sgt i32 %160, 0
-  br i1 %161, label %60, label %162, !llvm.loop !34
+158:                                              ; preds = %157, %156
+  %159 = sub nsw i32 %.022, %.1
+  %160 = icmp sgt i32 %159, 0
+  br i1 %160, label %60, label %161, !llvm.loop !34
 
-162:                                              ; preds = %159
-  %163 = call i32 @alarm(i32 noundef 0) #31
-  %164 = call i32 @kill(i32 noundef %.0.i, i32 noundef 9) #31
-  %165 = call i32 @waitpid(i32 noundef %.0.i, ptr noundef null, i32 noundef 0)
-  %166 = tail call ptr @__errno_location() #35
-  store i32 16, ptr %166, align 4
-  %167 = call i64 @write(i32 noundef 2, ptr noundef nonnull @.str.20, i64 noundef 30)
-  store i32 16, ptr %166, align 4
+161:                                              ; preds = %158
+  %162 = call i32 @alarm(i32 noundef 0) #31
+  %163 = call i32 @kill(i32 noundef %.0.i, i32 noundef 9) #31
+  %164 = call i32 @waitpid(i32 noundef %.0.i, ptr noundef null, i32 noundef 0)
+  %165 = tail call ptr @__errno_location() #35
+  store i32 16, ptr %165, align 4
+  %166 = call i64 @write(i32 noundef 2, ptr noundef nonnull @.str.20, i64 noundef 30)
+  store i32 16, ptr %165, align 4
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %100, %104, %162, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_17aswriteEiPKc.exit115, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_17aswriteEiPKc.exit90, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_17aswriteEiPKc.exit62
-  %.pre-phi = phi ptr [ %99, %104 ], [ %166, %162 ], [ %99, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_17aswriteEiPKc.exit115 ], [ %99, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_17aswriteEiPKc.exit90 ], [ %67, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_17aswriteEiPKc.exit62 ], [ %99, %100 ]
-  %.023 = phi i32 [ 127, %104 ], [ -1, %162 ], [ -1, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_17aswriteEiPKc.exit115 ], [ -1, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_17aswriteEiPKc.exit90 ], [ -1, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_17aswriteEiPKc.exit62 ], [ %102, %100 ]
-  %168 = load i32, ptr %.pre-phi, align 4
-  %169 = call i32 @alarm(i32 noundef 0) #31
-  %170 = call i32 @sigaction(i32 noundef 14, ptr noundef nonnull %7, ptr noundef null) #31
-  store i32 %168, ptr %.pre-phi, align 4
-  br label %171
+._crit_edge:                                      ; preds = %98, %103, %161, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_17aswriteEiPKc.exit115, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_17aswriteEiPKc.exit90, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_17aswriteEiPKc.exit62
+  %.pre-phi = phi ptr [ %102, %103 ], [ %165, %161 ], [ %129, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_17aswriteEiPKc.exit115 ], [ %106, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_17aswriteEiPKc.exit90 ], [ %67, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_17aswriteEiPKc.exit62 ], [ %102, %98 ]
+  %.023 = phi i32 [ 127, %103 ], [ -1, %161 ], [ -1, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_17aswriteEiPKc.exit115 ], [ -1, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_17aswriteEiPKc.exit90 ], [ -1, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_17aswriteEiPKc.exit62 ], [ %100, %98 ]
+  %167 = load i32, ptr %.pre-phi, align 4
+  %168 = call i32 @alarm(i32 noundef 0) #31
+  %169 = call i32 @sigaction(i32 noundef 14, ptr noundef nonnull %7, ptr noundef null) #31
+  store i32 %167, ptr %.pre-phi, align 4
+  br label %170
 
-171:                                              ; preds = %._crit_edge, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_17aswriteEiPKc.exit
+170:                                              ; preds = %._crit_edge, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_17aswriteEiPKc.exit
   %.0 = phi i32 [ -1, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_17aswriteEiPKc.exit ], [ %.023, %._crit_edge ]
   ret i32 %.0
 }

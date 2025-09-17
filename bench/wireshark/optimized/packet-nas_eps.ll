@@ -2286,9 +2286,8 @@ calc_bitrate.exit175:                             ; preds = %38, %42, %45
   br label %calc_bitrate_ext.exit
 
 66:                                               ; preds = %61
-  %67 = add i8 %56, -75
-  %or.cond5.i177 = icmp ult i8 %67, 112
-  br i1 %or.cond5.i177, label %68, label %70
+  %67 = icmp ult i8 %56, -69
+  br i1 %67, label %68, label %70
 
 68:                                               ; preds = %66
   %69 = add nsw i32 %62, -58
@@ -2361,9 +2360,8 @@ calc_bitrate_ext.exit:                            ; preds = %63, %68, %70, %72
   br label %calc_bitrate_ext.exit183
 
 106:                                              ; preds = %101
-  %107 = add i8 %96, -75
-  %or.cond5.i180 = icmp ult i8 %107, 112
-  br i1 %or.cond5.i180, label %108, label %110
+  %107 = icmp ult i8 %96, -69
+  br i1 %107, label %108, label %110
 
 108:                                              ; preds = %106
   %109 = add nsw i32 %102, -58
@@ -2687,9 +2685,8 @@ calc_bitrate.exit226:                             ; preds = %85, %89, %92
   br label %calc_bitrate_ext.exit
 
 110:                                              ; preds = %104
-  %111 = add i8 %99, -75
-  %or.cond5.i228 = icmp ult i8 %111, 112
-  br i1 %or.cond5.i228, label %112, label %114
+  %111 = icmp ult i8 %99, -69
+  br i1 %111, label %112, label %114
 
 112:                                              ; preds = %110
   %113 = add nsw i32 %105, -58
@@ -2739,9 +2736,8 @@ calc_bitrate_ext.exit:                            ; preds = %107, %112, %114, %1
   br label %calc_bitrate_ext.exit234
 
 137:                                              ; preds = %131
-  %138 = add i8 %126, -75
-  %or.cond5.i231 = icmp ult i8 %138, 112
-  br i1 %or.cond5.i231, label %139, label %141
+  %138 = icmp ult i8 %126, -69
+  br i1 %138, label %139, label %141
 
 139:                                              ; preds = %137
   %140 = add nsw i32 %132, -58
@@ -2791,9 +2787,8 @@ calc_bitrate_ext.exit234:                         ; preds = %134, %139, %141, %1
   br label %calc_bitrate_ext.exit239
 
 164:                                              ; preds = %158
-  %165 = add i8 %153, -75
-  %or.cond5.i236 = icmp ult i8 %165, 112
-  br i1 %or.cond5.i236, label %166, label %168
+  %165 = icmp ult i8 %153, -69
+  br i1 %165, label %166, label %168
 
 166:                                              ; preds = %164
   %167 = add nsw i32 %159, -58
@@ -2843,9 +2838,8 @@ calc_bitrate_ext.exit239:                         ; preds = %161, %166, %168, %1
   br label %calc_bitrate_ext.exit244
 
 191:                                              ; preds = %185
-  %192 = add i8 %180, -75
-  %or.cond5.i241 = icmp ult i8 %192, 112
-  br i1 %or.cond5.i241, label %193, label %195
+  %192 = icmp ult i8 %180, -69
+  br i1 %192, label %193, label %195
 
 193:                                              ; preds = %191
   %194 = add nsw i32 %186, -58

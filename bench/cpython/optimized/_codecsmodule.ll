@@ -1102,128 +1102,129 @@ define internal ptr @_codecs_encode(ptr readnone captures(none) %0, ptr noundef 
   %7 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %10, label %.thread
+  br i1 %.not, label %11, label %.thread79
 
-.thread:                                          ; preds = %4
+.thread79:                                        ; preds = %4
   %8 = getelementptr i8, ptr %3, i64 16
   %.val59 = load i64, ptr %8, align 8, !tbaa !23
-  %9 = add i64 %.val59, %2
-  br label %14
+  %9 = add i64 %2, -1
+  %10 = add i64 %9, %.val59
+  br label %16
 
-10:                                               ; preds = %4
-  %11 = add i64 %2, -1
-  %12 = icmp ult i64 %11, 3
-  %13 = icmp ne ptr %1, null
-  %or.cond5 = and i1 %13, %12
-  br i1 %or.cond5, label %.thread62, label %14
+11:                                               ; preds = %4
+  %12 = add i64 %2, -1
+  %13 = icmp ult i64 %12, 3
+  %14 = icmp ne ptr %1, null
+  %15 = and i1 %14, %13
+  br i1 %15, label %.thread, label %16
 
-14:                                               ; preds = %10, %.thread
-  %15 = phi i64 [ %9, %.thread ], [ %2, %10 ]
-  %16 = call ptr @_PyArg_UnpackKeywords(ptr noundef %1, i64 noundef %2, ptr noundef null, ptr noundef %3, ptr noundef nonnull @_codecs_encode._parser, i32 noundef 1, i32 noundef 3, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %5) #5
-  %.not48 = icmp eq ptr %16, null
-  br i1 %.not48, label %55, label %.thread62
+16:                                               ; preds = %.thread79, %11
+  %17 = phi i64 [ %10, %.thread79 ], [ %12, %11 ]
+  %18 = call ptr @_PyArg_UnpackKeywords(ptr noundef %1, i64 noundef %2, ptr noundef null, ptr noundef %3, ptr noundef nonnull @_codecs_encode._parser, i32 noundef 1, i32 noundef 3, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %5) #5
+  %.not48 = icmp eq ptr %18, null
+  br i1 %.not48, label %57, label %.thread
 
-.thread62:                                        ; preds = %10, %14
-  %17 = phi ptr [ %16, %14 ], [ %1, %10 ]
-  %18 = phi i64 [ %15, %14 ], [ %2, %10 ]
-  %19 = load ptr, ptr %17, align 8, !tbaa !22
-  %.not49 = icmp eq i64 %18, 1
-  br i1 %.not49, label %.thread68, label %20
+.thread:                                          ; preds = %11, %16
+  %19 = phi i64 [ %17, %16 ], [ %12, %11 ]
+  %20 = phi ptr [ %18, %16 ], [ %1, %11 ]
+  %21 = load ptr, ptr %20, align 8, !tbaa !22
+  %.not49 = icmp eq i64 %19, 0
+  br i1 %.not49, label %.thread65, label %22
 
-20:                                               ; preds = %.thread62
-  %21 = getelementptr i8, ptr %17, i64 8
-  %22 = load ptr, ptr %21, align 8, !tbaa !22
-  %.not50 = icmp eq ptr %22, null
-  br i1 %.not50, label %.thread66, label %23
+22:                                               ; preds = %.thread
+  %23 = getelementptr i8, ptr %20, i64 8
+  %24 = load ptr, ptr %23, align 8, !tbaa !22
+  %.not50 = icmp eq ptr %24, null
+  br i1 %.not50, label %.thread63, label %25
 
-23:                                               ; preds = %20
-  %24 = getelementptr i8, ptr %22, i64 8
-  %.val = load ptr, ptr %24, align 8, !tbaa !4
-  %25 = getelementptr i8, ptr %.val, i64 168
-  %.val57 = load i64, ptr %25, align 8, !tbaa !10
-  %26 = and i64 %.val57, 268435456
-  %.not51 = icmp eq i64 %26, 0
-  br i1 %.not51, label %27, label %28
+25:                                               ; preds = %22
+  %26 = getelementptr i8, ptr %24, i64 8
+  %.val = load ptr, ptr %26, align 8, !tbaa !4
+  %27 = getelementptr i8, ptr %.val, i64 168
+  %.val57 = load i64, ptr %27, align 8, !tbaa !10
+  %28 = and i64 %.val57, 268435456
+  %.not51 = icmp eq i64 %28, 0
+  br i1 %.not51, label %29, label %30
 
-27:                                               ; preds = %23
-  call void @_PyArg_BadArgument(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.43, ptr noundef nonnull %22) #5
-  br label %55
+29:                                               ; preds = %25
+  call void @_PyArg_BadArgument(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.43, ptr noundef nonnull %24) #5
+  br label %57
 
-28:                                               ; preds = %23
+30:                                               ; preds = %25
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %29 = call ptr @PyUnicode_AsUTF8AndSize(ptr noundef nonnull %22, ptr noundef nonnull %6) #5
-  %30 = icmp eq ptr %29, null
-  br i1 %30, label %.thread64, label %31
+  %31 = call ptr @PyUnicode_AsUTF8AndSize(ptr noundef nonnull %24, ptr noundef nonnull %6) #5
+  %32 = icmp eq ptr %31, null
+  br i1 %32, label %.thread61, label %33
 
-31:                                               ; preds = %28
-  %32 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %29) #6
-  %33 = load i64, ptr %6, align 8, !tbaa !21
-  %.not52 = icmp eq i64 %32, %33
-  br i1 %.not52, label %36, label %34
+33:                                               ; preds = %30
+  %34 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %31) #6
+  %35 = load i64, ptr %6, align 8, !tbaa !21
+  %.not52 = icmp eq i64 %34, %35
+  br i1 %.not52, label %38, label %36
 
-34:                                               ; preds = %31
-  %35 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !22
-  call void @PyErr_SetString(ptr noundef %35, ptr noundef nonnull @.str.44) #5
-  br label %.thread64
+36:                                               ; preds = %33
+  %37 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !22
+  call void @PyErr_SetString(ptr noundef %37, ptr noundef nonnull @.str.44) #5
+  br label %.thread61
 
-36:                                               ; preds = %31
-  %.not53 = icmp eq i64 %18, 2
+38:                                               ; preds = %33
+  %.not53 = icmp eq i64 %19, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br i1 %.not53, label %_codecs_encode_impl.exit, label %.thread66
+  br i1 %.not53, label %_codecs_encode_impl.exit, label %.thread63
 
-.thread64:                                        ; preds = %34, %28
+.thread61:                                        ; preds = %36, %30
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %55
+  br label %57
 
-.thread66:                                        ; preds = %36, %20
-  %.1 = phi ptr [ null, %20 ], [ %29, %36 ]
-  %37 = getelementptr i8, ptr %17, i64 16
-  %38 = load ptr, ptr %37, align 8, !tbaa !22
-  %39 = getelementptr i8, ptr %38, i64 8
-  %.val56 = load ptr, ptr %39, align 8, !tbaa !4
-  %40 = getelementptr i8, ptr %.val56, i64 168
-  %.val58 = load i64, ptr %40, align 8, !tbaa !10
-  %41 = and i64 %.val58, 268435456
-  %.not54 = icmp eq i64 %41, 0
-  br i1 %.not54, label %42, label %43
+.thread63:                                        ; preds = %38, %22
+  %.1 = phi ptr [ null, %22 ], [ %31, %38 ]
+  %39 = getelementptr i8, ptr %20, i64 16
+  %40 = load ptr, ptr %39, align 8, !tbaa !22
+  %41 = getelementptr i8, ptr %40, i64 8
+  %.val56 = load ptr, ptr %41, align 8, !tbaa !4
+  %42 = getelementptr i8, ptr %.val56, i64 168
+  %.val58 = load i64, ptr %42, align 8, !tbaa !10
+  %43 = and i64 %.val58, 268435456
+  %.not54 = icmp eq i64 %43, 0
+  br i1 %.not54, label %44, label %45
 
-42:                                               ; preds = %.thread66
-  call void @_PyArg_BadArgument(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.43, ptr noundef nonnull %38) #5
-  br label %55
+44:                                               ; preds = %.thread63
+  call void @_PyArg_BadArgument(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.43, ptr noundef nonnull %40) #5
+  br label %57
 
-43:                                               ; preds = %.thread66
-  %44 = call ptr @PyUnicode_AsUTF8AndSize(ptr noundef nonnull %38, ptr noundef nonnull %7) #5
-  %45 = icmp eq ptr %44, null
-  br i1 %45, label %55, label %46
+45:                                               ; preds = %.thread63
+  %46 = call ptr @PyUnicode_AsUTF8AndSize(ptr noundef nonnull %40, ptr noundef nonnull %7) #5
+  %47 = icmp eq ptr %46, null
+  br i1 %47, label %57, label %48
 
-46:                                               ; preds = %43
-  %47 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %44) #6
-  %48 = load i64, ptr %7, align 8, !tbaa !21
-  %.not55 = icmp eq i64 %47, %48
-  br i1 %.not55, label %51, label %49
+48:                                               ; preds = %45
+  %49 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %46) #6
+  %50 = load i64, ptr %7, align 8, !tbaa !21
+  %.not55 = icmp eq i64 %49, %50
+  br i1 %.not55, label %53, label %51
 
-49:                                               ; preds = %46
-  %50 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !22
-  call void @PyErr_SetString(ptr noundef %50, ptr noundef nonnull @.str.44) #5
-  br label %55
+51:                                               ; preds = %48
+  %52 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !22
+  call void @PyErr_SetString(ptr noundef %52, ptr noundef nonnull @.str.44) #5
+  br label %57
 
-51:                                               ; preds = %46
-  %52 = icmp eq ptr %.1, null
-  br i1 %52, label %.thread68, label %_codecs_encode_impl.exit
+53:                                               ; preds = %48
+  %54 = icmp eq ptr %.1, null
+  br i1 %54, label %.thread65, label %_codecs_encode_impl.exit
 
-.thread68:                                        ; preds = %.thread62, %51
-  %.03772 = phi ptr [ %44, %51 ], [ null, %.thread62 ]
-  %53 = call ptr @PyUnicode_GetDefaultEncoding() #5
+.thread65:                                        ; preds = %.thread, %53
+  %.03769 = phi ptr [ %46, %53 ], [ null, %.thread ]
+  %55 = call ptr @PyUnicode_GetDefaultEncoding() #5
   br label %_codecs_encode_impl.exit
 
-_codecs_encode_impl.exit:                         ; preds = %36, %51, %.thread68
-  %.03771 = phi ptr [ %.03772, %.thread68 ], [ %44, %51 ], [ null, %36 ]
-  %.0.i = phi ptr [ %53, %.thread68 ], [ %.1, %51 ], [ %29, %36 ]
-  %54 = call ptr @PyCodec_Encode(ptr noundef %19, ptr noundef %.0.i, ptr noundef %.03771) #5
-  br label %55
+_codecs_encode_impl.exit:                         ; preds = %38, %53, %.thread65
+  %.03768 = phi ptr [ %.03769, %.thread65 ], [ %46, %53 ], [ null, %38 ]
+  %.0.i = phi ptr [ %55, %.thread65 ], [ %.1, %53 ], [ %31, %38 ]
+  %56 = call ptr @PyCodec_Encode(ptr noundef %21, ptr noundef %.0.i, ptr noundef %.03768) #5
+  br label %57
 
-55:                                               ; preds = %.thread64, %27, %42, %49, %_codecs_encode_impl.exit, %14, %43
-  %.039 = phi ptr [ null, %43 ], [ null, %49 ], [ %54, %_codecs_encode_impl.exit ], [ null, %42 ], [ null, %27 ], [ null, %14 ], [ null, %.thread64 ]
+57:                                               ; preds = %.thread61, %29, %44, %51, %_codecs_encode_impl.exit, %16, %45
+  %.039 = phi ptr [ null, %45 ], [ null, %51 ], [ %56, %_codecs_encode_impl.exit ], [ null, %44 ], [ null, %29 ], [ null, %16 ], [ null, %.thread61 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.039
 }
@@ -1235,128 +1236,129 @@ define internal ptr @_codecs_decode(ptr readnone captures(none) %0, ptr noundef 
   %7 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %10, label %.thread
+  br i1 %.not, label %11, label %.thread79
 
-.thread:                                          ; preds = %4
+.thread79:                                        ; preds = %4
   %8 = getelementptr i8, ptr %3, i64 16
   %.val59 = load i64, ptr %8, align 8, !tbaa !23
-  %9 = add i64 %.val59, %2
-  br label %14
+  %9 = add i64 %2, -1
+  %10 = add i64 %9, %.val59
+  br label %16
 
-10:                                               ; preds = %4
-  %11 = add i64 %2, -1
-  %12 = icmp ult i64 %11, 3
-  %13 = icmp ne ptr %1, null
-  %or.cond5 = and i1 %13, %12
-  br i1 %or.cond5, label %.thread62, label %14
+11:                                               ; preds = %4
+  %12 = add i64 %2, -1
+  %13 = icmp ult i64 %12, 3
+  %14 = icmp ne ptr %1, null
+  %15 = and i1 %14, %13
+  br i1 %15, label %.thread, label %16
 
-14:                                               ; preds = %10, %.thread
-  %15 = phi i64 [ %9, %.thread ], [ %2, %10 ]
-  %16 = call ptr @_PyArg_UnpackKeywords(ptr noundef %1, i64 noundef %2, ptr noundef null, ptr noundef %3, ptr noundef nonnull @_codecs_decode._parser, i32 noundef 1, i32 noundef 3, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %5) #5
-  %.not48 = icmp eq ptr %16, null
-  br i1 %.not48, label %55, label %.thread62
+16:                                               ; preds = %.thread79, %11
+  %17 = phi i64 [ %10, %.thread79 ], [ %12, %11 ]
+  %18 = call ptr @_PyArg_UnpackKeywords(ptr noundef %1, i64 noundef %2, ptr noundef null, ptr noundef %3, ptr noundef nonnull @_codecs_decode._parser, i32 noundef 1, i32 noundef 3, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %5) #5
+  %.not48 = icmp eq ptr %18, null
+  br i1 %.not48, label %57, label %.thread
 
-.thread62:                                        ; preds = %10, %14
-  %17 = phi ptr [ %16, %14 ], [ %1, %10 ]
-  %18 = phi i64 [ %15, %14 ], [ %2, %10 ]
-  %19 = load ptr, ptr %17, align 8, !tbaa !22
-  %.not49 = icmp eq i64 %18, 1
-  br i1 %.not49, label %.thread68, label %20
+.thread:                                          ; preds = %11, %16
+  %19 = phi i64 [ %17, %16 ], [ %12, %11 ]
+  %20 = phi ptr [ %18, %16 ], [ %1, %11 ]
+  %21 = load ptr, ptr %20, align 8, !tbaa !22
+  %.not49 = icmp eq i64 %19, 0
+  br i1 %.not49, label %.thread65, label %22
 
-20:                                               ; preds = %.thread62
-  %21 = getelementptr i8, ptr %17, i64 8
-  %22 = load ptr, ptr %21, align 8, !tbaa !22
-  %.not50 = icmp eq ptr %22, null
-  br i1 %.not50, label %.thread66, label %23
+22:                                               ; preds = %.thread
+  %23 = getelementptr i8, ptr %20, i64 8
+  %24 = load ptr, ptr %23, align 8, !tbaa !22
+  %.not50 = icmp eq ptr %24, null
+  br i1 %.not50, label %.thread63, label %25
 
-23:                                               ; preds = %20
-  %24 = getelementptr i8, ptr %22, i64 8
-  %.val = load ptr, ptr %24, align 8, !tbaa !4
-  %25 = getelementptr i8, ptr %.val, i64 168
-  %.val57 = load i64, ptr %25, align 8, !tbaa !10
-  %26 = and i64 %.val57, 268435456
-  %.not51 = icmp eq i64 %26, 0
-  br i1 %.not51, label %27, label %28
+25:                                               ; preds = %22
+  %26 = getelementptr i8, ptr %24, i64 8
+  %.val = load ptr, ptr %26, align 8, !tbaa !4
+  %27 = getelementptr i8, ptr %.val, i64 168
+  %.val57 = load i64, ptr %27, align 8, !tbaa !10
+  %28 = and i64 %.val57, 268435456
+  %.not51 = icmp eq i64 %28, 0
+  br i1 %.not51, label %29, label %30
 
-27:                                               ; preds = %23
-  call void @_PyArg_BadArgument(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.43, ptr noundef nonnull %22) #5
-  br label %55
+29:                                               ; preds = %25
+  call void @_PyArg_BadArgument(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.43, ptr noundef nonnull %24) #5
+  br label %57
 
-28:                                               ; preds = %23
+30:                                               ; preds = %25
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %29 = call ptr @PyUnicode_AsUTF8AndSize(ptr noundef nonnull %22, ptr noundef nonnull %6) #5
-  %30 = icmp eq ptr %29, null
-  br i1 %30, label %.thread64, label %31
+  %31 = call ptr @PyUnicode_AsUTF8AndSize(ptr noundef nonnull %24, ptr noundef nonnull %6) #5
+  %32 = icmp eq ptr %31, null
+  br i1 %32, label %.thread61, label %33
 
-31:                                               ; preds = %28
-  %32 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %29) #6
-  %33 = load i64, ptr %6, align 8, !tbaa !21
-  %.not52 = icmp eq i64 %32, %33
-  br i1 %.not52, label %36, label %34
+33:                                               ; preds = %30
+  %34 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %31) #6
+  %35 = load i64, ptr %6, align 8, !tbaa !21
+  %.not52 = icmp eq i64 %34, %35
+  br i1 %.not52, label %38, label %36
 
-34:                                               ; preds = %31
-  %35 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !22
-  call void @PyErr_SetString(ptr noundef %35, ptr noundef nonnull @.str.44) #5
-  br label %.thread64
+36:                                               ; preds = %33
+  %37 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !22
+  call void @PyErr_SetString(ptr noundef %37, ptr noundef nonnull @.str.44) #5
+  br label %.thread61
 
-36:                                               ; preds = %31
-  %.not53 = icmp eq i64 %18, 2
+38:                                               ; preds = %33
+  %.not53 = icmp eq i64 %19, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br i1 %.not53, label %_codecs_decode_impl.exit, label %.thread66
+  br i1 %.not53, label %_codecs_decode_impl.exit, label %.thread63
 
-.thread64:                                        ; preds = %34, %28
+.thread61:                                        ; preds = %36, %30
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %55
+  br label %57
 
-.thread66:                                        ; preds = %36, %20
-  %.1 = phi ptr [ null, %20 ], [ %29, %36 ]
-  %37 = getelementptr i8, ptr %17, i64 16
-  %38 = load ptr, ptr %37, align 8, !tbaa !22
-  %39 = getelementptr i8, ptr %38, i64 8
-  %.val56 = load ptr, ptr %39, align 8, !tbaa !4
-  %40 = getelementptr i8, ptr %.val56, i64 168
-  %.val58 = load i64, ptr %40, align 8, !tbaa !10
-  %41 = and i64 %.val58, 268435456
-  %.not54 = icmp eq i64 %41, 0
-  br i1 %.not54, label %42, label %43
+.thread63:                                        ; preds = %38, %22
+  %.1 = phi ptr [ null, %22 ], [ %31, %38 ]
+  %39 = getelementptr i8, ptr %20, i64 16
+  %40 = load ptr, ptr %39, align 8, !tbaa !22
+  %41 = getelementptr i8, ptr %40, i64 8
+  %.val56 = load ptr, ptr %41, align 8, !tbaa !4
+  %42 = getelementptr i8, ptr %.val56, i64 168
+  %.val58 = load i64, ptr %42, align 8, !tbaa !10
+  %43 = and i64 %.val58, 268435456
+  %.not54 = icmp eq i64 %43, 0
+  br i1 %.not54, label %44, label %45
 
-42:                                               ; preds = %.thread66
-  call void @_PyArg_BadArgument(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.43, ptr noundef nonnull %38) #5
-  br label %55
+44:                                               ; preds = %.thread63
+  call void @_PyArg_BadArgument(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.43, ptr noundef nonnull %40) #5
+  br label %57
 
-43:                                               ; preds = %.thread66
-  %44 = call ptr @PyUnicode_AsUTF8AndSize(ptr noundef nonnull %38, ptr noundef nonnull %7) #5
-  %45 = icmp eq ptr %44, null
-  br i1 %45, label %55, label %46
+45:                                               ; preds = %.thread63
+  %46 = call ptr @PyUnicode_AsUTF8AndSize(ptr noundef nonnull %40, ptr noundef nonnull %7) #5
+  %47 = icmp eq ptr %46, null
+  br i1 %47, label %57, label %48
 
-46:                                               ; preds = %43
-  %47 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %44) #6
-  %48 = load i64, ptr %7, align 8, !tbaa !21
-  %.not55 = icmp eq i64 %47, %48
-  br i1 %.not55, label %51, label %49
+48:                                               ; preds = %45
+  %49 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %46) #6
+  %50 = load i64, ptr %7, align 8, !tbaa !21
+  %.not55 = icmp eq i64 %49, %50
+  br i1 %.not55, label %53, label %51
 
-49:                                               ; preds = %46
-  %50 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !22
-  call void @PyErr_SetString(ptr noundef %50, ptr noundef nonnull @.str.44) #5
-  br label %55
+51:                                               ; preds = %48
+  %52 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !22
+  call void @PyErr_SetString(ptr noundef %52, ptr noundef nonnull @.str.44) #5
+  br label %57
 
-51:                                               ; preds = %46
-  %52 = icmp eq ptr %.1, null
-  br i1 %52, label %.thread68, label %_codecs_decode_impl.exit
+53:                                               ; preds = %48
+  %54 = icmp eq ptr %.1, null
+  br i1 %54, label %.thread65, label %_codecs_decode_impl.exit
 
-.thread68:                                        ; preds = %.thread62, %51
-  %.03772 = phi ptr [ %44, %51 ], [ null, %.thread62 ]
-  %53 = call ptr @PyUnicode_GetDefaultEncoding() #5
+.thread65:                                        ; preds = %.thread, %53
+  %.03769 = phi ptr [ %46, %53 ], [ null, %.thread ]
+  %55 = call ptr @PyUnicode_GetDefaultEncoding() #5
   br label %_codecs_decode_impl.exit
 
-_codecs_decode_impl.exit:                         ; preds = %36, %51, %.thread68
-  %.03771 = phi ptr [ %.03772, %.thread68 ], [ %44, %51 ], [ null, %36 ]
-  %.0.i = phi ptr [ %53, %.thread68 ], [ %.1, %51 ], [ %29, %36 ]
-  %54 = call ptr @PyCodec_Decode(ptr noundef %19, ptr noundef %.0.i, ptr noundef %.03771) #5
-  br label %55
+_codecs_decode_impl.exit:                         ; preds = %38, %53, %.thread65
+  %.03768 = phi ptr [ %.03769, %.thread65 ], [ %46, %53 ], [ null, %38 ]
+  %.0.i = phi ptr [ %55, %.thread65 ], [ %.1, %53 ], [ %31, %38 ]
+  %56 = call ptr @PyCodec_Decode(ptr noundef %21, ptr noundef %.0.i, ptr noundef %.03768) #5
+  br label %57
 
-55:                                               ; preds = %.thread64, %27, %42, %49, %_codecs_decode_impl.exit, %14, %43
-  %.039 = phi ptr [ null, %43 ], [ null, %49 ], [ %54, %_codecs_decode_impl.exit ], [ null, %42 ], [ null, %27 ], [ null, %14 ], [ null, %.thread64 ]
+57:                                               ; preds = %.thread61, %29, %44, %51, %_codecs_decode_impl.exit, %16, %45
+  %.039 = phi ptr [ null, %45 ], [ null, %51 ], [ %56, %_codecs_decode_impl.exit ], [ null, %44 ], [ null, %29 ], [ null, %16 ], [ null, %.thread61 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.039
 }

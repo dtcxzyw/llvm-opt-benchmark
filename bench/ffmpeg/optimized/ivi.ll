@@ -2808,9 +2808,9 @@ define internal fastcc void @ivi_output_plane(ptr noundef readonly captures(none
   br i1 %.not45, label %.loopexit36, label %.lr.ph44
 
 .lr.ph44:                                         ; preds = %.preheader35, %.loopexit
-  %.043 = phi ptr [ %29, %.loopexit ], [ %1, %.preheader35 ]
-  %.03042 = phi i32 [ %30, %.loopexit ], [ 0, %.preheader35 ]
-  %.03141 = phi ptr [ %28, %.loopexit ], [ %7, %.preheader35 ]
+  %.043 = phi ptr [ %30, %.loopexit ], [ %1, %.preheader35 ]
+  %.03042 = phi i32 [ %31, %.loopexit ], [ 0, %.preheader35 ]
+  %.03141 = phi ptr [ %29, %.loopexit ], [ %7, %.preheader35 ]
   %12 = load i16, ptr %0, align 8, !tbaa !56
   %.not46 = icmp eq i16 %12, 0
   br i1 %.not46, label %.loopexit, label %.lr.ph.preheader
@@ -2848,25 +2848,25 @@ define internal fastcc void @ivi_output_plane(ptr noundef readonly captures(none
   %22 = load i16, ptr %21, align 2, !tbaa !29
   %23 = sext i16 %22 to i32
   %24 = add nsw i32 %23, 128
-  %.not.i = icmp ult i32 %24, 256
+  %25 = icmp ugt i32 %24, 255
   %isnotneg.i = icmp sgt i16 %22, -129
-  %25 = sext i1 %isnotneg.i to i8
-  %26 = trunc nuw i32 %24 to i8
-  %.0.i = select i1 %.not.i, i8 %26, i8 %25
-  %27 = getelementptr inbounds nuw i8, ptr %.043, i64 %indvars.iv48
-  store i8 %.0.i, ptr %27, align 1, !tbaa !23
+  %26 = sext i1 %isnotneg.i to i8
+  %27 = trunc nuw i32 %24 to i8
+  %.0.i = select i1 %25, i8 %26, i8 %27
+  %28 = getelementptr inbounds nuw i8, ptr %.043, i64 %indvars.iv48
+  store i8 %.0.i, ptr %28, align 1, !tbaa !23
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
   %exitcond52.not = icmp eq i64 %indvars.iv.next49, %wide.trip.count51
   br i1 %exitcond52.not, label %.loopexit, label %.lr.ph40, !llvm.loop !185
 
 .loopexit:                                        ; preds = %.lr.ph40, %.lr.ph44, %._crit_edge
-  %28 = getelementptr inbounds i16, ptr %.03141, i64 %9
-  %29 = getelementptr inbounds i8, ptr %.043, i64 %2
-  %30 = add nuw nsw i32 %.03042, 1
-  %31 = load i16, ptr %10, align 2, !tbaa !59
-  %32 = zext i16 %31 to i32
-  %33 = icmp samesign ult i32 %30, %32
-  br i1 %33, label %.lr.ph44, label %.loopexit36, !llvm.loop !186
+  %29 = getelementptr inbounds i16, ptr %.03141, i64 %9
+  %30 = getelementptr inbounds i8, ptr %.043, i64 %2
+  %31 = add nuw nsw i32 %.03042, 1
+  %32 = load i16, ptr %10, align 2, !tbaa !59
+  %33 = zext i16 %32 to i32
+  %34 = icmp samesign ult i32 %31, %33
+  br i1 %34, label %.lr.ph44, label %.loopexit36, !llvm.loop !186
 
 .loopexit36:                                      ; preds = %.loopexit, %.preheader35, %3
   ret void

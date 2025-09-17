@@ -1823,8 +1823,8 @@ _ZNK4LIEF12BinaryStream4readIjEEN2tl8expectedIT_11lief_errorsEEv.exit12: ; preds
 
 54:                                               ; preds = %47
   %55 = load i64, ptr %15, align 8, !tbaa !156
-  %or.cond.i.i = icmp ult i64 %55, 9223372036854775776
-  br i1 %or.cond.i.i, label %_ZNK4LIEF12BinaryStream10peek_arrayIhLm32EEEN2tl8expectedINS_4ok_tE11lief_errorsEERSt5arrayIT_XT0_EE.exit.i, label %61
+  %spec.select.i.i = icmp ult i64 %55, 9223372036854775776
+  br i1 %spec.select.i.i, label %_ZNK4LIEF12BinaryStream10peek_arrayIhLm32EEEN2tl8expectedINS_4ok_tE11lief_errorsEERSt5arrayIT_XT0_EE.exit.i, label %61
 
 _ZNK4LIEF12BinaryStream10peek_arrayIhLm32EEEN2tl8expectedINS_4ok_tE11lief_errorsEERSt5arrayIT_XT0_EE.exit.i: ; preds = %54
   %56 = load ptr, ptr %2, align 8, !tbaa !3
@@ -1835,7 +1835,7 @@ _ZNK4LIEF12BinaryStream10peek_arrayIhLm32EEEN2tl8expectedINS_4ok_tE11lief_errors
   %.not.i = icmp eq i64 %60, 0
   br i1 %.not.i, label %61, label %62
 
-61:                                               ; preds = %_ZNK4LIEF12BinaryStream10peek_arrayIhLm32EEEN2tl8expectedINS_4ok_tE11lief_errorsEERSt5arrayIT_XT0_EE.exit.i, %54, %47, %_ZNK4LIEF12BinaryStream4readIjEEN2tl8expectedIT_11lief_errorsEEv.exit12
+61:                                               ; preds = %_ZNK4LIEF12BinaryStream10peek_arrayIhLm32EEEN2tl8expectedINS_4ok_tE11lief_errorsEERSt5arrayIT_XT0_EE.exit.i, %47, %_ZNK4LIEF12BinaryStream4readIjEEN2tl8expectedIT_11lief_errorsEEv.exit12, %54
   store i32 1, ptr %0, align 8, !tbaa !163
   br label %169
 
@@ -1862,8 +1862,8 @@ _ZNK4LIEF12BinaryStream10peek_arrayIhLm32EEEN2tl8expectedINS_4ok_tE11lief_errors
 
 76:                                               ; preds = %69
   %77 = load i64, ptr %15, align 8, !tbaa !156
-  %or.cond.i.i16 = icmp ult i64 %77, 9223372036854775792
-  br i1 %or.cond.i.i16, label %_ZNK4LIEF12BinaryStream10peek_arrayIhLm16EEEN2tl8expectedINS_4ok_tE11lief_errorsEERSt5arrayIT_XT0_EE.exit.i, label %83
+  %spec.select.i.i16 = icmp ult i64 %77, 9223372036854775792
+  br i1 %spec.select.i.i16, label %_ZNK4LIEF12BinaryStream10peek_arrayIhLm16EEEN2tl8expectedINS_4ok_tE11lief_errorsEERSt5arrayIT_XT0_EE.exit.i, label %83
 
 _ZNK4LIEF12BinaryStream10peek_arrayIhLm16EEEN2tl8expectedINS_4ok_tE11lief_errorsEERSt5arrayIT_XT0_EE.exit.i: ; preds = %76
   %78 = load ptr, ptr %2, align 8, !tbaa !3
@@ -1874,7 +1874,7 @@ _ZNK4LIEF12BinaryStream10peek_arrayIhLm16EEEN2tl8expectedINS_4ok_tE11lief_errors
   %.not.i18 = icmp eq i64 %82, 0
   br i1 %.not.i18, label %83, label %84
 
-83:                                               ; preds = %_ZNK4LIEF12BinaryStream10peek_arrayIhLm16EEEN2tl8expectedINS_4ok_tE11lief_errorsEERSt5arrayIT_XT0_EE.exit.i, %76, %69, %62
+83:                                               ; preds = %_ZNK4LIEF12BinaryStream10peek_arrayIhLm16EEEN2tl8expectedINS_4ok_tE11lief_errorsEERSt5arrayIT_XT0_EE.exit.i, %69, %62, %76
   store i32 1, ptr %0, align 8, !tbaa !163
   br label %169
 
@@ -1902,8 +1902,8 @@ _ZNK4LIEF12BinaryStream10peek_arrayIhLm16EEEN2tl8expectedINS_4ok_tE11lief_errors
 
 99:                                               ; preds = %92
   %100 = load i64, ptr %15, align 8, !tbaa !156
-  %or.cond.i.i21 = icmp ult i64 %100, 9223372036854775792
-  br i1 %or.cond.i.i21, label %_ZNK4LIEF12BinaryStream10peek_arrayIhLm16EEEN2tl8expectedINS_4ok_tE11lief_errorsEERSt5arrayIT_XT0_EE.exit.i23, label %106
+  %spec.select.i.i21 = icmp ult i64 %100, 9223372036854775792
+  br i1 %spec.select.i.i21, label %_ZNK4LIEF12BinaryStream10peek_arrayIhLm16EEEN2tl8expectedINS_4ok_tE11lief_errorsEERSt5arrayIT_XT0_EE.exit.i23, label %106
 
 _ZNK4LIEF12BinaryStream10peek_arrayIhLm16EEEN2tl8expectedINS_4ok_tE11lief_errorsEERSt5arrayIT_XT0_EE.exit.i23: ; preds = %99
   %101 = load ptr, ptr %2, align 8, !tbaa !3
@@ -1914,7 +1914,7 @@ _ZNK4LIEF12BinaryStream10peek_arrayIhLm16EEEN2tl8expectedINS_4ok_tE11lief_errors
   %.not.i24 = icmp eq i64 %105, 0
   br i1 %.not.i24, label %106, label %107
 
-106:                                              ; preds = %_ZNK4LIEF12BinaryStream10peek_arrayIhLm16EEEN2tl8expectedINS_4ok_tE11lief_errorsEERSt5arrayIT_XT0_EE.exit.i23, %99, %92, %84
+106:                                              ; preds = %_ZNK4LIEF12BinaryStream10peek_arrayIhLm16EEEN2tl8expectedINS_4ok_tE11lief_errorsEERSt5arrayIT_XT0_EE.exit.i23, %92, %84, %99
   store i32 1, ptr %0, align 8, !tbaa !163
   br label %169
 

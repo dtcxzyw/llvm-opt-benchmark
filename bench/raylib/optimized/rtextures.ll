@@ -317,6 +317,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.LoadImageFromMemory = private unnamed_addr constant [4 x i32] [i32 1, i32 2, i32 4, i32 7], align 4
 @switch.table.ExportImageToMemory = private unnamed_addr constant [4 x i32] [i32 1, i32 2, i32 4, i32 3], align 4
 @switch.table.ImageDraw.32 = private unnamed_addr constant [24 x double] [double 1.000000e+00, double 2.000000e+00, double 2.000000e+00, double 3.000000e+00, double 2.000000e+00, double 2.000000e+00, double 4.000000e+00, double 4.000000e+00, double 1.200000e+01, double 1.600000e+01, double 2.000000e+00, double 6.000000e+00, double 8.000000e+00, double 5.000000e-01, double 5.000000e-01, double 1.000000e+00, double 1.000000e+00, double 5.000000e-01, double 5.000000e-01, double 1.000000e+00, double 5.000000e-01, double 5.000000e-01, double 1.000000e+00, double 2.500000e-01], align 8
+@switch.table.ImageFlipVertical = private unnamed_addr constant [13 x i32] [i32 1, i32 2, i32 2, i32 3, i32 2, i32 2, i32 4, i32 4, i32 12, i32 16, i32 2, i32 6, i32 8], align 4
 @switch.table.SetTextureWrap = private unnamed_addr constant [4 x i32] [i32 10497, i32 33071, i32 33648, i32 34626], align 4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
@@ -12467,9 +12468,8 @@ define noundef ptr @LoadImageColors(ptr noundef readonly byval(%struct.Image) al
   br i1 %switch, label %.sink.split, label %18
 
 18:                                               ; preds = %17
-  %19 = add i32 %14, -11
-  %or.cond14 = icmp ult i32 %19, 3
-  br i1 %or.cond14, label %.sink.split, label %20
+  %19 = icmp sgt i32 %14, 10
+  br i1 %19, label %.sink.split, label %20
 
 .sink.split:                                      ; preds = %18, %17
   %.str.72.sink = phi ptr [ @.str.72, %17 ], [ @.str.73, %18 ]
@@ -14569,19 +14569,19 @@ GetPixelDataSize.exit:                            ; preds = %15, %.thread
 define void @ImageCrop(ptr noundef captures(none) %0, <2 x float> %1, <2 x float> %2) local_unnamed_addr #24 {
   %4 = load ptr, ptr %0, align 8
   %5 = icmp eq ptr %4, null
-  br i1 %5, label %74, label %6
+  br i1 %5, label %67, label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %74, label %10
+  br i1 %9, label %67, label %10
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %12 = load i32, ptr %11, align 4
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %74, label %14
+  br i1 %13, label %67, label %14
 
 14:                                               ; preds = %10
   %.sroa.0.0.vec.extract = extractelement <2 x float> %1, i64 0
@@ -14593,15 +14593,15 @@ define void @ImageCrop(ptr noundef captures(none) %0, <2 x float> %1, <2 x float
   %.sroa.16.0 = shufflevector <2 x float> %sel, <2 x float> %2, <2 x i32> <i32 0, i32 3>
   %.sroa.0.4.vec.extract = extractelement <2 x float> %.sroa.0.0, i64 1
   %16 = fcmp olt float %.sroa.0.4.vec.extract, 0.000000e+00
-  %foldExtExtBinop99 = fadd <2 x float> %.sroa.0.0, %.sroa.16.0
-  %.sroa.16.12.vec.insert = shufflevector <2 x float> %.sroa.16.0, <2 x float> %foldExtExtBinop99, <2 x i32> <i32 0, i32 3>
+  %foldExtExtBinop96 = fadd <2 x float> %.sroa.0.0, %.sroa.16.0
+  %.sroa.16.12.vec.insert = shufflevector <2 x float> %.sroa.16.0, <2 x float> %foldExtExtBinop96, <2 x i32> <i32 0, i32 3>
   %.sroa.0.4.vec.insert = insertelement <2 x float> %.sroa.0.0, float 0.000000e+00, i64 1
   %.sroa.0.4.vec.extract43.pre-phi = select i1 %16, float 0.000000e+00, float %.sroa.0.4.vec.extract
   %.sroa.0.1 = select i1 %16, <2 x float> %.sroa.0.4.vec.insert, <2 x float> %.sroa.0.0
   %.sroa.16.1 = select i1 %16, <2 x float> %.sroa.16.12.vec.insert, <2 x float> %.sroa.16.0
   %.sroa.0.0.vec.extract32 = extractelement <2 x float> %.sroa.0.1, i64 0
-  %foldExtExtBinop101 = fadd <2 x float> %.sroa.0.1, %.sroa.16.1
-  %17 = extractelement <2 x float> %foldExtExtBinop101, i64 0
+  %foldExtExtBinop98 = fadd <2 x float> %.sroa.0.1, %.sroa.16.1
+  %17 = extractelement <2 x float> %foldExtExtBinop98, i64 0
   %18 = sitofp i32 %8 to float
   %19 = fcmp ogt float %17, %18
   %20 = fsub float %18, %.sroa.0.0.vec.extract32
@@ -14621,7 +14621,7 @@ define void @ImageCrop(ptr noundef captures(none) %0, <2 x float> %1, <2 x float
 
 27:                                               ; preds = %14
   tail call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.52) #54
-  br label %74
+  br label %67
 
 28:                                               ; preds = %14
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -14641,116 +14641,76 @@ define void @ImageCrop(ptr noundef captures(none) %0, <2 x float> %1, <2 x float
 
 37:                                               ; preds = %33
   tail call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.54) #54
-  br label %74
+  br label %67
 
 38:                                               ; preds = %33
-  switch i32 %35, label %45 [
-    i32 1, label %.thread95
-    i32 2, label %39
-    i32 3, label %39
-    i32 5, label %39
-    i32 6, label %39
-    i32 7, label %40
-    i32 4, label %.thread
-    i32 8, label %40
-    i32 9, label %41
-    i32 10, label %42
-    i32 11, label %39
-    i32 12, label %43
-    i32 13, label %44
-  ]
+  %switch.tableidx = add i32 %35, -1
+  %39 = icmp ult i32 %switch.tableidx, 13
+  br i1 %39, label %switch.lookup, label %GetPixelDataSize.exit
 
-.thread95:                                        ; preds = %38
-  br label %.thread
-
-39:                                               ; preds = %38, %38, %38, %38, %38
-  br label %45
-
-40:                                               ; preds = %38, %38
-  br label %45
-
-41:                                               ; preds = %38
-  br label %.thread
-
-42:                                               ; preds = %38
-  br label %.thread
-
-43:                                               ; preds = %38
-  br label %.thread
-
-44:                                               ; preds = %38
-  br label %.thread
-
-45:                                               ; preds = %40, %39, %38
-  %.016.i = phi i32 [ 0, %38 ], [ 2, %39 ], [ 4, %40 ]
-  %46 = and i32 %35, -2
-  %or.cond3.i = icmp eq i32 %46, 14
-  br i1 %or.cond3.i, label %GetPixelDataSize.exit, label %.thread
-
-.thread:                                          ; preds = %.thread95, %38, %41, %42, %43, %44, %45
-  %47 = phi i32 [ %.016.i, %45 ], [ 8, %44 ], [ 6, %43 ], [ 16, %42 ], [ 12, %41 ], [ 3, %38 ], [ 1, %.thread95 ]
-  %48 = and i32 %35, -8
-  %or.cond5.i = icmp eq i32 %48, 16
-  %spec.select.i = select i1 %or.cond5.i, i32 16, i32 %47
+switch.lookup:                                    ; preds = %38
+  %40 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.ImageFlipVertical, i64 %40
+  %switch.load = load i32, ptr %switch.gep, align 4
   br label %GetPixelDataSize.exit
 
-GetPixelDataSize.exit:                            ; preds = %45, %.thread
-  %.0.i = phi i32 [ 8, %45 ], [ %spec.select.i, %.thread ]
+GetPixelDataSize.exit:                            ; preds = %38, %switch.lookup
+  %41 = phi i32 [ %switch.load, %switch.lookup ], [ 0, %38 ]
   %.sroa.16.8.vec.extract58 = extractelement <2 x float> %.sroa.16.3, i64 0
   %.sroa.16.12.vec.extract71 = extractelement <2 x float> %.sroa.16.3, i64 1
-  %49 = fmul float %.sroa.16.8.vec.extract58, %.sroa.16.12.vec.extract71
-  %50 = fptosi float %49 to i32
-  %51 = mul nsw i32 %.0.i, %50
-  %52 = sext i32 %51 to i64
-  %53 = tail call noalias ptr @malloc(i64 noundef %52) #55
-  %54 = fptosi float %.sroa.0.4.vec.extract43.pre-phi to i32
-  %55 = fadd float %.sroa.0.4.vec.extract43.pre-phi, %.sroa.16.12.vec.extract71
-  %56 = fptosi float %55 to i32
-  %57 = icmp slt i32 %54, %56
+  %42 = fmul float %.sroa.16.8.vec.extract58, %.sroa.16.12.vec.extract71
+  %43 = fptosi float %42 to i32
+  %44 = mul nsw i32 %41, %43
+  %45 = sext i32 %44 to i64
+  %46 = tail call noalias ptr @malloc(i64 noundef %45) #55
+  %47 = fptosi float %.sroa.0.4.vec.extract43.pre-phi to i32
+  %48 = fadd float %.sroa.0.4.vec.extract43.pre-phi, %.sroa.16.12.vec.extract71
+  %49 = fptosi float %48 to i32
+  %50 = icmp slt i32 %47, %49
   %.pre = load ptr, ptr %0, align 8
-  br i1 %57, label %.lr.ph, label %GetPixelDataSize.exit.._crit_edge_crit_edge
+  br i1 %50, label %.lr.ph, label %GetPixelDataSize.exit.._crit_edge_crit_edge
 
 GetPixelDataSize.exit.._crit_edge_crit_edge:      ; preds = %GetPixelDataSize.exit
   %.pre90 = fptosi float %.sroa.16.8.vec.extract58 to i32
   br label %._crit_edge
 
 .lr.ph:                                           ; preds = %GetPixelDataSize.exit
-  %58 = load i32, ptr %7, align 8
-  %59 = fptosi float %.sroa.0.0.vec.extract32 to i32
-  %60 = fptosi float %.sroa.16.8.vec.extract58 to i32
-  %61 = mul i32 %.0.i, %60
-  %62 = sext i32 %61 to i64
-  %63 = sext i32 %54 to i64
-  %64 = sext i32 %58 to i64
-  %65 = sext i32 %59 to i64
-  %66 = zext nneg i32 %.0.i to i64
-  %wide.trip.count = sext i32 %56 to i64
-  br label %68
+  %51 = load i32, ptr %7, align 8
+  %52 = fptosi float %.sroa.0.0.vec.extract32 to i32
+  %53 = fptosi float %.sroa.16.8.vec.extract58 to i32
+  %54 = mul i32 %41, %53
+  %55 = sext i32 %54 to i64
+  %56 = sext i32 %47 to i64
+  %57 = sext i32 %51 to i64
+  %58 = sext i32 %52 to i64
+  %59 = zext nneg i32 %41 to i64
+  %wide.trip.count = sext i32 %49 to i64
+  br label %61
 
-._crit_edge:                                      ; preds = %68, %GetPixelDataSize.exit.._crit_edge_crit_edge
-  %.pre-phi = phi i32 [ %.pre90, %GetPixelDataSize.exit.._crit_edge_crit_edge ], [ %60, %68 ]
+._crit_edge:                                      ; preds = %61, %GetPixelDataSize.exit.._crit_edge_crit_edge
+  %.pre-phi = phi i32 [ %.pre90, %GetPixelDataSize.exit.._crit_edge_crit_edge ], [ %53, %61 ]
   tail call void @free(ptr noundef %.pre) #54
-  store ptr %53, ptr %0, align 8
+  store ptr %46, ptr %0, align 8
   store i32 %.pre-phi, ptr %7, align 8
-  %67 = fptosi float %.sroa.16.12.vec.extract71 to i32
-  store i32 %67, ptr %11, align 4
-  br label %74
+  %60 = fptosi float %.sroa.16.12.vec.extract71 to i32
+  store i32 %60, ptr %11, align 4
+  br label %67
 
-68:                                               ; preds = %.lr.ph, %68
-  %indvars.iv84 = phi i64 [ %63, %.lr.ph ], [ %indvars.iv.next85, %68 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %68 ]
-  %69 = getelementptr inbounds i8, ptr %53, i64 %indvars.iv
-  %70 = mul nsw i64 %indvars.iv84, %64
-  %71 = add nsw i64 %70, %65
-  %72 = mul nsw i64 %71, %66
-  %73 = getelementptr inbounds i8, ptr %.pre, i64 %72
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %69, ptr align 1 %73, i64 %62, i1 false)
-  %indvars.iv.next = add nsw i64 %indvars.iv, %62
+61:                                               ; preds = %.lr.ph, %61
+  %indvars.iv84 = phi i64 [ %56, %.lr.ph ], [ %indvars.iv.next85, %61 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %61 ]
+  %62 = getelementptr inbounds i8, ptr %46, i64 %indvars.iv
+  %63 = mul nsw i64 %indvars.iv84, %57
+  %64 = add nsw i64 %63, %58
+  %65 = mul nsw i64 %64, %59
+  %66 = getelementptr inbounds i8, ptr %.pre, i64 %65
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %62, ptr align 1 %66, i64 %55, i1 false)
+  %indvars.iv.next = add nsw i64 %indvars.iv, %55
   %indvars.iv.next85 = add nsw i64 %indvars.iv84, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next85, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %68
+  br i1 %exitcond.not, label %._crit_edge, label %61
 
-74:                                               ; preds = %3, %6, %10, %._crit_edge, %37, %27
+67:                                               ; preds = %3, %6, %10, %._crit_edge, %37, %27
   ret void
 }
 
@@ -17919,19 +17879,19 @@ define void @UnloadImageColors(ptr noundef captures(none) %0) local_unnamed_addr
 define void @ImageResizeCanvas(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 %5) local_unnamed_addr #4 {
   %7 = load ptr, ptr %0, align 8
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %115, label %9
+  br i1 %8, label %108, label %9
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i32, ptr %10, align 8
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %115, label %13
+  br i1 %12, label %108, label %13
 
 13:                                               ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %15, 0
-  br i1 %16, label %115, label %17
+  br i1 %16, label %108, label %17
 
 17:                                               ; preds = %13
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -17951,7 +17911,7 @@ define void @ImageResizeCanvas(ptr noundef captures(none) %0, i32 noundef %1, i3
 
 26:                                               ; preds = %22
   tail call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.54) #54
-  br label %115
+  br label %108
 
 27:                                               ; preds = %22
   %28 = load i32, ptr %10, align 8
@@ -17959,7 +17919,7 @@ define void @ImageResizeCanvas(ptr noundef captures(none) %0, i32 noundef %1, i3
   %.pre = load i32, ptr %14, align 4
   %.not96 = icmp eq i32 %2, %.pre
   %or.cond = select i1 %.not, i1 %.not96, i1 false
-  br i1 %or.cond, label %115, label %29
+  br i1 %or.cond, label %108, label %29
 
 29:                                               ; preds = %27
   %30 = sitofp i32 %28 to float
@@ -18022,147 +17982,107 @@ define void @ImageResizeCanvas(ptr noundef captures(none) %0, i32 noundef %1, i3
   %64 = sitofp i32 %2 to float
   %65 = fcmp ogt float %.sroa.15.0, %64
   %.sroa.15.1 = select i1 %65, float %64, float %.sroa.15.0
-  switch i32 %24, label %72 [
-    i32 1, label %.thread131
-    i32 2, label %66
-    i32 3, label %66
-    i32 5, label %66
-    i32 6, label %66
-    i32 7, label %67
-    i32 4, label %.thread
-    i32 8, label %67
-    i32 9, label %68
-    i32 10, label %69
-    i32 11, label %66
-    i32 12, label %70
-    i32 13, label %71
-  ]
+  %switch.tableidx = add i32 %24, -1
+  %66 = icmp ult i32 %switch.tableidx, 13
+  br i1 %66, label %switch.lookup, label %GetPixelDataSize.exit
 
-.thread131:                                       ; preds = %61
-  br label %.thread
-
-66:                                               ; preds = %61, %61, %61, %61, %61
-  br label %72
-
-67:                                               ; preds = %61, %61
-  br label %72
-
-68:                                               ; preds = %61
-  br label %.thread
-
-69:                                               ; preds = %61
-  br label %.thread
-
-70:                                               ; preds = %61
-  br label %.thread
-
-71:                                               ; preds = %61
-  br label %.thread
-
-72:                                               ; preds = %67, %66, %61
-  %.016.i = phi i32 [ 0, %61 ], [ 2, %66 ], [ 4, %67 ]
-  %73 = and i32 %24, -2
-  %or.cond3.i = icmp eq i32 %73, 14
-  br i1 %or.cond3.i, label %GetPixelDataSize.exit, label %.thread
-
-.thread:                                          ; preds = %.thread131, %61, %68, %69, %70, %71, %72
-  %74 = phi i32 [ %.016.i, %72 ], [ 8, %71 ], [ 6, %70 ], [ 16, %69 ], [ 12, %68 ], [ 3, %61 ], [ 1, %.thread131 ]
-  %75 = and i32 %24, -8
-  %or.cond5.i = icmp eq i32 %75, 16
-  %spec.select.i = select i1 %or.cond5.i, i32 16, i32 %74
+switch.lookup:                                    ; preds = %61
+  %67 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.ImageFlipVertical, i64 %67
+  %switch.load = load i32, ptr %switch.gep, align 4
   br label %GetPixelDataSize.exit
 
-GetPixelDataSize.exit:                            ; preds = %72, %.thread
-  %.0.i = phi i32 [ 8, %72 ], [ %spec.select.i, %.thread ]
-  %76 = mul nsw i32 %2, %1
-  %77 = mul nsw i32 %76, %.0.i
-  %78 = sext i32 %77 to i64
-  %79 = tail call noalias ptr @calloc(i64 noundef %78, i64 noundef 1) #58
-  tail call void @SetPixelColor(ptr noundef %79, i32 %5, i32 noundef %24)
-  %80 = icmp sgt i32 %1, 1
-  br i1 %80, label %.lr.ph, label %.preheader
+GetPixelDataSize.exit:                            ; preds = %61, %switch.lookup
+  %68 = phi i32 [ %switch.load, %switch.lookup ], [ 0, %61 ]
+  %69 = mul nsw i32 %2, %1
+  %70 = mul nsw i32 %69, %68
+  %71 = sext i32 %70 to i64
+  %72 = tail call noalias ptr @calloc(i64 noundef %71, i64 noundef 1) #58
+  tail call void @SetPixelColor(ptr noundef %72, i32 %5, i32 noundef %24)
+  %73 = icmp sgt i32 %1, 1
+  br i1 %73, label %.lr.ph, label %.preheader
 
 .lr.ph:                                           ; preds = %GetPixelDataSize.exit
-  %81 = zext nneg i32 %.0.i to i64
+  %74 = zext nneg i32 %68 to i64
   %wide.trip.count = zext nneg i32 %1 to i64
-  br label %85
+  br label %78
 
-.preheader:                                       ; preds = %85, %GetPixelDataSize.exit
-  %82 = icmp sgt i32 %2, 1
-  br i1 %82, label %.lr.ph101, label %._crit_edge
+.preheader:                                       ; preds = %78, %GetPixelDataSize.exit
+  %75 = icmp sgt i32 %2, 1
+  br i1 %75, label %.lr.ph101, label %._crit_edge
 
 .lr.ph101:                                        ; preds = %.preheader
-  %83 = mul i32 %.0.i, %1
-  %84 = sext i32 %83 to i64
+  %76 = mul i32 %68, %1
+  %77 = sext i32 %76 to i64
   %wide.trip.count111 = zext nneg i32 %2 to i64
-  br label %103
+  br label %96
 
-85:                                               ; preds = %.lr.ph, %85
-  %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %85 ]
-  %86 = mul nuw nsw i64 %indvars.iv, %81
-  %87 = getelementptr inbounds nuw i8, ptr %79, i64 %86
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %87, ptr align 1 %79, i64 %81, i1 false)
+78:                                               ; preds = %.lr.ph, %78
+  %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %78 ]
+  %79 = mul nuw nsw i64 %indvars.iv, %74
+  %80 = getelementptr inbounds nuw i8, ptr %72, i64 %79
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %80, ptr align 1 %72, i64 %74, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %85
+  br i1 %exitcond.not, label %.preheader, label %78
 
-._crit_edge:                                      ; preds = %103, %.preheader
-  %88 = fptosi float %.sroa.15.1 to i32
-  %89 = icmp sgt i32 %88, 0
+._crit_edge:                                      ; preds = %96, %.preheader
+  %81 = fptosi float %.sroa.15.1 to i32
+  %82 = icmp sgt i32 %81, 0
   %.pre122 = load ptr, ptr %0, align 8
-  br i1 %89, label %.lr.ph105, label %._crit_edge106
+  br i1 %82, label %.lr.ph105, label %._crit_edge106
 
 .lr.ph105:                                        ; preds = %._crit_edge
-  %90 = fptosi float %.sroa.5.0 to i32
-  %91 = mul i32 %1, %90
-  %92 = fptosi float %.sroa.0.0 to i32
-  %93 = add i32 %91, %92
-  %94 = mul i32 %.0.i, %93
-  %95 = fptosi float %.sroa.8.1 to i32
-  %96 = mul nsw i32 %.0.i, %95
-  %97 = sext i32 %96 to i64
-  %98 = mul i32 %.0.i, %1
-  %99 = sext i32 %28 to i64
-  %100 = zext nneg i32 %.0.i to i64
-  %101 = sext i32 %94 to i64
-  %102 = sext i32 %98 to i64
-  %wide.trip.count120 = zext nneg i32 %88 to i64
-  br label %108
+  %83 = fptosi float %.sroa.5.0 to i32
+  %84 = mul i32 %1, %83
+  %85 = fptosi float %.sroa.0.0 to i32
+  %86 = add i32 %84, %85
+  %87 = mul i32 %68, %86
+  %88 = fptosi float %.sroa.8.1 to i32
+  %89 = mul nsw i32 %68, %88
+  %90 = sext i32 %89 to i64
+  %91 = mul i32 %68, %1
+  %92 = sext i32 %28 to i64
+  %93 = zext nneg i32 %68 to i64
+  %94 = sext i32 %87 to i64
+  %95 = sext i32 %91 to i64
+  %wide.trip.count120 = zext nneg i32 %81 to i64
+  br label %101
 
-103:                                              ; preds = %.lr.ph101, %103
-  %indvars.iv108 = phi i64 [ 1, %.lr.ph101 ], [ %indvars.iv.next109, %103 ]
-  %104 = trunc nuw nsw i64 %indvars.iv108 to i32
-  %105 = mul i32 %83, %104
-  %106 = sext i32 %105 to i64
-  %107 = getelementptr inbounds i8, ptr %79, i64 %106
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %107, ptr align 1 %79, i64 %84, i1 false)
+96:                                               ; preds = %.lr.ph101, %96
+  %indvars.iv108 = phi i64 [ 1, %.lr.ph101 ], [ %indvars.iv.next109, %96 ]
+  %97 = trunc nuw nsw i64 %indvars.iv108 to i32
+  %98 = mul i32 %76, %97
+  %99 = sext i32 %98 to i64
+  %100 = getelementptr inbounds i8, ptr %72, i64 %99
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %100, ptr align 1 %72, i64 %77, i1 false)
   %indvars.iv.next109 = add nuw nsw i64 %indvars.iv108, 1
   %exitcond112.not = icmp eq i64 %indvars.iv.next109, %wide.trip.count111
-  br i1 %exitcond112.not, label %._crit_edge, label %103
+  br i1 %exitcond112.not, label %._crit_edge, label %96
 
-._crit_edge106:                                   ; preds = %108, %._crit_edge
+._crit_edge106:                                   ; preds = %101, %._crit_edge
   tail call void @free(ptr noundef %.pre122) #54
-  store ptr %79, ptr %0, align 8
+  store ptr %72, ptr %0, align 8
   store i32 %1, ptr %10, align 8
   store i32 %2, ptr %14, align 4
-  br label %115
+  br label %108
 
-108:                                              ; preds = %.lr.ph105, %108
-  %indvars.iv115 = phi i64 [ %101, %.lr.ph105 ], [ %indvars.iv.next116, %108 ]
-  %indvars.iv113 = phi i64 [ 0, %.lr.ph105 ], [ %indvars.iv.next114, %108 ]
-  %109 = getelementptr inbounds i8, ptr %79, i64 %indvars.iv115
-  %110 = add nsw i64 %indvars.iv113, %.sroa.527.0
-  %111 = mul nsw i64 %110, %99
-  %112 = add nsw i64 %111, %.sroa.026.0
-  %113 = mul nsw i64 %112, %100
-  %114 = getelementptr inbounds i8, ptr %.pre122, i64 %113
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %109, ptr align 1 %114, i64 %97, i1 false)
-  %indvars.iv.next116 = add nsw i64 %indvars.iv115, %102
+101:                                              ; preds = %.lr.ph105, %101
+  %indvars.iv115 = phi i64 [ %94, %.lr.ph105 ], [ %indvars.iv.next116, %101 ]
+  %indvars.iv113 = phi i64 [ 0, %.lr.ph105 ], [ %indvars.iv.next114, %101 ]
+  %102 = getelementptr inbounds i8, ptr %72, i64 %indvars.iv115
+  %103 = add nsw i64 %indvars.iv113, %.sroa.527.0
+  %104 = mul nsw i64 %103, %92
+  %105 = add nsw i64 %104, %.sroa.026.0
+  %106 = mul nsw i64 %105, %93
+  %107 = getelementptr inbounds i8, ptr %.pre122, i64 %106
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %102, ptr align 1 %107, i64 %90, i1 false)
+  %indvars.iv.next116 = add nsw i64 %indvars.iv115, %95
   %indvars.iv.next114 = add nuw nsw i64 %indvars.iv113, 1
   %exitcond121.not = icmp eq i64 %indvars.iv.next114, %wide.trip.count120
-  br i1 %exitcond121.not, label %._crit_edge106, label %108
+  br i1 %exitcond121.not, label %._crit_edge106, label %101
 
-115:                                              ; preds = %27, %._crit_edge106, %6, %9, %13, %26
+108:                                              ; preds = %27, %._crit_edge106, %6, %9, %13, %26
   ret void
 }
 
@@ -20543,19 +20463,19 @@ define void @ImageDither(ptr noundef captures(none) %0, i32 noundef %1, i32 noun
 define void @ImageFlipVertical(ptr noundef captures(none) %0) local_unnamed_addr #4 {
   %2 = load ptr, ptr %0, align 8
   %3 = icmp eq ptr %2, null
-  br i1 %3, label %49, label %4
+  br i1 %3, label %42, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 0
-  br i1 %7, label %49, label %8
+  br i1 %7, label %42, label %8
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %49, label %12
+  br i1 %11, label %42, label %12
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -20575,96 +20495,56 @@ define void @ImageFlipVertical(ptr noundef captures(none) %0) local_unnamed_addr
 
 21:                                               ; preds = %17
   tail call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.54) #54
-  br label %49
-
-22:                                               ; preds = %17
-  switch i32 %19, label %29 [
-    i32 1, label %.thread37
-    i32 2, label %23
-    i32 3, label %23
-    i32 5, label %23
-    i32 6, label %23
-    i32 7, label %24
-    i32 4, label %.thread
-    i32 8, label %24
-    i32 9, label %25
-    i32 10, label %26
-    i32 11, label %23
-    i32 12, label %27
-    i32 13, label %28
-  ]
-
-.thread37:                                        ; preds = %22
-  br label %.thread
-
-23:                                               ; preds = %22, %22, %22, %22, %22
-  br label %29
-
-24:                                               ; preds = %22, %22
-  br label %29
-
-25:                                               ; preds = %22
-  br label %.thread
-
-26:                                               ; preds = %22
-  br label %.thread
-
-27:                                               ; preds = %22
-  br label %.thread
-
-28:                                               ; preds = %22
-  br label %.thread
-
-29:                                               ; preds = %24, %23, %22
-  %.016.i = phi i32 [ 0, %22 ], [ 2, %23 ], [ 4, %24 ]
-  %30 = and i32 %19, -2
-  %or.cond3.i = icmp eq i32 %30, 14
-  br i1 %or.cond3.i, label %GetPixelDataSize.exit, label %.thread
-
-.thread:                                          ; preds = %.thread37, %22, %25, %26, %27, %28, %29
-  %31 = phi i32 [ %.016.i, %29 ], [ 8, %28 ], [ 6, %27 ], [ 16, %26 ], [ 12, %25 ], [ 3, %22 ], [ 1, %.thread37 ]
-  %32 = and i32 %19, -8
-  %or.cond5.i = icmp eq i32 %32, 16
-  %spec.select.i = select i1 %or.cond5.i, i32 16, i32 %31
-  br label %GetPixelDataSize.exit
-
-GetPixelDataSize.exit:                            ; preds = %29, %.thread
-  %.0.i = phi i32 [ 8, %29 ], [ %spec.select.i, %.thread ]
-  %33 = load i32, ptr %5, align 8
-  %34 = load i32, ptr %9, align 4
-  %35 = mul i32 %33, %.0.i
-  %36 = mul i32 %35, %34
-  %37 = sext i32 %36 to i64
-  %38 = tail call noalias ptr @malloc(i64 noundef %37) #55
-  %39 = icmp sgt i32 %34, 0
-  %.pre = load ptr, ptr %0, align 8
-  br i1 %39, label %.lr.ph, label %._crit_edge
-
-.lr.ph:                                           ; preds = %GetPixelDataSize.exit
-  %40 = sext i32 %35 to i64
-  %41 = zext nneg i32 %34 to i64
   br label %42
 
-._crit_edge:                                      ; preds = %42, %GetPixelDataSize.exit
+22:                                               ; preds = %17
+  %switch.tableidx = add i32 %19, -1
+  %23 = icmp ult i32 %switch.tableidx, 13
+  br i1 %23, label %switch.lookup, label %GetPixelDataSize.exit
+
+switch.lookup:                                    ; preds = %22
+  %24 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.ImageFlipVertical, i64 %24
+  %switch.load = load i32, ptr %switch.gep, align 4
+  br label %GetPixelDataSize.exit
+
+GetPixelDataSize.exit:                            ; preds = %22, %switch.lookup
+  %25 = phi i32 [ %switch.load, %switch.lookup ], [ 0, %22 ]
+  %26 = load i32, ptr %5, align 8
+  %27 = load i32, ptr %9, align 4
+  %28 = mul i32 %26, %25
+  %29 = mul i32 %28, %27
+  %30 = sext i32 %29 to i64
+  %31 = tail call noalias ptr @malloc(i64 noundef %30) #55
+  %32 = icmp sgt i32 %27, 0
+  %.pre = load ptr, ptr %0, align 8
+  br i1 %32, label %.lr.ph, label %._crit_edge
+
+.lr.ph:                                           ; preds = %GetPixelDataSize.exit
+  %33 = sext i32 %28 to i64
+  %34 = zext nneg i32 %27 to i64
+  br label %35
+
+._crit_edge:                                      ; preds = %35, %GetPixelDataSize.exit
   tail call void @free(ptr noundef %.pre) #54
-  store ptr %38, ptr %0, align 8
-  br label %49
+  store ptr %31, ptr %0, align 8
+  br label %42
 
-42:                                               ; preds = %.lr.ph, %42
-  %indvars.iv31 = phi i64 [ %41, %.lr.ph ], [ %indvars.iv.next32, %42 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %42 ]
+35:                                               ; preds = %.lr.ph, %35
+  %indvars.iv31 = phi i64 [ %34, %.lr.ph ], [ %indvars.iv.next32, %35 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %35 ]
   %indvars.iv.next32 = add nsw i64 %indvars.iv31, -1
-  %43 = getelementptr inbounds i8, ptr %38, i64 %indvars.iv
-  %44 = trunc nuw nsw i64 %indvars.iv.next32 to i32
-  %45 = mul i32 %35, %44
-  %46 = sext i32 %45 to i64
-  %47 = getelementptr inbounds i8, ptr %.pre, i64 %46
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %43, ptr align 1 %47, i64 %40, i1 false)
-  %indvars.iv.next = add nsw i64 %indvars.iv, %40
-  %48 = icmp samesign ugt i64 %indvars.iv31, 1
-  br i1 %48, label %42, label %._crit_edge
+  %36 = getelementptr inbounds i8, ptr %31, i64 %indvars.iv
+  %37 = trunc nuw nsw i64 %indvars.iv.next32 to i32
+  %38 = mul i32 %28, %37
+  %39 = sext i32 %38 to i64
+  %40 = getelementptr inbounds i8, ptr %.pre, i64 %39
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %36, ptr align 1 %40, i64 %33, i1 false)
+  %indvars.iv.next = add nsw i64 %indvars.iv, %33
+  %41 = icmp samesign ugt i64 %indvars.iv31, 1
+  br i1 %41, label %35, label %._crit_edge
 
-49:                                               ; preds = %1, %4, %8, %._crit_edge, %21
+42:                                               ; preds = %1, %4, %8, %._crit_edge, %21
   ret void
 }
 
@@ -20672,19 +20552,19 @@ GetPixelDataSize.exit:                            ; preds = %29, %.thread
 define void @ImageFlipHorizontal(ptr noundef captures(none) %0) local_unnamed_addr #4 {
   %2 = load ptr, ptr %0, align 8
   %3 = icmp eq ptr %2, null
-  br i1 %3, label %58, label %4
+  br i1 %3, label %57, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 0
-  br i1 %7, label %58, label %8
+  br i1 %7, label %57, label %8
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %58, label %12
+  br i1 %11, label %57, label %12
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -20704,114 +20584,104 @@ define void @ImageFlipHorizontal(ptr noundef captures(none) %0) local_unnamed_ad
 
 21:                                               ; preds = %17
   tail call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.54) #54
-  br label %58
+  br label %57
 
 22:                                               ; preds = %17
-  switch i32 %19, label %29 [
-    i32 1, label %.thread66
-    i32 2, label %23
-    i32 3, label %23
-    i32 5, label %23
-    i32 6, label %23
-    i32 7, label %24
-    i32 4, label %.thread
-    i32 8, label %24
-    i32 9, label %25
-    i32 10, label %26
-    i32 11, label %23
-    i32 12, label %27
-    i32 13, label %28
+  switch i32 %19, label %30 [
+    i32 1, label %23
+    i32 2, label %24
+    i32 3, label %24
+    i32 5, label %24
+    i32 6, label %24
+    i32 7, label %25
+    i32 4, label %GetPixelDataSize.exit
+    i32 8, label %25
+    i32 9, label %26
+    i32 10, label %27
+    i32 11, label %24
+    i32 12, label %28
+    i32 13, label %29
   ]
 
-.thread66:                                        ; preds = %22
-  br label %.thread
-
-23:                                               ; preds = %22, %22, %22, %22, %22
-  br label %29
-
-24:                                               ; preds = %22, %22
-  br label %29
-
-25:                                               ; preds = %22
-  br label %.thread
-
-26:                                               ; preds = %22
-  br label %.thread
-
-27:                                               ; preds = %22
-  br label %.thread
-
-28:                                               ; preds = %22
-  br label %.thread
-
-29:                                               ; preds = %24, %23, %22
-  %.016.i = phi i32 [ 0, %22 ], [ 2, %23 ], [ 4, %24 ]
-  %30 = and i32 %19, -2
-  %or.cond3.i = icmp eq i32 %30, 14
-  br i1 %or.cond3.i, label %GetPixelDataSize.exit, label %.thread
-
-.thread:                                          ; preds = %.thread66, %22, %25, %26, %27, %28, %29
-  %31 = phi i32 [ %.016.i, %29 ], [ 8, %28 ], [ 6, %27 ], [ 16, %26 ], [ 12, %25 ], [ 3, %22 ], [ 1, %.thread66 ]
-  %32 = and i32 %19, -8
-  %or.cond5.i = icmp eq i32 %32, 16
-  %spec.select.i = select i1 %or.cond5.i, i32 16, i32 %31
+23:                                               ; preds = %22
   br label %GetPixelDataSize.exit
 
-GetPixelDataSize.exit:                            ; preds = %29, %.thread
-  %.0.i = phi i32 [ 8, %29 ], [ %spec.select.i, %.thread ]
+24:                                               ; preds = %22, %22, %22, %22, %22
+  br label %GetPixelDataSize.exit
+
+25:                                               ; preds = %22, %22
+  br label %GetPixelDataSize.exit
+
+26:                                               ; preds = %22
+  br label %GetPixelDataSize.exit
+
+27:                                               ; preds = %22
+  br label %GetPixelDataSize.exit
+
+28:                                               ; preds = %22
+  br label %GetPixelDataSize.exit
+
+29:                                               ; preds = %22
+  br label %GetPixelDataSize.exit
+
+30:                                               ; preds = %22
+  br label %GetPixelDataSize.exit
+
+GetPixelDataSize.exit:                            ; preds = %29, %28, %27, %26, %22, %30, %25, %24, %23
+  %31 = phi i1 [ true, %29 ], [ true, %28 ], [ true, %27 ], [ true, %26 ], [ true, %22 ], [ true, %23 ], [ true, %24 ], [ true, %25 ], [ false, %30 ]
+  %32 = phi i32 [ 8, %29 ], [ 6, %28 ], [ 16, %27 ], [ 12, %26 ], [ 3, %22 ], [ 1, %23 ], [ 2, %24 ], [ 4, %25 ], [ 0, %30 ]
   %33 = load i32, ptr %5, align 8
   %34 = load i32, ptr %9, align 4
-  %35 = mul i32 %33, %.0.i
+  %35 = mul i32 %33, %32
   %36 = mul i32 %35, %34
   %37 = sext i32 %36 to i64
   %38 = tail call noalias ptr @malloc(i64 noundef %37) #55
   %39 = icmp sgt i32 %34, 0
   %40 = icmp sgt i32 %33, 0
   %or.cond = and i1 %39, %40
-  %41 = icmp ne i32 %.0.i, 0
-  %or.cond71 = and i1 %or.cond, %41
-  br i1 %or.cond71, label %.preheader39.lr.ph.split.us.split.us, label %._crit_edge
+  %or.cond68 = and i1 %or.cond, %31
+  br i1 %or.cond68, label %.preheader39.lr.ph.split.us.split.us, label %._crit_edge
 
 .preheader39.lr.ph.split.us.split.us:             ; preds = %GetPixelDataSize.exit
-  %42 = load ptr, ptr %0, align 8
-  %43 = zext nneg i32 %.0.i to i64
-  %44 = zext nneg i32 %33 to i64
+  %41 = load ptr, ptr %0, align 8
+  %42 = zext nneg i32 %32 to i64
+  %43 = zext nneg i32 %33 to i64
   %wide.trip.count62 = zext nneg i32 %34 to i64
   %wide.trip.count57 = zext nneg i32 %33 to i64
-  %wide.trip.count = zext nneg i32 %.0.i to i64
+  %wide.trip.count = zext nneg i32 %32 to i64
   br label %.preheader39.us.us
 
 .preheader39.us.us:                               ; preds = %._crit_edge42.split.us.us.us, %.preheader39.lr.ph.split.us.split.us
   %indvars.iv59 = phi i64 [ %indvars.iv.next60, %._crit_edge42.split.us.us.us ], [ 0, %.preheader39.lr.ph.split.us.split.us ]
-  %45 = mul nuw nsw i64 %indvars.iv59, %44
-  %46 = trunc nsw i64 %45 to i32
-  %47 = add nuw i32 %33, %46
+  %44 = mul nuw nsw i64 %indvars.iv59, %43
+  %45 = trunc nsw i64 %44 to i32
+  %46 = add nuw i32 %33, %45
   br label %.preheader.us.us.us
 
 .preheader.us.us.us:                              ; preds = %._crit_edge.us.us.us, %.preheader39.us.us
   %indvars.iv54 = phi i64 [ %indvars.iv.next55, %._crit_edge.us.us.us ], [ 0, %.preheader39.us.us ]
-  %48 = trunc i64 %indvars.iv54 to i32
-  %49 = xor i32 %48, -1
-  %50 = add i32 %47, %49
-  %51 = mul nsw i32 %50, %.0.i
-  %52 = add nuw nsw i64 %indvars.iv54, %45
-  %53 = mul nuw nsw i64 %52, %43
-  %54 = sext i32 %51 to i64
-  %invariant.gep = getelementptr i8, ptr %42, i64 %54
-  %invariant.gep69 = getelementptr inbounds nuw i8, ptr %38, i64 %53
-  br label %55
+  %47 = trunc i64 %indvars.iv54 to i32
+  %48 = xor i32 %47, -1
+  %49 = add i32 %46, %48
+  %50 = mul nsw i32 %49, %32
+  %51 = add nuw nsw i64 %indvars.iv54, %44
+  %52 = mul nuw nsw i64 %51, %42
+  %53 = sext i32 %50 to i64
+  %invariant.gep = getelementptr i8, ptr %41, i64 %53
+  %invariant.gep66 = getelementptr inbounds nuw i8, ptr %38, i64 %52
+  br label %54
 
-55:                                               ; preds = %55, %.preheader.us.us.us
-  %indvars.iv = phi i64 [ %indvars.iv.next, %55 ], [ 0, %.preheader.us.us.us ]
+54:                                               ; preds = %54, %.preheader.us.us.us
+  %indvars.iv = phi i64 [ %indvars.iv.next, %54 ], [ 0, %.preheader.us.us.us ]
   %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv
-  %56 = load i8, ptr %gep, align 1
-  %gep70 = getelementptr inbounds nuw i8, ptr %invariant.gep69, i64 %indvars.iv
-  store i8 %56, ptr %gep70, align 1
+  %55 = load i8, ptr %gep, align 1
+  %gep67 = getelementptr inbounds nuw i8, ptr %invariant.gep66, i64 %indvars.iv
+  store i8 %55, ptr %gep67, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us.us.us, label %55
+  br i1 %exitcond.not, label %._crit_edge.us.us.us, label %54
 
-._crit_edge.us.us.us:                             ; preds = %55
+._crit_edge.us.us.us:                             ; preds = %54
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %exitcond58.not = icmp eq i64 %indvars.iv.next55, %wide.trip.count57
   br i1 %exitcond58.not, label %._crit_edge42.split.us.us.us, label %.preheader.us.us.us
@@ -20822,12 +20692,12 @@ GetPixelDataSize.exit:                            ; preds = %29, %.thread
   br i1 %exitcond63.not, label %._crit_edge, label %.preheader39.us.us
 
 ._crit_edge:                                      ; preds = %._crit_edge42.split.us.us.us, %GetPixelDataSize.exit
-  %57 = load ptr, ptr %0, align 8
-  tail call void @free(ptr noundef %57) #54
+  %56 = load ptr, ptr %0, align 8
+  tail call void @free(ptr noundef %56) #54
   store ptr %38, ptr %0, align 8
-  br label %58
+  br label %57
 
-58:                                               ; preds = %1, %4, %8, %._crit_edge, %21
+57:                                               ; preds = %1, %4, %8, %._crit_edge, %21
   ret void
 }
 
@@ -21114,6 +20984,162 @@ declare float @llvm.floor.f32(float) #14
 define void @ImageRotateCW(ptr noundef captures(none) %0) local_unnamed_addr #4 {
   %2 = load ptr, ptr %0, align 8
   %3 = icmp eq ptr %2, null
+  br i1 %3, label %58, label %4
+
+4:                                                ; preds = %1
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %6 = load i32, ptr %5, align 8
+  %7 = icmp eq i32 %6, 0
+  br i1 %7, label %58, label %8
+
+8:                                                ; preds = %4
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %10 = load i32, ptr %9, align 4
+  %11 = icmp eq i32 %10, 0
+  br i1 %11, label %58, label %12
+
+12:                                               ; preds = %8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %14 = load i32, ptr %13, align 8
+  %15 = icmp sgt i32 %14, 1
+  br i1 %15, label %16, label %17
+
+16:                                               ; preds = %12
+  tail call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.53) #54
+  br label %17
+
+17:                                               ; preds = %16, %12
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %19 = load i32, ptr %18, align 4
+  %20 = icmp sgt i32 %19, 13
+  br i1 %20, label %21, label %22
+
+21:                                               ; preds = %17
+  tail call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.54) #54
+  br label %58
+
+22:                                               ; preds = %17
+  switch i32 %19, label %30 [
+    i32 1, label %23
+    i32 2, label %24
+    i32 3, label %24
+    i32 5, label %24
+    i32 6, label %24
+    i32 7, label %25
+    i32 4, label %GetPixelDataSize.exit
+    i32 8, label %25
+    i32 9, label %26
+    i32 10, label %27
+    i32 11, label %24
+    i32 12, label %28
+    i32 13, label %29
+  ]
+
+23:                                               ; preds = %22
+  br label %GetPixelDataSize.exit
+
+24:                                               ; preds = %22, %22, %22, %22, %22
+  br label %GetPixelDataSize.exit
+
+25:                                               ; preds = %22, %22
+  br label %GetPixelDataSize.exit
+
+26:                                               ; preds = %22
+  br label %GetPixelDataSize.exit
+
+27:                                               ; preds = %22
+  br label %GetPixelDataSize.exit
+
+28:                                               ; preds = %22
+  br label %GetPixelDataSize.exit
+
+29:                                               ; preds = %22
+  br label %GetPixelDataSize.exit
+
+30:                                               ; preds = %22
+  br label %GetPixelDataSize.exit
+
+GetPixelDataSize.exit:                            ; preds = %29, %28, %27, %26, %22, %30, %25, %24, %23
+  %31 = phi i1 [ true, %29 ], [ true, %28 ], [ true, %27 ], [ true, %26 ], [ true, %22 ], [ true, %23 ], [ true, %24 ], [ true, %25 ], [ false, %30 ]
+  %32 = phi i32 [ 8, %29 ], [ 6, %28 ], [ 16, %27 ], [ 12, %26 ], [ 3, %22 ], [ 1, %23 ], [ 2, %24 ], [ 4, %25 ], [ 0, %30 ]
+  %33 = load i32, ptr %5, align 8
+  %34 = load i32, ptr %9, align 4
+  %35 = mul i32 %33, %32
+  %36 = mul i32 %35, %34
+  %37 = sext i32 %36 to i64
+  %38 = tail call noalias ptr @malloc(i64 noundef %37) #55
+  %39 = icmp sgt i32 %34, 0
+  %40 = icmp sgt i32 %33, 0
+  %or.cond = and i1 %39, %40
+  %or.cond72 = and i1 %or.cond, %31
+  br i1 %or.cond72, label %.preheader45.lr.ph.split.us.split.us, label %._crit_edge
+
+.preheader45.lr.ph.split.us.split.us:             ; preds = %GetPixelDataSize.exit
+  %41 = load ptr, ptr %0, align 8
+  %42 = zext nneg i32 %32 to i64
+  %43 = zext nneg i32 %34 to i64
+  %44 = zext nneg i32 %33 to i64
+  %wide.trip.count66 = zext nneg i32 %34 to i64
+  %wide.trip.count61 = zext nneg i32 %33 to i64
+  %wide.trip.count = zext nneg i32 %32 to i64
+  br label %.preheader45.us.us
+
+.preheader45.us.us:                               ; preds = %._crit_edge48.split.us.us.us, %.preheader45.lr.ph.split.us.split.us
+  %indvars.iv63 = phi i64 [ %indvars.iv.next64, %._crit_edge48.split.us.us.us ], [ 0, %.preheader45.lr.ph.split.us.split.us ]
+  %45 = mul nuw nsw i64 %indvars.iv63, %44
+  %46 = xor i64 %indvars.iv63, -1
+  %47 = add nsw i64 %43, %46
+  br label %.preheader.us.us.us
+
+.preheader.us.us.us:                              ; preds = %._crit_edge.us.us.us, %.preheader45.us.us
+  %indvars.iv58 = phi i64 [ %indvars.iv.next59, %._crit_edge.us.us.us ], [ 0, %.preheader45.us.us ]
+  %48 = add nuw nsw i64 %indvars.iv58, %45
+  %49 = mul nuw nsw i64 %48, %42
+  %50 = mul nuw nsw i64 %indvars.iv58, %43
+  %51 = add nsw i64 %47, %50
+  %52 = mul nsw i64 %51, %42
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %41, i64 %49
+  %invariant.gep70 = getelementptr i8, ptr %38, i64 %52
+  br label %53
+
+53:                                               ; preds = %53, %.preheader.us.us.us
+  %indvars.iv = phi i64 [ %indvars.iv.next, %53 ], [ 0, %.preheader.us.us.us ]
+  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %indvars.iv
+  %54 = load i8, ptr %gep, align 1
+  %gep71 = getelementptr i8, ptr %invariant.gep70, i64 %indvars.iv
+  store i8 %54, ptr %gep71, align 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge.us.us.us, label %53
+
+._crit_edge.us.us.us:                             ; preds = %53
+  %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
+  %exitcond62.not = icmp eq i64 %indvars.iv.next59, %wide.trip.count61
+  br i1 %exitcond62.not, label %._crit_edge48.split.us.us.us, label %.preheader.us.us.us
+
+._crit_edge48.split.us.us.us:                     ; preds = %._crit_edge.us.us.us
+  %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
+  %exitcond67.not = icmp eq i64 %indvars.iv.next64, %wide.trip.count66
+  br i1 %exitcond67.not, label %._crit_edge, label %.preheader45.us.us
+
+._crit_edge:                                      ; preds = %._crit_edge48.split.us.us.us, %GetPixelDataSize.exit
+  %55 = load ptr, ptr %0, align 8
+  tail call void @free(ptr noundef %55) #54
+  store ptr %38, ptr %0, align 8
+  %56 = load i32, ptr %5, align 8
+  %57 = load i32, ptr %9, align 4
+  store i32 %57, ptr %5, align 8
+  store i32 %56, ptr %9, align 4
+  br label %58
+
+58:                                               ; preds = %1, %4, %8, %._crit_edge, %21
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define void @ImageRotateCCW(ptr noundef captures(none) %0) local_unnamed_addr #4 {
+  %2 = load ptr, ptr %0, align 8
+  %3 = icmp eq ptr %2, null
   br i1 %3, label %59, label %4
 
 4:                                                ; preds = %1
@@ -21149,118 +21175,109 @@ define void @ImageRotateCW(ptr noundef captures(none) %0) local_unnamed_addr #4 
   br label %59
 
 22:                                               ; preds = %17
-  switch i32 %19, label %29 [
-    i32 1, label %.thread70
-    i32 2, label %23
-    i32 3, label %23
-    i32 5, label %23
-    i32 6, label %23
-    i32 7, label %24
-    i32 4, label %.thread
-    i32 8, label %24
-    i32 9, label %25
-    i32 10, label %26
-    i32 11, label %23
-    i32 12, label %27
-    i32 13, label %28
+  switch i32 %19, label %30 [
+    i32 1, label %23
+    i32 2, label %24
+    i32 3, label %24
+    i32 5, label %24
+    i32 6, label %24
+    i32 7, label %25
+    i32 4, label %GetPixelDataSize.exit
+    i32 8, label %25
+    i32 9, label %26
+    i32 10, label %27
+    i32 11, label %24
+    i32 12, label %28
+    i32 13, label %29
   ]
 
-.thread70:                                        ; preds = %22
-  br label %.thread
-
-23:                                               ; preds = %22, %22, %22, %22, %22
-  br label %29
-
-24:                                               ; preds = %22, %22
-  br label %29
-
-25:                                               ; preds = %22
-  br label %.thread
-
-26:                                               ; preds = %22
-  br label %.thread
-
-27:                                               ; preds = %22
-  br label %.thread
-
-28:                                               ; preds = %22
-  br label %.thread
-
-29:                                               ; preds = %24, %23, %22
-  %.016.i = phi i32 [ 0, %22 ], [ 2, %23 ], [ 4, %24 ]
-  %30 = and i32 %19, -2
-  %or.cond3.i = icmp eq i32 %30, 14
-  br i1 %or.cond3.i, label %GetPixelDataSize.exit, label %.thread
-
-.thread:                                          ; preds = %.thread70, %22, %25, %26, %27, %28, %29
-  %31 = phi i32 [ %.016.i, %29 ], [ 8, %28 ], [ 6, %27 ], [ 16, %26 ], [ 12, %25 ], [ 3, %22 ], [ 1, %.thread70 ]
-  %32 = and i32 %19, -8
-  %or.cond5.i = icmp eq i32 %32, 16
-  %spec.select.i = select i1 %or.cond5.i, i32 16, i32 %31
+23:                                               ; preds = %22
   br label %GetPixelDataSize.exit
 
-GetPixelDataSize.exit:                            ; preds = %29, %.thread
-  %.0.i = phi i32 [ 8, %29 ], [ %spec.select.i, %.thread ]
+24:                                               ; preds = %22, %22, %22, %22, %22
+  br label %GetPixelDataSize.exit
+
+25:                                               ; preds = %22, %22
+  br label %GetPixelDataSize.exit
+
+26:                                               ; preds = %22
+  br label %GetPixelDataSize.exit
+
+27:                                               ; preds = %22
+  br label %GetPixelDataSize.exit
+
+28:                                               ; preds = %22
+  br label %GetPixelDataSize.exit
+
+29:                                               ; preds = %22
+  br label %GetPixelDataSize.exit
+
+30:                                               ; preds = %22
+  br label %GetPixelDataSize.exit
+
+GetPixelDataSize.exit:                            ; preds = %29, %28, %27, %26, %22, %30, %25, %24, %23
+  %31 = phi i1 [ true, %29 ], [ true, %28 ], [ true, %27 ], [ true, %26 ], [ true, %22 ], [ true, %23 ], [ true, %24 ], [ true, %25 ], [ false, %30 ]
+  %32 = phi i32 [ 8, %29 ], [ 6, %28 ], [ 16, %27 ], [ 12, %26 ], [ 3, %22 ], [ 1, %23 ], [ 2, %24 ], [ 4, %25 ], [ 0, %30 ]
   %33 = load i32, ptr %5, align 8
   %34 = load i32, ptr %9, align 4
-  %35 = mul i32 %33, %.0.i
+  %35 = mul i32 %33, %32
   %36 = mul i32 %35, %34
   %37 = sext i32 %36 to i64
   %38 = tail call noalias ptr @malloc(i64 noundef %37) #55
   %39 = icmp sgt i32 %34, 0
   %40 = icmp sgt i32 %33, 0
   %or.cond = and i1 %39, %40
-  %41 = icmp ne i32 %.0.i, 0
-  %or.cond75 = and i1 %or.cond, %41
+  %or.cond75 = and i1 %or.cond, %31
   br i1 %or.cond75, label %.preheader45.lr.ph.split.us.split.us, label %._crit_edge
 
 .preheader45.lr.ph.split.us.split.us:             ; preds = %GetPixelDataSize.exit
-  %42 = load ptr, ptr %0, align 8
-  %43 = zext nneg i32 %.0.i to i64
-  %44 = zext nneg i32 %34 to i64
-  %45 = zext nneg i32 %33 to i64
-  %wide.trip.count66 = zext nneg i32 %34 to i64
-  %wide.trip.count61 = zext nneg i32 %33 to i64
-  %wide.trip.count = zext nneg i32 %.0.i to i64
+  %41 = load ptr, ptr %0, align 8
+  %42 = zext nneg i32 %34 to i64
+  %43 = zext nneg i32 %32 to i64
+  %wide.trip.count69 = zext nneg i32 %34 to i64
+  %wide.trip.count64 = zext nneg i32 %33 to i64
+  %wide.trip.count = zext nneg i32 %32 to i64
   br label %.preheader45.us.us
 
 .preheader45.us.us:                               ; preds = %._crit_edge48.split.us.us.us, %.preheader45.lr.ph.split.us.split.us
-  %indvars.iv63 = phi i64 [ %indvars.iv.next64, %._crit_edge48.split.us.us.us ], [ 0, %.preheader45.lr.ph.split.us.split.us ]
-  %46 = mul nuw nsw i64 %indvars.iv63, %45
-  %47 = xor i64 %indvars.iv63, -1
-  %48 = add nsw i64 %44, %47
+  %indvars.iv66 = phi i64 [ %indvars.iv.next67, %._crit_edge48.split.us.us.us ], [ 0, %.preheader45.lr.ph.split.us.split.us ]
+  %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
+  %44 = trunc nuw nsw i64 %indvars.iv.next67 to i32
+  %45 = mul i32 %33, %44
   br label %.preheader.us.us.us
 
 .preheader.us.us.us:                              ; preds = %._crit_edge.us.us.us, %.preheader45.us.us
-  %indvars.iv58 = phi i64 [ %indvars.iv.next59, %._crit_edge.us.us.us ], [ 0, %.preheader45.us.us ]
-  %49 = add nuw nsw i64 %indvars.iv58, %46
-  %50 = mul nuw nsw i64 %49, %43
-  %51 = mul nuw nsw i64 %indvars.iv58, %44
-  %52 = add nsw i64 %48, %51
-  %53 = mul nsw i64 %52, %43
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %42, i64 %50
-  %invariant.gep73 = getelementptr i8, ptr %38, i64 %53
+  %indvars.iv61 = phi i64 [ %indvars.iv.next62, %._crit_edge.us.us.us ], [ 0, %.preheader45.us.us ]
+  %46 = trunc i64 %indvars.iv61 to i32
+  %47 = xor i32 %46, -1
+  %48 = add i32 %45, %47
+  %49 = mul nsw i32 %48, %32
+  %50 = mul nuw nsw i64 %indvars.iv61, %42
+  %51 = add nuw nsw i64 %50, %indvars.iv66
+  %52 = mul nuw nsw i64 %51, %43
+  %53 = sext i32 %49 to i64
+  %invariant.gep = getelementptr i8, ptr %41, i64 %53
+  %invariant.gep73 = getelementptr inbounds nuw i8, ptr %38, i64 %52
   br label %54
 
 54:                                               ; preds = %54, %.preheader.us.us.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %54 ], [ 0, %.preheader.us.us.us ]
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv
   %55 = load i8, ptr %gep, align 1
-  %gep74 = getelementptr i8, ptr %invariant.gep73, i64 %indvars.iv
+  %gep74 = getelementptr inbounds nuw i8, ptr %invariant.gep73, i64 %indvars.iv
   store i8 %55, ptr %gep74, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.us.us.us, label %54
 
 ._crit_edge.us.us.us:                             ; preds = %54
-  %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
-  %exitcond62.not = icmp eq i64 %indvars.iv.next59, %wide.trip.count61
-  br i1 %exitcond62.not, label %._crit_edge48.split.us.us.us, label %.preheader.us.us.us
+  %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
+  %exitcond65.not = icmp eq i64 %indvars.iv.next62, %wide.trip.count64
+  br i1 %exitcond65.not, label %._crit_edge48.split.us.us.us, label %.preheader.us.us.us
 
 ._crit_edge48.split.us.us.us:                     ; preds = %._crit_edge.us.us.us
-  %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
-  %exitcond67.not = icmp eq i64 %indvars.iv.next64, %wide.trip.count66
-  br i1 %exitcond67.not, label %._crit_edge, label %.preheader45.us.us
+  %exitcond70.not = icmp eq i64 %indvars.iv.next67, %wide.trip.count69
+  br i1 %exitcond70.not, label %._crit_edge, label %.preheader45.us.us
 
 ._crit_edge:                                      ; preds = %._crit_edge48.split.us.us.us, %GetPixelDataSize.exit
   %56 = load ptr, ptr %0, align 8
@@ -21273,173 +21290,6 @@ GetPixelDataSize.exit:                            ; preds = %29, %.thread
   br label %59
 
 59:                                               ; preds = %1, %4, %8, %._crit_edge, %21
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define void @ImageRotateCCW(ptr noundef captures(none) %0) local_unnamed_addr #4 {
-  %2 = load ptr, ptr %0, align 8
-  %3 = icmp eq ptr %2, null
-  br i1 %3, label %60, label %4
-
-4:                                                ; preds = %1
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load i32, ptr %5, align 8
-  %7 = icmp eq i32 %6, 0
-  br i1 %7, label %60, label %8
-
-8:                                                ; preds = %4
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %10 = load i32, ptr %9, align 4
-  %11 = icmp eq i32 %10, 0
-  br i1 %11, label %60, label %12
-
-12:                                               ; preds = %8
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %14 = load i32, ptr %13, align 8
-  %15 = icmp sgt i32 %14, 1
-  br i1 %15, label %16, label %17
-
-16:                                               ; preds = %12
-  tail call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.53) #54
-  br label %17
-
-17:                                               ; preds = %16, %12
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %19 = load i32, ptr %18, align 4
-  %20 = icmp sgt i32 %19, 13
-  br i1 %20, label %21, label %22
-
-21:                                               ; preds = %17
-  tail call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.54) #54
-  br label %60
-
-22:                                               ; preds = %17
-  switch i32 %19, label %29 [
-    i32 1, label %.thread73
-    i32 2, label %23
-    i32 3, label %23
-    i32 5, label %23
-    i32 6, label %23
-    i32 7, label %24
-    i32 4, label %.thread
-    i32 8, label %24
-    i32 9, label %25
-    i32 10, label %26
-    i32 11, label %23
-    i32 12, label %27
-    i32 13, label %28
-  ]
-
-.thread73:                                        ; preds = %22
-  br label %.thread
-
-23:                                               ; preds = %22, %22, %22, %22, %22
-  br label %29
-
-24:                                               ; preds = %22, %22
-  br label %29
-
-25:                                               ; preds = %22
-  br label %.thread
-
-26:                                               ; preds = %22
-  br label %.thread
-
-27:                                               ; preds = %22
-  br label %.thread
-
-28:                                               ; preds = %22
-  br label %.thread
-
-29:                                               ; preds = %24, %23, %22
-  %.016.i = phi i32 [ 0, %22 ], [ 2, %23 ], [ 4, %24 ]
-  %30 = and i32 %19, -2
-  %or.cond3.i = icmp eq i32 %30, 14
-  br i1 %or.cond3.i, label %GetPixelDataSize.exit, label %.thread
-
-.thread:                                          ; preds = %.thread73, %22, %25, %26, %27, %28, %29
-  %31 = phi i32 [ %.016.i, %29 ], [ 8, %28 ], [ 6, %27 ], [ 16, %26 ], [ 12, %25 ], [ 3, %22 ], [ 1, %.thread73 ]
-  %32 = and i32 %19, -8
-  %or.cond5.i = icmp eq i32 %32, 16
-  %spec.select.i = select i1 %or.cond5.i, i32 16, i32 %31
-  br label %GetPixelDataSize.exit
-
-GetPixelDataSize.exit:                            ; preds = %29, %.thread
-  %.0.i = phi i32 [ 8, %29 ], [ %spec.select.i, %.thread ]
-  %33 = load i32, ptr %5, align 8
-  %34 = load i32, ptr %9, align 4
-  %35 = mul i32 %33, %.0.i
-  %36 = mul i32 %35, %34
-  %37 = sext i32 %36 to i64
-  %38 = tail call noalias ptr @malloc(i64 noundef %37) #55
-  %39 = icmp sgt i32 %34, 0
-  %40 = icmp sgt i32 %33, 0
-  %or.cond = and i1 %39, %40
-  %41 = icmp ne i32 %.0.i, 0
-  %or.cond78 = and i1 %or.cond, %41
-  br i1 %or.cond78, label %.preheader45.lr.ph.split.us.split.us, label %._crit_edge
-
-.preheader45.lr.ph.split.us.split.us:             ; preds = %GetPixelDataSize.exit
-  %42 = load ptr, ptr %0, align 8
-  %43 = zext nneg i32 %34 to i64
-  %44 = zext nneg i32 %.0.i to i64
-  %wide.trip.count69 = zext nneg i32 %34 to i64
-  %wide.trip.count64 = zext nneg i32 %33 to i64
-  %wide.trip.count = zext nneg i32 %.0.i to i64
-  br label %.preheader45.us.us
-
-.preheader45.us.us:                               ; preds = %._crit_edge48.split.us.us.us, %.preheader45.lr.ph.split.us.split.us
-  %indvars.iv66 = phi i64 [ %indvars.iv.next67, %._crit_edge48.split.us.us.us ], [ 0, %.preheader45.lr.ph.split.us.split.us ]
-  %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
-  %45 = trunc nuw nsw i64 %indvars.iv.next67 to i32
-  %46 = mul i32 %33, %45
-  br label %.preheader.us.us.us
-
-.preheader.us.us.us:                              ; preds = %._crit_edge.us.us.us, %.preheader45.us.us
-  %indvars.iv61 = phi i64 [ %indvars.iv.next62, %._crit_edge.us.us.us ], [ 0, %.preheader45.us.us ]
-  %47 = trunc i64 %indvars.iv61 to i32
-  %48 = xor i32 %47, -1
-  %49 = add i32 %46, %48
-  %50 = mul nsw i32 %49, %.0.i
-  %51 = mul nuw nsw i64 %indvars.iv61, %43
-  %52 = add nuw nsw i64 %51, %indvars.iv66
-  %53 = mul nuw nsw i64 %52, %44
-  %54 = sext i32 %50 to i64
-  %invariant.gep = getelementptr i8, ptr %42, i64 %54
-  %invariant.gep76 = getelementptr inbounds nuw i8, ptr %38, i64 %53
-  br label %55
-
-55:                                               ; preds = %55, %.preheader.us.us.us
-  %indvars.iv = phi i64 [ %indvars.iv.next, %55 ], [ 0, %.preheader.us.us.us ]
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv
-  %56 = load i8, ptr %gep, align 1
-  %gep77 = getelementptr inbounds nuw i8, ptr %invariant.gep76, i64 %indvars.iv
-  store i8 %56, ptr %gep77, align 1
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us.us.us, label %55
-
-._crit_edge.us.us.us:                             ; preds = %55
-  %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
-  %exitcond65.not = icmp eq i64 %indvars.iv.next62, %wide.trip.count64
-  br i1 %exitcond65.not, label %._crit_edge48.split.us.us.us, label %.preheader.us.us.us
-
-._crit_edge48.split.us.us.us:                     ; preds = %._crit_edge.us.us.us
-  %exitcond70.not = icmp eq i64 %indvars.iv.next67, %wide.trip.count69
-  br i1 %exitcond70.not, label %._crit_edge, label %.preheader45.us.us
-
-._crit_edge:                                      ; preds = %._crit_edge48.split.us.us.us, %GetPixelDataSize.exit
-  %57 = load ptr, ptr %0, align 8
-  tail call void @free(ptr noundef %57) #54
-  store ptr %38, ptr %0, align 8
-  %58 = load i32, ptr %5, align 8
-  %59 = load i32, ptr %9, align 4
-  store i32 %59, ptr %5, align 8
-  store i32 %58, ptr %9, align 4
-  br label %60
-
-60:                                               ; preds = %1, %4, %8, %._crit_edge, %21
   ret void
 }
 

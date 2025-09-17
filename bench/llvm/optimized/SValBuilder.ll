@@ -3033,11 +3033,10 @@ define dso_local { ptr, i8 } @_ZN5clang4ento11SValBuilder9evalBinOpEN4llvm18Intr
   br i1 %or.cond222, label %_ZNK5clang4ento4SVal5getAsINS0_3LocEEESt8optionalIT_Ev.exit113, label %29
 
 29:                                               ; preds = %23
-  %30 = add i8 %4, -2
-  %spec.select.i.i.i.i.i = icmp ult i8 %30, 3
+  %30 = icmp ult i8 %4, 5
   %31 = add i8 %21, -2
   %spec.select.i.i.i.i.i97 = icmp ult i8 %31, 3
-  br i1 %spec.select.i.i.i.i.i, label %32, label %_ZNK5clang4ento4SVal5getAsINS0_3LocEEESt8optionalIT_Ev.exit
+  br i1 %30, label %32, label %_ZNK5clang4ento4SVal5getAsINS0_3LocEEESt8optionalIT_Ev.exit
 
 32:                                               ; preds = %29
   br i1 %spec.select.i.i.i.i.i97, label %33, label %41

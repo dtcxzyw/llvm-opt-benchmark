@@ -123,9 +123,9 @@ define internal void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u2
   call void @"_ZN82_$LT$std..io..Split$LT$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he5cd509d4c66e0f1E"(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %7, ptr noalias noundef nonnull align 8 dereferenceable(64) %12), !noalias !26
   %13 = load i64, ptr %7, align 8, !range !27, !noalias !23, !noundef !16
   %14 = icmp eq i64 %13, -9223372036854775807
-  br i1 %14, label %.thread12.i.i, label %15
+  br i1 %14, label %.thread11.i.i, label %15
 
-.thread12.i.i:                                    ; preds = %11
+.thread11.i.i:                                    ; preds = %11
   store i64 -9223372036854775805, ptr %8, align 8, !alias.scope !28, !noalias !29
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !23
   br label %17
@@ -137,12 +137,11 @@ define internal void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u2
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !23
   %.pre.pre.i.i = load i64, ptr %8, align 8, !noalias !14
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !23
-  %16 = and i64 %.pre.pre.i.i, -2
-  %switch.i.i = icmp eq i64 %16, -9223372036854775806
-  br i1 %switch.i.i, label %17, label %39
+  %16 = icmp ugt i64 %.pre.pre.i.i, -9223372036854775807
+  br i1 %16, label %17, label %39
 
-17:                                               ; preds = %15, %.thread12.i.i
-  %.sroa.0.0.copyload2.pr.pr = phi i64 [ -9223372036854775805, %.thread12.i.i ], [ %.pre.pre.i.i, %15 ]
+17:                                               ; preds = %15, %.thread11.i.i
+  %.sroa.0.0.copyload2.pr.pr = phi i64 [ -9223372036854775805, %.thread11.i.i ], [ %.pre.pre.i.i, %15 ]
   %.pr.i.i = load i64, ptr %1, align 8, !alias.scope !30, !noalias !15
   tail call void @llvm.experimental.noalias.scope.decl(metadata !33)
   %18 = icmp eq i64 %.pr.i.i, -9223372036854775808
@@ -280,7 +279,7 @@ common.resume:                                    ; preds = %.body.i.i1, %.body.
   unreachable
 
 "_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h3237abc2cb8c6cbfE.exit": ; preds = %.thread, %39, %.critedge.i.i
-  %.sroa.05.0 = phi i64 [ -9223372036854775806, %.critedge.i.i ], [ %.pre.pre.i.i, %39 ], [ -9223372036854775806, %.thread ]
+  %.sroa.05.0 = phi i64 [ -9223372036854775806, %.critedge.i.i ], [ %.pre.pre.i.i, %39 ], [ %.sroa.0.0.copyload2.pr.pr, %.thread ]
   %.sroa.57.0 = phi ptr [ %41, %.critedge.i.i ], [ %.sroa.5.sroa.0.0.copyload16, %39 ], [ %.sroa.5.sroa.0.0.copyload, %.thread ]
   %.sroa.6.0 = phi ptr [ @anon.f6668cd0dd059caa7df40143d2769f81.45.llvm.6282581801709149600, %.critedge.i.i ], [ %.sroa.5.sroa.4.0.copyload18, %39 ], [ %.sroa.5.sroa.4.0.copyload, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -362,9 +361,9 @@ define internal void @"_ZN104_$LT$core..iter..sources..from_fn..FromFn$LT$F$GT$$
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !87
   %6 = load i64, ptr %1, align 8, !range !13, !alias.scope !84, !noalias !89, !noundef !16
   %7 = icmp eq i64 %6, -9223372036854775808
-  br i1 %7, label %.thread14.i, label %8
+  br i1 %7, label %.thread12.i, label %8
 
-.thread14.i:                                      ; preds = %2
+.thread12.i:                                      ; preds = %2
   store i64 -9223372036854775805, ptr %5, align 8, !noalias !87
   br label %"_ZN4core3ptr240drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$std..io..Split$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$C$uu_wc..files0_iter$LT$std..fs..File$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h7d5d0be77535b6b7E.exit.i"
 
@@ -376,9 +375,9 @@ define internal void @"_ZN104_$LT$core..iter..sources..from_fn..FromFn$LT$F$GT$$
   call void @"_ZN82_$LT$std..io..Split$LT$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc758f96c27d8b793E"(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull align 8 dereferenceable(56) %9), !noalias !99
   %10 = load i64, ptr %4, align 8, !range !27, !noalias !96, !noundef !16
   %11 = icmp eq i64 %10, -9223372036854775807
-  br i1 %11, label %.thread11.i, label %12
+  br i1 %11, label %.thread10.i, label %12
 
-.thread11.i:                                      ; preds = %8
+.thread10.i:                                      ; preds = %8
   store i64 -9223372036854775805, ptr %5, align 8, !alias.scope !100, !noalias !101
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !96
   br label %14
@@ -390,12 +389,11 @@ define internal void @"_ZN104_$LT$core..iter..sources..from_fn..FromFn$LT$F$GT$$
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !96
   %.pre.pre.i = load i64, ptr %5, align 8, !range !102, !noalias !87
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !96
-  %13 = and i64 %.pre.pre.i, -2
-  %switch.i = icmp eq i64 %13, -9223372036854775806
-  br i1 %switch.i, label %14, label %"_ZN5uu_wc11files0_iter28_$u7b$$u7b$closure$u7d$$u7d$17h1cf1545cd7f7ebc2E.exit"
+  %13 = icmp ugt i64 %.pre.pre.i, -9223372036854775807
+  br i1 %13, label %14, label %"_ZN5uu_wc11files0_iter28_$u7b$$u7b$closure$u7d$$u7d$17h1cf1545cd7f7ebc2E.exit"
 
-14:                                               ; preds = %12, %.thread11.i
-  %.ph.i = phi i64 [ -9223372036854775805, %.thread11.i ], [ %.pre.pre.i, %12 ]
+14:                                               ; preds = %12, %.thread10.i
+  %.ph.i = phi i64 [ -9223372036854775805, %.thread10.i ], [ %.pre.pre.i, %12 ]
   %.pr.i = load i64, ptr %1, align 8, !alias.scope !103, !noalias !89
   %15 = icmp eq i64 %.pr.i, -9223372036854775808
   br i1 %15, label %"_ZN4core3ptr240drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$std..io..Split$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$C$uu_wc..files0_iter$LT$std..fs..File$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h7d5d0be77535b6b7E.exit.i", label %16
@@ -415,7 +413,7 @@ define internal void @"_ZN104_$LT$core..iter..sources..from_fn..FromFn$LT$F$GT$$
   invoke fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..result..Result$LT$uu_wc..Input$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$17h9949795d1e84e21dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5)
           to label %"_ZN4core3ptr152drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$uu_wc..Input$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$17hd6e81cf99e636b07E.exit.i" unwind label %21, !noalias !89
 
-"_ZN4core3ptr240drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$std..io..Split$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$C$uu_wc..files0_iter$LT$std..fs..File$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h7d5d0be77535b6b7E.exit.i": ; preds = %16, %14, %.thread14.i
+"_ZN4core3ptr240drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$std..io..Split$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$C$uu_wc..files0_iter$LT$std..fs..File$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h7d5d0be77535b6b7E.exit.i": ; preds = %16, %14, %.thread12.i
   store i64 -9223372036854775808, ptr %1, align 8, !alias.scope !84, !noalias !89
   br label %"_ZN5uu_wc11files0_iter28_$u7b$$u7b$closure$u7d$$u7d$17h1cf1545cd7f7ebc2E.exit"
 
@@ -938,9 +936,9 @@ define internal noundef i64 @_ZN4core4iter6traits8iterator8Iterator10advance_by1
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !247
   %10 = load i64, ptr %0, align 8, !range !13, !alias.scope !250, !noalias !251, !noundef !16
   %11 = icmp eq i64 %10, -9223372036854775808
-  br i1 %11, label %.thread14.i.i, label %12
+  br i1 %11, label %.thread12.i.i, label %12
 
-.thread14.i.i:                                    ; preds = %8
+.thread12.i.i:                                    ; preds = %8
   store i64 -9223372036854775805, ptr %5, align 8, !noalias !247
   br label %"_ZN4core3ptr240drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$std..io..Split$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$C$uu_wc..files0_iter$LT$std..fs..File$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h7d5d0be77535b6b7E.exit.i.i"
 
@@ -951,9 +949,9 @@ define internal noundef i64 @_ZN4core4iter6traits8iterator8Iterator10advance_by1
   call void @"_ZN82_$LT$std..io..Split$LT$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc758f96c27d8b793E"(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull align 8 dereferenceable(56) %7), !noalias !261
   %13 = load i64, ptr %4, align 8, !range !27, !noalias !258, !noundef !16
   %14 = icmp eq i64 %13, -9223372036854775807
-  br i1 %14, label %.thread11.i.i, label %15
+  br i1 %14, label %.thread10.i.i, label %15
 
-.thread11.i.i:                                    ; preds = %12
+.thread10.i.i:                                    ; preds = %12
   store i64 -9223372036854775805, ptr %5, align 8, !alias.scope !262, !noalias !263
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !258
   br label %17
@@ -965,12 +963,11 @@ define internal noundef i64 @_ZN4core4iter6traits8iterator8Iterator10advance_by1
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !258
   %.pre.pre.i.i = load i64, ptr %5, align 8, !range !102, !noalias !247
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !258
-  %16 = and i64 %.pre.pre.i.i, -2
-  %switch.i.i = icmp eq i64 %16, -9223372036854775806
-  br i1 %switch.i.i, label %17, label %"_ZN104_$LT$core..iter..sources..from_fn..FromFn$LT$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1a5319c72dea9ddcE.exit"
+  %16 = icmp ugt i64 %.pre.pre.i.i, -9223372036854775807
+  br i1 %16, label %17, label %"_ZN104_$LT$core..iter..sources..from_fn..FromFn$LT$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1a5319c72dea9ddcE.exit"
 
-17:                                               ; preds = %15, %.thread11.i.i
-  %.ph.i.i = phi i64 [ -9223372036854775805, %.thread11.i.i ], [ %.pre.pre.i.i, %15 ]
+17:                                               ; preds = %15, %.thread10.i.i
+  %.ph.i.i = phi i64 [ -9223372036854775805, %.thread10.i.i ], [ %.pre.pre.i.i, %15 ]
   %.pr.i.i = load i64, ptr %0, align 8, !alias.scope !264, !noalias !251
   %18 = icmp eq i64 %.pr.i.i, -9223372036854775808
   br i1 %18, label %"_ZN4core3ptr240drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$std..io..Split$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$C$uu_wc..files0_iter$LT$std..fs..File$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h7d5d0be77535b6b7E.exit.i.i", label %19
@@ -990,7 +987,7 @@ define internal noundef i64 @_ZN4core4iter6traits8iterator8Iterator10advance_by1
   invoke fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..result..Result$LT$uu_wc..Input$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$17h9949795d1e84e21dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5)
           to label %"_ZN4core3ptr152drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$uu_wc..Input$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$17hd6e81cf99e636b07E.exit.i.i" unwind label %24, !noalias !251
 
-"_ZN4core3ptr240drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$std..io..Split$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$C$uu_wc..files0_iter$LT$std..fs..File$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h7d5d0be77535b6b7E.exit.i.i": ; preds = %19, %17, %.thread14.i.i
+"_ZN4core3ptr240drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$std..io..Split$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$C$uu_wc..files0_iter$LT$std..fs..File$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h7d5d0be77535b6b7E.exit.i.i": ; preds = %19, %17, %.thread12.i.i
   store i64 -9223372036854775808, ptr %0, align 8, !alias.scope !250, !noalias !251
   br label %"_ZN104_$LT$core..iter..sources..from_fn..FromFn$LT$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1a5319c72dea9ddcE.exit"
 
@@ -1129,9 +1126,9 @@ define internal void @_ZN4core4iter6traits8iterator8Iterator3nth17h1e6824c94c561
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !294
   %10 = load i64, ptr %1, align 8, !range !13, !alias.scope !297, !noalias !298, !noundef !16
   %11 = icmp eq i64 %10, -9223372036854775808
-  br i1 %11, label %.thread14.i.i, label %12
+  br i1 %11, label %.thread12.i.i, label %12
 
-.thread14.i.i:                                    ; preds = %9
+.thread12.i.i:                                    ; preds = %9
   store i64 -9223372036854775805, ptr %6, align 8, !noalias !294
   br label %"_ZN4core3ptr240drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$std..io..Split$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$C$uu_wc..files0_iter$LT$std..fs..File$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h7d5d0be77535b6b7E.exit.i.i"
 
@@ -1143,9 +1140,9 @@ define internal void @_ZN4core4iter6traits8iterator8Iterator3nth17h1e6824c94c561
   call void @"_ZN82_$LT$std..io..Split$LT$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc758f96c27d8b793E"(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull align 8 dereferenceable(56) %13), !noalias !308
   %14 = load i64, ptr %5, align 8, !range !27, !noalias !305, !noundef !16
   %15 = icmp eq i64 %14, -9223372036854775807
-  br i1 %15, label %.thread11.i.i, label %16
+  br i1 %15, label %.thread10.i.i, label %16
 
-.thread11.i.i:                                    ; preds = %12
+.thread10.i.i:                                    ; preds = %12
   store i64 -9223372036854775805, ptr %6, align 8, !alias.scope !309, !noalias !310
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !305
   br label %18
@@ -1157,12 +1154,11 @@ define internal void @_ZN4core4iter6traits8iterator8Iterator3nth17h1e6824c94c561
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !305
   %.pre.pre.i.i = load i64, ptr %6, align 8, !range !102, !noalias !294
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !305
-  %17 = and i64 %.pre.pre.i.i, -2
-  %switch.i.i = icmp eq i64 %17, -9223372036854775806
-  br i1 %switch.i.i, label %18, label %"_ZN104_$LT$core..iter..sources..from_fn..FromFn$LT$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1a5319c72dea9ddcE.exit"
+  %17 = icmp ugt i64 %.pre.pre.i.i, -9223372036854775807
+  br i1 %17, label %18, label %"_ZN104_$LT$core..iter..sources..from_fn..FromFn$LT$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1a5319c72dea9ddcE.exit"
 
-18:                                               ; preds = %16, %.thread11.i.i
-  %.ph.i.i = phi i64 [ -9223372036854775805, %.thread11.i.i ], [ %.pre.pre.i.i, %16 ]
+18:                                               ; preds = %16, %.thread10.i.i
+  %.ph.i.i = phi i64 [ -9223372036854775805, %.thread10.i.i ], [ %.pre.pre.i.i, %16 ]
   %.pr.i.i = load i64, ptr %1, align 8, !alias.scope !311, !noalias !298
   %19 = icmp eq i64 %.pr.i.i, -9223372036854775808
   br i1 %19, label %"_ZN4core3ptr240drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$std..io..Split$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$C$uu_wc..files0_iter$LT$std..fs..File$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h7d5d0be77535b6b7E.exit.i.i", label %20
@@ -1182,7 +1178,7 @@ define internal void @_ZN4core4iter6traits8iterator8Iterator3nth17h1e6824c94c561
   invoke fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..result..Result$LT$uu_wc..Input$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$17h9949795d1e84e21dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6)
           to label %"_ZN4core3ptr152drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$uu_wc..Input$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$17hd6e81cf99e636b07E.exit.i.i" unwind label %25, !noalias !298
 
-"_ZN4core3ptr240drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$std..io..Split$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$C$uu_wc..files0_iter$LT$std..fs..File$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h7d5d0be77535b6b7E.exit.i.i": ; preds = %20, %18, %.thread14.i.i
+"_ZN4core3ptr240drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$std..io..Split$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$$C$uu_wc..files0_iter$LT$std..fs..File$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h7d5d0be77535b6b7E.exit.i.i": ; preds = %20, %18, %.thread12.i.i
   store i64 -9223372036854775808, ptr %1, align 8, !alias.scope !297, !noalias !298
   br label %"_ZN104_$LT$core..iter..sources..from_fn..FromFn$LT$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1a5319c72dea9ddcE.exit"
 

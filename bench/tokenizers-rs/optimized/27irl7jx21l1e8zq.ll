@@ -17476,9 +17476,8 @@ _ZN14regex_automata4util6search5Input8set_span17h69c2d0bff58a14eaE.exit: ; preds
 
 61:                                               ; preds = %56
   %62 = load i32, ptr %12, align 8, !range !3606, !alias.scope !3607, !noalias !3608, !noundef !4
-  %.off.i.i.i = add nsw i32 %62, -1
-  %switch13.i.i.i = icmp ult i32 %.off.i.i.i, 2
-  br i1 %switch13.i.i.i, label %63, label %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h2c1b19bb65f50811E.exit.thread.i.i
+  %.not.i.i = icmp eq i32 %62, 0
+  br i1 %.not.i.i, label %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h2c1b19bb65f50811E.exit.thread.i.i, label %63
 
 63:                                               ; preds = %61
   %64 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 64
@@ -32027,9 +32026,8 @@ _ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17h70de56d74ecd2357E.exit.i
 
 99:                                               ; preds = %94
   %100 = load i32, ptr %.sroa.01.sroa.4.0..sroa_idx, align 8, !range !3606, !alias.scope !5794, !noalias !5795, !noundef !4
-  %.off.i.i.i.i.i.i = add nsw i32 %100, -1
-  %switch13.i.i.i.i.i.i = icmp ult i32 %.off.i.i.i.i.i.i, 2
-  br i1 %switch13.i.i.i.i.i.i, label %105, label %101
+  %.not.i.i.i.i.i = icmp eq i32 %100, 0
+  br i1 %.not.i.i.i.i.i, label %101, label %105
 
 101:                                              ; preds = %99
   %102 = getelementptr inbounds nuw i8, ptr %.pre.i.i.i.i, i64 60

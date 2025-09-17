@@ -37021,9 +37021,8 @@ _ZL10isAnyCLike22ARCConversionTypeClass.exit:     ; preds = %90
 
 101:                                              ; preds = %96
   %102 = icmp eq i32 %46, 2
-  %103 = add nsw i32 %45, -3
-  %or.cond3 = icmp ult i32 %103, 2
-  %or.cond100 = and i1 %102, %or.cond3
+  %103 = icmp samesign ugt i32 %45, 2
+  %or.cond100 = and i1 %102, %103
   %104 = add i32 %4, -1
   %spec.select.i116 = icmp ult i32 %104, 3
   %or.cond158 = and i1 %spec.select.i116, %or.cond100

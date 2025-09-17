@@ -840,9 +840,8 @@ define internal fastcc void @"_ZN103_$LT$regex_automata..meta..regex..CapturesMa
 
 50:                                               ; preds = %45
   %51 = load i32, ptr %2, align 8, !range !29, !alias.scope !25, !noalias !26, !noundef !9
-  %.off.i.i = add nsw i32 %51, -1
-  %switch10.i.i = icmp ult i32 %.off.i.i, 2
-  br i1 %switch10.i.i, label %56, label %52
+  %.not.i = icmp eq i32 %51, 0
+  br i1 %.not.i, label %52, label %56
 
 52:                                               ; preds = %50
   %53 = getelementptr inbounds nuw i8, ptr %.pre, i64 60
@@ -934,8 +933,8 @@ _ZN14regex_automata4meta5regex5Regex20search_captures_with17hd6eec329556150e7E.e
 106:                                              ; preds = %102
   %107 = add i64 %99, -1
   %108 = add i64 %104, -1
-  %.not.i = icmp ugt i64 %107, %108
-  br i1 %.not.i, label %109, label %_ZN14regex_automata4util8captures8Captures9get_match17hd5a64ca7ad63eb36E.exit
+  %.not.i1 = icmp ugt i64 %107, %108
+  br i1 %.not.i1, label %109, label %_ZN14regex_automata4util8captures8Captures9get_match17hd5a64ca7ad63eb36E.exit
 
 109:                                              ; preds = %106
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !43
@@ -2556,9 +2555,8 @@ _ZN14regex_automata4util6search5Input8set_span17hf05ea4320d14fec5E.exit: ; preds
 
 66:                                               ; preds = %61
   %67 = load i32, ptr %16, align 8, !range !29, !alias.scope !333, !noalias !334, !noundef !9
-  %.off.i.i = add nsw i32 %67, -1
-  %switch10.i.i = icmp ult i32 %.off.i.i, 2
-  br i1 %switch10.i.i, label %68, label %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h79cfc6c18ba3c86aE.exit.thread.i
+  %.not.i4 = icmp eq i32 %67, 0
+  br i1 %.not.i4, label %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h79cfc6c18ba3c86aE.exit.thread.i, label %68
 
 68:                                               ; preds = %66
   %69 = getelementptr inbounds nuw i8, ptr %50, i64 64
@@ -9745,9 +9743,8 @@ define internal fastcc void @"_ZN4core3ptr99drop_in_place$LT$core..option..Optio
   %.val.i = load i64, ptr %0, align 8, !range !2996, !alias.scope !2993, !noundef !9
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val1.i = load ptr, ptr %6, align 8, !alias.scope !2993
-  %7 = add i64 %.val.i, 9223372036854775807
-  %switch.i.i = icmp ult i64 %7, 11
-  br i1 %switch.i.i, label %"_ZN4core3ptr39drop_in_place$LT$task..VariableName$GT$17h9e15e54a3c7e9e34E.exit.i", label %8
+  %7 = icmp ugt i64 %.val.i, -9223372036854775808
+  br i1 %7, label %"_ZN4core3ptr39drop_in_place$LT$task..VariableName$GT$17h9e15e54a3c7e9e34E.exit.i", label %8
 
 8:                                                ; preds = %5
   switch i64 %.val.i, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.5062695954853193952.exit.i.i1.i.i.i.i.i" [

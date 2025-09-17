@@ -511,7 +511,7 @@ define hidden void @_ZN11mpf_manager3setER3mpfjji(ptr noundef nonnull align 8 de
   store i32 %29, ptr %1, align 8
   %30 = sub i32 0, %4
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %32 = icmp sgt i32 %30, -1
+  %32 = icmp sgt i32 %30, -2
   br i1 %32, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %.thread, %28
@@ -522,9 +522,9 @@ define hidden void @_ZN11mpf_manager3setER3mpfjji(ptr noundef nonnull align 8 de
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.129 = phi i32 [ %34, %.lr.ph ], [ %.036, %.lr.ph.preheader ]
   %storemerge28 = phi i64 [ %35, %.lr.ph ], [ 31, %.lr.ph.preheader ]
-  %34 = shl nuw i32 %.129, 1
+  %34 = shl i32 %.129, 1
   %35 = add nsw i64 %storemerge28, -1
-  %36 = icmp sgt i32 %34, -1
+  %36 = icmp sgt i32 %34, -2
   br i1 %36, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !46
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph

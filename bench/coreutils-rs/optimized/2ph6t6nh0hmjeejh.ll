@@ -1339,12 +1339,11 @@ _ZN6chrono6format10formatting14write_hundreds17hffc3ea9777f410bbE.exit: ; preds 
   %24 = add nuw i32 %.0, 30
   %25 = sdiv i32 %24, 60
   %26 = srem i32 %25, 60
-  %27 = icmp ne i8 %10, 3
-  %28 = icmp ne i32 %26, 0
-  %or.cond2.not = select i1 %27, i1 true, i1 %28
+  %27 = icmp eq i8 %10, 3
+  %28 = icmp eq i32 %26, 0
+  %or.cond2.not.not = select i1 %27, i1 %28, i1 false
   %29 = trunc nsw i32 %26 to i8
-  %spec.select = select i1 %or.cond2.not, i8 %29, i8 0
-  %spec.select71 = zext i1 %or.cond2.not to i64
+  %spec.select = select i1 %or.cond2.not.not, i8 0, i8 %29
   br label %37
 
 30:                                               ; preds = %7, %7, %7
@@ -1362,7 +1361,7 @@ _ZN6chrono6format10formatting14write_hundreds17hffc3ea9777f410bbE.exit: ; preds 
   %.057 = phi i8 [ %34, %43 ], [ %10, %7 ], [ %., %45 ], [ %spec.select, %23 ]
   %.051 = phi i8 [ %44, %43 ], [ %10, %7 ], [ 0, %45 ], [ 0, %23 ]
   %38 = phi i1 [ true, %43 ], [ false, %7 ], [ false, %45 ], [ false, %23 ]
-  %.049 = phi i64 [ 2, %43 ], [ 0, %7 ], [ %.67, %45 ], [ %spec.select71, %23 ]
+  %.049 = phi i1 [ false, %43 ], [ true, %7 ], [ %or.cond6.not.not, %45 ], [ %or.cond2.not.not, %23 ]
   %.062.in = sdiv i32 %.062.in.in, 3600
   %.062 = trunc i32 %.062.in to i8
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -1376,11 +1375,10 @@ _ZN6chrono6format10formatting14write_hundreds17hffc3ea9777f410bbE.exit: ; preds 
   br label %37
 
 45:                                               ; preds = %30
-  %46 = icmp ne i8 %10, 5
-  %47 = icmp ne i32 %33, 0
-  %or.cond6.not = or i1 %47, %46
-  %. = select i1 %or.cond6.not, i8 %34, i8 0
-  %.67 = zext i1 %or.cond6.not to i64
+  %46 = icmp eq i8 %10, 5
+  %47 = icmp eq i32 %33, 0
+  %or.cond6.not.not = and i1 %47, %46
+  %. = select i1 %or.cond6.not.not, i8 0, i8 %34
   br label %37
 
 48:                                               ; preds = %37
@@ -1404,9 +1402,7 @@ _ZN6chrono6format10formatting14write_hundreds17hffc3ea9777f410bbE.exit.thread: ;
   br i1 %58, label %60, label %73
 
 59:                                               ; preds = %_ZN6chrono6format10formatting14write_hundreds17hffc3ea9777f410bbE.exit.thread, %88
-  %.049.off = add nsw i64 %.049, -1
-  %switch = icmp ult i64 %.049.off, 2
-  br i1 %switch, label %93, label %92
+  br i1 %.049, label %92, label %93
 
 60:                                               ; preds = %55
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 16

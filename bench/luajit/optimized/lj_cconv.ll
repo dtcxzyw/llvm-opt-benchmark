@@ -908,8 +908,7 @@ define hidden range(i32 0, 2) i32 @lj_cconv_tv_ct(ptr noundef %0, ptr noundef %1
 33:                                               ; preds = %5
   %34 = and i32 %6, -67108864
   %35 = icmp eq i32 %34, 805306368
-  %.mask = and i32 %6, -268435456
-  %36 = icmp eq i32 %.mask, 268435456
+  %36 = icmp ult i32 %6, 536870912
   %or.cond = or i1 %35, %36
   br i1 %or.cond, label %37, label %._crit_edge
 

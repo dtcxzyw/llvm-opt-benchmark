@@ -1323,9 +1323,8 @@ define internal i32 @dissect_sflow_245(ptr noundef %0, ptr noundef %1, ptr nound
 
 dissect_sflow_245_address_type.exit:              ; preds = %30, %31, %37
   %.0.i83 = phi i32 [ 8, %30 ], [ 12, %31 ], [ 24, %37 ]
-  %.off = add nsw i32 %14, -1
-  %switch80 = icmp ult i32 %.off, 2
-  br i1 %switch80, label %43, label %48
+  %.not106 = icmp eq i32 %14, 0
+  br i1 %.not106, label %48, label %43
 
 43:                                               ; preds = %dissect_sflow_245_address_type.exit
   %44 = load ptr, ptr %16, align 8

@@ -890,9 +890,8 @@ define noundef zeroext i1 @_ZN10wasmi_core5value7ValType6is_num17heef37976a41d52
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZN10wasmi_core5value7ValType6is_ref17h5c62cf447d4fd01aE(ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %0) unnamed_addr #5 {
   %2 = load i8, ptr %0, align 1, !range !47, !noundef !3
-  %.off = add nsw i8 %2, -5
-  %switch = icmp ult i8 %.off, 2
-  ret i1 %switch
+  %3 = icmp samesign ugt i8 %2, 4
+  ret i1 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable

@@ -3582,9 +3582,9 @@ define internal void @mix6to2_clip_s16(ptr noundef readonly captures(none) %0, p
   %52 = ashr i32 %51, 15
   %53 = tail call i32 @llvm.smax.i32(i32 %52, i32 -32768)
   %54 = tail call i32 @llvm.smin.i32(i32 %53, i32 32767)
-  %.0.i27 = trunc nsw i32 %54 to i16
+  %.0.i26 = trunc nsw i32 %54 to i16
   %55 = getelementptr inbounds nuw i16, ptr %20, i64 %indvars.iv
-  store i16 %.0.i27, ptr %55, align 2, !tbaa !76
+  store i16 %.0.i26, ptr %55, align 2, !tbaa !76
   %56 = getelementptr inbounds nuw i16, ptr %22, i64 %indvars.iv
   %57 = load i16, ptr %56, align 2, !tbaa !76
   %58 = sext i16 %57 to i32
@@ -3681,9 +3681,9 @@ define internal void @mix8to2_clip_s16(ptr noundef readonly captures(none) %0, p
   %65 = ashr i32 %64, 15
   %66 = tail call i32 @llvm.smax.i32(i32 %65, i32 -32768)
   %67 = tail call i32 @llvm.smin.i32(i32 %66, i32 32767)
-  %.0.i33 = trunc nsw i32 %67 to i16
+  %.0.i32 = trunc nsw i32 %67 to i16
   %68 = getelementptr inbounds nuw i16, ptr %24, i64 %indvars.iv
-  store i16 %.0.i33, ptr %68, align 2, !tbaa !76
+  store i16 %.0.i32, ptr %68, align 2, !tbaa !76
   %69 = getelementptr inbounds nuw i16, ptr %26, i64 %indvars.iv
   %70 = load i16, ptr %69, align 2, !tbaa !76
   %71 = sext i16 %70 to i32

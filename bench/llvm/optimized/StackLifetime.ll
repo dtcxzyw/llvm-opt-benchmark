@@ -1853,8 +1853,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKNS_13IntrinsicInstELb1EE9push_backES3_.exit:
   store ptr %0, ptr %15, align 8, !tbaa !166
   store ptr %13, ptr %256, align 8, !tbaa !171
   store ptr %671, ptr %257, align 8, !tbaa !172
-  %.mask = and i32 %673, -2
-  %680 = icmp eq i32 %.mask, 2
+  %680 = icmp ult i32 %673, 4
   br i1 %680, label %681, label %699
 
 681:                                              ; preds = %679

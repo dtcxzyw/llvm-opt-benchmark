@@ -3607,8 +3607,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$14drop_
   unreachable
 
 _ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit: ; preds = %1
-  %.mask.i = and i64 %2, -64
-  %4 = icmp eq i64 %.mask.i, 64
+  %4 = icmp ult i64 %2, 128
   br i1 %4, label %5, label %8
 
 5:                                                ; preds = %_ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit
@@ -3640,8 +3639,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$14drop_
   unreachable
 
 _ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit: ; preds = %1
-  %.mask.i = and i64 %2, -64
-  %4 = icmp eq i64 %.mask.i, 64
+  %4 = icmp ult i64 %2, 128
   br i1 %4, label %5, label %8
 
 5:                                                ; preds = %_ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit
@@ -3673,8 +3671,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$14drop_
   unreachable
 
 _ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit: ; preds = %1
-  %.mask.i = and i64 %2, -64
-  %4 = icmp eq i64 %.mask.i, 64
+  %4 = icmp ult i64 %2, 128
   br i1 %4, label %5, label %8
 
 5:                                                ; preds = %_ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit
@@ -3706,8 +3703,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$14drop_
   unreachable
 
 _ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit: ; preds = %1
-  %.mask.i = and i64 %2, -64
-  %4 = icmp eq i64 %.mask.i, 64
+  %4 = icmp ult i64 %2, 128
   br i1 %4, label %5, label %31
 
 5:                                                ; preds = %_ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit
@@ -3790,8 +3786,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$14drop_
   unreachable
 
 _ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit: ; preds = %1
-  %.mask.i = and i64 %2, -64
-  %4 = icmp eq i64 %.mask.i, 64
+  %4 = icmp ult i64 %2, 128
   br i1 %4, label %5, label %8
 
 5:                                                ; preds = %_ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit
@@ -3823,8 +3818,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$14drop_
   unreachable
 
 _ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit: ; preds = %1
-  %.mask.i = and i64 %2, -64
-  %4 = icmp eq i64 %.mask.i, 64
+  %4 = icmp ult i64 %2, 128
   br i1 %4, label %5, label %8
 
 5:                                                ; preds = %_ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit
@@ -3856,8 +3850,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$14drop_
   unreachable
 
 _ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit: ; preds = %1
-  %.mask.i = and i64 %2, -64
-  %4 = icmp eq i64 %.mask.i, 64
+  %4 = icmp ult i64 %2, 128
   br i1 %4, label %5, label %8
 
 5:                                                ; preds = %_ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit
@@ -3889,8 +3882,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$14drop_
   unreachable
 
 _ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit: ; preds = %1
-  %.mask.i = and i64 %2, -64
-  %4 = icmp eq i64 %.mask.i, 64
+  %4 = icmp ult i64 %2, 128
   br i1 %4, label %5, label %8
 
 5:                                                ; preds = %_ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit
@@ -3922,8 +3914,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$14drop_
   unreachable
 
 _ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit: ; preds = %1
-  %.mask.i = and i64 %2, -64
-  %4 = icmp eq i64 %.mask.i, 64
+  %4 = icmp ult i64 %2, 128
   br i1 %4, label %5, label %8
 
 5:                                                ; preds = %_ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit
@@ -3955,8 +3946,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$14drop_
   unreachable
 
 _ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit: ; preds = %1
-  %.mask.i = and i64 %2, -64
-  %4 = icmp eq i64 %.mask.i, 64
+  %4 = icmp ult i64 %2, 128
   br i1 %4, label %5, label %8
 
 5:                                                ; preds = %_ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit
@@ -3988,8 +3978,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$14drop_
   unreachable
 
 _ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit: ; preds = %1
-  %.mask.i = and i64 %2, -64
-  %4 = icmp eq i64 %.mask.i, 64
+  %4 = icmp ult i64 %2, 128
   br i1 %4, label %5, label %8
 
 5:                                                ; preds = %_ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit
@@ -4021,8 +4010,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$14drop_
   unreachable
 
 _ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit: ; preds = %1
-  %.mask.i = and i64 %2, -64
-  %4 = icmp eq i64 %.mask.i, 64
+  %4 = icmp ult i64 %2, 128
   br i1 %4, label %5, label %8
 
 5:                                                ; preds = %_ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit
@@ -4054,8 +4042,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$14drop_
   unreachable
 
 _ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit: ; preds = %1
-  %.mask.i = and i64 %2, -64
-  %4 = icmp eq i64 %.mask.i, 64
+  %4 = icmp ult i64 %2, 128
   br i1 %4, label %5, label %8
 
 5:                                                ; preds = %_ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit
@@ -4114,8 +4101,7 @@ default.unreachable1:                             ; preds = %1
   unreachable
 
 _ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit.i.i.i.i.i: ; preds = %6
-  %.mask.i.i.i.i.i.i = and i64 %8, -64
-  %10 = icmp eq i64 %.mask.i.i.i.i.i.i, 64
+  %10 = icmp ult i64 %8, 128
   br i1 %10, label %11, label %common.resume
 
 11:                                               ; preds = %_ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit.i.i.i.i.i
@@ -4195,8 +4181,7 @@ default.unreachable1:                             ; preds = %1
   unreachable
 
 _ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit.i.i.i.i.i: ; preds = %6
-  %.mask.i.i.i.i.i.i = and i64 %8, -64
-  %10 = icmp eq i64 %.mask.i.i.i.i.i.i, 64
+  %10 = icmp ult i64 %8, 128
   br i1 %10, label %11, label %common.resume
 
 11:                                               ; preds = %_ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit.i.i.i.i.i
@@ -4276,8 +4261,7 @@ default.unreachable1:                             ; preds = %1
   unreachable
 
 _ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit.i.i.i.i.i: ; preds = %6
-  %.mask.i.i.i.i.i.i = and i64 %8, -64
-  %10 = icmp eq i64 %.mask.i.i.i.i.i.i, 64
+  %10 = icmp ult i64 %8, 128
   br i1 %10, label %11, label %common.resume
 
 11:                                               ; preds = %_ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit.i.i.i.i.i
@@ -4357,8 +4341,7 @@ default.unreachable1:                             ; preds = %1
   unreachable
 
 _ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit.i.i.i.i.i: ; preds = %6
-  %.mask.i.i.i.i.i.i = and i64 %8, -64
-  %10 = icmp eq i64 %.mask.i.i.i.i.i.i, 64
+  %10 = icmp ult i64 %8, 128
   br i1 %10, label %11, label %common.resume
 
 11:                                               ; preds = %_ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit.i.i.i.i.i
@@ -4438,8 +4421,7 @@ default.unreachable1:                             ; preds = %1
   unreachable
 
 _ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit.i.i.i.i.i: ; preds = %6
-  %.mask.i.i.i.i.i.i = and i64 %8, -64
-  %10 = icmp eq i64 %.mask.i.i.i.i.i.i, 64
+  %10 = icmp ult i64 %8, 128
   br i1 %10, label %11, label %common.resume
 
 11:                                               ; preds = %_ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit.i.i.i.i.i
@@ -4519,8 +4501,7 @@ default.unreachable3:                             ; preds = %1
   unreachable
 
 _ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit.i.i.i.i.i: ; preds = %6
-  %.mask.i.i.i.i.i.i = and i64 %8, -64
-  %10 = icmp eq i64 %.mask.i.i.i.i.i.i, 64
+  %10 = icmp ult i64 %8, 128
   br i1 %10, label %11, label %common.resume
 
 11:                                               ; preds = %_ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit.i.i.i.i.i
@@ -4651,8 +4632,7 @@ default.unreachable1:                             ; preds = %1
   unreachable
 
 _ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit.i.i.i.i.i: ; preds = %6
-  %.mask.i.i.i.i.i.i = and i64 %8, -64
-  %10 = icmp eq i64 %.mask.i.i.i.i.i.i, 64
+  %10 = icmp ult i64 %8, 128
   br i1 %10, label %11, label %common.resume
 
 11:                                               ; preds = %_ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit.i.i.i.i.i
@@ -4732,8 +4712,7 @@ default.unreachable1:                             ; preds = %1
   unreachable
 
 _ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit.i.i.i.i.i: ; preds = %6
-  %.mask.i.i.i.i.i.i = and i64 %8, -64
-  %10 = icmp eq i64 %.mask.i.i.i.i.i.i, 64
+  %10 = icmp ult i64 %8, 128
   br i1 %10, label %11, label %common.resume
 
 11:                                               ; preds = %_ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit.i.i.i.i.i
@@ -4813,8 +4792,7 @@ default.unreachable1:                             ; preds = %1
   unreachable
 
 _ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit.i.i.i.i.i: ; preds = %6
-  %.mask.i.i.i.i.i.i = and i64 %8, -64
-  %10 = icmp eq i64 %.mask.i.i.i.i.i.i, 64
+  %10 = icmp ult i64 %8, 128
   br i1 %10, label %11, label %common.resume
 
 11:                                               ; preds = %_ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit.i.i.i.i.i
@@ -4894,8 +4872,7 @@ default.unreachable1:                             ; preds = %1
   unreachable
 
 _ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit.i.i.i.i.i: ; preds = %6
-  %.mask.i.i.i.i.i.i = and i64 %8, -64
-  %10 = icmp eq i64 %.mask.i.i.i.i.i.i, 64
+  %10 = icmp ult i64 %8, 128
   br i1 %10, label %11, label %common.resume
 
 11:                                               ; preds = %_ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit.i.i.i.i.i
@@ -4975,8 +4952,7 @@ default.unreachable1:                             ; preds = %1
   unreachable
 
 _ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit.i.i.i.i.i: ; preds = %6
-  %.mask.i.i.i.i.i.i = and i64 %8, -64
-  %10 = icmp eq i64 %.mask.i.i.i.i.i.i, 64
+  %10 = icmp ult i64 %8, 128
   br i1 %10, label %11, label %common.resume
 
 11:                                               ; preds = %_ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit.i.i.i.i.i
@@ -5056,8 +5032,7 @@ default.unreachable1:                             ; preds = %1
   unreachable
 
 _ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit.i.i.i.i.i: ; preds = %6
-  %.mask.i.i.i.i.i.i = and i64 %8, -64
-  %10 = icmp eq i64 %.mask.i.i.i.i.i.i, 64
+  %10 = icmp ult i64 %8, 128
   br i1 %10, label %11, label %common.resume
 
 11:                                               ; preds = %_ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit.i.i.i.i.i
@@ -5137,8 +5112,7 @@ default.unreachable1:                             ; preds = %1
   unreachable
 
 _ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit.i.i.i.i.i: ; preds = %6
-  %.mask.i.i.i.i.i.i = and i64 %8, -64
-  %10 = icmp eq i64 %.mask.i.i.i.i.i.i, 64
+  %10 = icmp ult i64 %8, 128
   br i1 %10, label %11, label %common.resume
 
 11:                                               ; preds = %_ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit.i.i.i.i.i
@@ -8409,8 +8383,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$8shutdo
   unreachable
 
 _ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit.i: ; preds = %9
-  %.mask.i.i = and i64 %10, -64
-  %12 = icmp eq i64 %.mask.i.i, 64
+  %12 = icmp ult i64 %10, 128
   br i1 %12, label %13, label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$14drop_reference17h47e51c48ce2b2bc1E.exit"
 
 13:                                               ; preds = %_ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit.i
@@ -8491,8 +8464,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$8shutdo
   unreachable
 
 _ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit.i: ; preds = %9
-  %.mask.i.i = and i64 %10, -64
-  %12 = icmp eq i64 %.mask.i.i, 64
+  %12 = icmp ult i64 %10, 128
   br i1 %12, label %13, label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$14drop_reference17h160f0c0260189106E.exit"
 
 13:                                               ; preds = %_ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit.i
@@ -8573,8 +8545,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$8shutdo
   unreachable
 
 _ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit.i: ; preds = %9
-  %.mask.i.i = and i64 %10, -64
-  %12 = icmp eq i64 %.mask.i.i, 64
+  %12 = icmp ult i64 %10, 128
   br i1 %12, label %13, label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$14drop_reference17h94e3794d30ae363cE.exit"
 
 13:                                               ; preds = %_ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit.i
@@ -8713,8 +8684,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$8shutdo
   unreachable
 
 _ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit.i: ; preds = %9
-  %.mask.i.i = and i64 %10, -64
-  %12 = icmp eq i64 %.mask.i.i, 64
+  %12 = icmp ult i64 %10, 128
   br i1 %12, label %13, label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$14drop_reference17h6fbe3befd304bde0E.exit"
 
 13:                                               ; preds = %_ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit.i
@@ -8797,8 +8767,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$8shutdo
   unreachable
 
 _ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit.i: ; preds = %9
-  %.mask.i.i = and i64 %10, -64
-  %12 = icmp eq i64 %.mask.i.i, 64
+  %12 = icmp ult i64 %10, 128
   br i1 %12, label %13, label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$14drop_reference17h2b8f28d81b7ac4d6E.exit"
 
 13:                                               ; preds = %_ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit.i
@@ -8881,8 +8850,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$8shutdo
   unreachable
 
 _ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit.i: ; preds = %9
-  %.mask.i.i = and i64 %10, -64
-  %12 = icmp eq i64 %.mask.i.i, 64
+  %12 = icmp ult i64 %10, 128
   br i1 %12, label %13, label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$14drop_reference17h118d2939c4765bcdE.exit"
 
 13:                                               ; preds = %_ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit.i
@@ -8963,8 +8931,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$8shutdo
   unreachable
 
 _ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit.i: ; preds = %9
-  %.mask.i.i = and i64 %10, -64
-  %12 = icmp eq i64 %.mask.i.i, 64
+  %12 = icmp ult i64 %10, 128
   br i1 %12, label %13, label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$14drop_reference17hb9e3f9c1ee5c22deE.exit"
 
 13:                                               ; preds = %_ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit.i
@@ -9045,8 +9012,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$8shutdo
   unreachable
 
 _ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit.i: ; preds = %9
-  %.mask.i.i = and i64 %10, -64
-  %12 = icmp eq i64 %.mask.i.i, 64
+  %12 = icmp ult i64 %10, 128
   br i1 %12, label %13, label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$14drop_reference17hf7582b927bb9e721E.exit"
 
 13:                                               ; preds = %_ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit.i
@@ -9127,8 +9093,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$8shutdo
   unreachable
 
 _ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit.i: ; preds = %9
-  %.mask.i.i = and i64 %10, -64
-  %12 = icmp eq i64 %.mask.i.i, 64
+  %12 = icmp ult i64 %10, 128
   br i1 %12, label %13, label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$14drop_reference17ha7c45d1311e4ee45E.exit"
 
 13:                                               ; preds = %_ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit.i
@@ -9209,8 +9174,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$8shutdo
   unreachable
 
 _ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit.i: ; preds = %9
-  %.mask.i.i = and i64 %10, -64
-  %12 = icmp eq i64 %.mask.i.i, 64
+  %12 = icmp ult i64 %10, 128
   br i1 %12, label %13, label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$14drop_reference17hfd2477fd06c4baf9E.exit"
 
 13:                                               ; preds = %_ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit.i
@@ -9293,8 +9257,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$8shutdo
   unreachable
 
 _ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit.i: ; preds = %9
-  %.mask.i.i = and i64 %10, -64
-  %12 = icmp eq i64 %.mask.i.i, 64
+  %12 = icmp ult i64 %10, 128
   br i1 %12, label %13, label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$14drop_reference17h9bd3cf2095a1e19eE.exit"
 
 13:                                               ; preds = %_ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit.i
@@ -9375,8 +9338,7 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$8shutdo
   unreachable
 
 _ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit.i: ; preds = %9
-  %.mask.i.i = and i64 %10, -64
-  %12 = icmp eq i64 %.mask.i.i, 64
+  %12 = icmp ult i64 %10, 128
   br i1 %12, label %13, label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$14drop_reference17h5a6d694de54fce38E.exit"
 
 13:                                               ; preds = %_ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit.i
@@ -11232,8 +11194,7 @@ common.resume:                                    ; preds = %20, %"_ZN63_$LT$all
   unreachable
 
 _ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit.i: ; preds = %"_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hdc5987fb7e5463aaE.llvm.4698933542364062918.exit"
-  %.mask.i.i = and i64 %36, -64
-  %38 = icmp eq i64 %.mask.i.i, 64
+  %38 = icmp ult i64 %36, 128
   br i1 %38, label %39, label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$14drop_reference17h6fbe3befd304bde0E.exit"
 
 39:                                               ; preds = %_ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit.i
@@ -11355,8 +11316,7 @@ common.resume:                                    ; preds = %20, %"_ZN63_$LT$all
   unreachable
 
 _ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit.i: ; preds = %"_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hdc5987fb7e5463aaE.llvm.4698933542364062918.exit"
-  %.mask.i.i = and i64 %36, -64
-  %38 = icmp eq i64 %.mask.i.i, 64
+  %38 = icmp ult i64 %36, 128
   br i1 %38, label %39, label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$14drop_reference17ha7c45d1311e4ee45E.exit"
 
 39:                                               ; preds = %_ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit.i
@@ -11478,8 +11438,7 @@ common.resume:                                    ; preds = %20, %"_ZN63_$LT$all
   unreachable
 
 _ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit.i: ; preds = %"_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hdc5987fb7e5463aaE.llvm.4698933542364062918.exit"
-  %.mask.i.i = and i64 %36, -64
-  %38 = icmp eq i64 %.mask.i.i, 64
+  %38 = icmp ult i64 %36, 128
   br i1 %38, label %39, label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$14drop_reference17hb9e3f9c1ee5c22deE.exit"
 
 39:                                               ; preds = %_ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit.i
@@ -11601,8 +11560,7 @@ common.resume:                                    ; preds = %20, %"_ZN63_$LT$all
   unreachable
 
 _ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit.i: ; preds = %"_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hdc5987fb7e5463aaE.llvm.4698933542364062918.exit"
-  %.mask.i.i = and i64 %36, -64
-  %38 = icmp eq i64 %.mask.i.i, 64
+  %38 = icmp ult i64 %36, 128
   br i1 %38, label %39, label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$14drop_reference17h2b8f28d81b7ac4d6E.exit"
 
 39:                                               ; preds = %_ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit.i
@@ -11724,8 +11682,7 @@ common.resume:                                    ; preds = %20, %"_ZN63_$LT$all
   unreachable
 
 _ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit.i: ; preds = %"_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hdc5987fb7e5463aaE.llvm.4698933542364062918.exit"
-  %.mask.i.i = and i64 %36, -64
-  %38 = icmp eq i64 %.mask.i.i, 64
+  %38 = icmp ult i64 %36, 128
   br i1 %38, label %39, label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$14drop_reference17h5a6d694de54fce38E.exit"
 
 39:                                               ; preds = %_ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit.i
@@ -11847,8 +11804,7 @@ common.resume:                                    ; preds = %20, %"_ZN63_$LT$all
   unreachable
 
 _ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit.i: ; preds = %"_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hdc5987fb7e5463aaE.llvm.4698933542364062918.exit"
-  %.mask.i.i = and i64 %36, -64
-  %38 = icmp eq i64 %.mask.i.i, 64
+  %38 = icmp ult i64 %36, 128
   br i1 %38, label %39, label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$14drop_reference17hfd2477fd06c4baf9E.exit"
 
 39:                                               ; preds = %_ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit.i
@@ -11970,8 +11926,7 @@ common.resume:                                    ; preds = %20, %"_ZN63_$LT$all
   unreachable
 
 _ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit.i: ; preds = %"_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hdc5987fb7e5463aaE.llvm.4698933542364062918.exit"
-  %.mask.i.i = and i64 %36, -64
-  %38 = icmp eq i64 %.mask.i.i, 64
+  %38 = icmp ult i64 %36, 128
   br i1 %38, label %39, label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$14drop_reference17h9bd3cf2095a1e19eE.exit"
 
 39:                                               ; preds = %_ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit.i
@@ -12093,8 +12048,7 @@ common.resume:                                    ; preds = %20, %"_ZN63_$LT$all
   unreachable
 
 _ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit.i: ; preds = %"_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hdc5987fb7e5463aaE.llvm.4698933542364062918.exit"
-  %.mask.i.i = and i64 %36, -64
-  %38 = icmp eq i64 %.mask.i.i, 64
+  %38 = icmp ult i64 %36, 128
   br i1 %38, label %39, label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$14drop_reference17hf7582b927bb9e721E.exit"
 
 39:                                               ; preds = %_ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit.i
@@ -12216,8 +12170,7 @@ common.resume:                                    ; preds = %20, %"_ZN63_$LT$all
   unreachable
 
 _ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit.i: ; preds = %"_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hdc5987fb7e5463aaE.llvm.4698933542364062918.exit"
-  %.mask.i.i = and i64 %36, -64
-  %38 = icmp eq i64 %.mask.i.i, 64
+  %38 = icmp ult i64 %36, 128
   br i1 %38, label %39, label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$14drop_reference17h94e3794d30ae363cE.exit"
 
 39:                                               ; preds = %_ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit.i
@@ -12339,8 +12292,7 @@ common.resume:                                    ; preds = %20, %"_ZN63_$LT$all
   unreachable
 
 _ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit.i: ; preds = %"_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hdc5987fb7e5463aaE.llvm.4698933542364062918.exit"
-  %.mask.i.i = and i64 %36, -64
-  %38 = icmp eq i64 %.mask.i.i, 64
+  %38 = icmp ult i64 %36, 128
   br i1 %38, label %39, label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$14drop_reference17h160f0c0260189106E.exit"
 
 39:                                               ; preds = %_ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit.i
@@ -12462,8 +12414,7 @@ common.resume:                                    ; preds = %20, %"_ZN63_$LT$all
   unreachable
 
 _ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit.i: ; preds = %"_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hdc5987fb7e5463aaE.llvm.4698933542364062918.exit"
-  %.mask.i.i = and i64 %36, -64
-  %38 = icmp eq i64 %.mask.i.i, 64
+  %38 = icmp ult i64 %36, 128
   br i1 %38, label %39, label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$14drop_reference17h47e51c48ce2b2bc1E.exit"
 
 39:                                               ; preds = %_ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit.i
@@ -12585,8 +12536,7 @@ common.resume:                                    ; preds = %20, %"_ZN63_$LT$all
   unreachable
 
 _ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit.i: ; preds = %"_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hdc5987fb7e5463aaE.llvm.4698933542364062918.exit"
-  %.mask.i.i = and i64 %36, -64
-  %38 = icmp eq i64 %.mask.i.i, 64
+  %38 = icmp ult i64 %36, 128
   br i1 %38, label %39, label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$14drop_reference17h118d2939c4765bcdE.exit"
 
 39:                                               ; preds = %_ZN5tokio7runtime4task5state5State7ref_dec17h638f4f96c35e9460E.exit.i

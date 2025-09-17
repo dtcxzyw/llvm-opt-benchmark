@@ -9894,9 +9894,7 @@ define dso_local void @_ZN5clang12Preprocessor25HandleElifFamilyDirectiveERNS_5T
   %14 = load i32, ptr %13, align 4, !tbaa !714
   %15 = add i32 %14, 1
   store i32 %15, ptr %13, align 4, !tbaa !714
-  %.off = add nsw i32 %12, -1
-  %switch = icmp ult i32 %.off, 2
-  br i1 %switch, label %16, label %111
+  br i1 %9, label %111, label %16
 
 16:                                               ; preds = %4
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -9925,7 +9923,7 @@ define dso_local void @_ZN5clang12Preprocessor25HandleElifFamilyDirectiveERNS_5T
   %29 = load ptr, ptr %28, align 8, !tbaa !39, !noalias !715
   %30 = load i32, ptr %1, align 8, !tbaa !32, !noalias !715
   call void @_ZN5clang17DiagnosticBuilderC1EPNS_17DiagnosticsEngineENS_14SourceLocationEj(ptr noundef nonnull align 8 dereferenceable(66) %6, ptr noundef nonnull align 8 dereferenceable(15248) %29, i32 %30, i32 noundef %.0) #18
-  %31 = zext nneg i32 %12 to i64
+  %31 = zext nneg i32 %11 to i64
   %32 = load ptr, ptr %6, align 8, !tbaa !276
   %.not.i = icmp eq ptr %32, null
   br i1 %.not.i, label %33, label %_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit

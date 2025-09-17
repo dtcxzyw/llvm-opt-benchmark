@@ -4054,59 +4054,58 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$
   %.val2.i.i.i = load i32, ptr %.val.i.i, align 4, !range !1745, !noalias !1746, !noundef !25
   %11 = getelementptr i8, ptr %.val.i.i, i64 4
   %.val3.i.i.i = load i32, ptr %11, align 4, !noalias !1746
-  %12 = add nsw i32 %.val4.i.i, -17
-  %13 = icmp ult i32 %12, 6
-  %14 = zext nneg i32 %.val4.i.i to i64
-  %15 = add nsw i64 %14, -16
-  %16 = select i1 %13, i64 %15, i64 0
-  %17 = icmp samesign ult i32 %.val2.i.i.i, 17
-  %18 = zext nneg i32 %.val2.i.i.i to i64
-  %19 = add nsw i64 %18, -16
-  %20 = select i1 %17, i64 0, i64 %19
-  %21 = icmp eq i64 %16, %20
-  br i1 %21, label %22, label %_ZN4core3ops8function6FnOnce9call_once17h165b3c294138ab62E.exit
+  %12 = icmp samesign ugt i32 %.val4.i.i, 16
+  %13 = zext nneg i32 %.val4.i.i to i64
+  %14 = add nsw i64 %13, -16
+  %15 = select i1 %12, i64 %14, i64 0
+  %16 = icmp samesign ult i32 %.val2.i.i.i, 17
+  %17 = zext nneg i32 %.val2.i.i.i to i64
+  %18 = add nsw i64 %17, -16
+  %19 = select i1 %16, i64 0, i64 %18
+  %20 = icmp eq i64 %15, %19
+  br i1 %20, label %21, label %_ZN4core3ops8function6FnOnce9call_once17h165b3c294138ab62E.exit
 
-22:                                               ; preds = %2
-  switch i64 %16, label %_ZN4core3ops8function6FnOnce9call_once17h165b3c294138ab62E.exit [
-    i64 0, label %23
-    i64 2, label %24
-    i64 3, label %26
-    i64 4, label %28
-    i64 5, label %30
-    i64 6, label %32
+21:                                               ; preds = %2
+  switch i64 %15, label %_ZN4core3ops8function6FnOnce9call_once17h165b3c294138ab62E.exit [
+    i64 0, label %22
+    i64 2, label %23
+    i64 3, label %25
+    i64 4, label %27
+    i64 5, label %29
+    i64 6, label %31
   ]
 
-23:                                               ; preds = %22
-  br i1 %17, label %34, label %_ZN4core3ops8function6FnOnce9call_once17h165b3c294138ab62E.exit
+22:                                               ; preds = %21
+  br i1 %16, label %33, label %_ZN4core3ops8function6FnOnce9call_once17h165b3c294138ab62E.exit
 
-24:                                               ; preds = %22
-  %25 = icmp eq i32 %.val5.i.i, %.val3.i.i.i
+23:                                               ; preds = %21
+  %24 = icmp eq i32 %.val5.i.i, %.val3.i.i.i
   br label %_ZN4core3ops8function6FnOnce9call_once17h165b3c294138ab62E.exit
 
-26:                                               ; preds = %22
-  %27 = icmp eq i32 %.val5.i.i, %.val3.i.i.i
+25:                                               ; preds = %21
+  %26 = icmp eq i32 %.val5.i.i, %.val3.i.i.i
   br label %_ZN4core3ops8function6FnOnce9call_once17h165b3c294138ab62E.exit
 
-28:                                               ; preds = %22
-  %29 = icmp eq i32 %.val5.i.i, %.val3.i.i.i
+27:                                               ; preds = %21
+  %28 = icmp eq i32 %.val5.i.i, %.val3.i.i.i
   br label %_ZN4core3ops8function6FnOnce9call_once17h165b3c294138ab62E.exit
 
-30:                                               ; preds = %22
-  %31 = icmp eq i32 %.val5.i.i, %.val3.i.i.i
+29:                                               ; preds = %21
+  %30 = icmp eq i32 %.val5.i.i, %.val3.i.i.i
   br label %_ZN4core3ops8function6FnOnce9call_once17h165b3c294138ab62E.exit
 
-32:                                               ; preds = %22
-  %33 = icmp eq i32 %.val5.i.i, %.val3.i.i.i
+31:                                               ; preds = %21
+  %32 = icmp eq i32 %.val5.i.i, %.val3.i.i.i
   br label %_ZN4core3ops8function6FnOnce9call_once17h165b3c294138ab62E.exit
 
-34:                                               ; preds = %23
-  %35 = icmp eq i32 %.val4.i.i, %.val2.i.i.i
-  %36 = icmp eq i32 %.val5.i.i, %.val3.i.i.i
-  %spec.select.i.i.i.i.i = select i1 %35, i1 %36, i1 false
+33:                                               ; preds = %22
+  %34 = icmp eq i32 %.val4.i.i, %.val2.i.i.i
+  %35 = icmp eq i32 %.val5.i.i, %.val3.i.i.i
+  %spec.select.i.i.i.i.i = select i1 %34, i1 %35, i1 false
   br label %_ZN4core3ops8function6FnOnce9call_once17h165b3c294138ab62E.exit
 
-_ZN4core3ops8function6FnOnce9call_once17h165b3c294138ab62E.exit: ; preds = %2, %22, %23, %24, %26, %28, %30, %32, %34
-  %.0.shrunk.i.i.i.i = phi i1 [ %spec.select.i.i.i.i.i, %34 ], [ false, %2 ], [ true, %23 ], [ true, %22 ], [ %25, %24 ], [ %27, %26 ], [ %29, %28 ], [ %31, %30 ], [ %33, %32 ]
+_ZN4core3ops8function6FnOnce9call_once17h165b3c294138ab62E.exit: ; preds = %2, %21, %22, %23, %25, %27, %29, %31, %33
+  %.0.shrunk.i.i.i.i = phi i1 [ %spec.select.i.i.i.i.i, %33 ], [ false, %2 ], [ true, %22 ], [ true, %21 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ %30, %29 ], [ %32, %31 ]
   ret i1 %.0.shrunk.i.i.i.i
 }
 
@@ -42997,138 +42996,136 @@ define hidden noundef ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17hb974
   %.val4.i.us.us = load i32, ptr %30, align 4, !range !1745, !noalias !13385, !noundef !25
   %31 = getelementptr i8, ptr %29, i64 -12
   %.val5.i.us.us = load i32, ptr %31, align 4, !noalias !13385
-  %32 = add nsw i32 %.val4.i.us.us, -17
-  %33 = icmp ult i32 %32, 6
-  %34 = zext nneg i32 %.val4.i.us.us to i64
-  %35 = add nsw i64 %34, -16
-  %36 = select i1 %33, i64 %35, i64 0
-  %37 = icmp eq i64 %36, %13
-  br i1 %37, label %38, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h03f000d12a91b6c7E.llvm.15956212377945586164.exit.backedge.us.us"
+  %32 = icmp samesign ugt i32 %.val4.i.us.us, 16
+  %33 = zext nneg i32 %.val4.i.us.us to i64
+  %34 = add nsw i64 %33, -16
+  %35 = select i1 %32, i64 %34, i64 0
+  %36 = icmp eq i64 %35, %13
+  br i1 %36, label %37, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h03f000d12a91b6c7E.llvm.15956212377945586164.exit.backedge.us.us"
 
-38:                                               ; preds = %.lr.ph.us
+37:                                               ; preds = %.lr.ph.us
   switch i64 %13, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h03f000d12a91b6c7E.llvm.15956212377945586164.exit.thread" [
-    i64 0, label %49
-    i64 2, label %47
-    i64 3, label %45
-    i64 4, label %43
-    i64 5, label %41
-    i64 6, label %39
+    i64 0, label %48
+    i64 2, label %46
+    i64 3, label %44
+    i64 4, label %42
+    i64 5, label %40
+    i64 6, label %38
   ]
 
-39:                                               ; preds = %38
-  %40 = icmp eq i32 %.val5.i.us.us, %.val3.i.i
-  br i1 %40, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h03f000d12a91b6c7E.llvm.15956212377945586164.exit.thread", label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h03f000d12a91b6c7E.llvm.15956212377945586164.exit.backedge.us.us"
+38:                                               ; preds = %37
+  %39 = icmp eq i32 %.val5.i.us.us, %.val3.i.i
+  br i1 %39, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h03f000d12a91b6c7E.llvm.15956212377945586164.exit.thread", label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h03f000d12a91b6c7E.llvm.15956212377945586164.exit.backedge.us.us"
 
-41:                                               ; preds = %38
-  %42 = icmp eq i32 %.val5.i.us.us, %.val3.i.i
-  br i1 %42, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h03f000d12a91b6c7E.llvm.15956212377945586164.exit.thread", label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h03f000d12a91b6c7E.llvm.15956212377945586164.exit.backedge.us.us"
+40:                                               ; preds = %37
+  %41 = icmp eq i32 %.val5.i.us.us, %.val3.i.i
+  br i1 %41, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h03f000d12a91b6c7E.llvm.15956212377945586164.exit.thread", label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h03f000d12a91b6c7E.llvm.15956212377945586164.exit.backedge.us.us"
 
-43:                                               ; preds = %38
-  %44 = icmp eq i32 %.val5.i.us.us, %.val3.i.i
-  br i1 %44, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h03f000d12a91b6c7E.llvm.15956212377945586164.exit.thread", label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h03f000d12a91b6c7E.llvm.15956212377945586164.exit.backedge.us.us"
+42:                                               ; preds = %37
+  %43 = icmp eq i32 %.val5.i.us.us, %.val3.i.i
+  br i1 %43, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h03f000d12a91b6c7E.llvm.15956212377945586164.exit.thread", label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h03f000d12a91b6c7E.llvm.15956212377945586164.exit.backedge.us.us"
 
-45:                                               ; preds = %38
-  %46 = icmp eq i32 %.val5.i.us.us, %.val3.i.i
-  br i1 %46, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h03f000d12a91b6c7E.llvm.15956212377945586164.exit.thread", label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h03f000d12a91b6c7E.llvm.15956212377945586164.exit.backedge.us.us"
+44:                                               ; preds = %37
+  %45 = icmp eq i32 %.val5.i.us.us, %.val3.i.i
+  br i1 %45, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h03f000d12a91b6c7E.llvm.15956212377945586164.exit.thread", label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h03f000d12a91b6c7E.llvm.15956212377945586164.exit.backedge.us.us"
 
-47:                                               ; preds = %38
-  %48 = icmp eq i32 %.val5.i.us.us, %.val3.i.i
-  br i1 %48, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h03f000d12a91b6c7E.llvm.15956212377945586164.exit.thread", label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h03f000d12a91b6c7E.llvm.15956212377945586164.exit.backedge.us.us"
+46:                                               ; preds = %37
+  %47 = icmp eq i32 %.val5.i.us.us, %.val3.i.i
+  br i1 %47, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h03f000d12a91b6c7E.llvm.15956212377945586164.exit.thread", label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h03f000d12a91b6c7E.llvm.15956212377945586164.exit.backedge.us.us"
 
-49:                                               ; preds = %38
-  %50 = icmp eq i32 %.val4.i.us.us, %.val2.i.i.fr
-  %51 = icmp eq i32 %.val5.i.us.us, %.val3.i.i
-  %spec.select.i.i.i.i.us.us = select i1 %50, i1 %51, i1 false
+48:                                               ; preds = %37
+  %49 = icmp eq i32 %.val4.i.us.us, %.val2.i.i.fr
+  %50 = icmp eq i32 %.val5.i.us.us, %.val3.i.i
+  %spec.select.i.i.i.i.us.us = select i1 %49, i1 %50, i1 false
   br i1 %spec.select.i.i.i.i.us.us, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h03f000d12a91b6c7E.llvm.15956212377945586164.exit.thread", label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h03f000d12a91b6c7E.llvm.15956212377945586164.exit.backedge.us.us"
 
-"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h03f000d12a91b6c7E.llvm.15956212377945586164.exit.backedge.us.us": ; preds = %49, %47, %45, %43, %41, %39, %.lr.ph.us
+"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h03f000d12a91b6c7E.llvm.15956212377945586164.exit.backedge.us.us": ; preds = %48, %46, %44, %42, %40, %38, %.lr.ph.us
   %.not.i4.us.us = icmp eq i16 %25, 0
   br i1 %.not.i4.us.us, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h03f000d12a91b6c7E.llvm.15956212377945586164.exit._crit_edge.split.us.us", label %.lr.ph.us
 
-.split:                                           ; preds = %3, %84
-  %.sroa.9.0.i = phi i64 [ %85, %84 ], [ 0, %3 ]
-  %.pn.i = phi i64 [ %86, %84 ], [ %1, %3 ]
+.split:                                           ; preds = %3, %82
+  %.sroa.9.0.i = phi i64 [ %83, %82 ], [ 0, %3 ]
+  %.pn.i = phi i64 [ %84, %82 ], [ %1, %3 ]
   %.sroa.01.0.i = and i64 %.pn.i, %7
-  %52 = getelementptr inbounds i8, ptr %8, i64 %.sroa.01.0.i
-  %.0.copyload.i35 = load <16 x i8>, ptr %52, align 1, !noalias !13382
-  %53 = icmp eq <16 x i8> %.0.copyload.i35, %.15.vec.insert.i
-  %54 = bitcast <16 x i1> %53 to i16
-  %.not.i438 = icmp eq i16 %54, 0
+  %51 = getelementptr inbounds i8, ptr %8, i64 %.sroa.01.0.i
+  %.0.copyload.i35 = load <16 x i8>, ptr %51, align 1, !noalias !13382
+  %52 = icmp eq <16 x i8> %.0.copyload.i35, %.15.vec.insert.i
+  %53 = bitcast <16 x i1> %52 to i16
+  %.not.i438 = icmp eq i16 %53, 0
   br i1 %.not.i438, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h03f000d12a91b6c7E.llvm.15956212377945586164.exit._crit_edge.split", label %.lr.ph
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h03f000d12a91b6c7E.llvm.15956212377945586164.exit._crit_edge.split": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h03f000d12a91b6c7E.llvm.15956212377945586164.exit.backedge", %.split
-  %55 = icmp eq <16 x i8> %.0.copyload.i35, splat (i8 -1)
-  %56 = bitcast <16 x i1> %55 to i16
-  %.not.i = icmp eq i16 %56, 0
-  br i1 %.not.i, label %84, label %_ZN9hashbrown3raw13RawTableInner10find_inner17heaf636810d0ea7b2E.llvm.15956212377945586164.exit
+  %54 = icmp eq <16 x i8> %.0.copyload.i35, splat (i8 -1)
+  %55 = bitcast <16 x i1> %54 to i16
+  %.not.i = icmp eq i16 %55, 0
+  br i1 %.not.i, label %82, label %_ZN9hashbrown3raw13RawTableInner10find_inner17heaf636810d0ea7b2E.llvm.15956212377945586164.exit
 
 .lr.ph:                                           ; preds = %.split, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h03f000d12a91b6c7E.llvm.15956212377945586164.exit.backedge"
-  %.02339 = phi i16 [ %60, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h03f000d12a91b6c7E.llvm.15956212377945586164.exit.backedge" ], [ %54, %.split ]
-  %57 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.02339, i1 true)
-  %58 = zext nneg i16 %57 to i64
-  %59 = add i16 %.02339, -1
-  %60 = and i16 %59, %.02339
-  %61 = add i64 %.sroa.01.0.i, %58
-  %62 = and i64 %61, %7
-  %63 = sub nsw i64 0, %62
-  %64 = getelementptr inbounds { { i32, [1 x i32] }, ptr }, ptr %8, i64 %63
-  %65 = getelementptr inbounds i8, ptr %64, i64 -16
-  %.val4.i = load i32, ptr %65, align 4, !range !1745, !noalias !13385, !noundef !25
-  %66 = getelementptr i8, ptr %64, i64 -12
-  %.val5.i = load i32, ptr %66, align 4, !noalias !13385
-  %67 = add nsw i32 %.val4.i, -17
-  %68 = icmp ult i32 %67, 6
-  %69 = zext nneg i32 %.val4.i to i64
-  %70 = add nsw i64 %69, -16
-  %71 = select i1 %68, i64 %70, i64 0
-  %72 = icmp eq i64 %71, %13
-  br i1 %72, label %73, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h03f000d12a91b6c7E.llvm.15956212377945586164.exit.backedge"
+  %.02339 = phi i16 [ %59, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h03f000d12a91b6c7E.llvm.15956212377945586164.exit.backedge" ], [ %53, %.split ]
+  %56 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.02339, i1 true)
+  %57 = zext nneg i16 %56 to i64
+  %58 = add i16 %.02339, -1
+  %59 = and i16 %58, %.02339
+  %60 = add i64 %.sroa.01.0.i, %57
+  %61 = and i64 %60, %7
+  %62 = sub nsw i64 0, %61
+  %63 = getelementptr inbounds { { i32, [1 x i32] }, ptr }, ptr %8, i64 %62
+  %64 = getelementptr inbounds i8, ptr %63, i64 -16
+  %.val4.i = load i32, ptr %64, align 4, !range !1745, !noalias !13385, !noundef !25
+  %65 = getelementptr i8, ptr %63, i64 -12
+  %.val5.i = load i32, ptr %65, align 4, !noalias !13385
+  %66 = icmp samesign ugt i32 %.val4.i, 16
+  %67 = zext nneg i32 %.val4.i to i64
+  %68 = add nsw i64 %67, -16
+  %69 = select i1 %66, i64 %68, i64 0
+  %70 = icmp eq i64 %69, %13
+  br i1 %70, label %71, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h03f000d12a91b6c7E.llvm.15956212377945586164.exit.backedge"
 
-73:                                               ; preds = %.lr.ph
+71:                                               ; preds = %.lr.ph
   switch i64 %13, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h03f000d12a91b6c7E.llvm.15956212377945586164.exit.thread" [
-    i64 6, label %82
-    i64 2, label %74
-    i64 3, label %76
-    i64 4, label %78
-    i64 5, label %80
+    i64 6, label %80
+    i64 2, label %72
+    i64 3, label %74
+    i64 4, label %76
+    i64 5, label %78
   ]
 
-74:                                               ; preds = %73
+72:                                               ; preds = %71
+  %73 = icmp eq i32 %.val5.i, %.val3.i.i
+  br i1 %73, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h03f000d12a91b6c7E.llvm.15956212377945586164.exit.thread", label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h03f000d12a91b6c7E.llvm.15956212377945586164.exit.backedge"
+
+74:                                               ; preds = %71
   %75 = icmp eq i32 %.val5.i, %.val3.i.i
   br i1 %75, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h03f000d12a91b6c7E.llvm.15956212377945586164.exit.thread", label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h03f000d12a91b6c7E.llvm.15956212377945586164.exit.backedge"
 
-76:                                               ; preds = %73
+76:                                               ; preds = %71
   %77 = icmp eq i32 %.val5.i, %.val3.i.i
   br i1 %77, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h03f000d12a91b6c7E.llvm.15956212377945586164.exit.thread", label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h03f000d12a91b6c7E.llvm.15956212377945586164.exit.backedge"
 
-78:                                               ; preds = %73
+78:                                               ; preds = %71
   %79 = icmp eq i32 %.val5.i, %.val3.i.i
   br i1 %79, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h03f000d12a91b6c7E.llvm.15956212377945586164.exit.thread", label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h03f000d12a91b6c7E.llvm.15956212377945586164.exit.backedge"
 
-80:                                               ; preds = %73
+80:                                               ; preds = %71
   %81 = icmp eq i32 %.val5.i, %.val3.i.i
   br i1 %81, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h03f000d12a91b6c7E.llvm.15956212377945586164.exit.thread", label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h03f000d12a91b6c7E.llvm.15956212377945586164.exit.backedge"
 
-82:                                               ; preds = %73
-  %83 = icmp eq i32 %.val5.i, %.val3.i.i
-  br i1 %83, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h03f000d12a91b6c7E.llvm.15956212377945586164.exit.thread", label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h03f000d12a91b6c7E.llvm.15956212377945586164.exit.backedge"
-
-"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h03f000d12a91b6c7E.llvm.15956212377945586164.exit.backedge": ; preds = %74, %76, %78, %80, %82, %.lr.ph
-  %.not.i4 = icmp eq i16 %60, 0
+"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h03f000d12a91b6c7E.llvm.15956212377945586164.exit.backedge": ; preds = %72, %74, %76, %78, %80, %.lr.ph
+  %.not.i4 = icmp eq i16 %59, 0
   br i1 %.not.i4, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h03f000d12a91b6c7E.llvm.15956212377945586164.exit._crit_edge.split", label %.lr.ph
 
-84:                                               ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h03f000d12a91b6c7E.llvm.15956212377945586164.exit._crit_edge.split"
-  %85 = add i64 %.sroa.9.0.i, 16
-  %86 = add i64 %.sroa.01.0.i, %85
+82:                                               ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h03f000d12a91b6c7E.llvm.15956212377945586164.exit._crit_edge.split"
+  %83 = add i64 %.sroa.9.0.i, 16
+  %84 = add i64 %.sroa.01.0.i, %83
   br label %.split
 
-"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h03f000d12a91b6c7E.llvm.15956212377945586164.exit.thread": ; preds = %74, %76, %78, %80, %82, %73, %49, %47, %45, %43, %41, %39, %38
-  %.pre-phi = phi i64 [ %28, %38 ], [ %28, %39 ], [ %28, %41 ], [ %28, %43 ], [ %28, %45 ], [ %28, %47 ], [ %28, %49 ], [ %63, %73 ], [ %63, %82 ], [ %63, %80 ], [ %63, %78 ], [ %63, %76 ], [ %63, %74 ]
-  %87 = getelementptr inbounds { { i32, [1 x i32] }, ptr }, ptr %8, i64 %.pre-phi
+"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h03f000d12a91b6c7E.llvm.15956212377945586164.exit.thread": ; preds = %72, %74, %76, %78, %80, %71, %48, %46, %44, %42, %40, %38, %37
+  %.pre-phi = phi i64 [ %28, %37 ], [ %28, %38 ], [ %28, %40 ], [ %28, %42 ], [ %28, %44 ], [ %28, %46 ], [ %28, %48 ], [ %62, %71 ], [ %62, %80 ], [ %62, %78 ], [ %62, %76 ], [ %62, %74 ], [ %62, %72 ]
+  %85 = getelementptr inbounds { { i32, [1 x i32] }, ptr }, ptr %8, i64 %.pre-phi
   br label %_ZN9hashbrown3raw13RawTableInner10find_inner17heaf636810d0ea7b2E.llvm.15956212377945586164.exit
 
 _ZN9hashbrown3raw13RawTableInner10find_inner17heaf636810d0ea7b2E.llvm.15956212377945586164.exit: ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h03f000d12a91b6c7E.llvm.15956212377945586164.exit._crit_edge.split", %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h03f000d12a91b6c7E.llvm.15956212377945586164.exit._crit_edge.split.us.us", %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h03f000d12a91b6c7E.llvm.15956212377945586164.exit.thread"
-  %.0 = phi ptr [ %87, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h03f000d12a91b6c7E.llvm.15956212377945586164.exit.thread" ], [ null, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h03f000d12a91b6c7E.llvm.15956212377945586164.exit._crit_edge.split.us.us" ], [ null, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h03f000d12a91b6c7E.llvm.15956212377945586164.exit._crit_edge.split" ]
+  %.0 = phi ptr [ %85, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h03f000d12a91b6c7E.llvm.15956212377945586164.exit.thread" ], [ null, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h03f000d12a91b6c7E.llvm.15956212377945586164.exit._crit_edge.split.us.us" ], [ null, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h03f000d12a91b6c7E.llvm.15956212377945586164.exit._crit_edge.split" ]
   ret ptr %.0
 }
 
@@ -44443,59 +44440,58 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find
   %.val2.i = load i32, ptr %.val, align 4, !range !1745, !noundef !25
   %11 = getelementptr i8, ptr %.val, i64 4
   %.val3.i = load i32, ptr %11, align 4
-  %12 = add nsw i32 %.val4, -17
-  %13 = icmp ult i32 %12, 6
-  %14 = zext nneg i32 %.val4 to i64
-  %15 = add nsw i64 %14, -16
-  %16 = select i1 %13, i64 %15, i64 0
-  %17 = icmp samesign ult i32 %.val2.i, 17
-  %18 = zext nneg i32 %.val2.i to i64
-  %19 = add nsw i64 %18, -16
-  %20 = select i1 %17, i64 0, i64 %19
-  %21 = icmp eq i64 %16, %20
-  br i1 %21, label %22, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h19d786ec6566b559E.exit"
+  %12 = icmp samesign ugt i32 %.val4, 16
+  %13 = zext nneg i32 %.val4 to i64
+  %14 = add nsw i64 %13, -16
+  %15 = select i1 %12, i64 %14, i64 0
+  %16 = icmp samesign ult i32 %.val2.i, 17
+  %17 = zext nneg i32 %.val2.i to i64
+  %18 = add nsw i64 %17, -16
+  %19 = select i1 %16, i64 0, i64 %18
+  %20 = icmp eq i64 %15, %19
+  br i1 %20, label %21, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h19d786ec6566b559E.exit"
 
-22:                                               ; preds = %2
-  switch i64 %16, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h19d786ec6566b559E.exit" [
-    i64 0, label %23
-    i64 2, label %24
-    i64 3, label %26
-    i64 4, label %28
-    i64 5, label %30
-    i64 6, label %32
+21:                                               ; preds = %2
+  switch i64 %15, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h19d786ec6566b559E.exit" [
+    i64 0, label %22
+    i64 2, label %23
+    i64 3, label %25
+    i64 4, label %27
+    i64 5, label %29
+    i64 6, label %31
   ]
 
-23:                                               ; preds = %22
-  br i1 %17, label %34, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h19d786ec6566b559E.exit"
+22:                                               ; preds = %21
+  br i1 %16, label %33, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h19d786ec6566b559E.exit"
 
-24:                                               ; preds = %22
-  %25 = icmp eq i32 %.val5, %.val3.i
+23:                                               ; preds = %21
+  %24 = icmp eq i32 %.val5, %.val3.i
   br label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h19d786ec6566b559E.exit"
 
-26:                                               ; preds = %22
-  %27 = icmp eq i32 %.val5, %.val3.i
+25:                                               ; preds = %21
+  %26 = icmp eq i32 %.val5, %.val3.i
   br label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h19d786ec6566b559E.exit"
 
-28:                                               ; preds = %22
-  %29 = icmp eq i32 %.val5, %.val3.i
+27:                                               ; preds = %21
+  %28 = icmp eq i32 %.val5, %.val3.i
   br label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h19d786ec6566b559E.exit"
 
-30:                                               ; preds = %22
-  %31 = icmp eq i32 %.val5, %.val3.i
+29:                                               ; preds = %21
+  %30 = icmp eq i32 %.val5, %.val3.i
   br label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h19d786ec6566b559E.exit"
 
-32:                                               ; preds = %22
-  %33 = icmp eq i32 %.val5, %.val3.i
+31:                                               ; preds = %21
+  %32 = icmp eq i32 %.val5, %.val3.i
   br label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h19d786ec6566b559E.exit"
 
-34:                                               ; preds = %23
-  %35 = icmp eq i32 %.val4, %.val2.i
-  %36 = icmp eq i32 %.val5, %.val3.i
-  %spec.select.i.i.i = select i1 %35, i1 %36, i1 false
+33:                                               ; preds = %22
+  %34 = icmp eq i32 %.val4, %.val2.i
+  %35 = icmp eq i32 %.val5, %.val3.i
+  %spec.select.i.i.i = select i1 %34, i1 %35, i1 false
   br label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h19d786ec6566b559E.exit"
 
-"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h19d786ec6566b559E.exit": ; preds = %2, %22, %23, %24, %26, %28, %30, %32, %34
-  %.0.shrunk.i.i = phi i1 [ %spec.select.i.i.i, %34 ], [ false, %2 ], [ true, %23 ], [ true, %22 ], [ %25, %24 ], [ %27, %26 ], [ %29, %28 ], [ %31, %30 ], [ %33, %32 ]
+"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17h19d786ec6566b559E.exit": ; preds = %2, %21, %22, %23, %25, %27, %29, %31, %33
+  %.0.shrunk.i.i = phi i1 [ %spec.select.i.i.i, %33 ], [ false, %2 ], [ true, %22 ], [ true, %21 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ %30, %29 ], [ %32, %31 ]
   ret i1 %.0.shrunk.i.i
 }
 

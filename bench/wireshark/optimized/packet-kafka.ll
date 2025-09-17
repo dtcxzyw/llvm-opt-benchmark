@@ -4506,9 +4506,8 @@ define internal fastcc i32 @dissect_kafka_offset_fetch_response(ptr noundef %0, 
   %21 = load ptr, ptr %6, align 8
   %22 = load i32, ptr %7, align 4
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %21, ptr noundef nonnull @.str.699, i32 noundef %22)
-  %23 = add nsw i16 %4, -2
-  %or.cond5 = icmp ult i16 %23, 6
-  br i1 %or.cond5, label %24, label %.thread56
+  %23 = icmp samesign ugt i16 %4, 1
+  br i1 %23, label %24, label %.thread56
 
 24:                                               ; preds = %14
   %25 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %19)
@@ -4572,7 +4571,7 @@ define internal fastcc i32 @dissect_kafka_find_coordinator_response(ptr noundef 
 15:                                               ; preds = %11, %5
   %.0 = phi i32 [ %14, %11 ], [ %3, %5 ]
   %or.cond = icmp ult i16 %4, 4
-  br i1 %or.cond, label %16, label %57
+  br i1 %or.cond, label %16, label %56
 
 16:                                               ; preds = %15
   %17 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.0)
@@ -4591,80 +4590,79 @@ define internal fastcc i32 @dissect_kafka_find_coordinator_response(ptr noundef 
 
 25:                                               ; preds = %20, %16
   %26 = add i32 %.0, 2
-  %27 = add nsw i16 %4, -1
-  %or.cond5 = icmp ult i16 %27, 3
-  br i1 %or.cond5, label %28, label %._crit_edge
+  %.not = icmp eq i16 %4, 0
+  br i1 %.not, label %._crit_edge, label %27
 
-28:                                               ; preds = %25
-  %29 = load i32, ptr @hf_kafka_error_message, align 4
-  %30 = icmp eq i16 %4, 3
-  %31 = zext i1 %30 to i32
-  %32 = tail call fastcc i32 @dissect_kafka_string(ptr noundef %2, i32 noundef %29, ptr noundef %0, ptr noundef %1, i32 noundef %26, i32 noundef %31, ptr noundef null, ptr noundef null)
+27:                                               ; preds = %25
+  %28 = load i32, ptr @hf_kafka_error_message, align 4
+  %29 = icmp eq i16 %4, 3
+  %30 = zext i1 %29 to i32
+  %31 = tail call fastcc i32 @dissect_kafka_string(ptr noundef %2, i32 noundef %28, ptr noundef %0, ptr noundef %1, i32 noundef %26, i32 noundef %30, ptr noundef null, ptr noundef null)
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %25, %28
-  %.2.ph = phi i32 [ %32, %28 ], [ %26, %25 ]
+._crit_edge:                                      ; preds = %25, %27
+  %.2.ph = phi i32 [ %31, %27 ], [ %26, %25 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %33 = load i32, ptr @ett_kafka_broker, align 4
-  %34 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %.2.ph, i32 noundef -1, i32 noundef %33, ptr noundef nonnull %6, ptr noundef nonnull @.str.755)
-  %35 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.2.ph)
-  %36 = load i32, ptr @hf_kafka_broker_nodeid, align 4
-  %37 = call ptr @proto_tree_add_item(ptr noundef %34, i32 noundef %36, ptr noundef %0, i32 noundef %.2.ph, i32 noundef 4, i32 noundef 0)
-  %38 = add i32 %.2.ph, 4
-  %39 = load i32, ptr @hf_kafka_broker_host, align 4
-  %40 = icmp eq i16 %4, 3
-  %41 = zext i1 %40 to i32
-  %42 = call fastcc i32 @dissect_kafka_string(ptr noundef %34, i32 noundef %39, ptr noundef %0, ptr noundef %1, i32 noundef %38, i32 noundef %41, ptr noundef nonnull %7, ptr noundef nonnull %8)
-  %43 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %42)
-  %44 = load i32, ptr @hf_kafka_broker_port, align 4
-  %45 = call ptr @proto_tree_add_item(ptr noundef %34, i32 noundef %44, ptr noundef %0, i32 noundef %42, i32 noundef 4, i32 noundef 0)
-  %46 = add i32 %42, 4
-  %47 = load ptr, ptr %6, align 8
-  call void @proto_item_set_end(ptr noundef %47, ptr noundef %0, i32 noundef %46)
-  %48 = icmp sgt i32 %35, -1
-  %49 = load ptr, ptr %6, align 8
-  br i1 %48, label %50, label %56
+  %32 = load i32, ptr @ett_kafka_broker, align 4
+  %33 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %.2.ph, i32 noundef -1, i32 noundef %32, ptr noundef nonnull %6, ptr noundef nonnull @.str.755)
+  %34 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.2.ph)
+  %35 = load i32, ptr @hf_kafka_broker_nodeid, align 4
+  %36 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %35, ptr noundef %0, i32 noundef %.2.ph, i32 noundef 4, i32 noundef 0)
+  %37 = add i32 %.2.ph, 4
+  %38 = load i32, ptr @hf_kafka_broker_host, align 4
+  %39 = icmp eq i16 %4, 3
+  %40 = zext i1 %39 to i32
+  %41 = call fastcc i32 @dissect_kafka_string(ptr noundef %33, i32 noundef %38, ptr noundef %0, ptr noundef %1, i32 noundef %37, i32 noundef %40, ptr noundef nonnull %7, ptr noundef nonnull %8)
+  %42 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %41)
+  %43 = load i32, ptr @hf_kafka_broker_port, align 4
+  %44 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %43, ptr noundef %0, i32 noundef %41, i32 noundef 4, i32 noundef 0)
+  %45 = add i32 %41, 4
+  %46 = load ptr, ptr %6, align 8
+  call void @proto_item_set_end(ptr noundef %46, ptr noundef %0, i32 noundef %45)
+  %47 = icmp sgt i32 %34, -1
+  %48 = load ptr, ptr %6, align 8
+  br i1 %47, label %49, label %55
 
-50:                                               ; preds = %._crit_edge
-  %51 = getelementptr inbounds nuw i8, ptr %1, i64 408
-  %52 = load ptr, ptr %51, align 8
-  %53 = load i32, ptr %7, align 4
-  %54 = load i32, ptr %8, align 4
-  %55 = call ptr @tvb_get_string_enc(ptr noundef %52, ptr noundef %0, i32 noundef %53, i32 noundef %54, i32 noundef 2)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %49, ptr noundef nonnull @.str.756, i32 noundef %35, ptr noundef %55, i32 noundef %43)
+49:                                               ; preds = %._crit_edge
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 408
+  %51 = load ptr, ptr %50, align 8
+  %52 = load i32, ptr %7, align 4
+  %53 = load i32, ptr %8, align 4
+  %54 = call ptr @tvb_get_string_enc(ptr noundef %51, ptr noundef %0, i32 noundef %52, i32 noundef %53, i32 noundef 2)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %48, ptr noundef nonnull @.str.756, i32 noundef %34, ptr noundef %54, i32 noundef %42)
+  br label %62
+
+55:                                               ; preds = %._crit_edge
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %48, ptr noundef nonnull @.str.757)
+  br label %62
+
+56:                                               ; preds = %15
+  %57 = icmp sgt i16 %4, 3
+  br i1 %57, label %.thread56, label %.thread59
+
+.thread56:                                        ; preds = %56
+  %58 = load i32, ptr @ett_kafka_broker, align 4
+  %59 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef %58, ptr noundef nonnull %9, ptr noundef nonnull @.str.754)
+  %60 = call fastcc i32 @dissect_kafka_array(ptr noundef %59, ptr noundef %0, ptr noundef %1, i32 noundef %.0, i32 noundef 1, i16 noundef signext %4, ptr noundef nonnull @dissect_kafka_find_coordinator_response_coordinator_v2, ptr noundef null)
+  %61 = load ptr, ptr %9, align 8
+  call void @proto_item_set_end(ptr noundef %61, ptr noundef %0, i32 noundef %60)
   br label %63
 
-56:                                               ; preds = %._crit_edge
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %49, ptr noundef nonnull @.str.757)
-  br label %63
-
-57:                                               ; preds = %15
-  %58 = icmp sgt i16 %4, 3
-  br i1 %58, label %.thread56, label %.thread59
-
-.thread56:                                        ; preds = %57
-  %59 = load i32, ptr @ett_kafka_broker, align 4
-  %60 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef %59, ptr noundef nonnull %9, ptr noundef nonnull @.str.754)
-  %61 = call fastcc i32 @dissect_kafka_array(ptr noundef %60, ptr noundef %0, ptr noundef %1, i32 noundef %.0, i32 noundef 1, i16 noundef signext %4, ptr noundef nonnull @dissect_kafka_find_coordinator_response_coordinator_v2, ptr noundef null)
-  %62 = load ptr, ptr %9, align 8
-  call void @proto_item_set_end(ptr noundef %62, ptr noundef %0, i32 noundef %61)
-  br label %64
-
-63:                                               ; preds = %56, %50
+62:                                               ; preds = %55, %49
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br i1 %40, label %64, label %.thread59
+  br i1 %39, label %63, label %.thread59
 
-64:                                               ; preds = %.thread56, %63
-  %.358 = phi i32 [ %61, %.thread56 ], [ %46, %63 ]
-  %65 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.358)
+63:                                               ; preds = %.thread56, %62
+  %.358 = phi i32 [ %60, %.thread56 ], [ %45, %62 ]
+  %64 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.358)
   br label %.thread59
 
-.thread59:                                        ; preds = %57, %64, %63
-  %.4 = phi i32 [ %65, %64 ], [ %46, %63 ], [ %.0, %57 ]
+.thread59:                                        ; preds = %56, %63, %62
+  %.4 = phi i32 [ %64, %63 ], [ %45, %62 ], [ %.0, %56 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.4
 }

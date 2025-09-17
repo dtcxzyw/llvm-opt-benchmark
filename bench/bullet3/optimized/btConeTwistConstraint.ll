@@ -6193,9 +6193,8 @@ define dso_local noundef float @_ZNK21btConeTwistConstraint8getParamEii(ptr noun
   br label %22
 
 8:                                                ; preds = %4
-  %9 = add i32 %2, -3
-  %or.cond3 = icmp ult i32 %9, 3
-  br i1 %or.cond3, label %10, label %22
+  %9 = icmp ult i32 %2, 6
+  br i1 %9, label %10, label %22
 
 10:                                               ; preds = %8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 456
@@ -6212,9 +6211,8 @@ define dso_local noundef float @_ZNK21btConeTwistConstraint8getParamEii(ptr noun
   br label %22
 
 17:                                               ; preds = %13
-  %18 = add i32 %2, -3
-  %or.cond7 = icmp ult i32 %18, 3
-  br i1 %or.cond7, label %19, label %22
+  %18 = icmp ult i32 %2, 6
+  br i1 %18, label %19, label %22
 
 19:                                               ; preds = %17
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 628

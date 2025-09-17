@@ -1186,9 +1186,8 @@ list_length.exit.split.split:                     ; preds = %list_length.exit, %
 get_type_func_class.exit:                         ; preds = %94, %96
   %.0107 = phi i32 [ %89, %94 ], [ %97, %96 ]
   %.0.i = phi i32 [ 1, %94 ], [ %..i, %96 ]
-  %103 = add nsw i32 %.0.i, -1
-  %or.cond3 = icmp ult i32 %103, 2
-  %or.cond5 = and i1 %92, %or.cond3
+  %103 = icmp ne i32 %.0.i, 0
+  %or.cond5 = and i1 %92, %103
   br i1 %or.cond5, label %104, label %get_type_func_class.exit.thread
 
 104:                                              ; preds = %get_type_func_class.exit

@@ -139954,7 +139954,7 @@ define linkonce_odr hidden noundef i32 @_ZN5boost7process2v16detail11system_impl
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %.not = icmp eq i32 %13, -1
-  br i1 %.not, label %_ZNK5boost7process2v15child9exit_codeEv.exit, label %28
+  br i1 %.not, label %46, label %28
 
 26:                                               ; preds = %35
   %27 = landingpad { ptr, i32 }
@@ -140014,22 +140014,15 @@ define linkonce_odr hidden noundef i32 @_ZN5boost7process2v16detail11system_impl
   %41 = load atomic i32, ptr %40 seq_cst, align 4
   %42 = and i32 %41, 127
   %43 = icmp eq i32 %42, 0
-  br i1 %43, label %44, label %47
+  %44 = lshr i32 %41, 8
+  %45 = and i32 %44, 255
+  %.not.i.i7 = icmp eq i32 %42, 127
+  %..i.i = select i1 %.not.i.i7, i32 %41, i32 %42
+  %.0.i.i = select i1 %43, i32 %45, i32 %..i.i
+  br label %46
 
-44:                                               ; preds = %39
-  %45 = lshr i32 %41, 8
-  %46 = and i32 %45, 255
-  br label %_ZNK5boost7process2v15child9exit_codeEv.exit
-
-47:                                               ; preds = %39
-  %48 = shl nuw nsw i32 %42, 24
-  %sext.i.i = add nuw i32 %48, 16777216
-  %49 = icmp sgt i32 %sext.i.i, 33554431
-  %..i.i = select i1 %49, i32 %42, i32 %41
-  br label %_ZNK5boost7process2v15child9exit_codeEv.exit
-
-_ZNK5boost7process2v15child9exit_codeEv.exit:     ; preds = %47, %44, %5
-  %.0 = phi i32 [ -1, %5 ], [ %46, %44 ], [ %..i.i, %47 ]
+46:                                               ; preds = %39, %5
+  %.0 = phi i32 [ -1, %5 ], [ %.0.i.i, %39 ]
   call void @_ZN5boost7process2v15childD2Ev(ptr noundef nonnull align 8 dereferenceable(26) %10) #61
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.0
@@ -153299,12 +153292,12 @@ define linkonce_odr hidden noundef i32 @_ZN5boost7process2v16detail11system_impl
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %32 = load i32, ptr %17, align 8, !tbaa !2437
   %.not = icmp eq i32 %32, -1
-  br i1 %.not, label %_ZNK5boost7process2v15child9exit_codeEv.exit, label %37
+  br i1 %.not, label %74, label %37
 
 33:                                               ; preds = %6
   %34 = landingpad { ptr, i32 }
           cleanup
-  br label %104
+  br label %101
 
 35:                                               ; preds = %63, %52, %.noexc, %37
   %36 = landingpad { ptr, i32 }
@@ -153314,7 +153307,7 @@ define linkonce_odr hidden noundef i32 @_ZN5boost7process2v16detail11system_impl
 .body:                                            ; preds = %35, %65, %54
   %eh.lpad-body = phi { ptr, i32 } [ %55, %54 ], [ %36, %35 ], [ %66, %65 ]
   call void @_ZN5boost7process2v15childD2Ev(ptr noundef nonnull align 8 dereferenceable(26) %17) #61
-  br label %104
+  br label %101
 
 37:                                               ; preds = %18
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
@@ -153432,41 +153425,34 @@ _ZN5boost7process2v15child4waitEv.exit:           ; preds = %57
   %69 = load atomic i32, ptr %68 seq_cst, align 4
   %70 = and i32 %69, 127
   %71 = icmp eq i32 %70, 0
-  br i1 %71, label %72, label %75
+  %72 = lshr i32 %69, 8
+  %73 = and i32 %72, 255
+  %.not.i.i18 = icmp eq i32 %70, 127
+  %..i.i = select i1 %.not.i.i18, i32 %69, i32 %70
+  %.0.i.i = select i1 %71, i32 %73, i32 %..i.i
+  br label %74
 
-72:                                               ; preds = %67
-  %73 = lshr i32 %69, 8
-  %74 = and i32 %73, 255
-  br label %_ZNK5boost7process2v15child9exit_codeEv.exit
-
-75:                                               ; preds = %67
-  %76 = shl nuw nsw i32 %70, 24
-  %sext.i.i = add nuw i32 %76, 16777216
-  %77 = icmp sgt i32 %sext.i.i, 33554431
-  %..i.i = select i1 %77, i32 %70, i32 %69
-  br label %_ZNK5boost7process2v15child9exit_codeEv.exit
-
-_ZNK5boost7process2v15child9exit_codeEv.exit:     ; preds = %75, %72, %18
-  %.09 = phi i32 [ -1, %18 ], [ %74, %72 ], [ %..i.i, %75 ]
+74:                                               ; preds = %67, %18
+  %.09 = phi i32 [ -1, %18 ], [ %.0.i.i, %67 ]
   call void @_ZN5boost7process2v15childD2Ev(ptr noundef nonnull align 8 dereferenceable(26) %17) #61
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
-  %78 = load ptr, ptr %16, align 8, !tbaa !2423
-  %79 = getelementptr inbounds nuw i8, ptr %78, i64 56
-  %.04.i.i.i = load ptr, ptr %79, align 8, !tbaa !174
+  %75 = load ptr, ptr %16, align 8, !tbaa !2423
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 56
+  %.04.i.i.i = load ptr, ptr %76, align 8, !tbaa !174
   %.not5.i.i.i = icmp eq ptr %.04.i.i.i, null
   br i1 %.not5.i.i.i, label %_ZN5boost4asio17execution_context7destroyEv.exit.thread.i.i, label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %_ZNK5boost7process2v15child9exit_codeEv.exit, %.noexc.i
-  %.06.i.i.i = phi ptr [ %.0.i.i.i, %.noexc.i ], [ %.04.i.i.i, %_ZNK5boost7process2v15child9exit_codeEv.exit ]
-  %80 = load ptr, ptr %.06.i.i.i, align 8, !tbaa !25
-  %81 = getelementptr inbounds nuw i8, ptr %80, i64 16
-  %82 = load ptr, ptr %81, align 8
-  invoke void %82(ptr noundef nonnull align 8 dereferenceable(40) %.06.i.i.i)
-          to label %.noexc.i unwind label %101
+.lr.ph.i.i.i:                                     ; preds = %74, %.noexc.i
+  %.06.i.i.i = phi ptr [ %.0.i.i.i, %.noexc.i ], [ %.04.i.i.i, %74 ]
+  %77 = load ptr, ptr %.06.i.i.i, align 8, !tbaa !25
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 16
+  %79 = load ptr, ptr %78, align 8
+  invoke void %79(ptr noundef nonnull align 8 dereferenceable(40) %.06.i.i.i)
+          to label %.noexc.i unwind label %98
 
 .noexc.i:                                         ; preds = %.lr.ph.i.i.i
-  %83 = getelementptr inbounds nuw i8, ptr %.06.i.i.i, i64 32
-  %.0.i.i.i = load ptr, ptr %83, align 8, !tbaa !174
+  %80 = getelementptr inbounds nuw i8, ptr %.06.i.i.i, i64 32
+  %.0.i.i.i = load ptr, ptr %80, align 8, !tbaa !174
   %.not.i.i.i = icmp eq ptr %.0.i.i.i, null
   br i1 %.not.i.i.i, label %_ZN5boost4asio17execution_context8shutdownEv.exit.i, label %.lr.ph.i.i.i, !llvm.loop !2424
 
@@ -153479,15 +153465,15 @@ _ZN5boost4asio17execution_context8shutdownEv.exit.i: ; preds = %.noexc.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN5boost4asio17execution_context8shutdownEv.exit.i, %.noexc.i.i
   %.06.i.i.i.i = phi ptr [ %.0.i.i.i.i, %.noexc.i.i ], [ %.04.i.i.i.pre.i, %_ZN5boost4asio17execution_context8shutdownEv.exit.i ]
-  %84 = load ptr, ptr %.06.i.i.i.i, align 8, !tbaa !25
-  %85 = getelementptr inbounds nuw i8, ptr %84, i64 16
-  %86 = load ptr, ptr %85, align 8
-  invoke void %86(ptr noundef nonnull align 8 dereferenceable(40) %.06.i.i.i.i)
-          to label %.noexc.i.i unwind label %98
+  %81 = load ptr, ptr %.06.i.i.i.i, align 8, !tbaa !25
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 16
+  %83 = load ptr, ptr %82, align 8
+  invoke void %83(ptr noundef nonnull align 8 dereferenceable(40) %.06.i.i.i.i)
+          to label %.noexc.i.i unwind label %95
 
 .noexc.i.i:                                       ; preds = %.lr.ph.i.i.i.i
-  %87 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i, i64 32
-  %.0.i.i.i.i = load ptr, ptr %87, align 8, !tbaa !174
+  %84 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i, i64 32
+  %.0.i.i.i.i = load ptr, ptr %84, align 8, !tbaa !174
   %.not.i.i.i.i = icmp eq ptr %.0.i.i.i.i, null
   br i1 %.not.i.i.i.i, label %_ZN5boost4asio17execution_context8shutdownEv.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !2424
 
@@ -153499,48 +153485,48 @@ _ZN5boost4asio17execution_context8shutdownEv.exit.i.i: ; preds = %.noexc.i.i
   br i1 %.not2.i.i.i.i, label %_ZN5boost4asio17execution_context7destroyEv.exit.thread.i.i, label %_ZN5boost4asio6detail16service_registry7destroyEPNS0_17execution_context7serviceE.exit.i.i.i.i
 
 _ZN5boost4asio6detail16service_registry7destroyEPNS0_17execution_context7serviceE.exit.i.i.i.i: ; preds = %_ZN5boost4asio17execution_context8shutdownEv.exit.i.i, %_ZN5boost4asio6detail16service_registry7destroyEPNS0_17execution_context7serviceE.exit.i.i.i.i
-  %88 = phi ptr [ %90, %_ZN5boost4asio6detail16service_registry7destroyEPNS0_17execution_context7serviceE.exit.i.i.i.i ], [ %.pre2.i.i, %_ZN5boost4asio17execution_context8shutdownEv.exit.i.i ]
-  %89 = getelementptr inbounds nuw i8, ptr %88, i64 32
-  %90 = load ptr, ptr %89, align 8, !tbaa !2427
-  %91 = load ptr, ptr %88, align 8, !tbaa !25
-  %92 = getelementptr inbounds nuw i8, ptr %91, i64 8
-  %93 = load ptr, ptr %92, align 8
-  call void %93(ptr noundef nonnull align 8 dereferenceable(40) %88) #61
-  store ptr %90, ptr %.phi.trans.insert.i.i, align 8, !tbaa !2425
-  %.not.i.i1.i.i = icmp eq ptr %90, null
+  %85 = phi ptr [ %87, %_ZN5boost4asio6detail16service_registry7destroyEPNS0_17execution_context7serviceE.exit.i.i.i.i ], [ %.pre2.i.i, %_ZN5boost4asio17execution_context8shutdownEv.exit.i.i ]
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 32
+  %87 = load ptr, ptr %86, align 8, !tbaa !2427
+  %88 = load ptr, ptr %85, align 8, !tbaa !25
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
+  %90 = load ptr, ptr %89, align 8
+  call void %90(ptr noundef nonnull align 8 dereferenceable(40) %85) #61
+  store ptr %87, ptr %.phi.trans.insert.i.i, align 8, !tbaa !2425
+  %.not.i.i1.i.i = icmp eq ptr %87, null
   br i1 %.not.i.i1.i.i, label %_ZN5boost4asio17execution_context7destroyEv.exit.i.i, label %_ZN5boost4asio6detail16service_registry7destroyEPNS0_17execution_context7serviceE.exit.i.i.i.i, !llvm.loop !2428
 
 _ZN5boost4asio17execution_context7destroyEv.exit.i.i: ; preds = %_ZN5boost4asio6detail16service_registry7destroyEPNS0_17execution_context7serviceE.exit.i.i.i.i
   %.pr.i.i = load ptr, ptr %16, align 8, !tbaa !2423
-  %94 = icmp eq ptr %.pr.i.i, null
-  br i1 %94, label %_ZN5boost4asio10io_contextD2Ev.exit, label %_ZN5boost4asio17execution_context7destroyEv.exit.thread.i.i
+  %91 = icmp eq ptr %.pr.i.i, null
+  br i1 %91, label %_ZN5boost4asio10io_contextD2Ev.exit, label %_ZN5boost4asio17execution_context7destroyEv.exit.thread.i.i
 
-_ZN5boost4asio17execution_context7destroyEv.exit.thread.i.i: ; preds = %_ZN5boost4asio17execution_context7destroyEv.exit.i.i, %_ZN5boost4asio17execution_context8shutdownEv.exit.i.i, %_ZN5boost4asio17execution_context8shutdownEv.exit.i, %_ZNK5boost7process2v15child9exit_codeEv.exit
-  %95 = phi ptr [ %.pr.i.i, %_ZN5boost4asio17execution_context7destroyEv.exit.i.i ], [ %.pre.i, %_ZN5boost4asio17execution_context8shutdownEv.exit.i ], [ %.pre.i.i, %_ZN5boost4asio17execution_context8shutdownEv.exit.i.i ], [ %78, %_ZNK5boost7process2v15child9exit_codeEv.exit ]
-  %96 = getelementptr inbounds nuw i8, ptr %95, i64 8
-  %97 = call i32 @pthread_mutex_destroy(ptr noundef nonnull align 8 dereferenceable(40) %96) #61
-  call void @_ZdlPvm(ptr noundef nonnull %95, i64 noundef 64) #63
+_ZN5boost4asio17execution_context7destroyEv.exit.thread.i.i: ; preds = %_ZN5boost4asio17execution_context7destroyEv.exit.i.i, %_ZN5boost4asio17execution_context8shutdownEv.exit.i.i, %_ZN5boost4asio17execution_context8shutdownEv.exit.i, %74
+  %92 = phi ptr [ %.pr.i.i, %_ZN5boost4asio17execution_context7destroyEv.exit.i.i ], [ %.pre.i, %_ZN5boost4asio17execution_context8shutdownEv.exit.i ], [ %.pre.i.i, %_ZN5boost4asio17execution_context8shutdownEv.exit.i.i ], [ %75, %74 ]
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
+  %94 = call i32 @pthread_mutex_destroy(ptr noundef nonnull align 8 dereferenceable(40) %93) #61
+  call void @_ZdlPvm(ptr noundef nonnull %92, i64 noundef 64) #63
   br label %_ZN5boost4asio10io_contextD2Ev.exit
 
-98:                                               ; preds = %.lr.ph.i.i.i.i
+95:                                               ; preds = %.lr.ph.i.i.i.i
+  %96 = landingpad { ptr, i32 }
+          catch ptr null
+  %97 = extractvalue { ptr, i32 } %96, 0
+  call void @__clang_call_terminate(ptr %97) #62
+  unreachable
+
+98:                                               ; preds = %.lr.ph.i.i.i
   %99 = landingpad { ptr, i32 }
           catch ptr null
   %100 = extractvalue { ptr, i32 } %99, 0
   call void @__clang_call_terminate(ptr %100) #62
   unreachable
 
-101:                                              ; preds = %.lr.ph.i.i.i
-  %102 = landingpad { ptr, i32 }
-          catch ptr null
-  %103 = extractvalue { ptr, i32 } %102, 0
-  call void @__clang_call_terminate(ptr %103) #62
-  unreachable
-
 _ZN5boost4asio10io_contextD2Ev.exit:              ; preds = %_ZN5boost4asio17execution_context7destroyEv.exit.i.i, %_ZN5boost4asio17execution_context7destroyEv.exit.thread.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   ret i32 %.09
 
-104:                                              ; preds = %.body, %33
+101:                                              ; preds = %.body, %33
   %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %34, %33 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @_ZN5boost4asio10io_contextD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #61

@@ -7332,9 +7332,8 @@ define noundef zeroext i1 @_Z23haveEnsembleTemperatureRK10t_inputrec(ptr noundef
   unreachable
 
 _ZL37assertValidEnsembleTemperatureSetting26EnsembleTemperatureSetting.exit: ; preds = %1
-  %5 = add nsw i32 %3, -1
-  %spec.select = icmp ult i32 %5, 2
-  ret i1 %spec.select
+  %5 = icmp ne i32 %3, 0
+  ret i1 %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable

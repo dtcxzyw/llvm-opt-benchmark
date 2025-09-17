@@ -29875,15 +29875,14 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i: ; pre
   br i1 %.not112.i, label %73, label %_ZNK5clang4ento4SVal5getAsINS0_3LocEEESt8optionalIT_Ev.exit.i
 
 _ZNK5clang4ento4SVal5getAsINS0_3LocEEESt8optionalIT_Ev.exit.i: ; preds = %55
-  %61 = add i8 %.fca.1.extract26.i, -2
-  %spec.select.i.i.i.i.i.i = icmp ult i8 %61, 3
-  %spec.select.i = select i1 %spec.select.i.i.i.i.i.i, ptr %.fca.0.extract25.i, ptr undef
-  %spec.select107.i = zext i1 %spec.select.i.i.i.i.i.i to i8
+  %61 = icmp ult i8 %.fca.1.extract26.i, 5
+  %spec.select.i = select i1 %61, ptr %.fca.0.extract25.i, ptr undef
+  %spec.select107.i = zext i1 %61 to i8
   store ptr %spec.select.i, ptr %9, align 8, !noalias !1805
   %.sroa.481.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i8 %.fca.1.extract26.i, ptr %.sroa.481.0..sroa_idx.i, align 8, !noalias !1805
   store i8 %spec.select107.i, ptr %58, align 8, !noalias !1805
-  br i1 %spec.select.i.i.i.i.i.i, label %62, label %73
+  br i1 %61, label %62, label %73
 
 62:                                               ; preds = %_ZNK5clang4ento4SVal5getAsINS0_3LocEEESt8optionalIT_Ev.exit.i
   %63 = getelementptr inbounds nuw i8, ptr %57, i64 8
@@ -30320,7 +30319,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i11: ; preds
   %285 = getelementptr inbounds nuw i8, ptr %1, i64 37
   br label %318
 
-._crit_edge.i:                                    ; preds = %_ZNK5clang4ento4SVal5getAsINS0_3LocEEESt8optionalIT_Ev.exit.i15, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i11
+._crit_edge.i:                                    ; preds = %_ZNK5clang4ento4SVal5getAsINS0_3LocEEESt8optionalIT_Ev.exit.i14, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false), !alias.scope !1829
   %286 = load ptr, ptr %6, align 8, !tbaa !206, !noalias !1829
   %.not.i.i24.i = icmp eq ptr %286, null
@@ -30381,8 +30380,8 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento9CallEventEED2Ev.exit.i: ; preds = %_Z
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %270) #25, !noalias !1829
   br label %_ZN12_GLOBAL__N_113ReturnVisitor24visitNodeMaybeUnsuppressEPKN5clang4ento12ExplodedNodeERNS2_18BugReporterContextERNS2_22PathSensitiveBugReportE.exit
 
-318:                                              ; preds = %_ZNK5clang4ento4SVal5getAsINS0_3LocEEESt8optionalIT_Ev.exit.i15, %.lr.ph.i
-  %.025.i = phi i32 [ 0, %.lr.ph.i ], [ %345, %_ZNK5clang4ento4SVal5getAsINS0_3LocEEESt8optionalIT_Ev.exit.i15 ]
+318:                                              ; preds = %_ZNK5clang4ento4SVal5getAsINS0_3LocEEESt8optionalIT_Ev.exit.i14, %.lr.ph.i
+  %.025.i = phi i32 [ 0, %.lr.ph.i ], [ %345, %_ZNK5clang4ento4SVal5getAsINS0_3LocEEESt8optionalIT_Ev.exit.i14 ]
   %319 = load ptr, ptr %6, align 8, !tbaa !206, !noalias !1829
   %320 = load ptr, ptr %319, align 8, !tbaa !109, !noalias !1829
   %321 = getelementptr inbounds nuw i8, ptr %320, i64 88
@@ -30391,8 +30390,8 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento9CallEventEED2Ev.exit.i: ; preds = %_Z
   %.fca.0.extract.i12 = extractvalue { ptr, i8 } %323, 0
   %.fca.1.extract.i13 = extractvalue { ptr, i8 } %323, 1
   %324 = add i8 %.fca.1.extract.i13, -2
-  %spec.select.i.i.i.i.i.i14 = icmp ult i8 %324, 3
-  br i1 %spec.select.i.i.i.i.i.i14, label %325, label %_ZNK5clang4ento4SVal5getAsINS0_3LocEEESt8optionalIT_Ev.exit.i15
+  %spec.select.i.i.i.i.i.i = icmp ult i8 %324, 3
+  br i1 %spec.select.i.i.i.i.i.i, label %325, label %_ZNK5clang4ento4SVal5getAsINS0_3LocEEESt8optionalIT_Ev.exit.i14
 
 325:                                              ; preds = %318
   %326 = load ptr, ptr %6, align 8, !tbaa !206, !noalias !1829
@@ -30401,13 +30400,13 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento9CallEventEED2Ev.exit.i: ; preds = %_Z
   %329 = load ptr, ptr %328, align 8, !noalias !1829
   %330 = call noundef ptr %329(ptr noundef nonnull align 8 dereferenceable(72) %326, i32 noundef %.025.i) #25, !noalias !1829
   %.not20.i = icmp eq ptr %330, null
-  br i1 %.not20.i, label %_ZNK5clang4ento4SVal5getAsINS0_3LocEEESt8optionalIT_Ev.exit.i15, label %331
+  br i1 %.not20.i, label %_ZNK5clang4ento4SVal5getAsINS0_3LocEEESt8optionalIT_Ev.exit.i14, label %331
 
 331:                                              ; preds = %325
   %332 = call i16 @_ZNK5clang4ento12ProgramState6isNullENS0_4SValE(ptr noundef nonnull align 8 dereferenceable(48) %270, ptr %.fca.0.extract.i12, i8 %.fca.1.extract.i13) #25, !noalias !1829
   %333 = and i16 %332, 257
   %334 = icmp eq i16 %333, 257
-  br i1 %334, label %335, label %_ZNK5clang4ento4SVal5getAsINS0_3LocEEESt8optionalIT_Ev.exit.i15
+  br i1 %334, label %335, label %_ZNK5clang4ento4SVal5getAsINS0_3LocEEESt8optionalIT_Ev.exit.i14
 
 335:                                              ; preds = %331
   %336 = load ptr, ptr %282, align 8, !tbaa !1044, !noalias !1829
@@ -30422,13 +30421,13 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento9CallEventEED2Ev.exit.i: ; preds = %_Z
   %341 = load ptr, ptr %340, align 8, !noalias !1829
   %342 = call i16 %341(ptr noundef nonnull align 8 dereferenceable(72) %336, ptr noundef nonnull %330, ptr noundef nonnull %2, i64 %.sroa.0.0.insert.insert.i) #25, !noalias !1829
   %343 = trunc i16 %342 to i1
-  br i1 %343, label %344, label %_ZNK5clang4ento4SVal5getAsINS0_3LocEEESt8optionalIT_Ev.exit.i15
+  br i1 %343, label %344, label %_ZNK5clang4ento4SVal5getAsINS0_3LocEEESt8optionalIT_Ev.exit.i14
 
 344:                                              ; preds = %335
   store i8 0, ptr %285, align 1, !tbaa !1802, !noalias !1829
-  br label %_ZNK5clang4ento4SVal5getAsINS0_3LocEEESt8optionalIT_Ev.exit.i15
+  br label %_ZNK5clang4ento4SVal5getAsINS0_3LocEEESt8optionalIT_Ev.exit.i14
 
-_ZNK5clang4ento4SVal5getAsINS0_3LocEEESt8optionalIT_Ev.exit.i15: ; preds = %344, %335, %331, %325, %318
+_ZNK5clang4ento4SVal5getAsINS0_3LocEEESt8optionalIT_Ev.exit.i14: ; preds = %344, %335, %331, %325, %318
   %345 = add nuw i32 %.025.i, 1
   %.not19.i = icmp eq i32 %345, %281
   br i1 %.not19.i, label %._crit_edge.i, label %318, !llvm.loop !1837

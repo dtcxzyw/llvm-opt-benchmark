@@ -2500,9 +2500,8 @@ vnc_client_set_pixel_format.exit.i:               ; preds = %586, %vnc_set_bytes
   br label %713
 
 709:                                              ; preds = %696
-  %710 = add i16 %703, -5001
-  %or.cond.i.i = icmp ult i16 %710, -5002
-  br i1 %or.cond.i.i, label %711, label %713
+  %710 = icmp ugt i16 %703, 5000
+  br i1 %710, label %711, label %713
 
 711:                                              ; preds = %709
   %712 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %707, ptr noundef nonnull @ei_vnc_too_many_rectangles, ptr noundef nonnull @.str.847, i32 noundef %704)

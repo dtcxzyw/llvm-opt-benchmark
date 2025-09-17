@@ -6565,32 +6565,32 @@ io_buffer_validate_type.exit:                     ; preds = %3
   %11 = fpext float %10 to double
   %12 = bitcast double %11 to i64
   %cond.i = icmp eq i64 %12, 3458764513820540928
-  br i1 %cond.i, label %24, label %13
+  br i1 %cond.i, label %25, label %13
 
 13:                                               ; preds = %io_buffer_validate_type.exit
   %14 = lshr i64 %12, 60
   %15 = trunc nuw nsw i64 %14 to i32
   %16 = and i32 %15, 7
-  %17 = add nsw i32 %16, -3
-  %.not7.i = icmp ult i32 %17, 2
-  br i1 %.not7.i, label %18, label %22
+  %17 = add nsw i32 %16, -5
+  %18 = icmp ult i32 %17, -2
+  br i1 %18, label %23, label %19
 
-18:                                               ; preds = %13
-  %19 = tail call noundef i64 @llvm.fshl.i64(i64 range(i64 3458764513820540929, 3458764513820540928) %12, i64 range(i64 3458764513820540929, 3458764513820540928) %12, i64 3)
-  %20 = and i64 %19, -4
-  %21 = or disjoint i64 %20, 2
+19:                                               ; preds = %13
+  %20 = tail call noundef i64 @llvm.fshl.i64(i64 range(i64 3458764513820540929, 3458764513820540928) %12, i64 range(i64 3458764513820540929, 3458764513820540928) %12, i64 3)
+  %21 = and i64 %20, -4
+  %22 = or disjoint i64 %21, 2
   br label %rb_float_new_inline.exit
 
-22:                                               ; preds = %13
-  %23 = icmp eq i64 %12, 0
-  br i1 %23, label %rb_float_new_inline.exit, label %24
+23:                                               ; preds = %13
+  %24 = icmp eq i64 %12, 0
+  br i1 %24, label %rb_float_new_inline.exit, label %25
 
-24:                                               ; preds = %22, %io_buffer_validate_type.exit
-  %25 = tail call i64 @rb_float_new_in_heap(double noundef %11) #25
+25:                                               ; preds = %23, %io_buffer_validate_type.exit
+  %26 = tail call i64 @rb_float_new_in_heap(double noundef %11) #25
   br label %rb_float_new_inline.exit
 
-rb_float_new_inline.exit:                         ; preds = %18, %22, %24
-  %.0.i = phi i64 [ %25, %24 ], [ %21, %18 ], [ -9223372036854775806, %22 ]
+rb_float_new_inline.exit:                         ; preds = %19, %23, %25
+  %.0.i = phi i64 [ %26, %25 ], [ %22, %19 ], [ -9223372036854775806, %23 ]
   ret i64 %.0.i
 }
 
@@ -6615,32 +6615,32 @@ io_buffer_validate_type.exit:                     ; preds = %3
   %13 = fpext float %12 to double
   %14 = bitcast double %13 to i64
   %cond.i = icmp eq i64 %14, 3458764513820540928
-  br i1 %cond.i, label %26, label %15
+  br i1 %cond.i, label %27, label %15
 
 15:                                               ; preds = %io_buffer_validate_type.exit
   %16 = lshr i64 %14, 60
   %17 = trunc nuw nsw i64 %16 to i32
   %18 = and i32 %17, 7
-  %19 = add nsw i32 %18, -3
-  %.not7.i = icmp ult i32 %19, 2
-  br i1 %.not7.i, label %20, label %24
+  %19 = add nsw i32 %18, -5
+  %20 = icmp ult i32 %19, -2
+  br i1 %20, label %25, label %21
 
-20:                                               ; preds = %15
-  %21 = tail call noundef i64 @llvm.fshl.i64(i64 range(i64 3458764513820540929, 3458764513820540928) %14, i64 range(i64 3458764513820540929, 3458764513820540928) %14, i64 3)
-  %22 = and i64 %21, -4
-  %23 = or disjoint i64 %22, 2
+21:                                               ; preds = %15
+  %22 = tail call noundef i64 @llvm.fshl.i64(i64 range(i64 3458764513820540929, 3458764513820540928) %14, i64 range(i64 3458764513820540929, 3458764513820540928) %14, i64 3)
+  %23 = and i64 %22, -4
+  %24 = or disjoint i64 %23, 2
   br label %rb_float_new_inline.exit
 
-24:                                               ; preds = %15
-  %25 = icmp eq i64 %14, 0
-  br i1 %25, label %rb_float_new_inline.exit, label %26
+25:                                               ; preds = %15
+  %26 = icmp eq i64 %14, 0
+  br i1 %26, label %rb_float_new_inline.exit, label %27
 
-26:                                               ; preds = %24, %io_buffer_validate_type.exit
-  %27 = tail call i64 @rb_float_new_in_heap(double noundef %13) #25
+27:                                               ; preds = %25, %io_buffer_validate_type.exit
+  %28 = tail call i64 @rb_float_new_in_heap(double noundef %13) #25
   br label %rb_float_new_inline.exit
 
-rb_float_new_inline.exit:                         ; preds = %20, %24, %26
-  %.0.i = phi i64 [ %27, %26 ], [ %23, %20 ], [ -9223372036854775806, %24 ]
+rb_float_new_inline.exit:                         ; preds = %21, %25, %27
+  %.0.i = phi i64 [ %28, %27 ], [ %24, %21 ], [ -9223372036854775806, %25 ]
   ret i64 %.0.i
 }
 
@@ -6662,32 +6662,32 @@ io_buffer_validate_type.exit:                     ; preds = %3
   store i64 %5, ptr %2, align 8, !tbaa !22
   %11 = bitcast double %10 to i64
   %cond.i = icmp eq i64 %11, 3458764513820540928
-  br i1 %cond.i, label %23, label %12
+  br i1 %cond.i, label %24, label %12
 
 12:                                               ; preds = %io_buffer_validate_type.exit
   %13 = lshr i64 %11, 60
   %14 = trunc nuw nsw i64 %13 to i32
   %15 = and i32 %14, 7
-  %16 = add nsw i32 %15, -3
-  %.not7.i = icmp ult i32 %16, 2
-  br i1 %.not7.i, label %17, label %21
+  %16 = add nsw i32 %15, -5
+  %17 = icmp ult i32 %16, -2
+  br i1 %17, label %22, label %18
 
-17:                                               ; preds = %12
-  %18 = tail call noundef i64 @llvm.fshl.i64(i64 range(i64 3458764513820540929, 3458764513820540928) %11, i64 range(i64 3458764513820540929, 3458764513820540928) %11, i64 3)
-  %19 = and i64 %18, -4
-  %20 = or disjoint i64 %19, 2
+18:                                               ; preds = %12
+  %19 = tail call noundef i64 @llvm.fshl.i64(i64 range(i64 3458764513820540929, 3458764513820540928) %11, i64 range(i64 3458764513820540929, 3458764513820540928) %11, i64 3)
+  %20 = and i64 %19, -4
+  %21 = or disjoint i64 %20, 2
   br label %rb_float_new_inline.exit
 
-21:                                               ; preds = %12
-  %22 = icmp eq i64 %11, 0
-  br i1 %22, label %rb_float_new_inline.exit, label %23
+22:                                               ; preds = %12
+  %23 = icmp eq i64 %11, 0
+  br i1 %23, label %rb_float_new_inline.exit, label %24
 
-23:                                               ; preds = %21, %io_buffer_validate_type.exit
-  %24 = tail call i64 @rb_float_new_in_heap(double noundef %10) #25
+24:                                               ; preds = %22, %io_buffer_validate_type.exit
+  %25 = tail call i64 @rb_float_new_in_heap(double noundef %10) #25
   br label %rb_float_new_inline.exit
 
-rb_float_new_inline.exit:                         ; preds = %17, %21, %23
-  %.0.i = phi i64 [ %24, %23 ], [ %20, %17 ], [ -9223372036854775806, %21 ]
+rb_float_new_inline.exit:                         ; preds = %18, %22, %24
+  %.0.i = phi i64 [ %25, %24 ], [ %21, %18 ], [ -9223372036854775806, %22 ]
   ret i64 %.0.i
 }
 
@@ -6710,32 +6710,32 @@ io_buffer_validate_type.exit:                     ; preds = %3
   %12 = bitcast i64 %11 to double
   store i64 %5, ptr %2, align 8, !tbaa !22
   %cond.i = icmp eq i64 %10, 48
-  br i1 %cond.i, label %24, label %13
+  br i1 %cond.i, label %25, label %13
 
 13:                                               ; preds = %io_buffer_validate_type.exit
   %14 = lshr i64 %11, 60
   %15 = trunc nuw nsw i64 %14 to i32
   %16 = and i32 %15, 7
-  %17 = add nsw i32 %16, -3
-  %.not7.i = icmp ult i32 %17, 2
-  br i1 %.not7.i, label %18, label %22
+  %17 = add nsw i32 %16, -5
+  %18 = icmp ult i32 %17, -2
+  br i1 %18, label %23, label %19
 
-18:                                               ; preds = %13
-  %19 = tail call noundef i64 @llvm.fshl.i64(i64 range(i64 3458764513820540929, 3458764513820540928) %11, i64 range(i64 3458764513820540929, 3458764513820540928) %11, i64 3)
-  %20 = and i64 %19, -4
-  %21 = or disjoint i64 %20, 2
+19:                                               ; preds = %13
+  %20 = tail call noundef i64 @llvm.fshl.i64(i64 range(i64 3458764513820540929, 3458764513820540928) %11, i64 range(i64 3458764513820540929, 3458764513820540928) %11, i64 3)
+  %21 = and i64 %20, -4
+  %22 = or disjoint i64 %21, 2
   br label %rb_float_new_inline.exit
 
-22:                                               ; preds = %13
-  %23 = icmp eq i64 %10, 0
-  br i1 %23, label %rb_float_new_inline.exit, label %24
+23:                                               ; preds = %13
+  %24 = icmp eq i64 %10, 0
+  br i1 %24, label %rb_float_new_inline.exit, label %25
 
-24:                                               ; preds = %22, %io_buffer_validate_type.exit
-  %25 = tail call i64 @rb_float_new_in_heap(double noundef %12) #25
+25:                                               ; preds = %23, %io_buffer_validate_type.exit
+  %26 = tail call i64 @rb_float_new_in_heap(double noundef %12) #25
   br label %rb_float_new_inline.exit
 
-rb_float_new_inline.exit:                         ; preds = %18, %22, %24
-  %.0.i = phi i64 [ %25, %24 ], [ %21, %18 ], [ -9223372036854775806, %22 ]
+rb_float_new_inline.exit:                         ; preds = %19, %23, %25
+  %.0.i = phi i64 [ %26, %25 ], [ %22, %19 ], [ -9223372036854775806, %23 ]
   ret i64 %.0.i
 }
 

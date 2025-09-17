@@ -9117,7 +9117,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm11MachineLoop15isLoopInvariantERNS
   br label %30
 
 30:                                               ; preds = %.lr.ph, %_ZNK4llvm14MachineOperand8readsRegEv.exit.thread43
-  %.03156 = phi ptr [ %21, %.lr.ph ], [ %83, %_ZNK4llvm14MachineOperand8readsRegEv.exit.thread43 ]
+  %.03156 = phi ptr [ %21, %.lr.ph ], [ %82, %_ZNK4llvm14MachineOperand8readsRegEv.exit.thread43 ]
   %31 = load i32, ptr %.03156, align 8
   %32 = and i32 %31, 255
   %33 = icmp eq i32 %32, 0
@@ -9132,98 +9132,97 @@ define dso_local noundef zeroext i1 @_ZNK4llvm11MachineLoop15isLoopInvariantERNS
   br i1 %or.cond, label %_ZNK4llvm14MachineOperand8readsRegEv.exit.thread43, label %39
 
 39:                                               ; preds = %34
-  %40 = add i32 %36, -1
-  %41 = icmp ult i32 %40, 1073741823
-  br i1 %41, label %42, label %64
+  %40 = icmp ult i32 %36, 1073741824
+  br i1 %40, label %41, label %63
 
-42:                                               ; preds = %39
-  %43 = and i32 %31, 16777216
-  %.not.i = icmp eq i32 %43, 0
-  br i1 %.not.i, label %44, label %57
+41:                                               ; preds = %39
+  %42 = and i32 %31, 16777216
+  %.not.i = icmp eq i32 %42, 0
+  br i1 %.not.i, label %43, label %56
 
-44:                                               ; preds = %42
-  %45 = tail call noundef zeroext i1 @_ZNK4llvm11MachineLoop30isLoopInvariantImplicitPhysRegENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(144) %0, i32 %36)
-  br i1 %45, label %_ZNK4llvm14MachineOperand8readsRegEv.exit.thread43, label %46
+43:                                               ; preds = %41
+  %44 = tail call noundef zeroext i1 @_ZNK4llvm11MachineLoop30isLoopInvariantImplicitPhysRegENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(144) %0, i32 %36)
+  br i1 %44, label %_ZNK4llvm14MachineOperand8readsRegEv.exit.thread43, label %45
 
-46:                                               ; preds = %44
-  %47 = tail call noundef ptr @_ZNK4llvm12MachineInstr5getMFEv(ptr noundef nonnull align 8 dereferenceable(70) %1) #17
-  %48 = load ptr, ptr %15, align 8, !tbaa !365
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 176
-  %50 = load ptr, ptr %49, align 8
-  %51 = tail call noundef zeroext i1 %50(ptr noundef nonnull align 8 dereferenceable(308) %15, i32 %36, ptr noundef nonnull align 8 dereferenceable(1065) %47) #17
-  br i1 %51, label %_ZNK4llvm14MachineOperand8readsRegEv.exit.thread43, label %52
+45:                                               ; preds = %43
+  %46 = tail call noundef ptr @_ZNK4llvm12MachineInstr5getMFEv(ptr noundef nonnull align 8 dereferenceable(70) %1) #17
+  %47 = load ptr, ptr %15, align 8, !tbaa !365
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 176
+  %49 = load ptr, ptr %48, align 8
+  %50 = tail call noundef zeroext i1 %49(ptr noundef nonnull align 8 dereferenceable(308) %15, i32 %36, ptr noundef nonnull align 8 dereferenceable(1065) %46) #17
+  br i1 %50, label %_ZNK4llvm14MachineOperand8readsRegEv.exit.thread43, label %51
 
-52:                                               ; preds = %46
-  %53 = load ptr, ptr %19, align 8, !tbaa !365
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 32
-  %55 = load ptr, ptr %54, align 8
-  %56 = tail call noundef zeroext i1 %55(ptr noundef nonnull align 8 dereferenceable(80) %19, ptr noundef nonnull align 8 dereferenceable(32) %.03156) #17
-  br i1 %56, label %_ZNK4llvm14MachineOperand8readsRegEv.exit.thread43, label %.critedge
+51:                                               ; preds = %45
+  %52 = load ptr, ptr %19, align 8, !tbaa !365
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 32
+  %54 = load ptr, ptr %53, align 8
+  %55 = tail call noundef zeroext i1 %54(ptr noundef nonnull align 8 dereferenceable(80) %19, ptr noundef nonnull align 8 dereferenceable(32) %.03156) #17
+  br i1 %55, label %_ZNK4llvm14MachineOperand8readsRegEv.exit.thread43, label %.critedge
 
-57:                                               ; preds = %42
-  %58 = and i32 %31, 83886080
-  %59 = icmp eq i32 %58, 83886080
-  br i1 %59, label %60, label %.critedge
+56:                                               ; preds = %41
+  %57 = and i32 %31, 83886080
+  %58 = icmp eq i32 %57, 83886080
+  br i1 %58, label %59, label %.critedge
 
-60:                                               ; preds = %57
-  %61 = load ptr, ptr %26, align 8, !tbaa !26
-  %62 = load ptr, ptr %61, align 8, !tbaa !27
-  %63 = tail call noundef zeroext i1 @_ZNK4llvm17MachineBasicBlock8isLiveInENS_10MCRegisterENS_11LaneBitmaskE(ptr noundef nonnull align 8 dereferenceable(288) %62, i32 %36, i64 -1) #17
-  br i1 %63, label %.critedge, label %._crit_edge
+59:                                               ; preds = %56
+  %60 = load ptr, ptr %26, align 8, !tbaa !26
+  %61 = load ptr, ptr %60, align 8, !tbaa !27
+  %62 = tail call noundef zeroext i1 @_ZNK4llvm17MachineBasicBlock8isLiveInENS_10MCRegisterENS_11LaneBitmaskE(ptr noundef nonnull align 8 dereferenceable(288) %61, i32 %36, i64 -1) #17
+  br i1 %62, label %.critedge, label %._crit_edge
 
-._crit_edge:                                      ; preds = %60
+._crit_edge:                                      ; preds = %59
   %.pre = load i32, ptr %.03156, align 8
-  br label %64
+  br label %63
 
-64:                                               ; preds = %._crit_edge, %39
-  %65 = phi i32 [ %.pre, %._crit_edge ], [ %31, %39 ]
-  %66 = and i32 %65, 805306368
-  %or.cond.not.i = icmp ne i32 %66, 0
-  %67 = and i32 %65, 17825536
-  %or.cond49.not = icmp eq i32 %67, 16777216
+63:                                               ; preds = %._crit_edge, %39
+  %64 = phi i32 [ %.pre, %._crit_edge ], [ %31, %39 ]
+  %65 = and i32 %64, 805306368
+  %or.cond.not.i = icmp ne i32 %65, 0
+  %66 = and i32 %64, 17825536
+  %or.cond49.not = icmp eq i32 %66, 16777216
   %or.cond51 = or i1 %or.cond.not.i, %or.cond49.not
   br i1 %or.cond51, label %_ZNK4llvm14MachineOperand8readsRegEv.exit.thread43, label %_ZNK4llvm14MachineOperand8readsRegEv.exit.thread
 
-_ZNK4llvm14MachineOperand8readsRegEv.exit.thread: ; preds = %64
-  %68 = tail call noundef ptr @_ZNK4llvm19MachineRegisterInfo10getVRegDefENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(504) %9, i32 %36) #17
-  %69 = getelementptr inbounds nuw i8, ptr %68, i64 24
-  %70 = load ptr, ptr %69, align 8, !tbaa !521
-  %71 = load i8, ptr %28, align 4, !tbaa !32, !range !33, !noundef !34
-  %72 = trunc nuw i8 %71 to i1
-  br i1 %72, label %73, label %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsINS_12MachineInstrEEEbPKT_.exit
+_ZNK4llvm14MachineOperand8readsRegEv.exit.thread: ; preds = %63
+  %67 = tail call noundef ptr @_ZNK4llvm19MachineRegisterInfo10getVRegDefENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(504) %9, i32 %36) #17
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 24
+  %69 = load ptr, ptr %68, align 8, !tbaa !521
+  %70 = load i8, ptr %28, align 4, !tbaa !32, !range !33, !noundef !34
+  %71 = trunc nuw i8 %70 to i1
+  br i1 %71, label %72, label %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsINS_12MachineInstrEEEbPKT_.exit
 
-73:                                               ; preds = %_ZNK4llvm14MachineOperand8readsRegEv.exit.thread
-  %74 = load ptr, ptr %27, align 8, !tbaa !35
-  %75 = load i32, ptr %29, align 4, !tbaa !36
-  %76 = zext i32 %75 to i64
-  %.idx.i.i.i.i = shl nuw nsw i64 %76, 3
-  %77 = getelementptr inbounds nuw i8, ptr %74, i64 %.idx.i.i.i.i
-  %.not.not9.i.i.i.i = icmp eq i32 %75, 0
+72:                                               ; preds = %_ZNK4llvm14MachineOperand8readsRegEv.exit.thread
+  %73 = load ptr, ptr %27, align 8, !tbaa !35
+  %74 = load i32, ptr %29, align 4, !tbaa !36
+  %75 = zext i32 %74 to i64
+  %.idx.i.i.i.i = shl nuw nsw i64 %75, 3
+  %76 = getelementptr inbounds nuw i8, ptr %73, i64 %.idx.i.i.i.i
+  %.not.not9.i.i.i.i = icmp eq i32 %74, 0
   br i1 %.not.not9.i.i.i.i, label %_ZNK4llvm14MachineOperand8readsRegEv.exit.thread43, label %.lr.ph.i.i.i.i
 
-78:                                               ; preds = %.lr.ph.i.i.i.i
-  %79 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 8
-  %.not.not.i.i.i.i = icmp eq ptr %79, %77
+77:                                               ; preds = %.lr.ph.i.i.i.i
+  %78 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 8
+  %.not.not.i.i.i.i = icmp eq ptr %78, %76
   br i1 %.not.not.i.i.i.i, label %_ZNK4llvm14MachineOperand8readsRegEv.exit.thread43, label %.lr.ph.i.i.i.i, !llvm.loop !38
 
-.lr.ph.i.i.i.i:                                   ; preds = %73, %78
-  %.0810.i.i.i.i = phi ptr [ %79, %78 ], [ %74, %73 ]
-  %80 = load ptr, ptr %.0810.i.i.i.i, align 8, !tbaa !37
-  %81 = icmp eq ptr %80, %70
-  br i1 %81, label %.critedge, label %78
+.lr.ph.i.i.i.i:                                   ; preds = %72, %77
+  %.0810.i.i.i.i = phi ptr [ %78, %77 ], [ %73, %72 ]
+  %79 = load ptr, ptr %.0810.i.i.i.i, align 8, !tbaa !37
+  %80 = icmp eq ptr %79, %69
+  br i1 %80, label %.critedge, label %77
 
 _ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsINS_12MachineInstrEEEbPKT_.exit: ; preds = %_ZNK4llvm14MachineOperand8readsRegEv.exit.thread
-  %82 = tail call noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noundef nonnull align 8 dereferenceable(21) %27, ptr noundef %70) #17
-  %.not50 = icmp eq ptr %82, null
+  %81 = tail call noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noundef nonnull align 8 dereferenceable(21) %27, ptr noundef %69) #17
+  %.not50 = icmp eq ptr %81, null
   br i1 %.not50, label %_ZNK4llvm14MachineOperand8readsRegEv.exit.thread43, label %.critedge
 
-_ZNK4llvm14MachineOperand8readsRegEv.exit.thread43: ; preds = %78, %73, %64, %44, %46, %52, %30, %34, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsINS_12MachineInstrEEEbPKT_.exit
-  %83 = getelementptr inbounds nuw i8, ptr %.03156, i64 32
-  %.not = icmp eq ptr %83, %25
+_ZNK4llvm14MachineOperand8readsRegEv.exit.thread43: ; preds = %77, %72, %63, %43, %45, %51, %30, %34, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsINS_12MachineInstrEEEbPKT_.exit
+  %82 = getelementptr inbounds nuw i8, ptr %.03156, i64 32
+  %.not = icmp eq ptr %82, %25
   br i1 %.not, label %.critedge, label %30
 
-.critedge:                                        ; preds = %60, %57, %52, %_ZNK4llvm14MachineOperand8readsRegEv.exit.thread43, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsINS_12MachineInstrEEEbPKT_.exit, %.lr.ph.i.i.i.i, %3
-  %.not54 = phi i1 [ true, %3 ], [ false, %.lr.ph.i.i.i.i ], [ false, %60 ], [ false, %57 ], [ false, %52 ], [ true, %_ZNK4llvm14MachineOperand8readsRegEv.exit.thread43 ], [ false, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsINS_12MachineInstrEEEbPKT_.exit ]
+.critedge:                                        ; preds = %59, %56, %51, %_ZNK4llvm14MachineOperand8readsRegEv.exit.thread43, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsINS_12MachineInstrEEEbPKT_.exit, %.lr.ph.i.i.i.i, %3
+  %.not54 = phi i1 [ true, %3 ], [ false, %.lr.ph.i.i.i.i ], [ false, %59 ], [ false, %56 ], [ false, %51 ], [ true, %_ZNK4llvm14MachineOperand8readsRegEv.exit.thread43 ], [ false, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsINS_12MachineInstrEEEbPKT_.exit ]
   ret i1 %.not54
 }
 

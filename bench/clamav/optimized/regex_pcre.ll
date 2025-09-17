@@ -461,9 +461,8 @@ named_substr_print.exit:                          ; preds = %._crit_edge.i, %43,
   br label %90
 
 86:                                               ; preds = %5
-  %87 = add nsw i32 %3, 1
-  %or.cond = icmp ult i32 %87, 2
-  br i1 %or.cond, label %88, label %89
+  %87 = icmp sgt i32 %3, -2
+  br i1 %87, label %88, label %89
 
 88:                                               ; preds = %86
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.18) #6

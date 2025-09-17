@@ -6663,9 +6663,8 @@ ic_get_env.exit.thread7:                          ; preds = %2, %ic_get_env.exit
   br label %color_from_ansi256.exit
 
 17:                                               ; preds = %13
-  %18 = and i32 %1, -8
-  %or.cond3.i = icmp eq i32 %18, 8
-  br i1 %or.cond3.i, label %19, label %21
+  %18 = icmp ult i32 %1, 16
+  br i1 %18, label %19, label %21
 
 19:                                               ; preds = %17
   %20 = add nuw nsw i32 %1, 82

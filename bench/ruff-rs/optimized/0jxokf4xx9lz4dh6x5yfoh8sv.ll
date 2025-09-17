@@ -1223,47 +1223,44 @@ define hidden void @_ZN15ruff_python_ast7visitor15walk_parameters17hd70a783d583e
 define hidden void @_ZN15ruff_python_ast7visitor15walk_type_param17hc5185f0821a56a7dE(ptr noalias noundef align 8 dereferenceable(584) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(56) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 55
   %4 = load i8, ptr %3, align 1, !range !6, !noundef !4
-  %5 = and i8 %4, -2
-  %6 = icmp eq i8 %5, -38
-  %7 = add nsw i8 %4, 39
-  %trunc = select i1 %6, i8 %7, i8 0
-  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %9 = load ptr, ptr %8, align 8, !align !5, !noundef !4
-  %.not2 = icmp eq ptr %9, null
-  switch i8 %trunc, label %10 [
-    i8 0, label %11
-    i8 1, label %12
-    i8 2, label %13
+  %trunc = tail call i8 @llvm.usub.sat.i8(i8 %4, i8 -39)
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %6 = load ptr, ptr %5, align 8, !align !5, !noundef !4
+  %.not2 = icmp eq ptr %6, null
+  switch i8 %trunc, label %7 [
+    i8 0, label %8
+    i8 1, label %9
+    i8 2, label %10
   ]
 
-10:                                               ; preds = %2
+7:                                                ; preds = %2
   unreachable
 
-11:                                               ; preds = %2
-  br i1 %.not2, label %15, label %14
+8:                                                ; preds = %2
+  br i1 %.not2, label %12, label %11
 
-12:                                               ; preds = %2
-  br i1 %.not2, label %18, label %.sink.split
+9:                                                ; preds = %2
+  br i1 %.not2, label %15, label %.sink.split
 
-13:                                               ; preds = %2
-  br i1 %.not2, label %18, label %.sink.split
+10:                                               ; preds = %2
+  br i1 %.not2, label %15, label %.sink.split
 
-14:                                               ; preds = %11
-  tail call void @"_ZN119_$LT$ty_python_semantic..semantic_index..builder..SemanticIndexBuilder$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17he43c0294f31bba2eE"(ptr noalias noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull align 8 %9)
+11:                                               ; preds = %8
+  tail call void @"_ZN119_$LT$ty_python_semantic..semantic_index..builder..SemanticIndexBuilder$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17he43c0294f31bba2eE"(ptr noalias noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull align 8 %6)
+  br label %12
+
+12:                                               ; preds = %11, %8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %14 = load ptr, ptr %13, align 8, !align !5, !noundef !4
+  %.not3 = icmp eq ptr %14, null
+  br i1 %.not3, label %15, label %.sink.split
+
+.sink.split:                                      ; preds = %12, %10, %9
+  %.sink = phi ptr [ %6, %9 ], [ %6, %10 ], [ %14, %12 ]
+  tail call void @"_ZN119_$LT$ty_python_semantic..semantic_index..builder..SemanticIndexBuilder$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17he43c0294f31bba2eE"(ptr noalias noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull align 8 %.sink)
   br label %15
 
-15:                                               ; preds = %14, %11
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %17 = load ptr, ptr %16, align 8, !align !5, !noundef !4
-  %.not3 = icmp eq ptr %17, null
-  br i1 %.not3, label %18, label %.sink.split
-
-.sink.split:                                      ; preds = %15, %13, %12
-  %.sink = phi ptr [ %9, %12 ], [ %9, %13 ], [ %17, %15 ]
-  tail call void @"_ZN119_$LT$ty_python_semantic..semantic_index..builder..SemanticIndexBuilder$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17he43c0294f31bba2eE"(ptr noalias noundef nonnull align 8 dereferenceable(584) %0, ptr noundef nonnull align 8 %.sink)
-  br label %18
-
-18:                                               ; preds = %.sink.split, %13, %12, %15
+15:                                               ; preds = %.sink.split, %10, %9, %12
   ret void
 }
 
@@ -1271,47 +1268,44 @@ define hidden void @_ZN15ruff_python_ast7visitor15walk_type_param17hc5185f0821a5
 define hidden void @_ZN15ruff_python_ast7visitor15walk_type_param17hfcaf501205515a52E(ptr noalias noundef align 8 dereferenceable(56) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(56) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 55
   %4 = load i8, ptr %3, align 1, !range !6, !noundef !4
-  %5 = and i8 %4, -2
-  %6 = icmp eq i8 %5, -38
-  %7 = add nsw i8 %4, 39
-  %trunc = select i1 %6, i8 %7, i8 0
-  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %9 = load ptr, ptr %8, align 8, !align !5, !noundef !4
-  %.not2 = icmp eq ptr %9, null
-  switch i8 %trunc, label %10 [
-    i8 0, label %11
-    i8 1, label %12
-    i8 2, label %13
+  %trunc = tail call i8 @llvm.usub.sat.i8(i8 %4, i8 -39)
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %6 = load ptr, ptr %5, align 8, !align !5, !noundef !4
+  %.not2 = icmp eq ptr %6, null
+  switch i8 %trunc, label %7 [
+    i8 0, label %8
+    i8 1, label %9
+    i8 2, label %10
   ]
 
-10:                                               ; preds = %2
+7:                                                ; preds = %2
   unreachable
 
-11:                                               ; preds = %2
-  br i1 %.not2, label %15, label %14
+8:                                                ; preds = %2
+  br i1 %.not2, label %12, label %11
 
-12:                                               ; preds = %2
-  br i1 %.not2, label %18, label %.sink.split
+9:                                                ; preds = %2
+  br i1 %.not2, label %15, label %.sink.split
 
-13:                                               ; preds = %2
-  br i1 %.not2, label %18, label %.sink.split
+10:                                               ; preds = %2
+  br i1 %.not2, label %15, label %.sink.split
 
-14:                                               ; preds = %11
-  tail call void @"_ZN114_$LT$ty_python_semantic..semantic_index..re_exports..ExportFinder$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17heb280dcf41823882E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 %9)
+11:                                               ; preds = %8
+  tail call void @"_ZN114_$LT$ty_python_semantic..semantic_index..re_exports..ExportFinder$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17heb280dcf41823882E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 %6)
+  br label %12
+
+12:                                               ; preds = %11, %8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %14 = load ptr, ptr %13, align 8, !align !5, !noundef !4
+  %.not3 = icmp eq ptr %14, null
+  br i1 %.not3, label %15, label %.sink.split
+
+.sink.split:                                      ; preds = %12, %10, %9
+  %.sink = phi ptr [ %6, %9 ], [ %6, %10 ], [ %14, %12 ]
+  tail call void @"_ZN114_$LT$ty_python_semantic..semantic_index..re_exports..ExportFinder$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17heb280dcf41823882E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 %.sink)
   br label %15
 
-15:                                               ; preds = %14, %11
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %17 = load ptr, ptr %16, align 8, !align !5, !noundef !4
-  %.not3 = icmp eq ptr %17, null
-  br i1 %.not3, label %18, label %.sink.split
-
-.sink.split:                                      ; preds = %15, %13, %12
-  %.sink = phi ptr [ %9, %12 ], [ %9, %13 ], [ %17, %15 ]
-  tail call void @"_ZN114_$LT$ty_python_semantic..semantic_index..re_exports..ExportFinder$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17heb280dcf41823882E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 %.sink)
-  br label %18
-
-18:                                               ; preds = %.sink.split, %13, %12, %15
+15:                                               ; preds = %.sink.split, %10, %9, %12
   ret void
 }
 
@@ -18567,7 +18561,7 @@ define internal fastcc void @_ZN5salsa5table4memo21MemoTableWithTypesMut4drop17h
   %.sroa.49.0..sroa.49.0..sroa.49.0..sroa.49.8. = load i64, ptr %.sroa.49, align 8, !noundef !4
   %34 = inttoptr i64 %.sroa.49.0..sroa.49.0..sroa.49.0..sroa.49.8. to ptr
   %.not = icmp eq i64 %.sroa.49.0..sroa.49.0..sroa.49.0..sroa.49.8., 0
-  br i1 %.not, label %73, label %35
+  br i1 %.not, label %71, label %35
 
 35:                                               ; preds = %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h80d90020f4debf84E.exit"
   %.sroa.10.0..sroa.10.0..sroa.10.0..sroa.10.16. = load i64, ptr %.sroa.10, align 8, !range !208, !noundef !4
@@ -18604,49 +18598,47 @@ define internal fastcc void @_ZN5salsa5table4memo21MemoTableWithTypesMut4drop17h
 
 53:                                               ; preds = %45
   invoke void %52(ptr noundef nonnull %48)
-          to label %54 unwind label %63
+          to label %54 unwind label %62
 
 54:                                               ; preds = %53, %45
   %55 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %56 = load i64, ptr %55, align 8, !range !552, !invariant.load !4
   %57 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %58 = load i64, ptr %57, align 8, !range !208, !invariant.load !4
-  %59 = add i64 %58, -1
-  %60 = icmp sgt i64 %59, -1
-  tail call void @llvm.assume(i1 %60)
-  %61 = icmp eq i64 %56, 0
-  br i1 %61, label %"_ZN4core3ptr106drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$salsa..table..memo..Memo$GT$$GT$$GT$17hd479adc4afef2962E.exit", label %62
+  %59 = icmp ult i64 %58, -9223372036854775807
+  tail call void @llvm.assume(i1 %59)
+  %60 = icmp eq i64 %56, 0
+  br i1 %60, label %"_ZN4core3ptr106drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$salsa..table..memo..Memo$GT$$GT$$GT$17hd479adc4afef2962E.exit", label %61
 
-62:                                               ; preds = %54
+61:                                               ; preds = %54
   tail call void @_RNvCscSpY9Juk0HT_7___rustc14___rust_dealloc(ptr noundef nonnull %48, i64 noundef range(i64 1, 0) %56, i64 noundef range(i64 1, -9223372036854775807) %58) #30
   br label %"_ZN4core3ptr106drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$salsa..table..memo..Memo$GT$$GT$$GT$17hd479adc4afef2962E.exit"
 
-63:                                               ; preds = %53
-  %64 = landingpad { ptr, i32 }
+62:                                               ; preds = %53
+  %63 = landingpad { ptr, i32 }
           cleanup
-  %65 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  %66 = load i64, ptr %65, align 8, !range !552, !invariant.load !4
-  %67 = getelementptr inbounds nuw i8, ptr %49, i64 16
-  %68 = load i64, ptr %67, align 8, !range !208, !invariant.load !4
-  %69 = add i64 %68, -1
-  %70 = icmp sgt i64 %69, -1
-  tail call void @llvm.assume(i1 %70)
-  %71 = icmp eq i64 %66, 0
-  br i1 %71, label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h13677b64e3c4ff84E.exit4.i.i", label %72
+  %64 = getelementptr inbounds nuw i8, ptr %49, i64 8
+  %65 = load i64, ptr %64, align 8, !range !552, !invariant.load !4
+  %66 = getelementptr inbounds nuw i8, ptr %49, i64 16
+  %67 = load i64, ptr %66, align 8, !range !208, !invariant.load !4
+  %68 = icmp ult i64 %67, -9223372036854775807
+  tail call void @llvm.assume(i1 %68)
+  %69 = icmp eq i64 %65, 0
+  br i1 %69, label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h13677b64e3c4ff84E.exit4.i.i", label %70
 
-72:                                               ; preds = %63
-  tail call void @_RNvCscSpY9Juk0HT_7___rustc14___rust_dealloc(ptr noundef nonnull %48, i64 noundef range(i64 1, 0) %66, i64 noundef range(i64 1, -9223372036854775807) %68) #30
+70:                                               ; preds = %62
+  tail call void @_RNvCscSpY9Juk0HT_7___rustc14___rust_dealloc(ptr noundef nonnull %48, i64 noundef range(i64 1, 0) %65, i64 noundef range(i64 1, -9223372036854775807) %67) #30
   br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h13677b64e3c4ff84E.exit4.i.i"
 
-"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h13677b64e3c4ff84E.exit4.i.i": ; preds = %72, %63
-  resume { ptr, i32 } %64
+"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h13677b64e3c4ff84E.exit4.i.i": ; preds = %70, %62
+  resume { ptr, i32 } %63
 
-"_ZN4core3ptr106drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$salsa..table..memo..Memo$GT$$GT$$GT$17hd479adc4afef2962E.exit": ; preds = %42, %39, %54, %62
+"_ZN4core3ptr106drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$salsa..table..memo..Memo$GT$$GT$$GT$17hd479adc4afef2962E.exit": ; preds = %42, %39, %54, %61
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.49)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10)
   br label %10
 
-73:                                               ; preds = %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h80d90020f4debf84E.exit"
+71:                                               ; preds = %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h80d90020f4debf84E.exit"
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.49)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10)
   ret void
@@ -49944,6 +49936,9 @@ declare i64 @llvm.umin.i64(i64, i64) #27
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #28
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.usub.sat.i8(i8, i8) #27
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #27

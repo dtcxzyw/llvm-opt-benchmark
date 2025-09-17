@@ -5482,9 +5482,8 @@ php_time.exit163:                                 ; preds = %81, %83
   br i1 %or.cond, label %.sink.split, label %106
 
 106:                                              ; preds = %104
-  %107 = add i64 %105, -70
-  %or.cond3 = icmp ult i64 %107, 31
-  br i1 %or.cond3, label %.sink.split, label %109
+  %107 = icmp ult i64 %105, 101
+  br i1 %107, label %.sink.split, label %109
 
 .sink.split:                                      ; preds = %106, %104
   %.sink236 = phi i64 [ 2000, %104 ], [ 1900, %106 ]

@@ -126201,8 +126201,7 @@ _ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.
   br i1 %.not16.i.i.us.i.i, label %_ZNKSt4lessIN12_GLOBAL__N_19SatHelper14ModelBlockInfoEEclERKS2_S5_.exit.us.i.i, label %27
 
 _ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i.i.us.i.i: ; preds = %20
-  %notsub.i.i = add i64 %22, -1
-  %26 = icmp sgt i64 %notsub.i.i, -1
+  %26 = icmp ult i64 %22, -9223372036854775807
   br i1 %26, label %32, label %33
 
 27:                                               ; preds = %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread18.i.i.us.i.i

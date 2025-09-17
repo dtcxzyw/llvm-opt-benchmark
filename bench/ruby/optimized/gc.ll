@@ -30561,17 +30561,17 @@ define internal i64 @gc_profile_record_get(i64 %0) #0 {
 .preheader:                                       ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 928
   %9 = load i64, ptr %8, align 8, !tbaa !616
-  %.not103 = icmp eq i64 %9, 0
-  br i1 %.not103, label %.loopexit, label %.lr.ph
+  %.not102 = icmp eq i64 %9, 0
+  br i1 %.not102, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 912
   br label %11
 
-11:                                               ; preds = %.lr.ph, %rbimpl_intern_const.exit94
-  %.041102 = phi i64 [ 0, %.lr.ph ], [ %107, %rbimpl_intern_const.exit94 ]
+11:                                               ; preds = %.lr.ph, %rbimpl_intern_const.exit93
+  %.041101 = phi i64 [ 0, %.lr.ph ], [ %109, %rbimpl_intern_const.exit93 ]
   %12 = load ptr, ptr %10, align 8, !tbaa !169
-  %13 = getelementptr %struct.gc_profile_record, ptr %12, i64 %.041102
+  %13 = getelementptr %struct.gc_profile_record, ptr %12, i64 %.041101
   %14 = tail call i64 @rb_hash_new() #6
   %.pr.i = load i64, ptr @gc_profile_record_get.rbimpl_id, align 8, !tbaa !93
   %.not4.i = icmp eq i64 %.pr.i, 0
@@ -30607,219 +30607,219 @@ rbimpl_intern_const.exit47:                       ; preds = %.lr.ph.i45, %rbimpl
   %24 = load double, ptr %23, align 8, !tbaa !580
   %25 = bitcast double %24 to i64
   %cond.i = icmp eq i64 %25, 3458764513820540928
-  br i1 %cond.i, label %37, label %26
+  br i1 %cond.i, label %38, label %26
 
 26:                                               ; preds = %rbimpl_intern_const.exit47
   %27 = lshr i64 %25, 60
   %28 = trunc nuw nsw i64 %27 to i32
   %29 = and i32 %28, 7
-  %30 = add nsw i32 %29, -3
-  %.not7.i = icmp ult i32 %30, 2
-  br i1 %.not7.i, label %31, label %35
+  %30 = add nsw i32 %29, -5
+  %31 = icmp ult i32 %30, -2
+  br i1 %31, label %36, label %32
 
-31:                                               ; preds = %26
-  %32 = tail call noundef i64 @llvm.fshl.i64(i64 range(i64 3458764513820540929, 3458764513820540928) %25, i64 range(i64 3458764513820540929, 3458764513820540928) %25, i64 3)
-  %33 = and i64 %32, -4
-  %34 = or disjoint i64 %33, 2
+32:                                               ; preds = %26
+  %33 = tail call noundef i64 @llvm.fshl.i64(i64 range(i64 3458764513820540929, 3458764513820540928) %25, i64 range(i64 3458764513820540929, 3458764513820540928) %25, i64 3)
+  %34 = and i64 %33, -4
+  %35 = or disjoint i64 %34, 2
   br label %rb_float_new_inline.exit
 
-35:                                               ; preds = %26
-  %36 = icmp eq i64 %25, 0
-  br i1 %36, label %rb_float_new_inline.exit, label %37
+36:                                               ; preds = %26
+  %37 = icmp eq i64 %25, 0
+  br i1 %37, label %rb_float_new_inline.exit, label %38
 
-37:                                               ; preds = %35, %rbimpl_intern_const.exit47
-  %38 = tail call i64 @rb_float_new_in_heap(double noundef %24) #6
+38:                                               ; preds = %36, %rbimpl_intern_const.exit47
+  %39 = tail call i64 @rb_float_new_in_heap(double noundef %24) #6
   br label %rb_float_new_inline.exit
 
-rb_float_new_inline.exit:                         ; preds = %31, %35, %37
-  %.0.i = phi i64 [ %38, %37 ], [ %34, %31 ], [ -9223372036854775806, %35 ]
-  %39 = tail call i64 @rb_hash_aset(i64 noundef %14, i64 noundef %22, i64 noundef %.0.i) #6
+rb_float_new_inline.exit:                         ; preds = %32, %36, %38
+  %.0.i = phi i64 [ %39, %38 ], [ %35, %32 ], [ -9223372036854775806, %36 ]
+  %40 = tail call i64 @rb_hash_aset(i64 noundef %14, i64 noundef %22, i64 noundef %.0.i) #6
   %.pr.i48 = load i64, ptr @gc_profile_record_get.rbimpl_id.447, align 8, !tbaa !93
   %.not4.i49 = icmp eq i64 %.pr.i48, 0
   br i1 %.not4.i49, label %.lr.ph.i51, label %rbimpl_intern_const.exit53
 
 .lr.ph.i51:                                       ; preds = %rb_float_new_inline.exit, %.lr.ph.i51
-  %40 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.448, i64 noundef 14) #6
-  store i64 %40, ptr @gc_profile_record_get.rbimpl_id.447, align 8, !tbaa !93
-  %.not.i52 = icmp eq i64 %40, 0
+  %41 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.448, i64 noundef 14) #6
+  store i64 %41, ptr @gc_profile_record_get.rbimpl_id.447, align 8, !tbaa !93
+  %.not.i52 = icmp eq i64 %41, 0
   br i1 %.not.i52, label %.lr.ph.i51, label %rbimpl_intern_const.exit53, !llvm.loop !342
 
 rbimpl_intern_const.exit53:                       ; preds = %.lr.ph.i51, %rb_float_new_inline.exit
-  %.lcssa.i50 = phi i64 [ %.pr.i48, %rb_float_new_inline.exit ], [ %40, %.lr.ph.i51 ]
-  %41 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i50) #6
-  %42 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %43 = load double, ptr %42, align 8, !tbaa !622
-  %44 = bitcast double %43 to i64
-  %cond.i54 = icmp eq i64 %44, 3458764513820540928
-  br i1 %cond.i54, label %56, label %45
+  %.lcssa.i50 = phi i64 [ %.pr.i48, %rb_float_new_inline.exit ], [ %41, %.lr.ph.i51 ]
+  %42 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i50) #6
+  %43 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %44 = load double, ptr %43, align 8, !tbaa !622
+  %45 = bitcast double %44 to i64
+  %cond.i54 = icmp eq i64 %45, 3458764513820540928
+  br i1 %cond.i54, label %58, label %46
 
-45:                                               ; preds = %rbimpl_intern_const.exit53
-  %46 = lshr i64 %44, 60
-  %47 = trunc nuw nsw i64 %46 to i32
-  %48 = and i32 %47, 7
-  %49 = add nsw i32 %48, -3
-  %.not7.i55 = icmp ult i32 %49, 2
-  br i1 %.not7.i55, label %50, label %54
+46:                                               ; preds = %rbimpl_intern_const.exit53
+  %47 = lshr i64 %45, 60
+  %48 = trunc nuw nsw i64 %47 to i32
+  %49 = and i32 %48, 7
+  %50 = add nsw i32 %49, -5
+  %51 = icmp ult i32 %50, -2
+  br i1 %51, label %56, label %52
 
-50:                                               ; preds = %45
-  %51 = tail call noundef i64 @llvm.fshl.i64(i64 range(i64 3458764513820540929, 3458764513820540928) %44, i64 range(i64 3458764513820540929, 3458764513820540928) %44, i64 3)
-  %52 = and i64 %51, -4
-  %53 = or disjoint i64 %52, 2
-  br label %rb_float_new_inline.exit57
+52:                                               ; preds = %46
+  %53 = tail call noundef i64 @llvm.fshl.i64(i64 range(i64 3458764513820540929, 3458764513820540928) %45, i64 range(i64 3458764513820540929, 3458764513820540928) %45, i64 3)
+  %54 = and i64 %53, -4
+  %55 = or disjoint i64 %54, 2
+  br label %rb_float_new_inline.exit56
 
-54:                                               ; preds = %45
-  %55 = icmp eq i64 %44, 0
-  br i1 %55, label %rb_float_new_inline.exit57, label %56
+56:                                               ; preds = %46
+  %57 = icmp eq i64 %45, 0
+  br i1 %57, label %rb_float_new_inline.exit56, label %58
 
-56:                                               ; preds = %54, %rbimpl_intern_const.exit53
-  %57 = tail call i64 @rb_float_new_in_heap(double noundef %43) #6
-  br label %rb_float_new_inline.exit57
+58:                                               ; preds = %56, %rbimpl_intern_const.exit53
+  %59 = tail call i64 @rb_float_new_in_heap(double noundef %44) #6
+  br label %rb_float_new_inline.exit56
 
-rb_float_new_inline.exit57:                       ; preds = %50, %54, %56
-  %.0.i56 = phi i64 [ %57, %56 ], [ %53, %50 ], [ -9223372036854775806, %54 ]
-  %58 = tail call i64 @rb_hash_aset(i64 noundef %14, i64 noundef %41, i64 noundef %.0.i56) #6
-  %.pr.i58 = load i64, ptr @gc_profile_record_get.rbimpl_id.449, align 8, !tbaa !93
-  %.not4.i59 = icmp eq i64 %.pr.i58, 0
-  br i1 %.not4.i59, label %.lr.ph.i61, label %rbimpl_intern_const.exit63
+rb_float_new_inline.exit56:                       ; preds = %52, %56, %58
+  %.0.i55 = phi i64 [ %59, %58 ], [ %55, %52 ], [ -9223372036854775806, %56 ]
+  %60 = tail call i64 @rb_hash_aset(i64 noundef %14, i64 noundef %42, i64 noundef %.0.i55) #6
+  %.pr.i57 = load i64, ptr @gc_profile_record_get.rbimpl_id.449, align 8, !tbaa !93
+  %.not4.i58 = icmp eq i64 %.pr.i57, 0
+  br i1 %.not4.i58, label %.lr.ph.i60, label %rbimpl_intern_const.exit62
 
-.lr.ph.i61:                                       ; preds = %rb_float_new_inline.exit57, %.lr.ph.i61
-  %59 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.450, i64 noundef 13) #6
-  store i64 %59, ptr @gc_profile_record_get.rbimpl_id.449, align 8, !tbaa !93
-  %.not.i62 = icmp eq i64 %59, 0
-  br i1 %.not.i62, label %.lr.ph.i61, label %rbimpl_intern_const.exit63, !llvm.loop !342
+.lr.ph.i60:                                       ; preds = %rb_float_new_inline.exit56, %.lr.ph.i60
+  %61 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.450, i64 noundef 13) #6
+  store i64 %61, ptr @gc_profile_record_get.rbimpl_id.449, align 8, !tbaa !93
+  %.not.i61 = icmp eq i64 %61, 0
+  br i1 %.not.i61, label %.lr.ph.i60, label %rbimpl_intern_const.exit62, !llvm.loop !342
 
-rbimpl_intern_const.exit63:                       ; preds = %.lr.ph.i61, %rb_float_new_inline.exit57
-  %.lcssa.i60 = phi i64 [ %.pr.i58, %rb_float_new_inline.exit57 ], [ %59, %.lr.ph.i61 ]
-  %60 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i60) #6
-  %61 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  %62 = load i64, ptr %61, align 8, !tbaa !591
-  %63 = icmp ult i64 %62, 4611686018427387904
-  br i1 %63, label %64, label %67
+rbimpl_intern_const.exit62:                       ; preds = %.lr.ph.i60, %rb_float_new_inline.exit56
+  %.lcssa.i59 = phi i64 [ %.pr.i57, %rb_float_new_inline.exit56 ], [ %61, %.lr.ph.i60 ]
+  %62 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i59) #6
+  %63 = getelementptr inbounds nuw i8, ptr %13, i64 32
+  %64 = load i64, ptr %63, align 8, !tbaa !591
+  %65 = icmp ult i64 %64, 4611686018427387904
+  br i1 %65, label %66, label %69
 
-64:                                               ; preds = %rbimpl_intern_const.exit63
-  %65 = shl nuw nsw i64 %62, 1
-  %66 = or disjoint i64 %65, 1
+66:                                               ; preds = %rbimpl_intern_const.exit62
+  %67 = shl nuw nsw i64 %64, 1
+  %68 = or disjoint i64 %67, 1
   br label %rb_ull2num_inline.exit
 
-67:                                               ; preds = %rbimpl_intern_const.exit63
-  %68 = tail call i64 @rb_ull2inum(i64 noundef %62) #6
+69:                                               ; preds = %rbimpl_intern_const.exit62
+  %70 = tail call i64 @rb_ull2inum(i64 noundef %64) #6
   br label %rb_ull2num_inline.exit
 
-rb_ull2num_inline.exit:                           ; preds = %64, %67
-  %.0.i64 = phi i64 [ %66, %64 ], [ %68, %67 ]
-  %69 = tail call i64 @rb_hash_aset(i64 noundef %14, i64 noundef %60, i64 noundef %.0.i64) #6
-  %.pr.i65 = load i64, ptr @gc_profile_record_get.rbimpl_id.451, align 8, !tbaa !93
-  %.not4.i66 = icmp eq i64 %.pr.i65, 0
-  br i1 %.not4.i66, label %.lr.ph.i68, label %rbimpl_intern_const.exit70
+rb_ull2num_inline.exit:                           ; preds = %66, %69
+  %.0.i63 = phi i64 [ %68, %66 ], [ %70, %69 ]
+  %71 = tail call i64 @rb_hash_aset(i64 noundef %14, i64 noundef %62, i64 noundef %.0.i63) #6
+  %.pr.i64 = load i64, ptr @gc_profile_record_get.rbimpl_id.451, align 8, !tbaa !93
+  %.not4.i65 = icmp eq i64 %.pr.i64, 0
+  br i1 %.not4.i65, label %.lr.ph.i67, label %rbimpl_intern_const.exit69
 
-.lr.ph.i68:                                       ; preds = %rb_ull2num_inline.exit, %.lr.ph.i68
-  %70 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.452, i64 noundef 15) #6
-  store i64 %70, ptr @gc_profile_record_get.rbimpl_id.451, align 8, !tbaa !93
-  %.not.i69 = icmp eq i64 %70, 0
-  br i1 %.not.i69, label %.lr.ph.i68, label %rbimpl_intern_const.exit70, !llvm.loop !342
+.lr.ph.i67:                                       ; preds = %rb_ull2num_inline.exit, %.lr.ph.i67
+  %72 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.452, i64 noundef 15) #6
+  store i64 %72, ptr @gc_profile_record_get.rbimpl_id.451, align 8, !tbaa !93
+  %.not.i68 = icmp eq i64 %72, 0
+  br i1 %.not.i68, label %.lr.ph.i67, label %rbimpl_intern_const.exit69, !llvm.loop !342
 
-rbimpl_intern_const.exit70:                       ; preds = %.lr.ph.i68, %rb_ull2num_inline.exit
-  %.lcssa.i67 = phi i64 [ %.pr.i65, %rb_ull2num_inline.exit ], [ %70, %.lr.ph.i68 ]
-  %71 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i67) #6
-  %72 = getelementptr inbounds nuw i8, ptr %13, i64 40
-  %73 = load i64, ptr %72, align 8, !tbaa !592
-  %74 = icmp ult i64 %73, 4611686018427387904
-  br i1 %74, label %75, label %78
+rbimpl_intern_const.exit69:                       ; preds = %.lr.ph.i67, %rb_ull2num_inline.exit
+  %.lcssa.i66 = phi i64 [ %.pr.i64, %rb_ull2num_inline.exit ], [ %72, %.lr.ph.i67 ]
+  %73 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i66) #6
+  %74 = getelementptr inbounds nuw i8, ptr %13, i64 40
+  %75 = load i64, ptr %74, align 8, !tbaa !592
+  %76 = icmp ult i64 %75, 4611686018427387904
+  br i1 %76, label %77, label %80
 
-75:                                               ; preds = %rbimpl_intern_const.exit70
-  %76 = shl nuw nsw i64 %73, 1
-  %77 = or disjoint i64 %76, 1
-  br label %rb_ull2num_inline.exit72
+77:                                               ; preds = %rbimpl_intern_const.exit69
+  %78 = shl nuw nsw i64 %75, 1
+  %79 = or disjoint i64 %78, 1
+  br label %rb_ull2num_inline.exit71
 
-78:                                               ; preds = %rbimpl_intern_const.exit70
-  %79 = tail call i64 @rb_ull2inum(i64 noundef %73) #6
-  br label %rb_ull2num_inline.exit72
+80:                                               ; preds = %rbimpl_intern_const.exit69
+  %81 = tail call i64 @rb_ull2inum(i64 noundef %75) #6
+  br label %rb_ull2num_inline.exit71
 
-rb_ull2num_inline.exit72:                         ; preds = %75, %78
-  %.0.i71 = phi i64 [ %77, %75 ], [ %79, %78 ]
-  %80 = tail call i64 @rb_hash_aset(i64 noundef %14, i64 noundef %71, i64 noundef %.0.i71) #6
-  %.pr.i73 = load i64, ptr @gc_profile_record_get.rbimpl_id.453, align 8, !tbaa !93
-  %.not4.i74 = icmp eq i64 %.pr.i73, 0
-  br i1 %.not4.i74, label %.lr.ph.i76, label %rbimpl_intern_const.exit78
+rb_ull2num_inline.exit71:                         ; preds = %77, %80
+  %.0.i70 = phi i64 [ %79, %77 ], [ %81, %80 ]
+  %82 = tail call i64 @rb_hash_aset(i64 noundef %14, i64 noundef %73, i64 noundef %.0.i70) #6
+  %.pr.i72 = load i64, ptr @gc_profile_record_get.rbimpl_id.453, align 8, !tbaa !93
+  %.not4.i73 = icmp eq i64 %.pr.i72, 0
+  br i1 %.not4.i73, label %.lr.ph.i75, label %rbimpl_intern_const.exit77
 
-.lr.ph.i76:                                       ; preds = %rb_ull2num_inline.exit72, %.lr.ph.i76
-  %81 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.454, i64 noundef 18) #6
-  store i64 %81, ptr @gc_profile_record_get.rbimpl_id.453, align 8, !tbaa !93
-  %.not.i77 = icmp eq i64 %81, 0
-  br i1 %.not.i77, label %.lr.ph.i76, label %rbimpl_intern_const.exit78, !llvm.loop !342
+.lr.ph.i75:                                       ; preds = %rb_ull2num_inline.exit71, %.lr.ph.i75
+  %83 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.454, i64 noundef 18) #6
+  store i64 %83, ptr @gc_profile_record_get.rbimpl_id.453, align 8, !tbaa !93
+  %.not.i76 = icmp eq i64 %83, 0
+  br i1 %.not.i76, label %.lr.ph.i75, label %rbimpl_intern_const.exit77, !llvm.loop !342
 
-rbimpl_intern_const.exit78:                       ; preds = %.lr.ph.i76, %rb_ull2num_inline.exit72
-  %.lcssa.i75 = phi i64 [ %.pr.i73, %rb_ull2num_inline.exit72 ], [ %81, %.lr.ph.i76 ]
-  %82 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i75) #6
-  %83 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %84 = load i64, ptr %83, align 8, !tbaa !590
-  %85 = icmp ult i64 %84, 4611686018427387904
-  br i1 %85, label %86, label %89
+rbimpl_intern_const.exit77:                       ; preds = %.lr.ph.i75, %rb_ull2num_inline.exit71
+  %.lcssa.i74 = phi i64 [ %.pr.i72, %rb_ull2num_inline.exit71 ], [ %83, %.lr.ph.i75 ]
+  %84 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i74) #6
+  %85 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  %86 = load i64, ptr %85, align 8, !tbaa !590
+  %87 = icmp ult i64 %86, 4611686018427387904
+  br i1 %87, label %88, label %91
 
-86:                                               ; preds = %rbimpl_intern_const.exit78
-  %87 = shl nuw nsw i64 %84, 1
-  %88 = or disjoint i64 %87, 1
-  br label %rb_ull2num_inline.exit80
+88:                                               ; preds = %rbimpl_intern_const.exit77
+  %89 = shl nuw nsw i64 %86, 1
+  %90 = or disjoint i64 %89, 1
+  br label %rb_ull2num_inline.exit79
 
-89:                                               ; preds = %rbimpl_intern_const.exit78
-  %90 = tail call i64 @rb_ull2inum(i64 noundef %84) #6
-  br label %rb_ull2num_inline.exit80
+91:                                               ; preds = %rbimpl_intern_const.exit77
+  %92 = tail call i64 @rb_ull2inum(i64 noundef %86) #6
+  br label %rb_ull2num_inline.exit79
 
-rb_ull2num_inline.exit80:                         ; preds = %86, %89
-  %.0.i79 = phi i64 [ %88, %86 ], [ %90, %89 ]
-  %91 = tail call i64 @rb_hash_aset(i64 noundef %14, i64 noundef %82, i64 noundef %.0.i79) #6
-  %.pr.i81 = load i64, ptr @gc_profile_record_get.rbimpl_id.455, align 8, !tbaa !93
-  %.not4.i82 = icmp eq i64 %.pr.i81, 0
-  br i1 %.not4.i82, label %.lr.ph.i84, label %rbimpl_intern_const.exit86
+rb_ull2num_inline.exit79:                         ; preds = %88, %91
+  %.0.i78 = phi i64 [ %90, %88 ], [ %92, %91 ]
+  %93 = tail call i64 @rb_hash_aset(i64 noundef %14, i64 noundef %84, i64 noundef %.0.i78) #6
+  %.pr.i80 = load i64, ptr @gc_profile_record_get.rbimpl_id.455, align 8, !tbaa !93
+  %.not4.i81 = icmp eq i64 %.pr.i80, 0
+  br i1 %.not4.i81, label %.lr.ph.i83, label %rbimpl_intern_const.exit85
 
-.lr.ph.i84:                                       ; preds = %rb_ull2num_inline.exit80, %.lr.ph.i84
-  %92 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.456, i64 noundef 13) #6
-  store i64 %92, ptr @gc_profile_record_get.rbimpl_id.455, align 8, !tbaa !93
-  %.not.i85 = icmp eq i64 %92, 0
-  br i1 %.not.i85, label %.lr.ph.i84, label %rbimpl_intern_const.exit86, !llvm.loop !342
+.lr.ph.i83:                                       ; preds = %rb_ull2num_inline.exit79, %.lr.ph.i83
+  %94 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.456, i64 noundef 13) #6
+  store i64 %94, ptr @gc_profile_record_get.rbimpl_id.455, align 8, !tbaa !93
+  %.not.i84 = icmp eq i64 %94, 0
+  br i1 %.not.i84, label %.lr.ph.i83, label %rbimpl_intern_const.exit85, !llvm.loop !342
 
-rbimpl_intern_const.exit86:                       ; preds = %.lr.ph.i84, %rb_ull2num_inline.exit80
-  %.lcssa.i83 = phi i64 [ %.pr.i81, %rb_ull2num_inline.exit80 ], [ %92, %.lr.ph.i84 ]
-  %93 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i83) #6
-  %94 = getelementptr inbounds nuw i8, ptr %13, i64 48
-  %95 = load i64, ptr %94, align 8, !tbaa !543
-  %96 = icmp ult i64 %95, 4611686018427387904
-  br i1 %96, label %97, label %100
+rbimpl_intern_const.exit85:                       ; preds = %.lr.ph.i83, %rb_ull2num_inline.exit79
+  %.lcssa.i82 = phi i64 [ %.pr.i80, %rb_ull2num_inline.exit79 ], [ %94, %.lr.ph.i83 ]
+  %95 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i82) #6
+  %96 = getelementptr inbounds nuw i8, ptr %13, i64 48
+  %97 = load i64, ptr %96, align 8, !tbaa !543
+  %98 = icmp ult i64 %97, 4611686018427387904
+  br i1 %98, label %99, label %102
 
-97:                                               ; preds = %rbimpl_intern_const.exit86
-  %98 = shl nuw nsw i64 %95, 1
-  %99 = or disjoint i64 %98, 1
-  br label %rb_ull2num_inline.exit88
+99:                                               ; preds = %rbimpl_intern_const.exit85
+  %100 = shl nuw nsw i64 %97, 1
+  %101 = or disjoint i64 %100, 1
+  br label %rb_ull2num_inline.exit87
 
-100:                                              ; preds = %rbimpl_intern_const.exit86
-  %101 = tail call i64 @rb_ull2inum(i64 noundef %95) #6
-  br label %rb_ull2num_inline.exit88
+102:                                              ; preds = %rbimpl_intern_const.exit85
+  %103 = tail call i64 @rb_ull2inum(i64 noundef %97) #6
+  br label %rb_ull2num_inline.exit87
 
-rb_ull2num_inline.exit88:                         ; preds = %97, %100
-  %.0.i87 = phi i64 [ %99, %97 ], [ %101, %100 ]
-  %102 = tail call i64 @rb_hash_aset(i64 noundef %14, i64 noundef %93, i64 noundef %.0.i87) #6
-  %.pr.i89 = load i64, ptr @gc_profile_record_get.rbimpl_id.457, align 8, !tbaa !93
-  %.not4.i90 = icmp eq i64 %.pr.i89, 0
-  br i1 %.not4.i90, label %.lr.ph.i92, label %rbimpl_intern_const.exit94
+rb_ull2num_inline.exit87:                         ; preds = %99, %102
+  %.0.i86 = phi i64 [ %101, %99 ], [ %103, %102 ]
+  %104 = tail call i64 @rb_hash_aset(i64 noundef %14, i64 noundef %95, i64 noundef %.0.i86) #6
+  %.pr.i88 = load i64, ptr @gc_profile_record_get.rbimpl_id.457, align 8, !tbaa !93
+  %.not4.i89 = icmp eq i64 %.pr.i88, 0
+  br i1 %.not4.i89, label %.lr.ph.i91, label %rbimpl_intern_const.exit93
 
-.lr.ph.i92:                                       ; preds = %rb_ull2num_inline.exit88, %.lr.ph.i92
-  %103 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.458, i64 noundef 12) #6
-  store i64 %103, ptr @gc_profile_record_get.rbimpl_id.457, align 8, !tbaa !93
-  %.not.i93 = icmp eq i64 %103, 0
-  br i1 %.not.i93, label %.lr.ph.i92, label %rbimpl_intern_const.exit94, !llvm.loop !342
+.lr.ph.i91:                                       ; preds = %rb_ull2num_inline.exit87, %.lr.ph.i91
+  %105 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.458, i64 noundef 12) #6
+  store i64 %105, ptr @gc_profile_record_get.rbimpl_id.457, align 8, !tbaa !93
+  %.not.i92 = icmp eq i64 %105, 0
+  br i1 %.not.i92, label %.lr.ph.i91, label %rbimpl_intern_const.exit93, !llvm.loop !342
 
-rbimpl_intern_const.exit94:                       ; preds = %.lr.ph.i92, %rb_ull2num_inline.exit88
-  %.lcssa.i91 = phi i64 [ %.pr.i89, %rb_ull2num_inline.exit88 ], [ %103, %.lr.ph.i92 ]
-  %104 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i91) #6
-  %105 = tail call i64 @rb_hash_aset(i64 noundef %14, i64 noundef %104, i64 noundef 20) #6
-  %106 = tail call i64 @rb_ary_push(i64 noundef %2, i64 noundef %14) #6
-  %107 = add nuw i64 %.041102, 1
-  %108 = load i64, ptr %8, align 8, !tbaa !616
-  %109 = icmp ult i64 %107, %108
-  br i1 %109, label %11, label %.loopexit, !llvm.loop !700
+rbimpl_intern_const.exit93:                       ; preds = %.lr.ph.i91, %rb_ull2num_inline.exit87
+  %.lcssa.i90 = phi i64 [ %.pr.i88, %rb_ull2num_inline.exit87 ], [ %105, %.lr.ph.i91 ]
+  %106 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i90) #6
+  %107 = tail call i64 @rb_hash_aset(i64 noundef %14, i64 noundef %106, i64 noundef 20) #6
+  %108 = tail call i64 @rb_ary_push(i64 noundef %2, i64 noundef %14) #6
+  %109 = add nuw i64 %.041101, 1
+  %110 = load i64, ptr %8, align 8, !tbaa !616
+  %111 = icmp ult i64 %109, %110
+  br i1 %111, label %11, label %.loopexit, !llvm.loop !700
 
-.loopexit:                                        ; preds = %rbimpl_intern_const.exit94, %.preheader, %1
-  %.0 = phi i64 [ 4, %1 ], [ %2, %.preheader ], [ %2, %rbimpl_intern_const.exit94 ]
+.loopexit:                                        ; preds = %rbimpl_intern_const.exit93, %.preheader, %1
+  %.0 = phi i64 [ 4, %1 ], [ %2, %.preheader ], [ %2, %rbimpl_intern_const.exit93 ]
   ret i64 %.0
 }
 
@@ -30993,32 +30993,32 @@ define internal i64 @gc_profile_total_time(i64 %0) #0 {
   %.0 = phi double [ 0.000000e+00, %7 ], [ 0.000000e+00, %1 ], [ %16, %12 ]
   %18 = bitcast double %.0 to i64
   %cond.i = icmp eq i64 %18, 3458764513820540928
-  br i1 %cond.i, label %30, label %19
+  br i1 %cond.i, label %31, label %19
 
 19:                                               ; preds = %.loopexit
   %20 = lshr i64 %18, 60
   %21 = trunc nuw nsw i64 %20 to i32
   %22 = and i32 %21, 7
-  %23 = add nsw i32 %22, -3
-  %.not7.i = icmp ult i32 %23, 2
-  br i1 %.not7.i, label %24, label %28
+  %23 = add nsw i32 %22, -5
+  %24 = icmp ult i32 %23, -2
+  br i1 %24, label %29, label %25
 
-24:                                               ; preds = %19
-  %25 = tail call noundef i64 @llvm.fshl.i64(i64 range(i64 3458764513820540929, 3458764513820540928) %18, i64 range(i64 3458764513820540929, 3458764513820540928) %18, i64 3)
-  %26 = and i64 %25, -4
-  %27 = or disjoint i64 %26, 2
+25:                                               ; preds = %19
+  %26 = tail call noundef i64 @llvm.fshl.i64(i64 range(i64 3458764513820540929, 3458764513820540928) %18, i64 range(i64 3458764513820540929, 3458764513820540928) %18, i64 3)
+  %27 = and i64 %26, -4
+  %28 = or disjoint i64 %27, 2
   br label %rb_float_new_inline.exit
 
-28:                                               ; preds = %19
-  %29 = icmp eq i64 %18, 0
-  br i1 %29, label %rb_float_new_inline.exit, label %30
+29:                                               ; preds = %19
+  %30 = icmp eq i64 %18, 0
+  br i1 %30, label %rb_float_new_inline.exit, label %31
 
-30:                                               ; preds = %28, %.loopexit
-  %31 = tail call i64 @rb_float_new_in_heap(double noundef %.0) #6
+31:                                               ; preds = %29, %.loopexit
+  %32 = tail call i64 @rb_float_new_in_heap(double noundef %.0) #6
   br label %rb_float_new_inline.exit
 
-rb_float_new_inline.exit:                         ; preds = %24, %28, %30
-  %.0.i = phi i64 [ %31, %30 ], [ %27, %24 ], [ -9223372036854775806, %28 ]
+rb_float_new_inline.exit:                         ; preds = %25, %29, %31
+  %.0.i = phi i64 [ %32, %31 ], [ %28, %25 ], [ -9223372036854775806, %29 ]
   ret i64 %.0.i
 }
 

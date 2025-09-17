@@ -6747,9 +6747,8 @@ zend_ssa_next_use_phi.exit.i:                     ; preds = %87, %92, %83, %.pre
   br i1 %.not.i43, label %scdf_add_to_worklist.exit, label %69
 
 107:                                              ; preds = %13
-  %108 = and i8 %11, -2
-  %switch = icmp eq i8 %108, -4
-  br i1 %switch, label %109, label %scdf_add_to_worklist.exit
+  %108 = icmp ugt i8 %11, -5
+  br i1 %108, label %109, label %scdf_add_to_worklist.exit
 
 109:                                              ; preds = %107
   %.not = icmp eq i8 %7, %11

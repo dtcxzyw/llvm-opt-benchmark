@@ -1084,37 +1084,34 @@ define hidden void @"_ZN15futures_channel4mpsc5queue14Queue$LT$T$GT$8pop_spin17h
   %3 = alloca [48 x i8], align 8
   br label %4
 
-4:                                                ; preds = %13, %2
+4:                                                ; preds = %10, %2
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @"_ZN15futures_channel4mpsc5queue14Queue$LT$T$GT$3pop17h918031e73bbee498E.llvm.14072874383802587153"(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %3, ptr noundef nonnull align 8 %1)
   %5 = load i64, ptr %3, align 8, !range !173, !noundef !5
-  %6 = and i64 %5, -2
-  %7 = icmp eq i64 %6, -9223372036854775804
-  %8 = add nsw i64 %5, 9223372036854775805
-  %9 = select i1 %7, i64 %8, i64 0
-  switch i64 %9, label %10 [
-    i64 0, label %11
-    i64 1, label %12
-    i64 2, label %13
+  %6 = tail call i64 @llvm.usub.sat.i64(i64 %5, i64 -9223372036854775805)
+  switch i64 %6, label %7 [
+    i64 0, label %8
+    i64 1, label %9
+    i64 2, label %10
   ]
 
-10:                                               ; preds = %4
+7:                                                ; preds = %4
   unreachable
 
-11:                                               ; preds = %4
+8:                                                ; preds = %4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %3, i64 48, i1 false)
-  br label %14
+  br label %11
 
-12:                                               ; preds = %4
+9:                                                ; preds = %4
   store i64 -9223372036854775804, ptr %0, align 8
-  br label %14
+  br label %11
 
-13:                                               ; preds = %4
+10:                                               ; preds = %4
   tail call void @_ZN3std6thread9yield_now17h17a04a6f48076bfbE()
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %4
 
-14:                                               ; preds = %12, %11
+11:                                               ; preds = %9, %8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -17945,6 +17942,9 @@ declare i64 @llvm.umin.i64(i64, i64) #27
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #28
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.usub.sat.i64(i64, i64) #27
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #29

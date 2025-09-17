@@ -15825,9 +15825,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit436: ; preds = %_Z
   br label %819
 
 565:                                              ; preds = %534
-  %566 = add nsw i32 %.2595, 1
-  %or.cond7 = icmp ult i32 %566, 2
-  br i1 %or.cond7, label %567, label %.thread
+  %566 = icmp sgt i32 %.2595, -2
+  br i1 %566, label %567, label %.thread
 
 567:                                              ; preds = %565
   br i1 %.1246, label %610, label %568

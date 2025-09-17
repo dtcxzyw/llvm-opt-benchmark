@@ -63124,7 +63124,7 @@ define dso_local noundef i32 @_ZN4llvm15ScalarEvolution28getSmallConstantTripMul
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %7 = load ptr, ptr %6, align 8, !tbaa !233
   %8 = icmp eq ptr %2, %7
-  br i1 %8, label %45, label %9
+  br i1 %8, label %42, label %9
 
 9:                                                ; preds = %3
   %10 = tail call noundef ptr @_ZN4llvm15ScalarEvolution15applyLoopGuardsEPKNS_4SCEVEPKNS_4LoopE(ptr noundef nonnull align 8 dereferenceable(1344) %0, ptr noundef %2, ptr noundef %1)
@@ -63138,79 +63138,76 @@ define dso_local noundef i32 @_ZN4llvm15ScalarEvolution28getSmallConstantTripMul
 
 _ZNK4llvm5APInt13getActiveBitsEv.exit:            ; preds = %9
   %15 = load i64, ptr %4, align 8, !tbaa !68
-  %16 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %15, i1 false)
-  %17 = trunc nuw nsw i64 %16 to i32
-  %18 = add nsw i32 %17, -32
-  %19 = icmp ult i32 %18, 33
-  br i1 %19, label %29, label %23
+  %16 = icmp ult i64 %15, 4294967296
+  br i1 %16, label %26, label %20
 
 _ZNK4llvm5APInt13getActiveBitsEv.exit.thread:     ; preds = %9
-  %20 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %4) #32
-  %21 = sub i32 %13, %20
-  %22 = icmp ult i32 %21, 33
-  br i1 %22, label %29, label %.thread
+  %17 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %4) #32
+  %18 = sub i32 %13, %17
+  %19 = icmp ult i32 %18, 33
+  br i1 %19, label %26, label %.thread
 
-23:                                               ; preds = %_ZNK4llvm5APInt13getActiveBitsEv.exit
-  %24 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %15, i1 false)
-  %25 = trunc nuw nsw i64 %24 to i32
-  %..i.i = call i32 @llvm.umin.i32(i32 %13, i32 %25)
-  br label %27
+20:                                               ; preds = %_ZNK4llvm5APInt13getActiveBitsEv.exit
+  %21 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %15, i1 true)
+  %22 = trunc nuw nsw i64 %21 to i32
+  %..i.i = call i32 @llvm.umin.i32(i32 %13, i32 %22)
+  br label %24
 
 .thread:                                          ; preds = %_ZNK4llvm5APInt13getActiveBitsEv.exit.thread
-  %26 = call noundef i32 @_ZNK4llvm5APInt26countTrailingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %4) #32
-  br label %27
+  %23 = call noundef i32 @_ZNK4llvm5APInt26countTrailingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %4) #32
+  br label %24
 
-27:                                               ; preds = %.thread, %23
-  %.0.i.i10 = phi i32 [ %..i.i, %23 ], [ %26, %.thread ]
+24:                                               ; preds = %.thread, %20
+  %.0.i.i10 = phi i32 [ %..i.i, %20 ], [ %23, %.thread ]
   %.sroa.speculated = call i32 @llvm.umin.i32(i32 %.0.i.i10, i32 31)
-  %28 = shl nuw i32 1, %.sroa.speculated
+  %25 = shl nuw i32 1, %.sroa.speculated
   br label %.critedge
 
-29:                                               ; preds = %_ZNK4llvm5APInt13getActiveBitsEv.exit, %_ZNK4llvm5APInt13getActiveBitsEv.exit.thread
+26:                                               ; preds = %_ZNK4llvm5APInt13getActiveBitsEv.exit, %_ZNK4llvm5APInt13getActiveBitsEv.exit.thread
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZNK4llvm5APInt11zextOrTruncEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %5, ptr noundef nonnull align 8 dereferenceable(12) %4, i32 noundef 32) #31
-  %30 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %31 = load i32, ptr %30, align 8, !tbaa !119
-  %32 = icmp ult i32 %31, 65
-  %33 = load ptr, ptr %5, align 8
-  %.0.in.i = select i1 %32, ptr %5, ptr %33
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %28 = load i32, ptr %27, align 8, !tbaa !119
+  %29 = icmp ult i32 %28, 65
+  %30 = load ptr, ptr %5, align 8
+  %.0.in.i = select i1 %29, ptr %5, ptr %30
   %.0.i = load i64, ptr %.0.in.i, align 8, !tbaa !68
-  %34 = trunc i64 %.0.i to i32
-  %35 = icmp ult i32 %31, 65
-  %36 = icmp eq ptr %33, null
-  %or.cond = select i1 %35, i1 true, i1 %36
-  br i1 %or.cond, label %_ZN4llvm5APIntD2Ev.exit, label %37
+  %31 = trunc i64 %.0.i to i32
+  %32 = icmp ult i32 %28, 65
+  %33 = icmp eq ptr %30, null
+  %or.cond = select i1 %32, i1 true, i1 %33
+  br i1 %or.cond, label %_ZN4llvm5APIntD2Ev.exit, label %34
 
-37:                                               ; preds = %29
-  call void @_ZdaPv(ptr noundef nonnull %33) #34
+34:                                               ; preds = %26
+  call void @_ZdaPv(ptr noundef nonnull %30) #34
   br label %_ZN4llvm5APIntD2Ev.exit
 
-_ZN4llvm5APIntD2Ev.exit:                          ; preds = %29, %37
+_ZN4llvm5APIntD2Ev.exit:                          ; preds = %26, %34
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.pre = load i32, ptr %12, align 8, !tbaa !119
   br label %.critedge
 
-.critedge:                                        ; preds = %27, %_ZN4llvm5APIntD2Ev.exit
-  %38 = phi i32 [ %13, %27 ], [ %.pre, %_ZN4llvm5APIntD2Ev.exit ]
-  %39 = phi i32 [ %28, %27 ], [ %34, %_ZN4llvm5APIntD2Ev.exit ]
-  %40 = icmp ugt i32 %38, 64
-  br i1 %40, label %41, label %_ZN4llvm5APIntD2Ev.exit11
+.critedge:                                        ; preds = %24, %_ZN4llvm5APIntD2Ev.exit
+  %35 = phi i32 [ %13, %24 ], [ %.pre, %_ZN4llvm5APIntD2Ev.exit ]
+  %36 = phi i32 [ %25, %24 ], [ %31, %_ZN4llvm5APIntD2Ev.exit ]
+  %37 = icmp ugt i32 %35, 64
+  br i1 %37, label %38, label %_ZN4llvm5APIntD2Ev.exit11
 
-41:                                               ; preds = %.critedge
-  %42 = load ptr, ptr %4, align 8, !tbaa !68
-  %43 = icmp eq ptr %42, null
-  br i1 %43, label %_ZN4llvm5APIntD2Ev.exit11, label %44
+38:                                               ; preds = %.critedge
+  %39 = load ptr, ptr %4, align 8, !tbaa !68
+  %40 = icmp eq ptr %39, null
+  br i1 %40, label %_ZN4llvm5APIntD2Ev.exit11, label %41
 
-44:                                               ; preds = %41
-  call void @_ZdaPv(ptr noundef nonnull %42) #34
+41:                                               ; preds = %38
+  call void @_ZdaPv(ptr noundef nonnull %39) #34
   br label %_ZN4llvm5APIntD2Ev.exit11
 
-_ZN4llvm5APIntD2Ev.exit11:                        ; preds = %.critedge, %41, %44
+_ZN4llvm5APIntD2Ev.exit11:                        ; preds = %.critedge, %38, %41
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %45
+  br label %42
 
-45:                                               ; preds = %3, %_ZN4llvm5APIntD2Ev.exit11
-  %.08 = phi i32 [ %39, %_ZN4llvm5APIntD2Ev.exit11 ], [ 1, %3 ]
+42:                                               ; preds = %3, %_ZN4llvm5APIntD2Ev.exit11
+  %.08 = phi i32 [ %36, %_ZN4llvm5APIntD2Ev.exit11 ], [ 1, %3 ]
   ret i32 %.08
 }
 

@@ -4740,9 +4740,8 @@ proto_item_set_hidden.exit:                       ; preds = %741, %747, %750
   br label %proto_item_set_hidden.exit441
 
 755:                                              ; preds = %736
-  %756 = add i8 %739, -1
-  %or.cond28 = icmp ult i8 %756, 2
-  br i1 %or.cond28, label %757, label %proto_item_set_hidden.exit441
+  %756 = icmp ult i8 %739, 3
+  br i1 %756, label %757, label %proto_item_set_hidden.exit441
 
 757:                                              ; preds = %755
   br i1 %734, label %758, label %760

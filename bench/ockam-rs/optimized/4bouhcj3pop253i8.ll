@@ -28921,9 +28921,8 @@ common.resume:                                    ; preds = %.body.i, %.body.i.i
 
 "_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17h06424953c9d99f32E.llvm.9405825265181994393.exit.i.i": ; preds = %40
   %45 = load i16, ptr %32, align 8, !range !3701, !alias.scope !3702, !noundef !5
-  %46 = add nsw i16 %45, -3
-  %switch.i.i.i = icmp ult i16 %46, 2
-  br i1 %switch.i.i.i, label %"_ZN4core3ptr76drop_in_place$LT$aws_smithy_runtime_api..client..result..DispatchFailure$GT$17h92b311bc000189c1E.exit", label %47
+  %46 = icmp samesign ugt i16 %45, 2
+  br i1 %46, label %"_ZN4core3ptr76drop_in_place$LT$aws_smithy_runtime_api..client..result..DispatchFailure$GT$17h92b311bc000189c1E.exit", label %47
 
 47:                                               ; preds = %"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17h06424953c9d99f32E.llvm.9405825265181994393.exit.i.i"
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -29108,15 +29107,14 @@ define internal fastcc void @"_ZN4core3ptr244drop_in_place$LT$core..result..Resu
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr257drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$$LP$$RP$$C$aws_smithy_runtime_api..client..result..SdkError$LT$aws_smithy_runtime_api..client..interceptors..context..Error$C$aws_smithy_runtime_api..http..response..Response$GT$$GT$$GT$$GT$17hec7d3ea76f8d31d5E.llvm.1595154212725285208"(ptr noalias noundef align 8 dereferenceable(256) %0) unnamed_addr #0 {
   %2 = load i64, ptr %0, align 8, !range !6, !noundef !5
-  %.off = add nsw i64 %2, -7
-  %switch = icmp ult i64 %.off, 2
-  br i1 %switch, label %"_ZN4core3ptr227drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$aws_smithy_runtime_api..client..result..SdkError$LT$aws_smithy_runtime_api..client..interceptors..context..Error$C$aws_smithy_runtime_api..http..response..Response$GT$$GT$$GT$17h419ea9ff4d3d24c1E.llvm.1595154212725285208.exit", label %3
+  %3 = icmp samesign ugt i64 %2, 6
+  br i1 %3, label %"_ZN4core3ptr227drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$aws_smithy_runtime_api..client..result..SdkError$LT$aws_smithy_runtime_api..client..interceptors..context..Error$C$aws_smithy_runtime_api..http..response..Response$GT$$GT$$GT$17h419ea9ff4d3d24c1E.llvm.1595154212725285208.exit", label %4
 
-3:                                                ; preds = %1
+4:                                                ; preds = %1
   tail call void @"_ZN4core3ptr188drop_in_place$LT$aws_smithy_runtime_api..client..result..SdkError$LT$aws_smithy_runtime_api..client..interceptors..context..Error$C$aws_smithy_runtime_api..http..response..Response$GT$$GT$17h2d12023d787964cfE.llvm.1595154212725285208"(ptr noalias noundef nonnull align 8 dereferenceable(256) %0)
   br label %"_ZN4core3ptr227drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$aws_smithy_runtime_api..client..result..SdkError$LT$aws_smithy_runtime_api..client..interceptors..context..Error$C$aws_smithy_runtime_api..http..response..Response$GT$$GT$$GT$17h419ea9ff4d3d24c1E.llvm.1595154212725285208.exit"
 
-"_ZN4core3ptr227drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$aws_smithy_runtime_api..client..result..SdkError$LT$aws_smithy_runtime_api..client..interceptors..context..Error$C$aws_smithy_runtime_api..http..response..Response$GT$$GT$$GT$17h419ea9ff4d3d24c1E.llvm.1595154212725285208.exit": ; preds = %1, %3
+"_ZN4core3ptr227drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$aws_smithy_runtime_api..client..result..SdkError$LT$aws_smithy_runtime_api..client..interceptors..context..Error$C$aws_smithy_runtime_api..http..response..Response$GT$$GT$$GT$17h419ea9ff4d3d24c1E.llvm.1595154212725285208.exit": ; preds = %1, %4
   ret void
 }
 

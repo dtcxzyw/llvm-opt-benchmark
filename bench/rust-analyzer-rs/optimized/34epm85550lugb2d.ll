@@ -53915,10 +53915,10 @@ define hidden void @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$1
   %6 = alloca { { { i64, [19 x i64] }, { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } } } }, align 8
   %.sroa.02.i.i.i.i = alloca [24 x i8], align 8
   %7 = alloca { i32, [3 x i32] }, align 4
-  %.sroa.041 = alloca { { i32, i32 }, i32 }, align 8
+  %.sroa.039 = alloca { { i32, i32 }, i32 }, align 8
   %8 = alloca { i32, [3 x i32] }, align 4
-  %.sroa.038 = alloca { { i32, i32 }, i32 }, align 8
-  %.sroa.034 = alloca { { i32, i32 }, i32 }, align 8
+  %.sroa.036 = alloca { { i32, i32 }, i32 }, align 8
+  %.sroa.032 = alloca { { i32, i32 }, i32 }, align 8
   %9 = alloca { i32, [3 x i32] }, align 4
   %10 = alloca ptr, align 8
   store ptr %2, ptr %10, align 8
@@ -53931,66 +53931,65 @@ define hidden void @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$1
   call void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h9687440df1200b62E"(ptr noalias noundef nonnull sret({ i32, [3 x i32] }) align 4 captures(none) dereferenceable(16) %9, ptr noalias noundef nonnull align 8 dereferenceable(208) %1, ptr noalias noundef nonnull align 8 dereferenceable(8) %10)
   %13 = load i32, ptr %9, align 4, !range !2916, !alias.scope !18393, !noalias !18396, !noundef !9
   %trunc.i = trunc nuw i32 %13 to i1
-  br i1 %trunc.i, label %18, label %14
+  br i1 %trunc.i, label %17, label %14
 
 14:                                               ; preds = %12
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %.pre = load i64, ptr %1, align 8, !range !8109, !alias.scope !18398
-  %15 = and i64 %.pre, -2
-  %16 = icmp eq i64 %15, -9223372036854775806
-  br i1 %16, label %"_ZN4core3ptr927drop_in_place$LT$core..option..Option$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..flatten..FlatMap$LT$std..collections..hash..map..IntoIter$LT$vfs..FileId$C$alloc..vec..Vec$LT$$LP$text_size..range..TextRange$C$ide_db..search..ReferenceCategory$RP$$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..adapters..filter..Filter$LT$alloc..vec..into_iter..IntoIter$LT$$LP$text_size..range..TextRange$C$ide_db..search..ReferenceCategory$RP$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..option..IntoIter$LT$span..FileRange$GT$$GT$$GT$$GT$17he791fd232a6067ecE.exit", label %17
+  %.pr = load i64, ptr %1, align 8, !alias.scope !18398
+  %15 = icmp ugt i64 %.pr, -9223372036854775807
+  br i1 %15, label %"_ZN4core3ptr927drop_in_place$LT$core..option..Option$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..flatten..FlatMap$LT$std..collections..hash..map..IntoIter$LT$vfs..FileId$C$alloc..vec..Vec$LT$$LP$text_size..range..TextRange$C$ide_db..search..ReferenceCategory$RP$$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..adapters..filter..Filter$LT$alloc..vec..into_iter..IntoIter$LT$$LP$text_size..range..TextRange$C$ide_db..search..ReferenceCategory$RP$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..option..IntoIter$LT$span..FileRange$GT$$GT$$GT$$GT$17he791fd232a6067ecE.exit", label %16
 
-17:                                               ; preds = %14
+16:                                               ; preds = %14
   invoke void @"_ZN4core3ptr853drop_in_place$LT$core..iter..adapters..flatten..FlattenCompat$LT$core..iter..adapters..map..Map$LT$std..collections..hash..map..IntoIter$LT$vfs..FileId$C$alloc..vec..Vec$LT$$LP$text_size..range..TextRange$C$ide_db..search..ReferenceCategory$RP$$GT$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..adapters..filter..Filter$LT$alloc..vec..into_iter..IntoIter$LT$$LP$text_size..range..TextRange$C$ide_db..search..ReferenceCategory$RP$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hecb0a7c46ef11171E.llvm.10409712727403535664"(ptr noalias noundef nonnull align 8 dereferenceable(208) %1)
-          to label %"_ZN4core3ptr927drop_in_place$LT$core..option..Option$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..flatten..FlatMap$LT$std..collections..hash..map..IntoIter$LT$vfs..FileId$C$alloc..vec..Vec$LT$$LP$text_size..range..TextRange$C$ide_db..search..ReferenceCategory$RP$$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..adapters..filter..Filter$LT$alloc..vec..into_iter..IntoIter$LT$$LP$text_size..range..TextRange$C$ide_db..search..ReferenceCategory$RP$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..option..IntoIter$LT$span..FileRange$GT$$GT$$GT$$GT$17he791fd232a6067ecE.exit" unwind label %21
+          to label %"_ZN4core3ptr927drop_in_place$LT$core..option..Option$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..flatten..FlatMap$LT$std..collections..hash..map..IntoIter$LT$vfs..FileId$C$alloc..vec..Vec$LT$$LP$text_size..range..TextRange$C$ide_db..search..ReferenceCategory$RP$$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..adapters..filter..Filter$LT$alloc..vec..into_iter..IntoIter$LT$$LP$text_size..range..TextRange$C$ide_db..search..ReferenceCategory$RP$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..option..IntoIter$LT$span..FileRange$GT$$GT$$GT$$GT$17he791fd232a6067ecE.exit" unwind label %20
 
-18:                                               ; preds = %12
-  %19 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.034, ptr noundef nonnull align 4 dereferenceable(12) %19, i64 12, i1 false)
+17:                                               ; preds = %12
+  %18 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.032, ptr noundef nonnull align 4 dereferenceable(12) %18, i64 12, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %20, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.034, i64 12, i1 false), !alias.scope !18401
-  br label %102
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %19, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.032, i64 12, i1 false), !alias.scope !18401
+  br label %99
 
-21:                                               ; preds = %17
-  %22 = landingpad { ptr, i32 }
+20:                                               ; preds = %16
+  %21 = landingpad { ptr, i32 }
           cleanup
   store i64 -9223372036854775805, ptr %1, align 8
   br label %common.resume
 
-"_ZN4core3ptr927drop_in_place$LT$core..option..Option$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..flatten..FlatMap$LT$std..collections..hash..map..IntoIter$LT$vfs..FileId$C$alloc..vec..Vec$LT$$LP$text_size..range..TextRange$C$ide_db..search..ReferenceCategory$RP$$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..adapters..filter..Filter$LT$alloc..vec..into_iter..IntoIter$LT$$LP$text_size..range..TextRange$C$ide_db..search..ReferenceCategory$RP$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..option..IntoIter$LT$span..FileRange$GT$$GT$$GT$$GT$17he791fd232a6067ecE.exit": ; preds = %3, %14, %17
+"_ZN4core3ptr927drop_in_place$LT$core..option..Option$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..flatten..FlatMap$LT$std..collections..hash..map..IntoIter$LT$vfs..FileId$C$alloc..vec..Vec$LT$$LP$text_size..range..TextRange$C$ide_db..search..ReferenceCategory$RP$$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..adapters..filter..Filter$LT$alloc..vec..into_iter..IntoIter$LT$$LP$text_size..range..TextRange$C$ide_db..search..ReferenceCategory$RP$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..option..IntoIter$LT$span..FileRange$GT$$GT$$GT$$GT$17he791fd232a6067ecE.exit": ; preds = %3, %14, %16
   store i64 -9223372036854775805, ptr %1, align 8
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 416
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 416
   call void @llvm.experimental.noalias.scope.decl(metadata !18405)
   call void @llvm.experimental.noalias.scope.decl(metadata !18408)
-  %24 = load ptr, ptr %23, align 8, !alias.scope !18405, !noalias !18410, !noundef !9
-  %.not.i = icmp eq ptr %24, null
-  br i1 %.not.i, label %"_ZN4core3ptr927drop_in_place$LT$core..option..Option$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..flatten..FlatMap$LT$std..collections..hash..map..IntoIter$LT$vfs..FileId$C$alloc..vec..Vec$LT$$LP$text_size..range..TextRange$C$ide_db..search..ReferenceCategory$RP$$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..adapters..filter..Filter$LT$alloc..vec..into_iter..IntoIter$LT$$LP$text_size..range..TextRange$C$ide_db..search..ReferenceCategory$RP$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..option..IntoIter$LT$span..FileRange$GT$$GT$$GT$$GT$17he791fd232a6067ecE.exit27", label %25
+  %23 = load ptr, ptr %22, align 8, !alias.scope !18405, !noalias !18410, !noundef !9
+  %.not.i = icmp eq ptr %23, null
+  br i1 %.not.i, label %"_ZN4core3ptr927drop_in_place$LT$core..option..Option$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..flatten..FlatMap$LT$std..collections..hash..map..IntoIter$LT$vfs..FileId$C$alloc..vec..Vec$LT$$LP$text_size..range..TextRange$C$ide_db..search..ReferenceCategory$RP$$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..adapters..filter..Filter$LT$alloc..vec..into_iter..IntoIter$LT$$LP$text_size..range..TextRange$C$ide_db..search..ReferenceCategory$RP$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..option..IntoIter$LT$span..FileRange$GT$$GT$$GT$$GT$17he791fd232a6067ecE.exit26", label %24
 
-25:                                               ; preds = %"_ZN4core3ptr927drop_in_place$LT$core..option..Option$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..flatten..FlatMap$LT$std..collections..hash..map..IntoIter$LT$vfs..FileId$C$alloc..vec..Vec$LT$$LP$text_size..range..TextRange$C$ide_db..search..ReferenceCategory$RP$$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..adapters..filter..Filter$LT$alloc..vec..into_iter..IntoIter$LT$$LP$text_size..range..TextRange$C$ide_db..search..ReferenceCategory$RP$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..option..IntoIter$LT$span..FileRange$GT$$GT$$GT$$GT$17he791fd232a6067ecE.exit"
+24:                                               ; preds = %"_ZN4core3ptr927drop_in_place$LT$core..option..Option$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..flatten..FlatMap$LT$std..collections..hash..map..IntoIter$LT$vfs..FileId$C$alloc..vec..Vec$LT$$LP$text_size..range..TextRange$C$ide_db..search..ReferenceCategory$RP$$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..adapters..filter..Filter$LT$alloc..vec..into_iter..IntoIter$LT$$LP$text_size..range..TextRange$C$ide_db..search..ReferenceCategory$RP$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..option..IntoIter$LT$span..FileRange$GT$$GT$$GT$$GT$17he791fd232a6067ecE.exit"
   call void @llvm.experimental.noalias.scope.decl(metadata !18413)
   call void @llvm.experimental.noalias.scope.decl(metadata !18416)
   call void @llvm.experimental.noalias.scope.decl(metadata !18418)
-  %26 = getelementptr inbounds nuw i8, ptr %1, i64 440
-  %27 = load ptr, ptr %26, align 8, !alias.scope !18421, !noalias !18424, !nonnull !9, !noundef !9
-  %28 = getelementptr inbounds nuw i8, ptr %1, i64 424
-  %.promoted.i.i.i = load ptr, ptr %28, align 8, !alias.scope !18421, !noalias !18424
-  %29 = icmp eq ptr %.promoted.i.i.i, %27
-  br i1 %29, label %"_ZN4core3ptr927drop_in_place$LT$core..option..Option$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..flatten..FlatMap$LT$std..collections..hash..map..IntoIter$LT$vfs..FileId$C$alloc..vec..Vec$LT$$LP$text_size..range..TextRange$C$ide_db..search..ReferenceCategory$RP$$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..adapters..filter..Filter$LT$alloc..vec..into_iter..IntoIter$LT$$LP$text_size..range..TextRange$C$ide_db..search..ReferenceCategory$RP$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..option..IntoIter$LT$span..FileRange$GT$$GT$$GT$$GT$17he791fd232a6067ecE.exit27", label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he1829a0f1436b4c2E.exit.lr.ph.i.i.i"
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 440
+  %26 = load ptr, ptr %25, align 8, !alias.scope !18421, !noalias !18424, !nonnull !9, !noundef !9
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 424
+  %.promoted.i.i.i = load ptr, ptr %27, align 8, !alias.scope !18421, !noalias !18424
+  %28 = icmp eq ptr %.promoted.i.i.i, %26
+  br i1 %28, label %"_ZN4core3ptr927drop_in_place$LT$core..option..Option$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..flatten..FlatMap$LT$std..collections..hash..map..IntoIter$LT$vfs..FileId$C$alloc..vec..Vec$LT$$LP$text_size..range..TextRange$C$ide_db..search..ReferenceCategory$RP$$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..adapters..filter..Filter$LT$alloc..vec..into_iter..IntoIter$LT$$LP$text_size..range..TextRange$C$ide_db..search..ReferenceCategory$RP$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..option..IntoIter$LT$span..FileRange$GT$$GT$$GT$$GT$17he791fd232a6067ecE.exit26", label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he1829a0f1436b4c2E.exit.lr.ph.i.i.i"
 
-"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he1829a0f1436b4c2E.exit.lr.ph.i.i.i": ; preds = %25
-  %30 = getelementptr inbounds nuw i8, ptr %1, i64 448
+"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he1829a0f1436b4c2E.exit.lr.ph.i.i.i": ; preds = %24
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 448
   %.sroa.49.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %31 = getelementptr inbounds nuw i8, ptr %5, i64 140
-  %32 = getelementptr inbounds nuw i8, ptr %6, i64 160
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 140
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 160
   %.sroa.04.sroa.4.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 168
   %.sroa.04.sroa.5.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 176
   %.sroa.04.sroa.6.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 184
   %.sroa.54.0..sroa_idx5.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.67.0..sroa_idx8.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.sroa.610.0..sroa_idx11.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %33 = getelementptr inbounds nuw i8, ptr %1, i64 456
-  %34 = getelementptr inbounds nuw i8, ptr %1, i64 464
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 456
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 464
   %.sroa.0.sroa.5.0..val1.sroa_idx6.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.0.sroa.6.0..val1.sroa_idx8.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.sroa.0.sroa.7.0..val1.sroa_idx10.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -54005,155 +54004,154 @@ define hidden void @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$1
   %.sroa.0.sroa.19.0..val1.sroa_idx31.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 200
   %.sroa.0.sroa.20.0..val1.sroa_idx33.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 204
   %.sroa.01.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %35 = load ptr, ptr %30, align 8, !alias.scope !18430, !noalias !18431, !nonnull !9, !align !677
+  %34 = load ptr, ptr %29, align 8, !alias.scope !18430, !noalias !18431, !nonnull !9, !align !677
+  %35 = load ptr, ptr %32, align 8, !alias.scope !18430, !noalias !18431, !nonnull !9, !align !677
   %36 = load ptr, ptr %33, align 8, !alias.scope !18430, !noalias !18431, !nonnull !9, !align !677
-  %37 = load ptr, ptr %34, align 8, !alias.scope !18430, !noalias !18431, !nonnull !9, !align !677
   br label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he1829a0f1436b4c2E.exit.i.i.i"
 
-"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he1829a0f1436b4c2E.exit.i.i.i": ; preds = %79, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he1829a0f1436b4c2E.exit.lr.ph.i.i.i"
-  %38 = phi ptr [ %.promoted.i.i.i, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he1829a0f1436b4c2E.exit.lr.ph.i.i.i" ], [ %39, %79 ]
+"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he1829a0f1436b4c2E.exit.i.i.i": ; preds = %78, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he1829a0f1436b4c2E.exit.lr.ph.i.i.i"
+  %37 = phi ptr [ %.promoted.i.i.i, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he1829a0f1436b4c2E.exit.lr.ph.i.i.i" ], [ %38, %78 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !18432)
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 192
-  store ptr %39, ptr %28, align 8, !alias.scope !18421, !noalias !18424
-  %.sroa.0.0.copyload72.i.i.i = load i64, ptr %38, align 8, !noalias !18433
-  %.sroa.9.0..sroa_idx73.i.i.i = getelementptr inbounds nuw i8, ptr %38, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 192
+  store ptr %38, ptr %27, align 8, !alias.scope !18421, !noalias !18424
+  %.sroa.0.0.copyload72.i.i.i = load i64, ptr %37, align 8, !noalias !18433
+  %.sroa.9.0..sroa_idx73.i.i.i = getelementptr inbounds nuw i8, ptr %37, i64 8
   %.not.i.i.i = icmp eq i64 %.sroa.0.0.copyload72.i.i.i, -9223372036854775806
-  br i1 %.not.i.i.i, label %.loopexit, label %40
+  br i1 %.not.i.i.i, label %.loopexit, label %39
 
-40:                                               ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he1829a0f1436b4c2E.exit.i.i.i"
+39:                                               ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he1829a0f1436b4c2E.exit.i.i.i"
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !18434
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.02.i.i.i.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !18435
   store i64 %.sroa.0.0.copyload72.i.i.i, ptr %6, align 8, !noalias !18440
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %.sroa.01.sroa.4.0..sroa_idx.i.i.i, ptr noundef nonnull align 8 dereferenceable(184) %.sroa.9.0..sroa_idx73.i.i.i, i64 184, i1 false), !noalias !18441
   call void @llvm.experimental.noalias.scope.decl(metadata !18442)
-  %41 = load i8, ptr %35, align 1, !range !206, !noalias !18445, !noundef !9
-  %42 = trunc nuw i8 %41 to i1
-  %43 = icmp ne i64 %.sroa.0.0.copyload72.i.i.i, -9223372036854775807
-  %or.cond.not.i.i.i = and i1 %43, %42
-  br i1 %or.cond.not.i.i.i, label %46, label %44
+  %40 = load i8, ptr %34, align 1, !range !206, !noalias !18445, !noundef !9
+  %41 = trunc nuw i8 %40 to i1
+  %42 = icmp ne i64 %.sroa.0.0.copyload72.i.i.i, -9223372036854775807
+  %or.cond.not.i.i.i = and i1 %42, %41
+  br i1 %or.cond.not.i.i.i, label %45, label %43
 
-44:                                               ; preds = %"_ZN13rust_analyzer8handlers7request17handle_references28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd8abd8f89a839744E.exit.i.i.i.i.i", %40
-  %.sroa.032.0.i.i.i.i.i = phi i32 [ 0, %40 ], [ 1, %"_ZN13rust_analyzer8handlers7request17handle_references28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd8abd8f89a839744E.exit.i.i.i.i.i" ]
-  %.sroa.433.sroa.0.0.i.i.i.i.i = phi i32 [ undef, %40 ], [ %58, %"_ZN13rust_analyzer8handlers7request17handle_references28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd8abd8f89a839744E.exit.i.i.i.i.i" ]
-  %.sroa.433.sroa.2.0.i.i.i.i.i = phi i32 [ undef, %40 ], [ %57, %"_ZN13rust_analyzer8handlers7request17handle_references28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd8abd8f89a839744E.exit.i.i.i.i.i" ]
-  %.sroa.433.sroa.3.0.i.i.i.i.i = phi i32 [ undef, %40 ], [ %47, %"_ZN13rust_analyzer8handlers7request17handle_references28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd8abd8f89a839744E.exit.i.i.i.i.i" ]
-  %.sroa.04.sroa.0.0.copyload.i.i.i.i.i = load ptr, ptr %32, align 8, !alias.scope !18442, !noalias !18448, !nonnull !9, !noundef !9
+43:                                               ; preds = %"_ZN13rust_analyzer8handlers7request17handle_references28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd8abd8f89a839744E.exit.i.i.i.i.i", %39
+  %.sroa.032.0.i.i.i.i.i = phi i32 [ 0, %39 ], [ 1, %"_ZN13rust_analyzer8handlers7request17handle_references28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd8abd8f89a839744E.exit.i.i.i.i.i" ]
+  %.sroa.433.sroa.0.0.i.i.i.i.i = phi i32 [ undef, %39 ], [ %57, %"_ZN13rust_analyzer8handlers7request17handle_references28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd8abd8f89a839744E.exit.i.i.i.i.i" ]
+  %.sroa.433.sroa.2.0.i.i.i.i.i = phi i32 [ undef, %39 ], [ %56, %"_ZN13rust_analyzer8handlers7request17handle_references28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd8abd8f89a839744E.exit.i.i.i.i.i" ]
+  %.sroa.433.sroa.3.0.i.i.i.i.i = phi i32 [ undef, %39 ], [ %46, %"_ZN13rust_analyzer8handlers7request17handle_references28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd8abd8f89a839744E.exit.i.i.i.i.i" ]
+  %.sroa.04.sroa.0.0.copyload.i.i.i.i.i = load ptr, ptr %31, align 8, !alias.scope !18442, !noalias !18448, !nonnull !9, !noundef !9
   %.sroa.04.sroa.4.0.copyload.i.i.i.i.i = load i64, ptr %.sroa.04.sroa.4.0..sroa_idx.i.i.i.i.i, align 8, !alias.scope !18442, !noalias !18448
   %.sroa.04.sroa.5.0.copyload.i.i.i.i.i = load i64, ptr %.sroa.04.sroa.5.0..sroa_idx.i.i.i.i.i, align 8, !alias.scope !18442, !noalias !18448
   %.sroa.04.sroa.6.0.copyload.i.i.i.i.i = load i64, ptr %.sroa.04.sroa.6.0..sroa_idx.i.i.i.i.i, align 8, !alias.scope !18442, !noalias !18448
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i), !noalias !18449
-  %45 = load <16 x i8>, ptr %.sroa.04.sroa.0.0.copyload.i.i.i.i.i, align 16, !noalias !18453
+  %44 = load <16 x i8>, ptr %.sroa.04.sroa.0.0.copyload.i.i.i.i.i, align 16, !noalias !18453
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !18461
   store ptr %.sroa.04.sroa.0.0.copyload.i.i.i.i.i, ptr %4, align 8, !noalias !18466
   store i64 %.sroa.04.sroa.4.0.copyload.i.i.i.i.i, ptr %.sroa.54.0..sroa_idx5.i.i.i.i.i.i, align 8, !noalias !18466
   store i64 %.sroa.04.sroa.5.0.copyload.i.i.i.i.i, ptr %.sroa.67.0..sroa_idx8.i.i.i.i.i.i, align 8, !noalias !18466
   store i64 %.sroa.04.sroa.6.0.copyload.i.i.i.i.i, ptr %.sroa.610.0..sroa_idx11.i.i.i.i.i.i, align 8, !noalias !18466
   invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17hfd4b05286a0319faE.llvm.9266542439947230232"(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %.sroa.0.i.i.i.i.i.i, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %4)
-          to label %59 unwind label %.body.i.i.i.i.i, !noalias !18445
+          to label %58 unwind label %.body.i.i.i.i.i, !noalias !18445
 
-46:                                               ; preds = %40
+45:                                               ; preds = %39
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !18467
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %.sroa.49.0..sroa_idx.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(152) %.sroa.9.0..sroa_idx73.i.i.i, i64 152, i1 false), !noalias !18441
   store i64 %.sroa.0.0.copyload72.i.i.i, ptr %5, align 8, !noalias !18467
-  %47 = load i32, ptr %31, align 4, !alias.scope !18468, !noalias !18471, !noundef !9
-  %48 = invoke { i32, i32 } @_ZN3ide17navigation_target16NavigationTarget19focus_or_full_range17hdfc0f94864b44603E(ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %5)
-          to label %51 unwind label %49, !noalias !18473
+  %46 = load i32, ptr %30, align 4, !alias.scope !18468, !noalias !18471, !noundef !9
+  %47 = invoke { i32, i32 } @_ZN3ide17navigation_target16NavigationTarget19focus_or_full_range17hdfc0f94864b44603E(ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %5)
+          to label %50 unwind label %48, !noalias !18473
 
-49:                                               ; preds = %46
-  %50 = landingpad { ptr, i32 }
+48:                                               ; preds = %45
+  %49 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr61drop_in_place$LT$ide..navigation_target..NavigationTarget$GT$17h32ff80d2155588a6E"(ptr noalias noundef nonnull align 8 dereferenceable(160) %5)
-          to label %.body.thread.i.i.i.i.i unwind label %53, !noalias !18473
+          to label %.body.thread.i.i.i.i.i unwind label %52, !noalias !18473
 
-51:                                               ; preds = %46
+50:                                               ; preds = %45
   invoke void @"_ZN4core3ptr61drop_in_place$LT$ide..navigation_target..NavigationTarget$GT$17h32ff80d2155588a6E"(ptr noalias noundef nonnull align 8 dereferenceable(160) %5)
           to label %"_ZN13rust_analyzer8handlers7request17handle_references28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd8abd8f89a839744E.exit.i.i.i.i.i" unwind label %.body.thread53.i.i.i.i.i, !noalias !18445
 
-.body.thread53.i.i.i.i.i:                         ; preds = %51
-  %52 = landingpad { ptr, i32 }
+.body.thread53.i.i.i.i.i:                         ; preds = %50
+  %51 = landingpad { ptr, i32 }
           cleanup
   br label %.body.thread.i.i.i.i.i
 
-53:                                               ; preds = %49
-  %54 = landingpad { ptr, i32 }
+52:                                               ; preds = %48
+  %53 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #55, !noalias !18473
   unreachable
 
-.body.i.i.i.i.i:                                  ; preds = %44
-  %55 = landingpad { ptr, i32 }
+.body.i.i.i.i.i:                                  ; preds = %43
+  %54 = landingpad { ptr, i32 }
           cleanup
-  %56 = icmp eq i64 %.sroa.0.0.copyload72.i.i.i, -9223372036854775807
-  %or.cond62.i.i.i.i.i = or i1 %56, %42
-  br i1 %or.cond62.i.i.i.i.i, label %common.resume, label %68
+  %55 = icmp eq i64 %.sroa.0.0.copyload72.i.i.i, -9223372036854775807
+  %or.cond62.i.i.i.i.i = or i1 %55, %41
+  br i1 %or.cond62.i.i.i.i.i, label %common.resume, label %67
 
-"_ZN13rust_analyzer8handlers7request17handle_references28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd8abd8f89a839744E.exit.i.i.i.i.i": ; preds = %51
-  %57 = extractvalue { i32, i32 } %48, 1
-  %58 = extractvalue { i32, i32 } %48, 0
+"_ZN13rust_analyzer8handlers7request17handle_references28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd8abd8f89a839744E.exit.i.i.i.i.i": ; preds = %50
+  %56 = extractvalue { i32, i32 } %47, 1
+  %57 = extractvalue { i32, i32 } %47, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !18467
-  br label %44
+  br label %43
 
-59:                                               ; preds = %44
-  %60 = getelementptr inbounds nuw i8, ptr %.sroa.04.sroa.0.0.copyload.i.i.i.i.i, i64 16
-  %61 = icmp slt <16 x i8> %45, zeroinitializer
-  %62 = bitcast <16 x i1> %61 to i16
-  %63 = xor i16 %62, -1
-  %64 = getelementptr i8, ptr %.sroa.04.sroa.0.0.copyload.i.i.i.i.i, i64 %.sroa.04.sroa.4.0.copyload.i.i.i.i.i
-  %65 = getelementptr i8, ptr %64, i64 1
+58:                                               ; preds = %43
+  %59 = getelementptr inbounds nuw i8, ptr %.sroa.04.sroa.0.0.copyload.i.i.i.i.i, i64 16
+  %60 = icmp slt <16 x i8> %44, zeroinitializer
+  %61 = bitcast <16 x i1> %60 to i16
+  %62 = xor i16 %61, -1
+  %63 = getelementptr i8, ptr %.sroa.04.sroa.0.0.copyload.i.i.i.i.i, i64 %.sroa.04.sroa.4.0.copyload.i.i.i.i.i
+  %64 = getelementptr i8, ptr %63, i64 1
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !18461
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.02.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i.i.i.i.i.i, i64 24, i1 false), !noalias !18435
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i.i), !noalias !18449
-  %66 = icmp eq i64 %.sroa.0.0.copyload72.i.i.i, -9223372036854775807
-  %or.cond.i.i.i.i.i = or i1 %66, %42
-  br i1 %or.cond.i.i.i.i.i, label %"_ZN13rust_analyzer8handlers7request17handle_references28_$u7b$$u7b$closure$u7d$$u7d$17h2c393eed3d6420c6E.exit.i.i.i.i", label %67
+  %65 = icmp eq i64 %.sroa.0.0.copyload72.i.i.i, -9223372036854775807
+  %or.cond.i.i.i.i.i = or i1 %65, %41
+  br i1 %or.cond.i.i.i.i.i, label %"_ZN13rust_analyzer8handlers7request17handle_references28_$u7b$$u7b$closure$u7d$$u7d$17h2c393eed3d6420c6E.exit.i.i.i.i", label %66
 
-67:                                               ; preds = %59
+66:                                               ; preds = %58
   call void @"_ZN4core3ptr61drop_in_place$LT$ide..navigation_target..NavigationTarget$GT$17h32ff80d2155588a6E"(ptr noalias noundef nonnull align 8 dereferenceable(192) %6), !noalias !18474
   br label %"_ZN13rust_analyzer8handlers7request17handle_references28_$u7b$$u7b$closure$u7d$$u7d$17h2c393eed3d6420c6E.exit.i.i.i.i"
 
-68:                                               ; preds = %.body.i.i.i.i.i
+67:                                               ; preds = %.body.i.i.i.i.i
   invoke void @"_ZN4core3ptr61drop_in_place$LT$ide..navigation_target..NavigationTarget$GT$17h32ff80d2155588a6E"(ptr noalias noundef nonnull align 8 dereferenceable(192) %6)
-          to label %common.resume unwind label %69, !noalias !18474
+          to label %common.resume unwind label %68, !noalias !18474
 
-69:                                               ; preds = %.body.thread.i.i.i.i.i, %68
-  %70 = landingpad { ptr, i32 }
+68:                                               ; preds = %.body.thread.i.i.i.i.i, %67
+  %69 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #55, !noalias !18474
   unreachable
 
-common.resume:                                    ; preds = %21, %87, %100, %.body.i.i.i.i.i, %68, %.body.thread.i.i.i.i.i, %74
-  %common.resume.op = phi { ptr, i32 } [ %75, %74 ], [ %eh.lpad-body52.ph.i.i.i.i.i, %.body.thread.i.i.i.i.i ], [ %55, %.body.i.i.i.i.i ], [ %55, %68 ], [ %101, %100 ], [ %88, %87 ], [ %22, %21 ]
+common.resume:                                    ; preds = %20, %85, %97, %.body.i.i.i.i.i, %67, %.body.thread.i.i.i.i.i, %73
+  %common.resume.op = phi { ptr, i32 } [ %74, %73 ], [ %eh.lpad-body52.ph.i.i.i.i.i, %.body.thread.i.i.i.i.i ], [ %54, %.body.i.i.i.i.i ], [ %54, %67 ], [ %98, %97 ], [ %86, %85 ], [ %21, %20 ]
   resume { ptr, i32 } %common.resume.op
 
-.body.thread.i.i.i.i.i:                           ; preds = %.body.thread53.i.i.i.i.i, %49
-  %eh.lpad-body52.ph.i.i.i.i.i = phi { ptr, i32 } [ %52, %.body.thread53.i.i.i.i.i ], [ %50, %49 ]
-  invoke void @"_ZN4core3ptr260drop_in_place$LT$std..collections..hash..map..HashMap$LT$vfs..FileId$C$alloc..vec..Vec$LT$$LP$text_size..range..TextRange$C$ide_db..search..ReferenceCategory$RP$$GT$$C$core..hash..BuildHasherDefault$LT$nohash_hasher..NoHashHasher$LT$vfs..FileId$GT$$GT$$GT$$GT$17h1f03073fb1580d6dE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %32) #56
-          to label %common.resume unwind label %69, !noalias !18474
+.body.thread.i.i.i.i.i:                           ; preds = %.body.thread53.i.i.i.i.i, %48
+  %eh.lpad-body52.ph.i.i.i.i.i = phi { ptr, i32 } [ %51, %.body.thread53.i.i.i.i.i ], [ %49, %48 ]
+  invoke void @"_ZN4core3ptr260drop_in_place$LT$std..collections..hash..map..HashMap$LT$vfs..FileId$C$alloc..vec..Vec$LT$$LP$text_size..range..TextRange$C$ide_db..search..ReferenceCategory$RP$$GT$$C$core..hash..BuildHasherDefault$LT$nohash_hasher..NoHashHasher$LT$vfs..FileId$GT$$GT$$GT$$GT$17h1f03073fb1580d6dE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %31) #56
+          to label %common.resume unwind label %68, !noalias !18474
 
-"_ZN13rust_analyzer8handlers7request17handle_references28_$u7b$$u7b$closure$u7d$$u7d$17h2c393eed3d6420c6E.exit.i.i.i.i": ; preds = %67, %59
+"_ZN13rust_analyzer8handlers7request17handle_references28_$u7b$$u7b$closure$u7d$$u7d$17h2c393eed3d6420c6E.exit.i.i.i.i": ; preds = %66, %58
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !18435
   call void @llvm.experimental.noalias.scope.decl(metadata !18475)
-  %71 = load i64, ptr %1, align 8, !range !8109, !alias.scope !18478, !noalias !18482, !noundef !9
-  %72 = and i64 %71, -2
-  %switch.i.i.i.i.i.i.i = icmp eq i64 %72, -9223372036854775806
-  br i1 %switch.i.i.i.i.i.i.i, label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hd5324fbef7a58372E.exit.i.i.i", label %73
+  %70 = load i64, ptr %1, align 8, !range !8109, !alias.scope !18478, !noalias !18482, !noundef !9
+  %71 = icmp ugt i64 %70, -9223372036854775807
+  br i1 %71, label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hd5324fbef7a58372E.exit.i.i.i", label %72
 
-73:                                               ; preds = %"_ZN13rust_analyzer8handlers7request17handle_references28_$u7b$$u7b$closure$u7d$$u7d$17h2c393eed3d6420c6E.exit.i.i.i.i"
+72:                                               ; preds = %"_ZN13rust_analyzer8handlers7request17handle_references28_$u7b$$u7b$closure$u7d$$u7d$17h2c393eed3d6420c6E.exit.i.i.i.i"
   invoke void @"_ZN4core3ptr853drop_in_place$LT$core..iter..adapters..flatten..FlattenCompat$LT$core..iter..adapters..map..Map$LT$std..collections..hash..map..IntoIter$LT$vfs..FileId$C$alloc..vec..Vec$LT$$LP$text_size..range..TextRange$C$ide_db..search..ReferenceCategory$RP$$GT$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..adapters..filter..Filter$LT$alloc..vec..into_iter..IntoIter$LT$$LP$text_size..range..TextRange$C$ide_db..search..ReferenceCategory$RP$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hecb0a7c46ef11171E.llvm.10409712727403535664"(ptr noalias noundef nonnull align 8 dereferenceable(208) %1)
-          to label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hd5324fbef7a58372E.exit.i.i.i" unwind label %74, !noalias !18486
+          to label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hd5324fbef7a58372E.exit.i.i.i" unwind label %73, !noalias !18486
 
-74:                                               ; preds = %73
-  %75 = landingpad { ptr, i32 }
+73:                                               ; preds = %72
+  %74 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %1, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.02.i.i.i.i, i64 24, i1 false), !noalias !18487
   store ptr %.sroa.04.sroa.0.0.copyload.i.i.i.i.i, ptr %.sroa.0.sroa.5.0..val1.sroa_idx6.i.i.i.i, align 8, !alias.scope !18488, !noalias !18489
-  store ptr %60, ptr %.sroa.0.sroa.6.0..val1.sroa_idx8.i.i.i.i, align 8, !alias.scope !18488, !noalias !18489
-  store ptr %65, ptr %.sroa.0.sroa.7.0..val1.sroa_idx10.i.i.i.i, align 8, !alias.scope !18488, !noalias !18489
-  store i16 %63, ptr %.sroa.0.sroa.8.0..val1.sroa_idx12.i.i.i.i, align 8, !alias.scope !18488, !noalias !18489
+  store ptr %59, ptr %.sroa.0.sroa.6.0..val1.sroa_idx8.i.i.i.i, align 8, !alias.scope !18488, !noalias !18489
+  store ptr %64, ptr %.sroa.0.sroa.7.0..val1.sroa_idx10.i.i.i.i, align 8, !alias.scope !18488, !noalias !18489
+  store i16 %62, ptr %.sroa.0.sroa.8.0..val1.sroa_idx12.i.i.i.i, align 8, !alias.scope !18488, !noalias !18489
   store i64 %.sroa.04.sroa.6.0.copyload.i.i.i.i.i, ptr %.sroa.0.sroa.10.0..val1.sroa_idx15.i.i.i.i, align 8, !alias.scope !18488, !noalias !18489
-  store ptr %36, ptr %.sroa.0.sroa.11.0..val1.sroa_idx17.i.i.i.i, align 8, !alias.scope !18488, !noalias !18489
-  store ptr %37, ptr %.sroa.0.sroa.12.0..val1.sroa_idx19.i.i.i.i, align 8, !alias.scope !18488, !noalias !18489
+  store ptr %35, ptr %.sroa.0.sroa.11.0..val1.sroa_idx17.i.i.i.i, align 8, !alias.scope !18488, !noalias !18489
+  store ptr %36, ptr %.sroa.0.sroa.12.0..val1.sroa_idx19.i.i.i.i, align 8, !alias.scope !18488, !noalias !18489
   store ptr null, ptr %.sroa.0.sroa.13.0..val1.sroa_idx21.i.i.i.i, align 8, !alias.scope !18488, !noalias !18489
   store ptr null, ptr %.sroa.0.sroa.15.0..val1.sroa_idx24.i.i.i.i, align 8, !alias.scope !18488, !noalias !18489
   store i32 %.sroa.032.0.i.i.i.i.i, ptr %.sroa.0.sroa.17.0..val1.sroa_idx27.i.i.i.i, align 8, !alias.scope !18488, !noalias !18489
@@ -54162,104 +54160,102 @@ common.resume:                                    ; preds = %21, %87, %100, %.bo
   store i32 %.sroa.433.sroa.3.0.i.i.i.i.i, ptr %.sroa.0.sroa.20.0..val1.sroa_idx33.i.i.i.i, align 4, !alias.scope !18488, !noalias !18489
   br label %common.resume
 
-"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hd5324fbef7a58372E.exit.i.i.i": ; preds = %73, %"_ZN13rust_analyzer8handlers7request17handle_references28_$u7b$$u7b$closure$u7d$$u7d$17h2c393eed3d6420c6E.exit.i.i.i.i"
+"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hd5324fbef7a58372E.exit.i.i.i": ; preds = %72, %"_ZN13rust_analyzer8handlers7request17handle_references28_$u7b$$u7b$closure$u7d$$u7d$17h2c393eed3d6420c6E.exit.i.i.i.i"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %1, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.02.i.i.i.i, i64 24, i1 false), !noalias !18487
   store ptr %.sroa.04.sroa.0.0.copyload.i.i.i.i.i, ptr %.sroa.0.sroa.5.0..val1.sroa_idx6.i.i.i.i, align 8, !alias.scope !18488, !noalias !18489
-  store ptr %60, ptr %.sroa.0.sroa.6.0..val1.sroa_idx8.i.i.i.i, align 8, !alias.scope !18488, !noalias !18489
-  store ptr %65, ptr %.sroa.0.sroa.7.0..val1.sroa_idx10.i.i.i.i, align 8, !alias.scope !18488, !noalias !18489
-  store i16 %63, ptr %.sroa.0.sroa.8.0..val1.sroa_idx12.i.i.i.i, align 8, !alias.scope !18488, !noalias !18489
+  store ptr %59, ptr %.sroa.0.sroa.6.0..val1.sroa_idx8.i.i.i.i, align 8, !alias.scope !18488, !noalias !18489
+  store ptr %64, ptr %.sroa.0.sroa.7.0..val1.sroa_idx10.i.i.i.i, align 8, !alias.scope !18488, !noalias !18489
+  store i16 %62, ptr %.sroa.0.sroa.8.0..val1.sroa_idx12.i.i.i.i, align 8, !alias.scope !18488, !noalias !18489
   store i64 %.sroa.04.sroa.6.0.copyload.i.i.i.i.i, ptr %.sroa.0.sroa.10.0..val1.sroa_idx15.i.i.i.i, align 8, !alias.scope !18488, !noalias !18489
-  store ptr %36, ptr %.sroa.0.sroa.11.0..val1.sroa_idx17.i.i.i.i, align 8, !alias.scope !18488, !noalias !18489
-  store ptr %37, ptr %.sroa.0.sroa.12.0..val1.sroa_idx19.i.i.i.i, align 8, !alias.scope !18488, !noalias !18489
+  store ptr %35, ptr %.sroa.0.sroa.11.0..val1.sroa_idx17.i.i.i.i, align 8, !alias.scope !18488, !noalias !18489
+  store ptr %36, ptr %.sroa.0.sroa.12.0..val1.sroa_idx19.i.i.i.i, align 8, !alias.scope !18488, !noalias !18489
   store ptr null, ptr %.sroa.0.sroa.13.0..val1.sroa_idx21.i.i.i.i, align 8, !alias.scope !18488, !noalias !18489
   store ptr null, ptr %.sroa.0.sroa.15.0..val1.sroa_idx24.i.i.i.i, align 8, !alias.scope !18488, !noalias !18489
   store i32 %.sroa.032.0.i.i.i.i.i, ptr %.sroa.0.sroa.17.0..val1.sroa_idx27.i.i.i.i, align 8, !alias.scope !18488, !noalias !18489
   store i32 %.sroa.433.sroa.0.0.i.i.i.i.i, ptr %.sroa.0.sroa.18.0..val1.sroa_idx29.i.i.i.i, align 4, !alias.scope !18488, !noalias !18489
   store i32 %.sroa.433.sroa.2.0.i.i.i.i.i, ptr %.sroa.0.sroa.19.0..val1.sroa_idx31.i.i.i.i, align 8, !alias.scope !18488, !noalias !18489
   store i32 %.sroa.433.sroa.3.0.i.i.i.i.i, ptr %.sroa.0.sroa.20.0..val1.sroa_idx33.i.i.i.i, align 4, !alias.scope !18488, !noalias !18489
-  %76 = load i64, ptr %1, align 8, !range !8109, !alias.scope !18490, !noalias !18482, !noundef !9
-  %77 = icmp ne i64 %76, -9223372036854775805
-  call void @llvm.assume(i1 %77)
+  %75 = load i64, ptr %1, align 8, !range !8109, !alias.scope !18490, !noalias !18482, !noundef !9
+  %76 = icmp ne i64 %75, -9223372036854775805
+  call void @llvm.assume(i1 %76)
   call void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h9687440df1200b62E"(ptr noalias noundef nonnull sret({ i32, [3 x i32] }) align 4 captures(none) dereferenceable(16) %7, ptr noalias noundef nonnull align 8 dereferenceable(208) %1, ptr noalias noundef nonnull align 8 dereferenceable(8) %10), !noalias !18491
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.02.i.i.i.i)
-  %78 = load i32, ptr %7, align 4, !range !2916, !alias.scope !18492, !noalias !18495, !noundef !9
-  %trunc.i.i.i.i = trunc nuw i32 %78 to i1
-  br i1 %trunc.i.i.i.i, label %84, label %79
+  %77 = load i32, ptr %7, align 4, !range !2916, !alias.scope !18492, !noalias !18495, !noundef !9
+  %trunc.i.i.i.i = trunc nuw i32 %77 to i1
+  br i1 %trunc.i.i.i.i, label %82, label %78
 
-79:                                               ; preds = %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hd5324fbef7a58372E.exit.i.i.i"
+78:                                               ; preds = %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hd5324fbef7a58372E.exit.i.i.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !18434
-  %80 = icmp eq ptr %39, %27
-  br i1 %80, label %.loopexit, label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he1829a0f1436b4c2E.exit.i.i.i"
+  %79 = icmp eq ptr %38, %26
+  br i1 %79, label %.loopexit, label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he1829a0f1436b4c2E.exit.i.i.i"
 
-.loopexit:                                        ; preds = %79, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he1829a0f1436b4c2E.exit.i.i.i"
-  %.pre107 = load i64, ptr %1, align 8, !range !8109, !alias.scope !18497
-  %81 = and i64 %.pre107, -2
-  %82 = icmp eq i64 %81, -9223372036854775806
-  br i1 %82, label %"_ZN4core3ptr927drop_in_place$LT$core..option..Option$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..flatten..FlatMap$LT$std..collections..hash..map..IntoIter$LT$vfs..FileId$C$alloc..vec..Vec$LT$$LP$text_size..range..TextRange$C$ide_db..search..ReferenceCategory$RP$$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..adapters..filter..Filter$LT$alloc..vec..into_iter..IntoIter$LT$$LP$text_size..range..TextRange$C$ide_db..search..ReferenceCategory$RP$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..option..IntoIter$LT$span..FileRange$GT$$GT$$GT$$GT$17he791fd232a6067ecE.exit27", label %83
+.loopexit:                                        ; preds = %78, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he1829a0f1436b4c2E.exit.i.i.i"
+  %.pre = load i64, ptr %1, align 8, !range !8109, !alias.scope !18497
+  %80 = icmp ugt i64 %.pre, -9223372036854775807
+  br i1 %80, label %"_ZN4core3ptr927drop_in_place$LT$core..option..Option$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..flatten..FlatMap$LT$std..collections..hash..map..IntoIter$LT$vfs..FileId$C$alloc..vec..Vec$LT$$LP$text_size..range..TextRange$C$ide_db..search..ReferenceCategory$RP$$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..adapters..filter..Filter$LT$alloc..vec..into_iter..IntoIter$LT$$LP$text_size..range..TextRange$C$ide_db..search..ReferenceCategory$RP$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..option..IntoIter$LT$span..FileRange$GT$$GT$$GT$$GT$17he791fd232a6067ecE.exit26", label %81
 
-83:                                               ; preds = %.loopexit
+81:                                               ; preds = %.loopexit
   invoke void @"_ZN4core3ptr853drop_in_place$LT$core..iter..adapters..flatten..FlattenCompat$LT$core..iter..adapters..map..Map$LT$std..collections..hash..map..IntoIter$LT$vfs..FileId$C$alloc..vec..Vec$LT$$LP$text_size..range..TextRange$C$ide_db..search..ReferenceCategory$RP$$GT$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..adapters..filter..Filter$LT$alloc..vec..into_iter..IntoIter$LT$$LP$text_size..range..TextRange$C$ide_db..search..ReferenceCategory$RP$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hecb0a7c46ef11171E.llvm.10409712727403535664"(ptr noalias noundef nonnull align 8 dereferenceable(208) %1)
-          to label %"_ZN4core3ptr927drop_in_place$LT$core..option..Option$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..flatten..FlatMap$LT$std..collections..hash..map..IntoIter$LT$vfs..FileId$C$alloc..vec..Vec$LT$$LP$text_size..range..TextRange$C$ide_db..search..ReferenceCategory$RP$$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..adapters..filter..Filter$LT$alloc..vec..into_iter..IntoIter$LT$$LP$text_size..range..TextRange$C$ide_db..search..ReferenceCategory$RP$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..option..IntoIter$LT$span..FileRange$GT$$GT$$GT$$GT$17he791fd232a6067ecE.exit27" unwind label %87
+          to label %"_ZN4core3ptr927drop_in_place$LT$core..option..Option$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..flatten..FlatMap$LT$std..collections..hash..map..IntoIter$LT$vfs..FileId$C$alloc..vec..Vec$LT$$LP$text_size..range..TextRange$C$ide_db..search..ReferenceCategory$RP$$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..adapters..filter..Filter$LT$alloc..vec..into_iter..IntoIter$LT$$LP$text_size..range..TextRange$C$ide_db..search..ReferenceCategory$RP$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..option..IntoIter$LT$span..FileRange$GT$$GT$$GT$$GT$17he791fd232a6067ecE.exit26" unwind label %85
 
-84:                                               ; preds = %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hd5324fbef7a58372E.exit.i.i.i"
-  %85 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.038, ptr noundef nonnull align 4 dereferenceable(12) %85, i64 12, i1 false)
+82:                                               ; preds = %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hd5324fbef7a58372E.exit.i.i.i"
+  %83 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.036, ptr noundef nonnull align 4 dereferenceable(12) %83, i64 12, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !18434
-  %86 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %86, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.038, i64 12, i1 false), !alias.scope !18500
-  br label %102
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %84, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.036, i64 12, i1 false), !alias.scope !18500
+  br label %99
 
-87:                                               ; preds = %83
-  %88 = landingpad { ptr, i32 }
+85:                                               ; preds = %81
+  %86 = landingpad { ptr, i32 }
           cleanup
   store i64 -9223372036854775805, ptr %1, align 8
   br label %common.resume
 
-"_ZN4core3ptr927drop_in_place$LT$core..option..Option$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..flatten..FlatMap$LT$std..collections..hash..map..IntoIter$LT$vfs..FileId$C$alloc..vec..Vec$LT$$LP$text_size..range..TextRange$C$ide_db..search..ReferenceCategory$RP$$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..adapters..filter..Filter$LT$alloc..vec..into_iter..IntoIter$LT$$LP$text_size..range..TextRange$C$ide_db..search..ReferenceCategory$RP$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..option..IntoIter$LT$span..FileRange$GT$$GT$$GT$$GT$17he791fd232a6067ecE.exit27": ; preds = %25, %"_ZN4core3ptr927drop_in_place$LT$core..option..Option$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..flatten..FlatMap$LT$std..collections..hash..map..IntoIter$LT$vfs..FileId$C$alloc..vec..Vec$LT$$LP$text_size..range..TextRange$C$ide_db..search..ReferenceCategory$RP$$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..adapters..filter..Filter$LT$alloc..vec..into_iter..IntoIter$LT$$LP$text_size..range..TextRange$C$ide_db..search..ReferenceCategory$RP$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..option..IntoIter$LT$span..FileRange$GT$$GT$$GT$$GT$17he791fd232a6067ecE.exit", %.loopexit, %83
+"_ZN4core3ptr927drop_in_place$LT$core..option..Option$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..flatten..FlatMap$LT$std..collections..hash..map..IntoIter$LT$vfs..FileId$C$alloc..vec..Vec$LT$$LP$text_size..range..TextRange$C$ide_db..search..ReferenceCategory$RP$$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..adapters..filter..Filter$LT$alloc..vec..into_iter..IntoIter$LT$$LP$text_size..range..TextRange$C$ide_db..search..ReferenceCategory$RP$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..option..IntoIter$LT$span..FileRange$GT$$GT$$GT$$GT$17he791fd232a6067ecE.exit26": ; preds = %24, %"_ZN4core3ptr927drop_in_place$LT$core..option..Option$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..flatten..FlatMap$LT$std..collections..hash..map..IntoIter$LT$vfs..FileId$C$alloc..vec..Vec$LT$$LP$text_size..range..TextRange$C$ide_db..search..ReferenceCategory$RP$$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..adapters..filter..Filter$LT$alloc..vec..into_iter..IntoIter$LT$$LP$text_size..range..TextRange$C$ide_db..search..ReferenceCategory$RP$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..option..IntoIter$LT$span..FileRange$GT$$GT$$GT$$GT$17he791fd232a6067ecE.exit", %.loopexit, %81
   store i64 -9223372036854775805, ptr %1, align 8
-  %89 = getelementptr inbounds nuw i8, ptr %1, i64 208
-  %90 = load i64, ptr %89, align 8, !range !8109, !noundef !9
-  %.not15 = icmp eq i64 %90, -9223372036854775805
-  br i1 %.not15, label %"_ZN4core3ptr927drop_in_place$LT$core..option..Option$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..flatten..FlatMap$LT$std..collections..hash..map..IntoIter$LT$vfs..FileId$C$alloc..vec..Vec$LT$$LP$text_size..range..TextRange$C$ide_db..search..ReferenceCategory$RP$$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..adapters..filter..Filter$LT$alloc..vec..into_iter..IntoIter$LT$$LP$text_size..range..TextRange$C$ide_db..search..ReferenceCategory$RP$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..option..IntoIter$LT$span..FileRange$GT$$GT$$GT$$GT$17he791fd232a6067ecE.exit33", label %91
+  %87 = getelementptr inbounds nuw i8, ptr %1, i64 208
+  %88 = load i64, ptr %87, align 8, !range !8109, !noundef !9
+  %.not15 = icmp eq i64 %88, -9223372036854775805
+  br i1 %.not15, label %"_ZN4core3ptr927drop_in_place$LT$core..option..Option$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..flatten..FlatMap$LT$std..collections..hash..map..IntoIter$LT$vfs..FileId$C$alloc..vec..Vec$LT$$LP$text_size..range..TextRange$C$ide_db..search..ReferenceCategory$RP$$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..adapters..filter..Filter$LT$alloc..vec..into_iter..IntoIter$LT$$LP$text_size..range..TextRange$C$ide_db..search..ReferenceCategory$RP$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..option..IntoIter$LT$span..FileRange$GT$$GT$$GT$$GT$17he791fd232a6067ecE.exit31", label %89
 
-91:                                               ; preds = %"_ZN4core3ptr927drop_in_place$LT$core..option..Option$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..flatten..FlatMap$LT$std..collections..hash..map..IntoIter$LT$vfs..FileId$C$alloc..vec..Vec$LT$$LP$text_size..range..TextRange$C$ide_db..search..ReferenceCategory$RP$$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..adapters..filter..Filter$LT$alloc..vec..into_iter..IntoIter$LT$$LP$text_size..range..TextRange$C$ide_db..search..ReferenceCategory$RP$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..option..IntoIter$LT$span..FileRange$GT$$GT$$GT$$GT$17he791fd232a6067ecE.exit27"
+89:                                               ; preds = %"_ZN4core3ptr927drop_in_place$LT$core..option..Option$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..flatten..FlatMap$LT$std..collections..hash..map..IntoIter$LT$vfs..FileId$C$alloc..vec..Vec$LT$$LP$text_size..range..TextRange$C$ide_db..search..ReferenceCategory$RP$$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..adapters..filter..Filter$LT$alloc..vec..into_iter..IntoIter$LT$$LP$text_size..range..TextRange$C$ide_db..search..ReferenceCategory$RP$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..option..IntoIter$LT$span..FileRange$GT$$GT$$GT$$GT$17he791fd232a6067ecE.exit26"
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  call void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h9687440df1200b62E"(ptr noalias noundef nonnull sret({ i32, [3 x i32] }) align 4 captures(none) dereferenceable(16) %8, ptr noalias noundef nonnull align 8 dereferenceable(208) %89, ptr noalias noundef nonnull align 8 dereferenceable(8) %10)
-  %92 = load i32, ptr %8, align 4, !range !2916, !alias.scope !18504, !noalias !18507, !noundef !9
-  %trunc.i28 = trunc nuw i32 %92 to i1
-  br i1 %trunc.i28, label %97, label %93
+  call void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h9687440df1200b62E"(ptr noalias noundef nonnull sret({ i32, [3 x i32] }) align 4 captures(none) dereferenceable(16) %8, ptr noalias noundef nonnull align 8 dereferenceable(208) %87, ptr noalias noundef nonnull align 8 dereferenceable(8) %10)
+  %90 = load i32, ptr %8, align 4, !range !2916, !alias.scope !18504, !noalias !18507, !noundef !9
+  %trunc.i27 = trunc nuw i32 %90 to i1
+  br i1 %trunc.i27, label %94, label %91
+
+91:                                               ; preds = %89
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  %.pr51 = load i64, ptr %87, align 8, !alias.scope !18509
+  %92 = icmp ugt i64 %.pr51, -9223372036854775807
+  br i1 %92, label %"_ZN4core3ptr927drop_in_place$LT$core..option..Option$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..flatten..FlatMap$LT$std..collections..hash..map..IntoIter$LT$vfs..FileId$C$alloc..vec..Vec$LT$$LP$text_size..range..TextRange$C$ide_db..search..ReferenceCategory$RP$$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..adapters..filter..Filter$LT$alloc..vec..into_iter..IntoIter$LT$$LP$text_size..range..TextRange$C$ide_db..search..ReferenceCategory$RP$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..option..IntoIter$LT$span..FileRange$GT$$GT$$GT$$GT$17he791fd232a6067ecE.exit31", label %93
 
 93:                                               ; preds = %91
+  invoke void @"_ZN4core3ptr853drop_in_place$LT$core..iter..adapters..flatten..FlattenCompat$LT$core..iter..adapters..map..Map$LT$std..collections..hash..map..IntoIter$LT$vfs..FileId$C$alloc..vec..Vec$LT$$LP$text_size..range..TextRange$C$ide_db..search..ReferenceCategory$RP$$GT$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..adapters..filter..Filter$LT$alloc..vec..into_iter..IntoIter$LT$$LP$text_size..range..TextRange$C$ide_db..search..ReferenceCategory$RP$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hecb0a7c46ef11171E.llvm.10409712727403535664"(ptr noalias noundef nonnull align 8 dereferenceable(208) %87)
+          to label %"_ZN4core3ptr927drop_in_place$LT$core..option..Option$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..flatten..FlatMap$LT$std..collections..hash..map..IntoIter$LT$vfs..FileId$C$alloc..vec..Vec$LT$$LP$text_size..range..TextRange$C$ide_db..search..ReferenceCategory$RP$$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..adapters..filter..Filter$LT$alloc..vec..into_iter..IntoIter$LT$$LP$text_size..range..TextRange$C$ide_db..search..ReferenceCategory$RP$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..option..IntoIter$LT$span..FileRange$GT$$GT$$GT$$GT$17he791fd232a6067ecE.exit31" unwind label %97
+
+94:                                               ; preds = %89
+  %95 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.039, ptr noundef nonnull align 4 dereferenceable(12) %95, i64 12, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %.pre108 = load i64, ptr %89, align 8, !range !8109, !alias.scope !18509
-  %94 = and i64 %.pre108, -2
-  %95 = icmp eq i64 %94, -9223372036854775806
-  br i1 %95, label %"_ZN4core3ptr927drop_in_place$LT$core..option..Option$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..flatten..FlatMap$LT$std..collections..hash..map..IntoIter$LT$vfs..FileId$C$alloc..vec..Vec$LT$$LP$text_size..range..TextRange$C$ide_db..search..ReferenceCategory$RP$$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..adapters..filter..Filter$LT$alloc..vec..into_iter..IntoIter$LT$$LP$text_size..range..TextRange$C$ide_db..search..ReferenceCategory$RP$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..option..IntoIter$LT$span..FileRange$GT$$GT$$GT$$GT$17he791fd232a6067ecE.exit33", label %96
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %96, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.039, i64 12, i1 false), !alias.scope !18512
+  br label %99
 
-96:                                               ; preds = %93
-  invoke void @"_ZN4core3ptr853drop_in_place$LT$core..iter..adapters..flatten..FlattenCompat$LT$core..iter..adapters..map..Map$LT$std..collections..hash..map..IntoIter$LT$vfs..FileId$C$alloc..vec..Vec$LT$$LP$text_size..range..TextRange$C$ide_db..search..ReferenceCategory$RP$$GT$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..adapters..filter..Filter$LT$alloc..vec..into_iter..IntoIter$LT$$LP$text_size..range..TextRange$C$ide_db..search..ReferenceCategory$RP$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hecb0a7c46ef11171E.llvm.10409712727403535664"(ptr noalias noundef nonnull align 8 dereferenceable(208) %89)
-          to label %"_ZN4core3ptr927drop_in_place$LT$core..option..Option$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..flatten..FlatMap$LT$std..collections..hash..map..IntoIter$LT$vfs..FileId$C$alloc..vec..Vec$LT$$LP$text_size..range..TextRange$C$ide_db..search..ReferenceCategory$RP$$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..adapters..filter..Filter$LT$alloc..vec..into_iter..IntoIter$LT$$LP$text_size..range..TextRange$C$ide_db..search..ReferenceCategory$RP$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..option..IntoIter$LT$span..FileRange$GT$$GT$$GT$$GT$17he791fd232a6067ecE.exit33" unwind label %100
-
-97:                                               ; preds = %91
-  %98 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.041, ptr noundef nonnull align 4 dereferenceable(12) %98, i64 12, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %99 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %99, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.041, i64 12, i1 false), !alias.scope !18512
-  br label %102
-
-100:                                              ; preds = %96
-  %101 = landingpad { ptr, i32 }
+97:                                               ; preds = %93
+  %98 = landingpad { ptr, i32 }
           cleanup
-  store i64 -9223372036854775805, ptr %89, align 8
+  store i64 -9223372036854775805, ptr %87, align 8
   br label %common.resume
 
-"_ZN4core3ptr927drop_in_place$LT$core..option..Option$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..flatten..FlatMap$LT$std..collections..hash..map..IntoIter$LT$vfs..FileId$C$alloc..vec..Vec$LT$$LP$text_size..range..TextRange$C$ide_db..search..ReferenceCategory$RP$$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..adapters..filter..Filter$LT$alloc..vec..into_iter..IntoIter$LT$$LP$text_size..range..TextRange$C$ide_db..search..ReferenceCategory$RP$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..option..IntoIter$LT$span..FileRange$GT$$GT$$GT$$GT$17he791fd232a6067ecE.exit33": ; preds = %"_ZN4core3ptr927drop_in_place$LT$core..option..Option$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..flatten..FlatMap$LT$std..collections..hash..map..IntoIter$LT$vfs..FileId$C$alloc..vec..Vec$LT$$LP$text_size..range..TextRange$C$ide_db..search..ReferenceCategory$RP$$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..adapters..filter..Filter$LT$alloc..vec..into_iter..IntoIter$LT$$LP$text_size..range..TextRange$C$ide_db..search..ReferenceCategory$RP$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..option..IntoIter$LT$span..FileRange$GT$$GT$$GT$$GT$17he791fd232a6067ecE.exit27", %93, %96
-  store i64 -9223372036854775805, ptr %89, align 8
-  br label %102
+"_ZN4core3ptr927drop_in_place$LT$core..option..Option$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..flatten..FlatMap$LT$std..collections..hash..map..IntoIter$LT$vfs..FileId$C$alloc..vec..Vec$LT$$LP$text_size..range..TextRange$C$ide_db..search..ReferenceCategory$RP$$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..adapters..filter..Filter$LT$alloc..vec..into_iter..IntoIter$LT$$LP$text_size..range..TextRange$C$ide_db..search..ReferenceCategory$RP$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..option..IntoIter$LT$span..FileRange$GT$$GT$$GT$$GT$17he791fd232a6067ecE.exit31": ; preds = %"_ZN4core3ptr927drop_in_place$LT$core..option..Option$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..flatten..FlatMap$LT$std..collections..hash..map..IntoIter$LT$vfs..FileId$C$alloc..vec..Vec$LT$$LP$text_size..range..TextRange$C$ide_db..search..ReferenceCategory$RP$$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..adapters..filter..Filter$LT$alloc..vec..into_iter..IntoIter$LT$$LP$text_size..range..TextRange$C$ide_db..search..ReferenceCategory$RP$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..option..IntoIter$LT$span..FileRange$GT$$GT$$GT$$GT$17he791fd232a6067ecE.exit26", %91, %93
+  store i64 -9223372036854775805, ptr %87, align 8
+  br label %99
 
-102:                                              ; preds = %"_ZN4core3ptr927drop_in_place$LT$core..option..Option$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..flatten..FlatMap$LT$std..collections..hash..map..IntoIter$LT$vfs..FileId$C$alloc..vec..Vec$LT$$LP$text_size..range..TextRange$C$ide_db..search..ReferenceCategory$RP$$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..adapters..filter..Filter$LT$alloc..vec..into_iter..IntoIter$LT$$LP$text_size..range..TextRange$C$ide_db..search..ReferenceCategory$RP$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..option..IntoIter$LT$span..FileRange$GT$$GT$$GT$$GT$17he791fd232a6067ecE.exit33", %18, %97, %84
-  %.sink = phi i32 [ 0, %"_ZN4core3ptr927drop_in_place$LT$core..option..Option$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..flatten..FlatMap$LT$std..collections..hash..map..IntoIter$LT$vfs..FileId$C$alloc..vec..Vec$LT$$LP$text_size..range..TextRange$C$ide_db..search..ReferenceCategory$RP$$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..adapters..filter..Filter$LT$alloc..vec..into_iter..IntoIter$LT$$LP$text_size..range..TextRange$C$ide_db..search..ReferenceCategory$RP$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..option..IntoIter$LT$span..FileRange$GT$$GT$$GT$$GT$17he791fd232a6067ecE.exit33" ], [ 1, %18 ], [ 1, %97 ], [ 1, %84 ]
+99:                                               ; preds = %"_ZN4core3ptr927drop_in_place$LT$core..option..Option$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..flatten..FlatMap$LT$std..collections..hash..map..IntoIter$LT$vfs..FileId$C$alloc..vec..Vec$LT$$LP$text_size..range..TextRange$C$ide_db..search..ReferenceCategory$RP$$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..adapters..filter..Filter$LT$alloc..vec..into_iter..IntoIter$LT$$LP$text_size..range..TextRange$C$ide_db..search..ReferenceCategory$RP$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..option..IntoIter$LT$span..FileRange$GT$$GT$$GT$$GT$17he791fd232a6067ecE.exit31", %17, %94, %82
+  %.sink = phi i32 [ 0, %"_ZN4core3ptr927drop_in_place$LT$core..option..Option$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..flatten..FlatMap$LT$std..collections..hash..map..IntoIter$LT$vfs..FileId$C$alloc..vec..Vec$LT$$LP$text_size..range..TextRange$C$ide_db..search..ReferenceCategory$RP$$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..adapters..filter..Filter$LT$alloc..vec..into_iter..IntoIter$LT$$LP$text_size..range..TextRange$C$ide_db..search..ReferenceCategory$RP$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$rust_analyzer..handlers..request..handle_references..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..option..IntoIter$LT$span..FileRange$GT$$GT$$GT$$GT$17he791fd232a6067ecE.exit31" ], [ 1, %17 ], [ 1, %94 ], [ 1, %82 ]
   store i32 %.sink, ptr %0, align 4
   ret void
 }

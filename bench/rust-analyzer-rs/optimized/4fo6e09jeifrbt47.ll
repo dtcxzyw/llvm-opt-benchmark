@@ -7891,10 +7891,10 @@ define hidden void @"_ZN121_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.sroa.423.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 144
-  %.sroa.423.0.copyload = load ptr, ptr %.sroa.423.0..sroa_idx, align 8, !nonnull !4, !noundef !4
-  %.sroa.524.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 152
-  %.sroa.524.0.copyload = load ptr, ptr %.sroa.524.0..sroa_idx, align 8, !nonnull !4, !noundef !4
+  %.sroa.422.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 144
+  %.sroa.422.0.copyload = load ptr, ptr %.sroa.422.0..sroa_idx, align 8, !nonnull !4, !noundef !4
+  %.sroa.523.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 152
+  %.sroa.523.0.copyload = load ptr, ptr %.sroa.523.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1217)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1220)
   call void @llvm.lifetime.start.p0(ptr nonnull %19), !noalias !1223
@@ -7916,7 +7916,7 @@ define hidden void @"_ZN121_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20
   %31 = getelementptr inbounds nuw i8, ptr %19, i64 112
   %32 = getelementptr inbounds nuw i8, ptr %19, i64 96
   %.sroa.415.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %14, i64 4
-  %33 = getelementptr inbounds nuw i8, ptr %.sroa.524.0.copyload, i64 896
+  %33 = getelementptr inbounds nuw i8, ptr %.sroa.523.0.copyload, i64 896
   %.sroa.4.0..sroa_idx.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 8
   %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 16
   %34 = getelementptr inbounds nuw i8, ptr %8, i64 52
@@ -8179,7 +8179,7 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17hc3a63b22a9d815d1E.exit.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !1352
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !1352
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !1352
-  invoke void @_ZN3hir13LifetimeParam4name17hfe6bf7086a40a185E(ptr noalias noundef nonnull sret({ { i8, [23 x i8] } }) align 8 captures(none) dereferenceable(24) %10, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(12) %14, ptr noundef nonnull align 1 %.sroa.423.0.copyload, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.sroa.524.0.copyload)
+  invoke void @_ZN3hir13LifetimeParam4name17hfe6bf7086a40a185E(ptr noalias noundef nonnull sret({ { i8, [23 x i8] } }) align 8 captures(none) dereferenceable(24) %10, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(12) %14, ptr noundef nonnull align 1 %.sroa.422.0.copyload, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.sroa.523.0.copyload)
           to label %112 unwind label %110, !noalias !1354
 
 103:                                              ; preds = %.body.i.i.i.i.i.i.i, %110
@@ -8207,7 +8207,7 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17hc3a63b22a9d815d1E.exit.i.i.i
 
 112:                                              ; preds = %100
   %113 = load ptr, ptr %33, align 8, !invariant.load !4, !noalias !1354, !nonnull !4
-  %114 = invoke { ptr, ptr } %113(ptr noundef nonnull align 1 %.sroa.423.0.copyload)
+  %114 = invoke { ptr, ptr } %113(ptr noundef nonnull align 1 %.sroa.422.0.copyload)
           to label %117 unwind label %115, !noalias !1354
 
 .body.i.i.i.i.i.i.i:                              ; preds = %130, %123, %115

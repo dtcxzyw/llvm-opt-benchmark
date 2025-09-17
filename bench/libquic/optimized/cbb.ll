@@ -1123,15 +1123,14 @@ define hidden range(i32 0, 2) i32 @CBB_add_u16(ptr noundef captures(none) %0, i1
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
+  %.not8 = phi i1 [ true, %.lr.ph.i ], [ false, %.lr.ph.preheader.i ]
   %.019.i = phi i64 [ 0, %.lr.ph.i ], [ 1, %.lr.ph.preheader.i ]
   %.01118.i = phi i16 [ %30, %.lr.ph.i ], [ %1, %.lr.ph.preheader.i ]
   %28 = trunc i16 %.01118.i to i8
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 %.019.i
   store i8 %28, ptr %29, align 1, !tbaa !27
   %30 = lshr i16 %.01118.i, 8
-  %.0.i = add nsw i64 %.019.i, -1
-  %31 = icmp ult i64 %.0.i, 2
-  br i1 %31, label %.lr.ph.i, label %cbb_buffer_add_u.exit, !llvm.loop !30
+  br i1 %.not8, label %cbb_buffer_add_u.exit, label %.lr.ph.i, !llvm.loop !30
 
 cbb_buffer_add_u.exit:                            ; preds = %.lr.ph.i, %19, %16, %7, %4, %2
   %.0 = phi i32 [ 0, %2 ], [ 0, %4 ], [ 0, %7 ], [ 0, %19 ], [ 0, %16 ], [ 1, %.lr.ph.i ]

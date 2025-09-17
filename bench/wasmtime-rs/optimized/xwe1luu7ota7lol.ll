@@ -1748,39 +1748,37 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_map17h7a06
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1151)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1154)
   %32 = load i64, ptr %27, align 8, !range !1156, !alias.scope !1157, !noalias !1158, !noundef !11
-  %33 = add i64 %32, 9223372036854775807
-  %34 = icmp ult i64 %33, 2
-  %35 = xor i64 %32, -9223372036854775808
-  %36 = select i1 %34, i64 %35, i64 0
-  switch i64 %36, label %37 [
-    i64 0, label %38
-    i64 1, label %41
-    i64 2, label %43
+  %33 = tail call i64 @llvm.umax.i64(i64 %32, i64 -9223372036854775808)
+  %34 = and i64 %33, 9223372036854775807
+  switch i64 %34, label %35 [
+    i64 0, label %36
+    i64 1, label %39
+    i64 2, label %41
   ]
 
-37:                                               ; preds = %25
+35:                                               ; preds = %25
   unreachable
 
-38:                                               ; preds = %25
-  %39 = add i64 %31, 4
-  store i64 %39, ptr %8, align 8, !alias.scope !1159, !noalias !1164
-  %40 = tail call noundef align 8 ptr @"_ZN16wasmtime_environ9component4info1_106_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$wasmtime_environ..component..info..CoreExport$LT$T$GT$$GT$9serialize17hfb3fde9c9d01d097E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %27, ptr noalias noundef nonnull align 8 dereferenceable(16) %0), !noalias !1166
+36:                                               ; preds = %25
+  %37 = add i64 %31, 4
+  store i64 %37, ptr %8, align 8, !alias.scope !1159, !noalias !1164
+  %38 = tail call noundef align 8 ptr @"_ZN16wasmtime_environ9component4info1_106_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$wasmtime_environ..component..info..CoreExport$LT$T$GT$$GT$9serialize17hfb3fde9c9d01d097E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %27, ptr noalias noundef nonnull align 8 dereferenceable(16) %0), !noalias !1166
+  br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h89e2b63b73fc2f99E.exit.i.i.i.i.i.i.i.i.i.i.i"
+
+39:                                               ; preds = %25
+  %40 = add i64 %31, 8
+  store i64 %40, ptr %8, align 8, !alias.scope !1167, !noalias !1180
   br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h89e2b63b73fc2f99E.exit.i.i.i.i.i.i.i.i.i.i.i"
 
 41:                                               ; preds = %25
   %42 = add i64 %31, 8
-  store i64 %42, ptr %8, align 8, !alias.scope !1167, !noalias !1180
+  store i64 %42, ptr %8, align 8, !alias.scope !1181, !noalias !1180
   br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h89e2b63b73fc2f99E.exit.i.i.i.i.i.i.i.i.i.i.i"
 
-43:                                               ; preds = %25
-  %44 = add i64 %31, 8
-  store i64 %44, ptr %8, align 8, !alias.scope !1181, !noalias !1180
-  br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h89e2b63b73fc2f99E.exit.i.i.i.i.i.i.i.i.i.i.i"
-
-"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h89e2b63b73fc2f99E.exit.i.i.i.i.i.i.i.i.i.i.i": ; preds = %43, %41, %38
-  %.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %40, %38 ], [ null, %41 ], [ null, %43 ]
-  %45 = icmp eq ptr %.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, null
-  br i1 %45, label %22, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h904cc5ba7f72f8deE.exit
+"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h89e2b63b73fc2f99E.exit.i.i.i.i.i.i.i.i.i.i.i": ; preds = %41, %39, %36
+  %.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %38, %36 ], [ null, %39 ], [ null, %41 ]
+  %43 = icmp eq ptr %.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, null
+  br i1 %43, label %22, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h904cc5ba7f72f8deE.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17h904cc5ba7f72f8deE.exit: ; preds = %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hec3340ab86f35c92E.exit.loopexit.i.i", %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h89e2b63b73fc2f99E.exit.i.i.i.i.i.i.i.i.i.i.i", %2
   %.1 = phi ptr [ null, %2 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h89e2b63b73fc2f99E.exit.i.i.i.i.i.i.i.i.i.i.i" ], [ null, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17hec3340ab86f35c92E.exit.loopexit.i.i" ]
@@ -1860,39 +1858,37 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_map17h82c5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1278)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1281)
   %21 = load i64, ptr %16, align 8, !range !1156, !alias.scope !1283, !noalias !1284, !noundef !11
-  %22 = add i64 %21, 9223372036854775807
-  %23 = icmp ult i64 %22, 2
-  %24 = xor i64 %21, -9223372036854775808
-  %25 = select i1 %23, i64 %24, i64 0
-  switch i64 %25, label %26 [
-    i64 0, label %27
-    i64 1, label %30
-    i64 2, label %32
+  %22 = tail call i64 @llvm.umax.i64(i64 %21, i64 -9223372036854775808)
+  %23 = and i64 %22, 9223372036854775807
+  switch i64 %23, label %24 [
+    i64 0, label %25
+    i64 1, label %28
+    i64 2, label %30
   ]
 
-26:                                               ; preds = %14
+24:                                               ; preds = %14
   unreachable
 
-27:                                               ; preds = %14
-  %28 = add i64 %20, 4
-  store i64 %28, ptr %8, align 8, !alias.scope !1285, !noalias !1290
-  %29 = tail call noundef align 8 ptr @"_ZN16wasmtime_environ9component4info1_106_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$wasmtime_environ..component..info..CoreExport$LT$T$GT$$GT$9serialize17hfb3fde9c9d01d097E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %16, ptr noalias noundef nonnull align 8 dereferenceable(16) %0), !noalias !1292
+25:                                               ; preds = %14
+  %26 = add i64 %20, 4
+  store i64 %26, ptr %8, align 8, !alias.scope !1285, !noalias !1290
+  %27 = tail call noundef align 8 ptr @"_ZN16wasmtime_environ9component4info1_106_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$wasmtime_environ..component..info..CoreExport$LT$T$GT$$GT$9serialize17hfb3fde9c9d01d097E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %16, ptr noalias noundef nonnull align 8 dereferenceable(16) %0), !noalias !1292
+  br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h89e2b63b73fc2f99E.exit.i.i"
+
+28:                                               ; preds = %14
+  %29 = add i64 %20, 8
+  store i64 %29, ptr %8, align 8, !alias.scope !1293, !noalias !1306
   br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h89e2b63b73fc2f99E.exit.i.i"
 
 30:                                               ; preds = %14
   %31 = add i64 %20, 8
-  store i64 %31, ptr %8, align 8, !alias.scope !1293, !noalias !1306
+  store i64 %31, ptr %8, align 8, !alias.scope !1307, !noalias !1306
   br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h89e2b63b73fc2f99E.exit.i.i"
 
-32:                                               ; preds = %14
-  %33 = add i64 %20, 8
-  store i64 %33, ptr %8, align 8, !alias.scope !1307, !noalias !1306
-  br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h89e2b63b73fc2f99E.exit.i.i"
-
-"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h89e2b63b73fc2f99E.exit.i.i": ; preds = %32, %30, %27
-  %.0.i.i.i.i.i.i.i.i = phi ptr [ %29, %27 ], [ null, %30 ], [ null, %32 ]
-  %34 = icmp eq ptr %.0.i.i.i.i.i.i.i.i, null
-  br i1 %34, label %11, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hbfcbe3395c047595E.exit
+"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h89e2b63b73fc2f99E.exit.i.i": ; preds = %30, %28, %25
+  %.0.i.i.i.i.i.i.i.i = phi ptr [ %27, %25 ], [ null, %28 ], [ null, %30 ]
+  %32 = icmp eq ptr %.0.i.i.i.i.i.i.i.i, null
+  br i1 %32, label %11, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hbfcbe3395c047595E.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17hbfcbe3395c047595E.exit: ; preds = %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h89e2b63b73fc2f99E.exit.i.i", %11
   %.1 = phi ptr [ null, %11 ], [ %.0.i.i.i.i.i.i.i.i, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h89e2b63b73fc2f99E.exit.i.i" ]
@@ -2298,39 +2294,37 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_map17hcbf6
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1778)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1781)
   %32 = load i64, ptr %27, align 8, !range !1156, !alias.scope !1783, !noalias !1784, !noundef !11
-  %33 = add i64 %32, 9223372036854775807
-  %34 = icmp ult i64 %33, 2
-  %35 = xor i64 %32, -9223372036854775808
-  %36 = select i1 %34, i64 %35, i64 0
-  switch i64 %36, label %37 [
-    i64 0, label %38
-    i64 1, label %41
-    i64 2, label %43
+  %33 = tail call i64 @llvm.umax.i64(i64 %32, i64 -9223372036854775808)
+  %34 = and i64 %33, 9223372036854775807
+  switch i64 %34, label %35 [
+    i64 0, label %36
+    i64 1, label %39
+    i64 2, label %41
   ]
 
-37:                                               ; preds = %25
+35:                                               ; preds = %25
   unreachable
 
-38:                                               ; preds = %25
-  %39 = add i64 %31, 4
-  store i64 %39, ptr %8, align 8, !alias.scope !1785, !noalias !1790
-  %40 = tail call noundef align 8 ptr @"_ZN16wasmtime_environ9component4info1_106_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$wasmtime_environ..component..info..CoreExport$LT$T$GT$$GT$9serialize17h0ea8c23298feb1e2E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %27, ptr noalias noundef nonnull align 8 dereferenceable(16) %0), !noalias !1792
+36:                                               ; preds = %25
+  %37 = add i64 %31, 4
+  store i64 %37, ptr %8, align 8, !alias.scope !1785, !noalias !1790
+  %38 = tail call noundef align 8 ptr @"_ZN16wasmtime_environ9component4info1_106_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$wasmtime_environ..component..info..CoreExport$LT$T$GT$$GT$9serialize17h0ea8c23298feb1e2E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %27, ptr noalias noundef nonnull align 8 dereferenceable(16) %0), !noalias !1792
+  br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h350d0037adbff9aaE.exit.i.i.i.i.i.i.i.i.i.i.i"
+
+39:                                               ; preds = %25
+  %40 = add i64 %31, 8
+  store i64 %40, ptr %8, align 8, !alias.scope !1793, !noalias !1806
   br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h350d0037adbff9aaE.exit.i.i.i.i.i.i.i.i.i.i.i"
 
 41:                                               ; preds = %25
   %42 = add i64 %31, 8
-  store i64 %42, ptr %8, align 8, !alias.scope !1793, !noalias !1806
+  store i64 %42, ptr %8, align 8, !alias.scope !1807, !noalias !1806
   br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h350d0037adbff9aaE.exit.i.i.i.i.i.i.i.i.i.i.i"
 
-43:                                               ; preds = %25
-  %44 = add i64 %31, 8
-  store i64 %44, ptr %8, align 8, !alias.scope !1807, !noalias !1806
-  br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h350d0037adbff9aaE.exit.i.i.i.i.i.i.i.i.i.i.i"
-
-"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h350d0037adbff9aaE.exit.i.i.i.i.i.i.i.i.i.i.i": ; preds = %43, %41, %38
-  %.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %40, %38 ], [ null, %41 ], [ null, %43 ]
-  %45 = icmp eq ptr %.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, null
-  br i1 %45, label %22, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hfebdd84cd261810eE.exit
+"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h350d0037adbff9aaE.exit.i.i.i.i.i.i.i.i.i.i.i": ; preds = %41, %39, %36
+  %.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %38, %36 ], [ null, %39 ], [ null, %41 ]
+  %43 = icmp eq ptr %.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, null
+  br i1 %43, label %22, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hfebdd84cd261810eE.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17hfebdd84cd261810eE.exit: ; preds = %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h948d5a19e54f5376E.exit.loopexit.i.i", %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h350d0037adbff9aaE.exit.i.i.i.i.i.i.i.i.i.i.i", %2
   %.1 = phi ptr [ null, %2 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h350d0037adbff9aaE.exit.i.i.i.i.i.i.i.i.i.i.i" ], [ null, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h948d5a19e54f5376E.exit.loopexit.i.i" ]
@@ -2716,39 +2710,37 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_map17he254
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2159)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2162)
   %21 = load i64, ptr %16, align 8, !range !1156, !alias.scope !2164, !noalias !2165, !noundef !11
-  %22 = add i64 %21, 9223372036854775807
-  %23 = icmp ult i64 %22, 2
-  %24 = xor i64 %21, -9223372036854775808
-  %25 = select i1 %23, i64 %24, i64 0
-  switch i64 %25, label %26 [
-    i64 0, label %27
-    i64 1, label %30
-    i64 2, label %32
+  %22 = tail call i64 @llvm.umax.i64(i64 %21, i64 -9223372036854775808)
+  %23 = and i64 %22, 9223372036854775807
+  switch i64 %23, label %24 [
+    i64 0, label %25
+    i64 1, label %28
+    i64 2, label %30
   ]
 
-26:                                               ; preds = %14
+24:                                               ; preds = %14
   unreachable
 
-27:                                               ; preds = %14
-  %28 = add i64 %20, 4
-  store i64 %28, ptr %8, align 8, !alias.scope !2166, !noalias !2171
-  %29 = tail call noundef align 8 ptr @"_ZN16wasmtime_environ9component4info1_106_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$wasmtime_environ..component..info..CoreExport$LT$T$GT$$GT$9serialize17h0ea8c23298feb1e2E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %16, ptr noalias noundef nonnull align 8 dereferenceable(16) %0), !noalias !2173
+25:                                               ; preds = %14
+  %26 = add i64 %20, 4
+  store i64 %26, ptr %8, align 8, !alias.scope !2166, !noalias !2171
+  %27 = tail call noundef align 8 ptr @"_ZN16wasmtime_environ9component4info1_106_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$wasmtime_environ..component..info..CoreExport$LT$T$GT$$GT$9serialize17h0ea8c23298feb1e2E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %16, ptr noalias noundef nonnull align 8 dereferenceable(16) %0), !noalias !2173
+  br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h350d0037adbff9aaE.exit.i.i"
+
+28:                                               ; preds = %14
+  %29 = add i64 %20, 8
+  store i64 %29, ptr %8, align 8, !alias.scope !2174, !noalias !2187
   br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h350d0037adbff9aaE.exit.i.i"
 
 30:                                               ; preds = %14
   %31 = add i64 %20, 8
-  store i64 %31, ptr %8, align 8, !alias.scope !2174, !noalias !2187
+  store i64 %31, ptr %8, align 8, !alias.scope !2188, !noalias !2187
   br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h350d0037adbff9aaE.exit.i.i"
 
-32:                                               ; preds = %14
-  %33 = add i64 %20, 8
-  store i64 %33, ptr %8, align 8, !alias.scope !2188, !noalias !2187
-  br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h350d0037adbff9aaE.exit.i.i"
-
-"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h350d0037adbff9aaE.exit.i.i": ; preds = %32, %30, %27
-  %.0.i.i.i.i.i.i.i.i = phi ptr [ %29, %27 ], [ null, %30 ], [ null, %32 ]
-  %34 = icmp eq ptr %.0.i.i.i.i.i.i.i.i, null
-  br i1 %34, label %11, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hb70883501a414394E.exit
+"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h350d0037adbff9aaE.exit.i.i": ; preds = %30, %28, %25
+  %.0.i.i.i.i.i.i.i.i = phi ptr [ %27, %25 ], [ null, %28 ], [ null, %30 ]
+  %32 = icmp eq ptr %.0.i.i.i.i.i.i.i.i, null
+  br i1 %32, label %11, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hb70883501a414394E.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17hb70883501a414394E.exit: ; preds = %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h350d0037adbff9aaE.exit.i.i", %11
   %.1 = phi ptr [ null, %11 ], [ %.0.i.i.i.i.i.i.i.i, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h350d0037adbff9aaE.exit.i.i" ]
@@ -3029,12 +3021,11 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h10d9
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2382)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2385)
   %13 = load i32, ptr %9, align 4, !range !2387, !alias.scope !2388, !noalias !2389, !noundef !11
-  %14 = add nsw i32 %13, -10
-  %15 = load i64, ptr %5, align 8, !alias.scope !2395, !noalias !2396, !noundef !11
-  %16 = add i64 %15, 4
-  store i64 %16, ptr %5, align 8, !alias.scope !2395, !noalias !2396
-  %switch.i.i.i.i.i.i.i = icmp ult i32 %14, 5
-  br i1 %switch.i.i.i.i.i.i.i, label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h459ad80dc7cb9711E.exit.i.i", label %17
+  %14 = load i64, ptr %5, align 8, !alias.scope !2395, !noalias !2396, !noundef !11
+  %15 = add i64 %14, 4
+  store i64 %15, ptr %5, align 8, !alias.scope !2395, !noalias !2396
+  %16 = icmp samesign ugt i32 %13, 9
+  br i1 %16, label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h459ad80dc7cb9711E.exit.i.i", label %17
 
 17:                                               ; preds = %11
   %18 = tail call noundef align 8 ptr @"_ZN14wasmtime_types1_79_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$wasmtime_types..WasmRefType$GT$9serialize17h043b47999654e357E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %9, ptr noalias noundef nonnull align 8 dereferenceable(16) %0), !noalias !2397
@@ -3453,12 +3444,11 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h2d9c
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2545)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2548)
   %13 = load i32, ptr %9, align 4, !range !2387, !alias.scope !2550, !noalias !2551, !noundef !11
-  %14 = add nsw i32 %13, -10
-  %15 = load i64, ptr %5, align 8, !alias.scope !2557, !noalias !2558, !noundef !11
-  %16 = add i64 %15, 4
-  store i64 %16, ptr %5, align 8, !alias.scope !2557, !noalias !2558
-  %switch.i.i.i.i.i.i.i = icmp ult i32 %14, 5
-  br i1 %switch.i.i.i.i.i.i.i, label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h08bdc061cf1c126fE.exit.i.i", label %17
+  %14 = load i64, ptr %5, align 8, !alias.scope !2557, !noalias !2558, !noundef !11
+  %15 = add i64 %14, 4
+  store i64 %15, ptr %5, align 8, !alias.scope !2557, !noalias !2558
+  %16 = icmp samesign ugt i32 %13, 9
+  br i1 %16, label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h08bdc061cf1c126fE.exit.i.i", label %17
 
 17:                                               ; preds = %11
   %18 = tail call noundef align 8 ptr @"_ZN14wasmtime_types1_79_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$wasmtime_types..WasmRefType$GT$9serialize17h5afd5b4bee0a29edE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %9, ptr noalias noundef nonnull align 8 dereferenceable(16) %0), !noalias !2559
@@ -5727,40 +5717,38 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h9506
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3830)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3833)
   %13 = load i64, ptr %9, align 8, !range !1156, !alias.scope !3835, !noalias !3836, !noundef !11
-  %14 = add i64 %13, 9223372036854775807
-  %15 = icmp ult i64 %14, 2
-  %16 = xor i64 %13, -9223372036854775808
-  %17 = select i1 %15, i64 %16, i64 0
-  %18 = load i64, ptr %5, align 8, !alias.scope !3842, !noalias !3843, !noundef !11
-  switch i64 %17, label %19 [
-    i64 0, label %20
-    i64 1, label %23
-    i64 2, label %25
+  %14 = tail call i64 @llvm.umax.i64(i64 %13, i64 -9223372036854775808)
+  %15 = and i64 %14, 9223372036854775807
+  %16 = load i64, ptr %5, align 8, !alias.scope !3842, !noalias !3843, !noundef !11
+  switch i64 %15, label %17 [
+    i64 0, label %18
+    i64 1, label %21
+    i64 2, label %23
   ]
 
-19:                                               ; preds = %11
+17:                                               ; preds = %11
   unreachable
 
-20:                                               ; preds = %11
-  %21 = add i64 %18, 4
-  store i64 %21, ptr %5, align 8, !alias.scope !3844, !noalias !3849
-  %22 = tail call noundef align 8 ptr @"_ZN16wasmtime_environ9component4info1_106_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$wasmtime_environ..component..info..CoreExport$LT$T$GT$$GT$9serialize17hfb3fde9c9d01d097E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %9, ptr noalias noundef nonnull align 8 dereferenceable(16) %0), !noalias !3851
+18:                                               ; preds = %11
+  %19 = add i64 %16, 4
+  store i64 %19, ptr %5, align 8, !alias.scope !3844, !noalias !3849
+  %20 = tail call noundef align 8 ptr @"_ZN16wasmtime_environ9component4info1_106_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$wasmtime_environ..component..info..CoreExport$LT$T$GT$$GT$9serialize17hfb3fde9c9d01d097E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %9, ptr noalias noundef nonnull align 8 dereferenceable(16) %0), !noalias !3851
+  br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h693559ed4405bba9E.exit.i.i"
+
+21:                                               ; preds = %11
+  %22 = add i64 %16, 8
+  store i64 %22, ptr %5, align 8, !alias.scope !3852, !noalias !3843
   br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h693559ed4405bba9E.exit.i.i"
 
 23:                                               ; preds = %11
-  %24 = add i64 %18, 8
-  store i64 %24, ptr %5, align 8, !alias.scope !3852, !noalias !3843
+  %24 = add i64 %16, 8
+  store i64 %24, ptr %5, align 8, !alias.scope !3865, !noalias !3843
   br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h693559ed4405bba9E.exit.i.i"
 
-25:                                               ; preds = %11
-  %26 = add i64 %18, 8
-  store i64 %26, ptr %5, align 8, !alias.scope !3865, !noalias !3843
-  br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h693559ed4405bba9E.exit.i.i"
-
-"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h693559ed4405bba9E.exit.i.i": ; preds = %25, %23, %20
-  %.0.i.i.i.i.i.i.i = phi ptr [ %22, %20 ], [ null, %23 ], [ null, %25 ]
-  %27 = icmp eq ptr %.0.i.i.i.i.i.i.i, null
-  br i1 %27, label %8, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h457b9e420c515afbE.exit
+"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h693559ed4405bba9E.exit.i.i": ; preds = %23, %21, %18
+  %.0.i.i.i.i.i.i.i = phi ptr [ %20, %18 ], [ null, %21 ], [ null, %23 ]
+  %25 = icmp eq ptr %.0.i.i.i.i.i.i.i, null
+  br i1 %25, label %8, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h457b9e420c515afbE.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17h457b9e420c515afbE.exit: ; preds = %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h693559ed4405bba9E.exit.i.i", %8
   %.1 = phi ptr [ null, %8 ], [ %.0.i.i.i.i.i.i.i, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h693559ed4405bba9E.exit.i.i" ]
@@ -6889,40 +6877,38 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17hcb5c
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4540)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4543)
   %13 = load i64, ptr %9, align 8, !range !1156, !alias.scope !4545, !noalias !4546, !noundef !11
-  %14 = add i64 %13, 9223372036854775807
-  %15 = icmp ult i64 %14, 2
-  %16 = xor i64 %13, -9223372036854775808
-  %17 = select i1 %15, i64 %16, i64 0
-  %18 = load i64, ptr %5, align 8, !alias.scope !4552, !noalias !4553, !noundef !11
-  switch i64 %17, label %19 [
-    i64 0, label %20
-    i64 1, label %23
-    i64 2, label %25
+  %14 = tail call i64 @llvm.umax.i64(i64 %13, i64 -9223372036854775808)
+  %15 = and i64 %14, 9223372036854775807
+  %16 = load i64, ptr %5, align 8, !alias.scope !4552, !noalias !4553, !noundef !11
+  switch i64 %15, label %17 [
+    i64 0, label %18
+    i64 1, label %21
+    i64 2, label %23
   ]
 
-19:                                               ; preds = %11
+17:                                               ; preds = %11
   unreachable
 
-20:                                               ; preds = %11
-  %21 = add i64 %18, 4
-  store i64 %21, ptr %5, align 8, !alias.scope !4554, !noalias !4559
-  %22 = tail call noundef align 8 ptr @"_ZN16wasmtime_environ9component4info1_106_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$wasmtime_environ..component..info..CoreExport$LT$T$GT$$GT$9serialize17h0ea8c23298feb1e2E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %9, ptr noalias noundef nonnull align 8 dereferenceable(16) %0), !noalias !4561
+18:                                               ; preds = %11
+  %19 = add i64 %16, 4
+  store i64 %19, ptr %5, align 8, !alias.scope !4554, !noalias !4559
+  %20 = tail call noundef align 8 ptr @"_ZN16wasmtime_environ9component4info1_106_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$wasmtime_environ..component..info..CoreExport$LT$T$GT$$GT$9serialize17h0ea8c23298feb1e2E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %9, ptr noalias noundef nonnull align 8 dereferenceable(16) %0), !noalias !4561
+  br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h465a65985783b32cE.exit.i.i"
+
+21:                                               ; preds = %11
+  %22 = add i64 %16, 8
+  store i64 %22, ptr %5, align 8, !alias.scope !4562, !noalias !4553
   br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h465a65985783b32cE.exit.i.i"
 
 23:                                               ; preds = %11
-  %24 = add i64 %18, 8
-  store i64 %24, ptr %5, align 8, !alias.scope !4562, !noalias !4553
+  %24 = add i64 %16, 8
+  store i64 %24, ptr %5, align 8, !alias.scope !4575, !noalias !4553
   br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h465a65985783b32cE.exit.i.i"
 
-25:                                               ; preds = %11
-  %26 = add i64 %18, 8
-  store i64 %26, ptr %5, align 8, !alias.scope !4575, !noalias !4553
-  br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h465a65985783b32cE.exit.i.i"
-
-"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h465a65985783b32cE.exit.i.i": ; preds = %25, %23, %20
-  %.0.i.i.i.i.i.i.i = phi ptr [ %22, %20 ], [ null, %23 ], [ null, %25 ]
-  %27 = icmp eq ptr %.0.i.i.i.i.i.i.i, null
-  br i1 %27, label %8, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hbc82e2757205052eE.exit
+"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h465a65985783b32cE.exit.i.i": ; preds = %23, %21, %18
+  %.0.i.i.i.i.i.i.i = phi ptr [ %20, %18 ], [ null, %21 ], [ null, %23 ]
+  %25 = icmp eq ptr %.0.i.i.i.i.i.i.i, null
+  br i1 %25, label %8, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hbc82e2757205052eE.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17hbc82e2757205052eE.exit: ; preds = %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h465a65985783b32cE.exit.i.i", %8
   %.1 = phi ptr [ null, %8 ], [ %.0.i.i.i.i.i.i.i, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h465a65985783b32cE.exit.i.i" ]
@@ -10499,37 +10485,35 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$bincode..ser..SizeChec
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6748)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6751)
   %5 = load i64, ptr %1, align 8, !range !1156, !alias.scope !6748, !noalias !6751, !noundef !11
-  %6 = add i64 %5, 9223372036854775807
-  %7 = icmp ult i64 %6, 2
-  %8 = xor i64 %5, -9223372036854775808
-  %9 = select i1 %7, i64 %8, i64 0
-  switch i64 %9, label %10 [
-    i64 0, label %11
-    i64 1, label %14
-    i64 2, label %16
+  %6 = tail call i64 @llvm.umax.i64(i64 %5, i64 -9223372036854775808)
+  %7 = and i64 %6, 9223372036854775807
+  switch i64 %7, label %8 [
+    i64 0, label %9
+    i64 1, label %12
+    i64 2, label %14
   ]
 
-10:                                               ; preds = %2
+8:                                                ; preds = %2
   unreachable
 
-11:                                               ; preds = %2
-  %12 = add i64 %4, 5
-  store i64 %12, ptr %3, align 8, !alias.scope !6753, !noalias !6758
-  %13 = tail call noundef align 8 ptr @"_ZN16wasmtime_environ9component4info1_106_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$wasmtime_environ..component..info..CoreExport$LT$T$GT$$GT$9serialize17h0ea8c23298feb1e2E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %0)
+9:                                                ; preds = %2
+  %10 = add i64 %4, 5
+  store i64 %10, ptr %3, align 8, !alias.scope !6753, !noalias !6758
+  %11 = tail call noundef align 8 ptr @"_ZN16wasmtime_environ9component4info1_106_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$wasmtime_environ..component..info..CoreExport$LT$T$GT$$GT$9serialize17h0ea8c23298feb1e2E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %0)
+  br label %"_ZN16wasmtime_environ9component4info1_94_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$wasmtime_environ..component..info..CoreDef$GT$9serialize17h3bd549175e1624f9E.exit"
+
+12:                                               ; preds = %2
+  %13 = add i64 %4, 9
+  store i64 %13, ptr %3, align 8, !alias.scope !6760, !noalias !6748
   br label %"_ZN16wasmtime_environ9component4info1_94_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$wasmtime_environ..component..info..CoreDef$GT$9serialize17h3bd549175e1624f9E.exit"
 
 14:                                               ; preds = %2
   %15 = add i64 %4, 9
-  store i64 %15, ptr %3, align 8, !alias.scope !6760, !noalias !6748
+  store i64 %15, ptr %3, align 8, !alias.scope !6773, !noalias !6748
   br label %"_ZN16wasmtime_environ9component4info1_94_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$wasmtime_environ..component..info..CoreDef$GT$9serialize17h3bd549175e1624f9E.exit"
 
-16:                                               ; preds = %2
-  %17 = add i64 %4, 9
-  store i64 %17, ptr %3, align 8, !alias.scope !6773, !noalias !6748
-  br label %"_ZN16wasmtime_environ9component4info1_94_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$wasmtime_environ..component..info..CoreDef$GT$9serialize17h3bd549175e1624f9E.exit"
-
-"_ZN16wasmtime_environ9component4info1_94_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$wasmtime_environ..component..info..CoreDef$GT$9serialize17h3bd549175e1624f9E.exit": ; preds = %11, %14, %16
-  %.0.i = phi ptr [ %13, %11 ], [ null, %14 ], [ null, %16 ]
+"_ZN16wasmtime_environ9component4info1_94_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$wasmtime_environ..component..info..CoreDef$GT$9serialize17h3bd549175e1624f9E.exit": ; preds = %9, %12, %14
+  %.0.i = phi ptr [ %11, %9 ], [ null, %12 ], [ null, %14 ]
   ret ptr %.0.i
 }
 
@@ -10540,37 +10524,35 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$bincode..ser..SizeChec
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6789)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6792)
   %5 = load i64, ptr %1, align 8, !range !1156, !alias.scope !6789, !noalias !6792, !noundef !11
-  %6 = add i64 %5, 9223372036854775807
-  %7 = icmp ult i64 %6, 2
-  %8 = xor i64 %5, -9223372036854775808
-  %9 = select i1 %7, i64 %8, i64 0
-  switch i64 %9, label %10 [
-    i64 0, label %11
-    i64 1, label %14
-    i64 2, label %16
+  %6 = tail call i64 @llvm.umax.i64(i64 %5, i64 -9223372036854775808)
+  %7 = and i64 %6, 9223372036854775807
+  switch i64 %7, label %8 [
+    i64 0, label %9
+    i64 1, label %12
+    i64 2, label %14
   ]
 
-10:                                               ; preds = %2
+8:                                                ; preds = %2
   unreachable
 
-11:                                               ; preds = %2
-  %12 = add i64 %4, 5
-  store i64 %12, ptr %3, align 8, !alias.scope !6794, !noalias !6799
-  %13 = tail call noundef align 8 ptr @"_ZN16wasmtime_environ9component4info1_106_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$wasmtime_environ..component..info..CoreExport$LT$T$GT$$GT$9serialize17hfb3fde9c9d01d097E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %0)
+9:                                                ; preds = %2
+  %10 = add i64 %4, 5
+  store i64 %10, ptr %3, align 8, !alias.scope !6794, !noalias !6799
+  %11 = tail call noundef align 8 ptr @"_ZN16wasmtime_environ9component4info1_106_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$wasmtime_environ..component..info..CoreExport$LT$T$GT$$GT$9serialize17hfb3fde9c9d01d097E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, ptr noalias noundef nonnull align 8 dereferenceable(16) %0)
+  br label %"_ZN16wasmtime_environ9component4info1_94_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$wasmtime_environ..component..info..CoreDef$GT$9serialize17h7456cb49a0115191E.exit"
+
+12:                                               ; preds = %2
+  %13 = add i64 %4, 9
+  store i64 %13, ptr %3, align 8, !alias.scope !6801, !noalias !6789
   br label %"_ZN16wasmtime_environ9component4info1_94_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$wasmtime_environ..component..info..CoreDef$GT$9serialize17h7456cb49a0115191E.exit"
 
 14:                                               ; preds = %2
   %15 = add i64 %4, 9
-  store i64 %15, ptr %3, align 8, !alias.scope !6801, !noalias !6789
+  store i64 %15, ptr %3, align 8, !alias.scope !6814, !noalias !6789
   br label %"_ZN16wasmtime_environ9component4info1_94_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$wasmtime_environ..component..info..CoreDef$GT$9serialize17h7456cb49a0115191E.exit"
 
-16:                                               ; preds = %2
-  %17 = add i64 %4, 9
-  store i64 %17, ptr %3, align 8, !alias.scope !6814, !noalias !6789
-  br label %"_ZN16wasmtime_environ9component4info1_94_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$wasmtime_environ..component..info..CoreDef$GT$9serialize17h7456cb49a0115191E.exit"
-
-"_ZN16wasmtime_environ9component4info1_94_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$wasmtime_environ..component..info..CoreDef$GT$9serialize17h7456cb49a0115191E.exit": ; preds = %11, %14, %16
-  %.0.i = phi ptr [ %13, %11 ], [ null, %14 ], [ null, %16 ]
+"_ZN16wasmtime_environ9component4info1_94_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$wasmtime_environ..component..info..CoreDef$GT$9serialize17h7456cb49a0115191E.exit": ; preds = %9, %12, %14
+  %.0.i = phi ptr [ %11, %9 ], [ null, %12 ], [ null, %14 ]
   ret ptr %.0.i
 }
 
@@ -17478,6 +17460,9 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #33
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #31
 
 attributes #0 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

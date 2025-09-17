@@ -61215,9 +61215,8 @@ define internal fastcc void @"_ZN4core3ptr66drop_in_place$LT$polars_plan..dsl..f
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4597)
   %17 = load i64, ptr %16, align 8, !range !4600, !alias.scope !4597, !noundef !4
-  %18 = add nsw i64 %17, -3
-  %switch.i5 = icmp ult i64 %18, 30
-  br i1 %switch.i5, label %"_ZN4core3ptr76drop_in_place$LT$polars_plan..dsl..function_expr..binary..BinaryFunction$GT$17he97d07db9d0bc879E.exit", label %19
+  %18 = icmp samesign ugt i64 %17, 2
+  br i1 %18, label %"_ZN4core3ptr76drop_in_place$LT$polars_plan..dsl..function_expr..binary..BinaryFunction$GT$17he97d07db9d0bc879E.exit", label %19
 
 19:                                               ; preds = %15
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4601)
@@ -67228,71 +67227,70 @@ define internal noundef zeroext i1 @"_ZN80_$LT$polars_parquet_format..parquet_fo
 define internal fastcc noundef zeroext i1 @"_ZN81_$LT$polars_compute..rolling..RollingFnParams$u20$as$u20$core..cmp..PartialEq$GT$2eq17h630c3fb9a18506ccE"(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i8, ptr %3, align 8, !range !4589, !noundef !4
-  %5 = add nsw i8 %4, -6
-  %6 = icmp ult i8 %5, 3
-  %7 = zext nneg i8 %4 to i64
-  %8 = add nsw i64 %7, -5
-  %9 = select i1 %6, i64 %8, i64 0
-  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %11 = load i8, ptr %10, align 8, !range !4589, !noundef !4
-  %12 = icmp samesign ult i8 %11, 6
-  %13 = zext nneg i8 %11 to i64
-  %14 = add nsw i64 %13, -5
-  %15 = select i1 %12, i64 0, i64 %14
-  %16 = icmp eq i64 %9, %15
-  br i1 %16, label %17, label %18
+  %5 = icmp samesign ugt i8 %4, 5
+  %6 = zext nneg i8 %4 to i64
+  %7 = add nsw i64 %6, -5
+  %8 = select i1 %5, i64 %7, i64 0
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %10 = load i8, ptr %9, align 8, !range !4589, !noundef !4
+  %11 = icmp samesign ult i8 %10, 6
+  %12 = zext nneg i8 %10 to i64
+  %13 = add nsw i64 %12, -5
+  %14 = select i1 %11, i64 0, i64 %13
+  %15 = icmp eq i64 %8, %14
+  br i1 %15, label %16, label %17
 
-17:                                               ; preds = %2
-  switch i64 %9, label %19 [
-    i64 0, label %20
-    i64 1, label %24
-    i64 2, label %28
-    i64 3, label %32
+16:                                               ; preds = %2
+  switch i64 %8, label %18 [
+    i64 0, label %19
+    i64 1, label %23
+    i64 2, label %27
+    i64 3, label %31
   ]
 
-18:                                               ; preds = %32, %20, %2, %38, %36, %28, %24
-  %.sroa.0.0.shrunk = phi i1 [ %37, %36 ], [ %27, %24 ], [ %31, %28 ], [ %43, %38 ], [ false, %2 ], [ false, %20 ], [ false, %32 ]
+17:                                               ; preds = %31, %19, %2, %37, %35, %27, %23
+  %.sroa.0.0.shrunk = phi i1 [ %36, %35 ], [ %26, %23 ], [ %30, %27 ], [ %42, %37 ], [ false, %2 ], [ false, %19 ], [ false, %31 ]
   ret i1 %.sroa.0.0.shrunk
 
-19:                                               ; preds = %17
+18:                                               ; preds = %16
   unreachable
 
-20:                                               ; preds = %17
-  tail call void @llvm.assume(i1 %12)
-  %21 = load double, ptr %0, align 8, !noundef !4
-  %22 = load double, ptr %1, align 8, !noundef !4
-  %23 = fcmp oeq double %21, %22
-  br i1 %23, label %36, label %18
+19:                                               ; preds = %16
+  tail call void @llvm.assume(i1 %11)
+  %20 = load double, ptr %0, align 8, !noundef !4
+  %21 = load double, ptr %1, align 8, !noundef !4
+  %22 = fcmp oeq double %20, %21
+  br i1 %22, label %35, label %17
 
-24:                                               ; preds = %17
-  %25 = load i8, ptr %0, align 8, !noundef !4
-  %26 = load i8, ptr %1, align 8, !noundef !4
-  %27 = icmp eq i8 %25, %26
-  br label %18
+23:                                               ; preds = %16
+  %24 = load i8, ptr %0, align 8, !noundef !4
+  %25 = load i8, ptr %1, align 8, !noundef !4
+  %26 = icmp eq i8 %24, %25
+  br label %17
 
-28:                                               ; preds = %17
-  %29 = load i8, ptr %0, align 8, !range !3, !noundef !4
-  %30 = load i8, ptr %1, align 8, !range !3, !noundef !4
-  %31 = icmp eq i8 %29, %30
-  br label %18
+27:                                               ; preds = %16
+  %28 = load i8, ptr %0, align 8, !range !3, !noundef !4
+  %29 = load i8, ptr %1, align 8, !range !3, !noundef !4
+  %30 = icmp eq i8 %28, %29
+  br label %17
 
-32:                                               ; preds = %17
-  %33 = load i8, ptr %0, align 8, !range !3, !noundef !4
-  %34 = load i8, ptr %1, align 8, !range !3, !noundef !4
-  %35 = icmp eq i8 %33, %34
-  br i1 %35, label %38, label %18
+31:                                               ; preds = %16
+  %32 = load i8, ptr %0, align 8, !range !3, !noundef !4
+  %33 = load i8, ptr %1, align 8, !range !3, !noundef !4
+  %34 = icmp eq i8 %32, %33
+  br i1 %34, label %37, label %17
 
-36:                                               ; preds = %20
-  %37 = icmp eq i8 %4, %11
-  br label %18
+35:                                               ; preds = %19
+  %36 = icmp eq i8 %4, %10
+  br label %17
 
-38:                                               ; preds = %32
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %40 = load i8, ptr %39, align 1, !range !3, !noundef !4
-  %41 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %42 = load i8, ptr %41, align 1, !range !3, !noundef !4
-  %43 = icmp eq i8 %40, %42
-  br label %18
+37:                                               ; preds = %31
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %39 = load i8, ptr %38, align 1, !range !3, !noundef !4
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %41 = load i8, ptr %40, align 1, !range !3, !noundef !4
+  %42 = icmp eq i8 %39, %41
+  br label %17
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -74807,7 +74805,7 @@ define hidden void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h028c8dd
   %39 = icmp ne ptr %.val.i, null
   tail call void @llvm.assume(i1 %39)
   invoke void %37(ptr noundef nonnull %.val.i)
-          to label %40 unwind label %49, !noalias !6392
+          to label %40 unwind label %48, !noalias !6392
 
 40:                                               ; preds = %38, %"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17h1f5f2c485d2334e5E.exit.i"
   %41 = icmp ne ptr %.val.i, null
@@ -74816,63 +74814,61 @@ define hidden void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h028c8dd
   %43 = load i64, ptr %42, align 8, !range !34, !invariant.load !4, !noalias !6392
   %44 = getelementptr inbounds nuw i8, ptr %.val6.i, i64 16
   %45 = load i64, ptr %44, align 8, !range !5169, !invariant.load !4, !noalias !6392
-  %46 = add i64 %45, -1
-  %47 = icmp sgt i64 %46, -1
-  tail call void @llvm.assume(i1 %47)
-  %48 = icmp eq i64 %43, 0
-  br i1 %48, label %"_ZN4core3ptr154drop_in_place$LT$$LP$core..any..TypeId$C$alloc..boxed..Box$LT$dyn$u20$http..extensions..AnyClone$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$RP$$GT$17hc6f5a3a5f00e6211E.exit.i", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2c4b2651a9251490E.exit.i.i.i.i"
+  %46 = icmp ult i64 %45, -9223372036854775807
+  tail call void @llvm.assume(i1 %46)
+  %47 = icmp eq i64 %43, 0
+  br i1 %47, label %"_ZN4core3ptr154drop_in_place$LT$$LP$core..any..TypeId$C$alloc..boxed..Box$LT$dyn$u20$http..extensions..AnyClone$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$RP$$GT$17hc6f5a3a5f00e6211E.exit.i", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2c4b2651a9251490E.exit.i.i.i.i"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2c4b2651a9251490E.exit.i.i.i.i": ; preds = %40
   tail call void @_RNvCsjH7bwORMyv9_7___rustc14___rust_dealloc(ptr noundef nonnull %.val.i, i64 noundef %43, i64 noundef range(i64 1, -9223372036854775807) %45) #35, !noalias !6392
   br label %"_ZN4core3ptr154drop_in_place$LT$$LP$core..any..TypeId$C$alloc..boxed..Box$LT$dyn$u20$http..extensions..AnyClone$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$RP$$GT$17hc6f5a3a5f00e6211E.exit.i"
 
-49:                                               ; preds = %38
-  %50 = landingpad { ptr, i32 }
+48:                                               ; preds = %38
+  %49 = landingpad { ptr, i32 }
           cleanup
-  %51 = getelementptr inbounds nuw i8, ptr %.val6.i, i64 8
-  %52 = load i64, ptr %51, align 8, !range !34, !invariant.load !4, !noalias !6392
-  %53 = getelementptr inbounds nuw i8, ptr %.val6.i, i64 16
-  %54 = load i64, ptr %53, align 8, !range !5169, !invariant.load !4, !noalias !6392
-  %55 = add i64 %54, -1
-  %56 = icmp sgt i64 %55, -1
-  tail call void @llvm.assume(i1 %56)
-  %57 = icmp eq i64 %52, 0
-  br i1 %57, label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h67bdcb1093a39461E.exit5.i.i.i", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2c4b2651a9251490E.exit.i4.i.i.i"
+  %50 = getelementptr inbounds nuw i8, ptr %.val6.i, i64 8
+  %51 = load i64, ptr %50, align 8, !range !34, !invariant.load !4, !noalias !6392
+  %52 = getelementptr inbounds nuw i8, ptr %.val6.i, i64 16
+  %53 = load i64, ptr %52, align 8, !range !5169, !invariant.load !4, !noalias !6392
+  %54 = icmp ult i64 %53, -9223372036854775807
+  tail call void @llvm.assume(i1 %54)
+  %55 = icmp eq i64 %51, 0
+  br i1 %55, label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h67bdcb1093a39461E.exit5.i.i.i", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2c4b2651a9251490E.exit.i4.i.i.i"
 
-"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2c4b2651a9251490E.exit.i4.i.i.i": ; preds = %49
-  tail call void @_RNvCsjH7bwORMyv9_7___rustc14___rust_dealloc(ptr noundef nonnull %.val.i, i64 noundef %52, i64 noundef range(i64 1, -9223372036854775807) %54) #35, !noalias !6392
+"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2c4b2651a9251490E.exit.i4.i.i.i": ; preds = %48
+  tail call void @_RNvCsjH7bwORMyv9_7___rustc14___rust_dealloc(ptr noundef nonnull %.val.i, i64 noundef %51, i64 noundef range(i64 1, -9223372036854775807) %53) #35, !noalias !6392
   br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h67bdcb1093a39461E.exit5.i.i.i"
 
-"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h67bdcb1093a39461E.exit5.i.i.i": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2c4b2651a9251490E.exit.i4.i.i.i", %49
-  resume { ptr, i32 } %50
+"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h67bdcb1093a39461E.exit5.i.i.i": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2c4b2651a9251490E.exit.i4.i.i.i", %48
+  resume { ptr, i32 } %49
 
 "_ZN4core3ptr154drop_in_place$LT$$LP$core..any..TypeId$C$alloc..boxed..Box$LT$dyn$u20$http..extensions..AnyClone$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$RP$$GT$17hc6f5a3a5f00e6211E.exit.i": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2c4b2651a9251490E.exit.i.i.i.i", %40
-  %58 = icmp eq i64 %34, 0
-  br i1 %58, label %_ZN9hashbrown3raw13RawTableInner13drop_elements17h87e836d0bd5821f8E.exit, label %19
+  %56 = icmp eq i64 %34, 0
+  br i1 %56, label %_ZN9hashbrown3raw13RawTableInner13drop_elements17h87e836d0bd5821f8E.exit, label %19
 
 _ZN9hashbrown3raw13RawTableInner13drop_elements17h87e836d0bd5821f8E.exit: ; preds = %"_ZN4core3ptr154drop_in_place$LT$$LP$core..any..TypeId$C$alloc..boxed..Box$LT$dyn$u20$http..extensions..AnyClone$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$RP$$GT$17hc6f5a3a5f00e6211E.exit.i", %8
-  %59 = add i64 %6, 1
-  %60 = mul nuw i64 %59, %2
-  %61 = add i64 %3, -1
-  %62 = add nuw i64 %60, %61
-  %63 = sub i64 0, %3
-  %64 = and i64 %62, %63
-  %65 = add i64 %6, 17
-  %66 = add nuw i64 %65, %64
-  %67 = sub nuw i64 -9223372036854775808, %3
-  %68 = icmp ule i64 %66, %67
-  tail call void @llvm.assume(i1 %68)
-  %69 = icmp eq i64 %66, 0
-  br i1 %69, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2c4b2651a9251490E.exit", label %70
+  %57 = add i64 %6, 1
+  %58 = mul nuw i64 %57, %2
+  %59 = add i64 %3, -1
+  %60 = add nuw i64 %58, %59
+  %61 = sub i64 0, %3
+  %62 = and i64 %60, %61
+  %63 = add i64 %6, 17
+  %64 = add nuw i64 %63, %62
+  %65 = sub nuw i64 -9223372036854775808, %3
+  %66 = icmp ule i64 %64, %65
+  tail call void @llvm.assume(i1 %66)
+  %67 = icmp eq i64 %64, 0
+  br i1 %67, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2c4b2651a9251490E.exit", label %68
 
-70:                                               ; preds = %_ZN9hashbrown3raw13RawTableInner13drop_elements17h87e836d0bd5821f8E.exit
-  %71 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
-  %72 = sub nsw i64 0, %64
-  %73 = getelementptr inbounds i8, ptr %71, i64 %72
-  tail call void @_RNvCsjH7bwORMyv9_7___rustc14___rust_dealloc(ptr noundef nonnull %73, i64 noundef %66, i64 noundef range(i64 1, -9223372036854775807) %3) #35
+68:                                               ; preds = %_ZN9hashbrown3raw13RawTableInner13drop_elements17h87e836d0bd5821f8E.exit
+  %69 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
+  %70 = sub nsw i64 0, %62
+  %71 = getelementptr inbounds i8, ptr %69, i64 %70
+  tail call void @_RNvCsjH7bwORMyv9_7___rustc14___rust_dealloc(ptr noundef nonnull %71, i64 noundef %64, i64 noundef range(i64 1, -9223372036854775807) %3) #35
   br label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2c4b2651a9251490E.exit"
 
-"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2c4b2651a9251490E.exit": ; preds = %70, %_ZN9hashbrown3raw13RawTableInner13drop_elements17h87e836d0bd5821f8E.exit, %4
+"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2c4b2651a9251490E.exit": ; preds = %68, %_ZN9hashbrown3raw13RawTableInner13drop_elements17h87e836d0bd5821f8E.exit, %4
   ret void
 }
 
@@ -162608,16 +162604,16 @@ define internal fastcc noundef zeroext i1 @"_ZN103_$LT$polars_plan..dsl..functio
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 32
   switch i64 %3, label %default.unreachable59 [
     i64 0, label %11
-    i64 1, label %99
-    i64 2, label %187
-    i64 3, label %275
-    i64 4, label %363
-    i64 5, label %451
-    i64 6, label %539
+    i64 1, label %98
+    i64 2, label %185
+    i64 3, label %272
+    i64 4, label %359
+    i64 5, label %446
+    i64 6, label %533
   ]
 
-"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit": ; preds = %621, %619, %615, %611, %607, %603, %590, %584, %578, %572, %"_ZN81_$LT$polars_time..windows..duration..Duration$u20$as$u20$core..cmp..PartialEq$GT$2eq17h766e7bc9ac75ffa1E.exit.i33", %561, %555, %549, %543, %539, %533, %531, %527, %523, %519, %515, %502, %496, %490, %484, %"_ZN81_$LT$polars_time..windows..duration..Duration$u20$as$u20$core..cmp..PartialEq$GT$2eq17h766e7bc9ac75ffa1E.exit.i27", %473, %467, %461, %455, %451, %445, %443, %439, %435, %431, %427, %414, %408, %402, %396, %"_ZN81_$LT$polars_time..windows..duration..Duration$u20$as$u20$core..cmp..PartialEq$GT$2eq17h766e7bc9ac75ffa1E.exit.i21", %385, %379, %373, %367, %363, %357, %355, %351, %347, %343, %339, %326, %320, %314, %308, %"_ZN81_$LT$polars_time..windows..duration..Duration$u20$as$u20$core..cmp..PartialEq$GT$2eq17h766e7bc9ac75ffa1E.exit.i15", %297, %291, %285, %279, %275, %269, %267, %263, %259, %255, %251, %238, %232, %226, %220, %"_ZN81_$LT$polars_time..windows..duration..Duration$u20$as$u20$core..cmp..PartialEq$GT$2eq17h766e7bc9ac75ffa1E.exit.i9", %209, %203, %197, %191, %187, %181, %179, %175, %171, %167, %163, %150, %144, %138, %132, %"_ZN81_$LT$polars_time..windows..duration..Duration$u20$as$u20$core..cmp..PartialEq$GT$2eq17h766e7bc9ac75ffa1E.exit.i3", %121, %115, %109, %103, %99, %93, %91, %87, %83, %79, %75, %62, %56, %50, %44, %"_ZN81_$LT$polars_time..windows..duration..Duration$u20$as$u20$core..cmp..PartialEq$GT$2eq17h766e7bc9ac75ffa1E.exit.i", %33, %27, %21, %15, %11, %2
-  %.sroa.0.0.shrunk = phi i1 [ false, %2 ], [ false, %44 ], [ false, %"_ZN81_$LT$polars_time..windows..duration..Duration$u20$as$u20$core..cmp..PartialEq$GT$2eq17h766e7bc9ac75ffa1E.exit.i" ], [ false, %50 ], [ %92, %91 ], [ %82, %79 ], [ %86, %83 ], [ %98, %93 ], [ false, %62 ], [ false, %75 ], [ false, %87 ], [ false, %33 ], [ false, %27 ], [ false, %21 ], [ false, %15 ], [ false, %11 ], [ %.mux.i, %56 ], [ false, %132 ], [ false, %"_ZN81_$LT$polars_time..windows..duration..Duration$u20$as$u20$core..cmp..PartialEq$GT$2eq17h766e7bc9ac75ffa1E.exit.i3" ], [ false, %138 ], [ %180, %179 ], [ %170, %167 ], [ %174, %171 ], [ %186, %181 ], [ false, %150 ], [ false, %163 ], [ false, %175 ], [ false, %121 ], [ false, %115 ], [ false, %109 ], [ false, %103 ], [ false, %99 ], [ %.mux.i6, %144 ], [ false, %220 ], [ false, %"_ZN81_$LT$polars_time..windows..duration..Duration$u20$as$u20$core..cmp..PartialEq$GT$2eq17h766e7bc9ac75ffa1E.exit.i9" ], [ false, %226 ], [ %268, %267 ], [ %258, %255 ], [ %262, %259 ], [ %274, %269 ], [ false, %238 ], [ false, %251 ], [ false, %263 ], [ false, %209 ], [ false, %203 ], [ false, %197 ], [ false, %191 ], [ false, %187 ], [ %.mux.i12, %232 ], [ false, %308 ], [ false, %"_ZN81_$LT$polars_time..windows..duration..Duration$u20$as$u20$core..cmp..PartialEq$GT$2eq17h766e7bc9ac75ffa1E.exit.i15" ], [ false, %314 ], [ %356, %355 ], [ %346, %343 ], [ %350, %347 ], [ %362, %357 ], [ false, %326 ], [ false, %339 ], [ false, %351 ], [ false, %297 ], [ false, %291 ], [ false, %285 ], [ false, %279 ], [ false, %275 ], [ %.mux.i18, %320 ], [ false, %396 ], [ false, %"_ZN81_$LT$polars_time..windows..duration..Duration$u20$as$u20$core..cmp..PartialEq$GT$2eq17h766e7bc9ac75ffa1E.exit.i21" ], [ false, %402 ], [ %444, %443 ], [ %434, %431 ], [ %438, %435 ], [ %450, %445 ], [ false, %414 ], [ false, %427 ], [ false, %439 ], [ false, %385 ], [ false, %379 ], [ false, %373 ], [ false, %367 ], [ false, %363 ], [ %.mux.i24, %408 ], [ false, %484 ], [ false, %"_ZN81_$LT$polars_time..windows..duration..Duration$u20$as$u20$core..cmp..PartialEq$GT$2eq17h766e7bc9ac75ffa1E.exit.i27" ], [ false, %490 ], [ %532, %531 ], [ %522, %519 ], [ %526, %523 ], [ %538, %533 ], [ false, %502 ], [ false, %515 ], [ false, %527 ], [ false, %473 ], [ false, %467 ], [ false, %461 ], [ false, %455 ], [ false, %451 ], [ %.mux.i30, %496 ], [ false, %572 ], [ false, %"_ZN81_$LT$polars_time..windows..duration..Duration$u20$as$u20$core..cmp..PartialEq$GT$2eq17h766e7bc9ac75ffa1E.exit.i33" ], [ false, %578 ], [ %620, %619 ], [ %610, %607 ], [ %614, %611 ], [ %626, %621 ], [ false, %590 ], [ false, %603 ], [ false, %615 ], [ false, %561 ], [ false, %555 ], [ false, %549 ], [ false, %543 ], [ false, %539 ], [ %.mux.i36, %584 ]
+"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit": ; preds = %614, %612, %608, %604, %600, %596, %584, %578, %572, %566, %"_ZN81_$LT$polars_time..windows..duration..Duration$u20$as$u20$core..cmp..PartialEq$GT$2eq17h766e7bc9ac75ffa1E.exit.i33", %555, %549, %543, %537, %533, %527, %525, %521, %517, %513, %509, %497, %491, %485, %479, %"_ZN81_$LT$polars_time..windows..duration..Duration$u20$as$u20$core..cmp..PartialEq$GT$2eq17h766e7bc9ac75ffa1E.exit.i27", %468, %462, %456, %450, %446, %440, %438, %434, %430, %426, %422, %410, %404, %398, %392, %"_ZN81_$LT$polars_time..windows..duration..Duration$u20$as$u20$core..cmp..PartialEq$GT$2eq17h766e7bc9ac75ffa1E.exit.i21", %381, %375, %369, %363, %359, %353, %351, %347, %343, %339, %335, %323, %317, %311, %305, %"_ZN81_$LT$polars_time..windows..duration..Duration$u20$as$u20$core..cmp..PartialEq$GT$2eq17h766e7bc9ac75ffa1E.exit.i15", %294, %288, %282, %276, %272, %266, %264, %260, %256, %252, %248, %236, %230, %224, %218, %"_ZN81_$LT$polars_time..windows..duration..Duration$u20$as$u20$core..cmp..PartialEq$GT$2eq17h766e7bc9ac75ffa1E.exit.i9", %207, %201, %195, %189, %185, %179, %177, %173, %169, %165, %161, %149, %143, %137, %131, %"_ZN81_$LT$polars_time..windows..duration..Duration$u20$as$u20$core..cmp..PartialEq$GT$2eq17h766e7bc9ac75ffa1E.exit.i3", %120, %114, %108, %102, %98, %92, %90, %86, %82, %78, %74, %62, %56, %50, %44, %"_ZN81_$LT$polars_time..windows..duration..Duration$u20$as$u20$core..cmp..PartialEq$GT$2eq17h766e7bc9ac75ffa1E.exit.i", %33, %27, %21, %15, %11, %2
+  %.sroa.0.0.shrunk = phi i1 [ false, %2 ], [ false, %44 ], [ false, %"_ZN81_$LT$polars_time..windows..duration..Duration$u20$as$u20$core..cmp..PartialEq$GT$2eq17h766e7bc9ac75ffa1E.exit.i" ], [ false, %50 ], [ %91, %90 ], [ %81, %78 ], [ %85, %82 ], [ %97, %92 ], [ false, %62 ], [ false, %74 ], [ false, %86 ], [ false, %33 ], [ false, %27 ], [ false, %21 ], [ false, %15 ], [ false, %11 ], [ %.mux.i, %56 ], [ false, %131 ], [ false, %"_ZN81_$LT$polars_time..windows..duration..Duration$u20$as$u20$core..cmp..PartialEq$GT$2eq17h766e7bc9ac75ffa1E.exit.i3" ], [ false, %137 ], [ %178, %177 ], [ %168, %165 ], [ %172, %169 ], [ %184, %179 ], [ false, %149 ], [ false, %161 ], [ false, %173 ], [ false, %120 ], [ false, %114 ], [ false, %108 ], [ false, %102 ], [ false, %98 ], [ %.mux.i6, %143 ], [ false, %218 ], [ false, %"_ZN81_$LT$polars_time..windows..duration..Duration$u20$as$u20$core..cmp..PartialEq$GT$2eq17h766e7bc9ac75ffa1E.exit.i9" ], [ false, %224 ], [ %265, %264 ], [ %255, %252 ], [ %259, %256 ], [ %271, %266 ], [ false, %236 ], [ false, %248 ], [ false, %260 ], [ false, %207 ], [ false, %201 ], [ false, %195 ], [ false, %189 ], [ false, %185 ], [ %.mux.i12, %230 ], [ false, %305 ], [ false, %"_ZN81_$LT$polars_time..windows..duration..Duration$u20$as$u20$core..cmp..PartialEq$GT$2eq17h766e7bc9ac75ffa1E.exit.i15" ], [ false, %311 ], [ %352, %351 ], [ %342, %339 ], [ %346, %343 ], [ %358, %353 ], [ false, %323 ], [ false, %335 ], [ false, %347 ], [ false, %294 ], [ false, %288 ], [ false, %282 ], [ false, %276 ], [ false, %272 ], [ %.mux.i18, %317 ], [ false, %392 ], [ false, %"_ZN81_$LT$polars_time..windows..duration..Duration$u20$as$u20$core..cmp..PartialEq$GT$2eq17h766e7bc9ac75ffa1E.exit.i21" ], [ false, %398 ], [ %439, %438 ], [ %429, %426 ], [ %433, %430 ], [ %445, %440 ], [ false, %410 ], [ false, %422 ], [ false, %434 ], [ false, %381 ], [ false, %375 ], [ false, %369 ], [ false, %363 ], [ false, %359 ], [ %.mux.i24, %404 ], [ false, %479 ], [ false, %"_ZN81_$LT$polars_time..windows..duration..Duration$u20$as$u20$core..cmp..PartialEq$GT$2eq17h766e7bc9ac75ffa1E.exit.i27" ], [ false, %485 ], [ %526, %525 ], [ %516, %513 ], [ %520, %517 ], [ %532, %527 ], [ false, %497 ], [ false, %509 ], [ false, %521 ], [ false, %468 ], [ false, %462 ], [ false, %456 ], [ false, %450 ], [ false, %446 ], [ %.mux.i30, %491 ], [ false, %566 ], [ false, %"_ZN81_$LT$polars_time..windows..duration..Duration$u20$as$u20$core..cmp..PartialEq$GT$2eq17h766e7bc9ac75ffa1E.exit.i33" ], [ false, %572 ], [ %613, %612 ], [ %603, %600 ], [ %607, %604 ], [ %619, %614 ], [ false, %584 ], [ false, %596 ], [ false, %608 ], [ false, %555 ], [ false, %549 ], [ false, %543 ], [ false, %537 ], [ false, %533 ], [ %.mux.i36, %578 ]
   ret i1 %.sroa.0.0.shrunk
 
 default.unreachable59:                            ; preds = %6
@@ -162703,904 +162699,897 @@ default.unreachable59:                            ; preds = %6
 62:                                               ; preds = %56
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15767)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15770)
-  %63 = add nsw i8 %58, -6
-  %64 = icmp ult i8 %63, 3
-  %65 = zext nneg i8 %58 to i64
-  %66 = add nsw i64 %65, -5
-  %67 = select i1 %64, i64 %66, i64 0
-  %68 = icmp samesign ult i8 %60, 6
-  %69 = zext nneg i8 %60 to i64
-  %70 = add nsw i64 %69, -5
-  %71 = select i1 %68, i64 0, i64 %70
-  %72 = icmp eq i64 %67, %71
-  br i1 %72, label %73, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
+  %63 = icmp samesign ugt i8 %58, 5
+  %64 = zext nneg i8 %58 to i64
+  %65 = add nsw i64 %64, -5
+  %66 = select i1 %63, i64 %65, i64 0
+  %67 = icmp samesign ult i8 %60, 6
+  %68 = zext nneg i8 %60 to i64
+  %69 = add nsw i64 %68, -5
+  %70 = select i1 %67, i64 0, i64 %69
+  %71 = icmp eq i64 %66, %70
+  br i1 %71, label %72, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
 
-73:                                               ; preds = %62
-  switch i64 %67, label %74 [
-    i64 0, label %75
-    i64 1, label %79
-    i64 2, label %83
-    i64 3, label %87
+72:                                               ; preds = %62
+  switch i64 %66, label %73 [
+    i64 0, label %74
+    i64 1, label %78
+    i64 2, label %82
+    i64 3, label %86
   ]
 
-74:                                               ; preds = %73
+73:                                               ; preds = %72
   unreachable
 
-75:                                               ; preds = %73
-  tail call void @llvm.assume(i1 %68)
-  %76 = load double, ptr %7, align 8, !alias.scope !15772, !noalias !15773, !noundef !4
-  %77 = load double, ptr %8, align 8, !alias.scope !15773, !noalias !15772, !noundef !4
-  %78 = fcmp oeq double %76, %77
-  br i1 %78, label %91, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
+74:                                               ; preds = %72
+  tail call void @llvm.assume(i1 %67)
+  %75 = load double, ptr %7, align 8, !alias.scope !15772, !noalias !15773, !noundef !4
+  %76 = load double, ptr %8, align 8, !alias.scope !15773, !noalias !15772, !noundef !4
+  %77 = fcmp oeq double %75, %76
+  br i1 %77, label %90, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
 
-79:                                               ; preds = %73
-  %80 = load i8, ptr %7, align 8, !alias.scope !15772, !noalias !15773, !noundef !4
-  %81 = load i8, ptr %8, align 8, !alias.scope !15773, !noalias !15772, !noundef !4
-  %82 = icmp eq i8 %80, %81
+78:                                               ; preds = %72
+  %79 = load i8, ptr %7, align 8, !alias.scope !15772, !noalias !15773, !noundef !4
+  %80 = load i8, ptr %8, align 8, !alias.scope !15773, !noalias !15772, !noundef !4
+  %81 = icmp eq i8 %79, %80
   br label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
 
-83:                                               ; preds = %73
-  %84 = load i8, ptr %7, align 8, !range !3, !alias.scope !15772, !noalias !15773, !noundef !4
-  %85 = load i8, ptr %8, align 8, !range !3, !alias.scope !15773, !noalias !15772, !noundef !4
-  %86 = icmp eq i8 %84, %85
+82:                                               ; preds = %72
+  %83 = load i8, ptr %7, align 8, !range !3, !alias.scope !15772, !noalias !15773, !noundef !4
+  %84 = load i8, ptr %8, align 8, !range !3, !alias.scope !15773, !noalias !15772, !noundef !4
+  %85 = icmp eq i8 %83, %84
   br label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
 
-87:                                               ; preds = %73
-  %88 = load i8, ptr %7, align 8, !range !3, !alias.scope !15772, !noalias !15773, !noundef !4
-  %89 = load i8, ptr %8, align 8, !range !3, !alias.scope !15773, !noalias !15772, !noundef !4
-  %90 = icmp eq i8 %88, %89
-  br i1 %90, label %93, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
+86:                                               ; preds = %72
+  %87 = load i8, ptr %7, align 8, !range !3, !alias.scope !15772, !noalias !15773, !noundef !4
+  %88 = load i8, ptr %8, align 8, !range !3, !alias.scope !15773, !noalias !15772, !noundef !4
+  %89 = icmp eq i8 %87, %88
+  br i1 %89, label %92, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
 
-91:                                               ; preds = %75
-  %92 = icmp eq i8 %58, %60
+90:                                               ; preds = %74
+  %91 = icmp eq i8 %58, %60
   br label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
 
-93:                                               ; preds = %87
-  %94 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %95 = load i8, ptr %94, align 1, !range !3, !alias.scope !15772, !noalias !15773, !noundef !4
-  %96 = getelementptr inbounds nuw i8, ptr %1, i64 9
-  %97 = load i8, ptr %96, align 1, !range !3, !alias.scope !15773, !noalias !15772, !noundef !4
-  %98 = icmp eq i8 %95, %97
+92:                                               ; preds = %86
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 9
+  %94 = load i8, ptr %93, align 1, !range !3, !alias.scope !15772, !noalias !15773, !noundef !4
+  %95 = getelementptr inbounds nuw i8, ptr %1, i64 9
+  %96 = load i8, ptr %95, align 1, !range !3, !alias.scope !15773, !noalias !15772, !noundef !4
+  %97 = icmp eq i8 %94, %96
   br label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
 
-99:                                               ; preds = %6
+98:                                               ; preds = %6
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15774)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15777)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15779)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15782)
-  %100 = load i64, ptr %9, align 8, !alias.scope !15784, !noalias !15785, !noundef !4
-  %101 = load i64, ptr %10, align 8, !alias.scope !15785, !noalias !15784, !noundef !4
-  %102 = icmp eq i64 %100, %101
-  br i1 %102, label %103, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
+  %99 = load i64, ptr %9, align 8, !alias.scope !15784, !noalias !15785, !noundef !4
+  %100 = load i64, ptr %10, align 8, !alias.scope !15785, !noalias !15784, !noundef !4
+  %101 = icmp eq i64 %99, %100
+  br i1 %101, label %102, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
 
-103:                                              ; preds = %99
-  %104 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %105 = load i64, ptr %104, align 8, !alias.scope !15784, !noalias !15785, !noundef !4
-  %106 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %107 = load i64, ptr %106, align 8, !alias.scope !15785, !noalias !15784, !noundef !4
-  %108 = icmp eq i64 %105, %107
-  br i1 %108, label %109, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
+102:                                              ; preds = %98
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %104 = load i64, ptr %103, align 8, !alias.scope !15784, !noalias !15785, !noundef !4
+  %105 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %106 = load i64, ptr %105, align 8, !alias.scope !15785, !noalias !15784, !noundef !4
+  %107 = icmp eq i64 %104, %106
+  br i1 %107, label %108, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
 
-109:                                              ; preds = %103
-  %110 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %111 = load i64, ptr %110, align 8, !alias.scope !15784, !noalias !15785, !noundef !4
-  %112 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %113 = load i64, ptr %112, align 8, !alias.scope !15785, !noalias !15784, !noundef !4
-  %114 = icmp eq i64 %111, %113
-  br i1 %114, label %115, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
+108:                                              ; preds = %102
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %110 = load i64, ptr %109, align 8, !alias.scope !15784, !noalias !15785, !noundef !4
+  %111 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %112 = load i64, ptr %111, align 8, !alias.scope !15785, !noalias !15784, !noundef !4
+  %113 = icmp eq i64 %110, %112
+  br i1 %113, label %114, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
 
-115:                                              ; preds = %109
-  %116 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %117 = load i64, ptr %116, align 8, !alias.scope !15784, !noalias !15785, !noundef !4
-  %118 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %119 = load i64, ptr %118, align 8, !alias.scope !15785, !noalias !15784, !noundef !4
-  %120 = icmp eq i64 %117, %119
-  br i1 %120, label %121, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
+114:                                              ; preds = %108
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %116 = load i64, ptr %115, align 8, !alias.scope !15784, !noalias !15785, !noundef !4
+  %117 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %118 = load i64, ptr %117, align 8, !alias.scope !15785, !noalias !15784, !noundef !4
+  %119 = icmp eq i64 %116, %118
+  br i1 %119, label %120, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
 
-121:                                              ; preds = %115
-  %122 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %123 = load i8, ptr %122, align 8, !range !3, !alias.scope !15784, !noalias !15785, !noundef !4
-  %124 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %125 = load i8, ptr %124, align 8, !range !3, !alias.scope !15785, !noalias !15784, !noundef !4
-  %126 = icmp eq i8 %123, %125
-  br i1 %126, label %"_ZN81_$LT$polars_time..windows..duration..Duration$u20$as$u20$core..cmp..PartialEq$GT$2eq17h766e7bc9ac75ffa1E.exit.i3", label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
+120:                                              ; preds = %114
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %122 = load i8, ptr %121, align 8, !range !3, !alias.scope !15784, !noalias !15785, !noundef !4
+  %123 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %124 = load i8, ptr %123, align 8, !range !3, !alias.scope !15785, !noalias !15784, !noundef !4
+  %125 = icmp eq i8 %122, %124
+  br i1 %125, label %"_ZN81_$LT$polars_time..windows..duration..Duration$u20$as$u20$core..cmp..PartialEq$GT$2eq17h766e7bc9ac75ffa1E.exit.i3", label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
 
-"_ZN81_$LT$polars_time..windows..duration..Duration$u20$as$u20$core..cmp..PartialEq$GT$2eq17h766e7bc9ac75ffa1E.exit.i3": ; preds = %121
-  %127 = getelementptr inbounds nuw i8, ptr %0, i64 65
-  %128 = load i8, ptr %127, align 1, !range !3, !alias.scope !15784, !noalias !15785, !noundef !4
-  %129 = getelementptr inbounds nuw i8, ptr %1, i64 65
-  %130 = load i8, ptr %129, align 1, !range !3, !alias.scope !15785, !noalias !15784, !noundef !4
-  %131 = icmp eq i8 %128, %130
-  br i1 %131, label %132, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
+"_ZN81_$LT$polars_time..windows..duration..Duration$u20$as$u20$core..cmp..PartialEq$GT$2eq17h766e7bc9ac75ffa1E.exit.i3": ; preds = %120
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 65
+  %127 = load i8, ptr %126, align 1, !range !3, !alias.scope !15784, !noalias !15785, !noundef !4
+  %128 = getelementptr inbounds nuw i8, ptr %1, i64 65
+  %129 = load i8, ptr %128, align 1, !range !3, !alias.scope !15785, !noalias !15784, !noundef !4
+  %130 = icmp eq i8 %127, %129
+  br i1 %130, label %131, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
 
-132:                                              ; preds = %"_ZN81_$LT$polars_time..windows..duration..Duration$u20$as$u20$core..cmp..PartialEq$GT$2eq17h766e7bc9ac75ffa1E.exit.i3"
-  %133 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %134 = load i64, ptr %133, align 8, !alias.scope !15774, !noalias !15777, !noundef !4
-  %135 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %136 = load i64, ptr %135, align 8, !alias.scope !15777, !noalias !15774, !noundef !4
-  %137 = icmp eq i64 %134, %136
-  br i1 %137, label %138, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
+131:                                              ; preds = %"_ZN81_$LT$polars_time..windows..duration..Duration$u20$as$u20$core..cmp..PartialEq$GT$2eq17h766e7bc9ac75ffa1E.exit.i3"
+  %132 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %133 = load i64, ptr %132, align 8, !alias.scope !15774, !noalias !15777, !noundef !4
+  %134 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %135 = load i64, ptr %134, align 8, !alias.scope !15777, !noalias !15774, !noundef !4
+  %136 = icmp eq i64 %133, %135
+  br i1 %136, label %137, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
 
-138:                                              ; preds = %132
-  %139 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %140 = load i8, ptr %139, align 8, !range !2987, !alias.scope !15774, !noalias !15777, !noundef !4
-  %141 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %142 = load i8, ptr %141, align 8, !range !2987, !alias.scope !15777, !noalias !15774, !noundef !4
-  %143 = icmp eq i8 %140, %142
-  br i1 %143, label %144, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
+137:                                              ; preds = %131
+  %138 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %139 = load i8, ptr %138, align 8, !range !2987, !alias.scope !15774, !noalias !15777, !noundef !4
+  %140 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %141 = load i8, ptr %140, align 8, !range !2987, !alias.scope !15777, !noalias !15774, !noundef !4
+  %142 = icmp eq i8 %139, %141
+  br i1 %142, label %143, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
 
-144:                                              ; preds = %138
-  %145 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %146 = load i8, ptr %145, align 8, !range !3010, !alias.scope !15774, !noalias !15777, !noundef !4
-  %.not.i4 = icmp eq i8 %146, 9
-  %147 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %148 = load i8, ptr %147, align 8, !range !3010, !alias.scope !15777, !noalias !15774, !noundef !4
-  %149 = icmp eq i8 %148, 9
-  %brmerge.i5 = or i1 %.not.i4, %149
-  %.mux.i6 = and i1 %.not.i4, %149
-  br i1 %brmerge.i5, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit", label %150
+143:                                              ; preds = %137
+  %144 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %145 = load i8, ptr %144, align 8, !range !3010, !alias.scope !15774, !noalias !15777, !noundef !4
+  %.not.i4 = icmp eq i8 %145, 9
+  %146 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %147 = load i8, ptr %146, align 8, !range !3010, !alias.scope !15777, !noalias !15774, !noundef !4
+  %148 = icmp eq i8 %147, 9
+  %brmerge.i5 = or i1 %.not.i4, %148
+  %.mux.i6 = and i1 %.not.i4, %148
+  br i1 %brmerge.i5, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit", label %149
 
-150:                                              ; preds = %144
+149:                                              ; preds = %143
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15786)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15789)
-  %151 = add nsw i8 %146, -6
-  %152 = icmp ult i8 %151, 3
-  %153 = zext nneg i8 %146 to i64
-  %154 = add nsw i64 %153, -5
-  %155 = select i1 %152, i64 %154, i64 0
-  %156 = icmp samesign ult i8 %148, 6
-  %157 = zext nneg i8 %148 to i64
-  %158 = add nsw i64 %157, -5
-  %159 = select i1 %156, i64 0, i64 %158
-  %160 = icmp eq i64 %155, %159
-  br i1 %160, label %161, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
+  %150 = icmp samesign ugt i8 %145, 5
+  %151 = zext nneg i8 %145 to i64
+  %152 = add nsw i64 %151, -5
+  %153 = select i1 %150, i64 %152, i64 0
+  %154 = icmp samesign ult i8 %147, 6
+  %155 = zext nneg i8 %147 to i64
+  %156 = add nsw i64 %155, -5
+  %157 = select i1 %154, i64 0, i64 %156
+  %158 = icmp eq i64 %153, %157
+  br i1 %158, label %159, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
 
-161:                                              ; preds = %150
-  switch i64 %155, label %162 [
-    i64 0, label %163
-    i64 1, label %167
-    i64 2, label %171
-    i64 3, label %175
+159:                                              ; preds = %149
+  switch i64 %153, label %160 [
+    i64 0, label %161
+    i64 1, label %165
+    i64 2, label %169
+    i64 3, label %173
   ]
 
-162:                                              ; preds = %161
+160:                                              ; preds = %159
   unreachable
 
-163:                                              ; preds = %161
-  tail call void @llvm.assume(i1 %156)
-  %164 = load double, ptr %7, align 8, !alias.scope !15791, !noalias !15792, !noundef !4
-  %165 = load double, ptr %8, align 8, !alias.scope !15792, !noalias !15791, !noundef !4
-  %166 = fcmp oeq double %164, %165
-  br i1 %166, label %179, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
+161:                                              ; preds = %159
+  tail call void @llvm.assume(i1 %154)
+  %162 = load double, ptr %7, align 8, !alias.scope !15791, !noalias !15792, !noundef !4
+  %163 = load double, ptr %8, align 8, !alias.scope !15792, !noalias !15791, !noundef !4
+  %164 = fcmp oeq double %162, %163
+  br i1 %164, label %177, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
 
-167:                                              ; preds = %161
-  %168 = load i8, ptr %7, align 8, !alias.scope !15791, !noalias !15792, !noundef !4
-  %169 = load i8, ptr %8, align 8, !alias.scope !15792, !noalias !15791, !noundef !4
-  %170 = icmp eq i8 %168, %169
+165:                                              ; preds = %159
+  %166 = load i8, ptr %7, align 8, !alias.scope !15791, !noalias !15792, !noundef !4
+  %167 = load i8, ptr %8, align 8, !alias.scope !15792, !noalias !15791, !noundef !4
+  %168 = icmp eq i8 %166, %167
   br label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
 
-171:                                              ; preds = %161
-  %172 = load i8, ptr %7, align 8, !range !3, !alias.scope !15791, !noalias !15792, !noundef !4
-  %173 = load i8, ptr %8, align 8, !range !3, !alias.scope !15792, !noalias !15791, !noundef !4
-  %174 = icmp eq i8 %172, %173
+169:                                              ; preds = %159
+  %170 = load i8, ptr %7, align 8, !range !3, !alias.scope !15791, !noalias !15792, !noundef !4
+  %171 = load i8, ptr %8, align 8, !range !3, !alias.scope !15792, !noalias !15791, !noundef !4
+  %172 = icmp eq i8 %170, %171
   br label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
 
-175:                                              ; preds = %161
-  %176 = load i8, ptr %7, align 8, !range !3, !alias.scope !15791, !noalias !15792, !noundef !4
-  %177 = load i8, ptr %8, align 8, !range !3, !alias.scope !15792, !noalias !15791, !noundef !4
-  %178 = icmp eq i8 %176, %177
-  br i1 %178, label %181, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
+173:                                              ; preds = %159
+  %174 = load i8, ptr %7, align 8, !range !3, !alias.scope !15791, !noalias !15792, !noundef !4
+  %175 = load i8, ptr %8, align 8, !range !3, !alias.scope !15792, !noalias !15791, !noundef !4
+  %176 = icmp eq i8 %174, %175
+  br i1 %176, label %179, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
 
-179:                                              ; preds = %163
-  %180 = icmp eq i8 %146, %148
+177:                                              ; preds = %161
+  %178 = icmp eq i8 %145, %147
   br label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
 
-181:                                              ; preds = %175
-  %182 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %183 = load i8, ptr %182, align 1, !range !3, !alias.scope !15791, !noalias !15792, !noundef !4
-  %184 = getelementptr inbounds nuw i8, ptr %1, i64 9
-  %185 = load i8, ptr %184, align 1, !range !3, !alias.scope !15792, !noalias !15791, !noundef !4
-  %186 = icmp eq i8 %183, %185
+179:                                              ; preds = %173
+  %180 = getelementptr inbounds nuw i8, ptr %0, i64 9
+  %181 = load i8, ptr %180, align 1, !range !3, !alias.scope !15791, !noalias !15792, !noundef !4
+  %182 = getelementptr inbounds nuw i8, ptr %1, i64 9
+  %183 = load i8, ptr %182, align 1, !range !3, !alias.scope !15792, !noalias !15791, !noundef !4
+  %184 = icmp eq i8 %181, %183
   br label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
 
-187:                                              ; preds = %6
+185:                                              ; preds = %6
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15793)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15796)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15798)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15801)
-  %188 = load i64, ptr %9, align 8, !alias.scope !15803, !noalias !15804, !noundef !4
-  %189 = load i64, ptr %10, align 8, !alias.scope !15804, !noalias !15803, !noundef !4
-  %190 = icmp eq i64 %188, %189
-  br i1 %190, label %191, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
+  %186 = load i64, ptr %9, align 8, !alias.scope !15803, !noalias !15804, !noundef !4
+  %187 = load i64, ptr %10, align 8, !alias.scope !15804, !noalias !15803, !noundef !4
+  %188 = icmp eq i64 %186, %187
+  br i1 %188, label %189, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
 
-191:                                              ; preds = %187
-  %192 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %193 = load i64, ptr %192, align 8, !alias.scope !15803, !noalias !15804, !noundef !4
-  %194 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %195 = load i64, ptr %194, align 8, !alias.scope !15804, !noalias !15803, !noundef !4
-  %196 = icmp eq i64 %193, %195
-  br i1 %196, label %197, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
+189:                                              ; preds = %185
+  %190 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %191 = load i64, ptr %190, align 8, !alias.scope !15803, !noalias !15804, !noundef !4
+  %192 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %193 = load i64, ptr %192, align 8, !alias.scope !15804, !noalias !15803, !noundef !4
+  %194 = icmp eq i64 %191, %193
+  br i1 %194, label %195, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
 
-197:                                              ; preds = %191
-  %198 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %199 = load i64, ptr %198, align 8, !alias.scope !15803, !noalias !15804, !noundef !4
-  %200 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %201 = load i64, ptr %200, align 8, !alias.scope !15804, !noalias !15803, !noundef !4
-  %202 = icmp eq i64 %199, %201
-  br i1 %202, label %203, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
+195:                                              ; preds = %189
+  %196 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %197 = load i64, ptr %196, align 8, !alias.scope !15803, !noalias !15804, !noundef !4
+  %198 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %199 = load i64, ptr %198, align 8, !alias.scope !15804, !noalias !15803, !noundef !4
+  %200 = icmp eq i64 %197, %199
+  br i1 %200, label %201, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
 
-203:                                              ; preds = %197
-  %204 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %205 = load i64, ptr %204, align 8, !alias.scope !15803, !noalias !15804, !noundef !4
-  %206 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %207 = load i64, ptr %206, align 8, !alias.scope !15804, !noalias !15803, !noundef !4
-  %208 = icmp eq i64 %205, %207
-  br i1 %208, label %209, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
+201:                                              ; preds = %195
+  %202 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %203 = load i64, ptr %202, align 8, !alias.scope !15803, !noalias !15804, !noundef !4
+  %204 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %205 = load i64, ptr %204, align 8, !alias.scope !15804, !noalias !15803, !noundef !4
+  %206 = icmp eq i64 %203, %205
+  br i1 %206, label %207, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
 
-209:                                              ; preds = %203
-  %210 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %211 = load i8, ptr %210, align 8, !range !3, !alias.scope !15803, !noalias !15804, !noundef !4
-  %212 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %213 = load i8, ptr %212, align 8, !range !3, !alias.scope !15804, !noalias !15803, !noundef !4
-  %214 = icmp eq i8 %211, %213
-  br i1 %214, label %"_ZN81_$LT$polars_time..windows..duration..Duration$u20$as$u20$core..cmp..PartialEq$GT$2eq17h766e7bc9ac75ffa1E.exit.i9", label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
+207:                                              ; preds = %201
+  %208 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %209 = load i8, ptr %208, align 8, !range !3, !alias.scope !15803, !noalias !15804, !noundef !4
+  %210 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %211 = load i8, ptr %210, align 8, !range !3, !alias.scope !15804, !noalias !15803, !noundef !4
+  %212 = icmp eq i8 %209, %211
+  br i1 %212, label %"_ZN81_$LT$polars_time..windows..duration..Duration$u20$as$u20$core..cmp..PartialEq$GT$2eq17h766e7bc9ac75ffa1E.exit.i9", label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
 
-"_ZN81_$LT$polars_time..windows..duration..Duration$u20$as$u20$core..cmp..PartialEq$GT$2eq17h766e7bc9ac75ffa1E.exit.i9": ; preds = %209
-  %215 = getelementptr inbounds nuw i8, ptr %0, i64 65
-  %216 = load i8, ptr %215, align 1, !range !3, !alias.scope !15803, !noalias !15804, !noundef !4
-  %217 = getelementptr inbounds nuw i8, ptr %1, i64 65
-  %218 = load i8, ptr %217, align 1, !range !3, !alias.scope !15804, !noalias !15803, !noundef !4
-  %219 = icmp eq i8 %216, %218
-  br i1 %219, label %220, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
+"_ZN81_$LT$polars_time..windows..duration..Duration$u20$as$u20$core..cmp..PartialEq$GT$2eq17h766e7bc9ac75ffa1E.exit.i9": ; preds = %207
+  %213 = getelementptr inbounds nuw i8, ptr %0, i64 65
+  %214 = load i8, ptr %213, align 1, !range !3, !alias.scope !15803, !noalias !15804, !noundef !4
+  %215 = getelementptr inbounds nuw i8, ptr %1, i64 65
+  %216 = load i8, ptr %215, align 1, !range !3, !alias.scope !15804, !noalias !15803, !noundef !4
+  %217 = icmp eq i8 %214, %216
+  br i1 %217, label %218, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
 
-220:                                              ; preds = %"_ZN81_$LT$polars_time..windows..duration..Duration$u20$as$u20$core..cmp..PartialEq$GT$2eq17h766e7bc9ac75ffa1E.exit.i9"
-  %221 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %222 = load i64, ptr %221, align 8, !alias.scope !15793, !noalias !15796, !noundef !4
-  %223 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %224 = load i64, ptr %223, align 8, !alias.scope !15796, !noalias !15793, !noundef !4
-  %225 = icmp eq i64 %222, %224
-  br i1 %225, label %226, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
+218:                                              ; preds = %"_ZN81_$LT$polars_time..windows..duration..Duration$u20$as$u20$core..cmp..PartialEq$GT$2eq17h766e7bc9ac75ffa1E.exit.i9"
+  %219 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %220 = load i64, ptr %219, align 8, !alias.scope !15793, !noalias !15796, !noundef !4
+  %221 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %222 = load i64, ptr %221, align 8, !alias.scope !15796, !noalias !15793, !noundef !4
+  %223 = icmp eq i64 %220, %222
+  br i1 %223, label %224, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
 
-226:                                              ; preds = %220
-  %227 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %228 = load i8, ptr %227, align 8, !range !2987, !alias.scope !15793, !noalias !15796, !noundef !4
-  %229 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %230 = load i8, ptr %229, align 8, !range !2987, !alias.scope !15796, !noalias !15793, !noundef !4
-  %231 = icmp eq i8 %228, %230
-  br i1 %231, label %232, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
+224:                                              ; preds = %218
+  %225 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %226 = load i8, ptr %225, align 8, !range !2987, !alias.scope !15793, !noalias !15796, !noundef !4
+  %227 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %228 = load i8, ptr %227, align 8, !range !2987, !alias.scope !15796, !noalias !15793, !noundef !4
+  %229 = icmp eq i8 %226, %228
+  br i1 %229, label %230, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
 
-232:                                              ; preds = %226
-  %233 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %234 = load i8, ptr %233, align 8, !range !3010, !alias.scope !15793, !noalias !15796, !noundef !4
-  %.not.i10 = icmp eq i8 %234, 9
-  %235 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %236 = load i8, ptr %235, align 8, !range !3010, !alias.scope !15796, !noalias !15793, !noundef !4
-  %237 = icmp eq i8 %236, 9
-  %brmerge.i11 = or i1 %.not.i10, %237
-  %.mux.i12 = and i1 %.not.i10, %237
-  br i1 %brmerge.i11, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit", label %238
+230:                                              ; preds = %224
+  %231 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %232 = load i8, ptr %231, align 8, !range !3010, !alias.scope !15793, !noalias !15796, !noundef !4
+  %.not.i10 = icmp eq i8 %232, 9
+  %233 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %234 = load i8, ptr %233, align 8, !range !3010, !alias.scope !15796, !noalias !15793, !noundef !4
+  %235 = icmp eq i8 %234, 9
+  %brmerge.i11 = or i1 %.not.i10, %235
+  %.mux.i12 = and i1 %.not.i10, %235
+  br i1 %brmerge.i11, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit", label %236
 
-238:                                              ; preds = %232
+236:                                              ; preds = %230
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15805)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15808)
-  %239 = add nsw i8 %234, -6
-  %240 = icmp ult i8 %239, 3
-  %241 = zext nneg i8 %234 to i64
-  %242 = add nsw i64 %241, -5
-  %243 = select i1 %240, i64 %242, i64 0
-  %244 = icmp samesign ult i8 %236, 6
-  %245 = zext nneg i8 %236 to i64
-  %246 = add nsw i64 %245, -5
-  %247 = select i1 %244, i64 0, i64 %246
-  %248 = icmp eq i64 %243, %247
-  br i1 %248, label %249, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
+  %237 = icmp samesign ugt i8 %232, 5
+  %238 = zext nneg i8 %232 to i64
+  %239 = add nsw i64 %238, -5
+  %240 = select i1 %237, i64 %239, i64 0
+  %241 = icmp samesign ult i8 %234, 6
+  %242 = zext nneg i8 %234 to i64
+  %243 = add nsw i64 %242, -5
+  %244 = select i1 %241, i64 0, i64 %243
+  %245 = icmp eq i64 %240, %244
+  br i1 %245, label %246, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
 
-249:                                              ; preds = %238
-  switch i64 %243, label %250 [
-    i64 0, label %251
-    i64 1, label %255
-    i64 2, label %259
-    i64 3, label %263
+246:                                              ; preds = %236
+  switch i64 %240, label %247 [
+    i64 0, label %248
+    i64 1, label %252
+    i64 2, label %256
+    i64 3, label %260
   ]
 
-250:                                              ; preds = %249
+247:                                              ; preds = %246
   unreachable
 
-251:                                              ; preds = %249
-  tail call void @llvm.assume(i1 %244)
-  %252 = load double, ptr %7, align 8, !alias.scope !15810, !noalias !15811, !noundef !4
-  %253 = load double, ptr %8, align 8, !alias.scope !15811, !noalias !15810, !noundef !4
-  %254 = fcmp oeq double %252, %253
-  br i1 %254, label %267, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
+248:                                              ; preds = %246
+  tail call void @llvm.assume(i1 %241)
+  %249 = load double, ptr %7, align 8, !alias.scope !15810, !noalias !15811, !noundef !4
+  %250 = load double, ptr %8, align 8, !alias.scope !15811, !noalias !15810, !noundef !4
+  %251 = fcmp oeq double %249, %250
+  br i1 %251, label %264, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
 
-255:                                              ; preds = %249
-  %256 = load i8, ptr %7, align 8, !alias.scope !15810, !noalias !15811, !noundef !4
-  %257 = load i8, ptr %8, align 8, !alias.scope !15811, !noalias !15810, !noundef !4
-  %258 = icmp eq i8 %256, %257
+252:                                              ; preds = %246
+  %253 = load i8, ptr %7, align 8, !alias.scope !15810, !noalias !15811, !noundef !4
+  %254 = load i8, ptr %8, align 8, !alias.scope !15811, !noalias !15810, !noundef !4
+  %255 = icmp eq i8 %253, %254
   br label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
 
-259:                                              ; preds = %249
-  %260 = load i8, ptr %7, align 8, !range !3, !alias.scope !15810, !noalias !15811, !noundef !4
-  %261 = load i8, ptr %8, align 8, !range !3, !alias.scope !15811, !noalias !15810, !noundef !4
-  %262 = icmp eq i8 %260, %261
+256:                                              ; preds = %246
+  %257 = load i8, ptr %7, align 8, !range !3, !alias.scope !15810, !noalias !15811, !noundef !4
+  %258 = load i8, ptr %8, align 8, !range !3, !alias.scope !15811, !noalias !15810, !noundef !4
+  %259 = icmp eq i8 %257, %258
   br label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
 
-263:                                              ; preds = %249
-  %264 = load i8, ptr %7, align 8, !range !3, !alias.scope !15810, !noalias !15811, !noundef !4
-  %265 = load i8, ptr %8, align 8, !range !3, !alias.scope !15811, !noalias !15810, !noundef !4
-  %266 = icmp eq i8 %264, %265
-  br i1 %266, label %269, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
+260:                                              ; preds = %246
+  %261 = load i8, ptr %7, align 8, !range !3, !alias.scope !15810, !noalias !15811, !noundef !4
+  %262 = load i8, ptr %8, align 8, !range !3, !alias.scope !15811, !noalias !15810, !noundef !4
+  %263 = icmp eq i8 %261, %262
+  br i1 %263, label %266, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
 
-267:                                              ; preds = %251
-  %268 = icmp eq i8 %234, %236
+264:                                              ; preds = %248
+  %265 = icmp eq i8 %232, %234
   br label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
 
-269:                                              ; preds = %263
-  %270 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %271 = load i8, ptr %270, align 1, !range !3, !alias.scope !15810, !noalias !15811, !noundef !4
-  %272 = getelementptr inbounds nuw i8, ptr %1, i64 9
-  %273 = load i8, ptr %272, align 1, !range !3, !alias.scope !15811, !noalias !15810, !noundef !4
-  %274 = icmp eq i8 %271, %273
+266:                                              ; preds = %260
+  %267 = getelementptr inbounds nuw i8, ptr %0, i64 9
+  %268 = load i8, ptr %267, align 1, !range !3, !alias.scope !15810, !noalias !15811, !noundef !4
+  %269 = getelementptr inbounds nuw i8, ptr %1, i64 9
+  %270 = load i8, ptr %269, align 1, !range !3, !alias.scope !15811, !noalias !15810, !noundef !4
+  %271 = icmp eq i8 %268, %270
   br label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
 
-275:                                              ; preds = %6
+272:                                              ; preds = %6
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15812)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15815)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15817)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15820)
-  %276 = load i64, ptr %9, align 8, !alias.scope !15822, !noalias !15823, !noundef !4
-  %277 = load i64, ptr %10, align 8, !alias.scope !15823, !noalias !15822, !noundef !4
-  %278 = icmp eq i64 %276, %277
-  br i1 %278, label %279, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
+  %273 = load i64, ptr %9, align 8, !alias.scope !15822, !noalias !15823, !noundef !4
+  %274 = load i64, ptr %10, align 8, !alias.scope !15823, !noalias !15822, !noundef !4
+  %275 = icmp eq i64 %273, %274
+  br i1 %275, label %276, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
 
-279:                                              ; preds = %275
-  %280 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %281 = load i64, ptr %280, align 8, !alias.scope !15822, !noalias !15823, !noundef !4
-  %282 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %283 = load i64, ptr %282, align 8, !alias.scope !15823, !noalias !15822, !noundef !4
-  %284 = icmp eq i64 %281, %283
-  br i1 %284, label %285, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
+276:                                              ; preds = %272
+  %277 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %278 = load i64, ptr %277, align 8, !alias.scope !15822, !noalias !15823, !noundef !4
+  %279 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %280 = load i64, ptr %279, align 8, !alias.scope !15823, !noalias !15822, !noundef !4
+  %281 = icmp eq i64 %278, %280
+  br i1 %281, label %282, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
 
-285:                                              ; preds = %279
-  %286 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %287 = load i64, ptr %286, align 8, !alias.scope !15822, !noalias !15823, !noundef !4
-  %288 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %289 = load i64, ptr %288, align 8, !alias.scope !15823, !noalias !15822, !noundef !4
-  %290 = icmp eq i64 %287, %289
-  br i1 %290, label %291, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
+282:                                              ; preds = %276
+  %283 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %284 = load i64, ptr %283, align 8, !alias.scope !15822, !noalias !15823, !noundef !4
+  %285 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %286 = load i64, ptr %285, align 8, !alias.scope !15823, !noalias !15822, !noundef !4
+  %287 = icmp eq i64 %284, %286
+  br i1 %287, label %288, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
 
-291:                                              ; preds = %285
-  %292 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %293 = load i64, ptr %292, align 8, !alias.scope !15822, !noalias !15823, !noundef !4
-  %294 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %295 = load i64, ptr %294, align 8, !alias.scope !15823, !noalias !15822, !noundef !4
-  %296 = icmp eq i64 %293, %295
-  br i1 %296, label %297, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
+288:                                              ; preds = %282
+  %289 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %290 = load i64, ptr %289, align 8, !alias.scope !15822, !noalias !15823, !noundef !4
+  %291 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %292 = load i64, ptr %291, align 8, !alias.scope !15823, !noalias !15822, !noundef !4
+  %293 = icmp eq i64 %290, %292
+  br i1 %293, label %294, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
 
-297:                                              ; preds = %291
-  %298 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %299 = load i8, ptr %298, align 8, !range !3, !alias.scope !15822, !noalias !15823, !noundef !4
-  %300 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %301 = load i8, ptr %300, align 8, !range !3, !alias.scope !15823, !noalias !15822, !noundef !4
-  %302 = icmp eq i8 %299, %301
-  br i1 %302, label %"_ZN81_$LT$polars_time..windows..duration..Duration$u20$as$u20$core..cmp..PartialEq$GT$2eq17h766e7bc9ac75ffa1E.exit.i15", label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
+294:                                              ; preds = %288
+  %295 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %296 = load i8, ptr %295, align 8, !range !3, !alias.scope !15822, !noalias !15823, !noundef !4
+  %297 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %298 = load i8, ptr %297, align 8, !range !3, !alias.scope !15823, !noalias !15822, !noundef !4
+  %299 = icmp eq i8 %296, %298
+  br i1 %299, label %"_ZN81_$LT$polars_time..windows..duration..Duration$u20$as$u20$core..cmp..PartialEq$GT$2eq17h766e7bc9ac75ffa1E.exit.i15", label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
 
-"_ZN81_$LT$polars_time..windows..duration..Duration$u20$as$u20$core..cmp..PartialEq$GT$2eq17h766e7bc9ac75ffa1E.exit.i15": ; preds = %297
-  %303 = getelementptr inbounds nuw i8, ptr %0, i64 65
-  %304 = load i8, ptr %303, align 1, !range !3, !alias.scope !15822, !noalias !15823, !noundef !4
-  %305 = getelementptr inbounds nuw i8, ptr %1, i64 65
-  %306 = load i8, ptr %305, align 1, !range !3, !alias.scope !15823, !noalias !15822, !noundef !4
-  %307 = icmp eq i8 %304, %306
-  br i1 %307, label %308, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
+"_ZN81_$LT$polars_time..windows..duration..Duration$u20$as$u20$core..cmp..PartialEq$GT$2eq17h766e7bc9ac75ffa1E.exit.i15": ; preds = %294
+  %300 = getelementptr inbounds nuw i8, ptr %0, i64 65
+  %301 = load i8, ptr %300, align 1, !range !3, !alias.scope !15822, !noalias !15823, !noundef !4
+  %302 = getelementptr inbounds nuw i8, ptr %1, i64 65
+  %303 = load i8, ptr %302, align 1, !range !3, !alias.scope !15823, !noalias !15822, !noundef !4
+  %304 = icmp eq i8 %301, %303
+  br i1 %304, label %305, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
 
-308:                                              ; preds = %"_ZN81_$LT$polars_time..windows..duration..Duration$u20$as$u20$core..cmp..PartialEq$GT$2eq17h766e7bc9ac75ffa1E.exit.i15"
-  %309 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %310 = load i64, ptr %309, align 8, !alias.scope !15812, !noalias !15815, !noundef !4
-  %311 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %312 = load i64, ptr %311, align 8, !alias.scope !15815, !noalias !15812, !noundef !4
-  %313 = icmp eq i64 %310, %312
-  br i1 %313, label %314, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
+305:                                              ; preds = %"_ZN81_$LT$polars_time..windows..duration..Duration$u20$as$u20$core..cmp..PartialEq$GT$2eq17h766e7bc9ac75ffa1E.exit.i15"
+  %306 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %307 = load i64, ptr %306, align 8, !alias.scope !15812, !noalias !15815, !noundef !4
+  %308 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %309 = load i64, ptr %308, align 8, !alias.scope !15815, !noalias !15812, !noundef !4
+  %310 = icmp eq i64 %307, %309
+  br i1 %310, label %311, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
 
-314:                                              ; preds = %308
-  %315 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %316 = load i8, ptr %315, align 8, !range !2987, !alias.scope !15812, !noalias !15815, !noundef !4
-  %317 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %318 = load i8, ptr %317, align 8, !range !2987, !alias.scope !15815, !noalias !15812, !noundef !4
-  %319 = icmp eq i8 %316, %318
-  br i1 %319, label %320, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
+311:                                              ; preds = %305
+  %312 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %313 = load i8, ptr %312, align 8, !range !2987, !alias.scope !15812, !noalias !15815, !noundef !4
+  %314 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %315 = load i8, ptr %314, align 8, !range !2987, !alias.scope !15815, !noalias !15812, !noundef !4
+  %316 = icmp eq i8 %313, %315
+  br i1 %316, label %317, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
 
-320:                                              ; preds = %314
-  %321 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %322 = load i8, ptr %321, align 8, !range !3010, !alias.scope !15812, !noalias !15815, !noundef !4
-  %.not.i16 = icmp eq i8 %322, 9
-  %323 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %324 = load i8, ptr %323, align 8, !range !3010, !alias.scope !15815, !noalias !15812, !noundef !4
-  %325 = icmp eq i8 %324, 9
-  %brmerge.i17 = or i1 %.not.i16, %325
-  %.mux.i18 = and i1 %.not.i16, %325
-  br i1 %brmerge.i17, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit", label %326
+317:                                              ; preds = %311
+  %318 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %319 = load i8, ptr %318, align 8, !range !3010, !alias.scope !15812, !noalias !15815, !noundef !4
+  %.not.i16 = icmp eq i8 %319, 9
+  %320 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %321 = load i8, ptr %320, align 8, !range !3010, !alias.scope !15815, !noalias !15812, !noundef !4
+  %322 = icmp eq i8 %321, 9
+  %brmerge.i17 = or i1 %.not.i16, %322
+  %.mux.i18 = and i1 %.not.i16, %322
+  br i1 %brmerge.i17, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit", label %323
 
-326:                                              ; preds = %320
+323:                                              ; preds = %317
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15824)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15827)
-  %327 = add nsw i8 %322, -6
-  %328 = icmp ult i8 %327, 3
-  %329 = zext nneg i8 %322 to i64
+  %324 = icmp samesign ugt i8 %319, 5
+  %325 = zext nneg i8 %319 to i64
+  %326 = add nsw i64 %325, -5
+  %327 = select i1 %324, i64 %326, i64 0
+  %328 = icmp samesign ult i8 %321, 6
+  %329 = zext nneg i8 %321 to i64
   %330 = add nsw i64 %329, -5
-  %331 = select i1 %328, i64 %330, i64 0
-  %332 = icmp samesign ult i8 %324, 6
-  %333 = zext nneg i8 %324 to i64
-  %334 = add nsw i64 %333, -5
-  %335 = select i1 %332, i64 0, i64 %334
-  %336 = icmp eq i64 %331, %335
-  br i1 %336, label %337, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
+  %331 = select i1 %328, i64 0, i64 %330
+  %332 = icmp eq i64 %327, %331
+  br i1 %332, label %333, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
 
-337:                                              ; preds = %326
-  switch i64 %331, label %338 [
-    i64 0, label %339
-    i64 1, label %343
-    i64 2, label %347
-    i64 3, label %351
+333:                                              ; preds = %323
+  switch i64 %327, label %334 [
+    i64 0, label %335
+    i64 1, label %339
+    i64 2, label %343
+    i64 3, label %347
   ]
 
-338:                                              ; preds = %337
+334:                                              ; preds = %333
   unreachable
 
-339:                                              ; preds = %337
-  tail call void @llvm.assume(i1 %332)
-  %340 = load double, ptr %7, align 8, !alias.scope !15829, !noalias !15830, !noundef !4
-  %341 = load double, ptr %8, align 8, !alias.scope !15830, !noalias !15829, !noundef !4
-  %342 = fcmp oeq double %340, %341
-  br i1 %342, label %355, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
+335:                                              ; preds = %333
+  tail call void @llvm.assume(i1 %328)
+  %336 = load double, ptr %7, align 8, !alias.scope !15829, !noalias !15830, !noundef !4
+  %337 = load double, ptr %8, align 8, !alias.scope !15830, !noalias !15829, !noundef !4
+  %338 = fcmp oeq double %336, %337
+  br i1 %338, label %351, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
 
-343:                                              ; preds = %337
-  %344 = load i8, ptr %7, align 8, !alias.scope !15829, !noalias !15830, !noundef !4
-  %345 = load i8, ptr %8, align 8, !alias.scope !15830, !noalias !15829, !noundef !4
+339:                                              ; preds = %333
+  %340 = load i8, ptr %7, align 8, !alias.scope !15829, !noalias !15830, !noundef !4
+  %341 = load i8, ptr %8, align 8, !alias.scope !15830, !noalias !15829, !noundef !4
+  %342 = icmp eq i8 %340, %341
+  br label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
+
+343:                                              ; preds = %333
+  %344 = load i8, ptr %7, align 8, !range !3, !alias.scope !15829, !noalias !15830, !noundef !4
+  %345 = load i8, ptr %8, align 8, !range !3, !alias.scope !15830, !noalias !15829, !noundef !4
   %346 = icmp eq i8 %344, %345
   br label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
 
-347:                                              ; preds = %337
+347:                                              ; preds = %333
   %348 = load i8, ptr %7, align 8, !range !3, !alias.scope !15829, !noalias !15830, !noundef !4
   %349 = load i8, ptr %8, align 8, !range !3, !alias.scope !15830, !noalias !15829, !noundef !4
   %350 = icmp eq i8 %348, %349
+  br i1 %350, label %353, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
+
+351:                                              ; preds = %335
+  %352 = icmp eq i8 %319, %321
   br label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
 
-351:                                              ; preds = %337
-  %352 = load i8, ptr %7, align 8, !range !3, !alias.scope !15829, !noalias !15830, !noundef !4
-  %353 = load i8, ptr %8, align 8, !range !3, !alias.scope !15830, !noalias !15829, !noundef !4
-  %354 = icmp eq i8 %352, %353
-  br i1 %354, label %357, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
-
-355:                                              ; preds = %339
-  %356 = icmp eq i8 %322, %324
+353:                                              ; preds = %347
+  %354 = getelementptr inbounds nuw i8, ptr %0, i64 9
+  %355 = load i8, ptr %354, align 1, !range !3, !alias.scope !15829, !noalias !15830, !noundef !4
+  %356 = getelementptr inbounds nuw i8, ptr %1, i64 9
+  %357 = load i8, ptr %356, align 1, !range !3, !alias.scope !15830, !noalias !15829, !noundef !4
+  %358 = icmp eq i8 %355, %357
   br label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
 
-357:                                              ; preds = %351
-  %358 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %359 = load i8, ptr %358, align 1, !range !3, !alias.scope !15829, !noalias !15830, !noundef !4
-  %360 = getelementptr inbounds nuw i8, ptr %1, i64 9
-  %361 = load i8, ptr %360, align 1, !range !3, !alias.scope !15830, !noalias !15829, !noundef !4
-  %362 = icmp eq i8 %359, %361
-  br label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
-
-363:                                              ; preds = %6
+359:                                              ; preds = %6
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15831)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15834)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15836)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15839)
-  %364 = load i64, ptr %9, align 8, !alias.scope !15841, !noalias !15842, !noundef !4
-  %365 = load i64, ptr %10, align 8, !alias.scope !15842, !noalias !15841, !noundef !4
-  %366 = icmp eq i64 %364, %365
-  br i1 %366, label %367, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
+  %360 = load i64, ptr %9, align 8, !alias.scope !15841, !noalias !15842, !noundef !4
+  %361 = load i64, ptr %10, align 8, !alias.scope !15842, !noalias !15841, !noundef !4
+  %362 = icmp eq i64 %360, %361
+  br i1 %362, label %363, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
 
-367:                                              ; preds = %363
-  %368 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %369 = load i64, ptr %368, align 8, !alias.scope !15841, !noalias !15842, !noundef !4
-  %370 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %371 = load i64, ptr %370, align 8, !alias.scope !15842, !noalias !15841, !noundef !4
-  %372 = icmp eq i64 %369, %371
-  br i1 %372, label %373, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
+363:                                              ; preds = %359
+  %364 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %365 = load i64, ptr %364, align 8, !alias.scope !15841, !noalias !15842, !noundef !4
+  %366 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %367 = load i64, ptr %366, align 8, !alias.scope !15842, !noalias !15841, !noundef !4
+  %368 = icmp eq i64 %365, %367
+  br i1 %368, label %369, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
 
-373:                                              ; preds = %367
-  %374 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %375 = load i64, ptr %374, align 8, !alias.scope !15841, !noalias !15842, !noundef !4
-  %376 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %377 = load i64, ptr %376, align 8, !alias.scope !15842, !noalias !15841, !noundef !4
-  %378 = icmp eq i64 %375, %377
-  br i1 %378, label %379, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
+369:                                              ; preds = %363
+  %370 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %371 = load i64, ptr %370, align 8, !alias.scope !15841, !noalias !15842, !noundef !4
+  %372 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %373 = load i64, ptr %372, align 8, !alias.scope !15842, !noalias !15841, !noundef !4
+  %374 = icmp eq i64 %371, %373
+  br i1 %374, label %375, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
 
-379:                                              ; preds = %373
-  %380 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %381 = load i64, ptr %380, align 8, !alias.scope !15841, !noalias !15842, !noundef !4
-  %382 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %383 = load i64, ptr %382, align 8, !alias.scope !15842, !noalias !15841, !noundef !4
-  %384 = icmp eq i64 %381, %383
-  br i1 %384, label %385, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
+375:                                              ; preds = %369
+  %376 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %377 = load i64, ptr %376, align 8, !alias.scope !15841, !noalias !15842, !noundef !4
+  %378 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %379 = load i64, ptr %378, align 8, !alias.scope !15842, !noalias !15841, !noundef !4
+  %380 = icmp eq i64 %377, %379
+  br i1 %380, label %381, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
 
-385:                                              ; preds = %379
-  %386 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %387 = load i8, ptr %386, align 8, !range !3, !alias.scope !15841, !noalias !15842, !noundef !4
-  %388 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %389 = load i8, ptr %388, align 8, !range !3, !alias.scope !15842, !noalias !15841, !noundef !4
-  %390 = icmp eq i8 %387, %389
-  br i1 %390, label %"_ZN81_$LT$polars_time..windows..duration..Duration$u20$as$u20$core..cmp..PartialEq$GT$2eq17h766e7bc9ac75ffa1E.exit.i21", label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
+381:                                              ; preds = %375
+  %382 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %383 = load i8, ptr %382, align 8, !range !3, !alias.scope !15841, !noalias !15842, !noundef !4
+  %384 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %385 = load i8, ptr %384, align 8, !range !3, !alias.scope !15842, !noalias !15841, !noundef !4
+  %386 = icmp eq i8 %383, %385
+  br i1 %386, label %"_ZN81_$LT$polars_time..windows..duration..Duration$u20$as$u20$core..cmp..PartialEq$GT$2eq17h766e7bc9ac75ffa1E.exit.i21", label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
 
-"_ZN81_$LT$polars_time..windows..duration..Duration$u20$as$u20$core..cmp..PartialEq$GT$2eq17h766e7bc9ac75ffa1E.exit.i21": ; preds = %385
-  %391 = getelementptr inbounds nuw i8, ptr %0, i64 65
-  %392 = load i8, ptr %391, align 1, !range !3, !alias.scope !15841, !noalias !15842, !noundef !4
-  %393 = getelementptr inbounds nuw i8, ptr %1, i64 65
-  %394 = load i8, ptr %393, align 1, !range !3, !alias.scope !15842, !noalias !15841, !noundef !4
-  %395 = icmp eq i8 %392, %394
-  br i1 %395, label %396, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
+"_ZN81_$LT$polars_time..windows..duration..Duration$u20$as$u20$core..cmp..PartialEq$GT$2eq17h766e7bc9ac75ffa1E.exit.i21": ; preds = %381
+  %387 = getelementptr inbounds nuw i8, ptr %0, i64 65
+  %388 = load i8, ptr %387, align 1, !range !3, !alias.scope !15841, !noalias !15842, !noundef !4
+  %389 = getelementptr inbounds nuw i8, ptr %1, i64 65
+  %390 = load i8, ptr %389, align 1, !range !3, !alias.scope !15842, !noalias !15841, !noundef !4
+  %391 = icmp eq i8 %388, %390
+  br i1 %391, label %392, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
 
-396:                                              ; preds = %"_ZN81_$LT$polars_time..windows..duration..Duration$u20$as$u20$core..cmp..PartialEq$GT$2eq17h766e7bc9ac75ffa1E.exit.i21"
-  %397 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %398 = load i64, ptr %397, align 8, !alias.scope !15831, !noalias !15834, !noundef !4
-  %399 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %400 = load i64, ptr %399, align 8, !alias.scope !15834, !noalias !15831, !noundef !4
-  %401 = icmp eq i64 %398, %400
-  br i1 %401, label %402, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
+392:                                              ; preds = %"_ZN81_$LT$polars_time..windows..duration..Duration$u20$as$u20$core..cmp..PartialEq$GT$2eq17h766e7bc9ac75ffa1E.exit.i21"
+  %393 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %394 = load i64, ptr %393, align 8, !alias.scope !15831, !noalias !15834, !noundef !4
+  %395 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %396 = load i64, ptr %395, align 8, !alias.scope !15834, !noalias !15831, !noundef !4
+  %397 = icmp eq i64 %394, %396
+  br i1 %397, label %398, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
 
-402:                                              ; preds = %396
-  %403 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %404 = load i8, ptr %403, align 8, !range !2987, !alias.scope !15831, !noalias !15834, !noundef !4
-  %405 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %406 = load i8, ptr %405, align 8, !range !2987, !alias.scope !15834, !noalias !15831, !noundef !4
-  %407 = icmp eq i8 %404, %406
-  br i1 %407, label %408, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
+398:                                              ; preds = %392
+  %399 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %400 = load i8, ptr %399, align 8, !range !2987, !alias.scope !15831, !noalias !15834, !noundef !4
+  %401 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %402 = load i8, ptr %401, align 8, !range !2987, !alias.scope !15834, !noalias !15831, !noundef !4
+  %403 = icmp eq i8 %400, %402
+  br i1 %403, label %404, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
 
-408:                                              ; preds = %402
-  %409 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %410 = load i8, ptr %409, align 8, !range !3010, !alias.scope !15831, !noalias !15834, !noundef !4
-  %.not.i22 = icmp eq i8 %410, 9
-  %411 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %412 = load i8, ptr %411, align 8, !range !3010, !alias.scope !15834, !noalias !15831, !noundef !4
-  %413 = icmp eq i8 %412, 9
-  %brmerge.i23 = or i1 %.not.i22, %413
-  %.mux.i24 = and i1 %.not.i22, %413
-  br i1 %brmerge.i23, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit", label %414
+404:                                              ; preds = %398
+  %405 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %406 = load i8, ptr %405, align 8, !range !3010, !alias.scope !15831, !noalias !15834, !noundef !4
+  %.not.i22 = icmp eq i8 %406, 9
+  %407 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %408 = load i8, ptr %407, align 8, !range !3010, !alias.scope !15834, !noalias !15831, !noundef !4
+  %409 = icmp eq i8 %408, 9
+  %brmerge.i23 = or i1 %.not.i22, %409
+  %.mux.i24 = and i1 %.not.i22, %409
+  br i1 %brmerge.i23, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit", label %410
 
-414:                                              ; preds = %408
+410:                                              ; preds = %404
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15843)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15846)
-  %415 = add nsw i8 %410, -6
-  %416 = icmp ult i8 %415, 3
-  %417 = zext nneg i8 %410 to i64
-  %418 = add nsw i64 %417, -5
-  %419 = select i1 %416, i64 %418, i64 0
-  %420 = icmp samesign ult i8 %412, 6
-  %421 = zext nneg i8 %412 to i64
-  %422 = add nsw i64 %421, -5
-  %423 = select i1 %420, i64 0, i64 %422
-  %424 = icmp eq i64 %419, %423
-  br i1 %424, label %425, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
+  %411 = icmp samesign ugt i8 %406, 5
+  %412 = zext nneg i8 %406 to i64
+  %413 = add nsw i64 %412, -5
+  %414 = select i1 %411, i64 %413, i64 0
+  %415 = icmp samesign ult i8 %408, 6
+  %416 = zext nneg i8 %408 to i64
+  %417 = add nsw i64 %416, -5
+  %418 = select i1 %415, i64 0, i64 %417
+  %419 = icmp eq i64 %414, %418
+  br i1 %419, label %420, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
 
-425:                                              ; preds = %414
-  switch i64 %419, label %426 [
-    i64 0, label %427
-    i64 1, label %431
-    i64 2, label %435
-    i64 3, label %439
+420:                                              ; preds = %410
+  switch i64 %414, label %421 [
+    i64 0, label %422
+    i64 1, label %426
+    i64 2, label %430
+    i64 3, label %434
   ]
 
-426:                                              ; preds = %425
+421:                                              ; preds = %420
   unreachable
 
-427:                                              ; preds = %425
-  tail call void @llvm.assume(i1 %420)
-  %428 = load double, ptr %7, align 8, !alias.scope !15848, !noalias !15849, !noundef !4
-  %429 = load double, ptr %8, align 8, !alias.scope !15849, !noalias !15848, !noundef !4
-  %430 = fcmp oeq double %428, %429
-  br i1 %430, label %443, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
+422:                                              ; preds = %420
+  tail call void @llvm.assume(i1 %415)
+  %423 = load double, ptr %7, align 8, !alias.scope !15848, !noalias !15849, !noundef !4
+  %424 = load double, ptr %8, align 8, !alias.scope !15849, !noalias !15848, !noundef !4
+  %425 = fcmp oeq double %423, %424
+  br i1 %425, label %438, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
 
-431:                                              ; preds = %425
-  %432 = load i8, ptr %7, align 8, !alias.scope !15848, !noalias !15849, !noundef !4
-  %433 = load i8, ptr %8, align 8, !alias.scope !15849, !noalias !15848, !noundef !4
-  %434 = icmp eq i8 %432, %433
+426:                                              ; preds = %420
+  %427 = load i8, ptr %7, align 8, !alias.scope !15848, !noalias !15849, !noundef !4
+  %428 = load i8, ptr %8, align 8, !alias.scope !15849, !noalias !15848, !noundef !4
+  %429 = icmp eq i8 %427, %428
   br label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
 
-435:                                              ; preds = %425
-  %436 = load i8, ptr %7, align 8, !range !3, !alias.scope !15848, !noalias !15849, !noundef !4
-  %437 = load i8, ptr %8, align 8, !range !3, !alias.scope !15849, !noalias !15848, !noundef !4
-  %438 = icmp eq i8 %436, %437
+430:                                              ; preds = %420
+  %431 = load i8, ptr %7, align 8, !range !3, !alias.scope !15848, !noalias !15849, !noundef !4
+  %432 = load i8, ptr %8, align 8, !range !3, !alias.scope !15849, !noalias !15848, !noundef !4
+  %433 = icmp eq i8 %431, %432
   br label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
 
-439:                                              ; preds = %425
-  %440 = load i8, ptr %7, align 8, !range !3, !alias.scope !15848, !noalias !15849, !noundef !4
-  %441 = load i8, ptr %8, align 8, !range !3, !alias.scope !15849, !noalias !15848, !noundef !4
-  %442 = icmp eq i8 %440, %441
-  br i1 %442, label %445, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
+434:                                              ; preds = %420
+  %435 = load i8, ptr %7, align 8, !range !3, !alias.scope !15848, !noalias !15849, !noundef !4
+  %436 = load i8, ptr %8, align 8, !range !3, !alias.scope !15849, !noalias !15848, !noundef !4
+  %437 = icmp eq i8 %435, %436
+  br i1 %437, label %440, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
 
-443:                                              ; preds = %427
-  %444 = icmp eq i8 %410, %412
+438:                                              ; preds = %422
+  %439 = icmp eq i8 %406, %408
   br label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
 
-445:                                              ; preds = %439
-  %446 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %447 = load i8, ptr %446, align 1, !range !3, !alias.scope !15848, !noalias !15849, !noundef !4
-  %448 = getelementptr inbounds nuw i8, ptr %1, i64 9
-  %449 = load i8, ptr %448, align 1, !range !3, !alias.scope !15849, !noalias !15848, !noundef !4
-  %450 = icmp eq i8 %447, %449
+440:                                              ; preds = %434
+  %441 = getelementptr inbounds nuw i8, ptr %0, i64 9
+  %442 = load i8, ptr %441, align 1, !range !3, !alias.scope !15848, !noalias !15849, !noundef !4
+  %443 = getelementptr inbounds nuw i8, ptr %1, i64 9
+  %444 = load i8, ptr %443, align 1, !range !3, !alias.scope !15849, !noalias !15848, !noundef !4
+  %445 = icmp eq i8 %442, %444
   br label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
 
-451:                                              ; preds = %6
+446:                                              ; preds = %6
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15850)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15853)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15855)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15858)
-  %452 = load i64, ptr %9, align 8, !alias.scope !15860, !noalias !15861, !noundef !4
-  %453 = load i64, ptr %10, align 8, !alias.scope !15861, !noalias !15860, !noundef !4
-  %454 = icmp eq i64 %452, %453
-  br i1 %454, label %455, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
+  %447 = load i64, ptr %9, align 8, !alias.scope !15860, !noalias !15861, !noundef !4
+  %448 = load i64, ptr %10, align 8, !alias.scope !15861, !noalias !15860, !noundef !4
+  %449 = icmp eq i64 %447, %448
+  br i1 %449, label %450, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
 
-455:                                              ; preds = %451
-  %456 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %457 = load i64, ptr %456, align 8, !alias.scope !15860, !noalias !15861, !noundef !4
-  %458 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %459 = load i64, ptr %458, align 8, !alias.scope !15861, !noalias !15860, !noundef !4
-  %460 = icmp eq i64 %457, %459
-  br i1 %460, label %461, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
+450:                                              ; preds = %446
+  %451 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %452 = load i64, ptr %451, align 8, !alias.scope !15860, !noalias !15861, !noundef !4
+  %453 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %454 = load i64, ptr %453, align 8, !alias.scope !15861, !noalias !15860, !noundef !4
+  %455 = icmp eq i64 %452, %454
+  br i1 %455, label %456, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
 
-461:                                              ; preds = %455
-  %462 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %463 = load i64, ptr %462, align 8, !alias.scope !15860, !noalias !15861, !noundef !4
-  %464 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %465 = load i64, ptr %464, align 8, !alias.scope !15861, !noalias !15860, !noundef !4
-  %466 = icmp eq i64 %463, %465
-  br i1 %466, label %467, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
+456:                                              ; preds = %450
+  %457 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %458 = load i64, ptr %457, align 8, !alias.scope !15860, !noalias !15861, !noundef !4
+  %459 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %460 = load i64, ptr %459, align 8, !alias.scope !15861, !noalias !15860, !noundef !4
+  %461 = icmp eq i64 %458, %460
+  br i1 %461, label %462, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
 
-467:                                              ; preds = %461
-  %468 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %469 = load i64, ptr %468, align 8, !alias.scope !15860, !noalias !15861, !noundef !4
-  %470 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %471 = load i64, ptr %470, align 8, !alias.scope !15861, !noalias !15860, !noundef !4
-  %472 = icmp eq i64 %469, %471
-  br i1 %472, label %473, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
+462:                                              ; preds = %456
+  %463 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %464 = load i64, ptr %463, align 8, !alias.scope !15860, !noalias !15861, !noundef !4
+  %465 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %466 = load i64, ptr %465, align 8, !alias.scope !15861, !noalias !15860, !noundef !4
+  %467 = icmp eq i64 %464, %466
+  br i1 %467, label %468, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
 
-473:                                              ; preds = %467
-  %474 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %475 = load i8, ptr %474, align 8, !range !3, !alias.scope !15860, !noalias !15861, !noundef !4
-  %476 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %477 = load i8, ptr %476, align 8, !range !3, !alias.scope !15861, !noalias !15860, !noundef !4
+468:                                              ; preds = %462
+  %469 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %470 = load i8, ptr %469, align 8, !range !3, !alias.scope !15860, !noalias !15861, !noundef !4
+  %471 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %472 = load i8, ptr %471, align 8, !range !3, !alias.scope !15861, !noalias !15860, !noundef !4
+  %473 = icmp eq i8 %470, %472
+  br i1 %473, label %"_ZN81_$LT$polars_time..windows..duration..Duration$u20$as$u20$core..cmp..PartialEq$GT$2eq17h766e7bc9ac75ffa1E.exit.i27", label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
+
+"_ZN81_$LT$polars_time..windows..duration..Duration$u20$as$u20$core..cmp..PartialEq$GT$2eq17h766e7bc9ac75ffa1E.exit.i27": ; preds = %468
+  %474 = getelementptr inbounds nuw i8, ptr %0, i64 65
+  %475 = load i8, ptr %474, align 1, !range !3, !alias.scope !15860, !noalias !15861, !noundef !4
+  %476 = getelementptr inbounds nuw i8, ptr %1, i64 65
+  %477 = load i8, ptr %476, align 1, !range !3, !alias.scope !15861, !noalias !15860, !noundef !4
   %478 = icmp eq i8 %475, %477
-  br i1 %478, label %"_ZN81_$LT$polars_time..windows..duration..Duration$u20$as$u20$core..cmp..PartialEq$GT$2eq17h766e7bc9ac75ffa1E.exit.i27", label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
+  br i1 %478, label %479, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
 
-"_ZN81_$LT$polars_time..windows..duration..Duration$u20$as$u20$core..cmp..PartialEq$GT$2eq17h766e7bc9ac75ffa1E.exit.i27": ; preds = %473
-  %479 = getelementptr inbounds nuw i8, ptr %0, i64 65
-  %480 = load i8, ptr %479, align 1, !range !3, !alias.scope !15860, !noalias !15861, !noundef !4
-  %481 = getelementptr inbounds nuw i8, ptr %1, i64 65
-  %482 = load i8, ptr %481, align 1, !range !3, !alias.scope !15861, !noalias !15860, !noundef !4
-  %483 = icmp eq i8 %480, %482
-  br i1 %483, label %484, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
+479:                                              ; preds = %"_ZN81_$LT$polars_time..windows..duration..Duration$u20$as$u20$core..cmp..PartialEq$GT$2eq17h766e7bc9ac75ffa1E.exit.i27"
+  %480 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %481 = load i64, ptr %480, align 8, !alias.scope !15850, !noalias !15853, !noundef !4
+  %482 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %483 = load i64, ptr %482, align 8, !alias.scope !15853, !noalias !15850, !noundef !4
+  %484 = icmp eq i64 %481, %483
+  br i1 %484, label %485, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
 
-484:                                              ; preds = %"_ZN81_$LT$polars_time..windows..duration..Duration$u20$as$u20$core..cmp..PartialEq$GT$2eq17h766e7bc9ac75ffa1E.exit.i27"
-  %485 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %486 = load i64, ptr %485, align 8, !alias.scope !15850, !noalias !15853, !noundef !4
-  %487 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %488 = load i64, ptr %487, align 8, !alias.scope !15853, !noalias !15850, !noundef !4
-  %489 = icmp eq i64 %486, %488
-  br i1 %489, label %490, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
+485:                                              ; preds = %479
+  %486 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %487 = load i8, ptr %486, align 8, !range !2987, !alias.scope !15850, !noalias !15853, !noundef !4
+  %488 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %489 = load i8, ptr %488, align 8, !range !2987, !alias.scope !15853, !noalias !15850, !noundef !4
+  %490 = icmp eq i8 %487, %489
+  br i1 %490, label %491, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
 
-490:                                              ; preds = %484
-  %491 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %492 = load i8, ptr %491, align 8, !range !2987, !alias.scope !15850, !noalias !15853, !noundef !4
-  %493 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %494 = load i8, ptr %493, align 8, !range !2987, !alias.scope !15853, !noalias !15850, !noundef !4
-  %495 = icmp eq i8 %492, %494
-  br i1 %495, label %496, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
+491:                                              ; preds = %485
+  %492 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %493 = load i8, ptr %492, align 8, !range !3010, !alias.scope !15850, !noalias !15853, !noundef !4
+  %.not.i28 = icmp eq i8 %493, 9
+  %494 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %495 = load i8, ptr %494, align 8, !range !3010, !alias.scope !15853, !noalias !15850, !noundef !4
+  %496 = icmp eq i8 %495, 9
+  %brmerge.i29 = or i1 %.not.i28, %496
+  %.mux.i30 = and i1 %.not.i28, %496
+  br i1 %brmerge.i29, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit", label %497
 
-496:                                              ; preds = %490
-  %497 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %498 = load i8, ptr %497, align 8, !range !3010, !alias.scope !15850, !noalias !15853, !noundef !4
-  %.not.i28 = icmp eq i8 %498, 9
-  %499 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %500 = load i8, ptr %499, align 8, !range !3010, !alias.scope !15853, !noalias !15850, !noundef !4
-  %501 = icmp eq i8 %500, 9
-  %brmerge.i29 = or i1 %.not.i28, %501
-  %.mux.i30 = and i1 %.not.i28, %501
-  br i1 %brmerge.i29, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit", label %502
-
-502:                                              ; preds = %496
+497:                                              ; preds = %491
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15862)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15865)
-  %503 = add nsw i8 %498, -6
-  %504 = icmp ult i8 %503, 3
-  %505 = zext nneg i8 %498 to i64
-  %506 = add nsw i64 %505, -5
-  %507 = select i1 %504, i64 %506, i64 0
-  %508 = icmp samesign ult i8 %500, 6
-  %509 = zext nneg i8 %500 to i64
-  %510 = add nsw i64 %509, -5
-  %511 = select i1 %508, i64 0, i64 %510
-  %512 = icmp eq i64 %507, %511
-  br i1 %512, label %513, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
+  %498 = icmp samesign ugt i8 %493, 5
+  %499 = zext nneg i8 %493 to i64
+  %500 = add nsw i64 %499, -5
+  %501 = select i1 %498, i64 %500, i64 0
+  %502 = icmp samesign ult i8 %495, 6
+  %503 = zext nneg i8 %495 to i64
+  %504 = add nsw i64 %503, -5
+  %505 = select i1 %502, i64 0, i64 %504
+  %506 = icmp eq i64 %501, %505
+  br i1 %506, label %507, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
 
-513:                                              ; preds = %502
-  switch i64 %507, label %514 [
-    i64 0, label %515
-    i64 1, label %519
-    i64 2, label %523
-    i64 3, label %527
+507:                                              ; preds = %497
+  switch i64 %501, label %508 [
+    i64 0, label %509
+    i64 1, label %513
+    i64 2, label %517
+    i64 3, label %521
   ]
 
-514:                                              ; preds = %513
+508:                                              ; preds = %507
   unreachable
 
-515:                                              ; preds = %513
-  tail call void @llvm.assume(i1 %508)
-  %516 = load double, ptr %7, align 8, !alias.scope !15867, !noalias !15868, !noundef !4
-  %517 = load double, ptr %8, align 8, !alias.scope !15868, !noalias !15867, !noundef !4
-  %518 = fcmp oeq double %516, %517
-  br i1 %518, label %531, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
+509:                                              ; preds = %507
+  tail call void @llvm.assume(i1 %502)
+  %510 = load double, ptr %7, align 8, !alias.scope !15867, !noalias !15868, !noundef !4
+  %511 = load double, ptr %8, align 8, !alias.scope !15868, !noalias !15867, !noundef !4
+  %512 = fcmp oeq double %510, %511
+  br i1 %512, label %525, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
 
-519:                                              ; preds = %513
-  %520 = load i8, ptr %7, align 8, !alias.scope !15867, !noalias !15868, !noundef !4
-  %521 = load i8, ptr %8, align 8, !alias.scope !15868, !noalias !15867, !noundef !4
-  %522 = icmp eq i8 %520, %521
+513:                                              ; preds = %507
+  %514 = load i8, ptr %7, align 8, !alias.scope !15867, !noalias !15868, !noundef !4
+  %515 = load i8, ptr %8, align 8, !alias.scope !15868, !noalias !15867, !noundef !4
+  %516 = icmp eq i8 %514, %515
   br label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
 
-523:                                              ; preds = %513
-  %524 = load i8, ptr %7, align 8, !range !3, !alias.scope !15867, !noalias !15868, !noundef !4
-  %525 = load i8, ptr %8, align 8, !range !3, !alias.scope !15868, !noalias !15867, !noundef !4
-  %526 = icmp eq i8 %524, %525
+517:                                              ; preds = %507
+  %518 = load i8, ptr %7, align 8, !range !3, !alias.scope !15867, !noalias !15868, !noundef !4
+  %519 = load i8, ptr %8, align 8, !range !3, !alias.scope !15868, !noalias !15867, !noundef !4
+  %520 = icmp eq i8 %518, %519
   br label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
 
-527:                                              ; preds = %513
-  %528 = load i8, ptr %7, align 8, !range !3, !alias.scope !15867, !noalias !15868, !noundef !4
-  %529 = load i8, ptr %8, align 8, !range !3, !alias.scope !15868, !noalias !15867, !noundef !4
-  %530 = icmp eq i8 %528, %529
-  br i1 %530, label %533, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
+521:                                              ; preds = %507
+  %522 = load i8, ptr %7, align 8, !range !3, !alias.scope !15867, !noalias !15868, !noundef !4
+  %523 = load i8, ptr %8, align 8, !range !3, !alias.scope !15868, !noalias !15867, !noundef !4
+  %524 = icmp eq i8 %522, %523
+  br i1 %524, label %527, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
 
-531:                                              ; preds = %515
-  %532 = icmp eq i8 %498, %500
+525:                                              ; preds = %509
+  %526 = icmp eq i8 %493, %495
   br label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
 
-533:                                              ; preds = %527
-  %534 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %535 = load i8, ptr %534, align 1, !range !3, !alias.scope !15867, !noalias !15868, !noundef !4
-  %536 = getelementptr inbounds nuw i8, ptr %1, i64 9
-  %537 = load i8, ptr %536, align 1, !range !3, !alias.scope !15868, !noalias !15867, !noundef !4
-  %538 = icmp eq i8 %535, %537
+527:                                              ; preds = %521
+  %528 = getelementptr inbounds nuw i8, ptr %0, i64 9
+  %529 = load i8, ptr %528, align 1, !range !3, !alias.scope !15867, !noalias !15868, !noundef !4
+  %530 = getelementptr inbounds nuw i8, ptr %1, i64 9
+  %531 = load i8, ptr %530, align 1, !range !3, !alias.scope !15868, !noalias !15867, !noundef !4
+  %532 = icmp eq i8 %529, %531
   br label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
 
-539:                                              ; preds = %6
+533:                                              ; preds = %6
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15869)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15872)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15874)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15877)
-  %540 = load i64, ptr %9, align 8, !alias.scope !15879, !noalias !15880, !noundef !4
-  %541 = load i64, ptr %10, align 8, !alias.scope !15880, !noalias !15879, !noundef !4
-  %542 = icmp eq i64 %540, %541
+  %534 = load i64, ptr %9, align 8, !alias.scope !15879, !noalias !15880, !noundef !4
+  %535 = load i64, ptr %10, align 8, !alias.scope !15880, !noalias !15879, !noundef !4
+  %536 = icmp eq i64 %534, %535
+  br i1 %536, label %537, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
+
+537:                                              ; preds = %533
+  %538 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %539 = load i64, ptr %538, align 8, !alias.scope !15879, !noalias !15880, !noundef !4
+  %540 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %541 = load i64, ptr %540, align 8, !alias.scope !15880, !noalias !15879, !noundef !4
+  %542 = icmp eq i64 %539, %541
   br i1 %542, label %543, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
 
-543:                                              ; preds = %539
-  %544 = getelementptr inbounds nuw i8, ptr %0, i64 40
+543:                                              ; preds = %537
+  %544 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %545 = load i64, ptr %544, align 8, !alias.scope !15879, !noalias !15880, !noundef !4
-  %546 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %546 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %547 = load i64, ptr %546, align 8, !alias.scope !15880, !noalias !15879, !noundef !4
   %548 = icmp eq i64 %545, %547
   br i1 %548, label %549, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
 
 549:                                              ; preds = %543
-  %550 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %550 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %551 = load i64, ptr %550, align 8, !alias.scope !15879, !noalias !15880, !noundef !4
-  %552 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %552 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %553 = load i64, ptr %552, align 8, !alias.scope !15880, !noalias !15879, !noundef !4
   %554 = icmp eq i64 %551, %553
   br i1 %554, label %555, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
 
 555:                                              ; preds = %549
-  %556 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %557 = load i64, ptr %556, align 8, !alias.scope !15879, !noalias !15880, !noundef !4
-  %558 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %559 = load i64, ptr %558, align 8, !alias.scope !15880, !noalias !15879, !noundef !4
-  %560 = icmp eq i64 %557, %559
-  br i1 %560, label %561, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
+  %556 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %557 = load i8, ptr %556, align 8, !range !3, !alias.scope !15879, !noalias !15880, !noundef !4
+  %558 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %559 = load i8, ptr %558, align 8, !range !3, !alias.scope !15880, !noalias !15879, !noundef !4
+  %560 = icmp eq i8 %557, %559
+  br i1 %560, label %"_ZN81_$LT$polars_time..windows..duration..Duration$u20$as$u20$core..cmp..PartialEq$GT$2eq17h766e7bc9ac75ffa1E.exit.i33", label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
 
-561:                                              ; preds = %555
-  %562 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %563 = load i8, ptr %562, align 8, !range !3, !alias.scope !15879, !noalias !15880, !noundef !4
-  %564 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %565 = load i8, ptr %564, align 8, !range !3, !alias.scope !15880, !noalias !15879, !noundef !4
-  %566 = icmp eq i8 %563, %565
-  br i1 %566, label %"_ZN81_$LT$polars_time..windows..duration..Duration$u20$as$u20$core..cmp..PartialEq$GT$2eq17h766e7bc9ac75ffa1E.exit.i33", label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
+"_ZN81_$LT$polars_time..windows..duration..Duration$u20$as$u20$core..cmp..PartialEq$GT$2eq17h766e7bc9ac75ffa1E.exit.i33": ; preds = %555
+  %561 = getelementptr inbounds nuw i8, ptr %0, i64 65
+  %562 = load i8, ptr %561, align 1, !range !3, !alias.scope !15879, !noalias !15880, !noundef !4
+  %563 = getelementptr inbounds nuw i8, ptr %1, i64 65
+  %564 = load i8, ptr %563, align 1, !range !3, !alias.scope !15880, !noalias !15879, !noundef !4
+  %565 = icmp eq i8 %562, %564
+  br i1 %565, label %566, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
 
-"_ZN81_$LT$polars_time..windows..duration..Duration$u20$as$u20$core..cmp..PartialEq$GT$2eq17h766e7bc9ac75ffa1E.exit.i33": ; preds = %561
-  %567 = getelementptr inbounds nuw i8, ptr %0, i64 65
-  %568 = load i8, ptr %567, align 1, !range !3, !alias.scope !15879, !noalias !15880, !noundef !4
-  %569 = getelementptr inbounds nuw i8, ptr %1, i64 65
-  %570 = load i8, ptr %569, align 1, !range !3, !alias.scope !15880, !noalias !15879, !noundef !4
-  %571 = icmp eq i8 %568, %570
+566:                                              ; preds = %"_ZN81_$LT$polars_time..windows..duration..Duration$u20$as$u20$core..cmp..PartialEq$GT$2eq17h766e7bc9ac75ffa1E.exit.i33"
+  %567 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %568 = load i64, ptr %567, align 8, !alias.scope !15869, !noalias !15872, !noundef !4
+  %569 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %570 = load i64, ptr %569, align 8, !alias.scope !15872, !noalias !15869, !noundef !4
+  %571 = icmp eq i64 %568, %570
   br i1 %571, label %572, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
 
-572:                                              ; preds = %"_ZN81_$LT$polars_time..windows..duration..Duration$u20$as$u20$core..cmp..PartialEq$GT$2eq17h766e7bc9ac75ffa1E.exit.i33"
-  %573 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %574 = load i64, ptr %573, align 8, !alias.scope !15869, !noalias !15872, !noundef !4
-  %575 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %576 = load i64, ptr %575, align 8, !alias.scope !15872, !noalias !15869, !noundef !4
-  %577 = icmp eq i64 %574, %576
+572:                                              ; preds = %566
+  %573 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %574 = load i8, ptr %573, align 8, !range !2987, !alias.scope !15869, !noalias !15872, !noundef !4
+  %575 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %576 = load i8, ptr %575, align 8, !range !2987, !alias.scope !15872, !noalias !15869, !noundef !4
+  %577 = icmp eq i8 %574, %576
   br i1 %577, label %578, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
 
 578:                                              ; preds = %572
-  %579 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %580 = load i8, ptr %579, align 8, !range !2987, !alias.scope !15869, !noalias !15872, !noundef !4
-  %581 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %582 = load i8, ptr %581, align 8, !range !2987, !alias.scope !15872, !noalias !15869, !noundef !4
-  %583 = icmp eq i8 %580, %582
-  br i1 %583, label %584, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
+  %579 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %580 = load i8, ptr %579, align 8, !range !3010, !alias.scope !15869, !noalias !15872, !noundef !4
+  %.not.i34 = icmp eq i8 %580, 9
+  %581 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %582 = load i8, ptr %581, align 8, !range !3010, !alias.scope !15872, !noalias !15869, !noundef !4
+  %583 = icmp eq i8 %582, 9
+  %brmerge.i35 = or i1 %.not.i34, %583
+  %.mux.i36 = and i1 %.not.i34, %583
+  br i1 %brmerge.i35, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit", label %584
 
 584:                                              ; preds = %578
-  %585 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %586 = load i8, ptr %585, align 8, !range !3010, !alias.scope !15869, !noalias !15872, !noundef !4
-  %.not.i34 = icmp eq i8 %586, 9
-  %587 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %588 = load i8, ptr %587, align 8, !range !3010, !alias.scope !15872, !noalias !15869, !noundef !4
-  %589 = icmp eq i8 %588, 9
-  %brmerge.i35 = or i1 %.not.i34, %589
-  %.mux.i36 = and i1 %.not.i34, %589
-  br i1 %brmerge.i35, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit", label %590
-
-590:                                              ; preds = %584
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15881)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15884)
-  %591 = add nsw i8 %586, -6
-  %592 = icmp ult i8 %591, 3
-  %593 = zext nneg i8 %586 to i64
-  %594 = add nsw i64 %593, -5
-  %595 = select i1 %592, i64 %594, i64 0
-  %596 = icmp samesign ult i8 %588, 6
-  %597 = zext nneg i8 %588 to i64
-  %598 = add nsw i64 %597, -5
-  %599 = select i1 %596, i64 0, i64 %598
-  %600 = icmp eq i64 %595, %599
-  br i1 %600, label %601, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
+  %585 = icmp samesign ugt i8 %580, 5
+  %586 = zext nneg i8 %580 to i64
+  %587 = add nsw i64 %586, -5
+  %588 = select i1 %585, i64 %587, i64 0
+  %589 = icmp samesign ult i8 %582, 6
+  %590 = zext nneg i8 %582 to i64
+  %591 = add nsw i64 %590, -5
+  %592 = select i1 %589, i64 0, i64 %591
+  %593 = icmp eq i64 %588, %592
+  br i1 %593, label %594, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
 
-601:                                              ; preds = %590
-  switch i64 %595, label %602 [
-    i64 0, label %603
-    i64 1, label %607
-    i64 2, label %611
-    i64 3, label %615
+594:                                              ; preds = %584
+  switch i64 %588, label %595 [
+    i64 0, label %596
+    i64 1, label %600
+    i64 2, label %604
+    i64 3, label %608
   ]
 
-602:                                              ; preds = %601
+595:                                              ; preds = %594
   unreachable
 
-603:                                              ; preds = %601
-  tail call void @llvm.assume(i1 %596)
-  %604 = load double, ptr %7, align 8, !alias.scope !15886, !noalias !15887, !noundef !4
-  %605 = load double, ptr %8, align 8, !alias.scope !15887, !noalias !15886, !noundef !4
-  %606 = fcmp oeq double %604, %605
-  br i1 %606, label %619, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
+596:                                              ; preds = %594
+  tail call void @llvm.assume(i1 %589)
+  %597 = load double, ptr %7, align 8, !alias.scope !15886, !noalias !15887, !noundef !4
+  %598 = load double, ptr %8, align 8, !alias.scope !15887, !noalias !15886, !noundef !4
+  %599 = fcmp oeq double %597, %598
+  br i1 %599, label %612, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
 
-607:                                              ; preds = %601
-  %608 = load i8, ptr %7, align 8, !alias.scope !15886, !noalias !15887, !noundef !4
-  %609 = load i8, ptr %8, align 8, !alias.scope !15887, !noalias !15886, !noundef !4
-  %610 = icmp eq i8 %608, %609
+600:                                              ; preds = %594
+  %601 = load i8, ptr %7, align 8, !alias.scope !15886, !noalias !15887, !noundef !4
+  %602 = load i8, ptr %8, align 8, !alias.scope !15887, !noalias !15886, !noundef !4
+  %603 = icmp eq i8 %601, %602
   br label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
 
-611:                                              ; preds = %601
-  %612 = load i8, ptr %7, align 8, !range !3, !alias.scope !15886, !noalias !15887, !noundef !4
-  %613 = load i8, ptr %8, align 8, !range !3, !alias.scope !15887, !noalias !15886, !noundef !4
-  %614 = icmp eq i8 %612, %613
+604:                                              ; preds = %594
+  %605 = load i8, ptr %7, align 8, !range !3, !alias.scope !15886, !noalias !15887, !noundef !4
+  %606 = load i8, ptr %8, align 8, !range !3, !alias.scope !15887, !noalias !15886, !noundef !4
+  %607 = icmp eq i8 %605, %606
   br label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
 
-615:                                              ; preds = %601
-  %616 = load i8, ptr %7, align 8, !range !3, !alias.scope !15886, !noalias !15887, !noundef !4
-  %617 = load i8, ptr %8, align 8, !range !3, !alias.scope !15887, !noalias !15886, !noundef !4
-  %618 = icmp eq i8 %616, %617
-  br i1 %618, label %621, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
+608:                                              ; preds = %594
+  %609 = load i8, ptr %7, align 8, !range !3, !alias.scope !15886, !noalias !15887, !noundef !4
+  %610 = load i8, ptr %8, align 8, !range !3, !alias.scope !15887, !noalias !15886, !noundef !4
+  %611 = icmp eq i8 %609, %610
+  br i1 %611, label %614, label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
 
-619:                                              ; preds = %603
-  %620 = icmp eq i8 %586, %588
+612:                                              ; preds = %596
+  %613 = icmp eq i8 %580, %582
   br label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
 
-621:                                              ; preds = %615
-  %622 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %623 = load i8, ptr %622, align 1, !range !3, !alias.scope !15886, !noalias !15887, !noundef !4
-  %624 = getelementptr inbounds nuw i8, ptr %1, i64 9
-  %625 = load i8, ptr %624, align 1, !range !3, !alias.scope !15887, !noalias !15886, !noundef !4
-  %626 = icmp eq i8 %623, %625
+614:                                              ; preds = %608
+  %615 = getelementptr inbounds nuw i8, ptr %0, i64 9
+  %616 = load i8, ptr %615, align 1, !range !3, !alias.scope !15886, !noalias !15887, !noundef !4
+  %617 = getelementptr inbounds nuw i8, ptr %1, i64 9
+  %618 = load i8, ptr %617, align 1, !range !3, !alias.scope !15887, !noalias !15886, !noundef !4
+  %619 = icmp eq i8 %616, %618
   br label %"_ZN111_$LT$polars_time..chunkedarray..rolling_window..RollingOptionsDynamicWindow$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ee3e59e1a20e710E.exit"
 }
 

@@ -9215,12 +9215,11 @@ _ZN6chrono6format10formatting14write_hundreds17h0975d7d0b5bf4e8cE.exit: ; preds 
   %22 = add nuw i32 %.sroa.041.0, 30
   %23 = sdiv i32 %22, 60
   %24 = srem i32 %23, 60
-  %25 = icmp ne i8 %10, 3
-  %26 = icmp ne i32 %24, 0
-  %or.cond2.not = select i1 %25, i1 true, i1 %26
+  %25 = icmp eq i8 %10, 3
+  %26 = icmp eq i32 %24, 0
+  %or.cond2.not.not = select i1 %25, i1 %26, i1 false
   %27 = trunc nsw i32 %24 to i8
-  %spec.select = select i1 %or.cond2.not, i8 %27, i8 0
-  %spec.select52 = zext i1 %or.cond2.not to i64
+  %spec.select = select i1 %or.cond2.not.not, i8 0, i8 %27
   br label %35
 
 28:                                               ; preds = %7, %7, %7
@@ -9238,7 +9237,7 @@ _ZN6chrono6format10formatting14write_hundreds17h0975d7d0b5bf4e8cE.exit: ; preds 
   %.sroa.030.0 = phi i8 [ %32, %41 ], [ %10, %7 ], [ %., %43 ], [ %spec.select, %21 ]
   %.sroa.037.0 = phi i8 [ %42, %41 ], [ %10, %7 ], [ 0, %43 ], [ 0, %21 ]
   %36 = phi i1 [ true, %41 ], [ false, %7 ], [ false, %43 ], [ false, %21 ]
-  %.sroa.09.0 = phi i64 [ 2, %41 ], [ 0, %7 ], [ %.48, %43 ], [ %spec.select52, %21 ]
+  %.sroa.09.0 = phi i1 [ false, %41 ], [ true, %7 ], [ %or.cond6.not.not, %43 ], [ %or.cond2.not.not, %21 ]
   %.sroa.023.0.in = sdiv i32 %.sroa.023.0.in.in, 3600
   %.sroa.023.0 = trunc i32 %.sroa.023.0.in to i8
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -9252,11 +9251,10 @@ _ZN6chrono6format10formatting14write_hundreds17h0975d7d0b5bf4e8cE.exit: ; preds 
   br label %35
 
 43:                                               ; preds = %28
-  %44 = icmp ne i8 %10, 5
-  %45 = icmp ne i32 %31, 0
-  %or.cond6.not = or i1 %45, %44
-  %. = select i1 %or.cond6.not, i8 %32, i8 0
-  %.48 = zext i1 %or.cond6.not to i64
+  %44 = icmp eq i8 %10, 5
+  %45 = icmp eq i32 %31, 0
+  %or.cond6.not.not = and i1 %45, %44
+  %. = select i1 %or.cond6.not.not, i8 0, i8 %32
   br label %35
 
 46:                                               ; preds = %35
@@ -9283,9 +9281,7 @@ _ZN6chrono6format10formatting14write_hundreds17h0975d7d0b5bf4e8cE.exit.thread: ;
 60:                                               ; preds = %_ZN6chrono6format10formatting14write_hundreds17h0975d7d0b5bf4e8cE.exit.thread, %86
   %.sink = phi i32 [ %55, %_ZN6chrono6format10formatting14write_hundreds17h0975d7d0b5bf4e8cE.exit.thread ], [ %88, %86 ]
   %61 = tail call noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$core..fmt..Write$GT$10write_char17h381e644f460e06cfE.llvm.14828969249010433255"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %.sink)
-  %.sroa.09.0.off = add nsw i64 %.sroa.09.0, -1
-  %switch = icmp ult i64 %.sroa.09.0.off, 2
-  br i1 %switch, label %90, label %89
+  br i1 %.sroa.09.0, label %89, label %90
 
 62:                                               ; preds = %56
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 16

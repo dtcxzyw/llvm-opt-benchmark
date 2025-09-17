@@ -2000,7 +2000,7 @@ define internal fastcc void @"_ZN4core3ptr83drop_in_place$LT$alloc..boxed..Box$L
   %4 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %4)
   invoke void %2(ptr noundef nonnull %.0.val)
-          to label %5 unwind label %15
+          to label %5 unwind label %14
 
 5:                                                ; preds = %3, %0
   %6 = icmp ne ptr %.0.val, null
@@ -2009,38 +2009,36 @@ define internal fastcc void @"_ZN4core3ptr83drop_in_place$LT$alloc..boxed..Box$L
   %8 = load i64, ptr %7, align 8, !range !144, !invariant.load !3
   %9 = getelementptr inbounds nuw i8, ptr %.8.val, i64 16
   %10 = load i64, ptr %9, align 8, !range !10, !invariant.load !3
-  %11 = add i64 %10, -1
-  %12 = icmp sgt i64 %11, -1
-  tail call void @llvm.assume(i1 %12)
-  %13 = icmp eq i64 %8, 0
-  br i1 %13, label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he4b71634a6563934E.exit", label %14
+  %11 = icmp ult i64 %10, -9223372036854775807
+  tail call void @llvm.assume(i1 %11)
+  %12 = icmp eq i64 %8, 0
+  br i1 %12, label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he4b71634a6563934E.exit", label %13
 
-14:                                               ; preds = %5
+13:                                               ; preds = %5
   tail call void @_RNvCscSpY9Juk0HT_7___rustc14___rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef range(i64 1, -9223372036854775808) %8, i64 noundef range(i64 1, -9223372036854775807) %10) #29
   br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he4b71634a6563934E.exit"
 
-"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he4b71634a6563934E.exit": ; preds = %5, %14
+"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he4b71634a6563934E.exit": ; preds = %5, %13
   ret void
 
-15:                                               ; preds = %3
-  %16 = landingpad { ptr, i32 }
+14:                                               ; preds = %3
+  %15 = landingpad { ptr, i32 }
           cleanup
-  %17 = getelementptr inbounds nuw i8, ptr %.8.val, i64 8
-  %18 = load i64, ptr %17, align 8, !range !144, !invariant.load !3
-  %19 = getelementptr inbounds nuw i8, ptr %.8.val, i64 16
-  %20 = load i64, ptr %19, align 8, !range !10, !invariant.load !3
-  %21 = add i64 %20, -1
-  %22 = icmp sgt i64 %21, -1
-  tail call void @llvm.assume(i1 %22)
-  %23 = icmp eq i64 %18, 0
-  br i1 %23, label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he4b71634a6563934E.exit4", label %24
+  %16 = getelementptr inbounds nuw i8, ptr %.8.val, i64 8
+  %17 = load i64, ptr %16, align 8, !range !144, !invariant.load !3
+  %18 = getelementptr inbounds nuw i8, ptr %.8.val, i64 16
+  %19 = load i64, ptr %18, align 8, !range !10, !invariant.load !3
+  %20 = icmp ult i64 %19, -9223372036854775807
+  tail call void @llvm.assume(i1 %20)
+  %21 = icmp eq i64 %17, 0
+  br i1 %21, label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he4b71634a6563934E.exit4", label %22
 
-24:                                               ; preds = %15
-  tail call void @_RNvCscSpY9Juk0HT_7___rustc14___rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef range(i64 1, -9223372036854775808) %18, i64 noundef range(i64 1, -9223372036854775807) %20) #29
+22:                                               ; preds = %14
+  tail call void @_RNvCscSpY9Juk0HT_7___rustc14___rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef range(i64 1, -9223372036854775808) %17, i64 noundef range(i64 1, -9223372036854775807) %19) #29
   br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he4b71634a6563934E.exit4"
 
-"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he4b71634a6563934E.exit4": ; preds = %24, %15
-  resume { ptr, i32 } %16
+"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he4b71634a6563934E.exit4": ; preds = %22, %14
+  resume { ptr, i32 } %15
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -9896,21 +9894,20 @@ define hidden void @_ZN18ty_python_semantic5types15TypeVarInstance11upper_bound1
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @"_ZN18ty_python_semantic5types1_60_$LT$impl$u20$ty_python_semantic..types..TypeVarInstance$GT$20bound_or_constraints17hce5734a30d904c17E"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %5, i32 noundef %1, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3)
   %6 = load i8, ptr %5, align 8, !range !120, !noundef !3
-  %.off = add nsw i8 %6, -29
-  %switch = icmp ult i8 %.off, 2
-  br i1 %switch, label %7, label %8
-
-7:                                                ; preds = %4
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  store i8 29, ptr %0, align 8
-  br label %9
+  %7 = icmp samesign ugt i8 %6, 28
+  br i1 %7, label %8, label %9
 
 8:                                                ; preds = %4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  store i8 29, ptr %0, align 8
+  br label %10
+
+9:                                                ; preds = %4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %9
+  br label %10
 
-9:                                                ; preds = %8, %7
+10:                                               ; preds = %9, %8
   ret void
 }
 
@@ -26296,9 +26293,8 @@ define internal fastcc void @_ZN18ty_python_semantic5types4Type32try_call_dunder
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !2637
   %64 = load i8, ptr %59, align 8, !range !119, !noalias !2637, !noundef !3
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !2637
-  %.off.i = add nsw i8 %64, -1
-  %switch.i = icmp ult i8 %.off.i, 2
-  br i1 %switch.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17h0ebdd45aeb003e67E.exit", label %60
+  %.not.i = icmp eq i8 %64, 0
+  br i1 %.not.i, label %60, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17h0ebdd45aeb003e67E.exit"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17h0ebdd45aeb003e67E.exit": ; preds = %60, %62
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %23, i64 32, i1 false)
@@ -35381,13 +35377,13 @@ define hidden void @_ZN18ty_python_semantic5types4Type20try_call_constructor17h2
   %.sroa.597.0.copyload = load i64, ptr %.sroa.597.0..sroa_idx, align 8
   br label %62
 
-.thread269:                                       ; preds = %279, %.loopexit.split-lp, %.thread304, %.thread295, %315, %.thread283, %318, %138, %.body146
-  %.sroa.045.0 = phi i8 [ %.sroa.045.2.ph, %.body146 ], [ %.sroa.045.3, %138 ], [ %.sroa.045.3, %318 ], [ %.sroa.045.3, %.thread283 ], [ %.sroa.045.3, %315 ], [ %.sroa.045.3, %.thread295 ], [ %.sroa.045.3, %.thread304 ], [ %.sroa.045.3, %.loopexit.split-lp ], [ %.sroa.045.3, %279 ]
-  %eh.lpad-body147.pn.pn = phi { ptr, i32 } [ %eh.lpad-body147.pn, %.body146 ], [ %lpad.thr_comm.split-lp, %138 ], [ %316, %318 ], [ %.pn, %.thread283 ], [ %316, %315 ], [ %common.resume.op.i.i, %.thread295 ], [ %lpad.thr_comm302, %.thread304 ], [ %lpad.phi, %.loopexit.split-lp ], [ %lpad.phi, %279 ]
+.thread269:                                       ; preds = %279, %.loopexit.split-lp, %.thread304, %.thread295, %316, %.thread283, %320, %138, %.body146
+  %.sroa.045.0 = phi i8 [ %.sroa.045.2.ph, %.body146 ], [ %.sroa.045.3, %138 ], [ %.sroa.045.3, %320 ], [ %.sroa.045.3, %.thread283 ], [ %.sroa.045.3, %316 ], [ %.sroa.045.3, %.thread295 ], [ %.sroa.045.3, %.thread304 ], [ %.sroa.045.3, %.loopexit.split-lp ], [ %.sroa.045.3, %279 ]
+  %eh.lpad-body147.pn.pn = phi { ptr, i32 } [ %eh.lpad-body147.pn, %.body146 ], [ %lpad.thr_comm.split-lp, %138 ], [ %317, %320 ], [ %.pn, %.thread283 ], [ %317, %316 ], [ %common.resume.op.i.i, %.thread295 ], [ %lpad.thr_comm302, %.thread304 ], [ %lpad.phi, %.loopexit.split-lp ], [ %lpad.phi, %279 ]
   %.sroa.16.0 = extractvalue { ptr, i32 } %eh.lpad-body147.pn.pn, 1
   %.sroa.0102.0 = extractvalue { ptr, i32 } %eh.lpad-body147.pn.pn, 0
   %51 = trunc nuw i8 %.sroa.045.0 to i1
-  br i1 %51, label %328, label %325
+  br i1 %51, label %331, label %328
 
 52:                                               ; preds = %109, %69, %65, %62, %60, %57, %46
   %53 = landingpad { ptr, i32 }
@@ -35398,7 +35394,7 @@ define hidden void @_ZN18ty_python_semantic5types4Type20try_call_constructor17h2
   %eh.lpad-body = phi { ptr, i32 } [ %53, %52 ], [ %lpad.thr_comm.split-lp.i, %110 ], [ %eh.lpad-body.i, %87 ], [ %eh.lpad-body.i, %.body.i ]
   %54 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %55 = extractvalue { ptr, i32 } %eh.lpad-body, 1
-  br label %328
+  br label %331
 
 56:                                               ; preds = %46
   %.not = icmp eq i32 %49, 0
@@ -35754,7 +35750,7 @@ define hidden void @_ZN18ty_python_semantic5types4Type20try_call_constructor17h2
   %.sroa.045.3 = phi i8 [ 0, %_ZN18ty_python_semantic5types4Type15try_call_dunder17ha710b743e89bc7aaE.exit ], [ 1, %136 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %34)
   invoke void @_ZN18ty_python_semantic5types4Type11to_instance17hd12c094681162f11E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %34, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %3)
-          to label %139 unwind label %324
+          to label %139 unwind label %327
 
 _ZN18ty_python_semantic5types4Type15try_call_dunder17ha710b743e89bc7aaE.exit: ; preds = %127
   call void @llvm.lifetime.end.p0(ptr nonnull %35)
@@ -35762,7 +35758,7 @@ _ZN18ty_python_semantic5types4Type15try_call_dunder17ha710b743e89bc7aaE.exit: ; 
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
   br label %137
 
-138:                                              ; preds = %321
+138:                                              ; preds = %324
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.thread269
@@ -35796,7 +35792,7 @@ _ZN18ty_python_semantic5types4Type15try_call_dunder17ha710b743e89bc7aaE.exit: ; 
 
 146:                                              ; preds = %139
   invoke void @_ZN4core6option13expect_failed17h8456634a3dada3e4E(ptr noalias noundef nonnull readonly align 1 @anon.b422f174d30a109932427fdd0f19df23.504, i64 noundef 43, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b422f174d30a109932427fdd0f19df23.506) #26
-          to label %123 unwind label %324
+          to label %123 unwind label %327
 
 147:                                              ; preds = %141
   br i1 %or.cond, label %149, label %152
@@ -36439,7 +36435,7 @@ _ZN18ty_python_semantic5types4Type20try_call_constructor23combine_specialization
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
   br label %.critedge
 
-304:                                              ; preds = %279, %206, %328, %.body146, %324, %318, %.thread283
+304:                                              ; preds = %279, %206, %331, %.body146, %327, %320, %.thread283
   %305 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #28
@@ -36505,79 +36501,76 @@ _ZN18ty_python_semantic5types4Type20try_call_constructor23combine_specialization
 
 312:                                              ; preds = %150, %308
   %313 = phi i8 [ %145, %150 ], [ 29, %308 ]
-  %.off = add nsw i8 %144, -29
-  %switch = icmp ult i8 %.off, 2
-  br i1 %switch, label %"_ZN4core3ptr144drop_in_place$LT$core..result..Result$LT$ty_python_semantic..types..call..bind..Bindings$C$ty_python_semantic..types..DunderNewCallError$GT$$GT$17h5370888a395041c1E.exit206", label %314
+  %314 = icmp samesign ugt i8 %144, 28
+  br i1 %314, label %"_ZN4core3ptr144drop_in_place$LT$core..result..Result$LT$ty_python_semantic..types..call..bind..Bindings$C$ty_python_semantic..types..DunderNewCallError$GT$$GT$17h5370888a395041c1E.exit206", label %315
 
-314:                                              ; preds = %312
+315:                                              ; preds = %312
   invoke void @"_ZN4core3ptr68drop_in_place$LT$ty_python_semantic..types..call..bind..Bindings$GT$17heacf062eaf0db7e7E"(ptr noalias noundef nonnull align 8 dereferenceable(328) %33)
-          to label %"._ZN4core3ptr144drop_in_place$LT$core..result..Result$LT$ty_python_semantic..types..call..bind..Bindings$C$ty_python_semantic..types..DunderNewCallError$GT$$GT$17h5370888a395041c1E.exit206_crit_edge" unwind label %315
+          to label %"._ZN4core3ptr144drop_in_place$LT$core..result..Result$LT$ty_python_semantic..types..call..bind..Bindings$C$ty_python_semantic..types..DunderNewCallError$GT$$GT$17h5370888a395041c1E.exit206_crit_edge" unwind label %316
 
-"._ZN4core3ptr144drop_in_place$LT$core..result..Result$LT$ty_python_semantic..types..call..bind..Bindings$C$ty_python_semantic..types..DunderNewCallError$GT$$GT$17h5370888a395041c1E.exit206_crit_edge": ; preds = %314
+"._ZN4core3ptr144drop_in_place$LT$core..result..Result$LT$ty_python_semantic..types..call..bind..Bindings$C$ty_python_semantic..types..DunderNewCallError$GT$$GT$17h5370888a395041c1E.exit206_crit_edge": ; preds = %315
   %.pre391 = load i8, ptr %142, align 8, !range !120
   br label %"_ZN4core3ptr144drop_in_place$LT$core..result..Result$LT$ty_python_semantic..types..call..bind..Bindings$C$ty_python_semantic..types..DunderNewCallError$GT$$GT$17h5370888a395041c1E.exit206"
 
-315:                                              ; preds = %314
-  %316 = landingpad { ptr, i32 }
+316:                                              ; preds = %315
+  %317 = landingpad { ptr, i32 }
           cleanup
-  %317 = load i8, ptr %142, align 8, !range !120, !noundef !3
-  %.off139 = add nsw i8 %317, -29
-  %switch140 = icmp ult i8 %.off139, 2
-  br i1 %switch140, label %.thread269, label %318
+  %318 = load i8, ptr %142, align 8, !range !120, !noundef !3
+  %319 = icmp samesign ugt i8 %318, 28
+  br i1 %319, label %.thread269, label %320
 
-318:                                              ; preds = %315
+320:                                              ; preds = %316
   invoke fastcc void @"_ZN4core3ptr147drop_in_place$LT$core..result..Result$LT$ty_python_semantic..types..call..bind..Bindings$C$ty_python_semantic..types..call..CallDunderError$GT$$GT$17h97fca1068474a422E"(ptr noalias noundef align 8 dereferenceable(328) %142) #27
           to label %.thread269 unwind label %304
 
-.critedge:                                        ; preds = %"_ZN4core3ptr144drop_in_place$LT$core..result..Result$LT$ty_python_semantic..types..call..bind..Bindings$C$ty_python_semantic..types..DunderNewCallError$GT$$GT$17h5370888a395041c1E.exit206.thread", %321, %"_ZN4core3ptr144drop_in_place$LT$core..result..Result$LT$ty_python_semantic..types..call..bind..Bindings$C$ty_python_semantic..types..DunderNewCallError$GT$$GT$17h5370888a395041c1E.exit206", %.critedge.critedge
+.critedge:                                        ; preds = %"_ZN4core3ptr144drop_in_place$LT$core..result..Result$LT$ty_python_semantic..types..call..bind..Bindings$C$ty_python_semantic..types..DunderNewCallError$GT$$GT$17h5370888a395041c1E.exit206.thread", %324, %"_ZN4core3ptr144drop_in_place$LT$core..result..Result$LT$ty_python_semantic..types..call..bind..Bindings$C$ty_python_semantic..types..DunderNewCallError$GT$$GT$17h5370888a395041c1E.exit206", %.critedge.critedge
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
   call void @llvm.lifetime.end.p0(ptr nonnull %38)
   call void @llvm.lifetime.end.p0(ptr nonnull %41)
   call void @llvm.lifetime.end.p0(ptr nonnull %43)
-  %319 = trunc nuw i8 %.sroa.045.3 to i1
-  br i1 %319, label %323, label %322
+  %321 = trunc nuw i8 %.sroa.045.3 to i1
+  br i1 %321, label %326, label %325
 
 "_ZN4core3ptr144drop_in_place$LT$core..result..Result$LT$ty_python_semantic..types..call..bind..Bindings$C$ty_python_semantic..types..DunderNewCallError$GT$$GT$17h5370888a395041c1E.exit206": ; preds = %310, %"._ZN4core3ptr144drop_in_place$LT$core..result..Result$LT$ty_python_semantic..types..call..bind..Bindings$C$ty_python_semantic..types..DunderNewCallError$GT$$GT$17h5370888a395041c1E.exit206_crit_edge", %312
-  %320 = phi i8 [ %.pre391, %"._ZN4core3ptr144drop_in_place$LT$core..result..Result$LT$ty_python_semantic..types..call..bind..Bindings$C$ty_python_semantic..types..DunderNewCallError$GT$$GT$17h5370888a395041c1E.exit206_crit_edge" ], [ %313, %312 ], [ %145, %310 ]
-  %.off141 = add nsw i8 %320, -29
-  %switch142 = icmp ult i8 %.off141, 2
-  br i1 %switch142, label %.critedge, label %321
+  %322 = phi i8 [ %.pre391, %"._ZN4core3ptr144drop_in_place$LT$core..result..Result$LT$ty_python_semantic..types..call..bind..Bindings$C$ty_python_semantic..types..DunderNewCallError$GT$$GT$17h5370888a395041c1E.exit206_crit_edge" ], [ %313, %312 ], [ %145, %310 ]
+  %323 = icmp samesign ugt i8 %322, 28
+  br i1 %323, label %.critedge, label %324
 
-321:                                              ; preds = %"_ZN4core3ptr144drop_in_place$LT$core..result..Result$LT$ty_python_semantic..types..call..bind..Bindings$C$ty_python_semantic..types..DunderNewCallError$GT$$GT$17h5370888a395041c1E.exit206"
+324:                                              ; preds = %"_ZN4core3ptr144drop_in_place$LT$core..result..Result$LT$ty_python_semantic..types..call..bind..Bindings$C$ty_python_semantic..types..DunderNewCallError$GT$$GT$17h5370888a395041c1E.exit206"
   invoke void @"_ZN4core3ptr68drop_in_place$LT$ty_python_semantic..types..call..bind..Bindings$GT$17heacf062eaf0db7e7E"(ptr noalias noundef nonnull align 8 dereferenceable(328) %142)
           to label %.critedge unwind label %138
 
-322:                                              ; preds = %323, %.critedge
+325:                                              ; preds = %326, %.critedge
   ret void
 
-323:                                              ; preds = %.critedge
+326:                                              ; preds = %.critedge
   call void @"_ZN4core3ptr82drop_in_place$LT$ty_python_semantic..types..call..arguments..CallArgumentTypes$GT$17h24b2d4adfe28182fE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %4)
-  br label %322
+  br label %325
 
-324:                                              ; preds = %146, %137
+327:                                              ; preds = %146, %137
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr175drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$ty_python_semantic..types..call..bind..Bindings$C$ty_python_semantic..types..call..CallDunderError$GT$$GT$$GT$17h41216420dcc9257dE"(ptr noalias noundef align 8 dereferenceable(328) %38) #27
           to label %.body146 unwind label %304
 
-.body146:                                         ; preds = %117, %125, %324
-  %.sroa.045.2.ph = phi i8 [ %.sroa.045.3, %324 ], [ %.sroa.045.1, %117 ], [ 0, %125 ]
-  %eh.lpad-body147.pn = phi { ptr, i32 } [ %lpad.thr_comm, %324 ], [ %118, %117 ], [ %126, %125 ]
+.body146:                                         ; preds = %117, %125, %327
+  %.sroa.045.2.ph = phi i8 [ %.sroa.045.3, %327 ], [ %.sroa.045.1, %117 ], [ 0, %125 ]
+  %eh.lpad-body147.pn = phi { ptr, i32 } [ %lpad.thr_comm, %327 ], [ %118, %117 ], [ %126, %125 ]
   invoke fastcc void @"_ZN4core3ptr172drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$ty_python_semantic..types..call..bind..Bindings$C$ty_python_semantic..types..DunderNewCallError$GT$$GT$$GT$17h1d300e094134ce79E"(ptr noalias noundef align 8 dereferenceable(328) %41) #27
           to label %.thread269 unwind label %304
 
-325:                                              ; preds = %328, %.thread269
-  %.sroa.16.0258 = phi i32 [ %.sroa.16.0259, %328 ], [ %.sroa.16.0, %.thread269 ]
-  %.sroa.0102.0256 = phi ptr [ %.sroa.0102.0257, %328 ], [ %.sroa.0102.0, %.thread269 ]
-  %326 = insertvalue { ptr, i32 } poison, ptr %.sroa.0102.0256, 0
-  %327 = insertvalue { ptr, i32 } %326, i32 %.sroa.16.0258, 1
-  resume { ptr, i32 } %327
+328:                                              ; preds = %331, %.thread269
+  %.sroa.16.0258 = phi i32 [ %.sroa.16.0259, %331 ], [ %.sroa.16.0, %.thread269 ]
+  %.sroa.0102.0256 = phi ptr [ %.sroa.0102.0257, %331 ], [ %.sroa.0102.0, %.thread269 ]
+  %329 = insertvalue { ptr, i32 } poison, ptr %.sroa.0102.0256, 0
+  %330 = insertvalue { ptr, i32 } %329, i32 %.sroa.16.0258, 1
+  resume { ptr, i32 } %330
 
-328:                                              ; preds = %.thread, %.thread269
+331:                                              ; preds = %.thread, %.thread269
   %.sroa.16.0259 = phi i32 [ %55, %.thread ], [ %.sroa.16.0, %.thread269 ]
   %.sroa.0102.0257 = phi ptr [ %54, %.thread ], [ %.sroa.0102.0, %.thread269 ]
   invoke void @"_ZN4core3ptr82drop_in_place$LT$ty_python_semantic..types..call..arguments..CallArgumentTypes$GT$17h24b2d4adfe28182fE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %4) #27
-          to label %325 unwind label %304
+          to label %328 unwind label %304
 }
 
 ; Function Attrs: nonlazybind uwtable

@@ -237,9 +237,8 @@ define internal fastcc void @"_ZN103_$LT$regex_automata..meta..regex..CapturesMa
 57:                                               ; preds = %52
   tail call void @llvm.experimental.noalias.scope.decl(metadata !23)
   %58 = load i32, ptr %2, align 8, !range !26, !alias.scope !27, !noalias !28, !noundef !4
-  %.off.i.i = add nsw i32 %58, -1
-  %switch.i1.i = icmp ult i32 %.off.i.i, 2
-  br i1 %switch.i1.i, label %_ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17hecc5650b58e3c91aE.exit.thread.i, label %_ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17hecc5650b58e3c91aE.exit.i
+  %.not.i = icmp eq i32 %58, 0
+  br i1 %.not.i, label %_ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17hecc5650b58e3c91aE.exit.i, label %_ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17hecc5650b58e3c91aE.exit.thread.i
 
 _ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17hecc5650b58e3c91aE.exit.i: ; preds = %57
   %59 = tail call noundef align 8 dereferenceable(8) ptr @_ZN14regex_automata4meta5regex9RegexInfo11props_union17h4a581b62ff2ad979E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %25), !noalias !30
@@ -3558,9 +3557,8 @@ define internal fastcc void @"_ZN99_$LT$regex_automata..meta..regex..FindMatches
 48:                                               ; preds = %43
   tail call void @llvm.experimental.noalias.scope.decl(metadata !545)
   %49 = load i32, ptr %1, align 8, !range !26, !alias.scope !548, !noalias !549, !noundef !4
-  %.off.i.i = add nsw i32 %49, -1
-  %switch.i1.i = icmp ult i32 %.off.i.i, 2
-  br i1 %switch.i1.i, label %_ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17hecc5650b58e3c91aE.exit.thread.i, label %_ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17hecc5650b58e3c91aE.exit.i
+  %.not.i = icmp eq i32 %49, 0
+  br i1 %.not.i, label %_ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17hecc5650b58e3c91aE.exit.i, label %_ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17hecc5650b58e3c91aE.exit.thread.i
 
 _ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17hecc5650b58e3c91aE.exit.i: ; preds = %48
   %50 = tail call noundef align 8 dereferenceable(8) ptr @_ZN14regex_automata4meta5regex9RegexInfo11props_union17h4a581b62ff2ad979E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %16), !noalias !551

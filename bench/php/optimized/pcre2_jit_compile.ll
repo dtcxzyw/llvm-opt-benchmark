@@ -11201,9 +11201,8 @@ bracketend.exit:                                  ; preds = %4
   br i1 %or.cond66, label %34, label %29
 
 29:                                               ; preds = %bracketend.exit
-  %30 = add i8 %28, 124
-  %or.cond67 = icmp ult i8 %30, 3
-  br i1 %or.cond67, label %.thread, label %32
+  %30 = icmp slt i8 %28, -121
+  br i1 %30, label %.thread, label %32
 
 .thread:                                          ; preds = %29
   %31 = tail call fastcc ptr @next_opcode(ptr noundef %0, ptr noundef nonnull %1)

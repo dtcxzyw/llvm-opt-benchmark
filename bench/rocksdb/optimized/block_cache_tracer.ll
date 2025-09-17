@@ -2161,9 +2161,8 @@ _ZN7rocksdb6Status10CorruptionERKNS_5SliceES3_.exit23: ; preds = %_ZN7rocksdb10G
   %157 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.0.copyload.i.i = load i32, ptr %124, align 1
   store i32 %.0.copyload.i.i, ptr %157, align 4, !tbaa !70
-  %158 = and i64 %125, -4
-  %.not = icmp eq i64 %158, 4
-  br i1 %.not, label %_ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit25, label %163
+  %158 = icmp ult i64 %125, 8
+  br i1 %158, label %_ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit25, label %163
 
 _ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit25:     ; preds = %156
   call void @llvm.lifetime.start.p0(ptr nonnull %17)

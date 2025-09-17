@@ -22846,43 +22846,43 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %5, %15
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef range(i32 0, 4) i32 @_ZL10DecodeSImmILi4EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEmmPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %0, i64 noundef range(i64 0, 4294967296) %1) unnamed_addr #0 {
-  %.not = icmp samesign ult i64 %1, 16
-  br i1 %.not, label %3, label %20
+  %3 = icmp samesign ugt i64 %1, 15
+  br i1 %3, label %21, label %4
 
-3:                                                ; preds = %2
-  %.not6 = icmp samesign ult i64 %1, 8
-  %4 = or disjoint i64 %1, -16
-  %spec.select = select i1 %.not6, i64 %1, i64 %4
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %7 = load i32, ptr %6, align 8, !tbaa !34
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %9 = load i32, ptr %8, align 4, !tbaa !46
-  %.not.i.i.not.i.i = icmp ult i32 %7, %9
-  br i1 %.not.i.i.not.i.i, label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit, label %10, !prof !64
+4:                                                ; preds = %2
+  %.not = icmp samesign ult i64 %1, 8
+  %5 = or disjoint i64 %1, -16
+  %spec.select = select i1 %.not, i64 %1, i64 %5
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %8 = load i32, ptr %7, align 8, !tbaa !34
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %10 = load i32, ptr %9, align 4, !tbaa !46
+  %.not.i.i.not.i.i = icmp ult i32 %8, %10
+  br i1 %.not.i.i.not.i.i, label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit, label %11, !prof !64
 
-10:                                               ; preds = %3
-  %11 = zext i32 %7 to i64
-  %12 = add nuw nsw i64 %11, 1
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %13, i64 noundef %12, i64 noundef 16) #13
-  %.pre.i.i = load i32, ptr %6, align 8, !tbaa !34
+11:                                               ; preds = %4
+  %12 = zext i32 %8 to i64
+  %13 = add nuw nsw i64 %12, 1
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %14, i64 noundef %13, i64 noundef 16) #13
+  %.pre.i.i = load i32, ptr %7, align 8, !tbaa !34
   br label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit
 
-_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %3, %10
-  %14 = phi i32 [ %7, %3 ], [ %.pre.i.i, %10 ]
-  %15 = load ptr, ptr %5, align 8, !tbaa !45
-  %16 = zext i32 %14 to i64
-  %17 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %15, i64 %16
-  store i8 2, ptr %17, align 1
-  %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %17, i64 8
+_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %4, %11
+  %15 = phi i32 [ %8, %4 ], [ %.pre.i.i, %11 ]
+  %16 = load ptr, ptr %6, align 8, !tbaa !45
+  %17 = zext i32 %15 to i64
+  %18 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %16, i64 %17
+  store i8 2, ptr %18, align 1
+  %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i64 %spec.select, ptr %.sroa.22.0..sroa_idx.i.i, align 1
-  %18 = load i32, ptr %6, align 8, !tbaa !34
-  %19 = add i32 %18, 1
-  store i32 %19, ptr %6, align 8, !tbaa !34
-  br label %20
+  %19 = load i32, ptr %7, align 8, !tbaa !34
+  %20 = add i32 %19, 1
+  store i32 %20, ptr %7, align 8, !tbaa !34
+  br label %21
 
-20:                                               ; preds = %2, %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit
+21:                                               ; preds = %2, %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit
   %.0 = phi i32 [ 3, %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit ], [ 0, %2 ]
   ret i32 %.0
 }
@@ -24106,86 +24106,86 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %4, %14
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef range(i32 0, 4) i32 @_ZL10DecodeSImmILi5EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEmmPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %0, i64 noundef range(i64 0, 4294967296) %1) unnamed_addr #0 {
-  %.not = icmp samesign ult i64 %1, 32
-  br i1 %.not, label %3, label %20
+  %3 = icmp samesign ugt i64 %1, 31
+  br i1 %3, label %21, label %4
 
-3:                                                ; preds = %2
-  %.not6 = icmp samesign ult i64 %1, 16
-  %4 = or disjoint i64 %1, -32
-  %spec.select = select i1 %.not6, i64 %1, i64 %4
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %7 = load i32, ptr %6, align 8, !tbaa !34
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %9 = load i32, ptr %8, align 4, !tbaa !46
-  %.not.i.i.not.i.i = icmp ult i32 %7, %9
-  br i1 %.not.i.i.not.i.i, label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit, label %10, !prof !64
+4:                                                ; preds = %2
+  %.not = icmp samesign ult i64 %1, 16
+  %5 = or disjoint i64 %1, -32
+  %spec.select = select i1 %.not, i64 %1, i64 %5
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %8 = load i32, ptr %7, align 8, !tbaa !34
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %10 = load i32, ptr %9, align 4, !tbaa !46
+  %.not.i.i.not.i.i = icmp ult i32 %8, %10
+  br i1 %.not.i.i.not.i.i, label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit, label %11, !prof !64
 
-10:                                               ; preds = %3
-  %11 = zext i32 %7 to i64
-  %12 = add nuw nsw i64 %11, 1
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %13, i64 noundef %12, i64 noundef 16) #13
-  %.pre.i.i = load i32, ptr %6, align 8, !tbaa !34
+11:                                               ; preds = %4
+  %12 = zext i32 %8 to i64
+  %13 = add nuw nsw i64 %12, 1
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %14, i64 noundef %13, i64 noundef 16) #13
+  %.pre.i.i = load i32, ptr %7, align 8, !tbaa !34
   br label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit
 
-_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %3, %10
-  %14 = phi i32 [ %7, %3 ], [ %.pre.i.i, %10 ]
-  %15 = load ptr, ptr %5, align 8, !tbaa !45
-  %16 = zext i32 %14 to i64
-  %17 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %15, i64 %16
-  store i8 2, ptr %17, align 1
-  %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %17, i64 8
+_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %4, %11
+  %15 = phi i32 [ %8, %4 ], [ %.pre.i.i, %11 ]
+  %16 = load ptr, ptr %6, align 8, !tbaa !45
+  %17 = zext i32 %15 to i64
+  %18 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %16, i64 %17
+  store i8 2, ptr %18, align 1
+  %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i64 %spec.select, ptr %.sroa.22.0..sroa_idx.i.i, align 1
-  %18 = load i32, ptr %6, align 8, !tbaa !34
-  %19 = add i32 %18, 1
-  store i32 %19, ptr %6, align 8, !tbaa !34
-  br label %20
+  %19 = load i32, ptr %7, align 8, !tbaa !34
+  %20 = add i32 %19, 1
+  store i32 %20, ptr %7, align 8, !tbaa !34
+  br label %21
 
-20:                                               ; preds = %2, %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit
+21:                                               ; preds = %2, %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit
   %.0 = phi i32 [ 3, %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit ], [ 0, %2 ]
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef range(i32 0, 4) i32 @_ZL10DecodeSImmILi6EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEmmPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %0, i64 noundef range(i64 0, 4294967296) %1) unnamed_addr #0 {
-  %.not = icmp samesign ult i64 %1, 64
-  br i1 %.not, label %3, label %20
+  %3 = icmp samesign ugt i64 %1, 63
+  br i1 %3, label %21, label %4
 
-3:                                                ; preds = %2
-  %.not6 = icmp samesign ult i64 %1, 32
-  %4 = or disjoint i64 %1, -64
-  %spec.select = select i1 %.not6, i64 %1, i64 %4
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %7 = load i32, ptr %6, align 8, !tbaa !34
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %9 = load i32, ptr %8, align 4, !tbaa !46
-  %.not.i.i.not.i.i = icmp ult i32 %7, %9
-  br i1 %.not.i.i.not.i.i, label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit, label %10, !prof !64
+4:                                                ; preds = %2
+  %.not = icmp samesign ult i64 %1, 32
+  %5 = or disjoint i64 %1, -64
+  %spec.select = select i1 %.not, i64 %1, i64 %5
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %8 = load i32, ptr %7, align 8, !tbaa !34
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %10 = load i32, ptr %9, align 4, !tbaa !46
+  %.not.i.i.not.i.i = icmp ult i32 %8, %10
+  br i1 %.not.i.i.not.i.i, label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit, label %11, !prof !64
 
-10:                                               ; preds = %3
-  %11 = zext i32 %7 to i64
-  %12 = add nuw nsw i64 %11, 1
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %13, i64 noundef %12, i64 noundef 16) #13
-  %.pre.i.i = load i32, ptr %6, align 8, !tbaa !34
+11:                                               ; preds = %4
+  %12 = zext i32 %8 to i64
+  %13 = add nuw nsw i64 %12, 1
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %14, i64 noundef %13, i64 noundef 16) #13
+  %.pre.i.i = load i32, ptr %7, align 8, !tbaa !34
   br label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit
 
-_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %3, %10
-  %14 = phi i32 [ %7, %3 ], [ %.pre.i.i, %10 ]
-  %15 = load ptr, ptr %5, align 8, !tbaa !45
-  %16 = zext i32 %14 to i64
-  %17 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %15, i64 %16
-  store i8 2, ptr %17, align 1
-  %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %17, i64 8
+_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %4, %11
+  %15 = phi i32 [ %8, %4 ], [ %.pre.i.i, %11 ]
+  %16 = load ptr, ptr %6, align 8, !tbaa !45
+  %17 = zext i32 %15 to i64
+  %18 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %16, i64 %17
+  store i8 2, ptr %18, align 1
+  %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i64 %spec.select, ptr %.sroa.22.0..sroa_idx.i.i, align 1
-  %18 = load i32, ptr %6, align 8, !tbaa !34
-  %19 = add i32 %18, 1
-  store i32 %19, ptr %6, align 8, !tbaa !34
-  br label %20
+  %19 = load i32, ptr %7, align 8, !tbaa !34
+  %20 = add i32 %19, 1
+  store i32 %20, ptr %7, align 8, !tbaa !34
+  br label %21
 
-20:                                               ; preds = %2, %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit
+21:                                               ; preds = %2, %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit
   %.0 = phi i32 [ 3, %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit ], [ 0, %2 ]
   ret i32 %.0
 }
@@ -24587,43 +24587,43 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %4, %14
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef range(i32 0, 4) i32 @_ZL10DecodeSImmILi8EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEmmPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %0, i64 noundef range(i64 0, 4294967296) %1) unnamed_addr #0 {
-  %.not = icmp samesign ult i64 %1, 256
-  br i1 %.not, label %3, label %20
+  %3 = icmp samesign ugt i64 %1, 255
+  br i1 %3, label %21, label %4
 
-3:                                                ; preds = %2
-  %.not6 = icmp samesign ult i64 %1, 128
-  %4 = or disjoint i64 %1, -256
-  %spec.select = select i1 %.not6, i64 %1, i64 %4
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %7 = load i32, ptr %6, align 8, !tbaa !34
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %9 = load i32, ptr %8, align 4, !tbaa !46
-  %.not.i.i.not.i.i = icmp ult i32 %7, %9
-  br i1 %.not.i.i.not.i.i, label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit, label %10, !prof !64
+4:                                                ; preds = %2
+  %.not = icmp samesign ult i64 %1, 128
+  %5 = or disjoint i64 %1, -256
+  %spec.select = select i1 %.not, i64 %1, i64 %5
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %8 = load i32, ptr %7, align 8, !tbaa !34
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %10 = load i32, ptr %9, align 4, !tbaa !46
+  %.not.i.i.not.i.i = icmp ult i32 %8, %10
+  br i1 %.not.i.i.not.i.i, label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit, label %11, !prof !64
 
-10:                                               ; preds = %3
-  %11 = zext i32 %7 to i64
-  %12 = add nuw nsw i64 %11, 1
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %13, i64 noundef %12, i64 noundef 16) #13
-  %.pre.i.i = load i32, ptr %6, align 8, !tbaa !34
+11:                                               ; preds = %4
+  %12 = zext i32 %8 to i64
+  %13 = add nuw nsw i64 %12, 1
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %14, i64 noundef %13, i64 noundef 16) #13
+  %.pre.i.i = load i32, ptr %7, align 8, !tbaa !34
   br label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit
 
-_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %3, %10
-  %14 = phi i32 [ %7, %3 ], [ %.pre.i.i, %10 ]
-  %15 = load ptr, ptr %5, align 8, !tbaa !45
-  %16 = zext i32 %14 to i64
-  %17 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %15, i64 %16
-  store i8 2, ptr %17, align 1
-  %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %17, i64 8
+_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %4, %11
+  %15 = phi i32 [ %8, %4 ], [ %.pre.i.i, %11 ]
+  %16 = load ptr, ptr %6, align 8, !tbaa !45
+  %17 = zext i32 %15 to i64
+  %18 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %16, i64 %17
+  store i8 2, ptr %18, align 1
+  %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i64 %spec.select, ptr %.sroa.22.0..sroa_idx.i.i, align 1
-  %18 = load i32, ptr %6, align 8, !tbaa !34
-  %19 = add i32 %18, 1
-  store i32 %19, ptr %6, align 8, !tbaa !34
-  br label %20
+  %19 = load i32, ptr %7, align 8, !tbaa !34
+  %20 = add i32 %19, 1
+  store i32 %20, ptr %7, align 8, !tbaa !34
+  br label %21
 
-20:                                               ; preds = %2, %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit
+21:                                               ; preds = %2, %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit
   %.0 = phi i32 [ 3, %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit ], [ 0, %2 ]
   ret i32 %.0
 }
@@ -24675,43 +24675,43 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %4, %14
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef range(i32 0, 4) i32 @_ZL10DecodeSImmILi9EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEmmPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %0, i64 noundef range(i64 0, 4294967296) %1) unnamed_addr #0 {
-  %.not = icmp samesign ult i64 %1, 512
-  br i1 %.not, label %3, label %20
+  %3 = icmp samesign ugt i64 %1, 511
+  br i1 %3, label %21, label %4
 
-3:                                                ; preds = %2
-  %.not6 = icmp samesign ult i64 %1, 256
-  %4 = or disjoint i64 %1, -512
-  %spec.select = select i1 %.not6, i64 %1, i64 %4
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %7 = load i32, ptr %6, align 8, !tbaa !34
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %9 = load i32, ptr %8, align 4, !tbaa !46
-  %.not.i.i.not.i.i = icmp ult i32 %7, %9
-  br i1 %.not.i.i.not.i.i, label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit, label %10, !prof !64
+4:                                                ; preds = %2
+  %.not = icmp samesign ult i64 %1, 256
+  %5 = or disjoint i64 %1, -512
+  %spec.select = select i1 %.not, i64 %1, i64 %5
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %8 = load i32, ptr %7, align 8, !tbaa !34
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %10 = load i32, ptr %9, align 4, !tbaa !46
+  %.not.i.i.not.i.i = icmp ult i32 %8, %10
+  br i1 %.not.i.i.not.i.i, label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit, label %11, !prof !64
 
-10:                                               ; preds = %3
-  %11 = zext i32 %7 to i64
-  %12 = add nuw nsw i64 %11, 1
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %13, i64 noundef %12, i64 noundef 16) #13
-  %.pre.i.i = load i32, ptr %6, align 8, !tbaa !34
+11:                                               ; preds = %4
+  %12 = zext i32 %8 to i64
+  %13 = add nuw nsw i64 %12, 1
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %14, i64 noundef %13, i64 noundef 16) #13
+  %.pre.i.i = load i32, ptr %7, align 8, !tbaa !34
   br label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit
 
-_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %3, %10
-  %14 = phi i32 [ %7, %3 ], [ %.pre.i.i, %10 ]
-  %15 = load ptr, ptr %5, align 8, !tbaa !45
-  %16 = zext i32 %14 to i64
-  %17 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %15, i64 %16
-  store i8 2, ptr %17, align 1
-  %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %17, i64 8
+_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %4, %11
+  %15 = phi i32 [ %8, %4 ], [ %.pre.i.i, %11 ]
+  %16 = load ptr, ptr %6, align 8, !tbaa !45
+  %17 = zext i32 %15 to i64
+  %18 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %16, i64 %17
+  store i8 2, ptr %18, align 1
+  %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i64 %spec.select, ptr %.sroa.22.0..sroa_idx.i.i, align 1
-  %18 = load i32, ptr %6, align 8, !tbaa !34
-  %19 = add i32 %18, 1
-  store i32 %19, ptr %6, align 8, !tbaa !34
-  br label %20
+  %19 = load i32, ptr %7, align 8, !tbaa !34
+  %20 = add i32 %19, 1
+  store i32 %20, ptr %7, align 8, !tbaa !34
+  br label %21
 
-20:                                               ; preds = %2, %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit
+21:                                               ; preds = %2, %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit
   %.0 = phi i32 [ 3, %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit ], [ 0, %2 ]
   ret i32 %.0
 }
@@ -30489,29 +30489,29 @@ _ZL25DecodeSimpleRegisterClassILj58ELj0ELj32EEN4llvm14MCDisassembler12DecodeStat
   %68 = load i32, ptr %39, align 8, !tbaa !34
   %69 = add i32 %68, 1
   store i32 %69, ptr %39, align 8, !tbaa !34
-  %.not6.i.not.not = icmp eq i32 %7, 0
+  %.not.i.not.not = icmp eq i32 %7, 0
   %70 = or disjoint i64 %11, -1024
-  %spec.select.i = select i1 %.not6.i.not.not, i64 %11, i64 %70
+  %spec.select.i = select i1 %.not.i.not.not, i64 %11, i64 %70
   %71 = load i32, ptr %41, align 4, !tbaa !46
-  %.not.i.i.not.i.i.i40 = icmp ult i32 %69, %71
-  br i1 %.not.i.i.not.i.i.i40, label %_ZL10DecodeSImmILi10EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEmmPKS1_.exit, label %72, !prof !64
+  %.not.i.i.not.i.i.i39 = icmp ult i32 %69, %71
+  br i1 %.not.i.i.not.i.i.i39, label %_ZL10DecodeSImmILi10EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEmmPKS1_.exit, label %72, !prof !64
 
 72:                                               ; preds = %63
   %73 = zext i32 %69 to i64
   %74 = add nuw nsw i64 %73, 1
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef nonnull %75, i64 noundef %74, i64 noundef 16) #13
-  %.pre.i.i.i41 = load i32, ptr %39, align 8, !tbaa !34
+  %.pre.i.i.i40 = load i32, ptr %39, align 8, !tbaa !34
   br label %_ZL10DecodeSImmILi10EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEmmPKS1_.exit
 
 _ZL10DecodeSImmILi10EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEmmPKS1_.exit: ; preds = %63, %72
-  %76 = phi i32 [ %69, %63 ], [ %.pre.i.i.i41, %72 ]
+  %76 = phi i32 [ %69, %63 ], [ %.pre.i.i.i40, %72 ]
   %77 = load ptr, ptr %38, align 8, !tbaa !45
   %78 = zext i32 %76 to i64
   %79 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %77, i64 %78
   store i8 2, ptr %79, align 1
-  %.sroa.22.0..sroa_idx.i.i.i43 = getelementptr inbounds nuw i8, ptr %79, i64 8
-  store i64 %spec.select.i, ptr %.sroa.22.0..sroa_idx.i.i.i43, align 1
+  %.sroa.22.0..sroa_idx.i.i.i42 = getelementptr inbounds nuw i8, ptr %79, i64 8
+  store i64 %spec.select.i, ptr %.sroa.22.0..sroa_idx.i.i.i42, align 1
   %80 = load i32, ptr %39, align 8, !tbaa !34
   %81 = add i32 %80, 1
   store i32 %81, ptr %39, align 8, !tbaa !34

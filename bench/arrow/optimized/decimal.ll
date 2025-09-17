@@ -11186,7 +11186,7 @@ _ZN5arrow8internal8ParseHexIjEEbPKcmPT_.exit.thread: ; preds = %30, %_ZN5arrow8i
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN5arrow8internal13ParseUnsignedEPKcmPj(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #5 comdat {
   %.not = icmp eq i64 %1, 0
-  br i1 %.not, label %93, label %4
+  br i1 %.not, label %94, label %4
 
 4:                                                ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -11198,7 +11198,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5arrow8internal13ParseUnsignedEPKcmPj
 
 10:                                               ; preds = %4
   %.not136 = icmp eq i64 %1, 1
-  br i1 %.not136, label %93, label %11
+  br i1 %.not136, label %94, label %11
 
 11:                                               ; preds = %10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 2
@@ -11212,7 +11212,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5arrow8internal13ParseUnsignedEPKcmPj
 
 19:                                               ; preds = %11
   %.not137 = icmp eq i64 %1, 2
-  br i1 %.not137, label %93, label %20
+  br i1 %.not137, label %94, label %20
 
 20:                                               ; preds = %19
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 3
@@ -11226,7 +11226,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5arrow8internal13ParseUnsignedEPKcmPj
 
 28:                                               ; preds = %20
   %.not138 = icmp eq i64 %1, 3
-  br i1 %.not138, label %93, label %29
+  br i1 %.not138, label %94, label %29
 
 29:                                               ; preds = %28
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -11240,7 +11240,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5arrow8internal13ParseUnsignedEPKcmPj
 
 37:                                               ; preds = %29
   %.not139 = icmp eq i64 %1, 4
-  br i1 %.not139, label %93, label %38
+  br i1 %.not139, label %94, label %38
 
 38:                                               ; preds = %37
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 5
@@ -11254,7 +11254,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5arrow8internal13ParseUnsignedEPKcmPj
 
 46:                                               ; preds = %38
   %.not140 = icmp eq i64 %1, 5
-  br i1 %.not140, label %93, label %47
+  br i1 %.not140, label %94, label %47
 
 47:                                               ; preds = %46
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 6
@@ -11268,7 +11268,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5arrow8internal13ParseUnsignedEPKcmPj
 
 55:                                               ; preds = %47
   %.not141 = icmp eq i64 %1, 6
-  br i1 %.not141, label %93, label %56
+  br i1 %.not141, label %94, label %56
 
 56:                                               ; preds = %55
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 7
@@ -11282,7 +11282,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5arrow8internal13ParseUnsignedEPKcmPj
 
 64:                                               ; preds = %56
   %.not142 = icmp eq i64 %1, 7
-  br i1 %.not142, label %93, label %65
+  br i1 %.not142, label %94, label %65
 
 65:                                               ; preds = %64
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -11296,49 +11296,50 @@ define linkonce_odr noundef zeroext i1 @_ZN5arrow8internal13ParseUnsignedEPKcmPj
 
 73:                                               ; preds = %65
   %.not143 = icmp eq i64 %1, 8
-  br i1 %.not143, label %93, label %74
+  br i1 %.not143, label %94, label %74
 
 74:                                               ; preds = %73
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 9
   %76 = load i8, ptr %66, align 1, !tbaa !103
   %77 = add i8 %76, -48
   %78 = mul nuw nsw i32 %72, 10
-  %79 = icmp ult i8 %77, 10
-  %80 = zext i8 %77 to i32
-  %81 = add nuw nsw i32 %78, %80
-  br i1 %79, label %82, label %.critedge
+  %79 = add i64 %1, -9
+  %80 = icmp ult i8 %77, 10
+  %81 = zext i8 %77 to i32
+  %82 = add nuw nsw i32 %78, %81
+  br i1 %80, label %83, label %.critedge
 
-82:                                               ; preds = %74
-  %.not144 = icmp eq i64 %1, 9
-  br i1 %.not144, label %93, label %83
+83:                                               ; preds = %74
+  %.not144 = icmp eq i64 %79, 0
+  br i1 %.not144, label %94, label %84
 
-83:                                               ; preds = %82
-  %84 = icmp samesign ugt i32 %81, 429496729
-  br i1 %84, label %.critedge, label %85, !prof !167
+84:                                               ; preds = %83
+  %85 = icmp samesign ugt i32 %82, 429496729
+  br i1 %85, label %.critedge, label %86, !prof !167
 
-85:                                               ; preds = %83
-  %86 = load i8, ptr %75, align 1, !tbaa !103
-  %87 = add i8 %86, -48
-  %.not145 = icmp ne i64 %1, 10
-  %88 = icmp ugt i8 %87, 9
-  %or.cond = or i1 %.not145, %88
-  br i1 %or.cond, label %.critedge, label %89, !prof !457
+86:                                               ; preds = %84
+  %87 = load i8, ptr %75, align 1, !tbaa !103
+  %88 = add i8 %87, -48
+  %.not145 = icmp ne i64 %79, 1
+  %89 = icmp ugt i8 %88, 9
+  %or.cond = or i1 %.not145, %89
+  br i1 %or.cond, label %.critedge, label %90, !prof !457
 
-89:                                               ; preds = %85
-  %90 = mul nuw i32 %81, 10
-  %91 = zext nneg i8 %87 to i32
-  %92 = add i32 %90, %91
-  %.not147 = icmp ult i32 %92, %90
-  %.146 = tail call i32 @llvm.umax.i32(i32 %92, i32 %90)
-  br i1 %.not147, label %.critedge, label %93
+90:                                               ; preds = %86
+  %91 = mul nuw i32 %82, 10
+  %92 = zext nneg i8 %88 to i32
+  %93 = add i32 %91, %92
+  %.not147 = icmp ult i32 %93, %91
+  %.146 = tail call i32 @llvm.umax.i32(i32 %93, i32 %91)
+  br i1 %.not147, label %.critedge, label %94
 
-93:                                               ; preds = %89, %82, %73, %64, %55, %46, %37, %28, %19, %10, %3
-  %.196 = phi i32 [ %.146, %89 ], [ %81, %82 ], [ %72, %73 ], [ %63, %64 ], [ %54, %55 ], [ %45, %46 ], [ %36, %37 ], [ %27, %28 ], [ %18, %19 ], [ %9, %10 ], [ 0, %3 ]
+94:                                               ; preds = %90, %83, %73, %64, %55, %46, %37, %28, %19, %10, %3
+  %.196 = phi i32 [ %.146, %90 ], [ %82, %83 ], [ %72, %73 ], [ %63, %64 ], [ %54, %55 ], [ %45, %46 ], [ %36, %37 ], [ %27, %28 ], [ %18, %19 ], [ %9, %10 ], [ 0, %3 ]
   store i32 %.196, ptr %2, align 4, !tbaa !63
   br label %.critedge
 
-.critedge:                                        ; preds = %85, %83, %89, %74, %65, %56, %47, %38, %29, %20, %11, %4, %93
-  %.1 = phi i1 [ true, %93 ], [ false, %89 ], [ false, %74 ], [ false, %65 ], [ false, %56 ], [ false, %47 ], [ false, %38 ], [ false, %29 ], [ false, %20 ], [ false, %11 ], [ false, %4 ], [ false, %83 ], [ false, %85 ]
+.critedge:                                        ; preds = %86, %84, %90, %74, %65, %56, %47, %38, %29, %20, %11, %4, %94
+  %.1 = phi i1 [ true, %94 ], [ false, %90 ], [ false, %74 ], [ false, %65 ], [ false, %56 ], [ false, %47 ], [ false, %38 ], [ false, %29 ], [ false, %20 ], [ false, %11 ], [ false, %4 ], [ false, %84 ], [ false, %86 ]
   ret i1 %.1
 }
 
@@ -11560,7 +11561,7 @@ declare void @_ZN5arrow11IntegerTypeD2Ev(ptr noundef nonnull align 8 dereference
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr noundef zeroext i1 @_ZN5arrow8internal13ParseUnsignedEPKcmPm(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #20 comdat {
   %.not = icmp eq i64 %1, 0
-  br i1 %.not, label %183, label %4
+  br i1 %.not, label %184, label %4
 
 4:                                                ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -11572,7 +11573,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5arrow8internal13ParseUnsignedEPKcmPm
 
 10:                                               ; preds = %4
   %.not247 = icmp eq i64 %1, 1
-  br i1 %.not247, label %183, label %11
+  br i1 %.not247, label %184, label %11
 
 11:                                               ; preds = %10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 2
@@ -11586,7 +11587,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5arrow8internal13ParseUnsignedEPKcmPm
 
 19:                                               ; preds = %11
   %.not248 = icmp eq i64 %1, 2
-  br i1 %.not248, label %183, label %20
+  br i1 %.not248, label %184, label %20
 
 20:                                               ; preds = %19
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 3
@@ -11600,7 +11601,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5arrow8internal13ParseUnsignedEPKcmPm
 
 28:                                               ; preds = %20
   %.not249 = icmp eq i64 %1, 3
-  br i1 %.not249, label %183, label %29
+  br i1 %.not249, label %184, label %29
 
 29:                                               ; preds = %28
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -11614,7 +11615,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5arrow8internal13ParseUnsignedEPKcmPm
 
 37:                                               ; preds = %29
   %.not250 = icmp eq i64 %1, 4
-  br i1 %.not250, label %183, label %38
+  br i1 %.not250, label %184, label %38
 
 38:                                               ; preds = %37
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 5
@@ -11628,7 +11629,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5arrow8internal13ParseUnsignedEPKcmPm
 
 46:                                               ; preds = %38
   %.not251 = icmp eq i64 %1, 5
-  br i1 %.not251, label %183, label %47
+  br i1 %.not251, label %184, label %47
 
 47:                                               ; preds = %46
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 6
@@ -11642,7 +11643,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5arrow8internal13ParseUnsignedEPKcmPm
 
 55:                                               ; preds = %47
   %.not252 = icmp eq i64 %1, 6
-  br i1 %.not252, label %183, label %56
+  br i1 %.not252, label %184, label %56
 
 56:                                               ; preds = %55
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 7
@@ -11656,7 +11657,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5arrow8internal13ParseUnsignedEPKcmPm
 
 64:                                               ; preds = %56
   %.not253 = icmp eq i64 %1, 7
-  br i1 %.not253, label %183, label %65
+  br i1 %.not253, label %184, label %65
 
 65:                                               ; preds = %64
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -11670,7 +11671,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5arrow8internal13ParseUnsignedEPKcmPm
 
 73:                                               ; preds = %65
   %.not254 = icmp eq i64 %1, 8
-  br i1 %.not254, label %183, label %74
+  br i1 %.not254, label %184, label %74
 
 74:                                               ; preds = %73
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 9
@@ -11684,7 +11685,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5arrow8internal13ParseUnsignedEPKcmPm
 
 82:                                               ; preds = %74
   %.not255 = icmp eq i64 %1, 9
-  br i1 %.not255, label %183, label %83
+  br i1 %.not255, label %184, label %83
 
 83:                                               ; preds = %82
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 10
@@ -11698,7 +11699,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5arrow8internal13ParseUnsignedEPKcmPm
 
 91:                                               ; preds = %83
   %.not256 = icmp eq i64 %1, 10
-  br i1 %.not256, label %183, label %92
+  br i1 %.not256, label %184, label %92
 
 92:                                               ; preds = %91
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 11
@@ -11712,7 +11713,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5arrow8internal13ParseUnsignedEPKcmPm
 
 100:                                              ; preds = %92
   %.not257 = icmp eq i64 %1, 11
-  br i1 %.not257, label %183, label %101
+  br i1 %.not257, label %184, label %101
 
 101:                                              ; preds = %100
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -11726,7 +11727,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5arrow8internal13ParseUnsignedEPKcmPm
 
 109:                                              ; preds = %101
   %.not258 = icmp eq i64 %1, 12
-  br i1 %.not258, label %183, label %110
+  br i1 %.not258, label %184, label %110
 
 110:                                              ; preds = %109
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 13
@@ -11740,7 +11741,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5arrow8internal13ParseUnsignedEPKcmPm
 
 118:                                              ; preds = %110
   %.not259 = icmp eq i64 %1, 13
-  br i1 %.not259, label %183, label %119
+  br i1 %.not259, label %184, label %119
 
 119:                                              ; preds = %118
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 14
@@ -11754,7 +11755,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5arrow8internal13ParseUnsignedEPKcmPm
 
 127:                                              ; preds = %119
   %.not260 = icmp eq i64 %1, 14
-  br i1 %.not260, label %183, label %128
+  br i1 %.not260, label %184, label %128
 
 128:                                              ; preds = %127
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 15
@@ -11768,7 +11769,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5arrow8internal13ParseUnsignedEPKcmPm
 
 136:                                              ; preds = %128
   %.not261 = icmp eq i64 %1, 15
-  br i1 %.not261, label %183, label %137
+  br i1 %.not261, label %184, label %137
 
 137:                                              ; preds = %136
   %138 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -11782,7 +11783,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5arrow8internal13ParseUnsignedEPKcmPm
 
 145:                                              ; preds = %137
   %.not262 = icmp eq i64 %1, 16
-  br i1 %.not262, label %183, label %146
+  br i1 %.not262, label %184, label %146
 
 146:                                              ; preds = %145
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 17
@@ -11796,7 +11797,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5arrow8internal13ParseUnsignedEPKcmPm
 
 154:                                              ; preds = %146
   %.not263 = icmp eq i64 %1, 17
-  br i1 %.not263, label %183, label %155
+  br i1 %.not263, label %184, label %155
 
 155:                                              ; preds = %154
   %156 = getelementptr inbounds nuw i8, ptr %0, i64 18
@@ -11810,49 +11811,50 @@ define linkonce_odr noundef zeroext i1 @_ZN5arrow8internal13ParseUnsignedEPKcmPm
 
 163:                                              ; preds = %155
   %.not264 = icmp eq i64 %1, 18
-  br i1 %.not264, label %183, label %164
+  br i1 %.not264, label %184, label %164
 
 164:                                              ; preds = %163
   %165 = getelementptr inbounds nuw i8, ptr %0, i64 19
   %166 = load i8, ptr %156, align 1, !tbaa !103
   %167 = add i8 %166, -48
   %168 = mul i64 %162, 10
-  %169 = icmp ult i8 %167, 10
-  %170 = zext nneg i8 %167 to i64
-  %171 = add i64 %168, %170
-  br i1 %169, label %172, label %.thread
+  %169 = add i64 %1, -19
+  %170 = icmp ult i8 %167, 10
+  %171 = zext nneg i8 %167 to i64
+  %172 = add i64 %168, %171
+  br i1 %170, label %173, label %.thread
 
-172:                                              ; preds = %164
-  %.not265 = icmp eq i64 %1, 19
-  br i1 %.not265, label %183, label %173
+173:                                              ; preds = %164
+  %.not265 = icmp eq i64 %169, 0
+  br i1 %.not265, label %184, label %174
 
-173:                                              ; preds = %172
-  %174 = icmp ugt i64 %171, 1844674407370955161
-  br i1 %174, label %.thread, label %175, !prof !167
+174:                                              ; preds = %173
+  %175 = icmp ugt i64 %172, 1844674407370955161
+  br i1 %175, label %.thread, label %176, !prof !167
 
-175:                                              ; preds = %173
-  %176 = load i8, ptr %165, align 1, !tbaa !103
-  %177 = add i8 %176, -48
-  %.not266 = icmp ne i64 %1, 20
-  %178 = icmp ugt i8 %177, 9
-  %or.cond = or i1 %.not266, %178
-  br i1 %or.cond, label %.thread, label %179, !prof !457
+176:                                              ; preds = %174
+  %177 = load i8, ptr %165, align 1, !tbaa !103
+  %178 = add i8 %177, -48
+  %.not266 = icmp ne i64 %169, 1
+  %179 = icmp ugt i8 %178, 9
+  %or.cond = or i1 %.not266, %179
+  br i1 %or.cond, label %.thread, label %180, !prof !457
 
-179:                                              ; preds = %175
-  %180 = mul nuw i64 %171, 10
-  %181 = zext nneg i8 %177 to i64
-  %182 = add i64 %180, %181
-  %.not270 = icmp ult i64 %182, %180
-  %.267 = tail call i64 @llvm.umax.i64(i64 %182, i64 %180)
-  br i1 %.not270, label %.thread, label %183
+180:                                              ; preds = %176
+  %181 = mul nuw i64 %172, 10
+  %182 = zext nneg i8 %178 to i64
+  %183 = add i64 %181, %182
+  %.not270 = icmp ult i64 %183, %181
+  %.267 = tail call i64 @llvm.umax.i64(i64 %183, i64 %181)
+  br i1 %.not270, label %.thread, label %184
 
-183:                                              ; preds = %179, %172, %163, %154, %145, %136, %127, %118, %109, %100, %91, %82, %73, %64, %55, %46, %37, %28, %19, %10, %3
-  %.1186 = phi i64 [ %.267, %179 ], [ %171, %172 ], [ %162, %163 ], [ %153, %154 ], [ %144, %145 ], [ %135, %136 ], [ %126, %127 ], [ %117, %118 ], [ %108, %109 ], [ %99, %100 ], [ %90, %91 ], [ %81, %82 ], [ %72, %73 ], [ %63, %64 ], [ %54, %55 ], [ %45, %46 ], [ %36, %37 ], [ %27, %28 ], [ %18, %19 ], [ %9, %10 ], [ 0, %3 ]
+184:                                              ; preds = %180, %173, %163, %154, %145, %136, %127, %118, %109, %100, %91, %82, %73, %64, %55, %46, %37, %28, %19, %10, %3
+  %.1186 = phi i64 [ %.267, %180 ], [ %172, %173 ], [ %162, %163 ], [ %153, %154 ], [ %144, %145 ], [ %135, %136 ], [ %126, %127 ], [ %117, %118 ], [ %108, %109 ], [ %99, %100 ], [ %90, %91 ], [ %81, %82 ], [ %72, %73 ], [ %63, %64 ], [ %54, %55 ], [ %45, %46 ], [ %36, %37 ], [ %27, %28 ], [ %18, %19 ], [ %9, %10 ], [ 0, %3 ]
   store i64 %.1186, ptr %2, align 8, !tbaa !155
   br label %.thread
 
-.thread:                                          ; preds = %175, %173, %179, %164, %155, %146, %137, %128, %119, %110, %101, %92, %83, %74, %65, %56, %47, %38, %29, %20, %11, %4, %183
-  %.1 = phi i1 [ true, %183 ], [ false, %179 ], [ false, %164 ], [ false, %155 ], [ false, %146 ], [ false, %137 ], [ false, %128 ], [ false, %119 ], [ false, %110 ], [ false, %101 ], [ false, %92 ], [ false, %83 ], [ false, %74 ], [ false, %65 ], [ false, %56 ], [ false, %47 ], [ false, %38 ], [ false, %29 ], [ false, %20 ], [ false, %11 ], [ false, %4 ], [ false, %173 ], [ false, %175 ]
+.thread:                                          ; preds = %176, %174, %180, %164, %155, %146, %137, %128, %119, %110, %101, %92, %83, %74, %65, %56, %47, %38, %29, %20, %11, %4, %184
+  %.1 = phi i1 [ true, %184 ], [ false, %180 ], [ false, %164 ], [ false, %155 ], [ false, %146 ], [ false, %137 ], [ false, %128 ], [ false, %119 ], [ false, %110 ], [ false, %101 ], [ false, %92 ], [ false, %83 ], [ false, %74 ], [ false, %65 ], [ false, %56 ], [ false, %47 ], [ false, %38 ], [ false, %29 ], [ false, %20 ], [ false, %11 ], [ false, %4 ], [ false, %174 ], [ false, %176 ]
   ret i1 %.1
 }
 

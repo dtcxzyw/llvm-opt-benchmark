@@ -3353,11 +3353,9 @@ define hidden noundef i32 @_ZN2os13fork_and_execEPKc(ptr noundef %0) local_unnam
   br label %.loopexit
 
 24:                                               ; preds = %17
-  %25 = shl nuw nsw i32 %19, 24
-  %sext = add nuw i32 %25, 16777216
-  %26 = icmp sgt i32 %sext, 33554431
-  %27 = or disjoint i32 %19, 128
-  %spec.select = select i1 %26, i32 %27, i32 %18
+  %.not = icmp eq i32 %19, 127
+  %25 = or disjoint i32 %19, 128
+  %spec.select = select i1 %.not, i32 %18, i32 %25
   br label %.loopexit
 
 .loopexit.loopexit:                               ; preds = %14

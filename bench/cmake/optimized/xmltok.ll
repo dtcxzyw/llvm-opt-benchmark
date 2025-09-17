@@ -4254,31 +4254,31 @@ define internal range(i32 0, 2) i32 @normal_isPublicId(ptr noundef readonly capt
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 128
   br label %11
 
-11:                                               ; preds = %.lr.ph, %20
-  %.01418 = phi ptr [ %.01417, %.lr.ph ], [ %.014, %20 ]
+11:                                               ; preds = %.lr.ph, %21
+  %.01418 = phi ptr [ %.01417, %.lr.ph ], [ %.014, %21 ]
   %12 = load i8, ptr %.01418, align 1, !tbaa !9
   %13 = zext i8 %12 to i64
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 %13
   %15 = load i8, ptr %14, align 1, !tbaa !9
-  switch i8 %15, label %19 [
-    i8 25, label %20
-    i8 24, label %20
-    i8 27, label %20
-    i8 13, label %20
-    i8 31, label %20
-    i8 32, label %20
-    i8 34, label %20
-    i8 35, label %20
-    i8 17, label %20
-    i8 14, label %20
-    i8 15, label %20
-    i8 9, label %20
-    i8 10, label %20
-    i8 18, label %20
-    i8 16, label %20
-    i8 33, label %20
-    i8 30, label %20
-    i8 19, label %20
+  switch i8 %15, label %20 [
+    i8 25, label %21
+    i8 24, label %21
+    i8 27, label %21
+    i8 13, label %21
+    i8 31, label %21
+    i8 32, label %21
+    i8 34, label %21
+    i8 35, label %21
+    i8 17, label %21
+    i8 14, label %21
+    i8 15, label %21
+    i8 9, label %21
+    i8 10, label %21
+    i8 18, label %21
+    i8 16, label %21
+    i8 33, label %21
+    i8 30, label %21
+    i8 19, label %21
     i8 21, label %16
     i8 26, label %18
     i8 22, label %18
@@ -4286,31 +4286,31 @@ define internal range(i32 0, 2) i32 @normal_isPublicId(ptr noundef readonly capt
 
 16:                                               ; preds = %11
   %17 = icmp eq i8 %12, 9
-  br i1 %17, label %.loopexit.sink.split, label %20
+  br i1 %17, label %.loopexit.sink.split, label %21
 
 18:                                               ; preds = %11, %11
-  %.not = icmp sgt i8 %12, -1
-  br i1 %.not, label %20, label %19
+  %19 = icmp slt i8 %12, 0
+  br i1 %19, label %20, label %21
 
-19:                                               ; preds = %18, %11
+20:                                               ; preds = %18, %11
   switch i8 %12, label %.loopexit.sink.split [
-    i8 36, label %20
-    i8 64, label %20
+    i8 36, label %21
+    i8 64, label %21
   ]
 
-20:                                               ; preds = %11, %11, %11, %11, %11, %11, %11, %11, %11, %11, %11, %11, %11, %11, %11, %11, %11, %11, %16, %18, %19, %19
+21:                                               ; preds = %11, %11, %11, %11, %11, %11, %11, %11, %11, %11, %11, %11, %11, %11, %11, %11, %11, %11, %16, %18, %20, %20
   %.014 = getelementptr inbounds nuw i8, ptr %.01418, i64 1
-  %21 = ptrtoint ptr %.014 to i64
-  %22 = sub i64 %6, %21
-  %23 = icmp sgt i64 %22, 0
-  br i1 %23, label %11, label %.loopexit, !llvm.loop !83
+  %22 = ptrtoint ptr %.014 to i64
+  %23 = sub i64 %6, %22
+  %24 = icmp sgt i64 %23, 0
+  br i1 %24, label %11, label %.loopexit, !llvm.loop !83
 
-.loopexit.sink.split:                             ; preds = %19, %16
+.loopexit.sink.split:                             ; preds = %20, %16
   store ptr %.01418, ptr %3, align 8, !tbaa !4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %20, %.loopexit.sink.split, %4
-  %.0 = phi i32 [ 1, %4 ], [ 0, %.loopexit.sink.split ], [ 1, %20 ]
+.loopexit:                                        ; preds = %21, %.loopexit.sink.split, %4
+  %.0 = phi i32 [ 1, %4 ], [ 0, %.loopexit.sink.split ], [ 1, %21 ]
   ret i32 %.0
 }
 
@@ -9698,8 +9698,8 @@ unicode_byte_type.exit:                           ; preds = %11
   br i1 %21, label %.loopexit.sink.split, label %25
 
 22:                                               ; preds = %unicode_byte_type.exit, %unicode_byte_type.exit
-  %23 = icmp sgt i8 %15, -1
-  br i1 %23, label %25, label %.critedge.thread
+  %23 = icmp slt i8 %15, 0
+  br i1 %23, label %.critedge.thread, label %25
 
 .critedge..critedge.thread_crit_edge:             ; preds = %unicode_byte_type.exit
   %.pre = load i8, ptr %.02026, align 1, !tbaa !9
@@ -15208,8 +15208,8 @@ unicode_byte_type.exit:                           ; preds = %11
 23:                                               ; preds = %unicode_byte_type.exit, %unicode_byte_type.exit
   %24 = getelementptr inbounds nuw i8, ptr %.pn25, i64 3
   %25 = load i8, ptr %24, align 1, !tbaa !9
-  %26 = icmp sgt i8 %25, -1
-  br i1 %26, label %28, label %.critedge.thread
+  %26 = icmp slt i8 %25, 0
+  br i1 %26, label %.critedge.thread, label %28
 
 .critedge..critedge.thread_crit_edge:             ; preds = %unicode_byte_type.exit
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pn25, i64 3

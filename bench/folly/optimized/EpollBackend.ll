@@ -543,107 +543,107 @@ define noundef i32 @_ZN5folly12EpollBackend12eb_event_addERNS_14EventBaseEventEP
   %4 = alloca %struct.epoll_event, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i16, ptr %5, align 8, !tbaa !73
-  %.not41 = icmp ugt i16 %6, 255
-  br i1 %.not41, label %7, label %.critedge47, !prof !50
+  %7 = icmp ugt i16 %6, 255
+  br i1 %7, label %8, label %.critedge46, !prof !50
 
-7:                                                ; preds = %.critedge
+8:                                                ; preds = %.critedge
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN6google15LogMessageFatalC1EPKci(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull @.str, i32 noundef 354)
-  %8 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
-          to label %9 unwind label %11
+  %9 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
+          to label %10 unwind label %12
 
-9:                                                ; preds = %7
-  %10 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull @.str.9, i64 noundef 51)
-          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit48 unwind label %11
+10:                                               ; preds = %8
+  %11 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull @.str.9, i64 noundef 51)
+          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit47 unwind label %12
 
-_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit48: ; preds = %9
+_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit47: ; preds = %10
   call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #24
   unreachable
 
-11:                                               ; preds = %9, %7
-  %12 = landingpad { ptr, i32 }
+12:                                               ; preds = %10, %8
+  %13 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #24
   unreachable
 
-.critedge47:                                      ; preds = %.critedge
-  %.not42 = icmp eq ptr %2, null
-  br i1 %.not42, label %15, label %13
+.critedge46:                                      ; preds = %.critedge
+  %.not41 = icmp eq ptr %2, null
+  br i1 %.not41, label %16, label %14
 
-13:                                               ; preds = %.critedge47
-  %14 = or i16 %6, 1
-  store i16 %14, ptr %5, align 8, !tbaa !73
+14:                                               ; preds = %.critedge46
+  %15 = or i16 %6, 1
+  store i16 %15, ptr %5, align 8, !tbaa !73
   tail call void @_ZN5folly12EpollBackend13addTimerEventERNS_14EventBaseEventEPK7timeval(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull %2)
-  br label %47
+  br label %48
 
-15:                                               ; preds = %.critedge47
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %17 = load i16, ptr %16, align 8, !tbaa !64
-  %18 = and i16 %17, 8
-  %.not43 = icmp eq i16 %18, 0
-  br i1 %.not43, label %21, label %19
+16:                                               ; preds = %.critedge46
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  %18 = load i16, ptr %17, align 8, !tbaa !64
+  %19 = and i16 %18, 8
+  %.not42 = icmp eq i16 %19, 0
+  br i1 %.not42, label %22, label %20
 
-19:                                               ; preds = %15
-  %20 = or i16 %6, 2
-  store i16 %20, ptr %5, align 8, !tbaa !73
+20:                                               ; preds = %16
+  %21 = or i16 %6, 2
+  store i16 %21, ptr %5, align 8, !tbaa !73
   tail call void @_ZN5folly12EpollBackend14addSignalEventERNS_14EventBaseEventE(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef nonnull align 8 dereferenceable(168) %1)
-  br label %47
+  br label %48
 
-21:                                               ; preds = %15
-  %22 = and i16 %6, 16
-  %.not44 = icmp eq i16 %22, 0
-  br i1 %.not44, label %27, label %23
+22:                                               ; preds = %16
+  %23 = and i16 %6, 16
+  %.not43 = icmp eq i16 %23, 0
+  br i1 %.not43, label %28, label %24
 
-23:                                               ; preds = %21
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %25 = load i64, ptr %24, align 8, !tbaa !42
-  %26 = add i64 %25, 1
-  store i64 %26, ptr %24, align 8, !tbaa !42
-  br label %27
+24:                                               ; preds = %22
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %26 = load i64, ptr %25, align 8, !tbaa !42
+  %27 = add i64 %26, 1
+  store i64 %27, ptr %25, align 8, !tbaa !42
+  br label %28
 
-27:                                               ; preds = %23, %21
-  %28 = or i16 %6, 2
-  store i16 %28, ptr %5, align 8, !tbaa !73
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %30 = load i64, ptr %29, align 8, !tbaa !43
-  %31 = add i64 %30, 1
-  store i64 %31, ptr %29, align 8, !tbaa !43
-  %32 = getelementptr inbounds nuw i8, ptr %1, i64 136
-  %33 = load ptr, ptr %32, align 8, !tbaa !85
-  %.not45 = icmp eq ptr %33, null
-  br i1 %.not45, label %34, label %37
+28:                                               ; preds = %24, %22
+  %29 = or i16 %6, 2
+  store i16 %29, ptr %5, align 8, !tbaa !73
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %31 = load i64, ptr %30, align 8, !tbaa !43
+  %32 = add i64 %31, 1
+  store i64 %32, ptr %30, align 8, !tbaa !43
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 136
+  %34 = load ptr, ptr %33, align 8, !tbaa !85
+  %.not44 = icmp eq ptr %34, null
+  br i1 %.not44, label %35, label %38
 
-34:                                               ; preds = %27
-  %35 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #25
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %35, i8 0, i64 32, i1 false)
-  store ptr %35, ptr %32, align 8, !tbaa !85
-  %36 = getelementptr inbounds nuw i8, ptr %1, i64 144
-  store ptr @_ZN5folly12_GLOBAL__N_19EventInfo12freeFunctionEPv, ptr %36, align 8, !tbaa !90
-  br label %37
+35:                                               ; preds = %28
+  %36 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #25
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %36, i8 0, i64 32, i1 false)
+  store ptr %36, ptr %33, align 8, !tbaa !85
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 144
+  store ptr @_ZN5folly12_GLOBAL__N_19EventInfo12freeFunctionEPv, ptr %37, align 8, !tbaa !90
+  br label %38
 
-37:                                               ; preds = %34, %27
-  %.0 = phi ptr [ %33, %27 ], [ %35, %34 ]
-  %38 = getelementptr inbounds nuw i8, ptr %.0, i64 16
-  store ptr %1, ptr %38, align 8, !tbaa !56
+38:                                               ; preds = %35, %28
+  %.0 = phi ptr [ %34, %28 ], [ %36, %35 ]
+  %39 = getelementptr inbounds nuw i8, ptr %.0, i64 16
+  store ptr %1, ptr %39, align 8, !tbaa !56
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %39 = lshr i16 %17, 1
-  %.lobit.i = and i16 %39, 1
-  %40 = and i16 %17, 4
-  %.16.i = or disjoint i16 %.lobit.i, %40
+  %40 = lshr i16 %18, 1
+  %.lobit.i = and i16 %40, 1
+  %41 = and i16 %18, 4
+  %.16.i = or disjoint i16 %.lobit.i, %41
   %.1.i = zext nneg i16 %.16.i to i32
   store i32 %.1.i, ptr %4, align 4, !tbaa !61
-  %41 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store ptr %.0, ptr %41, align 4, !tbaa !55
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %43 = load i32, ptr %42, align 8, !tbaa !7
-  %44 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %45 = load i32, ptr %44, align 8, !tbaa !74
-  %46 = call i32 @epoll_ctl(i32 noundef %43, i32 noundef 1, i32 noundef %45, ptr noundef nonnull %4) #21
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  store ptr %.0, ptr %42, align 4, !tbaa !55
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %44 = load i32, ptr %43, align 8, !tbaa !7
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %46 = load i32, ptr %45, align 8, !tbaa !74
+  %47 = call i32 @epoll_ctl(i32 noundef %44, i32 noundef 1, i32 noundef %46, ptr noundef nonnull %4) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %47
+  br label %48
 
-47:                                               ; preds = %37, %19, %13
-  %.038 = phi i32 [ 0, %13 ], [ 0, %19 ], [ %46, %37 ]
+48:                                               ; preds = %38, %20, %14
+  %.038 = phi i32 [ 0, %14 ], [ 0, %20 ], [ %47, %38 ]
   ret i32 %.038
 }
 

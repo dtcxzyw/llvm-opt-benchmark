@@ -1411,15 +1411,15 @@ define internal fastcc range(i32 0, 2) i32 @append_normalized_escapes(ptr nounde
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %6
 
-6:                                                ; preds = %.lr.ph, %50
-  %.0267 = phi ptr [ %1, %.lr.ph ], [ %.127, %50 ]
-  %.0296 = phi i64 [ %2, %.lr.ph ], [ %.130, %50 ]
+6:                                                ; preds = %.lr.ph, %51
+  %.0267 = phi ptr [ %1, %.lr.ph ], [ %.127, %51 ]
+  %.0296 = phi i64 [ %2, %.lr.ph ], [ %.130, %51 ]
   %7 = getelementptr inbounds nuw i8, ptr %.0267, i64 1
   %8 = load i8, ptr %.0267, align 1, !tbaa !4
   %9 = sext i8 %8 to i32
   %10 = add i64 %.0296, -1
   %.not41 = icmp eq i8 %8, 37
-  br i1 %.not41, label %11, label %33
+  br i1 %.not41, label %11, label %34
 
 11:                                               ; preds = %6
   %12 = icmp ult i64 %.0296, 3
@@ -1431,68 +1431,68 @@ define internal fastcc range(i32 0, 2) i32 @append_normalized_escapes(ptr nounde
   %16 = getelementptr inbounds nuw i8, ptr @hexval_table, i64 %15
   %17 = load i8, ptr %16, align 1, !tbaa !4
   %18 = sext i8 %17 to i32
-  %.not.i = icmp ult i8 %17, 16
-  br i1 %.not.i, label %19, label %hex2chr.exit
+  %19 = icmp ugt i8 %17, 15
+  br i1 %19, label %hex2chr.exit, label %20
 
-19:                                               ; preds = %13
-  %20 = shl nuw nsw i32 %18, 4
-  %21 = getelementptr inbounds nuw i8, ptr %.0267, i64 2
-  %22 = load i8, ptr %21, align 1, !tbaa !4
-  %23 = zext i8 %22 to i64
-  %24 = getelementptr inbounds nuw i8, ptr @hexval_table, i64 %23
-  %25 = load i8, ptr %24, align 1, !tbaa !4
-  %26 = sext i8 %25 to i32
-  %27 = or i32 %20, %26
+20:                                               ; preds = %13
+  %21 = shl nuw nsw i32 %18, 4
+  %22 = getelementptr inbounds nuw i8, ptr %.0267, i64 2
+  %23 = load i8, ptr %22, align 1, !tbaa !4
+  %24 = zext i8 %23 to i64
+  %25 = getelementptr inbounds nuw i8, ptr @hexval_table, i64 %24
+  %26 = load i8, ptr %25, align 1, !tbaa !4
+  %27 = sext i8 %26 to i32
+  %28 = or i32 %21, %27
   br label %hex2chr.exit
 
-hex2chr.exit:                                     ; preds = %13, %19
-  %28 = phi i32 [ %27, %19 ], [ %18, %13 ]
-  %29 = icmp slt i32 %28, 0
-  br i1 %29, label %.thread, label %30
+hex2chr.exit:                                     ; preds = %13, %20
+  %29 = phi i32 [ %28, %20 ], [ %18, %13 ]
+  %30 = icmp slt i32 %29, 0
+  br i1 %30, label %.thread, label %31
 
-30:                                               ; preds = %hex2chr.exit
-  %31 = getelementptr inbounds nuw i8, ptr %.0267, i64 3
-  %32 = add i64 %.0296, -3
-  br label %33
+31:                                               ; preds = %hex2chr.exit
+  %32 = getelementptr inbounds nuw i8, ptr %.0267, i64 3
+  %33 = add i64 %.0296, -3
+  br label %34
 
-33:                                               ; preds = %30, %6
-  %.130 = phi i64 [ %32, %30 ], [ %10, %6 ]
-  %.127 = phi ptr [ %31, %30 ], [ %7, %6 ]
-  %.024 = phi i32 [ %28, %30 ], [ %9, %6 ]
-  %34 = and i32 %.024, 255
-  %35 = add nsw i32 %34, -127
-  %or.cond = icmp ult i32 %35, -95
-  br i1 %or.cond, label %39, label %36
+34:                                               ; preds = %31, %6
+  %.130 = phi i64 [ %33, %31 ], [ %10, %6 ]
+  %.127 = phi ptr [ %32, %31 ], [ %7, %6 ]
+  %.024 = phi i32 [ %29, %31 ], [ %9, %6 ]
+  %35 = and i32 %.024, 255
+  %36 = add nsw i32 %35, -127
+  %or.cond = icmp ult i32 %36, -95
+  br i1 %or.cond, label %40, label %37
 
-36:                                               ; preds = %33
+37:                                               ; preds = %34
   %memchr = tail call ptr @memchr(ptr nonnull dereferenceable(1) @.str.23, i32 %.024, i64 12)
   %.not38.not = icmp eq ptr %memchr, null
-  br i1 %.not38.not, label %37, label %39
-
-37:                                               ; preds = %36
-  br i1 %.not41, label %38, label %40
+  br i1 %.not38.not, label %38, label %40
 
 38:                                               ; preds = %37
+  br i1 %.not41, label %39, label %41
+
+39:                                               ; preds = %38
   %memchr42 = tail call ptr @memchr(ptr nonnull dereferenceable(1) @.str.4, i32 %.024, i64 19)
   %.not43 = icmp eq ptr %memchr42, null
-  br i1 %.not43, label %40, label %39
+  br i1 %.not43, label %41, label %40
 
-39:                                               ; preds = %38, %36, %33
-  tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %0, ptr noundef nonnull @.str.24, i32 noundef %34) #16
-  br label %50
+40:                                               ; preds = %39, %37, %34
+  tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %0, ptr noundef nonnull @.str.24, i32 noundef %35) #16
+  br label %51
 
-40:                                               ; preds = %38, %37
-  %41 = load i64, ptr %0, align 8, !tbaa !15
-  %.not.i.i = icmp eq i64 %41, 0
+41:                                               ; preds = %39, %38
+  %42 = load i64, ptr %0, align 8, !tbaa !15
+  %.not.i.i = icmp eq i64 %42, 0
   br i1 %.not.i.i, label %strbuf_avail.exit.thread.i, label %strbuf_avail.exit.i
 
-strbuf_avail.exit.i:                              ; preds = %40
-  %42 = load i64, ptr %4, align 8, !tbaa !17
-  %.neg.i = add i64 %42, 1
-  %.not.i45 = icmp eq i64 %41, %.neg.i
-  br i1 %.not.i45, label %strbuf_avail.exit.thread.i, label %strbuf_addch.exit
+strbuf_avail.exit.i:                              ; preds = %41
+  %43 = load i64, ptr %4, align 8, !tbaa !17
+  %.neg.i = add i64 %43, 1
+  %.not.i = icmp eq i64 %42, %.neg.i
+  br i1 %.not.i, label %strbuf_avail.exit.thread.i, label %strbuf_addch.exit
 
-strbuf_avail.exit.thread.i:                       ; preds = %strbuf_avail.exit.i, %40
+strbuf_avail.exit.thread.i:                       ; preds = %strbuf_avail.exit.i, %41
   tail call void @strbuf_grow(ptr noundef nonnull %0, i64 noundef 1) #16
   %.pre.i = load i64, ptr %4, align 8, !tbaa !17
   %.pre7.i = add i64 %.pre.i, 1
@@ -1500,24 +1500,24 @@ strbuf_avail.exit.thread.i:                       ; preds = %strbuf_avail.exit.i
 
 strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i, %strbuf_avail.exit.thread.i
   %.pre-phi.i = phi i64 [ %.pre7.i, %strbuf_avail.exit.thread.i ], [ %.neg.i, %strbuf_avail.exit.i ]
-  %43 = phi i64 [ %.pre.i, %strbuf_avail.exit.thread.i ], [ %42, %strbuf_avail.exit.i ]
-  %44 = trunc i32 %.024 to i8
-  %45 = load ptr, ptr %5, align 8, !tbaa !18
+  %44 = phi i64 [ %.pre.i, %strbuf_avail.exit.thread.i ], [ %43, %strbuf_avail.exit.i ]
+  %45 = trunc i32 %.024 to i8
+  %46 = load ptr, ptr %5, align 8, !tbaa !18
   store i64 %.pre-phi.i, ptr %4, align 8, !tbaa !17
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 %43
-  store i8 %44, ptr %46, align 1, !tbaa !4
-  %47 = load ptr, ptr %5, align 8, !tbaa !18
-  %48 = load i64, ptr %4, align 8, !tbaa !17
-  %49 = getelementptr inbounds nuw i8, ptr %47, i64 %48
-  store i8 0, ptr %49, align 1, !tbaa !4
-  br label %50
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 %44
+  store i8 %45, ptr %47, align 1, !tbaa !4
+  %48 = load ptr, ptr %5, align 8, !tbaa !18
+  %49 = load i64, ptr %4, align 8, !tbaa !17
+  %50 = getelementptr inbounds nuw i8, ptr %48, i64 %49
+  store i8 0, ptr %50, align 1, !tbaa !4
+  br label %51
 
-50:                                               ; preds = %39, %strbuf_addch.exit
+51:                                               ; preds = %40, %strbuf_addch.exit
   %.not = icmp eq i64 %.130, 0
   br i1 %.not, label %.thread, label %6
 
-.thread:                                          ; preds = %50, %11, %hex2chr.exit, %3
-  %.2 = phi i32 [ 1, %3 ], [ 0, %hex2chr.exit ], [ 0, %11 ], [ 1, %50 ]
+.thread:                                          ; preds = %51, %11, %hex2chr.exit, %3
+  %.2 = phi i32 [ 1, %3 ], [ 0, %hex2chr.exit ], [ 0, %11 ], [ 1, %51 ]
   ret i32 %.2
 }
 

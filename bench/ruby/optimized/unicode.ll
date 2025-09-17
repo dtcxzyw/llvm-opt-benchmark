@@ -2416,9 +2416,8 @@ define dso_local i32 @onigenc_unicode_case_map(ptr noundef captures(none) %0, pt
   br label %onigenc_unicode_CaseUnfold_11_lookup.exit.thread
 
 68:                                               ; preds = %54
-  %69 = add i32 %26, -65
-  %or.cond.i = icmp ult i32 %69, 125153
-  br i1 %or.cond.i, label %70, label %177
+  %69 = icmp ult i32 %26, 125218
+  br i1 %69, label %70, label %177
 
 70:                                               ; preds = %68
   %71 = and i32 %26, 127
@@ -2594,9 +2593,8 @@ onigenc_unicode_CaseFold_11_lookup.exit:          ; preds = %97
   br label %onigenc_unicode_CaseUnfold_11_lookup.exit.thread
 
 177:                                              ; preds = %68
-  %178 = add i32 %26, -97
-  %or.cond.i180 = icmp ult i32 %178, 125155
-  br i1 %or.cond.i180, label %..thread_crit_edge, label %onigenc_unicode_CaseUnfold_11_lookup.exit.thread
+  %178 = icmp ult i32 %26, 125252
+  br i1 %178, label %..thread_crit_edge, label %onigenc_unicode_CaseUnfold_11_lookup.exit.thread
 
 ..thread_crit_edge:                               ; preds = %177
   %.pre198 = and i32 %26, 127

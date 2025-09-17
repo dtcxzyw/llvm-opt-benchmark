@@ -11412,9 +11412,8 @@ common.ret:                                       ; preds = %1, %"_ZN4core3ptr95
 ; Function Attrs: nounwind nonlazybind uwtable
 define hidden void @"_ZN4core3ptr39drop_in_place$LT$task..VariableName$GT$17h9e15e54a3c7e9e34E.llvm.10103224049646331845"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #15 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !4942, !noundef !4
-  %3 = add i64 %2, 9223372036854775807
-  %switch = icmp ult i64 %3, 11
-  br i1 %switch, label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17he136202548b6fd3dE.llvm.10103224049646331845.exit", label %4
+  %3 = icmp ugt i64 %2, -9223372036854775808
+  br i1 %3, label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17he136202548b6fd3dE.llvm.10103224049646331845.exit", label %4
 
 4:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4943)
@@ -11713,9 +11712,8 @@ define internal void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$to
 define hidden void @"_ZN4core3ptr71drop_in_place$LT$$LP$task..VariableName$C$alloc..string..String$RP$$GT$17hc2c7c3b11b1b65e5E.llvm.10103224049646331845"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(48) %0) unnamed_addr #15 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5159)
   %2 = load i64, ptr %0, align 8, !range !4942, !alias.scope !5159, !noundef !4
-  %3 = add i64 %2, 9223372036854775807
-  %switch.i = icmp ult i64 %3, 11
-  br i1 %switch.i, label %"_ZN4core3ptr39drop_in_place$LT$task..VariableName$GT$17h9e15e54a3c7e9e34E.llvm.10103224049646331845.exit", label %4
+  %3 = icmp ugt i64 %2, -9223372036854775808
+  br i1 %3, label %"_ZN4core3ptr39drop_in_place$LT$task..VariableName$GT$17h9e15e54a3c7e9e34E.llvm.10103224049646331845.exit", label %4
 
 4:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5162)
@@ -12704,8 +12702,7 @@ define internal void @"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u
 ; Function Attrs: nounwind nonlazybind uwtable
 define hidden void @"_ZN4core3ptr92drop_in_place$LT$$u5b$$LP$task..VariableName$C$alloc..string..String$RP$$u3b$$u20$1$u5d$$GT$17hacb104061139c221E.llvm.10103224049646331845"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(48) %0) unnamed_addr #15 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !4942, !alias.scope !5638, !noundef !4
-  %3 = add i64 %2, 9223372036854775807
-  %switch.i.i = icmp ult i64 %3, 11
+  %3 = icmp ugt i64 %2, -9223372036854775808
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !nonnull !4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -12716,7 +12713,7 @@ define hidden void @"_ZN4core3ptr92drop_in_place$LT$$u5b$$LP$task..VariableName$
   %10 = load ptr, ptr %9, align 8, !nonnull !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5643)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5644)
-  br i1 %switch.i.i, label %.split.us, label %.split
+  br i1 %3, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %1
   br i1 %8, label %.split8.us, label %.split8.us.sink.split
@@ -12756,9 +12753,8 @@ define hidden void @"_ZN4core3ptr92drop_in_place$LT$$u5b$$LP$task..VariableName$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5665)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5668)
   %5 = load i64, ptr %4, align 8, !range !4942, !alias.scope !5671, !noundef !4
-  %6 = add i64 %5, 9223372036854775807
-  %switch.i.i = icmp ult i64 %6, 11
-  br i1 %switch.i.i, label %"_ZN4core3ptr39drop_in_place$LT$task..VariableName$GT$17h9e15e54a3c7e9e34E.llvm.10103224049646331845.exit.i", label %7
+  %6 = icmp ugt i64 %5, -9223372036854775808
+  br i1 %6, label %"_ZN4core3ptr39drop_in_place$LT$task..VariableName$GT$17h9e15e54a3c7e9e34E.llvm.10103224049646331845.exit.i", label %7
 
 7:                                                ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5672)

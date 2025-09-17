@@ -7775,8 +7775,7 @@ _ZL18stbir__set_samplerP14stbir__sampler12stbir_filterPFfffPvEPFffS2_E10stbir_ed
   %.nonneg.i = sub i32 0, %67
   %449 = lshr i32 %.nonneg.i, 2
   %.neg.i = sub nsw i32 0, %449
-  %.off.i.i.i = add nsw i32 %67, 3
-  %450 = icmp ult i32 %.off.i.i.i, 7
+  %450 = icmp sgt i32 %67, -4
   %spec.select198.i = select i1 %450, i32 1, i32 %.neg.i
   br label %select.unfold.i
 

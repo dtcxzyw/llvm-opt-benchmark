@@ -881,8 +881,10 @@ invoke.cont13:                                    ; preds = %invoke.cont10
 invoke.cont17:                                    ; preds = %invoke.cont13
   %11 = load i32, ptr %status, align 4
   %and = and i32 %11, 127
-  %cmp18 = icmp eq i32 %and, 0
-  br i1 %cmp18, label %if.then19, label %if.else40
+  switch i32 %and, label %if.then46 [
+    i32 0, label %if.then19
+    i32 127, label %if.end54
+  ]
 
 if.then19:                                        ; preds = %invoke.cont17
   %and20 = lshr i32 %11, 8
@@ -1275,13 +1277,7 @@ lpad35:                                           ; preds = %if.else
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp32) #31
   br label %ehcleanup
 
-if.else40:                                        ; preds = %invoke.cont17
-  %conv42 = shl nuw nsw i32 %and, 24
-  %sext = add nuw i32 %conv42, 16777216
-  %cmp45 = icmp sgt i32 %sext, 33554431
-  br i1 %cmp45, label %if.then46, label %if.end54
-
-if.then46:                                        ; preds = %if.else40
+if.then46:                                        ; preds = %invoke.cont17
   call void @_ZNSt7__cxx119to_stringEi(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp48, i32 noundef %and) #31
   %call3.i.i.i105 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp48, i64 noundef 0, i64 noundef 0, ptr noundef nonnull @.str.25, i64 noundef 23)
           to label %call3.i.i.i.noexc104 unwind label %lpad50
@@ -1438,7 +1434,7 @@ lpad50:                                           ; preds = %if.then46
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp48) #31
   br label %ehcleanup
 
-if.end54:                                         ; preds = %_ZN11conformance19ConformanceResponse27_internal_set_runtime_errorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i.invoke, %if.else40, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit146
+if.end54:                                         ; preds = %invoke.cont17, %_ZN11conformance19ConformanceResponse27_internal_set_runtime_errorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i.invoke, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit146
   invoke void @_ZN6google8protobuf8internal10LogMessageC1ENS0_8LogLevelEPKci(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp55, i32 noundef 0, ptr noundef nonnull @.str.21, i32 noundef 185)
           to label %invoke.cont56 unwind label %lpad29
 

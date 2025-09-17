@@ -3494,14 +3494,15 @@ define internal ptr @math_isclose(ptr readnone captures(none) %0, ptr noundef %1
   br i1 %or.cond5, label %.thread83, label %11
 
 11:                                               ; preds = %8, %.thread
-  %12 = phi i64 [ %7, %.thread ], [ %2, %8 ]
+  %.in = phi i64 [ %7, %.thread ], [ %2, %8 ]
+  %12 = add i64 %.in, -2
   %13 = call ptr @_PyArg_UnpackKeywords(ptr noundef %1, i64 noundef %2, ptr noundef null, ptr noundef %3, ptr noundef nonnull @math_isclose._parser, i32 noundef 2, i32 noundef 2, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %5) #16
   %.not60 = icmp eq ptr %13, null
   br i1 %.not60, label %87, label %.thread83
 
 .thread83:                                        ; preds = %8, %11
   %14 = phi ptr [ %13, %11 ], [ %1, %8 ]
-  %15 = phi i64 [ %12, %11 ], [ 2, %8 ]
+  %15 = phi i64 [ %12, %11 ], [ 0, %8 ]
   %16 = load ptr, ptr %14, align 8, !tbaa !12
   %17 = getelementptr i8, ptr %16, i64 8
   %.val = load ptr, ptr %17, align 8, !tbaa !16
@@ -3549,7 +3550,7 @@ define internal ptr @math_isclose(ptr readnone captures(none) %0, ptr noundef %1
 
 36:                                               ; preds = %31, %34, %29
   %.044 = phi double [ %.val77, %29 ], [ -1.000000e+00, %34 ], [ %32, %31 ]
-  %.not65 = icmp eq i64 %15, 2
+  %.not65 = icmp eq i64 %15, 0
   br i1 %.not65, label %61, label %37
 
 37:                                               ; preds = %36
@@ -3581,7 +3582,7 @@ define internal ptr @math_isclose(ptr readnone captures(none) %0, ptr noundef %1
 
 49:                                               ; preds = %44, %47, %42
   %.2 = phi double [ %.val78, %42 ], [ -1.000000e+00, %47 ], [ %45, %44 ]
-  %.not69 = icmp eq i64 %15, 3
+  %.not69 = icmp eq i64 %15, 1
   br i1 %.not69, label %61, label %50
 
 50:                                               ; preds = %49, %37

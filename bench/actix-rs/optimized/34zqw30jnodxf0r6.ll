@@ -5357,9 +5357,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
 132:                                              ; preds = %96, %123, %.critedge234, %"_ZN10actix_http2h110dispatcher18trace_timer_states28_$u7b$$u7b$closure$u7d$$u7d$17hbba1be513d32a0b1E.exit"
   %133 = load ptr, ptr %70, align 8, !nonnull !4, !align !12, !noundef !4
   %.val275 = load i64, ptr %133, align 8, !range !108, !noundef !4
-  %.off.i = add nsw i64 %.val275, -1
-  %switch.i = icmp ult i64 %.off.i, 2
-  br i1 %switch.i, label %163, label %161
+  %.not480 = icmp eq i64 %.val275, 0
+  br i1 %.not480, label %161, label %163
 
 134:                                              ; preds = %84
   tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.dd74362bd857f4caec9bddebb7ee75d1.70, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.dd74362bd857f4caec9bddebb7ee75d1.94) #23
@@ -5453,9 +5452,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
 161:                                              ; preds = %184, %211, %.critedge242, %132, %"_ZN10actix_http2h110dispatcher18trace_timer_states28_$u7b$$u7b$closure$u7d$$u7d$17h481b25807b415d90E.exit"
   %162 = load ptr, ptr %69, align 8, !nonnull !4, !align !12, !noundef !4
   %.val276 = load i64, ptr %162, align 8, !range !108, !noundef !4
-  %.off.i286 = add nsw i64 %.val276, -1
-  %switch.i287 = icmp ult i64 %.off.i286, 2
-  br i1 %switch.i287, label %248, label %247
+  %.not481 = icmp eq i64 %.val276, 0
+  br i1 %.not481, label %247, label %248
 
 163:                                              ; preds = %132
   %164 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17hdbd148323133a678E monotonic, align 8
@@ -5695,9 +5693,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit289
 
 247:                                              ; preds = %269, %296, %.critedge250, %161, %"_ZN10actix_http2h110dispatcher18trace_timer_states28_$u7b$$u7b$closure$u7d$$u7d$17ha0915dfefb11fee3E.exit"
   %.val277 = load i64, ptr %4, align 8, !range !108, !noundef !4
-  %.off.i305 = add nsw i64 %.val277, -1
-  %switch.i306 = icmp ult i64 %.off.i305, 2
-  br i1 %switch.i306, label %333, label %332
+  %.not482 = icmp eq i64 %.val277, 0
+  br i1 %.not482, label %332, label %333
 
 248:                                              ; preds = %161
   %249 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17hdbd148323133a678E monotonic, align 8

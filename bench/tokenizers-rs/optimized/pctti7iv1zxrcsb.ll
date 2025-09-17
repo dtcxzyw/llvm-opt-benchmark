@@ -15017,7 +15017,7 @@ define hidden void @"_ZN4core3ptr278drop_in_place$LT$tokenizers..tokenizer..Toke
 
 11:                                               ; preds = %6
   invoke void @"_ZN4core3ptr68drop_in_place$LT$tokenizers..pre_tokenizers..PreTokenizerWrapper$GT$17h22ddc333d7e3e399E.llvm.1287153784043347726"(ptr noalias noundef nonnull align 8 dereferenceable(48) %8)
-          to label %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$tokenizers..pre_tokenizers..PreTokenizerWrapper$GT$$GT$17h283be1737d7139c1E.llvm.1287153784043347726.exit" unwind label %69
+          to label %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$tokenizers..pre_tokenizers..PreTokenizerWrapper$GT$$GT$17h283be1737d7139c1E.llvm.1287153784043347726.exit" unwind label %66
 
 "_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$tokenizers..normalizers..NormalizerWrapper$GT$$GT$17h67843d930bc135ffE.llvm.1287153784043347726.exit": ; preds = %1, %5
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 448
@@ -15033,7 +15033,7 @@ define hidden void @"_ZN4core3ptr278drop_in_place$LT$tokenizers..tokenizer..Toke
   %.pn = phi { ptr, i32 } [ %18, %17 ], [ %7, %11 ], [ %7, %6 ]
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 72
   invoke void @"_ZN4core3ptr53drop_in_place$LT$tokenizers..models..ModelWrapper$GT$17h22b605fca872f926E.llvm.1287153784043347726"(ptr noalias noundef nonnull align 8 dereferenceable(312) %16) #36
-          to label %32 unwind label %69
+          to label %29 unwind label %66
 
 17:                                               ; preds = %15
   %18 = landingpad { ptr, i32 }
@@ -15043,141 +15043,138 @@ define hidden void @"_ZN4core3ptr278drop_in_place$LT$tokenizers..tokenizer..Toke
 "_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$tokenizers..pre_tokenizers..PreTokenizerWrapper$GT$$GT$17h283be1737d7139c1E.llvm.1287153784043347726.exit12": ; preds = %"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$tokenizers..normalizers..NormalizerWrapper$GT$$GT$17h67843d930bc135ffE.llvm.1287153784043347726.exit", %15
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %20 = load i64, ptr %19, align 8, !range !2674, !alias.scope !6678, !noundef !4
-  %21 = add nsw i64 %20, -2
-  %22 = icmp ult i64 %21, 3
-  %23 = add nsw i64 %20, -1
-  %24 = select i1 %22, i64 %23, i64 0
-  switch i64 %24, label %25 [
-    i64 0, label %27
-    i64 1, label %28
-    i64 2, label %30
+  %21 = tail call i64 @llvm.usub.sat.i64(i64 %20, i64 1)
+  switch i64 %21, label %22 [
+    i64 0, label %24
+    i64 1, label %25
+    i64 2, label %27
   ]
+
+22:                                               ; preds = %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$tokenizers..pre_tokenizers..PreTokenizerWrapper$GT$$GT$17h283be1737d7139c1E.llvm.1287153784043347726.exit12"
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  invoke void @"_ZN4core3ptr64drop_in_place$LT$tokenizers..models..unigram..model..Unigram$GT$17h0e3f2c5578490d0cE"(ptr noalias noundef nonnull align 8 dereferenceable(248) %23)
+          to label %"_ZN4core3ptr53drop_in_place$LT$tokenizers..models..ModelWrapper$GT$17h22b605fca872f926E.llvm.1287153784043347726.exit" unwind label %34
+
+24:                                               ; preds = %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$tokenizers..pre_tokenizers..PreTokenizerWrapper$GT$$GT$17h283be1737d7139c1E.llvm.1287153784043347726.exit12"
+  invoke void @"_ZN4core3ptr56drop_in_place$LT$tokenizers..models..bpe..model..BPE$GT$17h1dc8e437aedc93a6E"(ptr noalias noundef nonnull align 8 dereferenceable(312) %19)
+          to label %"_ZN4core3ptr53drop_in_place$LT$tokenizers..models..ModelWrapper$GT$17h22b605fca872f926E.llvm.1287153784043347726.exit" unwind label %34
 
 25:                                               ; preds = %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$tokenizers..pre_tokenizers..PreTokenizerWrapper$GT$$GT$17h283be1737d7139c1E.llvm.1287153784043347726.exit12"
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  invoke void @"_ZN4core3ptr64drop_in_place$LT$tokenizers..models..unigram..model..Unigram$GT$17h0e3f2c5578490d0cE"(ptr noalias noundef nonnull align 8 dereferenceable(248) %26)
-          to label %"_ZN4core3ptr53drop_in_place$LT$tokenizers..models..ModelWrapper$GT$17h22b605fca872f926E.llvm.1287153784043347726.exit" unwind label %37
+  invoke void @"_ZN4core3ptr61drop_in_place$LT$tokenizers..models..wordpiece..WordPiece$GT$17h8d945d896e6850a2E"(ptr noalias noundef nonnull align 8 dereferenceable(152) %26)
+          to label %"_ZN4core3ptr53drop_in_place$LT$tokenizers..models..ModelWrapper$GT$17h22b605fca872f926E.llvm.1287153784043347726.exit" unwind label %34
 
 27:                                               ; preds = %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$tokenizers..pre_tokenizers..PreTokenizerWrapper$GT$$GT$17h283be1737d7139c1E.llvm.1287153784043347726.exit12"
-  invoke void @"_ZN4core3ptr56drop_in_place$LT$tokenizers..models..bpe..model..BPE$GT$17h1dc8e437aedc93a6E"(ptr noalias noundef nonnull align 8 dereferenceable(312) %19)
-          to label %"_ZN4core3ptr53drop_in_place$LT$tokenizers..models..ModelWrapper$GT$17h22b605fca872f926E.llvm.1287153784043347726.exit" unwind label %37
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  invoke void @"_ZN4core3ptr61drop_in_place$LT$tokenizers..models..wordlevel..WordLevel$GT$17h0e4a62b15fbceca1E"(ptr noalias noundef nonnull align 8 dereferenceable(120) %28)
+          to label %"_ZN4core3ptr53drop_in_place$LT$tokenizers..models..ModelWrapper$GT$17h22b605fca872f926E.llvm.1287153784043347726.exit" unwind label %34
 
-28:                                               ; preds = %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$tokenizers..pre_tokenizers..PreTokenizerWrapper$GT$$GT$17h283be1737d7139c1E.llvm.1287153784043347726.exit12"
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  invoke void @"_ZN4core3ptr61drop_in_place$LT$tokenizers..models..wordpiece..WordPiece$GT$17h8d945d896e6850a2E"(ptr noalias noundef nonnull align 8 dereferenceable(152) %29)
-          to label %"_ZN4core3ptr53drop_in_place$LT$tokenizers..models..ModelWrapper$GT$17h22b605fca872f926E.llvm.1287153784043347726.exit" unwind label %37
+29:                                               ; preds = %34, %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$tokenizers..pre_tokenizers..PreTokenizerWrapper$GT$$GT$17h283be1737d7139c1E.llvm.1287153784043347726.exit"
+  %.pn2 = phi { ptr, i32 } [ %35, %34 ], [ %.pn, %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$tokenizers..pre_tokenizers..PreTokenizerWrapper$GT$$GT$17h283be1737d7139c1E.llvm.1287153784043347726.exit" ]
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 792
+  %31 = load i64, ptr %30, align 8, !range !6681, !alias.scope !6682, !noundef !4
+  %32 = icmp eq i64 %31, -9223372036854775803
+  br i1 %32, label %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$tokenizers..processors..PostProcessorWrapper$GT$$GT$17hc7d01089d6c5ae14E.llvm.1287153784043347726.exit", label %33
 
-30:                                               ; preds = %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$tokenizers..pre_tokenizers..PreTokenizerWrapper$GT$$GT$17h283be1737d7139c1E.llvm.1287153784043347726.exit12"
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  invoke void @"_ZN4core3ptr61drop_in_place$LT$tokenizers..models..wordlevel..WordLevel$GT$17h0e4a62b15fbceca1E"(ptr noalias noundef nonnull align 8 dereferenceable(120) %31)
-          to label %"_ZN4core3ptr53drop_in_place$LT$tokenizers..models..ModelWrapper$GT$17h22b605fca872f926E.llvm.1287153784043347726.exit" unwind label %37
+33:                                               ; preds = %29
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$tokenizers..processors..PostProcessorWrapper$GT$17h49900ae6389e48a5E.llvm.1287153784043347726"(ptr noalias noundef nonnull align 8 dereferenceable(112) %30)
+          to label %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$tokenizers..processors..PostProcessorWrapper$GT$$GT$17hc7d01089d6c5ae14E.llvm.1287153784043347726.exit" unwind label %66
 
-32:                                               ; preds = %37, %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$tokenizers..pre_tokenizers..PreTokenizerWrapper$GT$$GT$17h283be1737d7139c1E.llvm.1287153784043347726.exit"
-  %.pn2 = phi { ptr, i32 } [ %38, %37 ], [ %.pn, %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$tokenizers..pre_tokenizers..PreTokenizerWrapper$GT$$GT$17h283be1737d7139c1E.llvm.1287153784043347726.exit" ]
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 792
-  %34 = load i64, ptr %33, align 8, !range !6681, !alias.scope !6682, !noundef !4
-  %35 = icmp eq i64 %34, -9223372036854775803
-  br i1 %35, label %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$tokenizers..processors..PostProcessorWrapper$GT$$GT$17hc7d01089d6c5ae14E.llvm.1287153784043347726.exit", label %36
-
-36:                                               ; preds = %32
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$tokenizers..processors..PostProcessorWrapper$GT$17h49900ae6389e48a5E.llvm.1287153784043347726"(ptr noalias noundef nonnull align 8 dereferenceable(112) %33)
-          to label %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$tokenizers..processors..PostProcessorWrapper$GT$$GT$17hc7d01089d6c5ae14E.llvm.1287153784043347726.exit" unwind label %69
-
-37:                                               ; preds = %30, %28, %27, %25
-  %38 = landingpad { ptr, i32 }
+34:                                               ; preds = %27, %25, %24, %22
+  %35 = landingpad { ptr, i32 }
           cleanup
-  br label %32
+  br label %29
 
-"_ZN4core3ptr53drop_in_place$LT$tokenizers..models..ModelWrapper$GT$17h22b605fca872f926E.llvm.1287153784043347726.exit": ; preds = %25, %27, %28, %30
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 792
-  %40 = load i64, ptr %39, align 8, !range !6681, !alias.scope !6685, !noundef !4
-  %41 = icmp eq i64 %40, -9223372036854775803
-  br i1 %41, label %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$tokenizers..processors..PostProcessorWrapper$GT$$GT$17hc7d01089d6c5ae14E.llvm.1287153784043347726.exit19", label %42
+"_ZN4core3ptr53drop_in_place$LT$tokenizers..models..ModelWrapper$GT$17h22b605fca872f926E.llvm.1287153784043347726.exit": ; preds = %22, %24, %25, %27
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 792
+  %37 = load i64, ptr %36, align 8, !range !6681, !alias.scope !6685, !noundef !4
+  %38 = icmp eq i64 %37, -9223372036854775803
+  br i1 %38, label %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$tokenizers..processors..PostProcessorWrapper$GT$$GT$17hc7d01089d6c5ae14E.llvm.1287153784043347726.exit19", label %39
 
-42:                                               ; preds = %"_ZN4core3ptr53drop_in_place$LT$tokenizers..models..ModelWrapper$GT$17h22b605fca872f926E.llvm.1287153784043347726.exit"
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$tokenizers..processors..PostProcessorWrapper$GT$17h49900ae6389e48a5E.llvm.1287153784043347726"(ptr noalias noundef nonnull align 8 dereferenceable(112) %39)
-          to label %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$tokenizers..processors..PostProcessorWrapper$GT$$GT$17hc7d01089d6c5ae14E.llvm.1287153784043347726.exit19" unwind label %47
+39:                                               ; preds = %"_ZN4core3ptr53drop_in_place$LT$tokenizers..models..ModelWrapper$GT$17h22b605fca872f926E.llvm.1287153784043347726.exit"
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$tokenizers..processors..PostProcessorWrapper$GT$17h49900ae6389e48a5E.llvm.1287153784043347726"(ptr noalias noundef nonnull align 8 dereferenceable(112) %36)
+          to label %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$tokenizers..processors..PostProcessorWrapper$GT$$GT$17hc7d01089d6c5ae14E.llvm.1287153784043347726.exit19" unwind label %44
 
-"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$tokenizers..processors..PostProcessorWrapper$GT$$GT$17hc7d01089d6c5ae14E.llvm.1287153784043347726.exit": ; preds = %32, %36, %47
-  %.pn4 = phi { ptr, i32 } [ %48, %47 ], [ %.pn2, %36 ], [ %.pn2, %32 ]
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 384
-  %44 = load i64, ptr %43, align 8, !range !6688, !alias.scope !6689, !noundef !4
-  %45 = icmp eq i64 %44, 12
-  br i1 %45, label %"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$tokenizers..decoders..DecoderWrapper$GT$$GT$17ha9618564a82f8d82E.llvm.1287153784043347726.exit", label %46
+"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$tokenizers..processors..PostProcessorWrapper$GT$$GT$17hc7d01089d6c5ae14E.llvm.1287153784043347726.exit": ; preds = %29, %33, %44
+  %.pn4 = phi { ptr, i32 } [ %45, %44 ], [ %.pn2, %33 ], [ %.pn2, %29 ]
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 384
+  %41 = load i64, ptr %40, align 8, !range !6688, !alias.scope !6689, !noundef !4
+  %42 = icmp eq i64 %41, 12
+  br i1 %42, label %"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$tokenizers..decoders..DecoderWrapper$GT$$GT$17ha9618564a82f8d82E.llvm.1287153784043347726.exit", label %43
 
-46:                                               ; preds = %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$tokenizers..processors..PostProcessorWrapper$GT$$GT$17hc7d01089d6c5ae14E.llvm.1287153784043347726.exit"
-  invoke void @"_ZN4core3ptr57drop_in_place$LT$tokenizers..decoders..DecoderWrapper$GT$17hb3a48f52f300f5c4E.llvm.1287153784043347726"(ptr noalias noundef nonnull align 8 dereferenceable(64) %43)
-          to label %"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$tokenizers..decoders..DecoderWrapper$GT$$GT$17ha9618564a82f8d82E.llvm.1287153784043347726.exit" unwind label %69
+43:                                               ; preds = %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$tokenizers..processors..PostProcessorWrapper$GT$$GT$17hc7d01089d6c5ae14E.llvm.1287153784043347726.exit"
+  invoke void @"_ZN4core3ptr57drop_in_place$LT$tokenizers..decoders..DecoderWrapper$GT$17hb3a48f52f300f5c4E.llvm.1287153784043347726"(ptr noalias noundef nonnull align 8 dereferenceable(64) %40)
+          to label %"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$tokenizers..decoders..DecoderWrapper$GT$$GT$17ha9618564a82f8d82E.llvm.1287153784043347726.exit" unwind label %66
 
-47:                                               ; preds = %42
-  %48 = landingpad { ptr, i32 }
+44:                                               ; preds = %39
+  %45 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$tokenizers..processors..PostProcessorWrapper$GT$$GT$17hc7d01089d6c5ae14E.llvm.1287153784043347726.exit"
 
-"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$tokenizers..processors..PostProcessorWrapper$GT$$GT$17hc7d01089d6c5ae14E.llvm.1287153784043347726.exit19": ; preds = %"_ZN4core3ptr53drop_in_place$LT$tokenizers..models..ModelWrapper$GT$17h22b605fca872f926E.llvm.1287153784043347726.exit", %42
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 384
-  %50 = load i64, ptr %49, align 8, !range !6688, !alias.scope !6692, !noundef !4
-  %51 = icmp eq i64 %50, 12
-  br i1 %51, label %"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$tokenizers..decoders..DecoderWrapper$GT$$GT$17ha9618564a82f8d82E.llvm.1287153784043347726.exit22", label %52
+"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$tokenizers..processors..PostProcessorWrapper$GT$$GT$17hc7d01089d6c5ae14E.llvm.1287153784043347726.exit19": ; preds = %"_ZN4core3ptr53drop_in_place$LT$tokenizers..models..ModelWrapper$GT$17h22b605fca872f926E.llvm.1287153784043347726.exit", %39
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 384
+  %47 = load i64, ptr %46, align 8, !range !6688, !alias.scope !6692, !noundef !4
+  %48 = icmp eq i64 %47, 12
+  br i1 %48, label %"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$tokenizers..decoders..DecoderWrapper$GT$$GT$17ha9618564a82f8d82E.llvm.1287153784043347726.exit22", label %49
 
-52:                                               ; preds = %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$tokenizers..processors..PostProcessorWrapper$GT$$GT$17hc7d01089d6c5ae14E.llvm.1287153784043347726.exit19"
-  invoke void @"_ZN4core3ptr57drop_in_place$LT$tokenizers..decoders..DecoderWrapper$GT$17hb3a48f52f300f5c4E.llvm.1287153784043347726"(ptr noalias noundef nonnull align 8 dereferenceable(64) %49)
-          to label %"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$tokenizers..decoders..DecoderWrapper$GT$$GT$17ha9618564a82f8d82E.llvm.1287153784043347726.exit22" unwind label %54
+49:                                               ; preds = %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$tokenizers..processors..PostProcessorWrapper$GT$$GT$17hc7d01089d6c5ae14E.llvm.1287153784043347726.exit19"
+  invoke void @"_ZN4core3ptr57drop_in_place$LT$tokenizers..decoders..DecoderWrapper$GT$17hb3a48f52f300f5c4E.llvm.1287153784043347726"(ptr noalias noundef nonnull align 8 dereferenceable(64) %46)
+          to label %"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$tokenizers..decoders..DecoderWrapper$GT$$GT$17ha9618564a82f8d82E.llvm.1287153784043347726.exit22" unwind label %51
 
-"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$tokenizers..decoders..DecoderWrapper$GT$$GT$17ha9618564a82f8d82E.llvm.1287153784043347726.exit": ; preds = %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$tokenizers..processors..PostProcessorWrapper$GT$$GT$17hc7d01089d6c5ae14E.llvm.1287153784043347726.exit", %46, %54
-  %.pn6 = phi { ptr, i32 } [ %55, %54 ], [ %.pn4, %46 ], [ %.pn4, %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$tokenizers..processors..PostProcessorWrapper$GT$$GT$17hc7d01089d6c5ae14E.llvm.1287153784043347726.exit" ]
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 496
-  invoke void @"_ZN4core3ptr77drop_in_place$LT$tokenizers..tokenizer..added_vocabulary..AddedVocabulary$GT$17h209f9a2f44b09f65E"(ptr noalias noundef nonnull align 8 dereferenceable(296) %53) #36
-          to label %57 unwind label %69
+"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$tokenizers..decoders..DecoderWrapper$GT$$GT$17ha9618564a82f8d82E.llvm.1287153784043347726.exit": ; preds = %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$tokenizers..processors..PostProcessorWrapper$GT$$GT$17hc7d01089d6c5ae14E.llvm.1287153784043347726.exit", %43, %51
+  %.pn6 = phi { ptr, i32 } [ %52, %51 ], [ %.pn4, %43 ], [ %.pn4, %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$tokenizers..processors..PostProcessorWrapper$GT$$GT$17hc7d01089d6c5ae14E.llvm.1287153784043347726.exit" ]
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 496
+  invoke void @"_ZN4core3ptr77drop_in_place$LT$tokenizers..tokenizer..added_vocabulary..AddedVocabulary$GT$17h209f9a2f44b09f65E"(ptr noalias noundef nonnull align 8 dereferenceable(296) %50) #36
+          to label %54 unwind label %66
 
-54:                                               ; preds = %52
-  %55 = landingpad { ptr, i32 }
+51:                                               ; preds = %49
+  %52 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$tokenizers..decoders..DecoderWrapper$GT$$GT$17ha9618564a82f8d82E.llvm.1287153784043347726.exit"
 
-"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$tokenizers..decoders..DecoderWrapper$GT$$GT$17ha9618564a82f8d82E.llvm.1287153784043347726.exit22": ; preds = %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$tokenizers..processors..PostProcessorWrapper$GT$$GT$17hc7d01089d6c5ae14E.llvm.1287153784043347726.exit19", %52
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 496
-  invoke void @"_ZN4core3ptr77drop_in_place$LT$tokenizers..tokenizer..added_vocabulary..AddedVocabulary$GT$17h209f9a2f44b09f65E"(ptr noalias noundef nonnull align 8 dereferenceable(296) %56)
-          to label %60 unwind label %58
+"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$tokenizers..decoders..DecoderWrapper$GT$$GT$17ha9618564a82f8d82E.llvm.1287153784043347726.exit22": ; preds = %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$tokenizers..processors..PostProcessorWrapper$GT$$GT$17hc7d01089d6c5ae14E.llvm.1287153784043347726.exit19", %49
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 496
+  invoke void @"_ZN4core3ptr77drop_in_place$LT$tokenizers..tokenizer..added_vocabulary..AddedVocabulary$GT$17h209f9a2f44b09f65E"(ptr noalias noundef nonnull align 8 dereferenceable(296) %53)
+          to label %57 unwind label %55
 
-57:                                               ; preds = %58, %"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$tokenizers..decoders..DecoderWrapper$GT$$GT$17ha9618564a82f8d82E.llvm.1287153784043347726.exit"
-  %.pn8 = phi { ptr, i32 } [ %59, %58 ], [ %.pn6, %"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$tokenizers..decoders..DecoderWrapper$GT$$GT$17ha9618564a82f8d82E.llvm.1287153784043347726.exit" ]
+54:                                               ; preds = %55, %"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$tokenizers..decoders..DecoderWrapper$GT$$GT$17ha9618564a82f8d82E.llvm.1287153784043347726.exit"
+  %.pn8 = phi { ptr, i32 } [ %56, %55 ], [ %.pn6, %"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$tokenizers..decoders..DecoderWrapper$GT$$GT$17ha9618564a82f8d82E.llvm.1287153784043347726.exit" ]
   tail call void @"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$tokenizers..utils..padding..PaddingParams$GT$$GT$17h30d60db635be544cE.llvm.1287153784043347726"(ptr noalias noundef nonnull align 8 dereferenceable(72) %0) #36
   resume { ptr, i32 } %.pn8
 
-58:                                               ; preds = %"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$tokenizers..decoders..DecoderWrapper$GT$$GT$17ha9618564a82f8d82E.llvm.1287153784043347726.exit22"
-  %59 = landingpad { ptr, i32 }
+55:                                               ; preds = %"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$tokenizers..decoders..DecoderWrapper$GT$$GT$17ha9618564a82f8d82E.llvm.1287153784043347726.exit22"
+  %56 = landingpad { ptr, i32 }
           cleanup
-  br label %57
+  br label %54
 
-60:                                               ; preds = %"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$tokenizers..decoders..DecoderWrapper$GT$$GT$17ha9618564a82f8d82E.llvm.1287153784043347726.exit22"
+57:                                               ; preds = %"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$tokenizers..decoders..DecoderWrapper$GT$$GT$17ha9618564a82f8d82E.llvm.1287153784043347726.exit22"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6695)
-  %61 = load i64, ptr %0, align 8, !range !779, !alias.scope !6695, !noundef !4
-  %62 = icmp eq i64 %61, 2
-  br i1 %62, label %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$tokenizers..utils..padding..PaddingParams$GT$$GT$17h30d60db635be544cE.llvm.1287153784043347726.exit", label %63
+  %58 = load i64, ptr %0, align 8, !range !779, !alias.scope !6695, !noundef !4
+  %59 = icmp eq i64 %58, 2
+  br i1 %59, label %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$tokenizers..utils..padding..PaddingParams$GT$$GT$17h30d60db635be544cE.llvm.1287153784043347726.exit", label %60
 
-63:                                               ; preds = %60
+60:                                               ; preds = %57
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6698)
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6701)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6704)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6707)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6710)
-  %65 = load i64, ptr %64, align 8, !alias.scope !6713, !noalias !6716, !noundef !4
-  %66 = icmp eq i64 %65, 0
-  br i1 %66, label %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$tokenizers..utils..padding..PaddingParams$GT$$GT$17h30d60db635be544cE.llvm.1287153784043347726.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hd26e3bd2729fe4c7E.llvm.1287153784043347726.exit.i.i1.i.i.i.i"
+  %62 = load i64, ptr %61, align 8, !alias.scope !6713, !noalias !6716, !noundef !4
+  %63 = icmp eq i64 %62, 0
+  br i1 %63, label %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$tokenizers..utils..padding..PaddingParams$GT$$GT$17h30d60db635be544cE.llvm.1287153784043347726.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hd26e3bd2729fe4c7E.llvm.1287153784043347726.exit.i.i1.i.i.i.i"
 
-"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hd26e3bd2729fe4c7E.llvm.1287153784043347726.exit.i.i1.i.i.i.i": ; preds = %63
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %68 = load ptr, ptr %67, align 8, !alias.scope !6713, !noalias !6716, !nonnull !4, !noundef !4
-  tail call void @__rust_dealloc(ptr noundef nonnull %68, i64 noundef %65, i64 noundef 1) #34, !noalias !6718
+"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hd26e3bd2729fe4c7E.llvm.1287153784043347726.exit.i.i1.i.i.i.i": ; preds = %60
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %65 = load ptr, ptr %64, align 8, !alias.scope !6713, !noalias !6716, !nonnull !4, !noundef !4
+  tail call void @__rust_dealloc(ptr noundef nonnull %65, i64 noundef %62, i64 noundef 1) #34, !noalias !6718
   br label %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$tokenizers..utils..padding..PaddingParams$GT$$GT$17h30d60db635be544cE.llvm.1287153784043347726.exit"
 
-"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$tokenizers..utils..padding..PaddingParams$GT$$GT$17h30d60db635be544cE.llvm.1287153784043347726.exit": ; preds = %60, %63, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hd26e3bd2729fe4c7E.llvm.1287153784043347726.exit.i.i1.i.i.i.i"
+"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$tokenizers..utils..padding..PaddingParams$GT$$GT$17h30d60db635be544cE.llvm.1287153784043347726.exit": ; preds = %57, %60, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hd26e3bd2729fe4c7E.llvm.1287153784043347726.exit.i.i1.i.i.i.i"
   ret void
 
-69:                                               ; preds = %46, %36, %11, %"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$tokenizers..decoders..DecoderWrapper$GT$$GT$17ha9618564a82f8d82E.llvm.1287153784043347726.exit", %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$tokenizers..pre_tokenizers..PreTokenizerWrapper$GT$$GT$17h283be1737d7139c1E.llvm.1287153784043347726.exit"
-  %70 = landingpad { ptr, i32 }
+66:                                               ; preds = %43, %33, %11, %"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$tokenizers..decoders..DecoderWrapper$GT$$GT$17ha9618564a82f8d82E.llvm.1287153784043347726.exit", %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$tokenizers..pre_tokenizers..PreTokenizerWrapper$GT$$GT$17h283be1737d7139c1E.llvm.1287153784043347726.exit"
+  %67 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hc8e2b17e1b6d1381E() #37
   unreachable
@@ -15292,189 +15289,186 @@ define hidden void @"_ZN4core3ptr281drop_in_place$LT$tokenizers..tokenizer..Toke
   br i1 %4, label %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$tokenizers..models..ModelWrapper$GT$$GT$17hdf28272adc24fc90E.llvm.1287153784043347726.exit", label %5
 
 5:                                                ; preds = %1
-  %6 = add nsw i64 %3, -2
-  %7 = icmp ult i64 %6, 3
-  %8 = add nsw i64 %3, -1
-  %9 = select i1 %7, i64 %8, i64 0
-  switch i64 %9, label %10 [
-    i64 0, label %12
-    i64 1, label %13
-    i64 2, label %15
+  %6 = tail call i64 @llvm.usub.sat.i64(i64 %3, i64 1)
+  switch i64 %6, label %7 [
+    i64 0, label %9
+    i64 1, label %10
+    i64 2, label %12
   ]
+
+7:                                                ; preds = %5
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  invoke void @"_ZN4core3ptr64drop_in_place$LT$tokenizers..models..unigram..model..Unigram$GT$17h0e3f2c5578490d0cE"(ptr noalias noundef nonnull align 8 dereferenceable(248) %8)
+          to label %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$tokenizers..models..ModelWrapper$GT$$GT$17hdf28272adc24fc90E.llvm.1287153784043347726.exit" unwind label %14
+
+9:                                                ; preds = %5
+  invoke void @"_ZN4core3ptr56drop_in_place$LT$tokenizers..models..bpe..model..BPE$GT$17h1dc8e437aedc93a6E"(ptr noalias noundef nonnull align 8 dereferenceable(312) %2)
+          to label %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$tokenizers..models..ModelWrapper$GT$$GT$17hdf28272adc24fc90E.llvm.1287153784043347726.exit" unwind label %14
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  invoke void @"_ZN4core3ptr64drop_in_place$LT$tokenizers..models..unigram..model..Unigram$GT$17h0e3f2c5578490d0cE"(ptr noalias noundef nonnull align 8 dereferenceable(248) %11)
-          to label %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$tokenizers..models..ModelWrapper$GT$$GT$17hdf28272adc24fc90E.llvm.1287153784043347726.exit" unwind label %17
+  invoke void @"_ZN4core3ptr61drop_in_place$LT$tokenizers..models..wordpiece..WordPiece$GT$17h8d945d896e6850a2E"(ptr noalias noundef nonnull align 8 dereferenceable(152) %11)
+          to label %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$tokenizers..models..ModelWrapper$GT$$GT$17hdf28272adc24fc90E.llvm.1287153784043347726.exit" unwind label %14
 
 12:                                               ; preds = %5
-  invoke void @"_ZN4core3ptr56drop_in_place$LT$tokenizers..models..bpe..model..BPE$GT$17h1dc8e437aedc93a6E"(ptr noalias noundef nonnull align 8 dereferenceable(312) %2)
-          to label %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$tokenizers..models..ModelWrapper$GT$$GT$17hdf28272adc24fc90E.llvm.1287153784043347726.exit" unwind label %17
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  invoke void @"_ZN4core3ptr61drop_in_place$LT$tokenizers..models..wordlevel..WordLevel$GT$17h0e4a62b15fbceca1E"(ptr noalias noundef nonnull align 8 dereferenceable(120) %13)
+          to label %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$tokenizers..models..ModelWrapper$GT$$GT$17hdf28272adc24fc90E.llvm.1287153784043347726.exit" unwind label %14
 
-13:                                               ; preds = %5
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  invoke void @"_ZN4core3ptr61drop_in_place$LT$tokenizers..models..wordpiece..WordPiece$GT$17h8d945d896e6850a2E"(ptr noalias noundef nonnull align 8 dereferenceable(152) %14)
-          to label %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$tokenizers..models..ModelWrapper$GT$$GT$17hdf28272adc24fc90E.llvm.1287153784043347726.exit" unwind label %17
-
-15:                                               ; preds = %5
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  invoke void @"_ZN4core3ptr61drop_in_place$LT$tokenizers..models..wordlevel..WordLevel$GT$17h0e4a62b15fbceca1E"(ptr noalias noundef nonnull align 8 dereferenceable(120) %16)
-          to label %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$tokenizers..models..ModelWrapper$GT$$GT$17hdf28272adc24fc90E.llvm.1287153784043347726.exit" unwind label %17
-
-17:                                               ; preds = %15, %13, %12, %10
-  %18 = landingpad { ptr, i32 }
+14:                                               ; preds = %12, %10, %9, %7
+  %15 = landingpad { ptr, i32 }
           cleanup
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 904
-  %20 = load i64, ptr %19, align 8, !range !6667, !alias.scope !6750, !noundef !4
-  %21 = icmp eq i64 %20, -9223372036854775795
-  br i1 %21, label %"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$tokenizers..normalizers..NormalizerWrapper$GT$$GT$17h67843d930bc135ffE.llvm.1287153784043347726.exit", label %22
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 904
+  %17 = load i64, ptr %16, align 8, !range !6667, !alias.scope !6750, !noundef !4
+  %18 = icmp eq i64 %17, -9223372036854775795
+  br i1 %18, label %"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$tokenizers..normalizers..NormalizerWrapper$GT$$GT$17h67843d930bc135ffE.llvm.1287153784043347726.exit", label %19
 
-22:                                               ; preds = %17
-  invoke void @"_ZN4core3ptr63drop_in_place$LT$tokenizers..normalizers..NormalizerWrapper$GT$17h1c27998f25c59602E.llvm.1287153784043347726"(ptr noalias noundef nonnull align 8 dereferenceable(72) %19)
-          to label %"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$tokenizers..normalizers..NormalizerWrapper$GT$$GT$17h67843d930bc135ffE.llvm.1287153784043347726.exit" unwind label %73
+19:                                               ; preds = %14
+  invoke void @"_ZN4core3ptr63drop_in_place$LT$tokenizers..normalizers..NormalizerWrapper$GT$17h1c27998f25c59602E.llvm.1287153784043347726"(ptr noalias noundef nonnull align 8 dereferenceable(72) %16)
+          to label %"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$tokenizers..normalizers..NormalizerWrapper$GT$$GT$17h67843d930bc135ffE.llvm.1287153784043347726.exit" unwind label %70
 
-"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$tokenizers..models..ModelWrapper$GT$$GT$17hdf28272adc24fc90E.llvm.1287153784043347726.exit": ; preds = %1, %10, %12, %13, %15
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 904
-  %24 = load i64, ptr %23, align 8, !range !6667, !alias.scope !6753, !noundef !4
-  %25 = icmp eq i64 %24, -9223372036854775795
-  br i1 %25, label %"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$tokenizers..normalizers..NormalizerWrapper$GT$$GT$17h67843d930bc135ffE.llvm.1287153784043347726.exit15", label %26
+"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$tokenizers..models..ModelWrapper$GT$$GT$17hdf28272adc24fc90E.llvm.1287153784043347726.exit": ; preds = %1, %7, %9, %10, %12
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 904
+  %21 = load i64, ptr %20, align 8, !range !6667, !alias.scope !6753, !noundef !4
+  %22 = icmp eq i64 %21, -9223372036854775795
+  br i1 %22, label %"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$tokenizers..normalizers..NormalizerWrapper$GT$$GT$17h67843d930bc135ffE.llvm.1287153784043347726.exit15", label %23
 
-26:                                               ; preds = %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$tokenizers..models..ModelWrapper$GT$$GT$17hdf28272adc24fc90E.llvm.1287153784043347726.exit"
-  invoke void @"_ZN4core3ptr63drop_in_place$LT$tokenizers..normalizers..NormalizerWrapper$GT$17h1c27998f25c59602E.llvm.1287153784043347726"(ptr noalias noundef nonnull align 8 dereferenceable(72) %23)
-          to label %"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$tokenizers..normalizers..NormalizerWrapper$GT$$GT$17h67843d930bc135ffE.llvm.1287153784043347726.exit15" unwind label %31
+23:                                               ; preds = %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$tokenizers..models..ModelWrapper$GT$$GT$17hdf28272adc24fc90E.llvm.1287153784043347726.exit"
+  invoke void @"_ZN4core3ptr63drop_in_place$LT$tokenizers..normalizers..NormalizerWrapper$GT$17h1c27998f25c59602E.llvm.1287153784043347726"(ptr noalias noundef nonnull align 8 dereferenceable(72) %20)
+          to label %"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$tokenizers..normalizers..NormalizerWrapper$GT$$GT$17h67843d930bc135ffE.llvm.1287153784043347726.exit15" unwind label %28
 
-"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$tokenizers..normalizers..NormalizerWrapper$GT$$GT$17h67843d930bc135ffE.llvm.1287153784043347726.exit": ; preds = %17, %22, %31
-  %.pn = phi { ptr, i32 } [ %32, %31 ], [ %18, %22 ], [ %18, %17 ]
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 448
-  %28 = load i64, ptr %27, align 8, !range !6671, !alias.scope !6756, !noundef !4
-  %29 = icmp eq i64 %28, 13
-  br i1 %29, label %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$tokenizers..pre_tokenizers..PreTokenizerWrapper$GT$$GT$17h283be1737d7139c1E.llvm.1287153784043347726.exit", label %30
+"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$tokenizers..normalizers..NormalizerWrapper$GT$$GT$17h67843d930bc135ffE.llvm.1287153784043347726.exit": ; preds = %14, %19, %28
+  %.pn = phi { ptr, i32 } [ %29, %28 ], [ %15, %19 ], [ %15, %14 ]
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 448
+  %25 = load i64, ptr %24, align 8, !range !6671, !alias.scope !6756, !noundef !4
+  %26 = icmp eq i64 %25, 13
+  br i1 %26, label %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$tokenizers..pre_tokenizers..PreTokenizerWrapper$GT$$GT$17h283be1737d7139c1E.llvm.1287153784043347726.exit", label %27
 
-30:                                               ; preds = %"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$tokenizers..normalizers..NormalizerWrapper$GT$$GT$17h67843d930bc135ffE.llvm.1287153784043347726.exit"
-  invoke void @"_ZN4core3ptr68drop_in_place$LT$tokenizers..pre_tokenizers..PreTokenizerWrapper$GT$17h22ddc333d7e3e399E.llvm.1287153784043347726"(ptr noalias noundef nonnull align 8 dereferenceable(48) %27)
-          to label %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$tokenizers..pre_tokenizers..PreTokenizerWrapper$GT$$GT$17h283be1737d7139c1E.llvm.1287153784043347726.exit" unwind label %73
+27:                                               ; preds = %"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$tokenizers..normalizers..NormalizerWrapper$GT$$GT$17h67843d930bc135ffE.llvm.1287153784043347726.exit"
+  invoke void @"_ZN4core3ptr68drop_in_place$LT$tokenizers..pre_tokenizers..PreTokenizerWrapper$GT$17h22ddc333d7e3e399E.llvm.1287153784043347726"(ptr noalias noundef nonnull align 8 dereferenceable(48) %24)
+          to label %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$tokenizers..pre_tokenizers..PreTokenizerWrapper$GT$$GT$17h283be1737d7139c1E.llvm.1287153784043347726.exit" unwind label %70
 
-31:                                               ; preds = %26
-  %32 = landingpad { ptr, i32 }
+28:                                               ; preds = %23
+  %29 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$tokenizers..normalizers..NormalizerWrapper$GT$$GT$17h67843d930bc135ffE.llvm.1287153784043347726.exit"
 
-"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$tokenizers..normalizers..NormalizerWrapper$GT$$GT$17h67843d930bc135ffE.llvm.1287153784043347726.exit15": ; preds = %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$tokenizers..models..ModelWrapper$GT$$GT$17hdf28272adc24fc90E.llvm.1287153784043347726.exit", %26
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 448
-  %34 = load i64, ptr %33, align 8, !range !6671, !alias.scope !6759, !noundef !4
-  %35 = icmp eq i64 %34, 13
-  br i1 %35, label %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$tokenizers..pre_tokenizers..PreTokenizerWrapper$GT$$GT$17h283be1737d7139c1E.llvm.1287153784043347726.exit18", label %36
+"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$tokenizers..normalizers..NormalizerWrapper$GT$$GT$17h67843d930bc135ffE.llvm.1287153784043347726.exit15": ; preds = %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$tokenizers..models..ModelWrapper$GT$$GT$17hdf28272adc24fc90E.llvm.1287153784043347726.exit", %23
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 448
+  %31 = load i64, ptr %30, align 8, !range !6671, !alias.scope !6759, !noundef !4
+  %32 = icmp eq i64 %31, 13
+  br i1 %32, label %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$tokenizers..pre_tokenizers..PreTokenizerWrapper$GT$$GT$17h283be1737d7139c1E.llvm.1287153784043347726.exit18", label %33
 
-36:                                               ; preds = %"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$tokenizers..normalizers..NormalizerWrapper$GT$$GT$17h67843d930bc135ffE.llvm.1287153784043347726.exit15"
-  invoke void @"_ZN4core3ptr68drop_in_place$LT$tokenizers..pre_tokenizers..PreTokenizerWrapper$GT$17h22ddc333d7e3e399E.llvm.1287153784043347726"(ptr noalias noundef nonnull align 8 dereferenceable(48) %33)
-          to label %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$tokenizers..pre_tokenizers..PreTokenizerWrapper$GT$$GT$17h283be1737d7139c1E.llvm.1287153784043347726.exit18" unwind label %41
+33:                                               ; preds = %"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$tokenizers..normalizers..NormalizerWrapper$GT$$GT$17h67843d930bc135ffE.llvm.1287153784043347726.exit15"
+  invoke void @"_ZN4core3ptr68drop_in_place$LT$tokenizers..pre_tokenizers..PreTokenizerWrapper$GT$17h22ddc333d7e3e399E.llvm.1287153784043347726"(ptr noalias noundef nonnull align 8 dereferenceable(48) %30)
+          to label %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$tokenizers..pre_tokenizers..PreTokenizerWrapper$GT$$GT$17h283be1737d7139c1E.llvm.1287153784043347726.exit18" unwind label %38
 
-"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$tokenizers..pre_tokenizers..PreTokenizerWrapper$GT$$GT$17h283be1737d7139c1E.llvm.1287153784043347726.exit": ; preds = %"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$tokenizers..normalizers..NormalizerWrapper$GT$$GT$17h67843d930bc135ffE.llvm.1287153784043347726.exit", %30, %41
-  %.pn2 = phi { ptr, i32 } [ %42, %41 ], [ %.pn, %30 ], [ %.pn, %"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$tokenizers..normalizers..NormalizerWrapper$GT$$GT$17h67843d930bc135ffE.llvm.1287153784043347726.exit" ]
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 792
-  %38 = load i64, ptr %37, align 8, !range !6681, !alias.scope !6762, !noundef !4
-  %39 = icmp eq i64 %38, -9223372036854775803
-  br i1 %39, label %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$tokenizers..processors..PostProcessorWrapper$GT$$GT$17hc7d01089d6c5ae14E.llvm.1287153784043347726.exit", label %40
+"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$tokenizers..pre_tokenizers..PreTokenizerWrapper$GT$$GT$17h283be1737d7139c1E.llvm.1287153784043347726.exit": ; preds = %"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$tokenizers..normalizers..NormalizerWrapper$GT$$GT$17h67843d930bc135ffE.llvm.1287153784043347726.exit", %27, %38
+  %.pn2 = phi { ptr, i32 } [ %39, %38 ], [ %.pn, %27 ], [ %.pn, %"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$tokenizers..normalizers..NormalizerWrapper$GT$$GT$17h67843d930bc135ffE.llvm.1287153784043347726.exit" ]
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 792
+  %35 = load i64, ptr %34, align 8, !range !6681, !alias.scope !6762, !noundef !4
+  %36 = icmp eq i64 %35, -9223372036854775803
+  br i1 %36, label %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$tokenizers..processors..PostProcessorWrapper$GT$$GT$17hc7d01089d6c5ae14E.llvm.1287153784043347726.exit", label %37
 
-40:                                               ; preds = %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$tokenizers..pre_tokenizers..PreTokenizerWrapper$GT$$GT$17h283be1737d7139c1E.llvm.1287153784043347726.exit"
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$tokenizers..processors..PostProcessorWrapper$GT$17h49900ae6389e48a5E.llvm.1287153784043347726"(ptr noalias noundef nonnull align 8 dereferenceable(112) %37)
-          to label %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$tokenizers..processors..PostProcessorWrapper$GT$$GT$17hc7d01089d6c5ae14E.llvm.1287153784043347726.exit" unwind label %73
+37:                                               ; preds = %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$tokenizers..pre_tokenizers..PreTokenizerWrapper$GT$$GT$17h283be1737d7139c1E.llvm.1287153784043347726.exit"
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$tokenizers..processors..PostProcessorWrapper$GT$17h49900ae6389e48a5E.llvm.1287153784043347726"(ptr noalias noundef nonnull align 8 dereferenceable(112) %34)
+          to label %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$tokenizers..processors..PostProcessorWrapper$GT$$GT$17hc7d01089d6c5ae14E.llvm.1287153784043347726.exit" unwind label %70
 
-41:                                               ; preds = %36
-  %42 = landingpad { ptr, i32 }
+38:                                               ; preds = %33
+  %39 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$tokenizers..pre_tokenizers..PreTokenizerWrapper$GT$$GT$17h283be1737d7139c1E.llvm.1287153784043347726.exit"
 
-"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$tokenizers..pre_tokenizers..PreTokenizerWrapper$GT$$GT$17h283be1737d7139c1E.llvm.1287153784043347726.exit18": ; preds = %"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$tokenizers..normalizers..NormalizerWrapper$GT$$GT$17h67843d930bc135ffE.llvm.1287153784043347726.exit15", %36
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 792
-  %44 = load i64, ptr %43, align 8, !range !6681, !alias.scope !6765, !noundef !4
-  %45 = icmp eq i64 %44, -9223372036854775803
-  br i1 %45, label %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$tokenizers..processors..PostProcessorWrapper$GT$$GT$17hc7d01089d6c5ae14E.llvm.1287153784043347726.exit21", label %46
+"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$tokenizers..pre_tokenizers..PreTokenizerWrapper$GT$$GT$17h283be1737d7139c1E.llvm.1287153784043347726.exit18": ; preds = %"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$tokenizers..normalizers..NormalizerWrapper$GT$$GT$17h67843d930bc135ffE.llvm.1287153784043347726.exit15", %33
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 792
+  %41 = load i64, ptr %40, align 8, !range !6681, !alias.scope !6765, !noundef !4
+  %42 = icmp eq i64 %41, -9223372036854775803
+  br i1 %42, label %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$tokenizers..processors..PostProcessorWrapper$GT$$GT$17hc7d01089d6c5ae14E.llvm.1287153784043347726.exit21", label %43
 
-46:                                               ; preds = %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$tokenizers..pre_tokenizers..PreTokenizerWrapper$GT$$GT$17h283be1737d7139c1E.llvm.1287153784043347726.exit18"
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$tokenizers..processors..PostProcessorWrapper$GT$17h49900ae6389e48a5E.llvm.1287153784043347726"(ptr noalias noundef nonnull align 8 dereferenceable(112) %43)
-          to label %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$tokenizers..processors..PostProcessorWrapper$GT$$GT$17hc7d01089d6c5ae14E.llvm.1287153784043347726.exit21" unwind label %51
+43:                                               ; preds = %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$tokenizers..pre_tokenizers..PreTokenizerWrapper$GT$$GT$17h283be1737d7139c1E.llvm.1287153784043347726.exit18"
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$tokenizers..processors..PostProcessorWrapper$GT$17h49900ae6389e48a5E.llvm.1287153784043347726"(ptr noalias noundef nonnull align 8 dereferenceable(112) %40)
+          to label %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$tokenizers..processors..PostProcessorWrapper$GT$$GT$17hc7d01089d6c5ae14E.llvm.1287153784043347726.exit21" unwind label %48
 
-"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$tokenizers..processors..PostProcessorWrapper$GT$$GT$17hc7d01089d6c5ae14E.llvm.1287153784043347726.exit": ; preds = %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$tokenizers..pre_tokenizers..PreTokenizerWrapper$GT$$GT$17h283be1737d7139c1E.llvm.1287153784043347726.exit", %40, %51
-  %.pn4 = phi { ptr, i32 } [ %52, %51 ], [ %.pn2, %40 ], [ %.pn2, %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$tokenizers..pre_tokenizers..PreTokenizerWrapper$GT$$GT$17h283be1737d7139c1E.llvm.1287153784043347726.exit" ]
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 384
-  %48 = load i64, ptr %47, align 8, !range !6688, !alias.scope !6768, !noundef !4
-  %49 = icmp eq i64 %48, 12
-  br i1 %49, label %"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$tokenizers..decoders..DecoderWrapper$GT$$GT$17ha9618564a82f8d82E.llvm.1287153784043347726.exit", label %50
+"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$tokenizers..processors..PostProcessorWrapper$GT$$GT$17hc7d01089d6c5ae14E.llvm.1287153784043347726.exit": ; preds = %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$tokenizers..pre_tokenizers..PreTokenizerWrapper$GT$$GT$17h283be1737d7139c1E.llvm.1287153784043347726.exit", %37, %48
+  %.pn4 = phi { ptr, i32 } [ %49, %48 ], [ %.pn2, %37 ], [ %.pn2, %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$tokenizers..pre_tokenizers..PreTokenizerWrapper$GT$$GT$17h283be1737d7139c1E.llvm.1287153784043347726.exit" ]
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 384
+  %45 = load i64, ptr %44, align 8, !range !6688, !alias.scope !6768, !noundef !4
+  %46 = icmp eq i64 %45, 12
+  br i1 %46, label %"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$tokenizers..decoders..DecoderWrapper$GT$$GT$17ha9618564a82f8d82E.llvm.1287153784043347726.exit", label %47
 
-50:                                               ; preds = %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$tokenizers..processors..PostProcessorWrapper$GT$$GT$17hc7d01089d6c5ae14E.llvm.1287153784043347726.exit"
-  invoke void @"_ZN4core3ptr57drop_in_place$LT$tokenizers..decoders..DecoderWrapper$GT$17hb3a48f52f300f5c4E.llvm.1287153784043347726"(ptr noalias noundef nonnull align 8 dereferenceable(64) %47)
-          to label %"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$tokenizers..decoders..DecoderWrapper$GT$$GT$17ha9618564a82f8d82E.llvm.1287153784043347726.exit" unwind label %73
+47:                                               ; preds = %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$tokenizers..processors..PostProcessorWrapper$GT$$GT$17hc7d01089d6c5ae14E.llvm.1287153784043347726.exit"
+  invoke void @"_ZN4core3ptr57drop_in_place$LT$tokenizers..decoders..DecoderWrapper$GT$17hb3a48f52f300f5c4E.llvm.1287153784043347726"(ptr noalias noundef nonnull align 8 dereferenceable(64) %44)
+          to label %"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$tokenizers..decoders..DecoderWrapper$GT$$GT$17ha9618564a82f8d82E.llvm.1287153784043347726.exit" unwind label %70
 
-51:                                               ; preds = %46
-  %52 = landingpad { ptr, i32 }
+48:                                               ; preds = %43
+  %49 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$tokenizers..processors..PostProcessorWrapper$GT$$GT$17hc7d01089d6c5ae14E.llvm.1287153784043347726.exit"
 
-"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$tokenizers..processors..PostProcessorWrapper$GT$$GT$17hc7d01089d6c5ae14E.llvm.1287153784043347726.exit21": ; preds = %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$tokenizers..pre_tokenizers..PreTokenizerWrapper$GT$$GT$17h283be1737d7139c1E.llvm.1287153784043347726.exit18", %46
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 384
-  %54 = load i64, ptr %53, align 8, !range !6688, !alias.scope !6771, !noundef !4
-  %55 = icmp eq i64 %54, 12
-  br i1 %55, label %"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$tokenizers..decoders..DecoderWrapper$GT$$GT$17ha9618564a82f8d82E.llvm.1287153784043347726.exit24", label %56
+"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$tokenizers..processors..PostProcessorWrapper$GT$$GT$17hc7d01089d6c5ae14E.llvm.1287153784043347726.exit21": ; preds = %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$tokenizers..pre_tokenizers..PreTokenizerWrapper$GT$$GT$17h283be1737d7139c1E.llvm.1287153784043347726.exit18", %43
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 384
+  %51 = load i64, ptr %50, align 8, !range !6688, !alias.scope !6771, !noundef !4
+  %52 = icmp eq i64 %51, 12
+  br i1 %52, label %"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$tokenizers..decoders..DecoderWrapper$GT$$GT$17ha9618564a82f8d82E.llvm.1287153784043347726.exit24", label %53
 
-56:                                               ; preds = %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$tokenizers..processors..PostProcessorWrapper$GT$$GT$17hc7d01089d6c5ae14E.llvm.1287153784043347726.exit21"
-  invoke void @"_ZN4core3ptr57drop_in_place$LT$tokenizers..decoders..DecoderWrapper$GT$17hb3a48f52f300f5c4E.llvm.1287153784043347726"(ptr noalias noundef nonnull align 8 dereferenceable(64) %53)
-          to label %"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$tokenizers..decoders..DecoderWrapper$GT$$GT$17ha9618564a82f8d82E.llvm.1287153784043347726.exit24" unwind label %58
+53:                                               ; preds = %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$tokenizers..processors..PostProcessorWrapper$GT$$GT$17hc7d01089d6c5ae14E.llvm.1287153784043347726.exit21"
+  invoke void @"_ZN4core3ptr57drop_in_place$LT$tokenizers..decoders..DecoderWrapper$GT$17hb3a48f52f300f5c4E.llvm.1287153784043347726"(ptr noalias noundef nonnull align 8 dereferenceable(64) %50)
+          to label %"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$tokenizers..decoders..DecoderWrapper$GT$$GT$17ha9618564a82f8d82E.llvm.1287153784043347726.exit24" unwind label %55
 
-"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$tokenizers..decoders..DecoderWrapper$GT$$GT$17ha9618564a82f8d82E.llvm.1287153784043347726.exit": ; preds = %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$tokenizers..processors..PostProcessorWrapper$GT$$GT$17hc7d01089d6c5ae14E.llvm.1287153784043347726.exit", %50, %58
-  %.pn6 = phi { ptr, i32 } [ %59, %58 ], [ %.pn4, %50 ], [ %.pn4, %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$tokenizers..processors..PostProcessorWrapper$GT$$GT$17hc7d01089d6c5ae14E.llvm.1287153784043347726.exit" ]
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 496
-  invoke void @"_ZN4core3ptr77drop_in_place$LT$tokenizers..tokenizer..added_vocabulary..AddedVocabulary$GT$17h209f9a2f44b09f65E"(ptr noalias noundef nonnull align 8 dereferenceable(296) %57) #36
-          to label %61 unwind label %73
+"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$tokenizers..decoders..DecoderWrapper$GT$$GT$17ha9618564a82f8d82E.llvm.1287153784043347726.exit": ; preds = %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$tokenizers..processors..PostProcessorWrapper$GT$$GT$17hc7d01089d6c5ae14E.llvm.1287153784043347726.exit", %47, %55
+  %.pn6 = phi { ptr, i32 } [ %56, %55 ], [ %.pn4, %47 ], [ %.pn4, %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$tokenizers..processors..PostProcessorWrapper$GT$$GT$17hc7d01089d6c5ae14E.llvm.1287153784043347726.exit" ]
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 496
+  invoke void @"_ZN4core3ptr77drop_in_place$LT$tokenizers..tokenizer..added_vocabulary..AddedVocabulary$GT$17h209f9a2f44b09f65E"(ptr noalias noundef nonnull align 8 dereferenceable(296) %54) #36
+          to label %58 unwind label %70
 
-58:                                               ; preds = %56
-  %59 = landingpad { ptr, i32 }
+55:                                               ; preds = %53
+  %56 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$tokenizers..decoders..DecoderWrapper$GT$$GT$17ha9618564a82f8d82E.llvm.1287153784043347726.exit"
 
-"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$tokenizers..decoders..DecoderWrapper$GT$$GT$17ha9618564a82f8d82E.llvm.1287153784043347726.exit24": ; preds = %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$tokenizers..processors..PostProcessorWrapper$GT$$GT$17hc7d01089d6c5ae14E.llvm.1287153784043347726.exit21", %56
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 496
-  invoke void @"_ZN4core3ptr77drop_in_place$LT$tokenizers..tokenizer..added_vocabulary..AddedVocabulary$GT$17h209f9a2f44b09f65E"(ptr noalias noundef nonnull align 8 dereferenceable(296) %60)
-          to label %64 unwind label %62
+"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$tokenizers..decoders..DecoderWrapper$GT$$GT$17ha9618564a82f8d82E.llvm.1287153784043347726.exit24": ; preds = %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$tokenizers..processors..PostProcessorWrapper$GT$$GT$17hc7d01089d6c5ae14E.llvm.1287153784043347726.exit21", %53
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 496
+  invoke void @"_ZN4core3ptr77drop_in_place$LT$tokenizers..tokenizer..added_vocabulary..AddedVocabulary$GT$17h209f9a2f44b09f65E"(ptr noalias noundef nonnull align 8 dereferenceable(296) %57)
+          to label %61 unwind label %59
 
-61:                                               ; preds = %62, %"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$tokenizers..decoders..DecoderWrapper$GT$$GT$17ha9618564a82f8d82E.llvm.1287153784043347726.exit"
-  %.pn8 = phi { ptr, i32 } [ %63, %62 ], [ %.pn6, %"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$tokenizers..decoders..DecoderWrapper$GT$$GT$17ha9618564a82f8d82E.llvm.1287153784043347726.exit" ]
+58:                                               ; preds = %59, %"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$tokenizers..decoders..DecoderWrapper$GT$$GT$17ha9618564a82f8d82E.llvm.1287153784043347726.exit"
+  %.pn8 = phi { ptr, i32 } [ %60, %59 ], [ %.pn6, %"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$tokenizers..decoders..DecoderWrapper$GT$$GT$17ha9618564a82f8d82E.llvm.1287153784043347726.exit" ]
   tail call void @"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$tokenizers..utils..padding..PaddingParams$GT$$GT$17h30d60db635be544cE.llvm.1287153784043347726"(ptr noalias noundef nonnull align 8 dereferenceable(72) %0) #36
   resume { ptr, i32 } %.pn8
 
-62:                                               ; preds = %"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$tokenizers..decoders..DecoderWrapper$GT$$GT$17ha9618564a82f8d82E.llvm.1287153784043347726.exit24"
-  %63 = landingpad { ptr, i32 }
+59:                                               ; preds = %"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$tokenizers..decoders..DecoderWrapper$GT$$GT$17ha9618564a82f8d82E.llvm.1287153784043347726.exit24"
+  %60 = landingpad { ptr, i32 }
           cleanup
-  br label %61
+  br label %58
 
-64:                                               ; preds = %"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$tokenizers..decoders..DecoderWrapper$GT$$GT$17ha9618564a82f8d82E.llvm.1287153784043347726.exit24"
+61:                                               ; preds = %"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$tokenizers..decoders..DecoderWrapper$GT$$GT$17ha9618564a82f8d82E.llvm.1287153784043347726.exit24"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6774)
-  %65 = load i64, ptr %0, align 8, !range !779, !alias.scope !6774, !noundef !4
-  %66 = icmp eq i64 %65, 2
-  br i1 %66, label %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$tokenizers..utils..padding..PaddingParams$GT$$GT$17h30d60db635be544cE.llvm.1287153784043347726.exit", label %67
+  %62 = load i64, ptr %0, align 8, !range !779, !alias.scope !6774, !noundef !4
+  %63 = icmp eq i64 %62, 2
+  br i1 %63, label %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$tokenizers..utils..padding..PaddingParams$GT$$GT$17h30d60db635be544cE.llvm.1287153784043347726.exit", label %64
 
-67:                                               ; preds = %64
+64:                                               ; preds = %61
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6777)
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6780)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6783)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6786)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6789)
-  %69 = load i64, ptr %68, align 8, !alias.scope !6792, !noalias !6795, !noundef !4
-  %70 = icmp eq i64 %69, 0
-  br i1 %70, label %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$tokenizers..utils..padding..PaddingParams$GT$$GT$17h30d60db635be544cE.llvm.1287153784043347726.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hd26e3bd2729fe4c7E.llvm.1287153784043347726.exit.i.i1.i.i.i.i"
+  %66 = load i64, ptr %65, align 8, !alias.scope !6792, !noalias !6795, !noundef !4
+  %67 = icmp eq i64 %66, 0
+  br i1 %67, label %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$tokenizers..utils..padding..PaddingParams$GT$$GT$17h30d60db635be544cE.llvm.1287153784043347726.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hd26e3bd2729fe4c7E.llvm.1287153784043347726.exit.i.i1.i.i.i.i"
 
-"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hd26e3bd2729fe4c7E.llvm.1287153784043347726.exit.i.i1.i.i.i.i": ; preds = %67
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %72 = load ptr, ptr %71, align 8, !alias.scope !6792, !noalias !6795, !nonnull !4, !noundef !4
-  tail call void @__rust_dealloc(ptr noundef nonnull %72, i64 noundef %69, i64 noundef 1) #34, !noalias !6797
+"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hd26e3bd2729fe4c7E.llvm.1287153784043347726.exit.i.i1.i.i.i.i": ; preds = %64
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %69 = load ptr, ptr %68, align 8, !alias.scope !6792, !noalias !6795, !nonnull !4, !noundef !4
+  tail call void @__rust_dealloc(ptr noundef nonnull %69, i64 noundef %66, i64 noundef 1) #34, !noalias !6797
   br label %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$tokenizers..utils..padding..PaddingParams$GT$$GT$17h30d60db635be544cE.llvm.1287153784043347726.exit"
 
-"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$tokenizers..utils..padding..PaddingParams$GT$$GT$17h30d60db635be544cE.llvm.1287153784043347726.exit": ; preds = %64, %67, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hd26e3bd2729fe4c7E.llvm.1287153784043347726.exit.i.i1.i.i.i.i"
+"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$tokenizers..utils..padding..PaddingParams$GT$$GT$17h30d60db635be544cE.llvm.1287153784043347726.exit": ; preds = %61, %64, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hd26e3bd2729fe4c7E.llvm.1287153784043347726.exit.i.i1.i.i.i.i"
   ret void
 
-73:                                               ; preds = %50, %40, %30, %22, %"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$tokenizers..decoders..DecoderWrapper$GT$$GT$17ha9618564a82f8d82E.llvm.1287153784043347726.exit"
-  %74 = landingpad { ptr, i32 }
+70:                                               ; preds = %47, %37, %27, %19, %"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$tokenizers..decoders..DecoderWrapper$GT$$GT$17ha9618564a82f8d82E.llvm.1287153784043347726.exit"
+  %71 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hc8e2b17e1b6d1381E() #37
   unreachable
@@ -21644,36 +21638,33 @@ define hidden void @"_ZN4core3ptr53drop_in_place$LT$rayon_core..unwind..AbortIfP
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr53drop_in_place$LT$tokenizers..models..ModelWrapper$GT$17h22b605fca872f926E.llvm.1287153784043347726"(ptr noalias noundef align 8 dereferenceable(312) %0) unnamed_addr #0 {
   %2 = load i64, ptr %0, align 8, !range !2674, !noundef !4
-  %3 = add nsw i64 %2, -2
-  %4 = icmp ult i64 %3, 3
-  %5 = add nsw i64 %2, -1
-  %6 = select i1 %4, i64 %5, i64 0
-  switch i64 %6, label %7 [
-    i64 0, label %9
-    i64 1, label %10
-    i64 2, label %12
+  %3 = tail call i64 @llvm.usub.sat.i64(i64 %2, i64 1)
+  switch i64 %3, label %4 [
+    i64 0, label %6
+    i64 1, label %7
+    i64 2, label %9
   ]
+
+4:                                                ; preds = %1
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @"_ZN4core3ptr64drop_in_place$LT$tokenizers..models..unigram..model..Unigram$GT$17h0e3f2c5578490d0cE"(ptr noalias noundef nonnull align 8 dereferenceable(248) %5)
+  br label %11
+
+6:                                                ; preds = %1
+  tail call void @"_ZN4core3ptr56drop_in_place$LT$tokenizers..models..bpe..model..BPE$GT$17h1dc8e437aedc93a6E"(ptr noalias noundef nonnull align 8 dereferenceable(312) %0)
+  br label %11
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @"_ZN4core3ptr64drop_in_place$LT$tokenizers..models..unigram..model..Unigram$GT$17h0e3f2c5578490d0cE"(ptr noalias noundef nonnull align 8 dereferenceable(248) %8)
-  br label %14
+  tail call void @"_ZN4core3ptr61drop_in_place$LT$tokenizers..models..wordpiece..WordPiece$GT$17h8d945d896e6850a2E"(ptr noalias noundef nonnull align 8 dereferenceable(152) %8)
+  br label %11
 
 9:                                                ; preds = %1
-  tail call void @"_ZN4core3ptr56drop_in_place$LT$tokenizers..models..bpe..model..BPE$GT$17h1dc8e437aedc93a6E"(ptr noalias noundef nonnull align 8 dereferenceable(312) %0)
-  br label %14
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @"_ZN4core3ptr61drop_in_place$LT$tokenizers..models..wordlevel..WordLevel$GT$17h0e4a62b15fbceca1E"(ptr noalias noundef nonnull align 8 dereferenceable(120) %10)
+  br label %11
 
-10:                                               ; preds = %1
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @"_ZN4core3ptr61drop_in_place$LT$tokenizers..models..wordpiece..WordPiece$GT$17h8d945d896e6850a2E"(ptr noalias noundef nonnull align 8 dereferenceable(152) %11)
-  br label %14
-
-12:                                               ; preds = %1
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @"_ZN4core3ptr61drop_in_place$LT$tokenizers..models..wordlevel..WordLevel$GT$17h0e4a62b15fbceca1E"(ptr noalias noundef nonnull align 8 dereferenceable(120) %13)
-  br label %14
-
-14:                                               ; preds = %12, %10, %9, %7
+11:                                               ; preds = %9, %7, %6, %4
   ret void
 }
 
@@ -33404,37 +33395,34 @@ define hidden void @"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$toke
   %3 = icmp eq i64 %2, 5
   br i1 %3, label %"_ZN4core3ptr53drop_in_place$LT$tokenizers..models..ModelWrapper$GT$17h22b605fca872f926E.llvm.1287153784043347726.exit", label %4
 
-"_ZN4core3ptr53drop_in_place$LT$tokenizers..models..ModelWrapper$GT$17h22b605fca872f926E.llvm.1287153784043347726.exit": ; preds = %14, %12, %11, %9, %1
+"_ZN4core3ptr53drop_in_place$LT$tokenizers..models..ModelWrapper$GT$17h22b605fca872f926E.llvm.1287153784043347726.exit": ; preds = %11, %9, %8, %6, %1
   ret void
 
 4:                                                ; preds = %1
-  %5 = add nsw i64 %2, -2
-  %6 = icmp ult i64 %5, 3
-  %7 = add nsw i64 %2, -1
-  %8 = select i1 %6, i64 %7, i64 0
-  switch i64 %8, label %9 [
-    i64 0, label %11
-    i64 1, label %12
-    i64 2, label %14
+  %5 = tail call i64 @llvm.usub.sat.i64(i64 %2, i64 1)
+  switch i64 %5, label %6 [
+    i64 0, label %8
+    i64 1, label %9
+    i64 2, label %11
   ]
 
-9:                                                ; preds = %4
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @"_ZN4core3ptr64drop_in_place$LT$tokenizers..models..unigram..model..Unigram$GT$17h0e3f2c5578490d0cE"(ptr noalias noundef nonnull align 8 dereferenceable(248) %10)
+6:                                                ; preds = %4
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @"_ZN4core3ptr64drop_in_place$LT$tokenizers..models..unigram..model..Unigram$GT$17h0e3f2c5578490d0cE"(ptr noalias noundef nonnull align 8 dereferenceable(248) %7)
   br label %"_ZN4core3ptr53drop_in_place$LT$tokenizers..models..ModelWrapper$GT$17h22b605fca872f926E.llvm.1287153784043347726.exit"
 
-11:                                               ; preds = %4
+8:                                                ; preds = %4
   tail call void @"_ZN4core3ptr56drop_in_place$LT$tokenizers..models..bpe..model..BPE$GT$17h1dc8e437aedc93a6E"(ptr noalias noundef nonnull align 8 dereferenceable(312) %0)
   br label %"_ZN4core3ptr53drop_in_place$LT$tokenizers..models..ModelWrapper$GT$17h22b605fca872f926E.llvm.1287153784043347726.exit"
 
-12:                                               ; preds = %4
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @"_ZN4core3ptr61drop_in_place$LT$tokenizers..models..wordpiece..WordPiece$GT$17h8d945d896e6850a2E"(ptr noalias noundef nonnull align 8 dereferenceable(152) %13)
+9:                                                ; preds = %4
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @"_ZN4core3ptr61drop_in_place$LT$tokenizers..models..wordpiece..WordPiece$GT$17h8d945d896e6850a2E"(ptr noalias noundef nonnull align 8 dereferenceable(152) %10)
   br label %"_ZN4core3ptr53drop_in_place$LT$tokenizers..models..ModelWrapper$GT$17h22b605fca872f926E.llvm.1287153784043347726.exit"
 
-14:                                               ; preds = %4
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @"_ZN4core3ptr61drop_in_place$LT$tokenizers..models..wordlevel..WordLevel$GT$17h0e4a62b15fbceca1E"(ptr noalias noundef nonnull align 8 dereferenceable(120) %15)
+11:                                               ; preds = %4
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @"_ZN4core3ptr61drop_in_place$LT$tokenizers..models..wordlevel..WordLevel$GT$17h0e4a62b15fbceca1E"(ptr noalias noundef nonnull align 8 dereferenceable(120) %12)
   br label %"_ZN4core3ptr53drop_in_place$LT$tokenizers..models..ModelWrapper$GT$17h22b605fca872f926E.llvm.1287153784043347726.exit"
 }
 
@@ -52197,6 +52185,9 @@ declare i64 @llvm.umax.i64(i64, i64) #32
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #33
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.usub.sat.i64(i64, i64) #32
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

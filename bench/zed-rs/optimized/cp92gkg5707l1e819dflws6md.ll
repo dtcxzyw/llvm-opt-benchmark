@@ -14911,9 +14911,8 @@ common.resume:                                    ; preds = %26, %20
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr62drop_in_place$LT$language..language_settings..FormatOnSave$GT$17h88bf4ff8a671d104E.llvm.8775224686477438581"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !2294, !noundef !9
-  %3 = add i64 %2, 9223372036854775807
-  %switch = icmp ult i64 %3, 2
-  br i1 %switch, label %"_ZN4core3ptr63drop_in_place$LT$language..language_settings..FormatterList$GT$17hb2b525b166fd9f4dE.exit", label %4
+  %3 = icmp ugt i64 %2, -9223372036854775808
+  br i1 %3, label %"_ZN4core3ptr63drop_in_place$LT$language..language_settings..FormatterList$GT$17hb2b525b166fd9f4dE.exit", label %4
 
 4:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4039)
@@ -15131,9 +15130,8 @@ define internal fastcc void @"_ZN4core3ptr90drop_in_place$LT$core..option..Optio
 
 4:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4143)
-  %5 = add i64 %2, 9223372036854775807
-  %switch.i = icmp ult i64 %5, 2
-  br i1 %switch.i, label %"_ZN4core3ptr62drop_in_place$LT$language..language_settings..FormatOnSave$GT$17h88bf4ff8a671d104E.llvm.8775224686477438581.exit", label %6
+  %5 = icmp ugt i64 %2, -9223372036854775808
+  br i1 %5, label %"_ZN4core3ptr62drop_in_place$LT$language..language_settings..FormatOnSave$GT$17h88bf4ff8a671d104E.llvm.8775224686477438581.exit", label %6
 
 6:                                                ; preds = %4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4146)
@@ -37681,9 +37679,8 @@ default.unreachable5061:                          ; preds = %110
 
 924:                                              ; preds = %"_ZN4core3ptr67drop_in_place$LT$language..language_settings..SelectedFormatter$GT$17h13187bd533ea2bd7E.llvm.8775224686477438581.exit"
   call void @llvm.experimental.noalias.scope.decl(metadata !11620)
-  %925 = add i64 %881, 9223372036854775807
-  %switch.i = icmp ult i64 %925, 2
-  br i1 %switch.i, label %"_ZN4core3ptr62drop_in_place$LT$language..language_settings..FormatOnSave$GT$17h88bf4ff8a671d104E.llvm.8775224686477438581.exit", label %926
+  %925 = icmp ugt i64 %881, -9223372036854775808
+  br i1 %925, label %"_ZN4core3ptr62drop_in_place$LT$language..language_settings..FormatOnSave$GT$17h88bf4ff8a671d104E.llvm.8775224686477438581.exit", label %926
 
 926:                                              ; preds = %924
   call void @llvm.experimental.noalias.scope.decl(metadata !11623)
@@ -40600,9 +40597,8 @@ _ZN5serde2de9MapAccess10next_value17h67faa8a44a92b747E.exit.i.i: ; preds = %587
 
 731:                                              ; preds = %729
   call void @llvm.experimental.noalias.scope.decl(metadata !12268)
-  %732 = add i64 %694, 9223372036854775807
-  %switch.i.i.i.i = icmp ult i64 %732, 2
-  br i1 %switch.i.i.i.i, label %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$language..language_settings..FormatOnSave$GT$$GT$17hcab2dbc008bc2d93E.exit.i.i", label %733
+  %732 = icmp ugt i64 %694, -9223372036854775808
+  br i1 %732, label %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$language..language_settings..FormatOnSave$GT$$GT$17hcab2dbc008bc2d93E.exit.i.i", label %733
 
 733:                                              ; preds = %731
   call void @llvm.experimental.noalias.scope.decl(metadata !12271)
@@ -44499,9 +44495,8 @@ default.unreachable4462:                          ; preds = %58
 
 608:                                              ; preds = %606
   call void @llvm.experimental.noalias.scope.decl(metadata !13680)
-  %609 = add i64 %571, 9223372036854775807
-  %switch.i.i = icmp ult i64 %609, 2
-  br i1 %switch.i.i, label %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$language..language_settings..FormatOnSave$GT$$GT$17hcab2dbc008bc2d93E.exit", label %610
+  %609 = icmp ugt i64 %571, -9223372036854775808
+  br i1 %609, label %"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$language..language_settings..FormatOnSave$GT$$GT$17hcab2dbc008bc2d93E.exit", label %610
 
 610:                                              ; preds = %608
   call void @llvm.experimental.noalias.scope.decl(metadata !13683)

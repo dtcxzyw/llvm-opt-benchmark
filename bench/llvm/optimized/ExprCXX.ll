@@ -5014,20 +5014,19 @@ define dso_local void @_ZN5clang13LambdaCaptureC2ENS_14SourceLocationEbNS_17Lamb
 define dso_local noundef range(i32 0, 5) i32 @_ZNK5clang13LambdaCapture14getCaptureKindEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
   %.0.copyload.i.i.i.i = load i64, ptr %0, align 8
   %2 = icmp ult i64 %.0.copyload.i.i.i.i, 4
-  br i1 %2, label %9, label %3
+  br i1 %2, label %8, label %3
 
 3:                                                ; preds = %1
   %4 = trunc i64 %.0.copyload.i.i.i.i to i32
   %5 = and i32 %4, 2
-  %6 = and i64 %.0.copyload.i.i.i.i, -4
-  %7 = icmp eq i64 %6, 4
+  %6 = icmp ult i64 %.0.copyload.i.i.i.i, 8
   %.lobit = lshr exact i32 %5, 1
   %.not.not = icmp eq i32 %5, 0
-  %8 = select i1 %.not.not, i32 3, i32 2
-  %.1 = select i1 %7, i32 %.lobit, i32 %8
-  br label %9
+  %7 = select i1 %.not.not, i32 3, i32 2
+  %.1 = select i1 %6, i32 %.lobit, i32 %7
+  br label %8
 
-9:                                                ; preds = %1, %3
+8:                                                ; preds = %1, %3
   %.0 = phi i32 [ %.1, %3 ], [ 4, %1 ]
   ret i32 %.0
 }

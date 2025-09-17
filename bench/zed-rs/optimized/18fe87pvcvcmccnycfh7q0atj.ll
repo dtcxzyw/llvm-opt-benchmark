@@ -5970,9 +5970,8 @@ define hidden noundef align 8 ptr @_ZN5proto16inlay_hint_label5Label5merge17had7
 
 31:                                               ; preds = %5
   %32 = load i64, ptr %0, align 8, !range !812, !noundef !4
-  %.off = add nsw i64 %32, -1
-  %switch = icmp ult i64 %.off, 2
-  br i1 %switch, label %35, label %46
+  %.not = icmp eq i64 %32, 0
+  br i1 %.not, label %46, label %35
 
 33:                                               ; preds = %5
   %34 = load i64, ptr %0, align 8, !range !812, !noundef !4

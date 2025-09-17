@@ -439,151 +439,150 @@ PACKET_get_net_2.exit:                            ; preds = %PACKET_get_1.exit
   %14 = zext i8 %13 to i32
   %15 = or disjoint i32 %11, %14
   %16 = icmp ne i32 %15, 256
-  %17 = add nsw i64 %3, -3
-  %18 = icmp samesign ult i64 %17, 11
-  %or.cond200 = select i1 %16, i1 true, i1 %18
+  %17 = icmp samesign ult i64 %3, 14
+  %or.cond200 = or i1 %16, %17
   br i1 %or.cond200, label %PACKET_get_1.exit.thread, label %PACKET_get_1.exit42
 
 PACKET_get_1.exit42:                              ; preds = %PACKET_get_net_2.exit
-  %19 = getelementptr inbounds nuw i8, ptr %4, i64 13
-  %20 = load i8, ptr %19, align 1, !tbaa !19
-  %21 = add nsw i64 %3, -14
-  %22 = icmp ne i8 %20, 1
-  %23 = icmp samesign ult i64 %21, 11
-  %or.cond196 = select i1 %22, i1 true, i1 %23
-  %24 = add nsw i64 %3, -25
-  %25 = icmp samesign ult i64 %24, 2
-  %or.cond202 = select i1 %or.cond196, i1 true, i1 %25
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 13
+  %19 = load i8, ptr %18, align 1, !tbaa !19
+  %20 = add nsw i64 %3, -14
+  %21 = icmp ne i8 %19, 1
+  %22 = icmp samesign ult i64 %20, 11
+  %or.cond196 = select i1 %21, i1 true, i1 %22
+  %23 = add nsw i64 %3, -25
+  %24 = icmp samesign ult i64 %23, 2
+  %or.cond202 = select i1 %or.cond196, i1 true, i1 %24
   br i1 %or.cond202, label %PACKET_get_1.exit.thread, label %PACKET_get_net_2.exit48
 
 PACKET_get_net_2.exit48:                          ; preds = %PACKET_get_1.exit42
-  %26 = getelementptr inbounds nuw i8, ptr %4, i64 25
-  %27 = load i8, ptr %26, align 1, !tbaa !19
-  %28 = zext i8 %27 to i32
-  %29 = shl nuw nsw i32 %28, 8
-  %30 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %31 = load i8, ptr %30, align 1, !tbaa !19
-  %32 = zext i8 %31 to i32
-  %33 = or disjoint i32 %29, %32
-  %34 = add nsw i64 %3, -27
-  %35 = icmp ne i32 %33, 256
-  %36 = icmp samesign ult i64 %34, 32
-  %or.cond197 = select i1 %35, i1 true, i1 %36
-  br i1 %or.cond197, label %PACKET_get_1.exit.thread, label %37
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 25
+  %26 = load i8, ptr %25, align 1, !tbaa !19
+  %27 = zext i8 %26 to i32
+  %28 = shl nuw nsw i32 %27, 8
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 26
+  %30 = load i8, ptr %29, align 1, !tbaa !19
+  %31 = zext i8 %30 to i32
+  %32 = or disjoint i32 %28, %31
+  %33 = add nsw i64 %3, -27
+  %34 = icmp ne i32 %32, 256
+  %35 = icmp samesign ult i64 %33, 32
+  %or.cond197 = select i1 %34, i1 true, i1 %35
+  br i1 %or.cond197, label %PACKET_get_1.exit.thread, label %36
 
-37:                                               ; preds = %PACKET_get_net_2.exit48
-  %38 = getelementptr inbounds nuw i8, ptr %4, i64 27
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) @client_random, ptr noundef nonnull align 1 dereferenceable(32) %38, i64 32, i1 false)
+36:                                               ; preds = %PACKET_get_net_2.exit48
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 27
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) @client_random, ptr noundef nonnull align 1 dereferenceable(32) %37, i64 32, i1 false)
   %.not.i.i.i = icmp eq i64 %3, 59
-  br i1 %.not.i.i.i, label %PACKET_get_1.exit.thread, label %39
+  br i1 %.not.i.i.i, label %PACKET_get_1.exit.thread, label %38
 
-39:                                               ; preds = %37
-  %40 = getelementptr inbounds nuw i8, ptr %4, i64 59
-  %41 = load i8, ptr %40, align 1, !tbaa !19
-  %42 = add nsw i64 %3, -60
-  %43 = zext i8 %41 to i64
-  %44 = icmp samesign ult i64 %42, %43
-  br i1 %44, label %PACKET_get_1.exit.thread, label %45
+38:                                               ; preds = %36
+  %39 = getelementptr inbounds nuw i8, ptr %4, i64 59
+  %40 = load i8, ptr %39, align 1, !tbaa !19
+  %41 = add nsw i64 %3, -60
+  %42 = zext i8 %40 to i64
+  %43 = icmp samesign ult i64 %41, %42
+  br i1 %43, label %PACKET_get_1.exit.thread, label %44
 
-45:                                               ; preds = %39
-  %46 = getelementptr inbounds nuw i8, ptr %4, i64 60
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 %43
-  %.not.i = icmp eq i8 %41, 32
+44:                                               ; preds = %38
+  %45 = getelementptr inbounds nuw i8, ptr %4, i64 60
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 %42
+  %.not.i = icmp eq i8 %40, 32
   br i1 %.not.i, label %PACKET_equal.exit, label %PACKET_get_1.exit.thread
 
-PACKET_equal.exit:                                ; preds = %45
-  %48 = call i32 @CRYPTO_memcmp(ptr noundef nonnull %46, ptr noundef nonnull @session_id, i64 noundef %43) #6
-  %49 = icmp ne i32 %48, 0
-  %.not.i.i.i55 = icmp eq i64 %42, %43
-  %or.cond198 = or i1 %.not.i.i.i55, %49
-  br i1 %or.cond198, label %PACKET_get_1.exit.thread, label %50
+PACKET_equal.exit:                                ; preds = %44
+  %47 = call i32 @CRYPTO_memcmp(ptr noundef nonnull %45, ptr noundef nonnull @session_id, i64 noundef %42) #6
+  %48 = icmp ne i32 %47, 0
+  %.not.i.i.i55 = icmp eq i64 %41, %42
+  %or.cond198 = or i1 %.not.i.i.i55, %48
+  br i1 %or.cond198, label %PACKET_get_1.exit.thread, label %49
 
-50:                                               ; preds = %PACKET_equal.exit
-  %51 = load i8, ptr %47, align 1, !tbaa !19
-  %52 = add nsw i64 %3, -93
-  %53 = zext i8 %51 to i64
-  %54 = icmp samesign ult i64 %52, %53
-  br i1 %54, label %PACKET_get_1.exit.thread, label %55
+49:                                               ; preds = %PACKET_equal.exit
+  %50 = load i8, ptr %46, align 1, !tbaa !19
+  %51 = add nsw i64 %3, -93
+  %52 = zext i8 %50 to i64
+  %53 = icmp samesign ult i64 %51, %52
+  br i1 %53, label %PACKET_get_1.exit.thread, label %54
 
-55:                                               ; preds = %50
-  %56 = getelementptr inbounds nuw i8, ptr %47, i64 1
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 %53
-  %58 = sub nuw nsw i64 %52, %53
-  %.not20 = icmp eq i8 %51, 0
-  br i1 %.not20, label %61, label %59
+54:                                               ; preds = %49
+  %55 = getelementptr inbounds nuw i8, ptr %46, i64 1
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 %52
+  %57 = sub nuw nsw i64 %51, %52
+  %.not20 = icmp eq i8 %50, 0
+  br i1 %.not20, label %60, label %58
 
-59:                                               ; preds = %55
-  %.not.i59 = icmp eq i8 %51, 20
+58:                                               ; preds = %54
+  %.not.i59 = icmp eq i8 %50, 20
   br i1 %.not.i59, label %PACKET_equal.exit61, label %PACKET_get_1.exit.thread
 
-PACKET_equal.exit61:                              ; preds = %59
-  %60 = call i32 @CRYPTO_memcmp(ptr noundef nonnull %56, ptr noundef nonnull @cookie, i64 noundef %53) #6
-  %.not = icmp eq i32 %60, 0
-  br i1 %.not, label %61, label %PACKET_get_1.exit.thread
+PACKET_equal.exit61:                              ; preds = %58
+  %59 = call i32 @CRYPTO_memcmp(ptr noundef nonnull %55, ptr noundef nonnull @cookie, i64 noundef %52) #6
+  %.not = icmp eq i32 %59, 0
+  br i1 %.not, label %60, label %PACKET_get_1.exit.thread
 
-61:                                               ; preds = %PACKET_equal.exit61, %55
-  %.0 = phi i32 [ 1, %55 ], [ 2, %PACKET_equal.exit61 ]
-  %62 = icmp samesign ult i64 %58, 2
-  br i1 %62, label %PACKET_get_1.exit.thread, label %63
+60:                                               ; preds = %PACKET_equal.exit61, %54
+  %.0 = phi i32 [ 1, %54 ], [ 2, %PACKET_equal.exit61 ]
+  %61 = icmp samesign ult i64 %57, 2
+  br i1 %61, label %PACKET_get_1.exit.thread, label %62
 
-63:                                               ; preds = %61
-  %64 = load i8, ptr %57, align 1, !tbaa !19
-  %65 = zext i8 %64 to i64
-  %66 = shl nuw nsw i64 %65, 8
-  %67 = getelementptr inbounds nuw i8, ptr %57, i64 1
-  %68 = load i8, ptr %67, align 1, !tbaa !19
-  %69 = zext i8 %68 to i64
-  %70 = or disjoint i64 %66, %69
-  %71 = add nsw i64 %58, -2
-  %or.cond203.not = icmp ugt i64 %71, %70
-  br i1 %or.cond203.not, label %72, label %PACKET_get_1.exit.thread
+62:                                               ; preds = %60
+  %63 = load i8, ptr %56, align 1, !tbaa !19
+  %64 = zext i8 %63 to i64
+  %65 = shl nuw nsw i64 %64, 8
+  %66 = getelementptr inbounds nuw i8, ptr %56, i64 1
+  %67 = load i8, ptr %66, align 1, !tbaa !19
+  %68 = zext i8 %67 to i64
+  %69 = or disjoint i64 %65, %68
+  %70 = add nsw i64 %57, -2
+  %or.cond203.not = icmp ugt i64 %70, %69
+  br i1 %or.cond203.not, label %71, label %PACKET_get_1.exit.thread
 
-72:                                               ; preds = %63
-  %73 = getelementptr inbounds nuw i8, ptr %57, i64 2
-  %74 = getelementptr inbounds nuw i8, ptr %73, i64 %70
-  %75 = load i8, ptr %74, align 1, !tbaa !19
-  %76 = xor i64 %70, -1
-  %77 = add nsw i64 %71, %76
-  %78 = zext i8 %75 to i64
-  %79 = icmp samesign ult i64 %77, %78
-  br i1 %79, label %PACKET_get_1.exit.thread, label %80
+71:                                               ; preds = %62
+  %72 = getelementptr inbounds nuw i8, ptr %56, i64 2
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 %69
+  %74 = load i8, ptr %73, align 1, !tbaa !19
+  %75 = xor i64 %69, -1
+  %76 = add nsw i64 %70, %75
+  %77 = zext i8 %74 to i64
+  %78 = icmp samesign ult i64 %76, %77
+  br i1 %78, label %PACKET_get_1.exit.thread, label %79
 
-80:                                               ; preds = %72
-  %81 = sub nuw nsw i64 %77, %78
-  %82 = icmp samesign ult i64 %81, 2
-  br i1 %82, label %PACKET_get_1.exit.thread, label %83
+79:                                               ; preds = %71
+  %80 = sub nuw nsw i64 %76, %77
+  %81 = icmp samesign ult i64 %80, 2
+  br i1 %81, label %PACKET_get_1.exit.thread, label %82
 
-83:                                               ; preds = %80
-  %84 = getelementptr inbounds nuw i8, ptr %74, i64 1
-  %85 = getelementptr inbounds nuw i8, ptr %84, i64 %78
-  %86 = load i8, ptr %85, align 1, !tbaa !19
-  %87 = zext i8 %86 to i64
-  %88 = shl nuw nsw i64 %87, 8
-  %89 = getelementptr inbounds nuw i8, ptr %85, i64 1
-  %90 = load i8, ptr %89, align 1, !tbaa !19
-  %91 = zext i8 %90 to i64
-  %92 = or disjoint i64 %88, %91
-  %93 = add nsw i64 %81, -2
-  %.not28 = icmp eq i64 %93, %92
-  br i1 %.not28, label %94, label %PACKET_get_1.exit.thread
+82:                                               ; preds = %79
+  %83 = getelementptr inbounds nuw i8, ptr %73, i64 1
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 %77
+  %85 = load i8, ptr %84, align 1, !tbaa !19
+  %86 = zext i8 %85 to i64
+  %87 = shl nuw nsw i64 %86, 8
+  %88 = getelementptr inbounds nuw i8, ptr %84, i64 1
+  %89 = load i8, ptr %88, align 1, !tbaa !19
+  %90 = zext i8 %89 to i64
+  %91 = or disjoint i64 %87, %90
+  %92 = add nsw i64 %80, -2
+  %.not28 = icmp eq i64 %92, %91
+  br i1 %.not28, label %93, label %PACKET_get_1.exit.thread
 
-94:                                               ; preds = %83
-  br i1 %.not20, label %100, label %95
+93:                                               ; preds = %82
+  br i1 %.not20, label %99, label %94
 
-95:                                               ; preds = %94
-  %96 = load ptr, ptr @handshake_md, align 8, !tbaa !9
-  %97 = load ptr, ptr %2, align 8, !tbaa !4
-  %98 = getelementptr inbounds nuw i8, ptr %97, i64 25
-  %99 = call i32 @EVP_DigestUpdate(ptr noundef %96, ptr noundef nonnull %98, i64 noundef %24) #6
-  %.not30 = icmp eq i32 %99, 0
-  br i1 %.not30, label %PACKET_get_1.exit.thread, label %100
+94:                                               ; preds = %93
+  %95 = load ptr, ptr @handshake_md, align 8, !tbaa !9
+  %96 = load ptr, ptr %2, align 8, !tbaa !4
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 25
+  %98 = call i32 @EVP_DigestUpdate(ptr noundef %95, ptr noundef nonnull %97, i64 noundef %23) #6
+  %.not30 = icmp eq i32 %98, 0
+  br i1 %.not30, label %PACKET_get_1.exit.thread, label %99
 
-100:                                              ; preds = %95, %94
-  %101 = call i64 @BIO_ctrl(ptr noundef %0, i32 noundef 1, i64 noundef 0, ptr noundef null) #6
+99:                                               ; preds = %94, %93
+  %100 = call i64 @BIO_ctrl(ptr noundef %0, i32 noundef 1, i64 noundef 0, ptr noundef null) #6
   br label %PACKET_get_1.exit.thread
 
-PACKET_get_1.exit.thread:                         ; preds = %83, %80, %72, %63, %61, %59, %50, %45, %39, %37, %95, %PACKET_equal.exit61, %PACKET_equal.exit, %PACKET_get_net_2.exit48, %PACKET_get_1.exit42, %PACKET_get_net_2.exit, %PACKET_get_1.exit, %1, %100
-  %.013 = phi i32 [ %.0, %100 ], [ 0, %1 ], [ 0, %PACKET_get_1.exit ], [ 0, %PACKET_get_net_2.exit ], [ 0, %PACKET_get_1.exit42 ], [ 0, %PACKET_get_net_2.exit48 ], [ 0, %PACKET_equal.exit ], [ 0, %PACKET_equal.exit61 ], [ 0, %95 ], [ 0, %37 ], [ 0, %39 ], [ 0, %45 ], [ 0, %50 ], [ 0, %59 ], [ 0, %61 ], [ 0, %63 ], [ 0, %72 ], [ 0, %80 ], [ 0, %83 ]
+PACKET_get_1.exit.thread:                         ; preds = %82, %79, %71, %62, %60, %58, %49, %44, %38, %36, %94, %PACKET_equal.exit61, %PACKET_equal.exit, %PACKET_get_net_2.exit48, %PACKET_get_1.exit42, %PACKET_get_net_2.exit, %PACKET_get_1.exit, %1, %99
+  %.013 = phi i32 [ %.0, %99 ], [ 0, %1 ], [ 0, %PACKET_get_1.exit ], [ 0, %PACKET_get_net_2.exit ], [ 0, %PACKET_get_1.exit42 ], [ 0, %PACKET_get_net_2.exit48 ], [ 0, %PACKET_equal.exit ], [ 0, %PACKET_equal.exit61 ], [ 0, %94 ], [ 0, %36 ], [ 0, %38 ], [ 0, %44 ], [ 0, %49 ], [ 0, %58 ], [ 0, %60 ], [ 0, %62 ], [ 0, %71 ], [ 0, %79 ], [ 0, %82 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.013
 }
@@ -688,73 +687,72 @@ PACKET_get_net_2.exit:                            ; preds = %PACKET_get_1.exit
   %14 = zext i8 %13 to i32
   %15 = or disjoint i32 %11, %14
   %16 = icmp ne i32 %15, 256
-  %17 = add nsw i64 %3, -3
-  %18 = icmp samesign ult i64 %17, 11
-  %or.cond97 = select i1 %16, i1 true, i1 %18
+  %17 = icmp samesign ult i64 %3, 14
+  %or.cond97 = or i1 %16, %17
   br i1 %or.cond97, label %PACKET_get_1.exit.thread, label %PACKET_get_1.exit23
 
 PACKET_get_1.exit23:                              ; preds = %PACKET_get_net_2.exit
-  %19 = getelementptr inbounds nuw i8, ptr %4, i64 13
-  %20 = load i8, ptr %19, align 1, !tbaa !19
-  %21 = icmp ne i8 %20, 1
-  %22 = and i64 %3, 9223372036854775806
-  %23 = icmp eq i64 %22, 14
-  %or.cond94 = or i1 %23, %21
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 13
+  %19 = load i8, ptr %18, align 1, !tbaa !19
+  %20 = icmp ne i8 %19, 1
+  %21 = and i64 %3, 9223372036854775806
+  %22 = icmp eq i64 %21, 14
+  %or.cond94 = or i1 %22, %20
   br i1 %or.cond94, label %PACKET_get_1.exit.thread, label %PACKET_get_net_2.exit26
 
 PACKET_get_net_2.exit26:                          ; preds = %PACKET_get_1.exit23
-  %24 = getelementptr inbounds nuw i8, ptr %4, i64 14
-  %25 = load i8, ptr %24, align 1, !tbaa !19
-  %26 = zext i8 %25 to i32
-  %27 = shl nuw nsw i32 %26, 8
-  %28 = getelementptr inbounds nuw i8, ptr %4, i64 15
-  %29 = load i8, ptr %28, align 1, !tbaa !19
-  %30 = zext i8 %29 to i32
-  %31 = or disjoint i32 %27, %30
-  %32 = icmp ne i32 %31, 2
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 14
+  %24 = load i8, ptr %23, align 1, !tbaa !19
+  %25 = zext i8 %24 to i32
+  %26 = shl nuw nsw i32 %25, 8
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 15
+  %28 = load i8, ptr %27, align 1, !tbaa !19
+  %29 = zext i8 %28 to i32
+  %30 = or disjoint i32 %26, %29
+  %31 = icmp ne i32 %30, 2
   %.not.i.i28 = icmp eq i64 %3, 16
-  %or.cond95 = or i1 %.not.i.i28, %32
+  %or.cond95 = or i1 %.not.i.i28, %31
   br i1 %or.cond95, label %PACKET_get_1.exit.thread, label %PACKET_get_1.exit30
 
 PACKET_get_1.exit30:                              ; preds = %PACKET_get_net_2.exit26
-  %33 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %34 = load i8, ptr %33, align 1, !tbaa !19
-  %35 = add nsw i64 %3, -17
-  %36 = icmp ne i8 %34, 22
-  %37 = icmp samesign ult i64 %35, 2
-  %or.cond96 = select i1 %36, i1 true, i1 %37
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %33 = load i8, ptr %32, align 1, !tbaa !19
+  %34 = add nsw i64 %3, -17
+  %35 = icmp ne i8 %33, 22
+  %36 = icmp samesign ult i64 %34, 2
+  %or.cond96 = select i1 %35, i1 true, i1 %36
   br i1 %or.cond96, label %PACKET_get_1.exit.thread, label %PACKET_get_net_2.exit33
 
 PACKET_get_net_2.exit33:                          ; preds = %PACKET_get_1.exit30
-  %38 = getelementptr inbounds nuw i8, ptr %4, i64 17
-  %39 = load i8, ptr %38, align 1, !tbaa !19
-  %40 = zext i8 %39 to i32
-  %41 = shl nuw nsw i32 %40, 8
-  %42 = getelementptr inbounds nuw i8, ptr %4, i64 18
-  %43 = load i8, ptr %42, align 1, !tbaa !19
-  %44 = zext i8 %43 to i32
-  %45 = or disjoint i32 %41, %44
-  %.not = icmp ne i32 %45, 256
-  %46 = add nsw i64 %3, -19
-  %47 = icmp samesign ult i64 %46, 2
-  %or.cond99 = select i1 %.not, i1 true, i1 %47
-  br i1 %or.cond99, label %PACKET_get_1.exit.thread, label %48
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 17
+  %38 = load i8, ptr %37, align 1, !tbaa !19
+  %39 = zext i8 %38 to i32
+  %40 = shl nuw nsw i32 %39, 8
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 18
+  %42 = load i8, ptr %41, align 1, !tbaa !19
+  %43 = zext i8 %42 to i32
+  %44 = or disjoint i32 %40, %43
+  %.not = icmp ne i32 %44, 256
+  %45 = add nsw i64 %3, -19
+  %46 = icmp samesign ult i64 %45, 2
+  %or.cond99 = select i1 %.not, i1 true, i1 %46
+  br i1 %or.cond99, label %PACKET_get_1.exit.thread, label %47
 
-48:                                               ; preds = %PACKET_get_net_2.exit33
-  %49 = getelementptr inbounds nuw i8, ptr %4, i64 19
-  %50 = load i8, ptr %49, align 1, !tbaa !19
-  %51 = zext i8 %50 to i32
-  %52 = shl nuw nsw i32 %51, 8
-  %53 = getelementptr inbounds nuw i8, ptr %4, i64 20
-  %54 = load i8, ptr %53, align 1, !tbaa !19
-  %55 = zext i8 %54 to i32
-  %56 = or disjoint i32 %52, %55
-  %57 = icmp eq i32 %56, 1
-  %58 = zext i1 %57 to i32
+47:                                               ; preds = %PACKET_get_net_2.exit33
+  %48 = getelementptr inbounds nuw i8, ptr %4, i64 19
+  %49 = load i8, ptr %48, align 1, !tbaa !19
+  %50 = zext i8 %49 to i32
+  %51 = shl nuw nsw i32 %50, 8
+  %52 = getelementptr inbounds nuw i8, ptr %4, i64 20
+  %53 = load i8, ptr %52, align 1, !tbaa !19
+  %54 = zext i8 %53 to i32
+  %55 = or disjoint i32 %51, %54
+  %56 = icmp eq i32 %55, 1
+  %57 = zext i1 %56 to i32
   br label %PACKET_get_1.exit.thread
 
-PACKET_get_1.exit.thread:                         ; preds = %48, %PACKET_get_net_2.exit33, %PACKET_get_1.exit30, %PACKET_get_net_2.exit26, %PACKET_get_1.exit23, %PACKET_get_net_2.exit, %PACKET_get_1.exit, %1
-  %.0 = phi i32 [ 0, %1 ], [ 0, %PACKET_get_1.exit ], [ 0, %PACKET_get_net_2.exit ], [ 0, %PACKET_get_1.exit23 ], [ 0, %PACKET_get_net_2.exit26 ], [ 0, %PACKET_get_1.exit30 ], [ 0, %PACKET_get_net_2.exit33 ], [ %58, %48 ]
+PACKET_get_1.exit.thread:                         ; preds = %47, %PACKET_get_net_2.exit33, %PACKET_get_1.exit30, %PACKET_get_net_2.exit26, %PACKET_get_1.exit23, %PACKET_get_net_2.exit, %PACKET_get_1.exit, %1
+  %.0 = phi i32 [ 0, %1 ], [ 0, %PACKET_get_1.exit ], [ 0, %PACKET_get_net_2.exit ], [ 0, %PACKET_get_1.exit23 ], [ 0, %PACKET_get_net_2.exit26 ], [ 0, %PACKET_get_1.exit30 ], [ 0, %PACKET_get_net_2.exit33 ], [ %57, %47 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }

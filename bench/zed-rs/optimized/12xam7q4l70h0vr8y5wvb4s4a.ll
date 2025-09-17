@@ -1347,9 +1347,8 @@ define internal fastcc void @"_ZN4core3ptr117drop_in_place$LT$core..result..Resu
   br i1 %.not, label %7, label %4
 
 4:                                                ; preds = %1
-  %5 = add i64 %3, 9223372036854775807
-  %switch.i = icmp ult i64 %5, 2
-  br i1 %switch.i, label %"_ZN4core3ptr62drop_in_place$LT$lsp_types..color..ColorProviderCapability$GT$17h30b406da8b2c9f77E.exit", label %6
+  %5 = icmp ugt i64 %3, -9223372036854775808
+  br i1 %5, label %"_ZN4core3ptr62drop_in_place$LT$lsp_types..color..ColorProviderCapability$GT$17h30b406da8b2c9f77E.exit", label %6
 
 6:                                                ; preds = %4
   tail call void @"_ZN4core3ptr77drop_in_place$LT$lsp_types..color..StaticTextDocumentColorProviderOptions$GT$17h8c369445b6c55fd9E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %0)

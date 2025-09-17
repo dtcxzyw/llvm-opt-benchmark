@@ -188,9 +188,9 @@ define internal noundef i32 @dxt5y_block(ptr noundef captures(none) %0, i64 noun
   tail call fastcc void @dxt5_block_internal(ptr noundef %0, i64 noundef %1, ptr noundef %2)
   br label %.preheader
 
-.preheader:                                       ; preds = %3, %28
-  %indvars.iv22 = phi i64 [ 0, %3 ], [ %indvars.iv.next23, %28 ]
-  %4 = mul nsw i64 %1, %indvars.iv22
+.preheader:                                       ; preds = %3, %31
+  %indvars.iv20 = phi i64 [ 0, %3 ], [ %indvars.iv.next21, %31 ]
+  %4 = mul nsw i64 %1, %indvars.iv20
   %invariant.gep = getelementptr i8, ptr %0, i64 %4
   br label %5
 
@@ -211,38 +211,38 @@ define internal noundef i32 @dxt5y_block(ptr noundef captures(none) %0, i64 noun
   %17 = add nsw i32 %11, -128
   %18 = sub nsw i32 %8, %11
   %19 = add nsw i32 %18, %16
-  %.not.i14 = icmp ult i32 %19, 256
-  %isnotneg.i15 = icmp sgt i32 %19, -1
-  %20 = sext i1 %isnotneg.i15 to i8
-  %21 = trunc nuw i32 %19 to i8
-  %.0.i16 = select i1 %.not.i14, i8 %21, i8 %20
-  store i8 %.0.i16, ptr %gep, align 1, !tbaa !23
-  %22 = add nsw i32 %17, %16
-  %.not.i11 = icmp ult i32 %22, 256
-  %isnotneg.i12 = icmp sgt i32 %22, -1
-  %23 = sext i1 %isnotneg.i12 to i8
-  %24 = trunc nuw i32 %22 to i8
-  %.0.i13 = select i1 %.not.i11, i8 %24, i8 %23
-  store i8 %.0.i13, ptr %9, align 1, !tbaa !23
-  %25 = add nuw nsw i32 %8, %11
-  %reass.sub = sub nsw i32 %16, %25
-  %.not.i = icmp ugt i32 %reass.sub, -257
+  %20 = icmp ugt i32 %19, 255
+  %isnotneg.i13 = icmp sgt i32 %19, -1
+  %21 = sext i1 %isnotneg.i13 to i8
+  %22 = trunc nuw i32 %19 to i8
+  %.0.i14 = select i1 %20, i8 %21, i8 %22
+  store i8 %.0.i14, ptr %gep, align 1, !tbaa !23
+  %23 = add nsw i32 %17, %16
+  %24 = icmp ugt i32 %23, 255
+  %isnotneg.i11 = icmp sgt i32 %23, -1
+  %25 = sext i1 %isnotneg.i11 to i8
+  %26 = trunc nuw i32 %23 to i8
+  %.0.i12 = select i1 %24, i8 %25, i8 %26
+  store i8 %.0.i12, ptr %9, align 1, !tbaa !23
+  %27 = add nuw nsw i32 %8, %11
+  %reass.sub = sub nsw i32 %16, %27
+  %28 = icmp ult i32 %reass.sub, -256
   %isnotneg.i = icmp sgt i32 %reass.sub, -257
-  %26 = sext i1 %isnotneg.i to i8
-  %27 = trunc i32 %reass.sub to i8
-  %.0.i = select i1 %.not.i, i8 %27, i8 %26
+  %29 = sext i1 %isnotneg.i to i8
+  %30 = trunc i32 %reass.sub to i8
+  %.0.i = select i1 %28, i8 %29, i8 %30
   store i8 %.0.i, ptr %12, align 1, !tbaa !23
   store i8 %13, ptr %14, align 1, !tbaa !23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %28, label %5, !llvm.loop !29
+  br i1 %exitcond.not, label %31, label %5, !llvm.loop !29
 
-28:                                               ; preds = %5
-  %indvars.iv.next23 = add nuw nsw i64 %indvars.iv22, 1
-  %exitcond25.not = icmp eq i64 %indvars.iv.next23, 4
-  br i1 %exitcond25.not, label %29, label %.preheader, !llvm.loop !30
+31:                                               ; preds = %5
+  %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
+  %exitcond23.not = icmp eq i64 %indvars.iv.next21, 4
+  br i1 %exitcond23.not, label %32, label %.preheader, !llvm.loop !30
 
-29:                                               ; preds = %28
+32:                                               ; preds = %31
   ret i32 16
 }
 
@@ -251,9 +251,9 @@ define internal noundef i32 @dxt5ys_block(ptr noundef captures(none) %0, i64 nou
   tail call fastcc void @dxt5_block_internal(ptr noundef %0, i64 noundef %1, ptr noundef %2)
   br label %.preheader
 
-.preheader:                                       ; preds = %3, %29
-  %indvars.iv23 = phi i64 [ 0, %3 ], [ %indvars.iv.next24, %29 ]
-  %4 = mul nsw i64 %1, %indvars.iv23
+.preheader:                                       ; preds = %3, %32
+  %indvars.iv21 = phi i64 [ 0, %3 ], [ %indvars.iv.next22, %32 ]
+  %4 = mul nsw i64 %1, %indvars.iv21
   %invariant.gep = getelementptr i8, ptr %0, i64 %4
   br label %5
 
@@ -274,43 +274,43 @@ define internal noundef i32 @dxt5ys_block(ptr noundef captures(none) %0, i64 nou
   %.lhs.trunc = xor i8 %7, -128
   %16 = sdiv i8 %.lhs.trunc, %narrow.i
   %.sext = sext i8 %16 to i32
-  %.lhs.trunc17 = xor i8 %9, -128
-  %17 = sdiv i8 %.lhs.trunc17, %narrow.i
-  %.sext19 = sext i8 %17 to i32
+  %.lhs.trunc15 = xor i8 %9, -128
+  %17 = sdiv i8 %.lhs.trunc15, %narrow.i
+  %.sext17 = sext i8 %17 to i32
   %18 = add nsw i32 %.sext, %14
-  %19 = sub nsw i32 %18, %.sext19
-  %.not.i14 = icmp ult i32 %19, 256
-  %isnotneg.i15 = icmp sgt i32 %19, -1
-  %20 = sext i1 %isnotneg.i15 to i8
-  %21 = trunc nuw i32 %19 to i8
-  %.0.i16 = select i1 %.not.i14, i8 %21, i8 %20
-  store i8 %.0.i16, ptr %gep, align 1, !tbaa !23
-  %22 = add nsw i32 %.sext19, %14
-  %.not.i11 = icmp ult i32 %22, 256
-  %isnotneg.i12 = icmp sgt i32 %22, -1
-  %23 = sext i1 %isnotneg.i12 to i8
-  %24 = trunc nuw i32 %22 to i8
-  %.0.i13 = select i1 %.not.i11, i8 %24, i8 %23
-  store i8 %.0.i13, ptr %8, align 1, !tbaa !23
-  %25 = add nsw i32 %.sext, %.sext19
-  %26 = sub nsw i32 %14, %25
-  %.not.i = icmp ult i32 %26, 256
-  %isnotneg.i = icmp sgt i32 %26, -1
-  %27 = sext i1 %isnotneg.i to i8
-  %28 = trunc nuw i32 %26 to i8
-  %.0.i = select i1 %.not.i, i8 %28, i8 %27
+  %19 = sub nsw i32 %18, %.sext17
+  %20 = icmp ugt i32 %19, 255
+  %isnotneg.i13 = icmp sgt i32 %19, -1
+  %21 = sext i1 %isnotneg.i13 to i8
+  %22 = trunc nuw i32 %19 to i8
+  %.0.i14 = select i1 %20, i8 %21, i8 %22
+  store i8 %.0.i14, ptr %gep, align 1, !tbaa !23
+  %23 = add nsw i32 %.sext17, %14
+  %24 = icmp ugt i32 %23, 255
+  %isnotneg.i11 = icmp sgt i32 %23, -1
+  %25 = sext i1 %isnotneg.i11 to i8
+  %26 = trunc nuw i32 %23 to i8
+  %.0.i12 = select i1 %24, i8 %25, i8 %26
+  store i8 %.0.i12, ptr %8, align 1, !tbaa !23
+  %27 = add nsw i32 %.sext, %.sext17
+  %28 = sub nsw i32 %14, %27
+  %29 = icmp ugt i32 %28, 255
+  %isnotneg.i = icmp sgt i32 %28, -1
+  %30 = sext i1 %isnotneg.i to i8
+  %31 = trunc nuw i32 %28 to i8
+  %.0.i = select i1 %29, i8 %30, i8 %31
   store i8 %.0.i, ptr %10, align 1, !tbaa !23
   store i8 -1, ptr %12, align 1, !tbaa !23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %29, label %5, !llvm.loop !31
+  br i1 %exitcond.not, label %32, label %5, !llvm.loop !31
 
-29:                                               ; preds = %5
-  %indvars.iv.next24 = add nuw nsw i64 %indvars.iv23, 1
-  %exitcond26.not = icmp eq i64 %indvars.iv.next24, 4
-  br i1 %exitcond26.not, label %30, label %.preheader, !llvm.loop !32
+32:                                               ; preds = %5
+  %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
+  %exitcond24.not = icmp eq i64 %indvars.iv.next22, 4
+  br i1 %exitcond24.not, label %33, label %.preheader, !llvm.loop !32
 
-30:                                               ; preds = %29
+33:                                               ; preds = %32
   ret i32 16
 }
 

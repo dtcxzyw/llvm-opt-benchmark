@@ -5422,10 +5422,9 @@ define internal fastcc void @split_graph_merge_strategy(ptr noundef captures(non
   %16 = add nsw i32 %15, 1
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 132
   store i32 %16, ptr %17, align 4, !tbaa !229
-  %18 = add i32 %.081101, -3
-  %or.cond = icmp ult i32 %18, -2
+  %18 = icmp ne i32 %.081101, 1
   %19 = icmp ne ptr %13, null
-  %or.cond7 = select i1 %or.cond, i1 %19, i1 false
+  %or.cond7 = select i1 %18, i1 %19, i1 false
   br i1 %or.cond7, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %.thread

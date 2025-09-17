@@ -100,19 +100,19 @@ define internal i32 @g722_decode_frame(ptr noundef %0, ptr noundef initializes((
   br label %42
 
 42:                                               ; preds = %.lr.ph, %121
-  %.05270 = phi ptr [ %21, %.lr.ph ], [ %114, %121 ]
-  %.05369 = phi i32 [ 0, %.lr.ph ], [ %122, %121 ]
-  %.sroa.6.068 = phi i32 [ 0, %.lr.ph ], [ %64, %121 ]
+  %.05267 = phi ptr [ %21, %.lr.ph ], [ %114, %121 ]
+  %.05366 = phi i32 [ 0, %.lr.ph ], [ %122, %121 ]
+  %.sroa.6.065 = phi i32 [ 0, %.lr.ph ], [ %64, %121 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %43 = lshr i32 %.sroa.6.068, 3
+  %43 = lshr i32 %.sroa.6.065, 3
   %44 = zext nneg i32 %43 to i64
   %45 = getelementptr inbounds nuw i8, ptr %23, i64 %44
   %46 = load i32, ptr %45, align 1, !tbaa !28
   %47 = call i32 @llvm.bswap.i32(i32 %46)
-  %48 = and i32 %.sroa.6.068, 7
+  %48 = and i32 %.sroa.6.065, 7
   %49 = shl i32 %47, %48
   %50 = lshr i32 %49, 30
-  %51 = add i32 %.sroa.6.068, 2
+  %51 = add i32 %.sroa.6.065, 2
   %52 = call i32 @llvm.umin.i32(i32 %29, i32 %51)
   %53 = lshr i32 %52, 3
   %54 = zext nneg i32 %53 to i64
@@ -153,15 +153,15 @@ define internal i32 @g722_decode_frame(ptr noundef %0, ptr noundef initializes((
   %87 = sext i16 %86 to i32
   %88 = add nsw i32 %85, %87
   %89 = call i32 @llvm.smax.i32(i32 %88, i32 -16384)
-  %.0.i58 = call i32 @llvm.smin.i32(i32 %89, i32 16383)
+  %.0.i57 = call i32 @llvm.smin.i32(i32 %89, i32 16383)
   call void @ff_g722_update_high_predictor(ptr noundef nonnull %36, i32 noundef %85, i32 noundef %50) #6
-  %90 = add nsw i32 %.0.i58, %.0.i
+  %90 = add nsw i32 %.0.i57, %.0.i
   %91 = trunc nsw i32 %90 to i16
   %92 = load i32, ptr %39, align 4, !tbaa !34
   %93 = sext i32 %92 to i64
   %94 = getelementptr inbounds i16, ptr %38, i64 %93
   store i16 %91, ptr %94, align 2, !tbaa !48
-  %95 = sub nsw i32 %.0.i, %.0.i58
+  %95 = sub nsw i32 %.0.i, %.0.i57
   %96 = trunc nsw i32 %95 to i16
   %97 = add nsw i32 %92, 2
   store i32 %97, ptr %39, align 4, !tbaa !34
@@ -178,16 +178,16 @@ define internal i32 @g722_decode_frame(ptr noundef %0, ptr noundef initializes((
   %106 = ashr i32 %105, 11
   %107 = call i32 @llvm.smax.i32(i32 %106, i32 -32768)
   %108 = call i32 @llvm.smin.i32(i32 %107, i32 32767)
-  %.0.i60 = trunc nsw i32 %108 to i16
-  %109 = getelementptr inbounds nuw i8, ptr %.05270, i64 2
-  store i16 %.0.i60, ptr %.05270, align 2, !tbaa !48
+  %.0.i58 = trunc nsw i32 %108 to i16
+  %109 = getelementptr inbounds nuw i8, ptr %.05267, i64 2
+  store i16 %.0.i58, ptr %.05267, align 2, !tbaa !48
   %110 = load i32, ptr %41, align 4, !tbaa !27
   %111 = ashr i32 %110, 11
   %112 = call i32 @llvm.smax.i32(i32 %111, i32 -32768)
   %113 = call i32 @llvm.smin.i32(i32 %112, i32 32767)
-  %.0.i62 = trunc nsw i32 %113 to i16
-  %114 = getelementptr inbounds nuw i8, ptr %.05270, i64 4
-  store i16 %.0.i62, ptr %109, align 2, !tbaa !48
+  %.0.i59 = trunc nsw i32 %113 to i16
+  %114 = getelementptr inbounds nuw i8, ptr %.05267, i64 4
+  store i16 %.0.i59, ptr %109, align 2, !tbaa !48
   %115 = load i32, ptr %39, align 4, !tbaa !34
   %116 = icmp sgt i32 %115, 1023
   br i1 %116, label %117, label %121
@@ -202,7 +202,7 @@ define internal i32 @g722_decode_frame(ptr noundef %0, ptr noundef initializes((
 
 121:                                              ; preds = %117, %42
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %122 = add nuw nsw i32 %.05369, 1
+  %122 = add nuw nsw i32 %.05366, 1
   %123 = load i32, ptr %14, align 8, !tbaa !39
   %124 = icmp slt i32 %122, %123
   br i1 %124, label %42, label %._crit_edge, !llvm.loop !51

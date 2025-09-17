@@ -88,9 +88,8 @@ define internal void @v1_free_pgtable(ptr noundef %0) #1 align 16 {
 11:                                               ; preds = %7
   %12 = getelementptr i8, ptr %0, i64 160
   %13 = load ptr, ptr %12, align 8
-  %.off = add nsw i32 %5, -2
-  %switch = icmp ult i32 %.off, 5
-  br i1 %switch, label %28, label %14
+  %.not = icmp eq i32 %5, 1
+  br i1 %.not, label %14, label %28
 
 14:                                               ; preds = %11
   %15 = load i64, ptr @vmemmap_base, align 8

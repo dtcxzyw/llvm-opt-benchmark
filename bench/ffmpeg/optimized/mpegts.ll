@@ -6908,7 +6908,7 @@ define internal range(i32 -1094995529, 1) i32 @mpegts_push_data(ptr noundef read
   store i32 4, ptr %38, align 8, !tbaa !165
   br label %.backedge
 
-.backedge.thread:                                 ; preds = %89, %618, %629, %631, %636
+.backedge.thread:                                 ; preds = %89, %619, %630, %632, %637
   br label %.thread396
 
 .backedge:                                        ; preds = %89, %160, %91, %176, %166, %185, %156, %153, %146, %._crit_edge, %570, %477, %473, %554, %558, %555, %544, %551, %545, %161
@@ -7716,89 +7716,89 @@ read_sl_header.exit:                              ; preds = %.thread104.i, %443,
   %.1 = phi i32 [ %591, %590 ], [ %.0, %592 ]
   %597 = load ptr, ptr %44, align 8, !tbaa !273
   %.not335 = icmp eq ptr %597, null
-  br i1 %.not335, label %598, label %618
+  br i1 %.not335, label %598, label %619
 
 598:                                              ; preds = %595
   %599 = add nsw i32 %.1, 64
-  %.not.i.i = icmp ult i32 %599, 65536
-  %600 = lshr i32 %599, 16
-  %spec.select.i.i = select i1 %.not.i.i, i32 %599, i32 %600
-  %spec.select12.i.i = select i1 %.not.i.i, i32 0, i32 16
-  %.not11.i.i = icmp samesign ult i32 %spec.select.i.i, 256
-  %601 = lshr i32 %spec.select.i.i, 8
-  %602 = or disjoint i32 %spec.select12.i.i, 8
-  %.110.i.i = select i1 %.not11.i.i, i32 %spec.select.i.i, i32 %601
-  %.1.i.i = select i1 %.not11.i.i, i32 %spec.select12.i.i, i32 %602
-  %603 = zext nneg i32 %.110.i.i to i64
-  %604 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %603
-  %605 = load i8, ptr %604, align 1, !tbaa !9
-  %606 = zext i8 %605 to i32
-  %607 = add nuw nsw i32 %.1.i.i, %606
-  %608 = zext nneg i32 %607 to i64
-  %609 = getelementptr inbounds nuw ptr, ptr %45, i64 %608
-  %610 = load ptr, ptr %609, align 8, !tbaa !274
-  %.not.i375 = icmp eq ptr %610, null
-  br i1 %.not.i375, label %611, label %buffer_pool_get.exit
+  %600 = icmp ugt i32 %599, 65535
+  %601 = lshr i32 %599, 16
+  %spec.select.i.i = select i1 %600, i32 %601, i32 %599
+  %spec.select11.i.i = select i1 %600, i32 16, i32 0
+  %.not.i.i = icmp samesign ult i32 %spec.select.i.i, 256
+  %602 = lshr i32 %spec.select.i.i, 8
+  %603 = or disjoint i32 %spec.select11.i.i, 8
+  %.110.i.i = select i1 %.not.i.i, i32 %spec.select.i.i, i32 %602
+  %.1.i.i = select i1 %.not.i.i, i32 %spec.select11.i.i, i32 %603
+  %604 = zext nneg i32 %.110.i.i to i64
+  %605 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %604
+  %606 = load i8, ptr %605, align 1, !tbaa !9
+  %607 = zext i8 %606 to i32
+  %608 = add nuw nsw i32 %.1.i.i, %607
+  %609 = zext nneg i32 %608 to i64
+  %610 = getelementptr inbounds nuw ptr, ptr %45, i64 %609
+  %611 = load ptr, ptr %610, align 8, !tbaa !274
+  %.not.i375 = icmp eq ptr %611, null
+  br i1 %.not.i375, label %612, label %buffer_pool_get.exit
 
-611:                                              ; preds = %598
-  %612 = add nsw i32 %596, 64
-  %613 = shl i32 2, %607
-  %..i = call i32 @llvm.smin.i32(i32 %612, i32 %613)
-  %614 = sext i32 %..i to i64
-  %615 = call ptr @av_buffer_pool_init(i64 noundef %614, ptr noundef null) #12
-  store ptr %615, ptr %609, align 8, !tbaa !274
-  %.not18.not.i = icmp eq ptr %615, null
+612:                                              ; preds = %598
+  %613 = add nsw i32 %596, 64
+  %614 = shl i32 2, %608
+  %..i = call i32 @llvm.smin.i32(i32 %613, i32 %614)
+  %615 = sext i32 %..i to i64
+  %616 = call ptr @av_buffer_pool_init(i64 noundef %615, ptr noundef null) #12
+  store ptr %616, ptr %610, align 8, !tbaa !274
+  %.not18.not.i = icmp eq ptr %616, null
   br i1 %.not18.not.i, label %buffer_pool_get.exit.thread, label %buffer_pool_get.exit
 
-buffer_pool_get.exit.thread:                      ; preds = %611
+buffer_pool_get.exit.thread:                      ; preds = %612
   store ptr null, ptr %44, align 8, !tbaa !273
   br label %.thread396
 
-buffer_pool_get.exit:                             ; preds = %598, %611
-  %616 = phi ptr [ %615, %611 ], [ %610, %598 ]
-  %617 = call ptr @av_buffer_pool_get(ptr noundef nonnull %616) #12
-  store ptr %617, ptr %44, align 8, !tbaa !273
-  %.not336 = icmp eq ptr %617, null
-  br i1 %.not336, label %.thread396, label %618
+buffer_pool_get.exit:                             ; preds = %598, %612
+  %617 = phi ptr [ %616, %612 ], [ %611, %598 ]
+  %618 = call ptr @av_buffer_pool_get(ptr noundef nonnull %617) #12
+  store ptr %618, ptr %44, align 8, !tbaa !273
+  %.not336 = icmp eq ptr %618, null
+  br i1 %.not336, label %.thread396, label %619
 
-618:                                              ; preds = %buffer_pool_get.exit, %595
-  %619 = phi ptr [ %617, %buffer_pool_get.exit ], [ %597, %595 ]
-  %620 = getelementptr inbounds nuw i8, ptr %619, i64 8
-  %621 = load ptr, ptr %620, align 8, !tbaa !276
-  %622 = load i32, ptr %42, align 4, !tbaa !199
-  %623 = sext i32 %622 to i64
-  %624 = getelementptr inbounds i8, ptr %621, i64 %623
-  %625 = sext i32 %.4 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %624, ptr align 1 %.0283411, i64 %625, i1 false)
-  %626 = load i32, ptr %42, align 4, !tbaa !199
-  %627 = add nsw i32 %626, %.4
-  store i32 %627, ptr %42, align 4, !tbaa !199
-  %628 = load i32, ptr %43, align 8, !tbaa !160
-  %.not337 = icmp eq i32 %628, 0
-  br i1 %.not337, label %629, label %.backedge.thread
+619:                                              ; preds = %buffer_pool_get.exit, %595
+  %620 = phi ptr [ %618, %buffer_pool_get.exit ], [ %597, %595 ]
+  %621 = getelementptr inbounds nuw i8, ptr %620, i64 8
+  %622 = load ptr, ptr %621, align 8, !tbaa !276
+  %623 = load i32, ptr %42, align 4, !tbaa !199
+  %624 = sext i32 %623 to i64
+  %625 = getelementptr inbounds i8, ptr %622, i64 %624
+  %626 = sext i32 %.4 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %625, ptr align 1 %.0283411, i64 %626, i1 false)
+  %627 = load i32, ptr %42, align 4, !tbaa !199
+  %628 = add nsw i32 %627, %.4
+  store i32 %628, ptr %42, align 4, !tbaa !199
+  %629 = load i32, ptr %43, align 8, !tbaa !160
+  %.not337 = icmp eq i32 %629, 0
+  br i1 %.not337, label %630, label %.backedge.thread
 
-629:                                              ; preds = %618
-  %630 = load i32, ptr %40, align 4, !tbaa !243
-  %.not338 = icmp eq i32 %630, 0
-  br i1 %.not338, label %.backedge.thread, label %631
+630:                                              ; preds = %619
+  %631 = load i32, ptr %40, align 4, !tbaa !243
+  %.not338 = icmp eq i32 %631, 0
+  br i1 %.not338, label %.backedge.thread, label %632
 
-631:                                              ; preds = %629
-  %632 = load i32, ptr %41, align 8, !tbaa !244
-  %633 = add nsw i32 %632, %627
-  %634 = add nsw i32 %630, 6
-  %635 = icmp eq i32 %633, %634
-  br i1 %635, label %636, label %.backedge.thread
+632:                                              ; preds = %630
+  %633 = load i32, ptr %41, align 8, !tbaa !244
+  %634 = add nsw i32 %633, %628
+  %635 = add nsw i32 %631, 6
+  %636 = icmp eq i32 %634, %635
+  br i1 %636, label %637, label %.backedge.thread
 
-636:                                              ; preds = %631
+637:                                              ; preds = %632
   store i32 1, ptr %43, align 8, !tbaa !160
-  %637 = load ptr, ptr %12, align 8, !tbaa !155
-  %638 = call fastcc i32 @new_pes_packet(ptr noundef nonnull %9, ptr noundef %637)
+  %638 = load ptr, ptr %12, align 8, !tbaa !155
+  %639 = call fastcc i32 @new_pes_packet(ptr noundef nonnull %9, ptr noundef %638)
   store i32 4, ptr %38, align 8, !tbaa !165
-  %639 = icmp slt i32 %638, 0
-  br i1 %639, label %.thread396, label %.backedge.thread
+  %640 = icmp slt i32 %639, 0
+  br i1 %640, label %.thread396, label %.backedge.thread
 
-.thread396:                                       ; preds = %135, %163, %180, %.backedge, %586, %buffer_pool_get.exit, %636, %.backedge.thread, %36, %buffer_pool_get.exit.thread, %23, %5
-  %.0277 = phi i32 [ 0, %5 ], [ %24, %23 ], [ -12, %buffer_pool_get.exit.thread ], [ 0, %36 ], [ %638, %636 ], [ -12, %buffer_pool_get.exit ], [ %588, %586 ], [ 0, %.backedge.thread ], [ -12, %135 ], [ -1094995529, %163 ], [ -1094995529, %180 ], [ 0, %.backedge ]
+.thread396:                                       ; preds = %135, %163, %180, %.backedge, %586, %buffer_pool_get.exit, %637, %.backedge.thread, %36, %buffer_pool_get.exit.thread, %23, %5
+  %.0277 = phi i32 [ 0, %5 ], [ %24, %23 ], [ -12, %buffer_pool_get.exit.thread ], [ 0, %36 ], [ %639, %637 ], [ -12, %buffer_pool_get.exit ], [ %588, %586 ], [ 0, %.backedge.thread ], [ -12, %135 ], [ -1094995529, %163 ], [ -1094995529, %180 ], [ 0, %.backedge ]
   ret i32 %.0277
 }
 

@@ -573,9 +573,8 @@ define hidden void @_ZN25diesel_table_macro_syntax8take_lit17h33c0a88e25bfec0dE(
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 256
   call void @llvm.experimental.noalias.scope.decl(metadata !63)
   %26 = load i64, ptr %24, align 8, !range !36, !alias.scope !63, !noalias !66, !noundef !5
-  %27 = add nsw i64 %26, -39
-  %switch.i.i = icmp ult i64 %27, 2
-  %..i.i = select i1 %switch.i.i, i64 8, i64 176
+  %27 = icmp samesign ugt i64 %26, 38
+  %..i.i = select i1 %27, i64 8, i64 176
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 %..i.i
   %29 = call noundef align 8 dereferenceable_or_null(32) ptr @_ZN3syn4path4Path9get_ident17hd052d54130953d06E(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %28), !noalias !66
   %30 = icmp eq ptr %29, null
@@ -894,9 +893,8 @@ define hidden void @_ZN25diesel_table_macro_syntax8take_lit17hfb9bb12205efe714E(
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 256
   call void @llvm.experimental.noalias.scope.decl(metadata !101)
   %26 = load i64, ptr %24, align 8, !range !36, !alias.scope !101, !noalias !104, !noundef !5
-  %27 = add nsw i64 %26, -39
-  %switch.i.i = icmp ult i64 %27, 2
-  %..i.i = select i1 %switch.i.i, i64 8, i64 176
+  %27 = icmp samesign ugt i64 %26, 38
+  %..i.i = select i1 %27, i64 8, i64 176
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 %..i.i
   %29 = call noundef align 8 dereferenceable_or_null(32) ptr @_ZN3syn4path4Path9get_ident17hd052d54130953d06E(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %28), !noalias !104
   %30 = icmp eq ptr %29, null

@@ -3507,8 +3507,8 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !29
   %14 = load i32, ptr %13, align 8, !tbaa !31
-  %.not16.i.i = icmp eq i32 %14, 9
-  br i1 %.not16.i.i, label %20, label %15
+  %.not15.i.i = icmp eq i32 %14, 9
+  br i1 %.not15.i.i, label %20, label %15
 
 15:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -3562,8 +3562,8 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115DarwinAsmParser18p
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !29
   %18 = load i32, ptr %17, align 8, !tbaa !31
-  %.not16 = icmp eq i32 %18, 9
-  br i1 %.not16, label %24, label %19
+  %.not15 = icmp eq i32 %18, 9
+  br i1 %.not15, label %24, label %19
 
 19:                                               ; preds = %8
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -3575,7 +3575,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115DarwinAsmParser18p
   %22 = load ptr, ptr %10, align 8, !tbaa !11
   %23 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser8TokErrorERKNS_5TwineENS_7SMRangeE(ptr noundef nonnull align 8 dereferenceable(34) %22, ptr noundef nonnull align 8 dereferenceable(34) %9, ptr null, ptr null) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %57
+  br label %58
 
 24:                                               ; preds = %8
   %25 = load ptr, ptr %10, align 8, !tbaa !11
@@ -3583,44 +3583,44 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115DarwinAsmParser18p
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 184
   %28 = load ptr, ptr %27, align 8
   %29 = tail call noundef nonnull align 8 dereferenceable(40) ptr %28(ptr noundef nonnull align 8 dereferenceable(34) %25) #18
-  %.not = icmp sgt i32 %5, -1
-  %30 = load ptr, ptr %10, align 8, !tbaa !11
-  %31 = load ptr, ptr %30, align 8, !tbaa !3
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 56
-  %33 = load ptr, ptr %32, align 8
-  %34 = tail call noundef nonnull align 8 dereferenceable(296) ptr %33(ptr noundef nonnull align 8 dereferenceable(34) %30) #18
-  %35 = load ptr, ptr %10, align 8, !tbaa !11
-  %36 = load ptr, ptr %35, align 8, !tbaa !3
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 48
-  %38 = load ptr, ptr %37, align 8
-  %39 = tail call noundef nonnull align 8 dereferenceable(2432) ptr %38(ptr noundef nonnull align 8 dereferenceable(34) %35) #18
-  %spec.select = select i1 %.not, i32 19, i32 2
-  %40 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %39, ptr %1, i64 %2, ptr %3, i64 %4, i32 noundef %5, i32 noundef %7, i32 %spec.select, ptr noundef null) #18
-  %41 = load ptr, ptr %34, align 8, !tbaa !3
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 176
-  %43 = load ptr, ptr %42, align 8
-  tail call void %43(ptr noundef nonnull align 8 dereferenceable(296) %34, ptr noundef %40, i32 noundef 0) #18
-  %.not15 = icmp eq i32 %6, 0
-  br i1 %.not15, label %57, label %44
+  %30 = icmp slt i32 %5, 0
+  %31 = load ptr, ptr %10, align 8, !tbaa !11
+  %32 = load ptr, ptr %31, align 8, !tbaa !3
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 56
+  %34 = load ptr, ptr %33, align 8
+  %35 = tail call noundef nonnull align 8 dereferenceable(296) ptr %34(ptr noundef nonnull align 8 dereferenceable(34) %31) #18
+  %36 = load ptr, ptr %10, align 8, !tbaa !11
+  %37 = load ptr, ptr %36, align 8, !tbaa !3
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 48
+  %39 = load ptr, ptr %38, align 8
+  %40 = tail call noundef nonnull align 8 dereferenceable(2432) ptr %39(ptr noundef nonnull align 8 dereferenceable(34) %36) #18
+  %spec.select = select i1 %30, i32 2, i32 19
+  %41 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %40, ptr %1, i64 %2, ptr %3, i64 %4, i32 noundef %5, i32 noundef %7, i32 %spec.select, ptr noundef null) #18
+  %42 = load ptr, ptr %35, align 8, !tbaa !3
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 176
+  %44 = load ptr, ptr %43, align 8
+  tail call void %44(ptr noundef nonnull align 8 dereferenceable(296) %35, ptr noundef %41, i32 noundef 0) #18
+  %.not = icmp eq i32 %6, 0
+  br i1 %.not, label %58, label %45
 
-44:                                               ; preds = %24
-  %45 = load ptr, ptr %10, align 8, !tbaa !11
-  %46 = load ptr, ptr %45, align 8, !tbaa !3
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 56
-  %48 = load ptr, ptr %47, align 8
-  %49 = tail call noundef nonnull align 8 dereferenceable(296) ptr %48(ptr noundef nonnull align 8 dereferenceable(34) %45) #18
-  %50 = zext nneg i32 %6 to i64
-  %51 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %50, i1 true)
-  %52 = trunc nuw nsw i64 %51 to i8
-  %53 = xor i8 %52, 63
-  %54 = load ptr, ptr %49, align 8, !tbaa !3
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 664
-  %56 = load ptr, ptr %55, align 8
-  tail call void %56(ptr noundef nonnull align 8 dereferenceable(296) %49, i8 %53, i64 noundef 0, i32 noundef 1, i32 noundef 0) #18
-  br label %57
+45:                                               ; preds = %24
+  %46 = load ptr, ptr %10, align 8, !tbaa !11
+  %47 = load ptr, ptr %46, align 8, !tbaa !3
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 56
+  %49 = load ptr, ptr %48, align 8
+  %50 = tail call noundef nonnull align 8 dereferenceable(296) ptr %49(ptr noundef nonnull align 8 dereferenceable(34) %46) #18
+  %51 = zext nneg i32 %6 to i64
+  %52 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %51, i1 true)
+  %53 = trunc nuw nsw i64 %52 to i8
+  %54 = xor i8 %53, 63
+  %55 = load ptr, ptr %50, align 8, !tbaa !3
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 664
+  %57 = load ptr, ptr %56, align 8
+  tail call void %57(ptr noundef nonnull align 8 dereferenceable(296) %50, i8 %54, i64 noundef 0, i32 noundef 1, i32 noundef 0) #18
+  br label %58
 
-57:                                               ; preds = %24, %44, %19
-  %.0 = phi i1 [ %23, %19 ], [ false, %44 ], [ false, %24 ]
+58:                                               ; preds = %24, %45, %19
+  %.0 = phi i1 [ %23, %19 ], [ false, %45 ], [ false, %24 ]
   ret i1 %.0
 }
 
@@ -3636,8 +3636,8 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !29
   %14 = load i32, ptr %13, align 8, !tbaa !31
-  %.not16.i.i = icmp eq i32 %14, 9
-  br i1 %.not16.i.i, label %20, label %15
+  %.not15.i.i = icmp eq i32 %14, 9
+  br i1 %.not15.i.i, label %20, label %15
 
 15:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -3691,8 +3691,8 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !29
   %14 = load i32, ptr %13, align 8, !tbaa !31
-  %.not16.i.i = icmp eq i32 %14, 9
-  br i1 %.not16.i.i, label %20, label %15
+  %.not15.i.i = icmp eq i32 %14, 9
+  br i1 %.not15.i.i, label %20, label %15
 
 15:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -3746,8 +3746,8 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !29
   %14 = load i32, ptr %13, align 8, !tbaa !31
-  %.not16.i.i = icmp eq i32 %14, 9
-  br i1 %.not16.i.i, label %20, label %15
+  %.not15.i.i = icmp eq i32 %14, 9
+  br i1 %.not15.i.i, label %20, label %15
 
 15:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -3801,8 +3801,8 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !29
   %14 = load i32, ptr %13, align 8, !tbaa !31
-  %.not16.i.i = icmp eq i32 %14, 9
-  br i1 %.not16.i.i, label %20, label %15
+  %.not15.i.i = icmp eq i32 %14, 9
+  br i1 %.not15.i.i, label %20, label %15
 
 15:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -3856,8 +3856,8 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !29
   %14 = load i32, ptr %13, align 8, !tbaa !31
-  %.not16.i.i = icmp eq i32 %14, 9
-  br i1 %.not16.i.i, label %20, label %15
+  %.not15.i.i = icmp eq i32 %14, 9
+  br i1 %.not15.i.i, label %20, label %15
 
 15:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -3911,8 +3911,8 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !29
   %14 = load i32, ptr %13, align 8, !tbaa !31
-  %.not16.i.i = icmp eq i32 %14, 9
-  br i1 %.not16.i.i, label %20, label %15
+  %.not15.i.i = icmp eq i32 %14, 9
+  br i1 %.not15.i.i, label %20, label %15
 
 15:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -3966,8 +3966,8 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !29
   %14 = load i32, ptr %13, align 8, !tbaa !31
-  %.not16.i.i = icmp eq i32 %14, 9
-  br i1 %.not16.i.i, label %20, label %15
+  %.not15.i.i = icmp eq i32 %14, 9
+  br i1 %.not15.i.i, label %20, label %15
 
 15:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -4021,8 +4021,8 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !29
   %14 = load i32, ptr %13, align 8, !tbaa !31
-  %.not16.i.i = icmp eq i32 %14, 9
-  br i1 %.not16.i.i, label %20, label %15
+  %.not15.i.i = icmp eq i32 %14, 9
+  br i1 %.not15.i.i, label %20, label %15
 
 15:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -4076,8 +4076,8 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !29
   %14 = load i32, ptr %13, align 8, !tbaa !31
-  %.not16.i.i = icmp eq i32 %14, 9
-  br i1 %.not16.i.i, label %20, label %15
+  %.not15.i.i = icmp eq i32 %14, 9
+  br i1 %.not15.i.i, label %20, label %15
 
 15:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -4609,8 +4609,8 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !29
   %14 = load i32, ptr %13, align 8, !tbaa !31
-  %.not16.i.i = icmp eq i32 %14, 9
-  br i1 %.not16.i.i, label %20, label %15
+  %.not15.i.i = icmp eq i32 %14, 9
+  br i1 %.not15.i.i, label %20, label %15
 
 15:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -4664,8 +4664,8 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !29
   %14 = load i32, ptr %13, align 8, !tbaa !31
-  %.not16.i.i = icmp eq i32 %14, 9
-  br i1 %.not16.i.i, label %20, label %15
+  %.not15.i.i = icmp eq i32 %14, 9
+  br i1 %.not15.i.i, label %20, label %15
 
 15:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -4719,8 +4719,8 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !29
   %14 = load i32, ptr %13, align 8, !tbaa !31
-  %.not16.i.i = icmp eq i32 %14, 9
-  br i1 %.not16.i.i, label %20, label %15
+  %.not15.i.i = icmp eq i32 %14, 9
+  br i1 %.not15.i.i, label %20, label %15
 
 15:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -4774,8 +4774,8 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !29
   %14 = load i32, ptr %13, align 8, !tbaa !31
-  %.not16.i.i = icmp eq i32 %14, 9
-  br i1 %.not16.i.i, label %20, label %15
+  %.not15.i.i = icmp eq i32 %14, 9
+  br i1 %.not15.i.i, label %20, label %15
 
 15:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -4829,8 +4829,8 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !29
   %14 = load i32, ptr %13, align 8, !tbaa !31
-  %.not16.i.i = icmp eq i32 %14, 9
-  br i1 %.not16.i.i, label %20, label %15
+  %.not15.i.i = icmp eq i32 %14, 9
+  br i1 %.not15.i.i, label %20, label %15
 
 15:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -4884,8 +4884,8 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !29
   %14 = load i32, ptr %13, align 8, !tbaa !31
-  %.not16.i.i = icmp eq i32 %14, 9
-  br i1 %.not16.i.i, label %20, label %15
+  %.not15.i.i = icmp eq i32 %14, 9
+  br i1 %.not15.i.i, label %20, label %15
 
 15:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -4939,8 +4939,8 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !29
   %14 = load i32, ptr %13, align 8, !tbaa !31
-  %.not16.i.i = icmp eq i32 %14, 9
-  br i1 %.not16.i.i, label %20, label %15
+  %.not15.i.i = icmp eq i32 %14, 9
+  br i1 %.not15.i.i, label %20, label %15
 
 15:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -5000,8 +5000,8 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !29
   %14 = load i32, ptr %13, align 8, !tbaa !31
-  %.not16.i.i = icmp eq i32 %14, 9
-  br i1 %.not16.i.i, label %20, label %15
+  %.not15.i.i = icmp eq i32 %14, 9
+  br i1 %.not15.i.i, label %20, label %15
 
 15:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -5055,8 +5055,8 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !29
   %14 = load i32, ptr %13, align 8, !tbaa !31
-  %.not16.i.i = icmp eq i32 %14, 9
-  br i1 %.not16.i.i, label %20, label %15
+  %.not15.i.i = icmp eq i32 %14, 9
+  br i1 %.not15.i.i, label %20, label %15
 
 15:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -5116,8 +5116,8 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !29
   %14 = load i32, ptr %13, align 8, !tbaa !31
-  %.not16.i.i = icmp eq i32 %14, 9
-  br i1 %.not16.i.i, label %20, label %15
+  %.not15.i.i = icmp eq i32 %14, 9
+  br i1 %.not15.i.i, label %20, label %15
 
 15:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -5171,8 +5171,8 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !29
   %14 = load i32, ptr %13, align 8, !tbaa !31
-  %.not16.i.i = icmp eq i32 %14, 9
-  br i1 %.not16.i.i, label %20, label %15
+  %.not15.i.i = icmp eq i32 %14, 9
+  br i1 %.not15.i.i, label %20, label %15
 
 15:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -5226,8 +5226,8 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !29
   %14 = load i32, ptr %13, align 8, !tbaa !31
-  %.not16.i.i = icmp eq i32 %14, 9
-  br i1 %.not16.i.i, label %20, label %15
+  %.not15.i.i = icmp eq i32 %14, 9
+  br i1 %.not15.i.i, label %20, label %15
 
 15:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -5281,8 +5281,8 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !29
   %14 = load i32, ptr %13, align 8, !tbaa !31
-  %.not16.i.i = icmp eq i32 %14, 9
-  br i1 %.not16.i.i, label %20, label %15
+  %.not15.i.i = icmp eq i32 %14, 9
+  br i1 %.not15.i.i, label %20, label %15
 
 15:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -5336,8 +5336,8 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !29
   %14 = load i32, ptr %13, align 8, !tbaa !31
-  %.not16.i.i = icmp eq i32 %14, 9
-  br i1 %.not16.i.i, label %20, label %15
+  %.not15.i.i = icmp eq i32 %14, 9
+  br i1 %.not15.i.i, label %20, label %15
 
 15:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -5391,8 +5391,8 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !29
   %14 = load i32, ptr %13, align 8, !tbaa !31
-  %.not16.i.i = icmp eq i32 %14, 9
-  br i1 %.not16.i.i, label %20, label %15
+  %.not15.i.i = icmp eq i32 %14, 9
+  br i1 %.not15.i.i, label %20, label %15
 
 15:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -5446,8 +5446,8 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !29
   %14 = load i32, ptr %13, align 8, !tbaa !31
-  %.not16.i.i = icmp eq i32 %14, 9
-  br i1 %.not16.i.i, label %20, label %15
+  %.not15.i.i = icmp eq i32 %14, 9
+  br i1 %.not15.i.i, label %20, label %15
 
 15:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -5501,8 +5501,8 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !29
   %14 = load i32, ptr %13, align 8, !tbaa !31
-  %.not16.i.i = icmp eq i32 %14, 9
-  br i1 %.not16.i.i, label %20, label %15
+  %.not15.i.i = icmp eq i32 %14, 9
+  br i1 %.not15.i.i, label %20, label %15
 
 15:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -5556,8 +5556,8 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !29
   %14 = load i32, ptr %13, align 8, !tbaa !31
-  %.not16.i.i = icmp eq i32 %14, 9
-  br i1 %.not16.i.i, label %20, label %15
+  %.not15.i.i = icmp eq i32 %14, 9
+  br i1 %.not15.i.i, label %20, label %15
 
 15:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -5611,8 +5611,8 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !29
   %14 = load i32, ptr %13, align 8, !tbaa !31
-  %.not16.i.i = icmp eq i32 %14, 9
-  br i1 %.not16.i.i, label %20, label %15
+  %.not15.i.i = icmp eq i32 %14, 9
+  br i1 %.not15.i.i, label %20, label %15
 
 15:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -5666,8 +5666,8 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !29
   %14 = load i32, ptr %13, align 8, !tbaa !31
-  %.not16.i.i = icmp eq i32 %14, 9
-  br i1 %.not16.i.i, label %20, label %15
+  %.not15.i.i = icmp eq i32 %14, 9
+  br i1 %.not15.i.i, label %20, label %15
 
 15:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -5721,8 +5721,8 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !29
   %14 = load i32, ptr %13, align 8, !tbaa !31
-  %.not16.i.i = icmp eq i32 %14, 9
-  br i1 %.not16.i.i, label %20, label %15
+  %.not15.i.i = icmp eq i32 %14, 9
+  br i1 %.not15.i.i, label %20, label %15
 
 15:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -5776,8 +5776,8 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !29
   %14 = load i32, ptr %13, align 8, !tbaa !31
-  %.not16.i.i = icmp eq i32 %14, 9
-  br i1 %.not16.i.i, label %20, label %15
+  %.not15.i.i = icmp eq i32 %14, 9
+  br i1 %.not15.i.i, label %20, label %15
 
 15:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -5831,8 +5831,8 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !29
   %14 = load i32, ptr %13, align 8, !tbaa !31
-  %.not16.i.i = icmp eq i32 %14, 9
-  br i1 %.not16.i.i, label %20, label %15
+  %.not15.i.i = icmp eq i32 %14, 9
+  br i1 %.not15.i.i, label %20, label %15
 
 15:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -5886,8 +5886,8 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !29
   %14 = load i32, ptr %13, align 8, !tbaa !31
-  %.not16.i.i = icmp eq i32 %14, 9
-  br i1 %.not16.i.i, label %20, label %15
+  %.not15.i.i = icmp eq i32 %14, 9
+  br i1 %.not15.i.i, label %20, label %15
 
 15:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -5941,8 +5941,8 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !29
   %14 = load i32, ptr %13, align 8, !tbaa !31
-  %.not16.i.i = icmp eq i32 %14, 9
-  br i1 %.not16.i.i, label %20, label %15
+  %.not15.i.i = icmp eq i32 %14, 9
+  br i1 %.not15.i.i, label %20, label %15
 
 15:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)

@@ -255090,33 +255090,32 @@ define internal fastcc ptr @_init_l_IO_FS_Stream_readRequestAs___at_Lean_Server_
   %2 = ptrtoint ptr %1 to i64
   %3 = and i64 %2, 1
   %.not.i = icmp eq i64 %3, 0
-  br i1 %.not.i, label %17, label %4, !prof !17
+  br i1 %.not.i, label %15, label %4, !prof !17
 
 4:                                                ; preds = %0
   %5 = shl i64 %2, 31
   %6 = ashr i64 %5, 32
   %7 = sub nsw i64 0, %6
-  %8 = add nsw i64 %6, 2147483647
-  %9 = icmp ult i64 %8, 4294967296
-  br i1 %9, label %10, label %15, !prof !13
+  %.not4.i = icmp eq i64 %6, -2147483648
+  br i1 %.not4.i, label %13, label %8, !prof !17
 
-10:                                               ; preds = %4
-  %11 = shl nsw i64 %7, 1
-  %12 = and i64 %11, 8589934590
-  %13 = or disjoint i64 %12, 1
-  %14 = inttoptr i64 %13 to ptr
+8:                                                ; preds = %4
+  %9 = shl nsw i64 %7, 1
+  %10 = and i64 %9, 8589934590
+  %11 = or disjoint i64 %10, 1
+  %12 = inttoptr i64 %11 to ptr
   br label %lean_int_neg.exit
 
-15:                                               ; preds = %4
-  %16 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4294967296, 4294967295) %7) #7
+13:                                               ; preds = %4
+  %14 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4294967296, 4294967295) %7) #7
   br label %lean_int_neg.exit
 
-17:                                               ; preds = %0
-  %18 = tail call ptr @lean_int_big_neg(ptr noundef %1) #7
+15:                                               ; preds = %0
+  %16 = tail call ptr @lean_int_big_neg(ptr noundef %1) #7
   br label %lean_int_neg.exit
 
-lean_int_neg.exit:                                ; preds = %10, %15, %17
-  %.0.i = phi ptr [ %18, %17 ], [ %14, %10 ], [ %16, %15 ]
+lean_int_neg.exit:                                ; preds = %8, %13, %15
+  %.0.i = phi ptr [ %16, %15 ], [ %12, %8 ], [ %14, %13 ]
   ret ptr %.0.i
 }
 
@@ -255170,33 +255169,32 @@ define internal fastcc ptr @_init_l_IO_FS_Stream_readRequestAs___at_Lean_Server_
   %2 = ptrtoint ptr %1 to i64
   %3 = and i64 %2, 1
   %.not.i = icmp eq i64 %3, 0
-  br i1 %.not.i, label %17, label %4, !prof !17
+  br i1 %.not.i, label %15, label %4, !prof !17
 
 4:                                                ; preds = %0
   %5 = shl i64 %2, 31
   %6 = ashr i64 %5, 32
   %7 = sub nsw i64 0, %6
-  %8 = add nsw i64 %6, 2147483647
-  %9 = icmp ult i64 %8, 4294967296
-  br i1 %9, label %10, label %15, !prof !13
+  %.not4.i = icmp eq i64 %6, -2147483648
+  br i1 %.not4.i, label %13, label %8, !prof !17
 
-10:                                               ; preds = %4
-  %11 = shl nsw i64 %7, 1
-  %12 = and i64 %11, 8589934590
-  %13 = or disjoint i64 %12, 1
-  %14 = inttoptr i64 %13 to ptr
+8:                                                ; preds = %4
+  %9 = shl nsw i64 %7, 1
+  %10 = and i64 %9, 8589934590
+  %11 = or disjoint i64 %10, 1
+  %12 = inttoptr i64 %11 to ptr
   br label %lean_int_neg.exit
 
-15:                                               ; preds = %4
-  %16 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4294967296, 4294967295) %7) #7
+13:                                               ; preds = %4
+  %14 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4294967296, 4294967295) %7) #7
   br label %lean_int_neg.exit
 
-17:                                               ; preds = %0
-  %18 = tail call ptr @lean_int_big_neg(ptr noundef %1) #7
+15:                                               ; preds = %0
+  %16 = tail call ptr @lean_int_big_neg(ptr noundef %1) #7
   br label %lean_int_neg.exit
 
-lean_int_neg.exit:                                ; preds = %10, %15, %17
-  %.0.i = phi ptr [ %18, %17 ], [ %14, %10 ], [ %16, %15 ]
+lean_int_neg.exit:                                ; preds = %8, %13, %15
+  %.0.i = phi ptr [ %16, %15 ], [ %12, %8 ], [ %14, %13 ]
   ret ptr %.0.i
 }
 
@@ -255250,33 +255248,32 @@ define internal fastcc ptr @_init_l_IO_FS_Stream_readRequestAs___at_Lean_Server_
   %2 = ptrtoint ptr %1 to i64
   %3 = and i64 %2, 1
   %.not.i = icmp eq i64 %3, 0
-  br i1 %.not.i, label %17, label %4, !prof !17
+  br i1 %.not.i, label %15, label %4, !prof !17
 
 4:                                                ; preds = %0
   %5 = shl i64 %2, 31
   %6 = ashr i64 %5, 32
   %7 = sub nsw i64 0, %6
-  %8 = add nsw i64 %6, 2147483647
-  %9 = icmp ult i64 %8, 4294967296
-  br i1 %9, label %10, label %15, !prof !13
+  %.not4.i = icmp eq i64 %6, -2147483648
+  br i1 %.not4.i, label %13, label %8, !prof !17
 
-10:                                               ; preds = %4
-  %11 = shl nsw i64 %7, 1
-  %12 = and i64 %11, 8589934590
-  %13 = or disjoint i64 %12, 1
-  %14 = inttoptr i64 %13 to ptr
+8:                                                ; preds = %4
+  %9 = shl nsw i64 %7, 1
+  %10 = and i64 %9, 8589934590
+  %11 = or disjoint i64 %10, 1
+  %12 = inttoptr i64 %11 to ptr
   br label %lean_int_neg.exit
 
-15:                                               ; preds = %4
-  %16 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4294967296, 4294967295) %7) #7
+13:                                               ; preds = %4
+  %14 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4294967296, 4294967295) %7) #7
   br label %lean_int_neg.exit
 
-17:                                               ; preds = %0
-  %18 = tail call ptr @lean_int_big_neg(ptr noundef %1) #7
+15:                                               ; preds = %0
+  %16 = tail call ptr @lean_int_big_neg(ptr noundef %1) #7
   br label %lean_int_neg.exit
 
-lean_int_neg.exit:                                ; preds = %10, %15, %17
-  %.0.i = phi ptr [ %18, %17 ], [ %14, %10 ], [ %16, %15 ]
+lean_int_neg.exit:                                ; preds = %8, %13, %15
+  %.0.i = phi ptr [ %16, %15 ], [ %12, %8 ], [ %14, %13 ]
   ret ptr %.0.i
 }
 
@@ -255330,33 +255327,32 @@ define internal fastcc ptr @_init_l_IO_FS_Stream_readRequestAs___at_Lean_Server_
   %2 = ptrtoint ptr %1 to i64
   %3 = and i64 %2, 1
   %.not.i = icmp eq i64 %3, 0
-  br i1 %.not.i, label %17, label %4, !prof !17
+  br i1 %.not.i, label %15, label %4, !prof !17
 
 4:                                                ; preds = %0
   %5 = shl i64 %2, 31
   %6 = ashr i64 %5, 32
   %7 = sub nsw i64 0, %6
-  %8 = add nsw i64 %6, 2147483647
-  %9 = icmp ult i64 %8, 4294967296
-  br i1 %9, label %10, label %15, !prof !13
+  %.not4.i = icmp eq i64 %6, -2147483648
+  br i1 %.not4.i, label %13, label %8, !prof !17
 
-10:                                               ; preds = %4
-  %11 = shl nsw i64 %7, 1
-  %12 = and i64 %11, 8589934590
-  %13 = or disjoint i64 %12, 1
-  %14 = inttoptr i64 %13 to ptr
+8:                                                ; preds = %4
+  %9 = shl nsw i64 %7, 1
+  %10 = and i64 %9, 8589934590
+  %11 = or disjoint i64 %10, 1
+  %12 = inttoptr i64 %11 to ptr
   br label %lean_int_neg.exit
 
-15:                                               ; preds = %4
-  %16 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4294967296, 4294967295) %7) #7
+13:                                               ; preds = %4
+  %14 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4294967296, 4294967295) %7) #7
   br label %lean_int_neg.exit
 
-17:                                               ; preds = %0
-  %18 = tail call ptr @lean_int_big_neg(ptr noundef %1) #7
+15:                                               ; preds = %0
+  %16 = tail call ptr @lean_int_big_neg(ptr noundef %1) #7
   br label %lean_int_neg.exit
 
-lean_int_neg.exit:                                ; preds = %10, %15, %17
-  %.0.i = phi ptr [ %18, %17 ], [ %14, %10 ], [ %16, %15 ]
+lean_int_neg.exit:                                ; preds = %8, %13, %15
+  %.0.i = phi ptr [ %16, %15 ], [ %12, %8 ], [ %14, %13 ]
   ret ptr %.0.i
 }
 
@@ -255410,33 +255406,32 @@ define internal fastcc ptr @_init_l_IO_FS_Stream_readRequestAs___at_Lean_Server_
   %2 = ptrtoint ptr %1 to i64
   %3 = and i64 %2, 1
   %.not.i = icmp eq i64 %3, 0
-  br i1 %.not.i, label %17, label %4, !prof !17
+  br i1 %.not.i, label %15, label %4, !prof !17
 
 4:                                                ; preds = %0
   %5 = shl i64 %2, 31
   %6 = ashr i64 %5, 32
   %7 = sub nsw i64 0, %6
-  %8 = add nsw i64 %6, 2147483647
-  %9 = icmp ult i64 %8, 4294967296
-  br i1 %9, label %10, label %15, !prof !13
+  %.not4.i = icmp eq i64 %6, -2147483648
+  br i1 %.not4.i, label %13, label %8, !prof !17
 
-10:                                               ; preds = %4
-  %11 = shl nsw i64 %7, 1
-  %12 = and i64 %11, 8589934590
-  %13 = or disjoint i64 %12, 1
-  %14 = inttoptr i64 %13 to ptr
+8:                                                ; preds = %4
+  %9 = shl nsw i64 %7, 1
+  %10 = and i64 %9, 8589934590
+  %11 = or disjoint i64 %10, 1
+  %12 = inttoptr i64 %11 to ptr
   br label %lean_int_neg.exit
 
-15:                                               ; preds = %4
-  %16 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4294967296, 4294967295) %7) #7
+13:                                               ; preds = %4
+  %14 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4294967296, 4294967295) %7) #7
   br label %lean_int_neg.exit
 
-17:                                               ; preds = %0
-  %18 = tail call ptr @lean_int_big_neg(ptr noundef %1) #7
+15:                                               ; preds = %0
+  %16 = tail call ptr @lean_int_big_neg(ptr noundef %1) #7
   br label %lean_int_neg.exit
 
-lean_int_neg.exit:                                ; preds = %10, %15, %17
-  %.0.i = phi ptr [ %18, %17 ], [ %14, %10 ], [ %16, %15 ]
+lean_int_neg.exit:                                ; preds = %8, %13, %15
+  %.0.i = phi ptr [ %16, %15 ], [ %12, %8 ], [ %14, %13 ]
   ret ptr %.0.i
 }
 
@@ -255490,33 +255485,32 @@ define internal fastcc ptr @_init_l_IO_FS_Stream_readRequestAs___at_Lean_Server_
   %2 = ptrtoint ptr %1 to i64
   %3 = and i64 %2, 1
   %.not.i = icmp eq i64 %3, 0
-  br i1 %.not.i, label %17, label %4, !prof !17
+  br i1 %.not.i, label %15, label %4, !prof !17
 
 4:                                                ; preds = %0
   %5 = shl i64 %2, 31
   %6 = ashr i64 %5, 32
   %7 = sub nsw i64 0, %6
-  %8 = add nsw i64 %6, 2147483647
-  %9 = icmp ult i64 %8, 4294967296
-  br i1 %9, label %10, label %15, !prof !13
+  %.not4.i = icmp eq i64 %6, -2147483648
+  br i1 %.not4.i, label %13, label %8, !prof !17
 
-10:                                               ; preds = %4
-  %11 = shl nsw i64 %7, 1
-  %12 = and i64 %11, 8589934590
-  %13 = or disjoint i64 %12, 1
-  %14 = inttoptr i64 %13 to ptr
+8:                                                ; preds = %4
+  %9 = shl nsw i64 %7, 1
+  %10 = and i64 %9, 8589934590
+  %11 = or disjoint i64 %10, 1
+  %12 = inttoptr i64 %11 to ptr
   br label %lean_int_neg.exit
 
-15:                                               ; preds = %4
-  %16 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4294967296, 4294967295) %7) #7
+13:                                               ; preds = %4
+  %14 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4294967296, 4294967295) %7) #7
   br label %lean_int_neg.exit
 
-17:                                               ; preds = %0
-  %18 = tail call ptr @lean_int_big_neg(ptr noundef %1) #7
+15:                                               ; preds = %0
+  %16 = tail call ptr @lean_int_big_neg(ptr noundef %1) #7
   br label %lean_int_neg.exit
 
-lean_int_neg.exit:                                ; preds = %10, %15, %17
-  %.0.i = phi ptr [ %18, %17 ], [ %14, %10 ], [ %16, %15 ]
+lean_int_neg.exit:                                ; preds = %8, %13, %15
+  %.0.i = phi ptr [ %16, %15 ], [ %12, %8 ], [ %14, %13 ]
   ret ptr %.0.i
 }
 
@@ -255570,33 +255564,32 @@ define internal fastcc ptr @_init_l_IO_FS_Stream_readRequestAs___at_Lean_Server_
   %2 = ptrtoint ptr %1 to i64
   %3 = and i64 %2, 1
   %.not.i = icmp eq i64 %3, 0
-  br i1 %.not.i, label %17, label %4, !prof !17
+  br i1 %.not.i, label %15, label %4, !prof !17
 
 4:                                                ; preds = %0
   %5 = shl i64 %2, 31
   %6 = ashr i64 %5, 32
   %7 = sub nsw i64 0, %6
-  %8 = add nsw i64 %6, 2147483647
-  %9 = icmp ult i64 %8, 4294967296
-  br i1 %9, label %10, label %15, !prof !13
+  %.not4.i = icmp eq i64 %6, -2147483648
+  br i1 %.not4.i, label %13, label %8, !prof !17
 
-10:                                               ; preds = %4
-  %11 = shl nsw i64 %7, 1
-  %12 = and i64 %11, 8589934590
-  %13 = or disjoint i64 %12, 1
-  %14 = inttoptr i64 %13 to ptr
+8:                                                ; preds = %4
+  %9 = shl nsw i64 %7, 1
+  %10 = and i64 %9, 8589934590
+  %11 = or disjoint i64 %10, 1
+  %12 = inttoptr i64 %11 to ptr
   br label %lean_int_neg.exit
 
-15:                                               ; preds = %4
-  %16 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4294967296, 4294967295) %7) #7
+13:                                               ; preds = %4
+  %14 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4294967296, 4294967295) %7) #7
   br label %lean_int_neg.exit
 
-17:                                               ; preds = %0
-  %18 = tail call ptr @lean_int_big_neg(ptr noundef %1) #7
+15:                                               ; preds = %0
+  %16 = tail call ptr @lean_int_big_neg(ptr noundef %1) #7
   br label %lean_int_neg.exit
 
-lean_int_neg.exit:                                ; preds = %10, %15, %17
-  %.0.i = phi ptr [ %18, %17 ], [ %14, %10 ], [ %16, %15 ]
+lean_int_neg.exit:                                ; preds = %8, %13, %15
+  %.0.i = phi ptr [ %16, %15 ], [ %12, %8 ], [ %14, %13 ]
   ret ptr %.0.i
 }
 
@@ -255650,33 +255643,32 @@ define internal fastcc ptr @_init_l_IO_FS_Stream_readRequestAs___at_Lean_Server_
   %2 = ptrtoint ptr %1 to i64
   %3 = and i64 %2, 1
   %.not.i = icmp eq i64 %3, 0
-  br i1 %.not.i, label %17, label %4, !prof !17
+  br i1 %.not.i, label %15, label %4, !prof !17
 
 4:                                                ; preds = %0
   %5 = shl i64 %2, 31
   %6 = ashr i64 %5, 32
   %7 = sub nsw i64 0, %6
-  %8 = add nsw i64 %6, 2147483647
-  %9 = icmp ult i64 %8, 4294967296
-  br i1 %9, label %10, label %15, !prof !13
+  %.not4.i = icmp eq i64 %6, -2147483648
+  br i1 %.not4.i, label %13, label %8, !prof !17
 
-10:                                               ; preds = %4
-  %11 = shl nsw i64 %7, 1
-  %12 = and i64 %11, 8589934590
-  %13 = or disjoint i64 %12, 1
-  %14 = inttoptr i64 %13 to ptr
+8:                                                ; preds = %4
+  %9 = shl nsw i64 %7, 1
+  %10 = and i64 %9, 8589934590
+  %11 = or disjoint i64 %10, 1
+  %12 = inttoptr i64 %11 to ptr
   br label %lean_int_neg.exit
 
-15:                                               ; preds = %4
-  %16 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4294967296, 4294967295) %7) #7
+13:                                               ; preds = %4
+  %14 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4294967296, 4294967295) %7) #7
   br label %lean_int_neg.exit
 
-17:                                               ; preds = %0
-  %18 = tail call ptr @lean_int_big_neg(ptr noundef %1) #7
+15:                                               ; preds = %0
+  %16 = tail call ptr @lean_int_big_neg(ptr noundef %1) #7
   br label %lean_int_neg.exit
 
-lean_int_neg.exit:                                ; preds = %10, %15, %17
-  %.0.i = phi ptr [ %18, %17 ], [ %14, %10 ], [ %16, %15 ]
+lean_int_neg.exit:                                ; preds = %8, %13, %15
+  %.0.i = phi ptr [ %16, %15 ], [ %12, %8 ], [ %14, %13 ]
   ret ptr %.0.i
 }
 
@@ -255730,33 +255722,32 @@ define internal fastcc ptr @_init_l_IO_FS_Stream_readRequestAs___at_Lean_Server_
   %2 = ptrtoint ptr %1 to i64
   %3 = and i64 %2, 1
   %.not.i = icmp eq i64 %3, 0
-  br i1 %.not.i, label %17, label %4, !prof !17
+  br i1 %.not.i, label %15, label %4, !prof !17
 
 4:                                                ; preds = %0
   %5 = shl i64 %2, 31
   %6 = ashr i64 %5, 32
   %7 = sub nsw i64 0, %6
-  %8 = add nsw i64 %6, 2147483647
-  %9 = icmp ult i64 %8, 4294967296
-  br i1 %9, label %10, label %15, !prof !13
+  %.not4.i = icmp eq i64 %6, -2147483648
+  br i1 %.not4.i, label %13, label %8, !prof !17
 
-10:                                               ; preds = %4
-  %11 = shl nsw i64 %7, 1
-  %12 = and i64 %11, 8589934590
-  %13 = or disjoint i64 %12, 1
-  %14 = inttoptr i64 %13 to ptr
+8:                                                ; preds = %4
+  %9 = shl nsw i64 %7, 1
+  %10 = and i64 %9, 8589934590
+  %11 = or disjoint i64 %10, 1
+  %12 = inttoptr i64 %11 to ptr
   br label %lean_int_neg.exit
 
-15:                                               ; preds = %4
-  %16 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4294967296, 4294967295) %7) #7
+13:                                               ; preds = %4
+  %14 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4294967296, 4294967295) %7) #7
   br label %lean_int_neg.exit
 
-17:                                               ; preds = %0
-  %18 = tail call ptr @lean_int_big_neg(ptr noundef %1) #7
+15:                                               ; preds = %0
+  %16 = tail call ptr @lean_int_big_neg(ptr noundef %1) #7
   br label %lean_int_neg.exit
 
-lean_int_neg.exit:                                ; preds = %10, %15, %17
-  %.0.i = phi ptr [ %18, %17 ], [ %14, %10 ], [ %16, %15 ]
+lean_int_neg.exit:                                ; preds = %8, %13, %15
+  %.0.i = phi ptr [ %16, %15 ], [ %12, %8 ], [ %14, %13 ]
   ret ptr %.0.i
 }
 
@@ -255810,33 +255801,32 @@ define internal fastcc ptr @_init_l_IO_FS_Stream_readRequestAs___at_Lean_Server_
   %2 = ptrtoint ptr %1 to i64
   %3 = and i64 %2, 1
   %.not.i = icmp eq i64 %3, 0
-  br i1 %.not.i, label %17, label %4, !prof !17
+  br i1 %.not.i, label %15, label %4, !prof !17
 
 4:                                                ; preds = %0
   %5 = shl i64 %2, 31
   %6 = ashr i64 %5, 32
   %7 = sub nsw i64 0, %6
-  %8 = add nsw i64 %6, 2147483647
-  %9 = icmp ult i64 %8, 4294967296
-  br i1 %9, label %10, label %15, !prof !13
+  %.not4.i = icmp eq i64 %6, -2147483648
+  br i1 %.not4.i, label %13, label %8, !prof !17
 
-10:                                               ; preds = %4
-  %11 = shl nsw i64 %7, 1
-  %12 = and i64 %11, 8589934590
-  %13 = or disjoint i64 %12, 1
-  %14 = inttoptr i64 %13 to ptr
+8:                                                ; preds = %4
+  %9 = shl nsw i64 %7, 1
+  %10 = and i64 %9, 8589934590
+  %11 = or disjoint i64 %10, 1
+  %12 = inttoptr i64 %11 to ptr
   br label %lean_int_neg.exit
 
-15:                                               ; preds = %4
-  %16 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4294967296, 4294967295) %7) #7
+13:                                               ; preds = %4
+  %14 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4294967296, 4294967295) %7) #7
   br label %lean_int_neg.exit
 
-17:                                               ; preds = %0
-  %18 = tail call ptr @lean_int_big_neg(ptr noundef %1) #7
+15:                                               ; preds = %0
+  %16 = tail call ptr @lean_int_big_neg(ptr noundef %1) #7
   br label %lean_int_neg.exit
 
-lean_int_neg.exit:                                ; preds = %10, %15, %17
-  %.0.i = phi ptr [ %18, %17 ], [ %14, %10 ], [ %16, %15 ]
+lean_int_neg.exit:                                ; preds = %8, %13, %15
+  %.0.i = phi ptr [ %16, %15 ], [ %12, %8 ], [ %14, %13 ]
   ret ptr %.0.i
 }
 
@@ -255890,33 +255880,32 @@ define internal fastcc ptr @_init_l_IO_FS_Stream_readRequestAs___at_Lean_Server_
   %2 = ptrtoint ptr %1 to i64
   %3 = and i64 %2, 1
   %.not.i = icmp eq i64 %3, 0
-  br i1 %.not.i, label %17, label %4, !prof !17
+  br i1 %.not.i, label %15, label %4, !prof !17
 
 4:                                                ; preds = %0
   %5 = shl i64 %2, 31
   %6 = ashr i64 %5, 32
   %7 = sub nsw i64 0, %6
-  %8 = add nsw i64 %6, 2147483647
-  %9 = icmp ult i64 %8, 4294967296
-  br i1 %9, label %10, label %15, !prof !13
+  %.not4.i = icmp eq i64 %6, -2147483648
+  br i1 %.not4.i, label %13, label %8, !prof !17
 
-10:                                               ; preds = %4
-  %11 = shl nsw i64 %7, 1
-  %12 = and i64 %11, 8589934590
-  %13 = or disjoint i64 %12, 1
-  %14 = inttoptr i64 %13 to ptr
+8:                                                ; preds = %4
+  %9 = shl nsw i64 %7, 1
+  %10 = and i64 %9, 8589934590
+  %11 = or disjoint i64 %10, 1
+  %12 = inttoptr i64 %11 to ptr
   br label %lean_int_neg.exit
 
-15:                                               ; preds = %4
-  %16 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4294967296, 4294967295) %7) #7
+13:                                               ; preds = %4
+  %14 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4294967296, 4294967295) %7) #7
   br label %lean_int_neg.exit
 
-17:                                               ; preds = %0
-  %18 = tail call ptr @lean_int_big_neg(ptr noundef %1) #7
+15:                                               ; preds = %0
+  %16 = tail call ptr @lean_int_big_neg(ptr noundef %1) #7
   br label %lean_int_neg.exit
 
-lean_int_neg.exit:                                ; preds = %10, %15, %17
-  %.0.i = phi ptr [ %18, %17 ], [ %14, %10 ], [ %16, %15 ]
+lean_int_neg.exit:                                ; preds = %8, %13, %15
+  %.0.i = phi ptr [ %16, %15 ], [ %12, %8 ], [ %14, %13 ]
   ret ptr %.0.i
 }
 
@@ -255970,33 +255959,32 @@ define internal fastcc ptr @_init_l_IO_FS_Stream_readRequestAs___at_Lean_Server_
   %2 = ptrtoint ptr %1 to i64
   %3 = and i64 %2, 1
   %.not.i = icmp eq i64 %3, 0
-  br i1 %.not.i, label %17, label %4, !prof !17
+  br i1 %.not.i, label %15, label %4, !prof !17
 
 4:                                                ; preds = %0
   %5 = shl i64 %2, 31
   %6 = ashr i64 %5, 32
   %7 = sub nsw i64 0, %6
-  %8 = add nsw i64 %6, 2147483647
-  %9 = icmp ult i64 %8, 4294967296
-  br i1 %9, label %10, label %15, !prof !13
+  %.not4.i = icmp eq i64 %6, -2147483648
+  br i1 %.not4.i, label %13, label %8, !prof !17
 
-10:                                               ; preds = %4
-  %11 = shl nsw i64 %7, 1
-  %12 = and i64 %11, 8589934590
-  %13 = or disjoint i64 %12, 1
-  %14 = inttoptr i64 %13 to ptr
+8:                                                ; preds = %4
+  %9 = shl nsw i64 %7, 1
+  %10 = and i64 %9, 8589934590
+  %11 = or disjoint i64 %10, 1
+  %12 = inttoptr i64 %11 to ptr
   br label %lean_int_neg.exit
 
-15:                                               ; preds = %4
-  %16 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4294967296, 4294967295) %7) #7
+13:                                               ; preds = %4
+  %14 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4294967296, 4294967295) %7) #7
   br label %lean_int_neg.exit
 
-17:                                               ; preds = %0
-  %18 = tail call ptr @lean_int_big_neg(ptr noundef %1) #7
+15:                                               ; preds = %0
+  %16 = tail call ptr @lean_int_big_neg(ptr noundef %1) #7
   br label %lean_int_neg.exit
 
-lean_int_neg.exit:                                ; preds = %10, %15, %17
-  %.0.i = phi ptr [ %18, %17 ], [ %14, %10 ], [ %16, %15 ]
+lean_int_neg.exit:                                ; preds = %8, %13, %15
+  %.0.i = phi ptr [ %16, %15 ], [ %12, %8 ], [ %14, %13 ]
   ret ptr %.0.i
 }
 

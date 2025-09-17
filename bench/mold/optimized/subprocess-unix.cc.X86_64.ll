@@ -1532,7 +1532,7 @@ define dso_local void @_ZN4mold10fork_childEv() local_unnamed_addr #4 {
 
 11:                                               ; preds = %7
   %12 = icmp sgt i32 %8, 0
-  br i1 %12, label %13, label %35
+  br i1 %12, label %13, label %31
 
 13:                                               ; preds = %11
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -1553,35 +1553,31 @@ define dso_local void @_ZN4mold10fork_childEv() local_unnamed_addr #4 {
   %22 = call i32 @waitpid(i32 noundef %8, ptr noundef nonnull %3, i32 noundef 0) #24
   %23 = load i32, ptr %3, align 4, !tbaa !342
   %24 = and i32 %23, 127
-  %25 = icmp eq i32 %24, 0
-  br i1 %25, label %26, label %29
+  switch i32 %24, label %28 [
+    i32 0, label %25
+    i32 127, label %30
+  ]
 
-26:                                               ; preds = %21
-  %27 = lshr i32 %23, 8
-  %28 = and i32 %27, 255
-  call void @_exit(i32 noundef %28) #26
+25:                                               ; preds = %21
+  %26 = lshr i32 %23, 8
+  %27 = and i32 %26, 255
+  call void @_exit(i32 noundef %27) #26
   unreachable
 
-29:                                               ; preds = %21
-  %30 = shl nuw nsw i32 %24, 24
-  %sext = add nuw i32 %30, 16777216
-  %31 = icmp sgt i32 %sext, 33554431
-  br i1 %31, label %32, label %34
+28:                                               ; preds = %21
+  %29 = call i32 @raise(i32 noundef %24) #24
+  br label %30
 
-32:                                               ; preds = %29
-  %33 = call i32 @raise(i32 noundef %24) #24
-  br label %34
-
-34:                                               ; preds = %32, %29
+30:                                               ; preds = %21, %28
   call void @_exit(i32 noundef 1) #26
   unreachable
 
-35:                                               ; preds = %11
-  %36 = load i32, ptr %1, align 4, !tbaa !342
-  %37 = call i32 @close(i32 noundef %36) #24
-  %38 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %39 = load i32, ptr %38, align 4, !tbaa !342
-  store i32 %39, ptr @_ZN4moldL13pipe_write_fdE, align 4, !tbaa !342
+31:                                               ; preds = %11
+  %32 = load i32, ptr %1, align 4, !tbaa !342
+  %33 = call i32 @close(i32 noundef %32) #24
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %35 = load i32, ptr %34, align 4, !tbaa !342
+  store i32 %35, ptr @_ZN4moldL13pipe_write_fdE, align 4, !tbaa !342
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 }

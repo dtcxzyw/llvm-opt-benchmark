@@ -430,7 +430,7 @@ define hidden void @_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14
   br label %18
 
 13:                                               ; preds = %2
-  %14 = icmp sgt i16 %.sroa.4.0.extract.trunc, -1
+  %14 = icmp sgt i16 %.sroa.4.0.extract.trunc, -2
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sroa.09.0.extract.trunc, ptr %15, align 4
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -442,7 +442,7 @@ define hidden void @_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14
 
 19:                                               ; preds = %13
   %20 = trunc nuw i64 %.sroa.4.0.extract.shift to i32
-  %21 = and i32 %20, 32767
+  %21 = and i32 %20, 65535
   %22 = add i32 %21, %.sroa.09.0.extract.trunc
   store i32 %22, ptr %16, align 4
   store i32 %.sroa.5.0.extract.trunc, ptr %17, align 4
@@ -593,14 +593,14 @@ define internal fastcc i64 @_RNvMsb_CsdF516cSs19B_10rustc_spanNtNtB5_13span_enco
   unreachable
 
 14:                                               ; preds = %2
-  %15 = icmp sgt i16 %.sroa.4.0.extract.trunc.i, -1
+  %15 = icmp sgt i16 %.sroa.4.0.extract.trunc.i, -2
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 12
   br i1 %15, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.15131964271339581801.exit.thread, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.15131964271339581801.exit.thread4
 
 _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.15131964271339581801.exit.thread: ; preds = %14
   %18 = trunc nuw i64 %.sroa.4.0.extract.shift.i to i32
-  %19 = and i32 %18, 32767
+  %19 = and i32 %18, 65535
   %20 = add i32 %19, %.sroa.09.0.extract.trunc.i
   store i32 %20, ptr %16, align 4, !alias.scope !24
   store i32 %.sroa.5.0.extract.trunc.i, ptr %17, align 4, !alias.scope !24
@@ -21473,7 +21473,7 @@ _ZN15rustfmt_nightly4expr13rewrite_block17hf2225ed481b4ebbfE.exit291: ; preds = 
 887:                                              ; preds = %876
   %.sroa.5.0.extract.shift.i.i = lshr i64 %.sroa.0183.0.copyload, 48
   %.sroa.5.0.extract.trunc.i.i = trunc nuw nsw i64 %.sroa.5.0.extract.shift.i.i to i32
-  %888 = icmp sgt i16 %.sroa.4.0.extract.trunc.i.i, -1
+  %888 = icmp sgt i16 %.sroa.4.0.extract.trunc.i.i, -2
   %889 = getelementptr inbounds nuw i8, ptr %15, i64 4
   store i32 %.sroa.09.0.extract.trunc.i.i, ptr %889, align 4, !alias.scope !3678, !noalias !3672
   br i1 %888, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.15131964271339581801.exit.thread.i, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.15131964271339581801.exit.thread73.i
@@ -21542,13 +21542,13 @@ _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.
   br i1 %906, label %.invoke.i, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.15131964271339581801.exit.i.i.i
 
 907:                                              ; preds = %899
-  %908 = icmp sgt i16 %.sroa.4.0.extract.trunc.i.i.i.i, -1
+  %908 = icmp sgt i16 %.sroa.4.0.extract.trunc.i.i.i.i, -2
   %909 = getelementptr inbounds nuw i8, ptr %12, i64 8
   br i1 %908, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.15131964271339581801.exit.thread.i.i.i, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.15131964271339581801.exit.thread2.i.i.i
 
 _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.15131964271339581801.exit.thread.i.i.i: ; preds = %907
   %910 = trunc nuw i64 %.sroa.4.0.extract.shift.i.i.i.i to i32
-  %911 = and i32 %910, 32767
+  %911 = and i32 %910, 65535
   %912 = add i32 %911, %.sroa.09.0.extract.trunc.i.i.i.i
   store i32 %912, ptr %909, align 4, !alias.scope !3693, !noalias !3692
   br label %"_ZN15rustfmt_nightly4expr11format_expr28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd3ea90eaba83d239E.exit.i.i"
@@ -21635,7 +21635,7 @@ _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.
 929:                                              ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17hd58aa12b6b7b868dE.exit.i"
   %.sroa.5.0.extract.shift.i52.i = lshr i64 %.sroa.0183.0.copyload, 48
   %.sroa.5.0.extract.trunc.i53.i = trunc nuw nsw i64 %.sroa.5.0.extract.shift.i52.i to i32
-  %930 = icmp sgt i16 %.sroa.4.0.extract.trunc.i.i, -1
+  %930 = icmp sgt i16 %.sroa.4.0.extract.trunc.i.i, -2
   %931 = getelementptr inbounds nuw i8, ptr %14, i64 4
   store i32 %.sroa.09.0.extract.trunc.i.i, ptr %931, align 4, !alias.scope !3703, !noalias !3672
   br i1 %930, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.15131964271339581801.exit62.thread.i, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.15131964271339581801.exit62.thread77.i
@@ -23126,7 +23126,7 @@ define hidden void @_ZN15rustfmt_nightly4expr26rewrite_block_with_visitor17hcc35
 67:                                               ; preds = %60
   %.sroa.5.0.extract.shift.i = lshr i64 %.val38, 48
   %.sroa.5.0.extract.trunc.i = trunc nuw nsw i64 %.sroa.5.0.extract.shift.i to i32
-  %68 = icmp sgt i16 %.sroa.4.0.extract.trunc.i, -1
+  %68 = icmp sgt i16 %.sroa.4.0.extract.trunc.i, -2
   %69 = getelementptr inbounds nuw i8, ptr %24, i64 4
   store i32 %.sroa.09.0.extract.trunc.i, ptr %69, align 4, !alias.scope !4017
   br i1 %68, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.15131964271339581801.exit.thread, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.15131964271339581801.exit.thread86
@@ -23220,7 +23220,7 @@ _ZN15rustfmt_nightly7rewrite14RewriteContext7snippet17h7d81c3a187049865E.exit: ;
 89:                                               ; preds = %82
   %.sroa.5.0.extract.shift.i49 = lshr i64 %.val38, 48
   %.sroa.5.0.extract.trunc.i50 = trunc nuw nsw i64 %.sroa.5.0.extract.shift.i49 to i32
-  %90 = icmp sgt i16 %.sroa.4.0.extract.trunc.i48, -1
+  %90 = icmp sgt i16 %.sroa.4.0.extract.trunc.i48, -2
   %91 = getelementptr inbounds nuw i8, ptr %23, i64 4
   store i32 %.sroa.09.0.extract.trunc.i46, ptr %91, align 4, !alias.scope !4026
   br i1 %90, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.15131964271339581801.exit59.thread, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.15131964271339581801.exit59.thread90
@@ -24790,7 +24790,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit.i:  ; preds = %129
           to label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.15131964271339581801.exit798 unwind label %253
 
 241:                                              ; preds = %230
-  %242 = icmp sgt i16 %.sroa.4.0.extract.trunc.i787, -1
+  %242 = icmp sgt i16 %.sroa.4.0.extract.trunc.i787, -2
   %243 = getelementptr inbounds nuw i8, ptr %68, i64 4
   store i32 %.sroa.09.0.extract.trunc.i785, ptr %243, align 4, !alias.scope !4337, !noalias !4296
   %244 = getelementptr inbounds nuw i8, ptr %68, i64 8
@@ -24798,7 +24798,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit.i:  ; preds = %129
 
 _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.15131964271339581801.exit798.thread: ; preds = %241
   %245 = trunc nuw i64 %.sroa.4.0.extract.shift.i786 to i32
-  %246 = and i32 %245, 32767
+  %246 = and i32 %245, 65535
   %247 = add i32 %246, %.sroa.09.0.extract.trunc.i785
   store i32 %247, ptr %244, align 4, !alias.scope !4337, !noalias !4296
   br label %258
@@ -24968,7 +24968,7 @@ _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.
 295:                                              ; preds = %284
   %.sroa.5.0.extract.shift.i810 = lshr i64 %.sroa.030.0.copyload.i, 48
   %.sroa.5.0.extract.trunc.i811 = trunc nuw nsw i64 %.sroa.5.0.extract.shift.i810 to i32
-  %296 = icmp sgt i16 %.sroa.4.0.extract.trunc.i809, -1
+  %296 = icmp sgt i16 %.sroa.4.0.extract.trunc.i809, -2
   %297 = getelementptr inbounds nuw i8, ptr %67, i64 4
   store i32 %.sroa.09.0.extract.trunc.i807, ptr %297, align 4, !alias.scope !4360, !noalias !4296
   br i1 %296, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.15131964271339581801.exit820.thread, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.15131964271339581801.exit820.thread862
@@ -26330,7 +26330,7 @@ _ZN15rustfmt_nightly4stmt4Stmt12is_last_expr17hd216f52d6ab5a39cE.llvm.9097680112
 779:                                              ; preds = %769
   %.sroa.5.0.extract.shift.i = lshr i64 %.sroa.015.0.copyload, 48
   %.sroa.5.0.extract.trunc.i = trunc nuw nsw i64 %.sroa.5.0.extract.shift.i to i32
-  %780 = icmp sgt i16 %.sroa.4.0.extract.trunc.i, -1
+  %780 = icmp sgt i16 %.sroa.4.0.extract.trunc.i, -2
   %781 = getelementptr inbounds nuw i8, ptr %101, i64 4
   store i32 %.sroa.09.0.extract.trunc.i, ptr %781, align 4, !alias.scope !4615
   br i1 %780, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.15131964271339581801.exit.thread, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.15131964271339581801.exit.thread646
@@ -26371,7 +26371,7 @@ _ZN15rustfmt_nightly4stmt4Stmt12is_last_expr17hd216f52d6ab5a39cE.llvm.9097680112
           to label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.15131964271339581801.exit207 unwind label %416
 
 790:                                              ; preds = %782
-  %791 = icmp sgt i16 %.sroa.4.0.extract.trunc.i196, -1
+  %791 = icmp sgt i16 %.sroa.4.0.extract.trunc.i196, -2
   %792 = getelementptr inbounds nuw i8, ptr %99, i64 4
   store i32 %.sroa.09.0.extract.trunc.i194, ptr %792, align 4, !alias.scope !4624
   br i1 %791, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.15131964271339581801.exit207.thread, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.15131964271339581801.exit207.thread654
@@ -26424,7 +26424,7 @@ _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.
 803:                                              ; preds = %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.15131964271339581801.exit.thread
   %.sroa.5.0.extract.shift.i212 = lshr i64 %.sroa.016.0.copyload, 48
   %.sroa.5.0.extract.trunc.i213 = trunc nuw nsw i64 %.sroa.5.0.extract.shift.i212 to i32
-  %804 = icmp sgt i16 %.sroa.4.0.extract.trunc.i211, -1
+  %804 = icmp sgt i16 %.sroa.4.0.extract.trunc.i211, -2
   %805 = getelementptr inbounds nuw i8, ptr %100, i64 4
   store i32 %.sroa.09.0.extract.trunc.i209, ptr %805, align 4, !alias.scope !4633
   br i1 %804, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.15131964271339581801.exit222.thread, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.15131964271339581801.exit222.thread650
@@ -26503,13 +26503,13 @@ _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.
   br i1 %823, label %.invoke760, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.15131964271339581801.exit.i.i
 
 824:                                              ; preds = %817
-  %825 = icmp sgt i16 %.sroa.4.0.extract.trunc.i.i.i, -1
+  %825 = icmp sgt i16 %.sroa.4.0.extract.trunc.i.i.i, -2
   %826 = getelementptr inbounds nuw i8, ptr %45, i64 8
   br i1 %825, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.15131964271339581801.exit.thread.i.i, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.15131964271339581801.exit.thread2.i.i
 
 _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.15131964271339581801.exit.thread.i.i: ; preds = %824
   %827 = trunc nuw i64 %.sroa.4.0.extract.shift.i.i.i to i32
-  %828 = and i32 %827, 32767
+  %828 = and i32 %827, 65535
   %829 = add i32 %828, %.sroa.09.0.extract.trunc.i.i.i
   store i32 %829, ptr %826, align 4, !alias.scope !4645, !noalias !4642
   br label %"_ZN15rustfmt_nightly4expr11ControlFlow12rewrite_cond28_$u7b$$u7b$closure$u7d$$u7d$17h216447bc22a06286E.exit.i"
@@ -26582,7 +26582,7 @@ _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.
           to label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.15131964271339581801.exit249 unwind label %416
 
 848:                                              ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h6c305ab003471b60E.exit"
-  %849 = icmp sgt i16 %.sroa.4.0.extract.trunc.i196, -1
+  %849 = icmp sgt i16 %.sroa.4.0.extract.trunc.i196, -2
   %850 = getelementptr inbounds nuw i8, ptr %98, i64 4
   store i32 %.sroa.09.0.extract.trunc.i194, ptr %850, align 4, !alias.scope !4655
   %851 = getelementptr inbounds nuw i8, ptr %98, i64 8
@@ -26590,7 +26590,7 @@ _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.
 
 _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.15131964271339581801.exit249.thread: ; preds = %848
   %852 = trunc nuw i64 %.sroa.4.0.extract.shift.i195 to i32
-  %853 = and i32 %852, 32767
+  %853 = and i32 %852, 65535
   %854 = add i32 %853, %.sroa.09.0.extract.trunc.i194
   store i32 %854, ptr %851, align 4, !alias.scope !4655
   br label %861
@@ -26714,7 +26714,7 @@ _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.
 895:                                              ; preds = %888
   %.sroa.5.0.extract.shift.i260 = lshr i64 %.sroa.027.0, 48
   %.sroa.5.0.extract.trunc.i261 = trunc nuw nsw i64 %.sroa.5.0.extract.shift.i260 to i32
-  %896 = icmp sgt i16 %.sroa.4.0.extract.trunc.i259, -1
+  %896 = icmp sgt i16 %.sroa.4.0.extract.trunc.i259, -2
   %897 = getelementptr inbounds nuw i8, ptr %97, i64 4
   store i32 %.sroa.09.0.extract.trunc.i257, ptr %897, align 4, !alias.scope !4671
   br i1 %896, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.15131964271339581801.exit270.thread, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.15131964271339581801.exit270.thread666
@@ -26775,7 +26775,7 @@ _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.
 911:                                              ; preds = %903
   %.sroa.5.0.extract.shift.i274 = lshr i64 %.sroa.023.0.copyload, 48
   %.sroa.5.0.extract.trunc.i275 = trunc nuw nsw i64 %.sroa.5.0.extract.shift.i274 to i32
-  %912 = icmp sgt i16 %.sroa.4.0.extract.trunc.i273, -1
+  %912 = icmp sgt i16 %.sroa.4.0.extract.trunc.i273, -2
   %913 = getelementptr inbounds nuw i8, ptr %96, i64 4
   store i32 %.sroa.09.0.extract.trunc.i271, ptr %913, align 4, !alias.scope !4680
   br i1 %912, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.15131964271339581801.exit284.thread, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.15131964271339581801.exit284.thread662
@@ -26943,7 +26943,7 @@ _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.
           to label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.15131964271339581801.exit309 unwind label %958
 
 947:                                              ; preds = %940
-  %948 = icmp sgt i16 %.sroa.4.0.extract.trunc.i298, -1
+  %948 = icmp sgt i16 %.sroa.4.0.extract.trunc.i298, -2
   %949 = getelementptr inbounds nuw i8, ptr %95, i64 4
   store i32 %.sroa.09.0.extract.trunc.i296, ptr %949, align 4, !alias.scope !4696
   %950 = getelementptr inbounds nuw i8, ptr %95, i64 8
@@ -26951,7 +26951,7 @@ _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.
 
 _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.15131964271339581801.exit309.thread: ; preds = %947
   %951 = trunc nuw i64 %.sroa.4.0.extract.shift.i297 to i32
-  %952 = and i32 %951, 32767
+  %952 = and i32 %951, 65535
   %953 = add i32 %952, %.sroa.09.0.extract.trunc.i296
   store i32 %953, ptr %950, align 4, !alias.scope !4696
   br label %963
@@ -27038,7 +27038,7 @@ _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.
 975:                                              ; preds = %963
   %.sroa.5.0.extract.shift.i315 = lshr i64 %.sroa.030.0.copyload, 48
   %.sroa.5.0.extract.trunc.i316 = trunc nuw nsw i64 %.sroa.5.0.extract.shift.i315 to i32
-  %976 = icmp sgt i16 %.sroa.4.0.extract.trunc.i314, -1
+  %976 = icmp sgt i16 %.sroa.4.0.extract.trunc.i314, -2
   %977 = getelementptr inbounds nuw i8, ptr %94, i64 4
   store i32 %.sroa.09.0.extract.trunc.i312, ptr %977, align 4, !alias.scope !4705
   br i1 %976, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.15131964271339581801.exit325.thread, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.15131964271339581801.exit325.thread674
@@ -27544,7 +27544,7 @@ define hidden void @_ZN15rustfmt_nightly4expr29rewrite_else_kw_with_comments17h8
   unreachable
 
 55:                                               ; preds = %"_ZN100_$LT$rustfmt_nightly..visitor..SnippetProvider$u20$as$u20$rustfmt_nightly..source_map..SpanUtils$GT$11span_before17h2953ce444f3a2c78E.exit"
-  %56 = icmp sgt i16 %.sroa.4.0.extract.trunc.i, -1
+  %56 = icmp sgt i16 %.sroa.4.0.extract.trunc.i, -2
   %57 = getelementptr inbounds nuw i8, ptr %23, i64 4
   store i32 %.sroa.09.0.extract.trunc.i, ptr %57, align 4, !alias.scope !4802
   br i1 %56, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.15131964271339581801.exit.thread, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.15131964271339581801.exit.thread104
@@ -27683,13 +27683,13 @@ _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.
           to label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.15131964271339581801.exit64 unwind label %81
 
 93:                                               ; preds = %83
-  %94 = icmp sgt i16 %.sroa.4.0.extract.trunc.i, -1
+  %94 = icmp sgt i16 %.sroa.4.0.extract.trunc.i, -2
   %95 = getelementptr inbounds nuw i8, ptr %22, i64 8
   br i1 %94, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.15131964271339581801.exit64.thread, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.15131964271339581801.exit64.thread108
 
 _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.15131964271339581801.exit64.thread: ; preds = %93
   %96 = trunc nuw i64 %.sroa.4.0.extract.shift.i to i32
-  %97 = and i32 %96, 32767
+  %97 = and i32 %96, 65535
   %98 = add i32 %97, %.sroa.09.0.extract.trunc.i
   store i32 %98, ptr %95, align 4, !alias.scope !4825
   br label %105
@@ -28351,7 +28351,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit:    ; preds = %123
 174:                                              ; preds = %155
   %.sroa.5.0.extract.shift.i = lshr i64 %.sroa.033.0.copyload, 48
   %.sroa.5.0.extract.trunc.i = trunc nuw nsw i64 %.sroa.5.0.extract.shift.i to i32
-  %175 = icmp sgt i16 %.sroa.4.0.extract.trunc.i, -1
+  %175 = icmp sgt i16 %.sroa.4.0.extract.trunc.i, -2
   %176 = getelementptr inbounds nuw i8, ptr %21, i64 4
   store i32 %.sroa.09.0.extract.trunc.i, ptr %176, align 4, !alias.scope !4921
   br i1 %175, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.15131964271339581801.exit.thread, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.15131964271339581801.exit.thread197
@@ -28420,7 +28420,7 @@ _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.
           to label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.15131964271339581801.exit138 unwind label %139
 
 189:                                              ; preds = %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.15131964271339581801.exit.thread
-  %190 = icmp sgt i16 %.sroa.4.0.extract.trunc.i127, -1
+  %190 = icmp sgt i16 %.sroa.4.0.extract.trunc.i127, -2
   %191 = getelementptr inbounds nuw i8, ptr %20, i64 4
   store i32 %.sroa.09.0.extract.trunc.i125, ptr %191, align 4, !alias.scope !4930
   %192 = getelementptr inbounds nuw i8, ptr %20, i64 8
@@ -28428,7 +28428,7 @@ _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.
 
 _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.15131964271339581801.exit138.thread: ; preds = %189
   %193 = trunc nuw i64 %.sroa.4.0.extract.shift.i126 to i32
-  %194 = and i32 %193, 32767
+  %194 = and i32 %193, 65535
   %195 = add i32 %194, %.sroa.09.0.extract.trunc.i125
   store i32 %195, ptr %192, align 4, !alias.scope !4930
   br label %203
@@ -31001,7 +31001,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h0d13743fe14fa6bfE.exit.th
           to label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.15131964271339581801.exit unwind label %.loopexit
 
 110:                                              ; preds = %103
-  %111 = icmp sgt i16 %.sroa.4.0.extract.trunc.i, -1
+  %111 = icmp sgt i16 %.sroa.4.0.extract.trunc.i, -2
   store i32 %.sroa.09.0.extract.trunc.i, ptr %73, align 4, !alias.scope !5408
   br i1 %111, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.15131964271339581801.exit.thread, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.15131964271339581801.exit.thread296
 
@@ -31061,7 +31061,7 @@ _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.
 125:                                              ; preds = %118
   %.sroa.5.0.extract.shift.i147 = lshr i64 %116, 48
   %.sroa.5.0.extract.trunc.i148 = trunc nuw nsw i64 %.sroa.5.0.extract.shift.i147 to i32
-  %126 = icmp sgt i16 %.sroa.4.0.extract.trunc.i146, -1
+  %126 = icmp sgt i16 %.sroa.4.0.extract.trunc.i146, -2
   store i32 %.sroa.09.0.extract.trunc.i144, ptr %74, align 4, !alias.scope !5417
   br i1 %126, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.15131964271339581801.exit157.thread, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.15131964271339581801.exit157.thread300
 
@@ -31122,13 +31122,13 @@ _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.
           to label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.15131964271339581801.exit173 unwind label %.loopexit
 
 140:                                              ; preds = %132
-  %141 = icmp sgt i16 %.sroa.4.0.extract.trunc.i162, -1
+  %141 = icmp sgt i16 %.sroa.4.0.extract.trunc.i162, -2
   store i32 %.sroa.09.0.extract.trunc.i160, ptr %75, align 4, !alias.scope !5426
   br i1 %141, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.15131964271339581801.exit173.thread, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.15131964271339581801.exit173.thread304
 
 _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.15131964271339581801.exit173.thread: ; preds = %140
   %142 = trunc nuw i64 %.sroa.4.0.extract.shift.i161 to i32
-  %143 = and i32 %142, 32767
+  %143 = and i32 %142, 65535
   %144 = add i32 %143, %.sroa.09.0.extract.trunc.i160
   store i32 %144, ptr %76, align 4, !alias.scope !5426
   br label %151
@@ -31194,13 +31194,13 @@ _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.
           to label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.15131964271339581801.exit189 unwind label %.loopexit
 
 159:                                              ; preds = %151
-  %160 = icmp sgt i16 %.sroa.4.0.extract.trunc.i, -1
+  %160 = icmp sgt i16 %.sroa.4.0.extract.trunc.i, -2
   store i32 %.sroa.09.0.extract.trunc.i, ptr %77, align 4, !alias.scope !5435
   br i1 %160, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.15131964271339581801.exit189.thread, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.15131964271339581801.exit189.thread308
 
 _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.15131964271339581801.exit189.thread: ; preds = %159
   %161 = trunc nuw i64 %.sroa.4.0.extract.shift.i to i32
-  %162 = and i32 %161, 32767
+  %162 = and i32 %161, 65535
   %163 = add i32 %162, %.sroa.09.0.extract.trunc.i
   store i32 %163, ptr %78, align 4, !alias.scope !5435
   br label %171
@@ -33163,13 +33163,13 @@ _ZN15rustfmt_nightly4expr25struct_lit_can_be_aligned17h51c6185757cba255E.exit.th
           to label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.15131964271339581801.exit unwind label %105
 
 170:                                              ; preds = %163
-  %171 = icmp sgt i16 %.sroa.4.0.extract.trunc.i, -1
+  %171 = icmp sgt i16 %.sroa.4.0.extract.trunc.i, -2
   %172 = getelementptr inbounds nuw i8, ptr %29, i64 8
   br i1 %171, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.15131964271339581801.exit.thread, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.15131964271339581801.exit.thread299
 
 _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.15131964271339581801.exit.thread: ; preds = %170
   %173 = trunc nuw i64 %.sroa.4.0.extract.shift.i to i32
-  %174 = and i32 %173, 32767
+  %174 = and i32 %173, 65535
   %175 = add i32 %174, %.sroa.09.0.extract.trunc.i
   store i32 %175, ptr %172, align 4, !alias.scope !5752
   br label %311
@@ -33247,7 +33247,7 @@ _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.
           to label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.15131964271339581801.exit167 unwind label %105
 
 193:                                              ; preds = %185
-  %194 = icmp sgt i16 %.sroa.4.0.extract.trunc.i156, -1
+  %194 = icmp sgt i16 %.sroa.4.0.extract.trunc.i156, -2
   %195 = getelementptr inbounds nuw i8, ptr %28, i64 4
   store i32 %.sroa.09.0.extract.trunc.i154, ptr %195, align 4, !alias.scope !5761
   %196 = getelementptr inbounds nuw i8, ptr %28, i64 8
@@ -33255,7 +33255,7 @@ _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.
 
 _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.15131964271339581801.exit167.thread: ; preds = %193
   %197 = trunc nuw i64 %.sroa.4.0.extract.shift.i155 to i32
-  %198 = and i32 %197, 32767
+  %198 = and i32 %197, 65535
   %199 = add i32 %198, %.sroa.09.0.extract.trunc.i154
   store i32 %199, ptr %196, align 4, !alias.scope !5761
   br label %207
@@ -35378,13 +35378,13 @@ define internal fastcc void @_ZN15rustfmt_nightly4expr11rewrite_let17hdfe3e1cdfb
           to label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.15131964271339581801.exit unwind label %54
 
 82:                                               ; preds = %66
-  %83 = icmp sgt i16 %.sroa.4.0.extract.trunc.i, -1
+  %83 = icmp sgt i16 %.sroa.4.0.extract.trunc.i, -2
   %84 = getelementptr inbounds nuw i8, ptr %16, i64 8
   br i1 %83, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.15131964271339581801.exit.thread, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.15131964271339581801.exit.thread96
 
 _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.15131964271339581801.exit.thread: ; preds = %82
   %85 = trunc nuw i64 %.sroa.4.0.extract.shift.i to i32
-  %86 = and i32 %85, 32767
+  %86 = and i32 %85, 65535
   %87 = add i32 %86, %.sroa.09.0.extract.trunc.i
   store i32 %87, ptr %84, align 4, !alias.scope !6198
   br label %94
@@ -35528,7 +35528,7 @@ _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.
 123:                                              ; preds = %115
   %.sroa.5.0.extract.shift.i41 = lshr i64 %.sroa.06.0.copyload, 48
   %.sroa.5.0.extract.trunc.i42 = trunc nuw nsw i64 %.sroa.5.0.extract.shift.i41 to i32
-  %124 = icmp sgt i16 %.sroa.4.0.extract.trunc.i40, -1
+  %124 = icmp sgt i16 %.sroa.4.0.extract.trunc.i40, -2
   %125 = getelementptr inbounds nuw i8, ptr %15, i64 4
   store i32 %.sroa.09.0.extract.trunc.i38, ptr %125, align 4, !alias.scope !6220
   br i1 %124, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.15131964271339581801.exit51.thread, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.15131964271339581801.exit51.thread100
@@ -36636,7 +36636,7 @@ define hidden void @_ZN15rustfmt_nightly10formatting15FormattingError9from_span1
 19:                                               ; preds = %4
   %.sroa.5.0.extract.shift.i = lshr i64 %1, 48
   %.sroa.5.0.extract.trunc.i = trunc nuw nsw i64 %.sroa.5.0.extract.shift.i to i32
-  %20 = icmp sgt i16 %.sroa.4.0.extract.trunc.i, -1
+  %20 = icmp sgt i16 %.sroa.4.0.extract.trunc.i, -2
   %21 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 %.sroa.09.0.extract.trunc.i, ptr %21, align 4, !alias.scope !6398
   br i1 %20, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.15131964271339581801.exit.thread, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.15131964271339581801.exit.thread17
@@ -38447,7 +38447,7 @@ define hidden void @_ZN15rustfmt_nightly7reorder40rewrite_reorderable_or_regroup
   unreachable
 
 83:                                               ; preds = %71
-  %84 = icmp sgt i16 %.sroa.4.0.extract.trunc.i, -1
+  %84 = icmp sgt i16 %.sroa.4.0.extract.trunc.i, -2
   br i1 %84, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.15131964271339581801.exit181.thread, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.15131964271339581801.exit.thread302
 
 _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.15131964271339581801.exit: ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hd33dd31eca47a831E.llvm.17476841346288807550.exit.i.i"
@@ -38526,7 +38526,7 @@ _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.
           to label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.15131964271339581801.exit125 unwind label %.loopexit.split-lp
 
 102:                                              ; preds = %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17he5c50f0de3ff21c2E.exit"
-  %103 = icmp sgt i16 %.sroa.4.0.extract.trunc.i115, -1
+  %103 = icmp sgt i16 %.sroa.4.0.extract.trunc.i115, -2
   %104 = getelementptr inbounds nuw i8, ptr %39, i64 4
   store i32 %.sroa.09.0.extract.trunc.i113, ptr %104, align 4, !alias.scope !6613
   br i1 %103, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.15131964271339581801.exit140.thread, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.15131964271339581801.exit125.thread309
@@ -38598,7 +38598,7 @@ _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.
 
 _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.15131964271339581801.exit140.thread: ; preds = %102
   %119 = trunc nuw i64 %.sroa.4.0.extract.shift.i114 to i32
-  %120 = and i32 %119, 32767
+  %120 = and i32 %119, 65535
   %121 = add i32 %120, %.sroa.09.0.extract.trunc.i113
   call void @llvm.lifetime.end.p0(ptr nonnull %39)
   call void @llvm.lifetime.start.p0(ptr nonnull %38)
@@ -39694,7 +39694,7 @@ _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.
 
 _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.15131964271339581801.exit181.thread: ; preds = %83
   %431 = trunc nuw i64 %.sroa.4.0.extract.shift.i to i32
-  %432 = and i32 %431, 32767
+  %432 = and i32 %431, 65535
   %433 = add i32 %432, %.sroa.09.0.extract.trunc.i
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
   call void @llvm.lifetime.start.p0(ptr nonnull %35)
@@ -41913,7 +41913,7 @@ _ZN15rustfmt_nightly7rewrite14RewriteContext16use_block_indent17h490227a595f2c57
           to label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.15131964271339581801.exit unwind label %251
 
 223:                                              ; preds = %213
-  %224 = icmp sgt i16 %.sroa.4.0.extract.trunc.i, -1
+  %224 = icmp sgt i16 %.sroa.4.0.extract.trunc.i, -2
   %225 = getelementptr inbounds nuw i8, ptr %38, i64 4
   store i32 %.sroa.09.0.extract.trunc.i, ptr %225, align 4, !alias.scope !7108
   %226 = getelementptr inbounds nuw i8, ptr %38, i64 8
@@ -41921,7 +41921,7 @@ _ZN15rustfmt_nightly7rewrite14RewriteContext16use_block_indent17h490227a595f2c57
 
 _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.15131964271339581801.exit.thread: ; preds = %223
   %227 = trunc nuw i64 %.sroa.4.0.extract.shift.i to i32
-  %228 = and i32 %227, 32767
+  %228 = and i32 %227, 65535
   %229 = add i32 %228, %.sroa.09.0.extract.trunc.i
   store i32 %229, ptr %226, align 4, !alias.scope !7108
   br label %257
@@ -43608,7 +43608,7 @@ _ZN15rustfmt_nightly7rewrite14RewriteContext16use_block_indent17h490227a595f2c57
           to label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.15131964271339581801.exit unwind label %251
 
 223:                                              ; preds = %213
-  %224 = icmp sgt i16 %.sroa.4.0.extract.trunc.i, -1
+  %224 = icmp sgt i16 %.sroa.4.0.extract.trunc.i, -2
   %225 = getelementptr inbounds nuw i8, ptr %38, i64 4
   store i32 %.sroa.09.0.extract.trunc.i, ptr %225, align 4, !alias.scope !7409
   %226 = getelementptr inbounds nuw i8, ptr %38, i64 8
@@ -43616,7 +43616,7 @@ _ZN15rustfmt_nightly7rewrite14RewriteContext16use_block_indent17h490227a595f2c57
 
 _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.15131964271339581801.exit.thread: ; preds = %223
   %227 = trunc nuw i64 %.sroa.4.0.extract.shift.i to i32
-  %228 = and i32 %227, 32767
+  %228 = and i32 %227, 65535
   %229 = add i32 %228, %.sroa.09.0.extract.trunc.i
   store i32 %229, ptr %226, align 4, !alias.scope !7409
   br label %257

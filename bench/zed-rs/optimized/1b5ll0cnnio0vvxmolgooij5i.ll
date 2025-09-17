@@ -6802,7 +6802,7 @@ define hidden { i64, ptr } @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$
   %.sroa.017.0100.lcssa = phi ptr [ %.sroa.017.0.ph104, %.lr.ph ], [ %81, %16 ]
   %.sroa.013.099.lcssa = phi i64 [ %.sroa.013.0.ph103, %.lr.ph ], [ %80, %16 ]
   %.lcssa = phi i64 [ %14, %.lr.ph ], [ %18, %16 ]
-  %21 = icmp eq i64 %.lcssa, 30
+  %21 = icmp samesign ugt i64 %.lcssa, 29
   %22 = icmp eq ptr %.sroa.0.050.ph102, null
   %or.cond = select i1 %21, i1 %22, i1 false
   br i1 %or.cond, label %25, label %23

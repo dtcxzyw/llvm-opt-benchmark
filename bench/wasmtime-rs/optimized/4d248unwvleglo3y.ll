@@ -2376,9 +2376,8 @@ define noalias noundef ptr @_ZN18wasmtime_cli_flags13CommonOptions12init_logging
   tail call fastcc void @_ZN18wasmtime_cli_flags13CommonOptions9configure17h4358a3bddcfbbdf0E(ptr noalias noundef align 8 dereferenceable(568) %0)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 554
   %9 = load i8, ptr %8, align 2, !range !169, !noundef !14
-  %.off = add nsw i8 %9, -1
-  %switch = icmp ult i8 %.off, 2
-  br i1 %switch, label %10, label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hc4243f6528052f8dE.exit"
+  %.not = icmp eq i8 %9, 0
+  br i1 %.not, label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hc4243f6528052f8dE.exit", label %10
 
 10:                                               ; preds = %1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 555
@@ -2698,9 +2697,8 @@ define void @_ZN18wasmtime_cli_flags13CommonOptions6config17hf1fc0192bae611afE(p
 ._crit_edge:                                      ; preds = %358, %62
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 457
   %74 = load i8, ptr %73, align 1, !range !169, !noundef !14
-  %.off = add nsw i8 %74, -1
-  %switch113 = icmp ult i8 %.off, 2
-  br i1 %switch113, label %146, label %151
+  %.not156 = icmp eq i8 %74, 0
+  br i1 %.not156, label %151, label %146
 
 75:                                               ; preds = %.lr.ph, %358
   %.sroa.0.0123 = phi ptr [ %64, %.lr.ph ], [ %76, %358 ]
@@ -2900,8 +2898,8 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i.i: ; preds = %9
   br i1 %149, label %154, label %156
 
 .sink.split:                                      ; preds = %163, %158
-  %.sink166 = phi ptr [ %160, %158 ], [ %165, %163 ]
-  %150 = icmp ne ptr %.sink166, null
+  %.sink167 = phi ptr [ %160, %158 ], [ %165, %163 ]
+  %150 = icmp ne ptr %.sink167, null
   call void @llvm.assume(i1 %150)
   br label %151
 

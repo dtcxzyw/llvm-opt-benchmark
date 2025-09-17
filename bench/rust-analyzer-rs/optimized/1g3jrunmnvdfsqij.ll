@@ -1267,9 +1267,8 @@ define internal fastcc void @"_ZN4core3ptr65drop_in_place$LT$hashbrown..raw..inn
   tail call void @llvm.assume(i1 %10)
   %11 = sub nsw i64 0, %9
   %12 = getelementptr inbounds i8, ptr %.0.val, i64 %11
-  %13 = add i64 %5, -1
-  %14 = icmp sgt i64 %13, -1
-  tail call void @llvm.assume(i1 %14)
+  %13 = icmp ne i64 %5, 0
+  tail call void @llvm.assume(i1 %13)
   tail call void @__rust_dealloc(ptr noundef nonnull %12, i64 noundef %7, i64 noundef %5) #32, !noalias !379
   br label %"_ZN86_$LT$hashbrown..raw..inner..RawTable$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd4304051bc7b2ec5E.exit"
 

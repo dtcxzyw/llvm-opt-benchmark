@@ -132,7 +132,7 @@ define internal ptr @vgacon_startup() #1 align 16 {
   store ptr @dummy_con, ptr @conswitchp, align 8
   %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @dummy_con, i64 8), align 8
   %9 = tail call ptr %8() #13
-  br label %132
+  br label %131
 
 10:                                               ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 14
@@ -327,43 +327,42 @@ define internal ptr @vgacon_startup() #1 align 16 {
   store volatile i16 %99, ptr %95, align 2
   store volatile i16 %101, ptr %100, align 2
   %114 = load i8, ptr @vga_video_type, align 1
-  %115 = add nsw i8 %114, -32
-  %116 = icmp ult i8 %115, 3
+  %115 = icmp ugt i8 %114, 31
   %.pre = load ptr, ptr @vga_si, align 8
-  br i1 %116, label %117, label %._crit_edge
+  br i1 %115, label %116, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %113
   %.pre2 = load i32, ptr @vga_scan_lines, align 4
-  br label %126
+  br label %125
 
-117:                                              ; preds = %113
-  %118 = load i1, ptr @vga_hardscroll_user_enable, align 1
-  %119 = xor i1 %118, true
-  %120 = zext i1 %119 to i8
-  store i8 %120, ptr @vga_hardscroll_enabled, align 1
-  %121 = getelementptr inbounds nuw i8, ptr %.pre, i64 16
-  %122 = load i16, ptr %121, align 1
-  %123 = zext i16 %122 to i32
-  store i32 %123, ptr @vga_default_font_height, align 4
-  store i32 %123, ptr @vga_video_font_height, align 4
-  %124 = load i32, ptr @vga_video_num_lines, align 4
-  %125 = mul i32 %124, %123
-  store i32 %125, ptr @vga_scan_lines, align 4
-  br label %126
+116:                                              ; preds = %113
+  %117 = load i1, ptr @vga_hardscroll_user_enable, align 1
+  %118 = xor i1 %117, true
+  %119 = zext i1 %118 to i8
+  store i8 %119, ptr @vga_hardscroll_enabled, align 1
+  %120 = getelementptr inbounds nuw i8, ptr %.pre, i64 16
+  %121 = load i16, ptr %120, align 1
+  %122 = zext i16 %121 to i32
+  store i32 %122, ptr @vga_default_font_height, align 4
+  store i32 %122, ptr @vga_video_font_height, align 4
+  %123 = load i32, ptr @vga_video_num_lines, align 4
+  %124 = mul i32 %123, %122
+  store i32 %124, ptr @vga_scan_lines, align 4
+  br label %125
 
-126:                                              ; preds = %._crit_edge, %117
-  %127 = phi i32 [ %.pre2, %._crit_edge ], [ %125, %117 ]
-  %128 = getelementptr inbounds nuw i8, ptr %.pre, i64 7
-  %129 = load i8, ptr %128, align 1
-  %130 = zext i8 %129 to i32
-  %131 = shl nuw nsw i32 %130, 3
-  store i32 %131, ptr @vgacon_xres, align 4
-  store i32 %127, ptr @vgacon_yres, align 4
-  br label %132
+125:                                              ; preds = %._crit_edge, %116
+  %126 = phi i32 [ %.pre2, %._crit_edge ], [ %124, %116 ]
+  %127 = getelementptr inbounds nuw i8, ptr %.pre, i64 7
+  %128 = load i8, ptr %127, align 1
+  %129 = zext i8 %128 to i32
+  %130 = shl nuw nsw i32 %129, 3
+  store i32 %130, ptr @vgacon_xres, align 4
+  store i32 %126, ptr @vgacon_yres, align 4
+  br label %131
 
-132:                                              ; preds = %126, %7
-  %133 = phi ptr [ %9, %7 ], [ %91, %126 ]
-  ret ptr %133
+131:                                              ; preds = %125, %7
+  %132 = phi ptr [ %9, %7 ], [ %91, %125 ]
+  ret ptr %132
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

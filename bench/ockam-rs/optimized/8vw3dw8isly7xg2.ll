@@ -80480,16 +80480,15 @@ define hidden void @"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$3pop17h253e38efb75beec
   %28 = getelementptr inbounds nuw { { { [38 x i64] } } }, ptr %17, i64 %19
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef nonnull align 8 dereferenceable(304) %28, i64 304, i1 false)
   %.pre = load i64, ptr %0, align 8, !range !1521
-  %29 = add nsw i64 %.pre, -3
-  %30 = icmp ult i64 %29, 2
-  br i1 %30, label %"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4read17ha9e320c6950a17b0E.exit.thread", label %31
+  %29 = icmp samesign ugt i64 %.pre, 2
+  br i1 %29, label %"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4read17ha9e320c6950a17b0E.exit.thread", label %30
 
-"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4read17ha9e320c6950a17b0E.exit.thread": ; preds = %27, %26, %"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4read17ha9e320c6950a17b0E.exit", %31, %"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$18try_advancing_head17h3d1276a065979bdbE.llvm.4791013001715523264.exit"
+"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4read17ha9e320c6950a17b0E.exit.thread": ; preds = %27, %26, %"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4read17ha9e320c6950a17b0E.exit", %30, %"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$18try_advancing_head17h3d1276a065979bdbE.llvm.4791013001715523264.exit"
   ret void
 
-31:                                               ; preds = %"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4read17ha9e320c6950a17b0E.exit"
-  %32 = add i64 %18, 1
-  store i64 %32, ptr %4, align 8
+30:                                               ; preds = %"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4read17ha9e320c6950a17b0E.exit"
+  %31 = add i64 %18, 1
+  store i64 %31, ptr %4, align 8
   br label %"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4read17ha9e320c6950a17b0E.exit.thread"
 }
 
@@ -80780,16 +80779,15 @@ define hidden void @"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$3pop17h8acad80c794f16b
   %28 = getelementptr inbounds nuw { { { [11 x i64] } } }, ptr %17, i64 %19
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(88) %28, i64 88, i1 false)
   %.pre = load i8, ptr %0, align 8, !range !700
-  %29 = add nsw i8 %.pre, -15
-  %30 = icmp ult i8 %29, 2
-  br i1 %30, label %"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4read17hbd5ed7fb2ef2633fE.exit.thread", label %31
+  %29 = icmp samesign ugt i8 %.pre, 14
+  br i1 %29, label %"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4read17hbd5ed7fb2ef2633fE.exit.thread", label %30
 
-"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4read17hbd5ed7fb2ef2633fE.exit.thread": ; preds = %27, %26, %"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4read17hbd5ed7fb2ef2633fE.exit", %31, %"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$18try_advancing_head17hb036142ae6e91953E.llvm.4791013001715523264.exit"
+"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4read17hbd5ed7fb2ef2633fE.exit.thread": ; preds = %27, %26, %"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4read17hbd5ed7fb2ef2633fE.exit", %30, %"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$18try_advancing_head17hb036142ae6e91953E.llvm.4791013001715523264.exit"
   ret void
 
-31:                                               ; preds = %"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4read17hbd5ed7fb2ef2633fE.exit"
-  %32 = add i64 %18, 1
-  store i64 %32, ptr %4, align 8
+30:                                               ; preds = %"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4read17hbd5ed7fb2ef2633fE.exit"
+  %31 = add i64 %18, 1
+  store i64 %31, ptr %4, align 8
   br label %"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4read17hbd5ed7fb2ef2633fE.exit.thread"
 }
 
@@ -80930,16 +80928,15 @@ define hidden void @"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$3pop17hea903397c5b4c31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull align 8 dereferenceable(280) %29, i64 280, i1 false)
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 256
   %.pre = load i64, ptr %.phi.trans.insert, align 8, !range !1521
-  %30 = add nsw i64 %.pre, -3
-  %31 = icmp ult i64 %30, 2
-  br i1 %31, label %"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4read17h7826fe1f093948afE.exit.thread", label %32
+  %30 = icmp samesign ugt i64 %.pre, 2
+  br i1 %30, label %"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4read17h7826fe1f093948afE.exit.thread", label %31
 
-"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4read17h7826fe1f093948afE.exit.thread": ; preds = %28, %27, %"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4read17h7826fe1f093948afE.exit", %32, %"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$18try_advancing_head17hf96e2104c0886beaE.llvm.4791013001715523264.exit"
+"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4read17h7826fe1f093948afE.exit.thread": ; preds = %28, %27, %"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4read17h7826fe1f093948afE.exit", %31, %"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$18try_advancing_head17hf96e2104c0886beaE.llvm.4791013001715523264.exit"
   ret void
 
-32:                                               ; preds = %"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4read17h7826fe1f093948afE.exit"
-  %33 = add i64 %19, 1
-  store i64 %33, ptr %4, align 8
+31:                                               ; preds = %"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4read17h7826fe1f093948afE.exit"
+  %32 = add i64 %19, 1
+  store i64 %32, ptr %4, align 8
   br label %"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4read17h7826fe1f093948afE.exit.thread"
 }
 

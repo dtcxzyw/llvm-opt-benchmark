@@ -4170,9 +4170,8 @@ is_big_endian.exit:                               ; preds = %4, %18, %22
   br label %.critedge
 
 57:                                               ; preds = %is_big_endian.exit
-  %.off = add nsw i8 %42, -1
-  %switch = icmp ult i8 %.off, 2
-  br i1 %switch, label %58, label %67
+  %.not139 = icmp eq i8 %42, 0
+  br i1 %.not139, label %67, label %58
 
 58:                                               ; preds = %57
   %59 = load i32, ptr @hf_giop_message_flags, align 4

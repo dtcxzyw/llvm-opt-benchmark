@@ -1198,11 +1198,11 @@ define internal ptr @binascii_b2a_hex(ptr readnone captures(none) %0, ptr nounde
 
 9:                                                ; preds = %4, %7
   %10 = phi i64 [ %.val, %7 ], [ 0, %4 ]
-  %11 = add i64 %10, %2
+  %11 = add i64 %2, -1
+  %12 = add i64 %11, %10
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %6, i8 0, i64 80, i1 false)
-  %12 = add i64 %2, -1
-  %13 = icmp ult i64 %12, 3
+  %13 = icmp ult i64 %11, 3
   %14 = icmp ne ptr %1, null
   %15 = and i1 %14, %13
   %or.cond5 = and i1 %.not, %15
@@ -1221,14 +1221,14 @@ define internal ptr @binascii_b2a_hex(ptr readnone captures(none) %0, ptr nounde
   br i1 %.not37, label %21, label %35
 
 21:                                               ; preds = %.thread
-  %.not38 = icmp eq i64 %11, 1
+  %.not38 = icmp eq i64 %12, 0
   br i1 %.not38, label %32, label %22
 
 22:                                               ; preds = %21
   %23 = getelementptr i8, ptr %18, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !10
   %.not39 = icmp ne ptr %24, null
-  %.not40 = icmp eq i64 %11, 2
+  %.not40 = icmp eq i64 %12, 1
   %or.cond = select i1 %.not39, i1 %.not40, i1 false
   br i1 %or.cond, label %32, label %25
 
@@ -1285,11 +1285,11 @@ define internal ptr @binascii_hexlify(ptr readnone captures(none) %0, ptr nounde
 
 9:                                                ; preds = %4, %7
   %10 = phi i64 [ %.val, %7 ], [ 0, %4 ]
-  %11 = add i64 %10, %2
+  %11 = add i64 %2, -1
+  %12 = add i64 %11, %10
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %6, i8 0, i64 80, i1 false)
-  %12 = add i64 %2, -1
-  %13 = icmp ult i64 %12, 3
+  %13 = icmp ult i64 %11, 3
   %14 = icmp ne ptr %1, null
   %15 = and i1 %14, %13
   %or.cond5 = and i1 %.not, %15
@@ -1308,14 +1308,14 @@ define internal ptr @binascii_hexlify(ptr readnone captures(none) %0, ptr nounde
   br i1 %.not37, label %21, label %35
 
 21:                                               ; preds = %.thread
-  %.not38 = icmp eq i64 %11, 1
+  %.not38 = icmp eq i64 %12, 0
   br i1 %.not38, label %32, label %22
 
 22:                                               ; preds = %21
   %23 = getelementptr i8, ptr %18, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !10
   %.not39 = icmp ne ptr %24, null
-  %.not40 = icmp eq i64 %11, 2
+  %.not40 = icmp eq i64 %12, 1
   %or.cond = select i1 %.not39, i1 %.not40, i1 false
   br i1 %or.cond, label %32, label %25
 

@@ -61,9 +61,8 @@ X509_TRUST_get_by_id.exit.thread:                 ; preds = %10, %13
   br label %17
 
 X509_TRUST_get_by_id.exit:                        ; preds = %13
-  %narrow.i = add nuw i32 %15, 8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %16 = icmp slt i32 %narrow.i, 0
+  %16 = icmp samesign ugt i32 %15, 2147483639
   br i1 %16, label %17, label %24
 
 17:                                               ; preds = %X509_TRUST_get_by_id.exit.thread, %X509_TRUST_get_by_id.exit
@@ -335,9 +334,8 @@ X509_TRUST_get_by_id.exit.thread:                 ; preds = %5, %8
   br label %12
 
 X509_TRUST_get_by_id.exit:                        ; preds = %8
-  %narrow.i = add nuw i32 %10, 8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %11 = icmp slt i32 %narrow.i, 0
+  %11 = icmp samesign ugt i32 %10, 2147483639
   br i1 %11, label %12, label %13
 
 12:                                               ; preds = %X509_TRUST_get_by_id.exit.thread, %X509_TRUST_get_by_id.exit
@@ -388,9 +386,8 @@ X509_TRUST_get_by_id.exit.thread:                 ; preds = %10, %13
   br label %17
 
 X509_TRUST_get_by_id.exit:                        ; preds = %13
-  %narrow.i = add nuw i32 %15, 8
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %16 = icmp slt i32 %narrow.i, 0
+  %16 = icmp samesign ugt i32 %15, 2147483639
   br i1 %16, label %17, label %25
 
 17:                                               ; preds = %X509_TRUST_get_by_id.exit.thread, %X509_TRUST_get_by_id.exit

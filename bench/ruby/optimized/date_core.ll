@@ -8958,8 +8958,8 @@ f_zero_p.exit106.thread.i:                        ; preds = %f_zero_p.exit106.i,
   br i1 %.not.i107.i, label %245, label %242
 
 242:                                              ; preds = %f_zero_p.exit106.thread.i
-  %.b34 = load i1, ptr @day_in_nanoseconds, align 8
-  %243 = select i1 %.b34, i64 172800000000001, i64 0
+  %.b35 = load i1, ptr @day_in_nanoseconds, align 8
+  %243 = select i1 %.b35, i64 172800000000001, i64 0
   %244 = tail call i64 @rb_rational_new(i64 noundef %.042.i, i64 noundef %243) #21
   br label %ns_to_day.exit.i
 
@@ -9046,9 +9046,8 @@ rb_type.exit:                                     ; preds = %259
 rb_type.exit.thread20:                            ; preds = %266, %rb_type.exit
   %275 = ashr i64 %1, 1
   %276 = sub nsw i64 0, %275
-  %notsub = add i64 %275, -4611686018427387905
-  %or.cond.i15 = icmp slt i64 %notsub, 0
-  br i1 %or.cond.i15, label %277, label %280
+  %.not33 = icmp eq i64 %275, -4611686018427387904
+  br i1 %.not33, label %280, label %277
 
 277:                                              ; preds = %rb_type.exit.thread20
   %278 = shl nsw i64 %276, 1

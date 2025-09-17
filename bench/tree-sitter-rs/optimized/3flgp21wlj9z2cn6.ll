@@ -794,9 +794,8 @@ define internal fastcc noundef zeroext i1 @_ZN14regex_automata4meta5regex5Regex8
 39:                                               ; preds = %34
   tail call void @llvm.experimental.noalias.scope.decl(metadata !158)
   %40 = load i32, ptr %8, align 8, !range !161, !alias.scope !158, !noalias !162, !noundef !4
-  %.off.i = add nsw i32 %40, -1
-  %switch.i4 = icmp ult i32 %.off.i, 2
-  br i1 %switch.i4, label %_ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17h866587a57d3f7a31E.exit.thread, label %_ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17h866587a57d3f7a31E.exit
+  %.not = icmp eq i32 %40, 0
+  br i1 %.not, label %_ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17h866587a57d3f7a31E.exit, label %_ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17h866587a57d3f7a31E.exit.thread
 
 _ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17h866587a57d3f7a31E.exit: ; preds = %39
   %41 = getelementptr inbounds nuw i8, ptr %27, i64 60

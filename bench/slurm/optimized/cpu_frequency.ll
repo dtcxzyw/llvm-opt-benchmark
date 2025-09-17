@@ -2773,152 +2773,152 @@ define dso_local range(i32 0, 2) i32 @cpu_freq_debug(ptr noundef %0, ptr noundef
   %.048 = phi i32 [ 1, %13 ], [ 0, %8 ], [ 0, %8 ]
   %.047 = phi ptr [ @.str.85, %13 ], [ @.str.67, %8 ], [ @.str.67, %8 ]
   switch i32 %5, label %16 [
-    i32 -2, label %21
-    i32 0, label %21
+    i32 -2, label %22
+    i32 0, label %22
   ]
 
 16:                                               ; preds = %15
-  %.not59 = icmp sgt i32 %5, -1
-  br i1 %.not59, label %19, label %17
+  %17 = icmp slt i32 %5, 0
+  br i1 %17, label %18, label %20
 
-17:                                               ; preds = %16
+18:                                               ; preds = %16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(14) %10, ptr noundef nonnull align 1 dereferenceable(14) @.str.87, i64 14, i1 false) #10
-  %18 = getelementptr inbounds nuw i8, ptr %10, i64 13
-  call void @cpu_freq_to_string(ptr noundef nonnull %18, i32 noundef 19, i32 noundef %5)
-  br label %29
+  %19 = getelementptr inbounds nuw i8, ptr %10, i64 13
+  call void @cpu_freq_to_string(ptr noundef nonnull %19, i32 noundef 19, i32 noundef %5)
+  br label %30
 
-19:                                               ; preds = %16
-  %20 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) @.str.88, i32 noundef %5) #10
-  br label %29
+20:                                               ; preds = %16
+  %21 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) @.str.88, i32 noundef %5) #10
+  br label %30
 
-21:                                               ; preds = %15, %15
+22:                                               ; preds = %15, %15
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %29, label %22
+  br i1 %.not, label %30, label %23
 
-22:                                               ; preds = %21
-  %23 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #11
-  %24 = icmp ugt i64 %23, 31
-  br i1 %24, label %25, label %27
+23:                                               ; preds = %22
+  %24 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #11
+  %25 = icmp ugt i64 %24, 31
+  br i1 %25, label %26, label %28
 
-25:                                               ; preds = %22
-  %26 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.89, ptr noundef nonnull @__func__.cpu_freq_debug) #10
-  br label %29
+26:                                               ; preds = %23
+  %27 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.89, ptr noundef nonnull @__func__.cpu_freq_debug) #10
+  br label %30
 
-27:                                               ; preds = %22
-  %28 = call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %1, i64 noundef 32) #10
-  br label %29
+28:                                               ; preds = %23
+  %29 = call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %1, i64 noundef 32) #10
+  br label %30
 
-29:                                               ; preds = %21, %27, %25, %17, %19
-  %.1 = phi i32 [ 1, %17 ], [ 1, %19 ], [ %.048, %25 ], [ %.048, %27 ], [ %.048, %21 ]
-  %.046 = phi ptr [ @.str.85, %17 ], [ @.str.85, %19 ], [ @.str.85, %25 ], [ @.str.85, %27 ], [ @.str.67, %21 ]
-  switch i32 %6, label %30 [
-    i32 -2, label %35
-    i32 0, label %35
+30:                                               ; preds = %22, %28, %26, %18, %20
+  %.1 = phi i32 [ 1, %18 ], [ 1, %20 ], [ %.048, %26 ], [ %.048, %28 ], [ %.048, %22 ]
+  %.046 = phi ptr [ @.str.85, %18 ], [ @.str.85, %20 ], [ @.str.85, %26 ], [ @.str.85, %28 ], [ @.str.67, %22 ]
+  switch i32 %6, label %31 [
+    i32 -2, label %37
+    i32 0, label %37
   ]
-
-30:                                               ; preds = %29
-  %.not61 = icmp sgt i32 %6, -1
-  br i1 %.not61, label %33, label %31
 
 31:                                               ; preds = %30
+  %32 = icmp slt i32 %6, 0
+  br i1 %32, label %33, label %35
+
+33:                                               ; preds = %31
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(14) %11, ptr noundef nonnull align 1 dereferenceable(14) @.str.90, i64 14, i1 false) #10
-  %32 = getelementptr inbounds nuw i8, ptr %11, i64 13
-  call void @cpu_freq_to_string(ptr noundef nonnull %32, i32 noundef 19, i32 noundef %6)
-  br label %43
+  %34 = getelementptr inbounds nuw i8, ptr %11, i64 13
+  call void @cpu_freq_to_string(ptr noundef nonnull %34, i32 noundef 19, i32 noundef %6)
+  br label %45
 
-33:                                               ; preds = %30
-  %34 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(1) @.str.91, i32 noundef %6) #10
-  br label %43
+35:                                               ; preds = %31
+  %36 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(1) @.str.91, i32 noundef %6) #10
+  br label %45
 
-35:                                               ; preds = %29, %29
-  %.not60 = icmp eq ptr %1, null
-  br i1 %.not60, label %43, label %36
+37:                                               ; preds = %30, %30
+  %.not59 = icmp eq ptr %1, null
+  br i1 %.not59, label %45, label %38
 
-36:                                               ; preds = %35
-  %37 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #11
-  %38 = icmp ugt i64 %37, 31
-  br i1 %38, label %39, label %41
+38:                                               ; preds = %37
+  %39 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #11
+  %40 = icmp ugt i64 %39, 31
+  br i1 %40, label %41, label %43
 
-39:                                               ; preds = %36
-  %40 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.92, ptr noundef nonnull @__func__.cpu_freq_debug) #10
-  br label %43
+41:                                               ; preds = %38
+  %42 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.92, ptr noundef nonnull @__func__.cpu_freq_debug) #10
+  br label %45
 
-41:                                               ; preds = %36
-  %42 = call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(1) %1, i64 noundef 32) #10
-  br label %43
+43:                                               ; preds = %38
+  %44 = call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(1) %1, i64 noundef 32) #10
+  br label %45
 
-43:                                               ; preds = %35, %41, %39, %31, %33
-  %.2 = phi i32 [ 1, %31 ], [ 1, %33 ], [ %.1, %39 ], [ %.1, %41 ], [ %.1, %35 ]
-  %.0 = phi ptr [ @.str.85, %31 ], [ @.str.85, %33 ], [ @.str.85, %39 ], [ @.str.85, %41 ], [ @.str.67, %35 ]
+45:                                               ; preds = %37, %43, %41, %33, %35
+  %.2 = phi i32 [ 1, %33 ], [ 1, %35 ], [ %.1, %41 ], [ %.1, %43 ], [ %.1, %37 ]
+  %.0 = phi ptr [ @.str.85, %33 ], [ @.str.85, %35 ], [ @.str.85, %41 ], [ @.str.85, %43 ], [ @.str.67, %37 ]
   switch i32 %4, label %.thread [
-    i32 -2, label %45
-    i32 0, label %45
+    i32 -2, label %47
+    i32 0, label %47
   ]
 
-.thread:                                          ; preds = %43
+.thread:                                          ; preds = %45
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(10) %9, ptr noundef nonnull align 1 dereferenceable(10) @.str.93, i64 10, i1 false) #10
-  %44 = getelementptr inbounds nuw i8, ptr %9, i64 9
-  call void @cpu_freq_to_string(ptr noundef nonnull %44, i32 noundef 55, i32 noundef %4)
-  br label %54
+  %46 = getelementptr inbounds nuw i8, ptr %9, i64 9
+  call void @cpu_freq_to_string(ptr noundef nonnull %46, i32 noundef 55, i32 noundef %4)
+  br label %56
 
-45:                                               ; preds = %43, %43
-  %.not62 = icmp eq ptr %1, null
-  br i1 %.not62, label %53, label %46
+47:                                               ; preds = %45, %45
+  %.not60 = icmp eq ptr %1, null
+  br i1 %.not60, label %55, label %48
 
-46:                                               ; preds = %45
-  %47 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #11
-  %48 = icmp ugt i64 %47, 63
-  br i1 %48, label %49, label %51
+48:                                               ; preds = %47
+  %49 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #11
+  %50 = icmp ugt i64 %49, 63
+  br i1 %50, label %51, label %53
 
-49:                                               ; preds = %46
-  %50 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.94, ptr noundef nonnull @__func__.cpu_freq_debug) #10
-  br label %53
+51:                                               ; preds = %48
+  %52 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.94, ptr noundef nonnull @__func__.cpu_freq_debug) #10
+  br label %55
 
-51:                                               ; preds = %46
-  %52 = call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %1, i64 noundef 64) #10
-  br label %53
+53:                                               ; preds = %48
+  %54 = call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %1, i64 noundef 64) #10
+  br label %55
 
-53:                                               ; preds = %45, %51, %49
-  %.not63 = icmp eq i32 %.2, 0
-  br i1 %.not63, label %58, label %54
+55:                                               ; preds = %47, %53, %51
+  %.not61 = icmp eq i32 %.2, 0
+  br i1 %.not61, label %60, label %56
 
-54:                                               ; preds = %.thread, %53
-  %.not65 = icmp eq ptr %2, null
-  br i1 %.not65, label %60, label %55
+56:                                               ; preds = %.thread, %55
+  %.not63 = icmp eq ptr %2, null
+  br i1 %.not63, label %62, label %57
 
-55:                                               ; preds = %54
-  %56 = sext i32 %3 to i64
-  %57 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %2, i64 noundef %56, ptr noundef nonnull @.str.95, ptr noundef nonnull %12, ptr noundef nonnull %.047, ptr noundef nonnull %10, ptr noundef nonnull %.046, ptr noundef nonnull %11, ptr noundef nonnull %.0, ptr noundef nonnull %9) #10
-  br label %60
+57:                                               ; preds = %56
+  %58 = sext i32 %3 to i64
+  %59 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %2, i64 noundef %58, ptr noundef nonnull @.str.95, ptr noundef nonnull %12, ptr noundef nonnull %.047, ptr noundef nonnull %10, ptr noundef nonnull %.046, ptr noundef nonnull %11, ptr noundef nonnull %.0, ptr noundef nonnull %9) #10
+  br label %62
 
-58:                                               ; preds = %53
-  %.not64 = icmp eq ptr %2, null
-  br i1 %.not64, label %60, label %59
-
-59:                                               ; preds = %58
-  store i8 0, ptr %2, align 1
-  br label %60
-
-60:                                               ; preds = %58, %59, %54, %55
-  %.369 = phi i32 [ 0, %58 ], [ 0, %59 ], [ 1, %54 ], [ 1, %55 ]
-  %.not66 = icmp eq ptr %0, null
-  br i1 %.not66, label %65, label %61
+60:                                               ; preds = %55
+  %.not62 = icmp eq ptr %2, null
+  br i1 %.not62, label %62, label %61
 
 61:                                               ; preds = %60
-  %62 = call i32 @get_log_level() #10
-  %63 = icmp sgt i32 %62, 2
-  br i1 %63, label %64, label %65
+  store i8 0, ptr %2, align 1
+  br label %62
 
-64:                                               ; preds = %61
+62:                                               ; preds = %60, %61, %56, %57
+  %.367 = phi i32 [ 0, %60 ], [ 0, %61 ], [ 1, %56 ], [ 1, %57 ]
+  %.not64 = icmp eq ptr %0, null
+  br i1 %.not64, label %67, label %63
+
+63:                                               ; preds = %62
+  %64 = call i32 @get_log_level() #10
+  %65 = icmp sgt i32 %64, 2
+  br i1 %65, label %66, label %67
+
+66:                                               ; preds = %63
   call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.96, ptr noundef nonnull %0, ptr noundef nonnull %12, ptr noundef nonnull %.047, ptr noundef nonnull %10, ptr noundef nonnull %.046, ptr noundef nonnull %11, ptr noundef nonnull %.0, ptr noundef nonnull %9) #10
-  br label %65
+  br label %67
 
-65:                                               ; preds = %61, %64, %60
+67:                                               ; preds = %63, %66, %62
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  ret i32 %.369
+  ret i32 %.367
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3364,68 +3364,68 @@ define dso_local void @cpu_freq_to_string(ptr noundef %0, i32 noundef %1, i32 no
 4:                                                ; preds = %3
   %5 = sext i32 %1 to i64
   %6 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %0, i64 noundef %5, ptr noundef nonnull @.str.51) #10
-  br label %40
+  br label %41
 
 7:                                                ; preds = %3
   %8 = sext i32 %1 to i64
   %9 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %0, i64 noundef %8, ptr noundef nonnull @.str.52) #10
-  br label %40
+  br label %41
 
 10:                                               ; preds = %3
   %11 = sext i32 %1 to i64
   %12 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %0, i64 noundef %11, ptr noundef nonnull @.str.53) #10
-  br label %40
+  br label %41
 
 13:                                               ; preds = %3
   %14 = sext i32 %1 to i64
   %15 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %0, i64 noundef %14, ptr noundef nonnull @.str.54) #10
-  br label %40
+  br label %41
 
 16:                                               ; preds = %3
   %17 = sext i32 %1 to i64
   %18 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %0, i64 noundef %17, ptr noundef nonnull @.str.55) #10
-  br label %40
+  br label %41
 
 19:                                               ; preds = %3
   %20 = sext i32 %1 to i64
   %21 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %0, i64 noundef %20, ptr noundef nonnull @.str.56) #10
-  br label %40
+  br label %41
 
 22:                                               ; preds = %3
   %23 = sext i32 %1 to i64
   %24 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %0, i64 noundef %23, ptr noundef nonnull @.str.57) #10
-  br label %40
+  br label %41
 
 25:                                               ; preds = %3
   %26 = sext i32 %1 to i64
   %27 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %0, i64 noundef %26, ptr noundef nonnull @.str.58) #10
-  br label %40
+  br label %41
 
 28:                                               ; preds = %3
   %29 = sext i32 %1 to i64
   %30 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %0, i64 noundef %29, ptr noundef nonnull @.str.59) #10
-  br label %40
+  br label %41
 
 31:                                               ; preds = %3
   %32 = sext i32 %1 to i64
   %33 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %0, i64 noundef %32, ptr noundef nonnull @.str.60) #10
-  br label %40
+  br label %41
 
 34:                                               ; preds = %3
-  %.not = icmp sgt i32 %2, -1
-  br i1 %.not, label %38, label %35
+  %35 = icmp slt i32 %2, 0
+  br i1 %35, label %36, label %39
 
-35:                                               ; preds = %34
-  %36 = sext i32 %1 to i64
-  %37 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %0, i64 noundef %36, ptr noundef nonnull @.str.61) #10
-  br label %40
+36:                                               ; preds = %34
+  %37 = sext i32 %1 to i64
+  %38 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %0, i64 noundef %37, ptr noundef nonnull @.str.61) #10
+  br label %41
 
-38:                                               ; preds = %34
-  %39 = uitofp nneg i32 %2 to double
-  tail call void @convert_num_unit2(double noundef %39, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef -2, i32 noundef 1000, i32 noundef 0) #10
-  br label %40
+39:                                               ; preds = %34
+  %40 = uitofp nneg i32 %2 to double
+  tail call void @convert_num_unit2(double noundef %40, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef -2, i32 noundef 1000, i32 noundef 0) #10
+  br label %41
 
-40:                                               ; preds = %7, %13, %19, %25, %31, %38, %35, %28, %22, %16, %10, %4
+41:                                               ; preds = %7, %13, %19, %25, %31, %39, %36, %28, %22, %16, %10, %4
   ret void
 }
 
@@ -3456,80 +3456,80 @@ define dso_local ptr @cpu_freq_to_cmdline(i32 noundef %0, i32 noundef %1, i32 no
   %or.cond = and i1 %11, %12
   %13 = icmp eq i32 %spec.store.select1, -2
   %or.cond4 = and i1 %or.cond, %13
-  br i1 %or.cond4, label %34, label %14
+  br i1 %or.cond4, label %36, label %14
 
 14:                                               ; preds = %3
   %15 = icmp ne i32 %spec.store.select, -2
-  br i1 %15, label %16, label %20
+  br i1 %15, label %16, label %21
 
 16:                                               ; preds = %14
-  %.not = icmp sgt i32 %spec.store.select, -1
-  br i1 %.not, label %18, label %17
-
-17:                                               ; preds = %16
-  call void @cpu_freq_to_string(ptr noundef nonnull %5, i32 noundef 32, i32 noundef %spec.store.select)
-  br label %20
+  %17 = icmp slt i32 %spec.store.select, 0
+  br i1 %17, label %18, label %19
 
 18:                                               ; preds = %16
-  %19 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 32, ptr noundef nonnull @.str.62, i32 noundef %spec.store.select) #10
-  br label %20
+  call void @cpu_freq_to_string(ptr noundef nonnull %5, i32 noundef 32, i32 noundef %spec.store.select)
+  br label %21
 
-20:                                               ; preds = %17, %18, %14
-  %21 = icmp ne i32 %spec.store.select11, -2
-  br i1 %21, label %22, label %26
+19:                                               ; preds = %16
+  %20 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 32, ptr noundef nonnull @.str.62, i32 noundef %spec.store.select) #10
+  br label %21
 
-22:                                               ; preds = %20
-  %.not34 = icmp sgt i32 %spec.store.select11, -1
-  br i1 %.not34, label %24, label %23
+21:                                               ; preds = %18, %19, %14
+  %22 = icmp ne i32 %spec.store.select11, -2
+  br i1 %22, label %23, label %28
 
-23:                                               ; preds = %22
+23:                                               ; preds = %21
+  %24 = icmp slt i32 %spec.store.select11, 0
+  br i1 %24, label %25, label %26
+
+25:                                               ; preds = %23
   call void @cpu_freq_to_string(ptr noundef nonnull %6, i32 noundef 32, i32 noundef %spec.store.select11)
-  br label %26
+  br label %28
 
-24:                                               ; preds = %22
-  %25 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 32, ptr noundef nonnull @.str.62, i32 noundef %spec.store.select11) #10
-  br label %26
+26:                                               ; preds = %23
+  %27 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 32, ptr noundef nonnull @.str.62, i32 noundef %spec.store.select11) #10
+  br label %28
 
-26:                                               ; preds = %23, %24, %20
-  br i1 %13, label %.thread, label %27
+28:                                               ; preds = %25, %26, %21
+  br i1 %13, label %.thread, label %29
 
-.thread:                                          ; preds = %26
-  %or.cond635 = and i1 %15, %21
-  br i1 %or.cond635, label %29, label %.thread38
+.thread:                                          ; preds = %28
+  %or.cond634 = and i1 %15, %22
+  br i1 %or.cond634, label %31, label %.thread37
 
-27:                                               ; preds = %26
+29:                                               ; preds = %28
   call void @cpu_freq_to_string(ptr noundef nonnull %4, i32 noundef 32, i32 noundef %spec.store.select1)
-  %or.cond6 = and i1 %15, %21
-  br i1 %or.cond6, label %28, label %30
+  %or.cond6 = and i1 %15, %22
+  br i1 %or.cond6, label %30, label %32
 
-28:                                               ; preds = %27
+30:                                               ; preds = %29
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %7, ptr noundef nonnull @.str.63, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %4) #10
-  br label %.thread39
+  br label %.thread38
 
-29:                                               ; preds = %.thread
+31:                                               ; preds = %.thread
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %7, ptr noundef nonnull @.str.64, ptr noundef nonnull %5, ptr noundef nonnull %6) #10
-  br label %.thread39
+  br label %.thread38
 
-30:                                               ; preds = %27
-  br i1 %21, label %31, label %32
+32:                                               ; preds = %29
+  br i1 %22, label %33, label %34
 
-.thread38:                                        ; preds = %.thread
-  br i1 %21, label %31, label %.thread39
+.thread37:                                        ; preds = %.thread
+  br i1 %22, label %33, label %.thread38
 
-31:                                               ; preds = %.thread38, %30
+33:                                               ; preds = %.thread37, %32
   call void @_xstrcat(ptr noundef nonnull %7, ptr noundef nonnull %6) #10
-  br label %.thread39
+  br label %.thread38
 
-32:                                               ; preds = %30
+34:                                               ; preds = %32
   call void @_xstrcat(ptr noundef nonnull %7, ptr noundef nonnull %4) #10
-  br label %.thread39
+  br label %.thread38
 
-.thread39:                                        ; preds = %.thread38, %29, %32, %31, %28
-  %33 = load ptr, ptr %7, align 8
-  br label %34
+.thread38:                                        ; preds = %.thread37, %31, %34, %33, %30
+  %35 = load ptr, ptr %7, align 8
+  br label %36
 
-34:                                               ; preds = %3, %.thread39
-  %.0 = phi ptr [ %33, %.thread39 ], [ null, %3 ]
+36:                                               ; preds = %3, %.thread38
+  %.0 = phi ptr [ %35, %.thread38 ], [ null, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

@@ -2278,9 +2278,8 @@ define hidden void @_ZN21ruff_python_formatter8builders25JoinCommaSeparatedBuild
   %19 = tail call noundef nonnull align 8 ptr %18(ptr noundef nonnull align 1 %14), !noalias !327
   %20 = tail call i24 @_ZN21ruff_python_formatter7context15PyFormatContext14f_string_state17hcaf129e52b9320f0E(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %19), !noalias !327
   %21 = tail call noundef i8 @_ZN21ruff_python_formatter7context12FStringState23can_contain_line_breaks17h4694e0cb0b61e524E(i24 %20), !noalias !327
-  %.off.i = add nsw i8 %21, -1
-  %switch.i = icmp ult i8 %.off.i, 2
-  br i1 %switch.i, label %22, label %26
+  %.not.i = icmp eq i8 %21, 0
+  br i1 %.not.i, label %26, label %22
 
 22:                                               ; preds = %13
   %23 = load i32, ptr %1, align 8, !range !329, !noalias !327, !noundef !3

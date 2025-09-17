@@ -6899,9 +6899,8 @@ wrapped_tvb_get_uint8.exit1863:                   ; preds = %wrapped_tvb_get_uin
   br label %.thread1988
 
 1887:                                             ; preds = %1878
-  %1888 = add i8 %.01026190619181945.shrunk, -75
-  %or.cond69 = icmp ult i8 %1888, 112
-  br i1 %or.cond69, label %1889, label %1896
+  %1888 = icmp ult i8 %.01026190619181945.shrunk, -69
+  br i1 %1888, label %1889, label %1896
 
 1889:                                             ; preds = %1887
   %1890 = add nsw i32 %.01026190619181945, -58
@@ -6953,9 +6952,8 @@ wrapped_tvb_get_uint8.exit1863:                   ; preds = %wrapped_tvb_get_uin
   br label %.thread1996
 
 1920:                                             ; preds = %1911
-  %1921 = add i8 %.01034190519191944.shrunk, -75
-  %or.cond78 = icmp ult i8 %1921, 112
-  br i1 %or.cond78, label %1922, label %1929
+  %1921 = icmp ult i8 %.01034190519191944.shrunk, -69
+  br i1 %1921, label %1922, label %1929
 
 1922:                                             ; preds = %1920
   %1923 = add nsw i32 %.01034190519191944, -58
@@ -7010,9 +7008,8 @@ wrapped_tvb_get_uint8.exit1863:                   ; preds = %wrapped_tvb_get_uin
   br label %.thread2004
 
 1954:                                             ; preds = %1945
-  %1955 = add i8 %.0102519241939.shrunk, -75
-  %or.cond87 = icmp ult i8 %1955, 112
-  br i1 %or.cond87, label %1956, label %1963
+  %1955 = icmp ult i8 %.0102519241939.shrunk, -69
+  br i1 %1955, label %1956, label %1963
 
 1956:                                             ; preds = %1954
   %1957 = add nsw i32 %.0102519241939, -58
@@ -7064,9 +7061,8 @@ wrapped_tvb_get_uint8.exit1863:                   ; preds = %wrapped_tvb_get_uin
   br label %.thread2012
 
 1987:                                             ; preds = %1978
-  %1988 = add i8 %.0103519231940.shrunk, -75
-  %or.cond96 = icmp ult i8 %1988, 112
-  br i1 %or.cond96, label %1989, label %1996
+  %1988 = icmp ult i8 %.0103519231940.shrunk, -69
+  br i1 %1988, label %1989, label %1996
 
 1989:                                             ; preds = %1987
   %1990 = add nsw i32 %.0103519231940, -58
@@ -7121,9 +7117,8 @@ wrapped_tvb_get_uint8.exit1863:                   ; preds = %wrapped_tvb_get_uin
   br label %.thread2020
 
 2021:                                             ; preds = %2012
-  %2022 = add i8 %.010361946.shrunk, -62
-  %or.cond105 = icmp ult i8 %2022, 100
-  br i1 %or.cond105, label %2023, label %2031
+  %2022 = icmp ult i8 %.010361946.shrunk, -94
+  br i1 %2022, label %2023, label %2031
 
 2023:                                             ; preds = %2021
   %2024 = mul nuw nsw i32 %.010361946, 10
@@ -7176,9 +7171,8 @@ wrapped_tvb_get_uint8.exit1863:                   ; preds = %wrapped_tvb_get_uin
   br label %.thread2028
 
 2055:                                             ; preds = %2046
-  %2056 = add i8 %.010321947.shrunk, -62
-  %or.cond114 = icmp ult i8 %2056, 100
-  br i1 %or.cond114, label %2057, label %2065
+  %2056 = icmp ult i8 %.010321947.shrunk, -94
+  br i1 %2056, label %2057, label %2065
 
 2057:                                             ; preds = %2055
   %2058 = mul nuw nsw i32 %.010321947, 10

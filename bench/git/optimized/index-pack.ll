@@ -1250,8 +1250,8 @@ _.exit.i:                                         ; preds = %_.exit.sink.split.i
   store i8 %471, ptr %472, align 1, !tbaa !74
   %473 = and i8 %469, 15
   %474 = zext nneg i8 %473 to i64
-  %.not58.i.i = icmp sgt i8 %469, -1
-  br i1 %.not58.i.i, label %._crit_edge.i.i176, label %.lr.ph.i.preheader.i
+  %.not57.i.i = icmp sgt i8 %469, -1
+  br i1 %.not57.i.i, label %._crit_edge.i.i176, label %.lr.ph.i.preheader.i
 
 .lr.ph.i.preheader.i:                             ; preds = %461
   %.pre.i173 = load i32, ptr @input_len, align 4, !tbaa !9
@@ -1261,8 +1261,8 @@ _.exit.i:                                         ; preds = %_.exit.sink.split.i
 .lr.ph.i.i174:                                    ; preds = %use.exit118.i, %.lr.ph.i.preheader.i
   %475 = phi i32 [ %531, %use.exit118.i ], [ %.pre695, %.lr.ph.i.preheader.i ]
   %476 = phi i32 [ %529, %use.exit118.i ], [ %.pre.i173, %.lr.ph.i.preheader.i ]
-  %.060.i.i = phi i32 [ %549, %use.exit118.i ], [ 4, %.lr.ph.i.preheader.i ]
-  %.04359.i.i = phi i64 [ %548, %use.exit118.i ], [ %474, %.lr.ph.i.preheader.i ]
+  %.059.i.i = phi i32 [ %549, %use.exit118.i ], [ 4, %.lr.ph.i.preheader.i ]
+  %.04358.i.i = phi i64 [ %548, %use.exit118.i ], [ %474, %.lr.ph.i.preheader.i ]
   %.not.i119.i = icmp eq i32 %476, 0
   br i1 %.not.i119.i, label %480, label %477
 
@@ -1405,10 +1405,10 @@ flush.exit.i122.i:                                ; preds = %flush.exit.i122.i.p
 use.exit118.i:                                    ; preds = %536
   %544 = and i8 %522, 127
   %545 = zext nneg i8 %544 to i64
-  %546 = zext nneg i32 %.060.i.i to i64
+  %546 = zext nneg i32 %.059.i.i to i64
   %547 = shl i64 %545, %546
-  %548 = add i64 %547, %.04359.i.i
-  %549 = add i32 %.060.i.i, 7
+  %548 = add i64 %547, %.04358.i.i
+  %549 = add i32 %.059.i.i, 7
   %.not.i.i175 = icmp sgt i8 %522, -1
   br i1 %.not.i.i175, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i174, !llvm.loop !79
 
@@ -1484,21 +1484,21 @@ oidread.exit.i.i:                                 ; preds = %571, %.split.loop.e
   call fastcc void @use(i32 noundef 1)
   %578 = and i8 %577, 127
   %579 = zext nneg i8 %578 to i64
-  %.not4661.i.i = icmp sgt i8 %577, -1
-  br i1 %.not4661.i.i, label %._crit_edge65.i.i, label %.lr.ph64.i.i
+  %.not4660.i.i = icmp sgt i8 %577, -1
+  br i1 %.not4660.i.i, label %._crit_edge64.i.i, label %.lr.ph63.i.i
 
-.lr.ph64.i.i:                                     ; preds = %575, %use.exit106.i
-  %.04162.i.i = phi i64 [ %657, %use.exit106.i ], [ %579, %575 ]
-  %or.cond.i.i = icmp ult i64 %.04162.i.i, 144115188075855871
-  br i1 %or.cond.i.i, label %583, label %580
+.lr.ph63.i.i:                                     ; preds = %575, %use.exit106.i
+  %.04161.i.i = phi i64 [ %657, %use.exit106.i ], [ %579, %575 ]
+  %or.cond.i.i = icmp ugt i64 %.04161.i.i, 144115188075855870
+  br i1 %or.cond.i.i, label %580, label %583
 
-580:                                              ; preds = %.lr.ph64.i.i
+580:                                              ; preds = %.lr.ph63.i.i
   %581 = load i64, ptr %465, align 8, !tbaa !70
   %582 = call fastcc ptr @_(ptr noundef nonnull @.str.66)
   call void (i64, ptr, ...) @bad_object(i64 noundef %581, ptr noundef %582) #28
   unreachable
 
-583:                                              ; preds = %.lr.ph64.i.i
+583:                                              ; preds = %.lr.ph63.i.i
   %584 = load i32, ptr @input_len, align 4, !tbaa !9
   %.not.i107.i = icmp eq i32 %584, 0
   %585 = load i32, ptr @input_offset, align 4, !tbaa !9
@@ -1641,28 +1641,28 @@ flush.exit.i110.i:                                ; preds = %flush.exit.i110.i.p
   unreachable
 
 use.exit106.i:                                    ; preds = %645
-  %653 = shl nuw i64 %.04162.i.i, 7
+  %653 = shl nuw i64 %.04161.i.i, 7
   %654 = add nuw i64 %653, 128
   %655 = and i8 %631, 127
   %656 = zext nneg i8 %655 to i64
   %657 = or disjoint i64 %654, %656
   %.not46.i.i = icmp sgt i8 %631, -1
-  br i1 %.not46.i.i, label %._crit_edge65.i.i, label %.lr.ph64.i.i, !llvm.loop !84
+  br i1 %.not46.i.i, label %._crit_edge64.i.i, label %.lr.ph63.i.i, !llvm.loop !84
 
-._crit_edge65.i.i:                                ; preds = %use.exit106.i, %575
+._crit_edge64.i.i:                                ; preds = %use.exit106.i, %575
   %.041.lcssa.i.i = phi i64 [ %579, %575 ], [ %657, %use.exit106.i ]
   %658 = load i64, ptr %465, align 8, !tbaa !70
   %659 = sub nsw i64 %658, %.041.lcssa.i.i
   store i64 %659, ptr %.039309.i, align 8, !tbaa !28
   %660 = icmp sgt i64 %659, 0
-  %.pre76.i.i = load i64, ptr %465, align 8, !tbaa !70
-  %.not47.i.i = icmp slt i64 %659, %.pre76.i.i
-  %or.cond92.i.i = select i1 %660, i1 %.not47.i.i, i1 false
-  br i1 %or.cond92.i.i, label %668, label %661
+  %.pre75.i.i = load i64, ptr %465, align 8, !tbaa !70
+  %.not47.i.i = icmp slt i64 %659, %.pre75.i.i
+  %or.cond91.i.i = select i1 %660, i1 %.not47.i.i, i1 false
+  br i1 %or.cond91.i.i, label %668, label %661
 
-661:                                              ; preds = %._crit_edge65.i.i
+661:                                              ; preds = %._crit_edge64.i.i
   %662 = call fastcc ptr @_(ptr noundef nonnull @.str.67)
-  call void (i64, ptr, ...) @bad_object(i64 noundef %.pre76.i.i, ptr noundef %662) #28
+  call void (i64, ptr, ...) @bad_object(i64 noundef %.pre75.i.i, ptr noundef %662) #28
   unreachable
 
 663:                                              ; preds = %._crit_edge.i.i176
@@ -1673,7 +1673,7 @@ use.exit106.i:                                    ; preds = %645
   call void (i64, ptr, ...) @bad_object(i64 noundef %664, ptr noundef %665, i32 noundef %667) #28
   unreachable
 
-668:                                              ; preds = %._crit_edge65.i.i, %oidread.exit.i.i, %._crit_edge.i.i176, %._crit_edge.i.i176, %._crit_edge.i.i176, %._crit_edge.i.i176
+668:                                              ; preds = %._crit_edge64.i.i, %oidread.exit.i.i, %._crit_edge.i.i176, %._crit_edge.i.i176, %._crit_edge.i.i176, %._crit_edge.i.i176
   %669 = load i64, ptr @consumed_bytes, align 8, !tbaa !28
   %670 = load i64, ptr %465, align 8, !tbaa !70
   %671 = sub nsw i64 %669, %670

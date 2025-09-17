@@ -111,7 +111,7 @@ define i32 @Java_java_lang_ProcessHandleImpl_waitForProcessExit0(ptr noundef rea
   %8 = tail call ptr @__errno_location() #12
   store i32 0, ptr %8, align 4
   %.not = icmp eq i8 %3, 0
-  br i1 %.not, label %24, label %.preheader
+  br i1 %.not, label %22, label %.preheader
 
 .preheader:                                       ; preds = %4, %11
   %9 = call i32 @waitpid(i32 noundef %7, ptr noundef nonnull %5, i32 noundef 0) #11
@@ -121,7 +121,7 @@ define i32 @Java_java_lang_ProcessHandleImpl_waitForProcessExit0(ptr noundef rea
 11:                                               ; preds = %.preheader
   %12 = load i32, ptr %8, align 4
   switch i32 %12, label %.loopexit [
-    i32 10, label %.loopexit.loopexit18
+    i32 10, label %.loopexit.loopexit19
     i32 4, label %.preheader
   ], !llvm.loop !6
 
@@ -137,60 +137,58 @@ define i32 @Java_java_lang_ProcessHandleImpl_waitForProcessExit0(ptr noundef rea
   br label %.loopexit
 
 20:                                               ; preds = %13
-  %21 = shl nuw nsw i32 %15, 24
-  %sext = add nuw i32 %21, 16777216
-  %22 = icmp sgt i32 %sext, 33554431
-  %23 = or disjoint i32 %15, 128
-  %spec.select = select i1 %22, i32 %23, i32 %14
+  %.not15 = icmp eq i32 %15, 127
+  %21 = or disjoint i32 %15, 128
+  %spec.select = select i1 %.not15, i32 %14, i32 %21
   br label %.loopexit
 
-24:                                               ; preds = %4
+22:                                               ; preds = %4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %6, i8 0, i64 128, i1 false)
-  br label %25
+  br label %23
 
-25:                                               ; preds = %28, %24
-  %26 = call i32 @waitid(i32 noundef 1, i32 noundef %7, ptr noundef nonnull %6, i32 noundef 16777220) #11
-  %27 = icmp slt i32 %26, 0
-  br i1 %27, label %28, label %30
+23:                                               ; preds = %26, %22
+  %24 = call i32 @waitid(i32 noundef 1, i32 noundef %7, ptr noundef nonnull %6, i32 noundef 16777220) #11
+  %25 = icmp slt i32 %24, 0
+  br i1 %25, label %26, label %28
 
-28:                                               ; preds = %25
-  %29 = load i32, ptr %8, align 4
-  switch i32 %29, label %.loopexit [
+26:                                               ; preds = %23
+  %27 = load i32, ptr %8, align 4
+  switch i32 %27, label %.loopexit [
     i32 10, label %.loopexit.loopexit
-    i32 4, label %25
+    i32 4, label %23
   ], !llvm.loop !8
 
-30:                                               ; preds = %25
-  %31 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %32 = load i32, ptr %31, align 8
-  %33 = icmp eq i32 %32, 1
-  br i1 %33, label %34, label %37
+28:                                               ; preds = %23
+  %29 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %30 = load i32, ptr %29, align 8
+  %31 = icmp eq i32 %30, 1
+  br i1 %31, label %32, label %35
 
-34:                                               ; preds = %30
-  %35 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %36 = load i32, ptr %35, align 8
+32:                                               ; preds = %28
+  %33 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %34 = load i32, ptr %33, align 8
   br label %.loopexit
 
-37:                                               ; preds = %30
-  %38 = and i32 %32, -2
-  %or.cond = icmp eq i32 %38, 2
-  %39 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %40 = load i32, ptr %39, align 8
-  br i1 %or.cond, label %41, label %.loopexit
+35:                                               ; preds = %28
+  %36 = and i32 %30, -2
+  %or.cond = icmp eq i32 %36, 2
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %38 = load i32, ptr %37, align 8
+  br i1 %or.cond, label %39, label %.loopexit
 
-41:                                               ; preds = %37
-  %42 = and i32 %40, 127
-  %43 = or disjoint i32 %42, 128
+39:                                               ; preds = %35
+  %40 = and i32 %38, 127
+  %41 = or disjoint i32 %40, 128
   br label %.loopexit
 
-.loopexit.loopexit:                               ; preds = %28
+.loopexit.loopexit:                               ; preds = %26
   br label %.loopexit
 
-.loopexit.loopexit18:                             ; preds = %11
+.loopexit.loopexit19:                             ; preds = %11
   br label %.loopexit
 
-.loopexit:                                        ; preds = %11, %28, %.loopexit.loopexit18, %.loopexit.loopexit, %37, %20, %41, %34, %17
-  %.0 = phi i32 [ %19, %17 ], [ %36, %34 ], [ %43, %41 ], [ %spec.select, %20 ], [ %40, %37 ], [ -2, %.loopexit.loopexit ], [ -2, %.loopexit.loopexit18 ], [ -1, %28 ], [ -1, %11 ]
+.loopexit:                                        ; preds = %11, %26, %.loopexit.loopexit19, %.loopexit.loopexit, %35, %20, %39, %32, %17
+  %.0 = phi i32 [ %19, %17 ], [ %34, %32 ], [ %41, %39 ], [ %spec.select, %20 ], [ %38, %35 ], [ -2, %.loopexit.loopexit ], [ -2, %.loopexit.loopexit19 ], [ -1, %26 ], [ -1, %11 ]
   ret i32 %.0
 }
 

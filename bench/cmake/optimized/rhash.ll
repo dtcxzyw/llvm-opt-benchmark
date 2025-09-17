@@ -404,182 +404,181 @@ define dso_local range(i32 -1, 1) i32 @rhash_msg(i32 noundef %0, ptr noundef %1,
   %8 = and i32 %0, 1023
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 %8, ptr %6, align 4, !tbaa !4
-  %9 = add nsw i32 %8, -1
-  %or.cond.i = icmp ult i32 %9, 1023
-  br i1 %or.cond.i, label %11, label %rhash_init.exit.thread
+  %.not = icmp eq i32 %8, 0
+  br i1 %.not, label %rhash_init.exit.thread, label %10
 
 rhash_init.exit.thread:                           ; preds = %4
-  %10 = tail call ptr @__errno_location() #17
-  store i32 22, ptr %10, align 4, !tbaa !4
+  %9 = tail call ptr @__errno_location() #17
+  store i32 22, ptr %9, align 4, !tbaa !4
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %86
+  br label %85
 
-11:                                               ; preds = %4
-  %12 = tail call range(i32 1, 11) i32 @llvm.ctpop.i32(i32 %8)
-  %13 = icmp samesign ult i32 %12, 2
-  br i1 %13, label %14, label %16
+10:                                               ; preds = %4
+  %11 = tail call range(i32 1, 11) i32 @llvm.ctpop.i32(i32 %8)
+  %12 = icmp samesign ult i32 %11, 2
+  br i1 %12, label %13, label %15
 
-14:                                               ; preds = %11
-  %15 = call ptr @rhash_init_multi(i64 noundef 1, ptr noundef nonnull %6)
+13:                                               ; preds = %10
+  %14 = call ptr @rhash_init_multi(i64 noundef 1, ptr noundef nonnull %6)
   br label %rhash_init.exit
 
-16:                                               ; preds = %11
+15:                                               ; preds = %10
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %17 = sub nsw i32 0, %8
-  %18 = and i32 %8, %17
-  br label %19
+  %16 = sub nsw i32 0, %8
+  %17 = and i32 %8, %16
+  br label %18
 
-19:                                               ; preds = %24, %16
-  %.013.i = phi i32 [ %18, %16 ], [ %25, %24 ]
-  %.0612.i = phi i64 [ 0, %16 ], [ %.1.i, %24 ]
-  %20 = and i32 %.013.i, %8
-  %.not11.i = icmp eq i32 %20, 0
-  br i1 %.not11.i, label %24, label %21
+18:                                               ; preds = %23, %15
+  %.013.i = phi i32 [ %17, %15 ], [ %24, %23 ]
+  %.0612.i = phi i64 [ 0, %15 ], [ %.1.i, %23 ]
+  %19 = and i32 %.013.i, %8
+  %.not11.i = icmp eq i32 %19, 0
+  br i1 %.not11.i, label %23, label %20
 
-21:                                               ; preds = %19
-  %22 = add i64 %.0612.i, 1
-  %23 = getelementptr inbounds nuw i32, ptr %7, i64 %.0612.i
-  store i32 %.013.i, ptr %23, align 4, !tbaa !4
-  br label %24
+20:                                               ; preds = %18
+  %21 = add i64 %.0612.i, 1
+  %22 = getelementptr inbounds nuw i32, ptr %7, i64 %.0612.i
+  store i32 %.013.i, ptr %22, align 4, !tbaa !4
+  br label %23
 
-24:                                               ; preds = %21, %19
-  %.1.i = phi i64 [ %22, %21 ], [ %.0612.i, %19 ]
-  %25 = shl nuw nsw i32 %.013.i, 1
-  %.not10.i = icmp samesign ugt i32 %25, %8
-  br i1 %.not10.i, label %26, label %19, !llvm.loop !25
+23:                                               ; preds = %20, %18
+  %.1.i = phi i64 [ %21, %20 ], [ %.0612.i, %18 ]
+  %24 = shl nuw nsw i32 %.013.i, 1
+  %.not10.i = icmp samesign ugt i32 %24, %8
+  br i1 %.not10.i, label %25, label %18, !llvm.loop !25
 
-26:                                               ; preds = %24
-  %27 = call ptr @rhash_init_multi(i64 noundef %.1.i, ptr noundef nonnull %7)
+25:                                               ; preds = %23
+  %26 = call ptr @rhash_init_multi(i64 noundef %.1.i, ptr noundef nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %rhash_init.exit
 
-rhash_init.exit:                                  ; preds = %14, %26
-  %.07.i = phi ptr [ %15, %14 ], [ %27, %26 ]
+rhash_init.exit:                                  ; preds = %13, %25
+  %.07.i = phi ptr [ %14, %13 ], [ %26, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %28 = icmp eq ptr %.07.i, null
-  br i1 %28, label %86, label %29
+  %27 = icmp eq ptr %.07.i, null
+  br i1 %27, label %85, label %28
 
-29:                                               ; preds = %rhash_init.exit
-  %30 = getelementptr inbounds nuw i8, ptr %.07.i, i64 24
-  %31 = load volatile i32, ptr %30, align 8, !tbaa !4
-  %.not.i = icmp eq i32 %31, -1340228930
-  br i1 %.not.i, label %32, label %rhash_update.exit
+28:                                               ; preds = %rhash_init.exit
+  %29 = getelementptr inbounds nuw i8, ptr %.07.i, i64 24
+  %30 = load volatile i32, ptr %29, align 8, !tbaa !4
+  %.not.i = icmp eq i32 %30, -1340228930
+  br i1 %.not.i, label %31, label %rhash_update.exit
 
-32:                                               ; preds = %29
-  %33 = load i64, ptr %.07.i, align 8, !tbaa !29
-  %34 = add i64 %33, %2
-  store i64 %34, ptr %.07.i, align 8, !tbaa !29
-  %35 = getelementptr inbounds nuw i8, ptr %.07.i, i64 16
-  %36 = load i32, ptr %35, align 8, !tbaa !4
-  %.not16.i = icmp eq i32 %36, 0
+31:                                               ; preds = %28
+  %32 = load i64, ptr %.07.i, align 8, !tbaa !29
+  %33 = add i64 %32, %2
+  store i64 %33, ptr %.07.i, align 8, !tbaa !29
+  %34 = getelementptr inbounds nuw i8, ptr %.07.i, i64 16
+  %35 = load i32, ptr %34, align 8, !tbaa !4
+  %.not16.i = icmp eq i32 %35, 0
   br i1 %.not16.i, label %rhash_update.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %32
-  %37 = getelementptr inbounds nuw i8, ptr %.07.i, i64 56
-  br label %38
+.lr.ph.i:                                         ; preds = %31
+  %36 = getelementptr inbounds nuw i8, ptr %.07.i, i64 56
+  br label %37
 
-38:                                               ; preds = %38, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %38 ]
-  %39 = getelementptr inbounds nuw %struct.rhash_vector_item, ptr %37, i64 %indvars.iv.i
-  %40 = load ptr, ptr %39, align 8, !tbaa !20
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 32
-  %42 = load ptr, ptr %41, align 8, !tbaa !30
-  %43 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  %44 = load ptr, ptr %43, align 8, !tbaa !22
-  tail call void %42(ptr noundef %44, ptr noundef %1, i64 noundef %2) #15
+37:                                               ; preds = %37, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %37 ]
+  %38 = getelementptr inbounds nuw %struct.rhash_vector_item, ptr %36, i64 %indvars.iv.i
+  %39 = load ptr, ptr %38, align 8, !tbaa !20
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 32
+  %41 = load ptr, ptr %40, align 8, !tbaa !30
+  %42 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  %43 = load ptr, ptr %42, align 8, !tbaa !22
+  tail call void %41(ptr noundef %43, ptr noundef %1, i64 noundef %2) #15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %45 = load i32, ptr %35, align 8, !tbaa !4
-  %46 = zext i32 %45 to i64
-  %47 = icmp samesign ult i64 %indvars.iv.next.i, %46
-  br i1 %47, label %38, label %rhash_update.exit, !llvm.loop !31
+  %44 = load i32, ptr %34, align 8, !tbaa !4
+  %45 = zext i32 %44 to i64
+  %46 = icmp samesign ult i64 %indvars.iv.next.i, %45
+  br i1 %46, label %37, label %rhash_update.exit, !llvm.loop !31
 
-rhash_update.exit:                                ; preds = %38, %29, %32
+rhash_update.exit:                                ; preds = %37, %28, %31
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %48 = getelementptr inbounds nuw i8, ptr %.07.i, i64 20
-  %49 = load i32, ptr %48, align 4, !tbaa !4
-  %50 = and i32 %49, 3
-  %51 = icmp eq i32 %50, 3
-  br i1 %51, label %69, label %52
+  %47 = getelementptr inbounds nuw i8, ptr %.07.i, i64 20
+  %48 = load i32, ptr %47, align 4, !tbaa !4
+  %49 = and i32 %48, 3
+  %50 = icmp eq i32 %49, 3
+  br i1 %50, label %68, label %51
 
-52:                                               ; preds = %rhash_update.exit
-  %53 = getelementptr inbounds nuw i8, ptr %.07.i, i64 16
-  %54 = load i32, ptr %53, align 8, !tbaa !4
-  %.not18.i = icmp eq i32 %54, 0
+51:                                               ; preds = %rhash_update.exit
+  %52 = getelementptr inbounds nuw i8, ptr %.07.i, i64 16
+  %53 = load i32, ptr %52, align 8, !tbaa !4
+  %.not18.i = icmp eq i32 %53, 0
   br i1 %.not18.i, label %._crit_edge.i, label %.lr.ph.i10
 
-.lr.ph.i10:                                       ; preds = %52
+.lr.ph.i10:                                       ; preds = %51
   %.not.i11 = icmp eq ptr %3, null
-  %55 = select i1 %.not.i11, ptr %5, ptr %3
-  %56 = getelementptr inbounds nuw i8, ptr %.07.i, i64 56
-  br label %57
+  %54 = select i1 %.not.i11, ptr %5, ptr %3
+  %55 = getelementptr inbounds nuw i8, ptr %.07.i, i64 56
+  br label %56
 
-57:                                               ; preds = %57, %.lr.ph.i10
-  %indvars.iv.i12 = phi i64 [ 0, %.lr.ph.i10 ], [ %indvars.iv.next.i13, %57 ]
-  %.01516.i = phi ptr [ %55, %.lr.ph.i10 ], [ %5, %57 ]
-  %58 = getelementptr inbounds nuw %struct.rhash_vector_item, ptr %56, i64 %indvars.iv.i12
-  %59 = load ptr, ptr %58, align 8, !tbaa !20
-  %60 = getelementptr inbounds nuw i8, ptr %59, i64 40
-  %61 = load ptr, ptr %60, align 8, !tbaa !32
-  %62 = getelementptr inbounds nuw i8, ptr %58, i64 8
-  %63 = load ptr, ptr %62, align 8, !tbaa !22
-  call void %61(ptr noundef %63, ptr noundef nonnull %.01516.i) #15
+56:                                               ; preds = %56, %.lr.ph.i10
+  %indvars.iv.i12 = phi i64 [ 0, %.lr.ph.i10 ], [ %indvars.iv.next.i13, %56 ]
+  %.01516.i = phi ptr [ %54, %.lr.ph.i10 ], [ %5, %56 ]
+  %57 = getelementptr inbounds nuw %struct.rhash_vector_item, ptr %55, i64 %indvars.iv.i12
+  %58 = load ptr, ptr %57, align 8, !tbaa !20
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 40
+  %60 = load ptr, ptr %59, align 8, !tbaa !32
+  %61 = getelementptr inbounds nuw i8, ptr %57, i64 8
+  %62 = load ptr, ptr %61, align 8, !tbaa !22
+  call void %60(ptr noundef %62, ptr noundef nonnull %.01516.i) #15
   %indvars.iv.next.i13 = add nuw nsw i64 %indvars.iv.i12, 1
-  %64 = load i32, ptr %53, align 8, !tbaa !4
-  %65 = zext i32 %64 to i64
-  %66 = icmp samesign ult i64 %indvars.iv.next.i13, %65
-  br i1 %66, label %57, label %._crit_edge.loopexit.i, !llvm.loop !33
+  %63 = load i32, ptr %52, align 8, !tbaa !4
+  %64 = zext i32 %63 to i64
+  %65 = icmp samesign ult i64 %indvars.iv.next.i13, %64
+  br i1 %65, label %56, label %._crit_edge.loopexit.i, !llvm.loop !33
 
-._crit_edge.loopexit.i:                           ; preds = %57
-  %.pre.i = load i32, ptr %48, align 4, !tbaa !4
+._crit_edge.loopexit.i:                           ; preds = %56
+  %.pre.i = load i32, ptr %47, align 4, !tbaa !4
   br label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %52
-  %67 = phi i32 [ %.pre.i, %._crit_edge.loopexit.i ], [ %49, %52 ]
-  %68 = or i32 %67, 2
-  store i32 %68, ptr %48, align 4, !tbaa !4
-  br label %69
+._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %51
+  %66 = phi i32 [ %.pre.i, %._crit_edge.loopexit.i ], [ %48, %51 ]
+  %67 = or i32 %66, 2
+  store i32 %67, ptr %47, align 4, !tbaa !4
+  br label %68
 
-69:                                               ; preds = %._crit_edge.i, %rhash_update.exit
+68:                                               ; preds = %._crit_edge.i, %rhash_update.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  store volatile i32 -556882451, ptr %30, align 8, !tbaa !4
-  %70 = getelementptr inbounds nuw i8, ptr %.07.i, i64 16
-  %71 = load i32, ptr %70, align 8, !tbaa !4
-  %.not15.i = icmp eq i32 %71, 0
+  store volatile i32 -556882451, ptr %29, align 8, !tbaa !4
+  %69 = getelementptr inbounds nuw i8, ptr %.07.i, i64 16
+  %70 = load i32, ptr %69, align 8, !tbaa !4
+  %.not15.i = icmp eq i32 %70, 0
   br i1 %.not15.i, label %rhash_free.exit, label %.lr.ph.i14
 
-.lr.ph.i14:                                       ; preds = %69
-  %72 = getelementptr inbounds nuw i8, ptr %.07.i, i64 56
-  br label %73
+.lr.ph.i14:                                       ; preds = %68
+  %71 = getelementptr inbounds nuw i8, ptr %.07.i, i64 56
+  br label %72
 
-73:                                               ; preds = %82, %.lr.ph.i14
-  %74 = phi i32 [ %71, %.lr.ph.i14 ], [ %83, %82 ]
-  %indvars.iv.i15 = phi i64 [ 0, %.lr.ph.i14 ], [ %indvars.iv.next.i18, %82 ]
-  %75 = getelementptr inbounds nuw %struct.rhash_vector_item, ptr %72, i64 %indvars.iv.i15
-  %76 = load ptr, ptr %75, align 8, !tbaa !20
-  %77 = getelementptr inbounds nuw i8, ptr %76, i64 48
-  %78 = load ptr, ptr %77, align 8, !tbaa !26
-  %.not.i16 = icmp eq ptr %78, null
-  br i1 %.not.i16, label %82, label %79
+72:                                               ; preds = %81, %.lr.ph.i14
+  %73 = phi i32 [ %70, %.lr.ph.i14 ], [ %82, %81 ]
+  %indvars.iv.i15 = phi i64 [ 0, %.lr.ph.i14 ], [ %indvars.iv.next.i18, %81 ]
+  %74 = getelementptr inbounds nuw %struct.rhash_vector_item, ptr %71, i64 %indvars.iv.i15
+  %75 = load ptr, ptr %74, align 8, !tbaa !20
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 48
+  %77 = load ptr, ptr %76, align 8, !tbaa !26
+  %.not.i16 = icmp eq ptr %77, null
+  br i1 %.not.i16, label %81, label %78
 
-79:                                               ; preds = %73
-  %80 = getelementptr inbounds nuw i8, ptr %75, i64 8
-  %81 = load ptr, ptr %80, align 8, !tbaa !22
-  call void %78(ptr noundef %81) #15
-  %.pre.i17 = load i32, ptr %70, align 8, !tbaa !4
-  br label %82
+78:                                               ; preds = %72
+  %79 = getelementptr inbounds nuw i8, ptr %74, i64 8
+  %80 = load ptr, ptr %79, align 8, !tbaa !22
+  call void %77(ptr noundef %80) #15
+  %.pre.i17 = load i32, ptr %69, align 8, !tbaa !4
+  br label %81
 
-82:                                               ; preds = %79, %73
-  %83 = phi i32 [ %.pre.i17, %79 ], [ %74, %73 ]
+81:                                               ; preds = %78, %72
+  %82 = phi i32 [ %.pre.i17, %78 ], [ %73, %72 ]
   %indvars.iv.next.i18 = add nuw nsw i64 %indvars.iv.i15, 1
-  %84 = zext i32 %83 to i64
-  %85 = icmp samesign ult i64 %indvars.iv.next.i18, %84
-  br i1 %85, label %73, label %rhash_free.exit, !llvm.loop !27
+  %83 = zext i32 %82 to i64
+  %84 = icmp samesign ult i64 %indvars.iv.next.i18, %83
+  br i1 %84, label %72, label %rhash_free.exit, !llvm.loop !27
 
-rhash_free.exit:                                  ; preds = %82, %69
+rhash_free.exit:                                  ; preds = %81, %68
   call void @free(ptr noundef nonnull %.07.i) #15
-  br label %86
+  br label %85
 
-86:                                               ; preds = %rhash_init.exit.thread, %rhash_init.exit, %rhash_free.exit
+85:                                               ; preds = %rhash_init.exit.thread, %rhash_init.exit, %rhash_free.exit
   %.0 = phi i32 [ 0, %rhash_free.exit ], [ -1, %rhash_init.exit ], [ -1, %rhash_init.exit.thread ]
   ret i32 %.0
 }

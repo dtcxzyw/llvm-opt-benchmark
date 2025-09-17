@@ -3333,59 +3333,58 @@ _ZN18CompilerDirectives9add_matchEPcRPKc.exit:    ; preds = %0, %5
 _ZN14CompilerConfig10is_c1_onlyEv.exit.i:         ; preds = %_ZN18CompilerDirectives9add_matchEPcRPKc.exit
   %17 = load i8, ptr @TieredCompilation, align 1
   %18 = trunc i8 %17 to i1
-  %19 = add i64 %14, -1
-  %20 = icmp ult i64 %19, 3
-  %spec.select.i.i = select i1 %18, i1 %20, i1 false
-  %21 = load i32, ptr @_ZN19CompilationModeFlag5_modeE, align 4
-  %22 = icmp eq i32 %21, 1
-  %23 = or i1 %spec.select.i.i, %22
-  %24 = load i8, ptr @UseJVMCICompiler, align 1
-  %25 = trunc i8 %24 to i1
-  %26 = select i1 %23, i1 true, i1 %25
-  br i1 %26, label %_ZN14CompilerConfig13is_c2_enabledEv.exit.thread, label %27
+  %19 = icmp ult i64 %14, 4
+  %spec.select.i.i = select i1 %18, i1 %19, i1 false
+  %20 = load i32, ptr @_ZN19CompilationModeFlag5_modeE, align 4
+  %21 = icmp eq i32 %20, 1
+  %22 = or i1 %spec.select.i.i, %21
+  %23 = load i8, ptr @UseJVMCICompiler, align 1
+  %24 = trunc i8 %23 to i1
+  %25 = select i1 %22, i1 true, i1 %24
+  br i1 %25, label %_ZN14CompilerConfig13is_c2_enabledEv.exit.thread, label %26
 
-27:                                               ; preds = %_ZN14CompilerConfig10is_c1_onlyEv.exit.i
-  %28 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 203
-  store i8 1, ptr %30, align 1
+26:                                               ; preds = %_ZN14CompilerConfig10is_c1_onlyEv.exit.i
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %28 = load ptr, ptr %27, align 8
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 203
+  store i8 1, ptr %29, align 1
   br label %_ZN14CompilerConfig13is_c2_enabledEv.exit.thread
 
-_ZN14CompilerConfig13is_c2_enabledEv.exit.thread: ; preds = %_ZN18CompilerDirectives9add_matchEPcRPKc.exit, %_ZN14CompilerConfig10is_c1_onlyEv.exit.i, %27
-  %31 = load ptr, ptr @DirectivesStack_lock, align 8
-  %.not.i.i.i = icmp eq ptr %31, null
-  br i1 %.not.i.i.i, label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.i, label %32
+_ZN14CompilerConfig13is_c2_enabledEv.exit.thread: ; preds = %_ZN18CompilerDirectives9add_matchEPcRPKc.exit, %_ZN14CompilerConfig10is_c1_onlyEv.exit.i, %26
+  %30 = load ptr, ptr @DirectivesStack_lock, align 8
+  %.not.i.i.i = icmp eq ptr %30, null
+  br i1 %.not.i.i.i, label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.i, label %31
 
-32:                                               ; preds = %_ZN14CompilerConfig13is_c2_enabledEv.exit.thread
-  call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(104) %31) #14
+31:                                               ; preds = %_ZN14CompilerConfig13is_c2_enabledEv.exit.thread
+  call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(104) %30) #14
   br label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.i
 
-_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.i: ; preds = %32, %_ZN14CompilerConfig13is_c2_enabledEv.exit.thread
-  %33 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %34 = load i32, ptr %33, align 8
-  %35 = add nsw i32 %34, 1
-  store i32 %35, ptr %33, align 8
-  %36 = load ptr, ptr @_ZN15DirectivesStack4_topE, align 8
-  %37 = icmp eq ptr %36, null
-  br i1 %37, label %38, label %39
+_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.i: ; preds = %31, %_ZN14CompilerConfig13is_c2_enabledEv.exit.thread
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %33 = load i32, ptr %32, align 8
+  %34 = add nsw i32 %33, 1
+  store i32 %34, ptr %32, align 8
+  %35 = load ptr, ptr @_ZN15DirectivesStack4_topE, align 8
+  %36 = icmp eq ptr %35, null
+  br i1 %36, label %37, label %38
 
-38:                                               ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.i
+37:                                               ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.i
   store ptr %3, ptr @_ZN15DirectivesStack7_bottomE, align 8
-  br label %39
+  br label %38
 
-39:                                               ; preds = %38, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.i
-  store ptr %36, ptr %3, align 8
+38:                                               ; preds = %37, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.i
+  store ptr %35, ptr %3, align 8
   store ptr %3, ptr @_ZN15DirectivesStack4_topE, align 8
-  %40 = load i32, ptr @_ZN15DirectivesStack6_depthE, align 4
-  %41 = add nsw i32 %40, 1
-  store i32 %41, ptr @_ZN15DirectivesStack6_depthE, align 4
-  br i1 %.not.i.i.i, label %_ZN15DirectivesStack4pushEP18CompilerDirectives.exit, label %42
+  %39 = load i32, ptr @_ZN15DirectivesStack6_depthE, align 4
+  %40 = add nsw i32 %39, 1
+  store i32 %40, ptr @_ZN15DirectivesStack6_depthE, align 4
+  br i1 %.not.i.i.i, label %_ZN15DirectivesStack4pushEP18CompilerDirectives.exit, label %41
 
-42:                                               ; preds = %39
-  call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %31) #14
+41:                                               ; preds = %38
+  call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %30) #14
   br label %_ZN15DirectivesStack4pushEP18CompilerDirectives.exit
 
-_ZN15DirectivesStack4pushEP18CompilerDirectives.exit: ; preds = %39, %42
+_ZN15DirectivesStack4pushEP18CompilerDirectives.exit: ; preds = %38, %41
   ret void
 }
 

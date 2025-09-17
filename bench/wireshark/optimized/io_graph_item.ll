@@ -99,7 +99,7 @@ define hidden ptr @check_field_unit(ptr noundef %0, ptr noundef writeonly captur
 22:                                               ; preds = %19, %18
   %23 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %24 = load i32, ptr %23, align 8
-  switch i32 %24, label %34 [
+  switch i32 %24, label %35 [
     i32 4, label %25
     i32 5, label %25
     i32 6, label %25
@@ -124,33 +124,32 @@ define hidden ptr @check_field_unit(ptr noundef %0, ptr noundef writeonly captur
   br label %.sink.split
 
 28:                                               ; preds = %22
-  %.off = add i32 %2, -3
-  %switch = icmp ult i32 %.off, 8
-  br i1 %switch, label %.sink.split, label %29
+  %29 = icmp ult i32 %2, 11
+  br i1 %29, label %.sink.split, label %30
 
-29:                                               ; preds = %28
-  %30 = tail call ptr @g_string_new(ptr noundef nonnull @.str.13)
-  %31 = zext i32 %2 to i64
-  %32 = getelementptr ptr, ptr @__const.check_field_unit.item_unit_names, i64 %31
-  %33 = load ptr, ptr %32, align 8
-  tail call void (ptr, ptr, ...) @g_string_printf(ptr noundef %30, ptr noundef nonnull @.str.16, ptr noundef nonnull %0, ptr noundef %33)
+30:                                               ; preds = %28
+  %31 = tail call ptr @g_string_new(ptr noundef nonnull @.str.13)
+  %32 = zext i32 %2 to i64
+  %33 = getelementptr ptr, ptr @__const.check_field_unit.item_unit_names, i64 %32
+  %34 = load ptr, ptr %33, align 8
+  tail call void (ptr, ptr, ...) @g_string_printf(ptr noundef %31, ptr noundef nonnull @.str.16, ptr noundef nonnull %0, ptr noundef %34)
   br label %.sink.split
 
-34:                                               ; preds = %22
-  %35 = add i32 %2, -6
-  %or.cond = icmp ult i32 %35, -2
-  br i1 %or.cond, label %36, label %.sink.split
+35:                                               ; preds = %22
+  %36 = add i32 %2, -6
+  %or.cond = icmp ult i32 %36, -2
+  br i1 %or.cond, label %37, label %.sink.split
 
-36:                                               ; preds = %34
-  %37 = tail call ptr @g_string_new(ptr noundef nonnull @.str.13)
-  %38 = zext i32 %2 to i64
-  %39 = getelementptr ptr, ptr @__const.check_field_unit.item_unit_names, i64 %38
-  %40 = load ptr, ptr %39, align 8
-  tail call void (ptr, ptr, ...) @g_string_printf(ptr noundef %37, ptr noundef nonnull @.str.17, ptr noundef nonnull %0, ptr noundef %40)
+37:                                               ; preds = %35
+  %38 = tail call ptr @g_string_new(ptr noundef nonnull @.str.13)
+  %39 = zext i32 %2 to i64
+  %40 = getelementptr ptr, ptr @__const.check_field_unit.item_unit_names, i64 %39
+  %41 = load ptr, ptr %40, align 8
+  tail call void (ptr, ptr, ...) @g_string_printf(ptr noundef %38, ptr noundef nonnull @.str.17, ptr noundef nonnull %0, ptr noundef %41)
   br label %.sink.split
 
-.sink.split:                                      ; preds = %16, %11, %28, %34, %36, %29, %25, %26, %3
-  %.1 = phi ptr [ null, %3 ], [ %12, %11 ], [ %17, %16 ], [ null, %28 ], [ %30, %29 ], [ null, %25 ], [ %27, %26 ], [ null, %34 ], [ %37, %36 ]
+.sink.split:                                      ; preds = %16, %11, %28, %35, %37, %30, %25, %26, %3
+  %.1 = phi ptr [ null, %3 ], [ %12, %11 ], [ %17, %16 ], [ null, %28 ], [ %31, %30 ], [ null, %25 ], [ %27, %26 ], [ null, %35 ], [ %38, %37 ]
   ret ptr %.1
 }
 

@@ -2724,9 +2724,8 @@ define hidden void @_ZN9hashbrown3raw13RawTableInner13drop_elements17h85389bdf69
   %.val = load i64, ptr %30, align 8, !range !796, !noundef !4
   %31 = getelementptr i8, ptr %28, i64 -16
   %.val6 = load ptr, ptr %31, align 8
-  %32 = add i64 %.val, 9223372036854775807
-  %switch.i.i = icmp ult i64 %32, 11
-  br i1 %switch.i.i, label %"_ZN4core3ptr58drop_in_place$LT$$LP$task..VariableName$C$$LP$$RP$$RP$$GT$17h1cd346e8e6a8dea7E.exit", label %33
+  %32 = icmp ugt i64 %.val, -9223372036854775808
+  br i1 %32, label %"_ZN4core3ptr58drop_in_place$LT$$LP$task..VariableName$C$$LP$$RP$$RP$$GT$17h1cd346e8e6a8dea7E.exit", label %33
 
 33:                                               ; preds = %"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17h954a27c4553dd9a6E.exit"
   switch i64 %.val, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.11685156634553254918.exit.i.i1.i.i.i.i.i" [
@@ -8171,9 +8170,8 @@ define hidden void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17hb491baf
   %.val.i = load i64, ptr %37, align 8, !range !796, !noalias !1901, !noundef !4
   %38 = getelementptr i8, ptr %35, i64 -16
   %.val6.i = load ptr, ptr %38, align 8, !noalias !1901
-  %39 = add i64 %.val.i, 9223372036854775807
-  %switch.i.i.i = icmp ult i64 %39, 11
-  br i1 %switch.i.i.i, label %"_ZN4core3ptr58drop_in_place$LT$$LP$task..VariableName$C$$LP$$RP$$RP$$GT$17h1cd346e8e6a8dea7E.exit.i", label %40
+  %39 = icmp ugt i64 %.val.i, -9223372036854775808
+  br i1 %39, label %"_ZN4core3ptr58drop_in_place$LT$$LP$task..VariableName$C$$LP$$RP$$RP$$GT$17h1cd346e8e6a8dea7E.exit.i", label %40
 
 40:                                               ; preds = %"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17h954a27c4553dd9a6E.exit.i"
   switch i64 %.val.i, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.11685156634553254918.exit.i.i1.i.i.i.i.i.i" [

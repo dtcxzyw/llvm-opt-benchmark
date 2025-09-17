@@ -77,10 +77,9 @@ define hidden void @"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as
   %16 = icmp eq i64 %15, 3
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %18 = load i64, ptr %17, align 8, !range !17, !alias.scope !18, !noalias !23, !noundef !4
-  %19 = add nsw i64 %18, -3
-  %spec.select.i.i.i.i.i = icmp ult i64 %19, 2
+  %19 = icmp samesign ugt i64 %18, 2
   %20 = and i1 %13, %16
-  %or.cond5.i.i.i.i.i = and i1 %20, %spec.select.i.i.i.i.i
+  %or.cond5.i.i.i.i.i = and i1 %20, %19
   br label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hc4163526e939a027E.exit"
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hc4163526e939a027E.exit": ; preds = %12, %6
@@ -188,10 +187,9 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %16 = icmp eq i64 %15, 3
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %18 = load i64, ptr %17, align 8, !range !17, !alias.scope !77, !noalias !82, !noundef !4
-  %19 = add nsw i64 %18, -3
-  %spec.select.i.i.i.i.i.i.i.i = icmp ult i64 %19, 2
+  %19 = icmp samesign ugt i64 %18, 2
   %20 = and i1 %13, %16
-  %or.cond5.i.i.i.i.i.i.i.i = and i1 %20, %spec.select.i.i.i.i.i.i.i.i
+  %or.cond5.i.i.i.i.i.i.i.i = and i1 %20, %19
   br label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hc4163526e939a027E.exit.i.i.i"
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hc4163526e939a027E.exit.i.i.i": ; preds = %12, %6
@@ -257,10 +255,9 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %16 = icmp eq i64 %15, 3
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %18 = load i64, ptr %17, align 8, !range !17, !alias.scope !126, !noalias !131, !noundef !4
-  %19 = add nsw i64 %18, -3
-  %spec.select.i.i.i.i.i.i.i.i.i = icmp ult i64 %19, 2
+  %19 = icmp samesign ugt i64 %18, 2
   %20 = and i1 %13, %16
-  %or.cond5.i.i.i.i.i.i.i.i.i = and i1 %20, %spec.select.i.i.i.i.i.i.i.i.i
+  %or.cond5.i.i.i.i.i.i.i.i.i = and i1 %20, %19
   br label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hc4163526e939a027E.exit.i.i.i.i"
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hc4163526e939a027E.exit.i.i.i.i": ; preds = %12, %6
@@ -364,10 +361,9 @@ define hidden void @"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT
   %16 = icmp eq i64 %15, 3
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %18 = load i64, ptr %17, align 8, !range !17, !alias.scope !163, !noalias !168, !noundef !4
-  %19 = add nsw i64 %18, -3
-  %spec.select.i.i.i.i.i.i.i = icmp ult i64 %19, 2
+  %19 = icmp samesign ugt i64 %18, 2
   %20 = and i1 %13, %16
-  %or.cond5.i.i.i.i.i.i.i = and i1 %20, %spec.select.i.i.i.i.i.i.i
+  %or.cond5.i.i.i.i.i.i.i = and i1 %20, %19
   br label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hc4163526e939a027E.exit.i.i"
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hc4163526e939a027E.exit.i.i": ; preds = %12, %6
@@ -412,10 +408,9 @@ define hidden void @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I
   %16 = icmp eq i64 %15, 3
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %18 = load i64, ptr %17, align 8, !range !17, !alias.scope !187, !noalias !192, !noundef !4
-  %19 = add nsw i64 %18, -3
-  %spec.select.i.i.i.i.i.i = icmp ult i64 %19, 2
+  %19 = icmp samesign ugt i64 %18, 2
   %20 = and i1 %13, %16
-  %or.cond5.i.i.i.i.i.i = and i1 %20, %spec.select.i.i.i.i.i.i
+  %or.cond5.i.i.i.i.i.i = and i1 %20, %19
   br label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hc4163526e939a027E.exit.i"
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hc4163526e939a027E.exit.i": ; preds = %12, %6
@@ -2623,26 +2618,23 @@ define hidden void @"_ZN4core3ptr43drop_in_place$LT$cfg..cfg_expr..CfgAtom$GT$17
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr43drop_in_place$LT$mbe..expander..Binding$GT$17h6a98e8759cf5727cE.llvm.15988534848567551436"(ptr noalias noundef align 8 dereferenceable(72) %0) unnamed_addr #3 {
   %2 = load i64, ptr %0, align 8, !range !711, !noundef !4
-  %3 = add nsw i64 %2, -4
-  %4 = icmp ult i64 %3, 3
-  %5 = add nsw i64 %2, -3
-  %6 = select i1 %4, i64 %5, i64 0
-  switch i64 %6, label %7 [
-    i64 0, label %8
-    i64 1, label %9
+  %3 = tail call i64 @llvm.usub.sat.i64(i64 %2, i64 3)
+  switch i64 %3, label %4 [
+    i64 0, label %5
+    i64 1, label %6
   ]
 
-7:                                                ; preds = %9, %8, %1
+4:                                                ; preds = %6, %5, %1
   ret void
 
-8:                                                ; preds = %1
+5:                                                ; preds = %1
   tail call void @"_ZN4core3ptr44drop_in_place$LT$mbe..expander..Fragment$GT$17h59e3dd3e01fab990E.llvm.15988534848567551436"(ptr noalias noundef nonnull align 8 dereferenceable(72) %0)
-  br label %7
+  br label %4
 
-9:                                                ; preds = %1
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @"_ZN4core3ptr66drop_in_place$LT$alloc..vec..Vec$LT$mbe..expander..Binding$GT$$GT$17h9be55c6c91332cfbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
-  br label %7
+6:                                                ; preds = %1
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @"_ZN4core3ptr66drop_in_place$LT$alloc..vec..Vec$LT$mbe..expander..Binding$GT$$GT$17h9be55c6c91332cfbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7)
+  br label %4
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -2843,39 +2835,36 @@ define hidden void @"_ZN4core3ptr71drop_in_place$LT$$LP$smol_str..SmolStr$C$mbe.
           cleanup
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   invoke void @"_ZN4core3ptr43drop_in_place$LT$mbe..expander..Binding$GT$17h6a98e8759cf5727cE.llvm.15988534848567551436"(ptr noalias noundef nonnull align 8 dereferenceable(72) %11) #51
-          to label %23 unwind label %21
+          to label %20 unwind label %18
 
 "_ZN4core3ptr38drop_in_place$LT$smol_str..SmolStr$GT$17h3c21a9c17081e1e6E.exit": ; preds = %3, %1, %.noexc
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load i64, ptr %12, align 8, !range !711, !alias.scope !799, !noundef !4
-  %14 = add nsw i64 %13, -4
-  %15 = icmp ult i64 %14, 3
-  %16 = add nsw i64 %13, -3
-  %17 = select i1 %15, i64 %16, i64 0
-  switch i64 %17, label %"_ZN4core3ptr43drop_in_place$LT$mbe..expander..Binding$GT$17h6a98e8759cf5727cE.llvm.15988534848567551436.exit" [
-    i64 0, label %18
-    i64 1, label %19
+  %14 = tail call i64 @llvm.usub.sat.i64(i64 %13, i64 3)
+  switch i64 %14, label %"_ZN4core3ptr43drop_in_place$LT$mbe..expander..Binding$GT$17h6a98e8759cf5727cE.llvm.15988534848567551436.exit" [
+    i64 0, label %15
+    i64 1, label %16
   ]
 
-18:                                               ; preds = %"_ZN4core3ptr38drop_in_place$LT$smol_str..SmolStr$GT$17h3c21a9c17081e1e6E.exit"
+15:                                               ; preds = %"_ZN4core3ptr38drop_in_place$LT$smol_str..SmolStr$GT$17h3c21a9c17081e1e6E.exit"
   tail call void @"_ZN4core3ptr44drop_in_place$LT$mbe..expander..Fragment$GT$17h59e3dd3e01fab990E.llvm.15988534848567551436"(ptr noalias noundef nonnull align 8 dereferenceable(72) %12)
   br label %"_ZN4core3ptr43drop_in_place$LT$mbe..expander..Binding$GT$17h6a98e8759cf5727cE.llvm.15988534848567551436.exit"
 
-19:                                               ; preds = %"_ZN4core3ptr38drop_in_place$LT$smol_str..SmolStr$GT$17h3c21a9c17081e1e6E.exit"
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @"_ZN4core3ptr66drop_in_place$LT$alloc..vec..Vec$LT$mbe..expander..Binding$GT$$GT$17h9be55c6c91332cfbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %20)
+16:                                               ; preds = %"_ZN4core3ptr38drop_in_place$LT$smol_str..SmolStr$GT$17h3c21a9c17081e1e6E.exit"
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  tail call void @"_ZN4core3ptr66drop_in_place$LT$alloc..vec..Vec$LT$mbe..expander..Binding$GT$$GT$17h9be55c6c91332cfbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %17)
   br label %"_ZN4core3ptr43drop_in_place$LT$mbe..expander..Binding$GT$17h6a98e8759cf5727cE.llvm.15988534848567551436.exit"
 
-"_ZN4core3ptr43drop_in_place$LT$mbe..expander..Binding$GT$17h6a98e8759cf5727cE.llvm.15988534848567551436.exit": ; preds = %"_ZN4core3ptr38drop_in_place$LT$smol_str..SmolStr$GT$17h3c21a9c17081e1e6E.exit", %18, %19
+"_ZN4core3ptr43drop_in_place$LT$mbe..expander..Binding$GT$17h6a98e8759cf5727cE.llvm.15988534848567551436.exit": ; preds = %"_ZN4core3ptr38drop_in_place$LT$smol_str..SmolStr$GT$17h3c21a9c17081e1e6E.exit", %15, %16
   ret void
 
-21:                                               ; preds = %9
-  %22 = landingpad { ptr, i32 }
+18:                                               ; preds = %9
+  %19 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #49
   unreachable
 
-23:                                               ; preds = %9
+20:                                               ; preds = %9
   resume { ptr, i32 } %10
 }
 

@@ -1000,14 +1000,13 @@ define hidden void @"_ZN4core3ptr60drop_in_place$LT$core..option..Option$LT$prot
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr60drop_in_place$LT$core..option..Option$LT$proto..View$GT$$GT$17he708fc50f62deddaE.llvm.17923508281735383458"(ptr noalias noundef align 8 dereferenceable(320) %0) unnamed_addr #4 {
   %2 = load i64, ptr %0, align 8, !range !27, !noundef !13
-  %.off = add nsw i64 %2, -7
-  %switch = icmp ult i64 %.off, 2
-  br i1 %switch, label %"_ZN4core3ptr32drop_in_place$LT$proto..View$GT$17h17e5ab728cd9cd8dE.exit", label %3
+  %3 = icmp samesign ugt i64 %2, 6
+  br i1 %3, label %"_ZN4core3ptr32drop_in_place$LT$proto..View$GT$17h17e5ab728cd9cd8dE.exit", label %4
 
-"_ZN4core3ptr32drop_in_place$LT$proto..View$GT$17h17e5ab728cd9cd8dE.exit": ; preds = %1, %3
+"_ZN4core3ptr32drop_in_place$LT$proto..View$GT$17h17e5ab728cd9cd8dE.exit": ; preds = %1, %4
   ret void
 
-3:                                                ; preds = %1
+4:                                                ; preds = %1
   tail call void @"_ZN4core3ptr41drop_in_place$LT$proto..view..Variant$GT$17hafaa70478b86ccd2E.llvm.17929084834415715485"(ptr noalias noundef nonnull align 8 dereferenceable(320) %0)
   br label %"_ZN4core3ptr32drop_in_place$LT$proto..View$GT$17h17e5ab728cd9cd8dE.exit"
 }
@@ -1494,9 +1493,8 @@ define hidden void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$prot
 define hidden void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$proto..TaskSourceKind$GT$$GT$17h102990862f03800dE.llvm.17923508281735383458"(ptr noalias noundef align 8 dereferenceable(56) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   %2 = alloca [24 x i8], align 8
   %3 = load i64, ptr %0, align 8, !range !137, !noundef !13
-  %4 = and i64 %3, -2
-  %switch = icmp eq i64 %4, -9223372036854775804
-  br i1 %switch, label %"_ZN4core3ptr42drop_in_place$LT$proto..TaskSourceKind$GT$17h0b6d1dd5262a8d59E.exit", label %5
+  %4 = icmp ugt i64 %3, -9223372036854775805
+  br i1 %4, label %"_ZN4core3ptr42drop_in_place$LT$proto..TaskSourceKind$GT$17h0b6d1dd5262a8d59E.exit", label %5
 
 "_ZN4core3ptr42drop_in_place$LT$proto..TaskSourceKind$GT$17h0b6d1dd5262a8d59E.exit": ; preds = %1, %21, %20, %"_ZN4core3ptr54drop_in_place$LT$proto..task_source_kind..Language$GT$17h86c4b24e928f541aE.exit.i.i.i", %5
   ret void
@@ -1552,14 +1550,13 @@ define hidden void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$prot
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$proto..ContextOperation$GT$$GT$17h4c433a45d28ff32cE.llvm.17923508281735383458"(ptr noalias noundef align 8 dereferenceable(144) %0) unnamed_addr #4 {
   %2 = load i64, ptr %0, align 8, !range !155, !noundef !13
-  %.off = add nsw i64 %2, -9
-  %switch = icmp ult i64 %.off, 2
-  br i1 %switch, label %"_ZN4core3ptr44drop_in_place$LT$proto..ContextOperation$GT$17hdea61c101b63a1f3E.exit", label %3
+  %3 = icmp samesign ugt i64 %2, 8
+  br i1 %3, label %"_ZN4core3ptr44drop_in_place$LT$proto..ContextOperation$GT$17hdea61c101b63a1f3E.exit", label %4
 
-"_ZN4core3ptr44drop_in_place$LT$proto..ContextOperation$GT$17hdea61c101b63a1f3E.exit": ; preds = %1, %3
+"_ZN4core3ptr44drop_in_place$LT$proto..ContextOperation$GT$17hdea61c101b63a1f3E.exit": ; preds = %1, %4
   ret void
 
-3:                                                ; preds = %1
+4:                                                ; preds = %1
   tail call void @"_ZN4core3ptr54drop_in_place$LT$proto..context_operation..Variant$GT$17hbed27d18c412a328E.llvm.17929084834415715485"(ptr noalias noundef nonnull align 8 dereferenceable(144) %0)
   br label %"_ZN4core3ptr44drop_in_place$LT$proto..ContextOperation$GT$17hdea61c101b63a1f3E.exit"
 }
@@ -1689,9 +1686,8 @@ define hidden void @"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$prot
 define hidden void @"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$proto..ContextMessageStatus$GT$$GT$17hdbdba38039e074edE.llvm.17923508281735383458"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   %2 = alloca [24 x i8], align 8
   %3 = load i64, ptr %0, align 8, !range !137, !noundef !13
-  %4 = and i64 %3, -2
-  %switch = icmp eq i64 %4, -9223372036854775804
-  br i1 %switch, label %"_ZN4core3ptr48drop_in_place$LT$proto..ContextMessageStatus$GT$17h354e70f708b1e0dcE.exit", label %5
+  %4 = icmp ugt i64 %3, -9223372036854775805
+  br i1 %4, label %"_ZN4core3ptr48drop_in_place$LT$proto..ContextMessageStatus$GT$17h354e70f708b1e0dcE.exit", label %5
 
 "_ZN4core3ptr48drop_in_place$LT$proto..ContextMessageStatus$GT$17h354e70f708b1e0dcE.exit": ; preds = %1, %"_ZN4core3ptr57drop_in_place$LT$proto..context_message_status..Error$GT$17h4ae217b200471b4bE.exit.i.i.i", %5
   ret void
@@ -47836,34 +47832,31 @@ define hidden void @"_ZN62_$LT$proto..LspResponse$u20$as$u20$prost..message..Mes
   br i1 %4, label %_ZN5proto12lsp_response8Response6encode17h694781844c65c08eE.exit, label %5
 
 5:                                                ; preds = %2
-  %6 = add nsw i64 %3, -3
-  %7 = icmp ult i64 %6, 2
-  %8 = add nsw i64 %3, -2
-  %9 = select i1 %7, i64 %8, i64 0
-  switch i64 %9, label %10 [
-    i64 0, label %11
-    i64 1, label %12
-    i64 2, label %14
+  %6 = tail call i64 @llvm.usub.sat.i64(i64 %3, i64 2)
+  switch i64 %6, label %default.unreachable [
+    i64 0, label %7
+    i64 1, label %8
+    i64 2, label %10
   ]
 
-10:                                               ; preds = %5
+default.unreachable:                              ; preds = %5
   unreachable
 
-11:                                               ; preds = %5
+7:                                                ; preds = %5
   tail call void @_ZN5prost8encoding7message6encode17h583792863317164bE(i32 noundef 1, ptr noalias noundef nonnull readonly align 8 dereferenceable(104) %0, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
   br label %_ZN5proto12lsp_response8Response6encode17h694781844c65c08eE.exit
 
-12:                                               ; preds = %5
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @_ZN5prost8encoding7message6encode17h1a285c3fc3888417E(i32 noundef 2, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %13, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
+8:                                                ; preds = %5
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @_ZN5prost8encoding7message6encode17h1a285c3fc3888417E(i32 noundef 2, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %9, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
   br label %_ZN5proto12lsp_response8Response6encode17h694781844c65c08eE.exit
 
-14:                                               ; preds = %5
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @_ZN5prost8encoding7message6encode17hbaec354232ef4106E(i32 noundef 3, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %15, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
+10:                                               ; preds = %5
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @_ZN5prost8encoding7message6encode17hbaec354232ef4106E(i32 noundef 3, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %11, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
   br label %_ZN5proto12lsp_response8Response6encode17h694781844c65c08eE.exit
 
-_ZN5proto12lsp_response8Response6encode17h694781844c65c08eE.exit: ; preds = %14, %12, %11, %2
+_ZN5proto12lsp_response8Response6encode17h694781844c65c08eE.exit: ; preds = %10, %8, %7, %2
   ret void
 }
 
@@ -125019,6 +125012,9 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #25
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.usub.sat.i64(i64, i64) #23
 
 attributes #0 = { alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

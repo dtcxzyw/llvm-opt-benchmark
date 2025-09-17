@@ -11875,8 +11875,7 @@ _ZN4lean10object_refD2Ev.exit67:                  ; preds = %512, %502, %509, %5
   br label %869
 
 _ZN4lean13is_string_litERKNS_4exprE.exit:         ; preds = %_ZN4lean10is_nat_litERKNS_4exprE.exit
-  %.mask.i = and i32 %.val.i.i.i.i72, -16777216
-  %524 = icmp eq i32 %.mask.i, 16777216
+  %524 = icmp ult i32 %.val.i.i.i.i72, 33554432
   br i1 %524, label %525, label %_ZN4lean13is_string_litERKNS_4exprE.exit.thread
 
 525:                                              ; preds = %_ZN4lean13is_string_litERKNS_4exprE.exit

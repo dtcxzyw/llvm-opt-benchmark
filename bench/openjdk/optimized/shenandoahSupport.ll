@@ -16522,9 +16522,8 @@ _ZNK14PhaseIdealLoop4idomEP4Node.exit:            ; preds = %_ZNK10Node_ArrayixE
 
 68:                                               ; preds = %59
   %69 = tail call noundef zeroext i1 @_ZN26ShenandoahBarrierC2Support16is_gc_state_testEP4Nodei(ptr noundef nonnull %.0.lcssa.i.i.i, i32 noundef 1)
-  %70 = add nsw i32 %.03049, 1
-  %or.cond = icmp ult i32 %70, 2
-  %or.cond34 = select i1 %69, i1 %or.cond, i1 false
+  %70 = icmp ne i32 %.03049, 1
+  %or.cond34 = select i1 %69, i1 %70, i1 false
   br i1 %or.cond34, label %71, label %.loopexit
 
 71:                                               ; preds = %68

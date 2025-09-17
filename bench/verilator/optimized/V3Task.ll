@@ -11183,9 +11183,8 @@ _ZNK7AstNode6isWideEv.exit.i:                     ; preds = %_ZNK7AstNode8isStri
   br i1 %600, label %_ZNK12AstNodeDType8charIQWNEv.exit, label %_ZNK7AstNode6isQuadEv.exit.i
 
 _ZNK7AstNode6isQuadEv.exit.i:                     ; preds = %_ZNK7AstNode6isWideEv.exit.i
-  %601 = add i32 %.fr.i, -33
-  %spec.select.i.i = icmp ult i32 %601, 32
-  %spec.select.i317 = select i1 %spec.select.i.i, ptr @.str.80, ptr @.str.81
+  %601 = icmp sgt i32 %.fr.i, 32
+  %spec.select.i317 = select i1 %601, ptr @.str.80, ptr @.str.81
   br label %_ZNK12AstNodeDType8charIQWNEv.exit
 
 _ZNK12AstNodeDType8charIQWNEv.exit:               ; preds = %_ZNK7AstNode6isQuadEv.exit.i, %_ZNK7AstNode6isWideEv.exit.i, %_ZNK7AstNode8isStringEv.exit.thread.i, %.noexc319, %_ZN12AstNodeDType8skipRefpEv.exit315
@@ -19486,9 +19485,8 @@ _ZNK7AstNode6isWideEv.exit.i:                     ; preds = %_ZNK7AstNode8isStri
   br i1 %422, label %_ZNK12AstNodeDType8charIQWNEv.exit, label %_ZNK7AstNode6isQuadEv.exit.i
 
 _ZNK7AstNode6isQuadEv.exit.i:                     ; preds = %_ZNK7AstNode6isWideEv.exit.i
-  %423 = add i32 %.fr.i, -33
-  %spec.select.i.i = icmp ult i32 %423, 32
-  %spec.select.i = select i1 %spec.select.i.i, ptr @.str.80, ptr @.str.81
+  %423 = icmp sgt i32 %.fr.i, 32
+  %spec.select.i = select i1 %423, ptr @.str.80, ptr @.str.81
   br label %_ZNK12AstNodeDType8charIQWNEv.exit
 
 _ZNK12AstNodeDType8charIQWNEv.exit:               ; preds = %_ZNK7AstNode6isQuadEv.exit.i, %_ZNK7AstNode6isWideEv.exit.i, %_ZNK7AstNode8isStringEv.exit.thread.i, %.noexc142, %_ZN12AstNodeDType8skipRefpEv.exit

@@ -512,7 +512,7 @@ _ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit: ; preds = %_ZN5ciEnv10ge
   store ptr null, ptr %224, align 8
   %225 = load i8, ptr @ProfileInterpreter, align 1
   %226 = trunc i8 %225 to i1
-  br i1 %226, label %247, label %227
+  br i1 %226, label %246, label %227
 
 227:                                              ; preds = %222
   %228 = load i32, ptr @_ZN9Arguments5_modeE, align 4
@@ -525,74 +525,73 @@ _ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit: ; preds = %_ZN5ciEnv10ge
 _ZN14CompilerConfig10is_c1_onlyEv.exit.i:         ; preds = %227
   %233 = load i8, ptr @TieredCompilation, align 1
   %234 = trunc i8 %233 to i1
-  %235 = add i64 %230, -1
-  %236 = icmp ult i64 %235, 3
-  %spec.select.i.i = select i1 %234, i1 %236, i1 false
-  %237 = load i32, ptr @_ZN19CompilationModeFlag5_modeE, align 4
-  %238 = icmp eq i32 %237, 1
-  %239 = or i1 %spec.select.i.i, %238
-  br i1 %239, label %_ZN14CompilerConfig15is_c1_profilingEv.exit, label %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i.i.i.i
+  %235 = icmp ult i64 %230, 4
+  %spec.select.i.i = select i1 %234, i1 %235, i1 false
+  %236 = load i32, ptr @_ZN19CompilationModeFlag5_modeE, align 4
+  %237 = icmp eq i32 %236, 1
+  %238 = or i1 %spec.select.i.i, %237
+  br i1 %238, label %_ZN14CompilerConfig15is_c1_profilingEv.exit, label %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i.i.i.i
 
 _ZN14CompilerConfig10is_c1_onlyEv.exit.i.i.i.i.i: ; preds = %_ZN14CompilerConfig10is_c1_onlyEv.exit.i
-  %240 = icmp ne i32 %237, 2
-  %241 = and i1 %240, %234
-  br i1 %241, label %247, label %.thread59
+  %239 = icmp ne i32 %236, 2
+  %240 = and i1 %239, %234
+  br i1 %240, label %246, label %.thread59
 
 _ZN14CompilerConfig15is_c1_profilingEv.exit:      ; preds = %_ZN14CompilerConfig10is_c1_onlyEv.exit.i
-  %242 = icmp eq i64 %230, 1
-  %243 = select i1 %234, i1 %242, i1 false
-  %244 = xor i1 %234, true
-  %245 = or i1 %243, %244
-  %246 = or i1 %238, %245
-  br i1 %246, label %.thread59, label %247
+  %241 = icmp eq i64 %230, 1
+  %242 = select i1 %234, i1 %241, i1 false
+  %243 = xor i1 %234, true
+  %244 = or i1 %242, %243
+  %245 = or i1 %237, %244
+  br i1 %245, label %.thread59, label %246
 
-247:                                              ; preds = %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i.i.i.i, %_ZN14CompilerConfig15is_c1_profilingEv.exit, %222
-  %248 = load ptr, ptr %1, align 8
-  %249 = call noundef i32 @_ZNK6Method16invocation_countEv(ptr noundef nonnull align 8 dereferenceable(88) %248) #14
-  %250 = call i32 @llvm.umin.i32(i32 %249, i32 2147483647)
-  %251 = getelementptr inbounds nuw i8, ptr %0, i64 92
-  store i32 %250, ptr %251, align 4
-  %252 = load ptr, ptr %1, align 8
-  %253 = getelementptr inbounds nuw i8, ptr %252, i64 24
-  %254 = load ptr, ptr %253, align 8
-  %255 = icmp eq ptr %254, null
-  br i1 %255, label %261, label %256
+246:                                              ; preds = %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i.i.i.i, %_ZN14CompilerConfig15is_c1_profilingEv.exit, %222
+  %247 = load ptr, ptr %1, align 8
+  %248 = call noundef i32 @_ZNK6Method16invocation_countEv(ptr noundef nonnull align 8 dereferenceable(88) %247) #14
+  %249 = call i32 @llvm.umin.i32(i32 %248, i32 2147483647)
+  %250 = getelementptr inbounds nuw i8, ptr %0, i64 92
+  store i32 %249, ptr %250, align 4
+  %251 = load ptr, ptr %1, align 8
+  %252 = getelementptr inbounds nuw i8, ptr %251, i64 24
+  %253 = load ptr, ptr %252, align 8
+  %254 = icmp eq ptr %253, null
+  br i1 %254, label %260, label %255
 
-256:                                              ; preds = %247
-  %257 = getelementptr inbounds nuw i8, ptr %254, i64 40
-  %258 = load i16, ptr %257, align 8
-  %259 = zext i16 %258 to i32
-  br label %261
+255:                                              ; preds = %246
+  %256 = getelementptr inbounds nuw i8, ptr %253, i64 40
+  %257 = load i16, ptr %256, align 8
+  %258 = zext i16 %257 to i32
+  br label %260
 
 .thread59:                                        ; preds = %_ZN14CompilerConfig15is_c1_profilingEv.exit, %_ZN14CompilerConfig10is_c1_onlyEv.exit.i.i.i.i.i, %227
-  %260 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store i32 0, ptr %260, align 8
-  br label %264
+  %259 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  store i32 0, ptr %259, align 8
+  br label %263
 
-261:                                              ; preds = %256, %247
-  %.0.i = phi i32 [ %259, %256 ], [ 0, %247 ]
-  %262 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store i32 %.0.i, ptr %262, align 8
-  %263 = icmp eq i32 %249, 0
-  br i1 %263, label %264, label %266
+260:                                              ; preds = %255, %246
+  %.0.i = phi i32 [ %258, %255 ], [ 0, %246 ]
+  %261 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  store i32 %.0.i, ptr %261, align 8
+  %262 = icmp eq i32 %248, 0
+  br i1 %262, label %263, label %265
 
-264:                                              ; preds = %.thread59, %261
-  %265 = getelementptr inbounds nuw i8, ptr %0, i64 92
-  store i32 1, ptr %265, align 4
-  br label %266
+263:                                              ; preds = %.thread59, %260
+  %264 = getelementptr inbounds nuw i8, ptr %0, i64 92
+  store i32 1, ptr %264, align 4
+  br label %265
 
-266:                                              ; preds = %264, %261
-  %267 = getelementptr inbounds nuw i8, ptr %0, i64 100
-  store i32 -1, ptr %267, align 4
-  %268 = load i8, ptr @ReplayCompiles, align 1
-  %269 = trunc i8 %268 to i1
-  br i1 %269, label %270, label %271
+265:                                              ; preds = %263, %260
+  %266 = getelementptr inbounds nuw i8, ptr %0, i64 100
+  store i32 -1, ptr %266, align 4
+  %267 = load i8, ptr @ReplayCompiles, align 1
+  %268 = trunc i8 %267 to i1
+  br i1 %268, label %269, label %270
 
-270:                                              ; preds = %266
+269:                                              ; preds = %265
   call void @_ZN8ciReplay10initializeEP8ciMethod(ptr noundef nonnull %0) #14
-  br label %271
+  br label %270
 
-271:                                              ; preds = %270, %266
+270:                                              ; preds = %269, %265
   call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #14
   ret void
 }

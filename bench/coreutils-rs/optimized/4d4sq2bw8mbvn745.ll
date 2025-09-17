@@ -673,7 +673,7 @@ define hidden void @"_ZN4core3ptr156drop_in_place$LT$ordered_multimap..list_orde
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !264
   %20 = add i64 %17, 1
   invoke void @_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h5180574a4b4f32fdE.llvm.15201503643544183131(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %2, i64 noundef 56, i64 noundef 16, i64 noundef %20)
-          to label %.noexc unwind label %31
+          to label %.noexc unwind label %30
 
 .noexc:                                           ; preds = %19
   %21 = load i64, ptr %2, align 8, !range !137, !noalias !264, !noundef !4
@@ -685,32 +685,31 @@ define hidden void @"_ZN4core3ptr156drop_in_place$LT$ordered_multimap..list_orde
   %26 = load ptr, ptr %15, align 8, !alias.scope !264, !nonnull !4, !noundef !4
   %27 = sub nsw i64 0, %25
   %28 = getelementptr inbounds i8, ptr %26, i64 %27
-  %29 = add i64 %21, -1
-  %30 = icmp sgt i64 %29, -1
-  tail call void @llvm.assume(i1 %30)
+  %29 = icmp ne i64 %21, 0
+  tail call void @llvm.assume(i1 %29)
   tail call void @__rust_dealloc(ptr noundef nonnull %28, i64 noundef %23, i64 noundef %21) #15, !noalias !264
   br label %"_ZN4core3ptr305drop_in_place$LT$hashbrown..map..HashMap$LT$dlv_list..Index$LT$core..option..Option$LT$alloc..string..String$GT$$GT$$C$ordered_multimap..list_ordered_multimap..MapEntry$LT$core..option..Option$LT$alloc..string..String$GT$$C$ini..Properties$GT$$C$ordered_multimap..list_ordered_multimap..DummyState$GT$$GT$17hedae0b6e9ff7d031E.llvm.12269880611312064175.exit"
 
-31:                                               ; preds = %19
-  %32 = landingpad { ptr, i32 }
+30:                                               ; preds = %19
+  %31 = landingpad { ptr, i32 }
           cleanup
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  invoke void @"_ZN4core3ptr193drop_in_place$LT$alloc..vec..Vec$LT$dlv_list..Entry$LT$ordered_multimap..list_ordered_multimap..ValueEntry$LT$core..option..Option$LT$alloc..string..String$GT$$C$ini..Properties$GT$$GT$$GT$$GT$17hb4cd63616a3cad54E.llvm.12269880611312064175"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %33)
-          to label %"_ZN4core3ptr172drop_in_place$LT$dlv_list..VecList$LT$ordered_multimap..list_ordered_multimap..ValueEntry$LT$core..option..Option$LT$alloc..string..String$GT$$C$ini..Properties$GT$$GT$$GT$17h425a97f94feef7b7E.llvm.12269880611312064175.exit" unwind label %35
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  invoke void @"_ZN4core3ptr193drop_in_place$LT$alloc..vec..Vec$LT$dlv_list..Entry$LT$ordered_multimap..list_ordered_multimap..ValueEntry$LT$core..option..Option$LT$alloc..string..String$GT$$C$ini..Properties$GT$$GT$$GT$$GT$17hb4cd63616a3cad54E.llvm.12269880611312064175"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %32)
+          to label %"_ZN4core3ptr172drop_in_place$LT$dlv_list..VecList$LT$ordered_multimap..list_ordered_multimap..ValueEntry$LT$core..option..Option$LT$alloc..string..String$GT$$C$ini..Properties$GT$$GT$$GT$17h425a97f94feef7b7E.llvm.12269880611312064175.exit" unwind label %34
 
 "_ZN4core3ptr305drop_in_place$LT$hashbrown..map..HashMap$LT$dlv_list..Index$LT$core..option..Option$LT$alloc..string..String$GT$$GT$$C$ordered_multimap..list_ordered_multimap..MapEntry$LT$core..option..Option$LT$alloc..string..String$GT$$C$ini..Properties$GT$$C$ordered_multimap..list_ordered_multimap..DummyState$GT$$GT$17hedae0b6e9ff7d031E.llvm.12269880611312064175.exit": ; preds = %.noexc, %"_ZN4core3ptr95drop_in_place$LT$dlv_list..VecList$LT$core..option..Option$LT$alloc..string..String$GT$$GT$$GT$17hb69ec0bf063c0b2bE.llvm.12269880611312064175.exit"
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  tail call void @"_ZN4core3ptr193drop_in_place$LT$alloc..vec..Vec$LT$dlv_list..Entry$LT$ordered_multimap..list_ordered_multimap..ValueEntry$LT$core..option..Option$LT$alloc..string..String$GT$$C$ini..Properties$GT$$GT$$GT$$GT$17hb4cd63616a3cad54E.llvm.12269880611312064175"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %34)
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  tail call void @"_ZN4core3ptr193drop_in_place$LT$alloc..vec..Vec$LT$dlv_list..Entry$LT$ordered_multimap..list_ordered_multimap..ValueEntry$LT$core..option..Option$LT$alloc..string..String$GT$$C$ini..Properties$GT$$GT$$GT$$GT$17hb4cd63616a3cad54E.llvm.12269880611312064175"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %33)
   ret void
 
-35:                                               ; preds = %31
-  %36 = landingpad { ptr, i32 }
+34:                                               ; preds = %30
+  %35 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #16
   unreachable
 
-"_ZN4core3ptr172drop_in_place$LT$dlv_list..VecList$LT$ordered_multimap..list_ordered_multimap..ValueEntry$LT$core..option..Option$LT$alloc..string..String$GT$$C$ini..Properties$GT$$GT$$GT$17h425a97f94feef7b7E.llvm.12269880611312064175.exit": ; preds = %31
-  resume { ptr, i32 } %32
+"_ZN4core3ptr172drop_in_place$LT$dlv_list..VecList$LT$ordered_multimap..list_ordered_multimap..ValueEntry$LT$core..option..Option$LT$alloc..string..String$GT$$C$ini..Properties$GT$$GT$$GT$17h425a97f94feef7b7E.llvm.12269880611312064175.exit": ; preds = %30
+  resume { ptr, i32 } %31
 }
 
 ; Function Attrs: nounwind nonlazybind uwtable
@@ -820,7 +819,7 @@ define internal fastcc void @"_ZN4core3ptr170drop_in_place$LT$dlv_list..Entry$LT
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !311
   %19 = add i64 %.val4.i.i.i.i, 1
   invoke void @_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h5180574a4b4f32fdE.llvm.15201503643544183131(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %2, i64 noundef 56, i64 noundef 16, i64 noundef %19)
-          to label %.noexc.i.i.i.i unwind label %30, !noalias !307
+          to label %.noexc.i.i.i.i unwind label %29, !noalias !307
 
 .noexc.i.i.i.i:                                   ; preds = %18
   %20 = load i64, ptr %2, align 8, !range !137, !noalias !311, !noundef !4
@@ -833,62 +832,61 @@ define internal fastcc void @"_ZN4core3ptr170drop_in_place$LT$dlv_list..Entry$LT
   tail call void @llvm.assume(i1 %25)
   %26 = sub nsw i64 0, %24
   %27 = getelementptr inbounds i8, ptr %.val3.i.i.i.i, i64 %26
-  %28 = add i64 %20, -1
-  %29 = icmp sgt i64 %28, -1
-  tail call void @llvm.assume(i1 %29)
+  %28 = icmp ne i64 %20, 0
+  tail call void @llvm.assume(i1 %28)
   tail call void @__rust_dealloc(ptr noundef nonnull %27, i64 noundef %22, i64 noundef %20) #15, !noalias !311
   br label %"_ZN4core3ptr255drop_in_place$LT$hashbrown..map..HashMap$LT$dlv_list..Index$LT$alloc..string..String$GT$$C$ordered_multimap..list_ordered_multimap..MapEntry$LT$alloc..string..String$C$alloc..string..String$GT$$C$ordered_multimap..list_ordered_multimap..DummyState$GT$$GT$17h33b319d2ba317965E.exit.i.i.i.i"
 
-30:                                               ; preds = %18
-  %31 = landingpad { ptr, i32 }
+29:                                               ; preds = %18
+  %30 = landingpad { ptr, i32 }
           cleanup
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  tail call fastcc void @"_ZN4core3ptr150drop_in_place$LT$dlv_list..VecList$LT$ordered_multimap..list_ordered_multimap..ValueEntry$LT$alloc..string..String$C$alloc..string..String$GT$$GT$$GT$17h131e3ddefa92041bE"(ptr noalias noundef readonly align 8 dereferenceable(64) %32) #17
-  resume { ptr, i32 } %31
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  tail call fastcc void @"_ZN4core3ptr150drop_in_place$LT$dlv_list..VecList$LT$ordered_multimap..list_ordered_multimap..ValueEntry$LT$alloc..string..String$C$alloc..string..String$GT$$GT$$GT$17h131e3ddefa92041bE"(ptr noalias noundef readonly align 8 dereferenceable(64) %31) #17
+  resume { ptr, i32 } %30
 
 "_ZN4core3ptr255drop_in_place$LT$hashbrown..map..HashMap$LT$dlv_list..Index$LT$alloc..string..String$GT$$C$ordered_multimap..list_ordered_multimap..MapEntry$LT$alloc..string..String$C$alloc..string..String$GT$$C$ordered_multimap..list_ordered_multimap..DummyState$GT$$GT$17h33b319d2ba317965E.exit.i.i.i.i": ; preds = %.noexc.i.i.i.i, %"_ZN4core3ptr67drop_in_place$LT$dlv_list..VecList$LT$alloc..string..String$GT$$GT$17hfb0c6a43380fd866E.exit.i.i.i.i"
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !316)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !319)
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %.val.i.i5.i.i.i.i = load ptr, ptr %34, align 8, !alias.scope !322, !nonnull !4, !noundef !4
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %.val1.i.i6.i.i.i.i = load i64, ptr %35, align 8, !alias.scope !322, !noundef !4
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %.val.i.i5.i.i.i.i = load ptr, ptr %33, align 8, !alias.scope !322, !nonnull !4, !noundef !4
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %.val1.i.i6.i.i.i.i = load i64, ptr %34, align 8, !alias.scope !322, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !323)
-  %36 = icmp eq i64 %.val1.i.i6.i.i.i.i, 0
-  br i1 %36, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf7e9672bff6d2006E.exit.i.i.i.i.i.i", label %.lr.ph.i.i.i.i7.i.i.i.i
+  %35 = icmp eq i64 %.val1.i.i6.i.i.i.i, 0
+  br i1 %35, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf7e9672bff6d2006E.exit.i.i.i.i.i.i", label %.lr.ph.i.i.i.i7.i.i.i.i
 
 .lr.ph.i.i.i.i7.i.i.i.i:                          ; preds = %"_ZN4core3ptr255drop_in_place$LT$hashbrown..map..HashMap$LT$dlv_list..Index$LT$alloc..string..String$GT$$C$ordered_multimap..list_ordered_multimap..MapEntry$LT$alloc..string..String$C$alloc..string..String$GT$$C$ordered_multimap..list_ordered_multimap..DummyState$GT$$GT$17h33b319d2ba317965E.exit.i.i.i.i", %"_ZN4core3ptr148drop_in_place$LT$dlv_list..Entry$LT$ordered_multimap..list_ordered_multimap..ValueEntry$LT$alloc..string..String$C$alloc..string..String$GT$$GT$$GT$17he7cca799d56d0d5aE.exit.i.i.i.i.i.i.i.i"
-  %.012.i.i.i.i8.i.i.i.i = phi i64 [ %38, %"_ZN4core3ptr148drop_in_place$LT$dlv_list..Entry$LT$ordered_multimap..list_ordered_multimap..ValueEntry$LT$alloc..string..String$C$alloc..string..String$GT$$GT$$GT$17he7cca799d56d0d5aE.exit.i.i.i.i.i.i.i.i" ], [ 0, %"_ZN4core3ptr255drop_in_place$LT$hashbrown..map..HashMap$LT$dlv_list..Index$LT$alloc..string..String$GT$$C$ordered_multimap..list_ordered_multimap..MapEntry$LT$alloc..string..String$C$alloc..string..String$GT$$C$ordered_multimap..list_ordered_multimap..DummyState$GT$$GT$17h33b319d2ba317965E.exit.i.i.i.i" ]
-  %37 = getelementptr inbounds { i64, [11 x i64] }, ptr %.val.i.i5.i.i.i.i, i64 %.012.i.i.i.i8.i.i.i.i
-  %38 = add nuw i64 %.012.i.i.i.i8.i.i.i.i, 1
-  %.val8.i.i.i.i9.i.i.i.i = load i64, ptr %37, align 8, !range !137, !alias.scope !323, !noalias !322, !noundef !4
+  %.012.i.i.i.i8.i.i.i.i = phi i64 [ %37, %"_ZN4core3ptr148drop_in_place$LT$dlv_list..Entry$LT$ordered_multimap..list_ordered_multimap..ValueEntry$LT$alloc..string..String$C$alloc..string..String$GT$$GT$$GT$17he7cca799d56d0d5aE.exit.i.i.i.i.i.i.i.i" ], [ 0, %"_ZN4core3ptr255drop_in_place$LT$hashbrown..map..HashMap$LT$dlv_list..Index$LT$alloc..string..String$GT$$C$ordered_multimap..list_ordered_multimap..MapEntry$LT$alloc..string..String$C$alloc..string..String$GT$$C$ordered_multimap..list_ordered_multimap..DummyState$GT$$GT$17h33b319d2ba317965E.exit.i.i.i.i" ]
+  %36 = getelementptr inbounds { i64, [11 x i64] }, ptr %.val.i.i5.i.i.i.i, i64 %.012.i.i.i.i8.i.i.i.i
+  %37 = add nuw i64 %.012.i.i.i.i8.i.i.i.i, 1
+  %.val8.i.i.i.i9.i.i.i.i = load i64, ptr %36, align 8, !range !137, !alias.scope !323, !noalias !322, !noundef !4
   switch i64 %.val8.i.i.i.i9.i.i.i.i, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.12269880611312064175.exit.i.i1.i.i.i.i.i.i.i.i.i.i.i.i.i" [
     i64 -9223372036854775808, label %"_ZN4core3ptr148drop_in_place$LT$dlv_list..Entry$LT$ordered_multimap..list_ordered_multimap..ValueEntry$LT$alloc..string..String$C$alloc..string..String$GT$$GT$$GT$17he7cca799d56d0d5aE.exit.i.i.i.i.i.i.i.i"
     i64 0, label %"_ZN4core3ptr148drop_in_place$LT$dlv_list..Entry$LT$ordered_multimap..list_ordered_multimap..ValueEntry$LT$alloc..string..String$C$alloc..string..String$GT$$GT$$GT$17he7cca799d56d0d5aE.exit.i.i.i.i.i.i.i.i"
   ]
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.12269880611312064175.exit.i.i1.i.i.i.i.i.i.i.i.i.i.i.i.i": ; preds = %.lr.ph.i.i.i.i7.i.i.i.i
-  %39 = getelementptr i8, ptr %37, i64 8
-  %.val9.i.i.i.i11.i.i.i.i = load ptr, ptr %39, align 8, !alias.scope !323, !noalias !322, !nonnull !4, !noundef !4
+  %38 = getelementptr i8, ptr %36, i64 8
+  %.val9.i.i.i.i11.i.i.i.i = load ptr, ptr %38, align 8, !alias.scope !323, !noalias !322, !nonnull !4, !noundef !4
   tail call void @__rust_dealloc(ptr noundef nonnull %.val9.i.i.i.i11.i.i.i.i, i64 noundef %.val8.i.i.i.i9.i.i.i.i, i64 noundef 1) #15, !noalias !326
   br label %"_ZN4core3ptr148drop_in_place$LT$dlv_list..Entry$LT$ordered_multimap..list_ordered_multimap..ValueEntry$LT$alloc..string..String$C$alloc..string..String$GT$$GT$$GT$17he7cca799d56d0d5aE.exit.i.i.i.i.i.i.i.i"
 
 "_ZN4core3ptr148drop_in_place$LT$dlv_list..Entry$LT$ordered_multimap..list_ordered_multimap..ValueEntry$LT$alloc..string..String$C$alloc..string..String$GT$$GT$$GT$17he7cca799d56d0d5aE.exit.i.i.i.i.i.i.i.i": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.12269880611312064175.exit.i.i1.i.i.i.i.i.i.i.i.i.i.i.i.i", %.lr.ph.i.i.i.i7.i.i.i.i, %.lr.ph.i.i.i.i7.i.i.i.i
-  %40 = icmp eq i64 %38, %.val1.i.i6.i.i.i.i
-  br i1 %40, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf7e9672bff6d2006E.exit.i.i.i.i.i.i", label %.lr.ph.i.i.i.i7.i.i.i.i
+  %39 = icmp eq i64 %37, %.val1.i.i6.i.i.i.i
+  br i1 %39, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf7e9672bff6d2006E.exit.i.i.i.i.i.i", label %.lr.ph.i.i.i.i7.i.i.i.i
 
 "_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf7e9672bff6d2006E.exit.i.i.i.i.i.i": ; preds = %"_ZN4core3ptr148drop_in_place$LT$dlv_list..Entry$LT$ordered_multimap..list_ordered_multimap..ValueEntry$LT$alloc..string..String$C$alloc..string..String$GT$$GT$$GT$17he7cca799d56d0d5aE.exit.i.i.i.i.i.i.i.i", %"_ZN4core3ptr255drop_in_place$LT$hashbrown..map..HashMap$LT$dlv_list..Index$LT$alloc..string..String$GT$$C$ordered_multimap..list_ordered_multimap..MapEntry$LT$alloc..string..String$C$alloc..string..String$GT$$C$ordered_multimap..list_ordered_multimap..DummyState$GT$$GT$17h33b319d2ba317965E.exit.i.i.i.i"
-  %.val4.i.i10.i.i.i.i = load i64, ptr %33, align 8, !alias.scope !322, !noundef !4
-  %41 = icmp eq i64 %.val4.i.i10.i.i.i.i, 0
-  br i1 %41, label %"_ZN4core3ptr178drop_in_place$LT$dlv_list..OccupiedEntry$LT$ordered_multimap..list_ordered_multimap..ValueEntry$LT$core..option..Option$LT$alloc..string..String$GT$$C$ini..Properties$GT$$GT$$GT$17h354f487bf6f2ffcfE.exit", label %42
+  %.val4.i.i10.i.i.i.i = load i64, ptr %32, align 8, !alias.scope !322, !noundef !4
+  %40 = icmp eq i64 %.val4.i.i10.i.i.i.i, 0
+  br i1 %40, label %"_ZN4core3ptr178drop_in_place$LT$dlv_list..OccupiedEntry$LT$ordered_multimap..list_ordered_multimap..ValueEntry$LT$core..option..Option$LT$alloc..string..String$GT$$C$ini..Properties$GT$$GT$$GT$17h354f487bf6f2ffcfE.exit", label %41
 
-42:                                               ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf7e9672bff6d2006E.exit.i.i.i.i.i.i"
-  %43 = mul nuw i64 %.val4.i.i10.i.i.i.i, 96
-  tail call void @__rust_dealloc(ptr noundef nonnull %.val.i.i5.i.i.i.i, i64 noundef %43, i64 noundef 8) #15, !noalias !322
+41:                                               ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf7e9672bff6d2006E.exit.i.i.i.i.i.i"
+  %42 = mul nuw i64 %.val4.i.i10.i.i.i.i, 96
+  tail call void @__rust_dealloc(ptr noundef nonnull %.val.i.i5.i.i.i.i, i64 noundef %42, i64 noundef 8) #15, !noalias !322
   br label %"_ZN4core3ptr178drop_in_place$LT$dlv_list..OccupiedEntry$LT$ordered_multimap..list_ordered_multimap..ValueEntry$LT$core..option..Option$LT$alloc..string..String$GT$$C$ini..Properties$GT$$GT$$GT$17h354f487bf6f2ffcfE.exit"
 
-"_ZN4core3ptr178drop_in_place$LT$dlv_list..OccupiedEntry$LT$ordered_multimap..list_ordered_multimap..ValueEntry$LT$core..option..Option$LT$alloc..string..String$GT$$C$ini..Properties$GT$$GT$$GT$17h354f487bf6f2ffcfE.exit": ; preds = %42, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf7e9672bff6d2006E.exit.i.i.i.i.i.i", %1
+"_ZN4core3ptr178drop_in_place$LT$dlv_list..OccupiedEntry$LT$ordered_multimap..list_ordered_multimap..ValueEntry$LT$core..option..Option$LT$alloc..string..String$GT$$C$ini..Properties$GT$$GT$$GT$17h354f487bf6f2ffcfE.exit": ; preds = %41, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf7e9672bff6d2006E.exit.i.i.i.i.i.i", %1
   ret void
 }
 
@@ -1292,9 +1290,8 @@ define hidden void @"_ZN4core3ptr260drop_in_place$LT$hashbrown..raw..RawTable$LT
   %13 = load ptr, ptr %0, align 8, !alias.scope !443, !nonnull !4, !noundef !4
   %14 = sub nsw i64 0, %12
   %15 = getelementptr inbounds i8, ptr %13, i64 %14
-  %16 = add i64 %8, -1
-  %17 = icmp sgt i64 %16, -1
-  tail call void @llvm.assume(i1 %17)
+  %16 = icmp ne i64 %8, 0
+  tail call void @llvm.assume(i1 %16)
   tail call void @__rust_dealloc(ptr noundef nonnull %15, i64 noundef %10, i64 noundef %8) #15, !noalias !443
   br label %"_ZN79_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8414f784ff59f900E.llvm.12269880611312064175.exit"
 
@@ -1392,9 +1389,8 @@ define hidden void @"_ZN4core3ptr305drop_in_place$LT$hashbrown..map..HashMap$LT$
   %13 = load ptr, ptr %0, align 8, !alias.scope !505, !nonnull !4, !noundef !4
   %14 = sub nsw i64 0, %12
   %15 = getelementptr inbounds i8, ptr %13, i64 %14
-  %16 = add i64 %8, -1
-  %17 = icmp sgt i64 %16, -1
-  tail call void @llvm.assume(i1 %17)
+  %16 = icmp ne i64 %8, 0
+  tail call void @llvm.assume(i1 %16)
   tail call void @__rust_dealloc(ptr noundef nonnull %15, i64 noundef %10, i64 noundef %8) #15, !noalias !505
   br label %"_ZN4core3ptr260drop_in_place$LT$hashbrown..raw..RawTable$LT$$LP$dlv_list..Index$LT$core..option..Option$LT$alloc..string..String$GT$$GT$$C$ordered_multimap..list_ordered_multimap..MapEntry$LT$core..option..Option$LT$alloc..string..String$GT$$C$ini..Properties$GT$$RP$$GT$$GT$17h634957019bb76b06E.llvm.12269880611312064175.exit"
 
@@ -5972,9 +5968,8 @@ define hidden void @"_ZN79_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$
   %13 = load ptr, ptr %0, align 8, !alias.scope !2188, !nonnull !4, !noundef !4
   %14 = sub nsw i64 0, %12
   %15 = getelementptr inbounds i8, ptr %13, i64 %14
-  %16 = add i64 %8, -1
-  %17 = icmp sgt i64 %16, -1
-  tail call void @llvm.assume(i1 %17)
+  %16 = icmp ne i64 %8, 0
+  tail call void @llvm.assume(i1 %16)
   tail call void @__rust_dealloc(ptr noundef nonnull %15, i64 noundef %10, i64 noundef %8) #15, !noalias !2188
   br label %_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h9239594384c99388E.exit
 

@@ -8294,7 +8294,7 @@ define internal fastcc range(i32 0, 3) i32 @cli_scan_structured(ptr noundef %0) 
   %2 = alloca [8192 x i8], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = icmp eq ptr %0, null
-  br i1 %3, label %89, label %4
+  br i1 %3, label %87, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -8353,9 +8353,9 @@ default.unreachable:                              ; preds = %4
   %33 = getelementptr inbounds nuw i8, ptr %6, i64 104
   br label %.split.us
 
-.split.us:                                        ; preds = %.split.us.preheader, %40
-  %.03659.us = phi i64 [ %41, %40 ], [ 0, %.split.us.preheader ]
-  %.04156.us = phi i32 [ %47, %40 ], [ 0, %.split.us.preheader ]
+.split.us:                                        ; preds = %.split.us.preheader, %39
+  %.03659.us = phi i64 [ %40, %39 ], [ 0, %.split.us.preheader ]
+  %.04156.us = phi i32 [ %46, %39 ], [ 0, %.split.us.preheader ]
   %34 = load i64, ptr %32, align 8, !tbaa !59
   %or.cond55.not.us = icmp ult i64 %.03659.us, %34
   br i1 %or.cond55.not.us, label %35, label %.critedge
@@ -8366,114 +8366,104 @@ default.unreachable:                              ; preds = %4
   %37 = load ptr, ptr %33, align 8, !tbaa !95
   %38 = call ptr %37(ptr noundef nonnull %6, i64 noundef %.03659.us, i64 noundef %spec.select.i.us, i32 noundef 0) #18
   %.not26.i.us = icmp eq ptr %38, null
-  br i1 %.not26.i.us, label %.critedge, label %fmap_readn.exit.us
+  br i1 %.not26.i.us, label %.critedge, label %39
 
-fmap_readn.exit.us:                               ; preds = %35
+39:                                               ; preds = %35
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %2, ptr nonnull align 1 %38, i64 %spec.select.i.us, i1 false)
-  %39 = add nsw i64 %spec.select.i.us, -1
-  %or.cond.us = icmp ult i64 %39, -2
-  br i1 %or.cond.us, label %40, label %.critedge
-
-40:                                               ; preds = %fmap_readn.exit.us
-  %41 = add i64 %spec.select.i.us, %.03659.us
-  %42 = load ptr, ptr %12, align 8, !tbaa !65
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  %44 = load i32, ptr %43, align 4, !tbaa !77
-  %45 = lshr i32 %44, 12
-  %.lobit.us = and i32 %45, 1
-  %46 = call i32 %dlp_has_cc.dlp_get_cc_count(ptr noundef nonnull %2, i64 noundef %spec.select.i.us, i32 noundef %.lobit.us) #18, !callees !197
-  %47 = add i32 %46, %.04156.us
-  %48 = load ptr, ptr %7, align 8, !tbaa !38
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 88
-  %50 = load i32, ptr %49, align 8, !tbaa !195
-  %.not.us.not = icmp ult i32 %47, %50
+  %40 = add i64 %spec.select.i.us, %.03659.us
+  %41 = load ptr, ptr %12, align 8, !tbaa !65
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  %43 = load i32, ptr %42, align 4, !tbaa !77
+  %44 = lshr i32 %43, 12
+  %.lobit.us = and i32 %44, 1
+  %45 = call i32 %dlp_has_cc.dlp_get_cc_count(ptr noundef nonnull %2, i64 noundef %spec.select.i.us, i32 noundef %.lobit.us) #18, !callees !197
+  %46 = add i32 %45, %.04156.us
+  %47 = load ptr, ptr %7, align 8, !tbaa !38
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 88
+  %49 = load i32, ptr %48, align 8, !tbaa !195
+  %.not.us.not = icmp ult i32 %46, %49
   br i1 %.not.us.not, label %.split.us, label %.critedge
 
-.split:                                           ; preds = %.split.preheader, %57
-  %.03659 = phi i64 [ %58, %57 ], [ 0, %.split.preheader ]
-  %.03957 = phi i32 [ %69, %57 ], [ 0, %.split.preheader ]
-  %.04156 = phi i32 [ %64, %57 ], [ 0, %.split.preheader ]
-  %51 = load i64, ptr %30, align 8, !tbaa !59
-  %or.cond55.not = icmp ult i64 %.03659, %51
-  br i1 %or.cond55.not, label %52, label %.critedge
+.split:                                           ; preds = %.split.preheader, %55
+  %.03659 = phi i64 [ %56, %55 ], [ 0, %.split.preheader ]
+  %.03957 = phi i32 [ %67, %55 ], [ 0, %.split.preheader ]
+  %.04156 = phi i32 [ %62, %55 ], [ 0, %.split.preheader ]
+  %50 = load i64, ptr %30, align 8, !tbaa !59
+  %or.cond55.not = icmp ult i64 %.03659, %50
+  br i1 %or.cond55.not, label %51, label %.critedge
 
-52:                                               ; preds = %.split
-  %53 = sub nuw i64 %51, %.03659
-  %spec.select.i = call i64 @llvm.umin.i64(i64 %53, i64 8191)
-  %54 = load ptr, ptr %31, align 8, !tbaa !95
-  %55 = call ptr %54(ptr noundef nonnull %6, i64 noundef %.03659, i64 noundef %spec.select.i, i32 noundef 0) #18
-  %.not26.i = icmp eq ptr %55, null
-  br i1 %.not26.i, label %.critedge, label %fmap_readn.exit
+51:                                               ; preds = %.split
+  %52 = sub nuw i64 %50, %.03659
+  %spec.select.i = call i64 @llvm.umin.i64(i64 %52, i64 8191)
+  %53 = load ptr, ptr %31, align 8, !tbaa !95
+  %54 = call ptr %53(ptr noundef nonnull %6, i64 noundef %.03659, i64 noundef %spec.select.i, i32 noundef 0) #18
+  %.not26.i = icmp eq ptr %54, null
+  br i1 %.not26.i, label %.critedge, label %55
 
-fmap_readn.exit:                                  ; preds = %52
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %2, ptr nonnull align 1 %55, i64 %spec.select.i, i1 false)
-  %56 = add nsw i64 %spec.select.i, -1
-  %or.cond = icmp ult i64 %56, -2
-  br i1 %or.cond, label %57, label %.critedge
-
-57:                                               ; preds = %fmap_readn.exit
-  %58 = add i64 %spec.select.i, %.03659
-  %59 = load ptr, ptr %12, align 8, !tbaa !65
-  %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
-  %61 = load i32, ptr %60, align 4, !tbaa !77
-  %62 = lshr i32 %61, 12
-  %.lobit = and i32 %62, 1
-  %63 = call i32 %dlp_has_cc.dlp_get_cc_count(ptr noundef nonnull %2, i64 noundef %spec.select.i, i32 noundef %.lobit) #18, !callees !197
-  %64 = add i32 %63, %.04156
-  %65 = load ptr, ptr %7, align 8, !tbaa !38
-  %66 = getelementptr inbounds nuw i8, ptr %65, i64 88
-  %67 = load i32, ptr %66, align 8, !tbaa !195
-  %.not = icmp uge i32 %64, %67
-  %68 = call i32 %.0.ph(ptr noundef nonnull %2, i64 noundef %spec.select.i) #18
-  %69 = add i32 %68, %.03957
-  %70 = load ptr, ptr %7, align 8, !tbaa !38
-  %71 = getelementptr inbounds nuw i8, ptr %70, i64 92
-  %72 = load i32, ptr %71, align 4, !tbaa !196
-  %.not47 = icmp uge i32 %69, %72
+55:                                               ; preds = %51
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %2, ptr nonnull align 1 %54, i64 %spec.select.i, i1 false)
+  %56 = add i64 %spec.select.i, %.03659
+  %57 = load ptr, ptr %12, align 8, !tbaa !65
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
+  %59 = load i32, ptr %58, align 4, !tbaa !77
+  %60 = lshr i32 %59, 12
+  %.lobit = and i32 %60, 1
+  %61 = call i32 %dlp_has_cc.dlp_get_cc_count(ptr noundef nonnull %2, i64 noundef %spec.select.i, i32 noundef %.lobit) #18, !callees !197
+  %62 = add i32 %61, %.04156
+  %63 = load ptr, ptr %7, align 8, !tbaa !38
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 88
+  %65 = load i32, ptr %64, align 8, !tbaa !195
+  %.not = icmp uge i32 %62, %65
+  %66 = call i32 %.0.ph(ptr noundef nonnull %2, i64 noundef %spec.select.i) #18
+  %67 = add i32 %66, %.03957
+  %68 = load ptr, ptr %7, align 8, !tbaa !38
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 92
+  %70 = load i32, ptr %69, align 4, !tbaa !196
+  %.not47 = icmp uge i32 %67, %70
   %spec.select52 = select i1 %.not47, i1 true, i1 %.not
   br i1 %spec.select52, label %.critedge, label %.split
 
-.critedge:                                        ; preds = %.split.us, %35, %fmap_readn.exit.us, %40, %57, %fmap_readn.exit, %.split, %52
-  %.us-phi = phi i32 [ %.04156, %52 ], [ %.04156, %.split ], [ %.04156, %fmap_readn.exit ], [ %64, %57 ], [ %.04156.us, %35 ], [ %.04156.us, %.split.us ], [ %.04156.us, %fmap_readn.exit.us ], [ %47, %40 ]
-  %.us-phi60 = phi i32 [ %.03957, %52 ], [ %.03957, %.split ], [ %.03957, %fmap_readn.exit ], [ %69, %57 ], [ 0, %40 ], [ 0, %fmap_readn.exit.us ], [ 0, %35 ], [ 0, %.split.us ]
+.critedge:                                        ; preds = %.split.us, %35, %39, %55, %.split, %51
+  %.us-phi = phi i32 [ %.04156, %51 ], [ %.04156, %.split ], [ %62, %55 ], [ %.04156.us, %35 ], [ %.04156.us, %.split.us ], [ %46, %39 ]
+  %.us-phi60 = phi i32 [ %.03957, %51 ], [ %.03957, %.split ], [ %67, %55 ], [ 0, %39 ], [ 0, %35 ], [ 0, %.split.us ]
   %.not48 = icmp eq i32 %.us-phi, 0
-  br i1 %.not48, label %80, label %73
+  br i1 %.not48, label %78, label %71
 
-73:                                               ; preds = %.critedge
-  %74 = load ptr, ptr %7, align 8, !tbaa !38
-  %75 = getelementptr inbounds nuw i8, ptr %74, i64 88
-  %76 = load i32, ptr %75, align 8, !tbaa !195
-  %.not49 = icmp ult i32 %.us-phi, %76
-  br i1 %.not49, label %80, label %77
+71:                                               ; preds = %.critedge
+  %72 = load ptr, ptr %7, align 8, !tbaa !38
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 88
+  %74 = load i32, ptr %73, align 8, !tbaa !195
+  %.not49 = icmp ult i32 %.us-phi, %74
+  br i1 %.not49, label %78, label %75
 
-77:                                               ; preds = %73
+75:                                               ; preds = %71
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.675, i32 noundef %.us-phi) #18
-  %78 = call i32 @cli_append_potentially_unwanted(ptr noundef nonnull %0, ptr noundef nonnull @.str.676) #18
-  %79 = icmp eq i32 %78, 1
-  br i1 %79, label %89, label %80
+  %76 = call i32 @cli_append_potentially_unwanted(ptr noundef nonnull %0, ptr noundef nonnull @.str.676) #18
+  %77 = icmp eq i32 %76, 1
+  br i1 %77, label %87, label %78
 
-80:                                               ; preds = %77, %73, %.critedge
+78:                                               ; preds = %75, %71, %.critedge
   %.not50 = icmp eq i32 %.us-phi60, 0
-  br i1 %.not50, label %88, label %81
+  br i1 %.not50, label %86, label %79
 
-81:                                               ; preds = %80
-  %82 = load ptr, ptr %7, align 8, !tbaa !38
-  %83 = getelementptr inbounds nuw i8, ptr %82, i64 92
-  %84 = load i32, ptr %83, align 4, !tbaa !196
-  %.not51 = icmp ult i32 %.us-phi60, %84
-  br i1 %.not51, label %88, label %85
+79:                                               ; preds = %78
+  %80 = load ptr, ptr %7, align 8, !tbaa !38
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 92
+  %82 = load i32, ptr %81, align 4, !tbaa !196
+  %.not51 = icmp ult i32 %.us-phi60, %82
+  br i1 %.not51, label %86, label %83
 
-85:                                               ; preds = %81
+83:                                               ; preds = %79
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.677, i32 noundef %.us-phi60) #18
-  %86 = call i32 @cli_append_potentially_unwanted(ptr noundef nonnull %0, ptr noundef nonnull @.str.678) #18
-  %87 = icmp eq i32 %86, 1
-  br i1 %87, label %89, label %88
+  %84 = call i32 @cli_append_potentially_unwanted(ptr noundef nonnull %0, ptr noundef nonnull @.str.678) #18
+  %85 = icmp eq i32 %84, 1
+  br i1 %85, label %87, label %86
 
-88:                                               ; preds = %85, %81, %80
-  br label %89
+86:                                               ; preds = %83, %79, %78
+  br label %87
 
-89:                                               ; preds = %85, %77, %1, %88
-  %.037 = phi i32 [ 0, %88 ], [ 2, %1 ], [ 1, %77 ], [ 1, %85 ]
+87:                                               ; preds = %83, %75, %1, %86
+  %.037 = phi i32 [ 0, %86 ], [ 2, %1 ], [ 1, %75 ], [ 1, %83 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.037
 }

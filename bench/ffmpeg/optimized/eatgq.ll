@@ -193,8 +193,8 @@ tgq_calculate_qtable.exit:                        ; preds = %76
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge
-  %106 = phi i32 [ %84, %.preheader.lr.ph ], [ %528, %._crit_edge ]
-  %107 = phi i32 [ %.pre, %.preheader.lr.ph ], [ %529, %._crit_edge ]
+  %106 = phi i32 [ %84, %.preheader.lr.ph ], [ %534, %._crit_edge ]
+  %107 = phi i32 [ %.pre, %.preheader.lr.ph ], [ %535, %._crit_edge ]
   %indvars.iv105 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next106, %._crit_edge ]
   %.sroa.0.192 = phi ptr [ %86, %.preheader.lr.ph ], [ %.sroa.0.2.lcssa, %._crit_edge ]
   %108 = icmp sgt i32 %107, 0
@@ -765,163 +765,163 @@ bytestream2_get_byte.exit126.i:                   ; preds = %420, %.preheader147
   %441 = mul nsw i32 %.val.i.i, %440
   %442 = add nsw i32 %441, 2056
   %443 = ashr i32 %442, 4
-  %.not.i.i.i.i = icmp ult i32 %443, 256
+  %444 = icmp ugt i32 %443, 255
   %isnotneg.i.i.i.i = icmp sgt i32 %443, -1
-  %444 = sext i1 %isnotneg.i.i.i.i to i8
-  %445 = trunc nuw i32 %443 to i8
-  %.0.i.i.i.i = select i1 %.not.i.i.i.i, i8 %445, i8 %444
-  br label %446
+  %445 = sext i1 %isnotneg.i.i.i.i to i8
+  %446 = trunc nuw i32 %443 to i8
+  %.0.i.i.i.i = select i1 %444, i8 %445, i8 %446
+  br label %447
 
-446:                                              ; preds = %446, %.loopexit.i
-  %indvars.iv.i.i.i = phi i64 [ 0, %.loopexit.i ], [ %indvars.iv.next.i.i.i, %446 ]
-  %447 = mul nsw i64 %indvars.iv.i.i.i, %429
-  %448 = getelementptr inbounds i8, ptr %434, i64 %447
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(8) %448, i8 %.0.i.i.i.i, i64 8, i1 false)
+447:                                              ; preds = %447, %.loopexit.i
+  %indvars.iv.i.i.i = phi i64 [ 0, %.loopexit.i ], [ %indvars.iv.next.i.i.i, %447 ]
+  %448 = mul nsw i64 %indvars.iv.i.i.i, %429
+  %449 = getelementptr inbounds i8, ptr %434, i64 %448
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(8) %449, i8 %.0.i.i.i.i, i64 8, i1 false)
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 8
-  br i1 %exitcond.not.i.i.i, label %tgq_dconly.exit.i.i, label %446, !llvm.loop !61
+  br i1 %exitcond.not.i.i.i, label %tgq_dconly.exit.i.i, label %447, !llvm.loop !61
 
-tgq_dconly.exit.i.i:                              ; preds = %446
-  %449 = getelementptr inbounds nuw i8, ptr %434, i64 8
-  %450 = load i8, ptr %96, align 1, !tbaa !37
-  %451 = sext i8 %450 to i32
+tgq_dconly.exit.i.i:                              ; preds = %447
+  %450 = getelementptr inbounds nuw i8, ptr %434, i64 8
+  %451 = load i8, ptr %96, align 1, !tbaa !37
+  %452 = sext i8 %451 to i32
   %.val39.i.i = load i32, ptr %61, align 8, !tbaa !31
-  %452 = mul nsw i32 %.val39.i.i, %451
-  %453 = add nsw i32 %452, 2056
-  %454 = ashr i32 %453, 4
-  %.not.i.i44.i.i = icmp ult i32 %454, 256
-  %isnotneg.i.i45.i.i = icmp sgt i32 %454, -1
-  %455 = sext i1 %isnotneg.i.i45.i.i to i8
-  %456 = trunc nuw i32 %454 to i8
-  %.0.i.i46.i.i = select i1 %.not.i.i44.i.i, i8 %456, i8 %455
-  br label %457
+  %453 = mul nsw i32 %.val39.i.i, %452
+  %454 = add nsw i32 %453, 2056
+  %455 = ashr i32 %454, 4
+  %456 = icmp ugt i32 %455, 255
+  %isnotneg.i.i44.i.i = icmp sgt i32 %455, -1
+  %457 = sext i1 %isnotneg.i.i44.i.i to i8
+  %458 = trunc nuw i32 %455 to i8
+  %.0.i.i45.i.i = select i1 %456, i8 %457, i8 %458
+  br label %459
 
-457:                                              ; preds = %457, %tgq_dconly.exit.i.i
-  %indvars.iv.i47.i.i = phi i64 [ 0, %tgq_dconly.exit.i.i ], [ %indvars.iv.next.i48.i.i, %457 ]
-  %458 = mul nsw i64 %indvars.iv.i47.i.i, %429
-  %459 = getelementptr inbounds i8, ptr %449, i64 %458
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(8) %459, i8 %.0.i.i46.i.i, i64 8, i1 false)
-  %indvars.iv.next.i48.i.i = add nuw nsw i64 %indvars.iv.i47.i.i, 1
-  %exitcond.not.i49.i.i = icmp eq i64 %indvars.iv.next.i48.i.i, 8
-  br i1 %exitcond.not.i49.i.i, label %tgq_dconly.exit50.i.i, label %457, !llvm.loop !61
+459:                                              ; preds = %459, %tgq_dconly.exit.i.i
+  %indvars.iv.i46.i.i = phi i64 [ 0, %tgq_dconly.exit.i.i ], [ %indvars.iv.next.i47.i.i, %459 ]
+  %460 = mul nsw i64 %indvars.iv.i46.i.i, %429
+  %461 = getelementptr inbounds i8, ptr %450, i64 %460
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(8) %461, i8 %.0.i.i45.i.i, i64 8, i1 false)
+  %indvars.iv.next.i47.i.i = add nuw nsw i64 %indvars.iv.i46.i.i, 1
+  %exitcond.not.i48.i.i = icmp eq i64 %indvars.iv.next.i47.i.i, 8
+  br i1 %exitcond.not.i48.i.i, label %tgq_dconly.exit49.i.i, label %459, !llvm.loop !61
 
-tgq_dconly.exit50.i.i:                            ; preds = %457
-  %460 = shl nsw i64 %429, 3
-  %461 = getelementptr inbounds i8, ptr %434, i64 %460
-  %462 = load i8, ptr %97, align 1, !tbaa !37
-  %463 = sext i8 %462 to i32
+tgq_dconly.exit49.i.i:                            ; preds = %459
+  %462 = shl nsw i64 %429, 3
+  %463 = getelementptr inbounds i8, ptr %434, i64 %462
+  %464 = load i8, ptr %97, align 1, !tbaa !37
+  %465 = sext i8 %464 to i32
   %.val40.i.i = load i32, ptr %61, align 8, !tbaa !31
-  %464 = mul nsw i32 %.val40.i.i, %463
-  %465 = add nsw i32 %464, 2056
-  %466 = ashr i32 %465, 4
-  %.not.i.i51.i.i = icmp ult i32 %466, 256
-  %isnotneg.i.i52.i.i = icmp sgt i32 %466, -1
-  %467 = sext i1 %isnotneg.i.i52.i.i to i8
-  %468 = trunc nuw i32 %466 to i8
-  %.0.i.i53.i.i = select i1 %.not.i.i51.i.i, i8 %468, i8 %467
-  br label %469
+  %466 = mul nsw i32 %.val40.i.i, %465
+  %467 = add nsw i32 %466, 2056
+  %468 = ashr i32 %467, 4
+  %469 = icmp ugt i32 %468, 255
+  %isnotneg.i.i50.i.i = icmp sgt i32 %468, -1
+  %470 = sext i1 %isnotneg.i.i50.i.i to i8
+  %471 = trunc nuw i32 %468 to i8
+  %.0.i.i51.i.i = select i1 %469, i8 %470, i8 %471
+  br label %472
 
-469:                                              ; preds = %469, %tgq_dconly.exit50.i.i
-  %indvars.iv.i54.i.i = phi i64 [ 0, %tgq_dconly.exit50.i.i ], [ %indvars.iv.next.i55.i.i, %469 ]
-  %470 = mul nsw i64 %indvars.iv.i54.i.i, %429
-  %471 = getelementptr inbounds i8, ptr %461, i64 %470
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(8) %471, i8 %.0.i.i53.i.i, i64 8, i1 false)
-  %indvars.iv.next.i55.i.i = add nuw nsw i64 %indvars.iv.i54.i.i, 1
-  %exitcond.not.i56.i.i = icmp eq i64 %indvars.iv.next.i55.i.i, 8
-  br i1 %exitcond.not.i56.i.i, label %tgq_dconly.exit57.i.i, label %469, !llvm.loop !61
+472:                                              ; preds = %472, %tgq_dconly.exit49.i.i
+  %indvars.iv.i52.i.i = phi i64 [ 0, %tgq_dconly.exit49.i.i ], [ %indvars.iv.next.i53.i.i, %472 ]
+  %473 = mul nsw i64 %indvars.iv.i52.i.i, %429
+  %474 = getelementptr inbounds i8, ptr %463, i64 %473
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(8) %474, i8 %.0.i.i51.i.i, i64 8, i1 false)
+  %indvars.iv.next.i53.i.i = add nuw nsw i64 %indvars.iv.i52.i.i, 1
+  %exitcond.not.i54.i.i = icmp eq i64 %indvars.iv.next.i53.i.i, 8
+  br i1 %exitcond.not.i54.i.i, label %tgq_dconly.exit55.i.i, label %472, !llvm.loop !61
 
-tgq_dconly.exit57.i.i:                            ; preds = %469
-  %472 = getelementptr inbounds nuw i8, ptr %461, i64 8
-  %473 = load i8, ptr %98, align 1, !tbaa !37
-  %474 = sext i8 %473 to i32
+tgq_dconly.exit55.i.i:                            ; preds = %472
+  %475 = getelementptr inbounds nuw i8, ptr %463, i64 8
+  %476 = load i8, ptr %98, align 1, !tbaa !37
+  %477 = sext i8 %476 to i32
   %.val41.i.i = load i32, ptr %61, align 8, !tbaa !31
-  %475 = mul nsw i32 %.val41.i.i, %474
-  %476 = add nsw i32 %475, 2056
-  %477 = ashr i32 %476, 4
-  %.not.i.i58.i.i = icmp ult i32 %477, 256
-  %isnotneg.i.i59.i.i = icmp sgt i32 %477, -1
-  %478 = sext i1 %isnotneg.i.i59.i.i to i8
-  %479 = trunc nuw i32 %477 to i8
-  %.0.i.i60.i.i = select i1 %.not.i.i58.i.i, i8 %479, i8 %478
-  br label %480
+  %478 = mul nsw i32 %.val41.i.i, %477
+  %479 = add nsw i32 %478, 2056
+  %480 = ashr i32 %479, 4
+  %481 = icmp ugt i32 %480, 255
+  %isnotneg.i.i56.i.i = icmp sgt i32 %480, -1
+  %482 = sext i1 %isnotneg.i.i56.i.i to i8
+  %483 = trunc nuw i32 %480 to i8
+  %.0.i.i57.i.i = select i1 %481, i8 %482, i8 %483
+  br label %484
 
-480:                                              ; preds = %480, %tgq_dconly.exit57.i.i
-  %indvars.iv.i61.i.i = phi i64 [ 0, %tgq_dconly.exit57.i.i ], [ %indvars.iv.next.i62.i.i, %480 ]
-  %481 = mul nsw i64 %indvars.iv.i61.i.i, %429
-  %482 = getelementptr inbounds i8, ptr %472, i64 %481
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(8) %482, i8 %.0.i.i60.i.i, i64 8, i1 false)
-  %indvars.iv.next.i62.i.i = add nuw nsw i64 %indvars.iv.i61.i.i, 1
-  %exitcond.not.i63.i.i = icmp eq i64 %indvars.iv.next.i62.i.i, 8
-  br i1 %exitcond.not.i63.i.i, label %tgq_dconly.exit64.i.i, label %480, !llvm.loop !61
+484:                                              ; preds = %484, %tgq_dconly.exit55.i.i
+  %indvars.iv.i58.i.i = phi i64 [ 0, %tgq_dconly.exit55.i.i ], [ %indvars.iv.next.i59.i.i, %484 ]
+  %485 = mul nsw i64 %indvars.iv.i58.i.i, %429
+  %486 = getelementptr inbounds i8, ptr %475, i64 %485
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(8) %486, i8 %.0.i.i57.i.i, i64 8, i1 false)
+  %indvars.iv.next.i59.i.i = add nuw nsw i64 %indvars.iv.i58.i.i, 1
+  %exitcond.not.i60.i.i = icmp eq i64 %indvars.iv.next.i59.i.i, 8
+  br i1 %exitcond.not.i60.i.i, label %tgq_dconly.exit61.i.i, label %484, !llvm.loop !61
 
-tgq_dconly.exit64.i.i:                            ; preds = %480
-  %483 = load ptr, ptr %9, align 16, !tbaa !27
-  %484 = getelementptr inbounds nuw i8, ptr %483, i64 64
-  %485 = load i32, ptr %484, align 8, !tbaa !56
-  %486 = and i32 %485, 8192
-  %.not.i132.i = icmp eq i32 %486, 0
-  br i1 %.not.i132.i, label %487, label %tgq_idct_put_mb_dconly.exit.i
+tgq_dconly.exit61.i.i:                            ; preds = %484
+  %487 = load ptr, ptr %9, align 16, !tbaa !27
+  %488 = getelementptr inbounds nuw i8, ptr %487, i64 64
+  %489 = load i32, ptr %488, align 8, !tbaa !56
+  %490 = and i32 %489, 8192
+  %.not.i132.i = icmp eq i32 %490, 0
+  br i1 %.not.i132.i, label %491, label %tgq_idct_put_mb_dconly.exit.i
 
-487:                                              ; preds = %tgq_dconly.exit64.i.i
-  %488 = shl nsw i64 %indvars.iv, 3
-  %489 = sext i32 %436 to i64
-  %490 = mul nsw i64 %110, %489
-  %491 = getelementptr inbounds i8, ptr %435, i64 %490
-  %492 = getelementptr inbounds nuw i8, ptr %491, i64 %488
-  %493 = load i32, ptr %93, align 4, !tbaa !31
-  %494 = sext i32 %493 to i64
-  %495 = load i8, ptr %89, align 1, !tbaa !37
-  %496 = sext i8 %495 to i32
+491:                                              ; preds = %tgq_dconly.exit61.i.i
+  %492 = shl nsw i64 %indvars.iv, 3
+  %493 = sext i32 %436 to i64
+  %494 = mul nsw i64 %110, %493
+  %495 = getelementptr inbounds i8, ptr %435, i64 %494
+  %496 = getelementptr inbounds nuw i8, ptr %495, i64 %492
+  %497 = load i32, ptr %93, align 4, !tbaa !31
+  %498 = sext i32 %497 to i64
+  %499 = load i8, ptr %89, align 1, !tbaa !37
+  %500 = sext i8 %499 to i32
   %.val42.i.i = load i32, ptr %61, align 8, !tbaa !31
-  %497 = mul nsw i32 %.val42.i.i, %496
-  %498 = add nsw i32 %497, 2056
-  %499 = ashr i32 %498, 4
-  %.not.i.i65.i.i = icmp ult i32 %499, 256
-  %isnotneg.i.i66.i.i = icmp sgt i32 %499, -1
-  %500 = sext i1 %isnotneg.i.i66.i.i to i8
-  %501 = trunc nuw i32 %499 to i8
-  %.0.i.i67.i.i = select i1 %.not.i.i65.i.i, i8 %501, i8 %500
-  br label %502
+  %501 = mul nsw i32 %.val42.i.i, %500
+  %502 = add nsw i32 %501, 2056
+  %503 = ashr i32 %502, 4
+  %504 = icmp ugt i32 %503, 255
+  %isnotneg.i.i62.i.i = icmp sgt i32 %503, -1
+  %505 = sext i1 %isnotneg.i.i62.i.i to i8
+  %506 = trunc nuw i32 %503 to i8
+  %.0.i.i63.i.i = select i1 %504, i8 %505, i8 %506
+  br label %507
 
-502:                                              ; preds = %502, %487
-  %indvars.iv.i68.i.i = phi i64 [ 0, %487 ], [ %indvars.iv.next.i69.i.i, %502 ]
-  %503 = mul nsw i64 %indvars.iv.i68.i.i, %494
-  %504 = getelementptr inbounds i8, ptr %492, i64 %503
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(8) %504, i8 %.0.i.i67.i.i, i64 8, i1 false)
-  %indvars.iv.next.i69.i.i = add nuw nsw i64 %indvars.iv.i68.i.i, 1
-  %exitcond.not.i70.i.i = icmp eq i64 %indvars.iv.next.i69.i.i, 8
-  br i1 %exitcond.not.i70.i.i, label %tgq_dconly.exit71.i.i, label %502, !llvm.loop !61
+507:                                              ; preds = %507, %491
+  %indvars.iv.i64.i.i = phi i64 [ 0, %491 ], [ %indvars.iv.next.i65.i.i, %507 ]
+  %508 = mul nsw i64 %indvars.iv.i64.i.i, %498
+  %509 = getelementptr inbounds i8, ptr %496, i64 %508
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(8) %509, i8 %.0.i.i63.i.i, i64 8, i1 false)
+  %indvars.iv.next.i65.i.i = add nuw nsw i64 %indvars.iv.i64.i.i, 1
+  %exitcond.not.i66.i.i = icmp eq i64 %indvars.iv.next.i65.i.i, 8
+  br i1 %exitcond.not.i66.i.i, label %tgq_dconly.exit67.i.i, label %507, !llvm.loop !61
 
-tgq_dconly.exit71.i.i:                            ; preds = %502
-  %505 = sext i32 %438 to i64
-  %506 = mul nsw i64 %110, %505
-  %507 = getelementptr inbounds i8, ptr %437, i64 %506
-  %508 = getelementptr inbounds nuw i8, ptr %507, i64 %488
-  %509 = load i32, ptr %95, align 8, !tbaa !31
-  %510 = sext i32 %509 to i64
-  %511 = load i8, ptr %90, align 1, !tbaa !37
-  %512 = sext i8 %511 to i32
+tgq_dconly.exit67.i.i:                            ; preds = %507
+  %510 = sext i32 %438 to i64
+  %511 = mul nsw i64 %110, %510
+  %512 = getelementptr inbounds i8, ptr %437, i64 %511
+  %513 = getelementptr inbounds nuw i8, ptr %512, i64 %492
+  %514 = load i32, ptr %95, align 8, !tbaa !31
+  %515 = sext i32 %514 to i64
+  %516 = load i8, ptr %90, align 1, !tbaa !37
+  %517 = sext i8 %516 to i32
   %.val43.i.i = load i32, ptr %61, align 8, !tbaa !31
-  %513 = mul nsw i32 %.val43.i.i, %512
-  %514 = add nsw i32 %513, 2056
-  %515 = ashr i32 %514, 4
-  %.not.i.i72.i.i = icmp ult i32 %515, 256
-  %isnotneg.i.i73.i.i = icmp sgt i32 %515, -1
-  %516 = sext i1 %isnotneg.i.i73.i.i to i8
-  %517 = trunc nuw i32 %515 to i8
-  %.0.i.i74.i.i = select i1 %.not.i.i72.i.i, i8 %517, i8 %516
-  br label %518
+  %518 = mul nsw i32 %.val43.i.i, %517
+  %519 = add nsw i32 %518, 2056
+  %520 = ashr i32 %519, 4
+  %521 = icmp ugt i32 %520, 255
+  %isnotneg.i.i68.i.i = icmp sgt i32 %520, -1
+  %522 = sext i1 %isnotneg.i.i68.i.i to i8
+  %523 = trunc nuw i32 %520 to i8
+  %.0.i.i69.i.i = select i1 %521, i8 %522, i8 %523
+  br label %524
 
-518:                                              ; preds = %518, %tgq_dconly.exit71.i.i
-  %indvars.iv.i75.i.i = phi i64 [ 0, %tgq_dconly.exit71.i.i ], [ %indvars.iv.next.i76.i.i, %518 ]
-  %519 = mul nsw i64 %indvars.iv.i75.i.i, %510
-  %520 = getelementptr inbounds i8, ptr %508, i64 %519
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(8) %520, i8 %.0.i.i74.i.i, i64 8, i1 false)
-  %indvars.iv.next.i76.i.i = add nuw nsw i64 %indvars.iv.i75.i.i, 1
-  %exitcond.not.i77.i.i = icmp eq i64 %indvars.iv.next.i76.i.i, 8
-  br i1 %exitcond.not.i77.i.i, label %tgq_idct_put_mb_dconly.exit.i, label %518, !llvm.loop !61
+524:                                              ; preds = %524, %tgq_dconly.exit67.i.i
+  %indvars.iv.i70.i.i = phi i64 [ 0, %tgq_dconly.exit67.i.i ], [ %indvars.iv.next.i71.i.i, %524 ]
+  %525 = mul nsw i64 %indvars.iv.i70.i.i, %515
+  %526 = getelementptr inbounds i8, ptr %513, i64 %525
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(8) %526, i8 %.0.i.i69.i.i, i64 8, i1 false)
+  %indvars.iv.next.i71.i.i = add nuw nsw i64 %indvars.iv.i70.i.i, 1
+  %exitcond.not.i72.i.i = icmp eq i64 %indvars.iv.next.i71.i.i, 8
+  br i1 %exitcond.not.i72.i.i, label %tgq_idct_put_mb_dconly.exit.i, label %524, !llvm.loop !61
 
-tgq_idct_put_mb_dconly.exit.i:                    ; preds = %518, %tgq_dconly.exit64.i.i
+tgq_idct_put_mb_dconly.exit.i:                    ; preds = %524, %tgq_dconly.exit61.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %tgq_decode_mb.exit.thread65
 
@@ -930,51 +930,51 @@ tgq_decode_mb.exit.thread70:                      ; preds = %410, %315, %337, %.
   br label %tgq_decode_mb.exit.thread
 
 tgq_decode_mb.exit:                               ; preds = %copy_block8.exit.i
-  %521 = load i32, ptr %80, align 4, !tbaa !47
-  %522 = and i32 %521, -3
-  store i32 %522, ptr %80, align 4, !tbaa !47
+  %527 = load i32, ptr %80, align 4, !tbaa !47
+  %528 = and i32 %527, -3
+  store i32 %528, ptr %80, align 4, !tbaa !47
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %tgq_decode_mb.exit.thread65
 
 tgq_decode_mb.exit.thread65:                      ; preds = %301, %tgq_idct_put_mb_dconly.exit.i, %tgq_decode_mb.exit
   %.sroa.0.868 = phi ptr [ %.sroa.0.6, %tgq_decode_mb.exit ], [ %.sroa.0.3, %tgq_idct_put_mb_dconly.exit.i ], [ %303, %301 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %523 = load i32, ptr %87, align 8, !tbaa !40
-  %524 = add nsw i32 %523, 15
-  %525 = ashr i32 %524, 4
-  %526 = sext i32 %525 to i64
-  %527 = icmp slt i64 %indvars.iv.next, %526
-  br i1 %527, label %112, label %._crit_edge.loopexit, !llvm.loop !62
+  %529 = load i32, ptr %87, align 8, !tbaa !40
+  %530 = add nsw i32 %529, 15
+  %531 = ashr i32 %530, 4
+  %532 = sext i32 %531 to i64
+  %533 = icmp slt i64 %indvars.iv.next, %532
+  br i1 %533, label %112, label %._crit_edge.loopexit, !llvm.loop !62
 
 ._crit_edge.loopexit:                             ; preds = %tgq_decode_mb.exit.thread65
   %.pre108 = load i32, ptr %83, align 4, !tbaa !41
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
-  %528 = phi i32 [ %106, %.preheader ], [ %.pre108, %._crit_edge.loopexit ]
-  %529 = phi i32 [ %107, %.preheader ], [ %523, %._crit_edge.loopexit ]
+  %534 = phi i32 [ %106, %.preheader ], [ %.pre108, %._crit_edge.loopexit ]
+  %535 = phi i32 [ %107, %.preheader ], [ %529, %._crit_edge.loopexit ]
   %.sroa.0.2.lcssa = phi ptr [ %.sroa.0.192, %.preheader ], [ %.sroa.0.868, %._crit_edge.loopexit ]
   %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
-  %530 = add nsw i32 %528, 15
-  %531 = ashr i32 %530, 4
-  %532 = sext i32 %531 to i64
-  %533 = icmp slt i64 %indvars.iv.next106, %532
-  br i1 %533, label %.preheader, label %._crit_edge94, !llvm.loop !63
+  %536 = add nsw i32 %534, 15
+  %537 = ashr i32 %536, 4
+  %538 = sext i32 %537 to i64
+  %539 = icmp slt i64 %indvars.iv.next106, %538
+  br i1 %539, label %.preheader, label %._crit_edge94, !llvm.loop !63
 
 ._crit_edge94:                                    ; preds = %._crit_edge, %79
-  %534 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %535 = load ptr, ptr %534, align 8, !tbaa !33
-  %536 = tail call i32 @av_frame_replace(ptr noundef %535, ptr noundef %1) #7
-  %537 = icmp slt i32 %536, 0
-  br i1 %537, label %tgq_decode_mb.exit.thread, label %538
+  %540 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %541 = load ptr, ptr %540, align 8, !tbaa !33
+  %542 = tail call i32 @av_frame_replace(ptr noundef %541, ptr noundef %1) #7
+  %543 = icmp slt i32 %542, 0
+  br i1 %543, label %tgq_decode_mb.exit.thread, label %544
 
-538:                                              ; preds = %._crit_edge94
+544:                                              ; preds = %._crit_edge94
   store i32 1, ptr %2, align 4, !tbaa !31
-  %539 = load i32, ptr %6, align 8, !tbaa !34
+  %545 = load i32, ptr %6, align 8, !tbaa !34
   br label %tgq_decode_mb.exit.thread
 
-tgq_decode_mb.exit.thread:                        ; preds = %120, %170, %152, %tgq_decode_mb.exit.thread70, %._crit_edge94, %tgq_calculate_qtable.exit, %45, %538, %11
-  %.0 = phi i32 [ -1094995529, %11 ], [ %539, %538 ], [ %51, %45 ], [ %77, %tgq_calculate_qtable.exit ], [ %536, %._crit_edge94 ], [ -1094995529, %tgq_decode_mb.exit.thread70 ], [ -1094995529, %152 ], [ -1094995529, %170 ], [ -1094995529, %120 ]
+tgq_decode_mb.exit.thread:                        ; preds = %120, %170, %152, %tgq_decode_mb.exit.thread70, %._crit_edge94, %tgq_calculate_qtable.exit, %45, %544, %11
+  %.0 = phi i32 [ -1094995529, %11 ], [ %545, %544 ], [ %51, %45 ], [ %77, %tgq_calculate_qtable.exit ], [ %542, %._crit_edge94 ], [ -1094995529, %tgq_decode_mb.exit.thread70 ], [ -1094995529, %152 ], [ -1094995529, %170 ], [ -1094995529, %120 ]
   ret i32 %.0
 }
 

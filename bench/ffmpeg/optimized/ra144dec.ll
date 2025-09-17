@@ -66,7 +66,7 @@ define internal range(i32 -2147483648, 21) i32 @ra144_decode_frame(ptr noundef %
   store i32 160, ptr %17, align 8, !tbaa !43
   %18 = tail call i32 @ff_get_buffer(ptr noundef nonnull %0, ptr noundef %1, i32 noundef 0) #5
   %19 = icmp slt i32 %18, 0
-  br i1 %19, label %146, label %20
+  br i1 %19, label %147, label %20
 
 20:                                               ; preds = %16
   %21 = load ptr, ptr %1, align 8, !tbaa !48
@@ -151,10 +151,10 @@ define internal range(i32 -2147483648, 21) i32 @ra144_decode_frame(ptr noundef %
   call void @ff_int_to_int16(ptr noundef nonnull %82, ptr noundef %83) #5
   br label %84
 
-84:                                               ; preds = %45, %137
-  %indvars.iv77 = phi i64 [ 0, %45 ], [ %indvars.iv.next78, %137 ]
-  %.05469 = phi ptr [ %21, %45 ], [ %136, %137 ]
-  %.sroa.7.168 = phi i32 [ %59, %45 ], [ %139, %137 ]
+84:                                               ; preds = %45, %138
+  %indvars.iv77 = phi i64 [ 0, %45 ], [ %indvars.iv.next78, %138 ]
+  %.05469 = phi ptr [ %21, %45 ], [ %137, %138 ]
+  %.sroa.7.168 = phi i32 [ %59, %45 ], [ %140, %138 ]
   %85 = getelementptr inbounds nuw [10 x i16], ptr %6, i64 %indvars.iv77
   %86 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv77
   %87 = load i32, ptr %86, align 4, !tbaa !36
@@ -201,50 +201,50 @@ define internal range(i32 -2147483648, 21) i32 @ra144_decode_frame(ptr noundef %
 
 126:                                              ; preds = %84, %126
   %indvars.iv73 = phi i64 [ 0, %84 ], [ %indvars.iv.next74, %126 ]
-  %.15566 = phi ptr [ %.05469, %84 ], [ %136, %126 ]
+  %.15566 = phi ptr [ %.05469, %84 ], [ %137, %126 ]
   %127 = getelementptr inbounds nuw i16, ptr %13, i64 %indvars.iv73
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 38260
   %129 = load i16, ptr %128, align 2, !tbaa !50
   %130 = sext i16 %129 to i32
   %131 = shl nsw i32 %130, 2
-  %132 = add nsw i32 %131, 32768
-  %.not.i = icmp ult i32 %132, 65536
-  %133 = icmp sgt i16 %129, -1
-  %134 = select i1 %133, i16 32767, i16 -32768
-  %135 = trunc i32 %131 to i16
-  %.0.i = select i1 %.not.i, i16 %135, i16 %134
-  %136 = getelementptr inbounds nuw i8, ptr %.15566, i64 2
+  %132 = add nsw i32 %131, -32768
+  %133 = icmp ult i32 %132, -65536
+  %134 = icmp sgt i16 %129, -1
+  %135 = select i1 %134, i16 32767, i16 -32768
+  %136 = trunc i32 %131 to i16
+  %.0.i = select i1 %133, i16 %135, i16 %136
+  %137 = getelementptr inbounds nuw i8, ptr %.15566, i64 2
   store i16 %.0.i, ptr %.15566, align 2, !tbaa !50
   %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
   %exitcond76.not = icmp eq i64 %indvars.iv.next74, 40
-  br i1 %exitcond76.not, label %137, label %126, !llvm.loop !55
+  br i1 %exitcond76.not, label %138, label %126, !llvm.loop !55
 
-137:                                              ; preds = %126
-  %138 = call i32 @llvm.umin.i32(i32 %.sroa.7.168, i32 139)
-  %139 = add nuw nsw i32 %138, 29
+138:                                              ; preds = %126
+  %139 = call i32 @llvm.umin.i32(i32 %.sroa.7.168, i32 139)
+  %140 = add nuw nsw i32 %139, 29
   %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
   %exitcond80.not = icmp eq i64 %indvars.iv.next78, 4
-  br i1 %exitcond80.not, label %140, label %84, !llvm.loop !56
+  br i1 %exitcond80.not, label %141, label %84, !llvm.loop !56
 
-140:                                              ; preds = %137
+141:                                              ; preds = %138
   store i32 %63, ptr %64, align 4, !tbaa !54
-  %141 = load i32, ptr %49, align 8, !tbaa !36
-  %142 = getelementptr inbounds nuw i8, ptr %13, i64 37916
-  store i32 %141, ptr %142, align 4, !tbaa !36
-  %143 = getelementptr inbounds nuw i8, ptr %13, i64 37904
-  %144 = load ptr, ptr %143, align 8, !tbaa !35
-  %145 = load ptr, ptr %46, align 8, !tbaa !35
-  store ptr %145, ptr %143, align 8, !tbaa !35
-  store ptr %144, ptr %46, align 8, !tbaa !35
+  %142 = load i32, ptr %49, align 8, !tbaa !36
+  %143 = getelementptr inbounds nuw i8, ptr %13, i64 37916
+  store i32 %142, ptr %143, align 4, !tbaa !36
+  %144 = getelementptr inbounds nuw i8, ptr %13, i64 37904
+  %145 = load ptr, ptr %144, align 8, !tbaa !35
+  %146 = load ptr, ptr %46, align 8, !tbaa !35
+  store ptr %146, ptr %144, align 8, !tbaa !35
+  store ptr %145, ptr %46, align 8, !tbaa !35
   br label %.sink.split
 
-.sink.split:                                      ; preds = %15, %140
-  %.sink = phi i32 [ 1, %140 ], [ 0, %15 ]
-  %.0.ph = phi i32 [ 20, %140 ], [ -1094995529, %15 ]
+.sink.split:                                      ; preds = %15, %141
+  %.sink = phi i32 [ 1, %141 ], [ 0, %15 ]
+  %.0.ph = phi i32 [ 20, %141 ], [ -1094995529, %15 ]
   store i32 %.sink, ptr %2, align 4, !tbaa !36
-  br label %146
+  br label %147
 
-146:                                              ; preds = %.sink.split, %16
+147:                                              ; preds = %.sink.split, %16
   %.0 = phi i32 [ %18, %16 ], [ %.0.ph, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

@@ -39139,9 +39139,8 @@ nbap_parse_ib_sg_data_var1.exit:                  ; preds = %68, %78
   br i1 %108, label %nbap_parse_ib_sg_data_var1.exit.thread, label %109
 
 109:                                              ; preds = %107
-  %110 = add i32 %47, -3
-  %or.cond3 = icmp ult i32 %110, 2
-  br i1 %or.cond3, label %111, label %.thread223
+  %110 = icmp ult i32 %47, 5
+  br i1 %110, label %111, label %.thread223
 
 111:                                              ; preds = %109
   %112 = call i32 @wmem_list_count(ptr noundef nonnull %101)

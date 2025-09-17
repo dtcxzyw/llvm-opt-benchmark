@@ -275,7 +275,7 @@ define noundef zeroext i1 @"_ZN64_$LT$softposit..quire16..Q16E1$u20$as$u20$core.
   %12 = shl i16 %spec.select.i, 2
   %13 = and i16 %spec.select.i, 16384
   %14 = icmp eq i16 %13, 0
-  %15 = icmp sgt i16 %12, -1
+  %15 = icmp sgt i16 %12, -2
   br i1 %14, label %.preheader.i.i, label %.preheader12.i.i
 
 .preheader12.i.i:                                 ; preds = %8
@@ -288,8 +288,8 @@ define noundef zeroext i1 @"_ZN64_$LT$softposit..quire16..Q16E1$u20$as$u20$core.
   %.017.i.i = phi i16 [ %17, %.lr.ph18.i.i ], [ %12, %.preheader.i.i ]
   %.0916.i.i = phi i8 [ %16, %.lr.ph18.i.i ], [ -1, %.preheader.i.i ]
   %16 = add i8 %.0916.i.i, -1
-  %17 = shl nuw i16 %.017.i.i, 1
-  %18 = icmp sgt i16 %17, -1
+  %17 = shl i16 %.017.i.i, 1
+  %18 = icmp sgt i16 %17, -2
   br i1 %18, label %.lr.ph18.i.i, label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph18.i.i, %.preheader.i.i
@@ -303,7 +303,7 @@ define noundef zeroext i1 @"_ZN64_$LT$softposit..quire16..Q16E1$u20$as$u20$core.
   %.11013.i.i = phi i8 [ %20, %.lr.ph.i.i ], [ 0, %.preheader12.i.i ]
   %20 = add nuw nsw i8 %.11013.i.i, 1
   %21 = shl i16 %.114.i.i, 1
-  %22 = icmp sgt i16 %21, -1
+  %22 = icmp sgt i16 %21, -2
   br i1 %22, label %_ZN9softposit5p16e15P16E117separate_bits_tmp17hb53692effe90da8fE.exit.i, label %.lr.ph.i.i
 
 _ZN9softposit5p16e15P16E117separate_bits_tmp17hb53692effe90da8fE.exit.i: ; preds = %.lr.ph.i.i, %._crit_edge.i.i, %.preheader12.i.i

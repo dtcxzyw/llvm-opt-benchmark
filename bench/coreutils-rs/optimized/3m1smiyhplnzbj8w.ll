@@ -133,9 +133,9 @@ define hidden void @"_ZN104_$LT$core..iter..sources..from_fn..FromFn$LT$F$GT$$u2
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !74
   %6 = load i64, ptr %1, align 8, !range !76, !alias.scope !71, !noalias !77, !noundef !18
   %7 = icmp eq i64 %6, -9223372036854775808
-  br i1 %7, label %.thread14.i, label %8
+  br i1 %7, label %.thread12.i, label %8
 
-.thread14.i:                                      ; preds = %2
+.thread12.i:                                      ; preds = %2
   store i64 -9223372036854775805, ptr %5, align 8, !noalias !74
   br label %"_ZN4core3ptr264drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$std..io..Split$LT$std..io..buffered..bufreader..BufReader$LT$std..io..stdio..StdinLock$GT$$GT$$C$uu_wc..files0_iter$LT$std..io..stdio..StdinLock$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h7d75823d991ea4baE.exit.i"
 
@@ -147,9 +147,9 @@ define hidden void @"_ZN104_$LT$core..iter..sources..from_fn..FromFn$LT$F$GT$$u2
   call void @"_ZN82_$LT$std..io..Split$LT$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he5cd509d4c66e0f1E"(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull align 8 dereferenceable(64) %9), !noalias !87
   %10 = load i64, ptr %4, align 8, !range !88, !noalias !84, !noundef !18
   %11 = icmp eq i64 %10, -9223372036854775807
-  br i1 %11, label %.thread11.i, label %12
+  br i1 %11, label %.thread10.i, label %12
 
-.thread11.i:                                      ; preds = %8
+.thread10.i:                                      ; preds = %8
   store i64 -9223372036854775805, ptr %5, align 8, !alias.scope !89, !noalias !90
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !84
   br label %14
@@ -161,12 +161,11 @@ define hidden void @"_ZN104_$LT$core..iter..sources..from_fn..FromFn$LT$F$GT$$u2
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !84
   %.pre.pre.i = load i64, ptr %5, align 8, !range !91, !noalias !74
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !84
-  %13 = and i64 %.pre.pre.i, -2
-  %switch.i = icmp eq i64 %13, -9223372036854775806
-  br i1 %switch.i, label %14, label %"_ZN5uu_wc11files0_iter28_$u7b$$u7b$closure$u7d$$u7d$17hddf077a201170453E.llvm.7264280784327375805.exit"
+  %13 = icmp ugt i64 %.pre.pre.i, -9223372036854775807
+  br i1 %13, label %14, label %"_ZN5uu_wc11files0_iter28_$u7b$$u7b$closure$u7d$$u7d$17hddf077a201170453E.llvm.7264280784327375805.exit"
 
-14:                                               ; preds = %12, %.thread11.i
-  %.ph.i = phi i64 [ -9223372036854775805, %.thread11.i ], [ %.pre.pre.i, %12 ]
+14:                                               ; preds = %12, %.thread10.i
+  %.ph.i = phi i64 [ -9223372036854775805, %.thread10.i ], [ %.pre.pre.i, %12 ]
   %.pr.i = load i64, ptr %1, align 8, !alias.scope !92, !noalias !77
   %15 = icmp eq i64 %.pr.i, -9223372036854775808
   br i1 %15, label %"_ZN4core3ptr264drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$std..io..Split$LT$std..io..buffered..bufreader..BufReader$LT$std..io..stdio..StdinLock$GT$$GT$$C$uu_wc..files0_iter$LT$std..io..stdio..StdinLock$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h7d75823d991ea4baE.exit.i", label %16
@@ -186,7 +185,7 @@ define hidden void @"_ZN104_$LT$core..iter..sources..from_fn..FromFn$LT$F$GT$$u2
   invoke void @"_ZN4core3ptr124drop_in_place$LT$core..result..Result$LT$uu_wc..Input$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$17h9949795d1e84e21dE.llvm.7264280784327375805"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5)
           to label %"_ZN4core3ptr152drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$uu_wc..Input$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$17hd6e81cf99e636b07E.llvm.7264280784327375805.exit.i" unwind label %21, !noalias !77
 
-"_ZN4core3ptr264drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$std..io..Split$LT$std..io..buffered..bufreader..BufReader$LT$std..io..stdio..StdinLock$GT$$GT$$C$uu_wc..files0_iter$LT$std..io..stdio..StdinLock$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h7d75823d991ea4baE.exit.i": ; preds = %16, %14, %.thread14.i
+"_ZN4core3ptr264drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$std..io..Split$LT$std..io..buffered..bufreader..BufReader$LT$std..io..stdio..StdinLock$GT$$GT$$C$uu_wc..files0_iter$LT$std..io..stdio..StdinLock$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h7d75823d991ea4baE.exit.i": ; preds = %16, %14, %.thread12.i
   store i64 -9223372036854775808, ptr %1, align 8, !alias.scope !71, !noalias !77
   br label %"_ZN5uu_wc11files0_iter28_$u7b$$u7b$closure$u7d$$u7d$17hddf077a201170453E.llvm.7264280784327375805.exit"
 
@@ -775,9 +774,9 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h76451d0a81
   call void @"_ZN82_$LT$std..io..Split$LT$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he5cd509d4c66e0f1E"(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull align 8 dereferenceable(64) %9), !noalias !294
   %12 = load i64, ptr %5, align 8, !range !88, !noalias !291, !noundef !18
   %13 = icmp eq i64 %12, -9223372036854775807
-  br i1 %13, label %.thread11.i.i, label %14
+  br i1 %13, label %.thread10.i.i, label %14
 
-.thread11.i.i:                                    ; preds = %.lr.ph
+.thread10.i.i:                                    ; preds = %.lr.ph
   store i64 -9223372036854775805, ptr %6, align 8, !alias.scope !295, !noalias !296
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !291
   br label %16
@@ -789,17 +788,16 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h76451d0a81
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !291
   %.pre.pre.i.i = load i64, ptr %6, align 8, !noalias !280
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !291
-  %15 = and i64 %.pre.pre.i.i, -2
-  %switch.i.i = icmp eq i64 %15, -9223372036854775806
-  br i1 %switch.i.i, label %16, label %"_ZN104_$LT$core..iter..sources..from_fn..FromFn$LT$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hab62500a2e72b4ffE.llvm.7264280784327375805.exit.thread"
+  %15 = icmp ugt i64 %.pre.pre.i.i, -9223372036854775807
+  br i1 %15, label %16, label %"_ZN104_$LT$core..iter..sources..from_fn..FromFn$LT$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hab62500a2e72b4ffE.llvm.7264280784327375805.exit.thread"
 
 "_ZN104_$LT$core..iter..sources..from_fn..FromFn$LT$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hab62500a2e72b4ffE.llvm.7264280784327375805.exit.thread": ; preds = %14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.76, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.76.0..sroa_idx713, i64 16, i1 false), !noalias !297
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !280
   br label %25
 
-16:                                               ; preds = %14, %.thread11.i.i
-  %.ph.i.i = phi i64 [ -9223372036854775805, %.thread11.i.i ], [ %.pre.pre.i.i, %14 ]
+16:                                               ; preds = %14, %.thread10.i.i
+  %.ph.i.i = phi i64 [ -9223372036854775805, %.thread10.i.i ], [ %.pre.pre.i.i, %14 ]
   %.pr.i.i = load i64, ptr %1, align 8, !alias.scope !298, !noalias !279
   %17 = icmp eq i64 %.pr.i.i, -9223372036854775808
   br i1 %17, label %"_ZN104_$LT$core..iter..sources..from_fn..FromFn$LT$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hab62500a2e72b4ffE.llvm.7264280784327375805.exit", label %18
@@ -836,7 +834,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h76451d0a81
   br i1 %.not, label %"_ZN4core3ptr152drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$uu_wc..Input$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$17hd6e81cf99e636b07E.llvm.7264280784327375805.exit", label %25
 
 25:                                               ; preds = %"_ZN104_$LT$core..iter..sources..from_fn..FromFn$LT$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hab62500a2e72b4ffE.llvm.7264280784327375805.exit.thread", %"_ZN104_$LT$core..iter..sources..from_fn..FromFn$LT$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hab62500a2e72b4ffE.llvm.7264280784327375805.exit"
-  %.sroa.0.0.copyload515 = phi i64 [ %.pre.pre.i.i, %"_ZN104_$LT$core..iter..sources..from_fn..FromFn$LT$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hab62500a2e72b4ffE.llvm.7264280784327375805.exit.thread" ], [ -9223372036854775806, %"_ZN104_$LT$core..iter..sources..from_fn..FromFn$LT$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hab62500a2e72b4ffE.llvm.7264280784327375805.exit" ]
+  %.sroa.0.0.copyload515 = phi i64 [ %.pre.pre.i.i, %"_ZN104_$LT$core..iter..sources..from_fn..FromFn$LT$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hab62500a2e72b4ffE.llvm.7264280784327375805.exit.thread" ], [ %.ph.i.i, %"_ZN104_$LT$core..iter..sources..from_fn..FromFn$LT$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hab62500a2e72b4ffE.llvm.7264280784327375805.exit" ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.29.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.76, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -1302,9 +1300,9 @@ define hidden void @"_ZN5uu_wc11files0_iter28_$u7b$$u7b$closure$u7d$$u7d$17hddf0
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = load i64, ptr %1, align 8, !range !76, !noundef !18
   %7 = icmp eq i64 %6, -9223372036854775808
-  br i1 %7, label %.thread14, label %8
+  br i1 %7, label %.thread12, label %8
 
-.thread14:                                        ; preds = %2
+.thread12:                                        ; preds = %2
   store i64 -9223372036854775805, ptr %5, align 8
   br label %"_ZN4core3ptr264drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$std..io..Split$LT$std..io..buffered..bufreader..BufReader$LT$std..io..stdio..StdinLock$GT$$GT$$C$uu_wc..files0_iter$LT$std..io..stdio..StdinLock$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h7d75823d991ea4baE.exit"
 
@@ -1316,9 +1314,9 @@ define hidden void @"_ZN5uu_wc11files0_iter28_$u7b$$u7b$closure$u7d$$u7d$17hddf0
   call void @"_ZN82_$LT$std..io..Split$LT$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he5cd509d4c66e0f1E"(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull align 8 dereferenceable(64) %9), !noalias !458
   %10 = load i64, ptr %4, align 8, !range !88, !noalias !455, !noundef !18
   %11 = icmp eq i64 %10, -9223372036854775807
-  br i1 %11, label %.thread11, label %12
+  br i1 %11, label %.thread10, label %12
 
-.thread11:                                        ; preds = %8
+.thread10:                                        ; preds = %8
   store i64 -9223372036854775805, ptr %5, align 8, !alias.scope !458, !noalias !459
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !455
   br label %15
@@ -1330,17 +1328,16 @@ define hidden void @"_ZN5uu_wc11files0_iter28_$u7b$$u7b$closure$u7d$$u7d$17hddf0
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !455
   %.pre.pre = load i64, ptr %5, align 8, !range !91
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !455
-  %13 = and i64 %.pre.pre, -2
-  %switch = icmp eq i64 %13, -9223372036854775806
-  br i1 %switch, label %15, label %14
+  %13 = icmp ugt i64 %.pre.pre, -9223372036854775807
+  br i1 %13, label %15, label %14
 
 14:                                               ; preds = %12, %"_ZN4core3ptr264drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$std..io..Split$LT$std..io..buffered..bufreader..BufReader$LT$std..io..stdio..StdinLock$GT$$GT$$C$uu_wc..files0_iter$LT$std..io..stdio..StdinLock$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h7d75823d991ea4baE.exit"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
-15:                                               ; preds = %.thread11, %12
-  %.ph = phi i64 [ -9223372036854775805, %.thread11 ], [ %.pre.pre, %12 ]
+15:                                               ; preds = %.thread10, %12
+  %.ph = phi i64 [ -9223372036854775805, %.thread10 ], [ %.pre.pre, %12 ]
   %.pr = load i64, ptr %1, align 8, !alias.scope !460
   %16 = icmp eq i64 %.pr, -9223372036854775808
   br i1 %16, label %"_ZN4core3ptr264drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$std..io..Split$LT$std..io..buffered..bufreader..BufReader$LT$std..io..stdio..StdinLock$GT$$GT$$C$uu_wc..files0_iter$LT$std..io..stdio..StdinLock$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h7d75823d991ea4baE.exit", label %17
@@ -1360,7 +1357,7 @@ define hidden void @"_ZN5uu_wc11files0_iter28_$u7b$$u7b$closure$u7d$$u7d$17hddf0
   invoke void @"_ZN4core3ptr124drop_in_place$LT$core..result..Result$LT$uu_wc..Input$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$17h9949795d1e84e21dE.llvm.7264280784327375805"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5)
           to label %"_ZN4core3ptr152drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$uu_wc..Input$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$17hd6e81cf99e636b07E.llvm.7264280784327375805.exit" unwind label %22
 
-"_ZN4core3ptr264drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$std..io..Split$LT$std..io..buffered..bufreader..BufReader$LT$std..io..stdio..StdinLock$GT$$GT$$C$uu_wc..files0_iter$LT$std..io..stdio..StdinLock$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h7d75823d991ea4baE.exit": ; preds = %.thread14, %15, %17
+"_ZN4core3ptr264drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$std..io..Split$LT$std..io..buffered..bufreader..BufReader$LT$std..io..stdio..StdinLock$GT$$GT$$C$uu_wc..files0_iter$LT$std..io..stdio..StdinLock$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h7d75823d991ea4baE.exit": ; preds = %.thread12, %15, %17
   store i64 -9223372036854775808, ptr %1, align 8
   br label %14
 

@@ -7936,55 +7936,53 @@ define hidden void @"_ZN4core3ptr143drop_in_place$LT$tokio..sync..mpsc..chan..Ch
 
 .noexc:                                           ; preds = %1
   %4 = load i32, ptr %2, align 8, !range !2473, !noalias !2936, !noundef !4
-  %.off4.i.i = add nsw i32 %4, -3
-  %switch5.i.i = icmp ult i32 %.off4.i.i, 2
-  br i1 %switch5.i.i, label %"_ZN4core3ptr132drop_in_place$LT$core..option..Option$LT$tokio..sync..mpsc..block..Read$LT$core..option..Option$LT$trace..span..Span$GT$$GT$$GT$$GT$17h03c7fe07447d9f86E.llvm.9135219245553044050.exit.i.i", label %.lr.ph.i.i
+  %5 = icmp samesign ugt i32 %4, 2
+  br i1 %5, label %"_ZN4core3ptr132drop_in_place$LT$core..option..Option$LT$tokio..sync..mpsc..block..Read$LT$core..option..Option$LT$trace..span..Span$GT$$GT$$GT$$GT$17h03c7fe07447d9f86E.llvm.9135219245553044050.exit.i.i", label %.lr.ph.i.i
 
 "_ZN4core3ptr132drop_in_place$LT$core..option..Option$LT$tokio..sync..mpsc..block..Read$LT$core..option..Option$LT$trace..span..Span$GT$$GT$$GT$$GT$17h03c7fe07447d9f86E.llvm.9135219245553044050.exit.i.i": ; preds = %.noexc4, %.noexc
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !2936
   call void @llvm.experimental.noalias.scope.decl(metadata !2939)
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %6 = load ptr, ptr %5, align 8, !alias.scope !2942, !nonnull !4, !noundef !4
-  br label %7
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  %7 = load ptr, ptr %6, align 8, !alias.scope !2942, !nonnull !4, !noundef !4
+  br label %8
 
-7:                                                ; preds = %.noexc2, %"_ZN4core3ptr132drop_in_place$LT$core..option..Option$LT$tokio..sync..mpsc..block..Read$LT$core..option..Option$LT$trace..span..Span$GT$$GT$$GT$$GT$17h03c7fe07447d9f86E.llvm.9135219245553044050.exit.i.i"
-  %.06.i.i.i = phi ptr [ %6, %"_ZN4core3ptr132drop_in_place$LT$core..option..Option$LT$tokio..sync..mpsc..block..Read$LT$core..option..Option$LT$trace..span..Span$GT$$GT$$GT$$GT$17h03c7fe07447d9f86E.llvm.9135219245553044050.exit.i.i" ], [ %9, %.noexc2 ]
-  %8 = getelementptr inbounds nuw i8, ptr %.06.i.i.i, i64 6920
-  %9 = invoke noundef ptr @_ZN4core4sync6atomic11atomic_load17h02fdef863af6ada3E.llvm.5441949568091396765(ptr noundef nonnull %8, i8 noundef 0)
+8:                                                ; preds = %.noexc2, %"_ZN4core3ptr132drop_in_place$LT$core..option..Option$LT$tokio..sync..mpsc..block..Read$LT$core..option..Option$LT$trace..span..Span$GT$$GT$$GT$$GT$17h03c7fe07447d9f86E.llvm.9135219245553044050.exit.i.i"
+  %.06.i.i.i = phi ptr [ %7, %"_ZN4core3ptr132drop_in_place$LT$core..option..Option$LT$tokio..sync..mpsc..block..Read$LT$core..option..Option$LT$trace..span..Span$GT$$GT$$GT$$GT$17h03c7fe07447d9f86E.llvm.9135219245553044050.exit.i.i" ], [ %10, %.noexc2 ]
+  %9 = getelementptr inbounds nuw i8, ptr %.06.i.i.i, i64 6920
+  %10 = invoke noundef ptr @_ZN4core4sync6atomic11atomic_load17h02fdef863af6ada3E.llvm.5441949568091396765(ptr noundef nonnull %9, i8 noundef 0)
           to label %.noexc2 unwind label %.loopexit
 
-.noexc2:                                          ; preds = %7
+.noexc2:                                          ; preds = %8
   call void @__rust_dealloc(ptr noundef nonnull %.06.i.i.i, i64 noundef 6944, i64 noundef 8) #21, !noalias !2943
-  %.not.i.i.i = icmp eq ptr %9, null
-  br i1 %.not.i.i.i, label %"_ZN84_$LT$tokio..sync..mpsc..chan..Chan$LT$T$C$S$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17haca400dc5ae2dc4cE.llvm.9135219245553044050.exit", label %7
+  %.not.i.i.i = icmp eq ptr %10, null
+  br i1 %.not.i.i.i, label %"_ZN84_$LT$tokio..sync..mpsc..chan..Chan$LT$T$C$S$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17haca400dc5ae2dc4cE.llvm.9135219245553044050.exit", label %8
 
 .lr.ph.i.i:                                       ; preds = %.noexc, %.noexc4
-  %10 = phi i32 [ %12, %.noexc4 ], [ %4, %.noexc ]
-  %switch.not.i.i2.i.i = icmp samesign ult i32 %10, 2
-  br i1 %switch.not.i.i2.i.i, label %11, label %"_ZN4core3ptr132drop_in_place$LT$core..option..Option$LT$tokio..sync..mpsc..block..Read$LT$core..option..Option$LT$trace..span..Span$GT$$GT$$GT$$GT$17h03c7fe07447d9f86E.llvm.9135219245553044050.exit3.i.i"
+  %11 = phi i32 [ %13, %.noexc4 ], [ %4, %.noexc ]
+  %switch.not.i.i2.i.i = icmp samesign ult i32 %11, 2
+  br i1 %switch.not.i.i2.i.i, label %12, label %"_ZN4core3ptr132drop_in_place$LT$core..option..Option$LT$tokio..sync..mpsc..block..Read$LT$core..option..Option$LT$trace..span..Span$GT$$GT$$GT$$GT$17h03c7fe07447d9f86E.llvm.9135219245553044050.exit3.i.i"
 
-11:                                               ; preds = %.lr.ph.i.i
+12:                                               ; preds = %.lr.ph.i.i
   invoke void @"_ZN4core3ptr38drop_in_place$LT$trace..span..Span$GT$17h7b925e83e58928d3E.llvm.9135219245553044050"(ptr noalias noundef nonnull align 8 dereferenceable(216) %2)
           to label %"_ZN4core3ptr132drop_in_place$LT$core..option..Option$LT$tokio..sync..mpsc..block..Read$LT$core..option..Option$LT$trace..span..Span$GT$$GT$$GT$$GT$17h03c7fe07447d9f86E.llvm.9135219245553044050.exit3.i.i" unwind label %.loopexit.split-lp.loopexit
 
-"_ZN4core3ptr132drop_in_place$LT$core..option..Option$LT$tokio..sync..mpsc..block..Read$LT$core..option..Option$LT$trace..span..Span$GT$$GT$$GT$$GT$17h03c7fe07447d9f86E.llvm.9135219245553044050.exit3.i.i": ; preds = %11, %.lr.ph.i.i
+"_ZN4core3ptr132drop_in_place$LT$core..option..Option$LT$tokio..sync..mpsc..block..Read$LT$core..option..Option$LT$trace..span..Span$GT$$GT$$GT$$GT$17h03c7fe07447d9f86E.llvm.9135219245553044050.exit3.i.i": ; preds = %12, %.lr.ph.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !2936
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !2936
   invoke void @"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$3pop17h60d9e449074df86eE"(ptr noalias noundef nonnull sret({ i32, [53 x i32] }) align 8 captures(none) dereferenceable(216) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 128 dereferenceable(512) %0)
           to label %.noexc4 unwind label %.loopexit.split-lp.loopexit
 
 .noexc4:                                          ; preds = %"_ZN4core3ptr132drop_in_place$LT$core..option..Option$LT$tokio..sync..mpsc..block..Read$LT$core..option..Option$LT$trace..span..Span$GT$$GT$$GT$$GT$17h03c7fe07447d9f86E.llvm.9135219245553044050.exit3.i.i"
-  %12 = load i32, ptr %2, align 8, !range !2473, !noalias !2936, !noundef !4
-  %.off.i.i = add nsw i32 %12, -3
-  %switch.i.i = icmp ult i32 %.off.i.i, 2
-  br i1 %switch.i.i, label %"_ZN4core3ptr132drop_in_place$LT$core..option..Option$LT$tokio..sync..mpsc..block..Read$LT$core..option..Option$LT$trace..span..Span$GT$$GT$$GT$$GT$17h03c7fe07447d9f86E.llvm.9135219245553044050.exit.i.i", label %.lr.ph.i.i
+  %13 = load i32, ptr %2, align 8, !range !2473, !noalias !2936, !noundef !4
+  %14 = icmp samesign ugt i32 %13, 2
+  br i1 %14, label %"_ZN4core3ptr132drop_in_place$LT$core..option..Option$LT$tokio..sync..mpsc..block..Read$LT$core..option..Option$LT$trace..span..Span$GT$$GT$$GT$$GT$17h03c7fe07447d9f86E.llvm.9135219245553044050.exit.i.i", label %.lr.ph.i.i
 
-.loopexit:                                        ; preds = %7
+.loopexit:                                        ; preds = %8
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit:                      ; preds = %"_ZN4core3ptr132drop_in_place$LT$core..option..Option$LT$tokio..sync..mpsc..block..Read$LT$core..option..Option$LT$trace..span..Span$GT$$GT$$GT$$GT$17h03c7fe07447d9f86E.llvm.9135219245553044050.exit3.i.i", %11
+.loopexit.split-lp.loopexit:                      ; preds = %"_ZN4core3ptr132drop_in_place$LT$core..option..Option$LT$tokio..sync..mpsc..block..Read$LT$core..option..Option$LT$trace..span..Span$GT$$GT$$GT$$GT$17h03c7fe07447d9f86E.llvm.9135219245553044050.exit3.i.i", %12
   %lpad.loopexit9 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -7996,65 +7994,65 @@ define hidden void @"_ZN4core3ptr143drop_in_place$LT$tokio..sync..mpsc..chan..Ch
 
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit9, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp10, %.loopexit.split-lp.loopexit.split-lp ]
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 128
   call void @llvm.experimental.noalias.scope.decl(metadata !2948)
   call void @llvm.experimental.noalias.scope.decl(metadata !2951)
   call void @llvm.experimental.noalias.scope.decl(metadata !2954)
   call void @llvm.experimental.noalias.scope.decl(metadata !2957)
   call void @llvm.experimental.noalias.scope.decl(metadata !2960)
-  %14 = load ptr, ptr %13, align 128, !alias.scope !2963, !noundef !4
-  %15 = icmp eq ptr %14, null
-  br i1 %15, label %"_ZN4core3ptr108drop_in_place$LT$tokio..util..cacheline..CachePadded$LT$tokio..sync..task..atomic_waker..AtomicWaker$GT$$GT$17hb38d20bb85d3efd4E.llvm.9135219245553044050.exit", label %16
+  %16 = load ptr, ptr %15, align 128, !alias.scope !2963, !noundef !4
+  %17 = icmp eq ptr %16, null
+  br i1 %17, label %"_ZN4core3ptr108drop_in_place$LT$tokio..util..cacheline..CachePadded$LT$tokio..sync..task..atomic_waker..AtomicWaker$GT$$GT$17hb38d20bb85d3efd4E.llvm.9135219245553044050.exit", label %18
 
-16:                                               ; preds = %.loopexit.split-lp
+18:                                               ; preds = %.loopexit.split-lp
   call void @llvm.experimental.noalias.scope.decl(metadata !2964)
   call void @llvm.experimental.noalias.scope.decl(metadata !2967)
-  %17 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  %18 = load ptr, ptr %17, align 8, !noalias !2970, !nonnull !4, !noundef !4
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %20 = load ptr, ptr %19, align 8, !alias.scope !2970, !noundef !4
-  invoke void %18(ptr noundef %20)
-          to label %"_ZN4core3ptr108drop_in_place$LT$tokio..util..cacheline..CachePadded$LT$tokio..sync..task..atomic_waker..AtomicWaker$GT$$GT$17hb38d20bb85d3efd4E.llvm.9135219245553044050.exit" unwind label %33
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 24
+  %20 = load ptr, ptr %19, align 8, !noalias !2970, !nonnull !4, !noundef !4
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %22 = load ptr, ptr %21, align 8, !alias.scope !2970, !noundef !4
+  invoke void %20(ptr noundef %22)
+          to label %"_ZN4core3ptr108drop_in_place$LT$tokio..util..cacheline..CachePadded$LT$tokio..sync..task..atomic_waker..AtomicWaker$GT$$GT$17hb38d20bb85d3efd4E.llvm.9135219245553044050.exit" unwind label %35
 
 "_ZN84_$LT$tokio..sync..mpsc..chan..Chan$LT$T$C$S$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17haca400dc5ae2dc4cE.llvm.9135219245553044050.exit": ; preds = %.noexc2
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 128
   call void @llvm.experimental.noalias.scope.decl(metadata !2971)
   call void @llvm.experimental.noalias.scope.decl(metadata !2974)
   call void @llvm.experimental.noalias.scope.decl(metadata !2977)
   call void @llvm.experimental.noalias.scope.decl(metadata !2980)
   call void @llvm.experimental.noalias.scope.decl(metadata !2983)
-  %22 = load ptr, ptr %21, align 128, !alias.scope !2986, !noundef !4
-  %23 = icmp eq ptr %22, null
-  br i1 %23, label %"_ZN4core3ptr108drop_in_place$LT$tokio..util..cacheline..CachePadded$LT$tokio..sync..task..atomic_waker..AtomicWaker$GT$$GT$17hb38d20bb85d3efd4E.llvm.9135219245553044050.exit7", label %24
+  %24 = load ptr, ptr %23, align 128, !alias.scope !2986, !noundef !4
+  %25 = icmp eq ptr %24, null
+  br i1 %25, label %"_ZN4core3ptr108drop_in_place$LT$tokio..util..cacheline..CachePadded$LT$tokio..sync..task..atomic_waker..AtomicWaker$GT$$GT$17hb38d20bb85d3efd4E.llvm.9135219245553044050.exit7", label %26
 
-24:                                               ; preds = %"_ZN84_$LT$tokio..sync..mpsc..chan..Chan$LT$T$C$S$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17haca400dc5ae2dc4cE.llvm.9135219245553044050.exit"
+26:                                               ; preds = %"_ZN84_$LT$tokio..sync..mpsc..chan..Chan$LT$T$C$S$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17haca400dc5ae2dc4cE.llvm.9135219245553044050.exit"
   call void @llvm.experimental.noalias.scope.decl(metadata !2987)
   call void @llvm.experimental.noalias.scope.decl(metadata !2990)
-  %25 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  %26 = load ptr, ptr %25, align 8, !noalias !2993, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %28 = load ptr, ptr %27, align 8, !alias.scope !2993, !noundef !4
-  invoke void %26(ptr noundef %28)
-          to label %"_ZN4core3ptr108drop_in_place$LT$tokio..util..cacheline..CachePadded$LT$tokio..sync..task..atomic_waker..AtomicWaker$GT$$GT$17hb38d20bb85d3efd4E.llvm.9135219245553044050.exit7" unwind label %30
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 24
+  %28 = load ptr, ptr %27, align 8, !noalias !2993, !nonnull !4, !noundef !4
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %30 = load ptr, ptr %29, align 8, !alias.scope !2993, !noundef !4
+  invoke void %28(ptr noundef %30)
+          to label %"_ZN4core3ptr108drop_in_place$LT$tokio..util..cacheline..CachePadded$LT$tokio..sync..task..atomic_waker..AtomicWaker$GT$$GT$17hb38d20bb85d3efd4E.llvm.9135219245553044050.exit7" unwind label %32
 
-"_ZN4core3ptr108drop_in_place$LT$tokio..util..cacheline..CachePadded$LT$tokio..sync..task..atomic_waker..AtomicWaker$GT$$GT$17hb38d20bb85d3efd4E.llvm.9135219245553044050.exit": ; preds = %.loopexit.split-lp, %16, %30
-  %.pn = phi { ptr, i32 } [ %31, %30 ], [ %lpad.phi, %16 ], [ %lpad.phi, %.loopexit.split-lp ]
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  invoke void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17hc0b66fd77b96025dE.llvm.9135219245553044050"(ptr noalias noundef nonnull align 8 dereferenceable(88) %29)
-          to label %"_ZN4core3ptr58drop_in_place$LT$tokio..sync..mpsc..bounded..Semaphore$GT$17h9b963c5cbd85481cE.exit" unwind label %33
+"_ZN4core3ptr108drop_in_place$LT$tokio..util..cacheline..CachePadded$LT$tokio..sync..task..atomic_waker..AtomicWaker$GT$$GT$17hb38d20bb85d3efd4E.llvm.9135219245553044050.exit": ; preds = %.loopexit.split-lp, %18, %32
+  %.pn = phi { ptr, i32 } [ %33, %32 ], [ %lpad.phi, %18 ], [ %lpad.phi, %.loopexit.split-lp ]
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 328
+  invoke void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17hc0b66fd77b96025dE.llvm.9135219245553044050"(ptr noalias noundef nonnull align 8 dereferenceable(88) %31)
+          to label %"_ZN4core3ptr58drop_in_place$LT$tokio..sync..mpsc..bounded..Semaphore$GT$17h9b963c5cbd85481cE.exit" unwind label %35
 
-30:                                               ; preds = %24
-  %31 = landingpad { ptr, i32 }
+32:                                               ; preds = %26
+  %33 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr108drop_in_place$LT$tokio..util..cacheline..CachePadded$LT$tokio..sync..task..atomic_waker..AtomicWaker$GT$$GT$17hb38d20bb85d3efd4E.llvm.9135219245553044050.exit"
 
-"_ZN4core3ptr108drop_in_place$LT$tokio..util..cacheline..CachePadded$LT$tokio..sync..task..atomic_waker..AtomicWaker$GT$$GT$17hb38d20bb85d3efd4E.llvm.9135219245553044050.exit7": ; preds = %"_ZN84_$LT$tokio..sync..mpsc..chan..Chan$LT$T$C$S$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17haca400dc5ae2dc4cE.llvm.9135219245553044050.exit", %24
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  call void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17hc0b66fd77b96025dE.llvm.9135219245553044050"(ptr noalias noundef nonnull align 8 dereferenceable(88) %32)
+"_ZN4core3ptr108drop_in_place$LT$tokio..util..cacheline..CachePadded$LT$tokio..sync..task..atomic_waker..AtomicWaker$GT$$GT$17hb38d20bb85d3efd4E.llvm.9135219245553044050.exit7": ; preds = %"_ZN84_$LT$tokio..sync..mpsc..chan..Chan$LT$T$C$S$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17haca400dc5ae2dc4cE.llvm.9135219245553044050.exit", %26
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 328
+  call void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17hc0b66fd77b96025dE.llvm.9135219245553044050"(ptr noalias noundef nonnull align 8 dereferenceable(88) %34)
   ret void
 
-33:                                               ; preds = %"_ZN4core3ptr108drop_in_place$LT$tokio..util..cacheline..CachePadded$LT$tokio..sync..task..atomic_waker..AtomicWaker$GT$$GT$17hb38d20bb85d3efd4E.llvm.9135219245553044050.exit", %16
-  %34 = landingpad { ptr, i32 }
+35:                                               ; preds = %"_ZN4core3ptr108drop_in_place$LT$tokio..util..cacheline..CachePadded$LT$tokio..sync..task..atomic_waker..AtomicWaker$GT$$GT$17hb38d20bb85d3efd4E.llvm.9135219245553044050.exit", %18
+  %36 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd44bb2114362504eE() #23
   unreachable
@@ -23139,9 +23137,8 @@ define internal fastcc void @"_ZN4core3ptr74drop_in_place$LT$slab..Entry$LT$h2..
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10165)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10168)
   %6 = load i8, ptr %5, align 8, !range !4755, !alias.scope !10171, !noundef !4
-  %7 = add nsw i8 %6, -6
-  %switch.i.i.i = icmp ult i8 %7, 6
-  br i1 %switch.i.i.i, label %"_ZN4core3ptr53drop_in_place$LT$h2..proto..streams..state..State$GT$17hc6303fb16498551aE.exit.i", label %8
+  %7 = icmp samesign ugt i8 %6, 5
+  br i1 %7, label %"_ZN4core3ptr53drop_in_place$LT$h2..proto..streams..state..State$GT$17hc6303fb16498551aE.exit.i", label %8
 
 8:                                                ; preds = %4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10172)
@@ -32316,44 +32313,42 @@ define hidden void @"_ZN84_$LT$tokio..sync..mpsc..chan..Chan$LT$T$C$S$GT$$u20$as
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$3pop17h60d9e449074df86eE"(ptr noalias noundef nonnull sret({ i32, [53 x i32] }) align 8 captures(none) dereferenceable(216) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 128 %0)
   %4 = load i32, ptr %2, align 8, !range !2473, !noundef !4
-  %.off4.i = add nsw i32 %4, -3
-  %switch5.i = icmp ult i32 %.off4.i, 2
-  br i1 %switch5.i, label %"_ZN4core3ptr132drop_in_place$LT$core..option..Option$LT$tokio..sync..mpsc..block..Read$LT$core..option..Option$LT$trace..span..Span$GT$$GT$$GT$$GT$17h03c7fe07447d9f86E.llvm.9135219245553044050.exit.i", label %.lr.ph.i
+  %5 = icmp samesign ugt i32 %4, 2
+  br i1 %5, label %"_ZN4core3ptr132drop_in_place$LT$core..option..Option$LT$tokio..sync..mpsc..block..Read$LT$core..option..Option$LT$trace..span..Span$GT$$GT$$GT$$GT$17h03c7fe07447d9f86E.llvm.9135219245553044050.exit.i", label %.lr.ph.i
 
 "_ZN4core3ptr132drop_in_place$LT$core..option..Option$LT$tokio..sync..mpsc..block..Read$LT$core..option..Option$LT$trace..span..Span$GT$$GT$$GT$$GT$17h03c7fe07447d9f86E.llvm.9135219245553044050.exit.i": ; preds = %"_ZN4core3ptr132drop_in_place$LT$core..option..Option$LT$tokio..sync..mpsc..block..Read$LT$core..option..Option$LT$trace..span..Span$GT$$GT$$GT$$GT$17h03c7fe07447d9f86E.llvm.9135219245553044050.exit3.i", %1
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.experimental.noalias.scope.decl(metadata !12970)
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %6 = load ptr, ptr %5, align 8, !alias.scope !12970, !nonnull !4, !noundef !4
-  br label %7
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  %7 = load ptr, ptr %6, align 8, !alias.scope !12970, !nonnull !4, !noundef !4
+  br label %8
 
-7:                                                ; preds = %7, %"_ZN4core3ptr132drop_in_place$LT$core..option..Option$LT$tokio..sync..mpsc..block..Read$LT$core..option..Option$LT$trace..span..Span$GT$$GT$$GT$$GT$17h03c7fe07447d9f86E.llvm.9135219245553044050.exit.i"
-  %.06.i.i = phi ptr [ %6, %"_ZN4core3ptr132drop_in_place$LT$core..option..Option$LT$tokio..sync..mpsc..block..Read$LT$core..option..Option$LT$trace..span..Span$GT$$GT$$GT$$GT$17h03c7fe07447d9f86E.llvm.9135219245553044050.exit.i" ], [ %9, %7 ]
-  %8 = getelementptr inbounds nuw i8, ptr %.06.i.i, i64 6920
-  %9 = call noundef ptr @_ZN4core4sync6atomic11atomic_load17h02fdef863af6ada3E.llvm.5441949568091396765(ptr noundef nonnull %8, i8 noundef 0), !noalias !12970
+8:                                                ; preds = %8, %"_ZN4core3ptr132drop_in_place$LT$core..option..Option$LT$tokio..sync..mpsc..block..Read$LT$core..option..Option$LT$trace..span..Span$GT$$GT$$GT$$GT$17h03c7fe07447d9f86E.llvm.9135219245553044050.exit.i"
+  %.06.i.i = phi ptr [ %7, %"_ZN4core3ptr132drop_in_place$LT$core..option..Option$LT$tokio..sync..mpsc..block..Read$LT$core..option..Option$LT$trace..span..Span$GT$$GT$$GT$$GT$17h03c7fe07447d9f86E.llvm.9135219245553044050.exit.i" ], [ %10, %8 ]
+  %9 = getelementptr inbounds nuw i8, ptr %.06.i.i, i64 6920
+  %10 = call noundef ptr @_ZN4core4sync6atomic11atomic_load17h02fdef863af6ada3E.llvm.5441949568091396765(ptr noundef nonnull %9, i8 noundef 0), !noalias !12970
   call void @__rust_dealloc(ptr noundef nonnull %.06.i.i, i64 noundef 6944, i64 noundef 8) #21, !noalias !12973
-  %.not.i.i = icmp eq ptr %9, null
-  br i1 %.not.i.i, label %"_ZN84_$LT$tokio..sync..mpsc..chan..Chan$LT$T$C$S$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop28_$u7b$$u7b$closure$u7d$$u7d$17h4e8a658b414adab0E.llvm.9135219245553044050.exit", label %7
+  %.not.i.i = icmp eq ptr %10, null
+  br i1 %.not.i.i, label %"_ZN84_$LT$tokio..sync..mpsc..chan..Chan$LT$T$C$S$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop28_$u7b$$u7b$closure$u7d$$u7d$17h4e8a658b414adab0E.llvm.9135219245553044050.exit", label %8
 
 .lr.ph.i:                                         ; preds = %1, %"_ZN4core3ptr132drop_in_place$LT$core..option..Option$LT$tokio..sync..mpsc..block..Read$LT$core..option..Option$LT$trace..span..Span$GT$$GT$$GT$$GT$17h03c7fe07447d9f86E.llvm.9135219245553044050.exit3.i"
-  %10 = phi i32 [ %12, %"_ZN4core3ptr132drop_in_place$LT$core..option..Option$LT$tokio..sync..mpsc..block..Read$LT$core..option..Option$LT$trace..span..Span$GT$$GT$$GT$$GT$17h03c7fe07447d9f86E.llvm.9135219245553044050.exit3.i" ], [ %4, %1 ]
-  %switch.not.i.i2.i = icmp samesign ult i32 %10, 2
-  br i1 %switch.not.i.i2.i, label %11, label %"_ZN4core3ptr132drop_in_place$LT$core..option..Option$LT$tokio..sync..mpsc..block..Read$LT$core..option..Option$LT$trace..span..Span$GT$$GT$$GT$$GT$17h03c7fe07447d9f86E.llvm.9135219245553044050.exit3.i"
+  %11 = phi i32 [ %13, %"_ZN4core3ptr132drop_in_place$LT$core..option..Option$LT$tokio..sync..mpsc..block..Read$LT$core..option..Option$LT$trace..span..Span$GT$$GT$$GT$$GT$17h03c7fe07447d9f86E.llvm.9135219245553044050.exit3.i" ], [ %4, %1 ]
+  %switch.not.i.i2.i = icmp samesign ult i32 %11, 2
+  br i1 %switch.not.i.i2.i, label %12, label %"_ZN4core3ptr132drop_in_place$LT$core..option..Option$LT$tokio..sync..mpsc..block..Read$LT$core..option..Option$LT$trace..span..Span$GT$$GT$$GT$$GT$17h03c7fe07447d9f86E.llvm.9135219245553044050.exit3.i"
 
-11:                                               ; preds = %.lr.ph.i
+12:                                               ; preds = %.lr.ph.i
   call void @"_ZN4core3ptr38drop_in_place$LT$trace..span..Span$GT$17h7b925e83e58928d3E.llvm.9135219245553044050"(ptr noalias noundef nonnull align 8 dereferenceable(216) %2)
   br label %"_ZN4core3ptr132drop_in_place$LT$core..option..Option$LT$tokio..sync..mpsc..block..Read$LT$core..option..Option$LT$trace..span..Span$GT$$GT$$GT$$GT$17h03c7fe07447d9f86E.llvm.9135219245553044050.exit3.i"
 
-"_ZN4core3ptr132drop_in_place$LT$core..option..Option$LT$tokio..sync..mpsc..block..Read$LT$core..option..Option$LT$trace..span..Span$GT$$GT$$GT$$GT$17h03c7fe07447d9f86E.llvm.9135219245553044050.exit3.i": ; preds = %11, %.lr.ph.i
+"_ZN4core3ptr132drop_in_place$LT$core..option..Option$LT$tokio..sync..mpsc..block..Read$LT$core..option..Option$LT$trace..span..Span$GT$$GT$$GT$$GT$17h03c7fe07447d9f86E.llvm.9135219245553044050.exit3.i": ; preds = %12, %.lr.ph.i
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$3pop17h60d9e449074df86eE"(ptr noalias noundef nonnull sret({ i32, [53 x i32] }) align 8 captures(none) dereferenceable(216) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 128 %0)
-  %12 = load i32, ptr %2, align 8, !range !2473, !noundef !4
-  %.off.i = add nsw i32 %12, -3
-  %switch.i = icmp ult i32 %.off.i, 2
-  br i1 %switch.i, label %"_ZN4core3ptr132drop_in_place$LT$core..option..Option$LT$tokio..sync..mpsc..block..Read$LT$core..option..Option$LT$trace..span..Span$GT$$GT$$GT$$GT$17h03c7fe07447d9f86E.llvm.9135219245553044050.exit.i", label %.lr.ph.i
+  %13 = load i32, ptr %2, align 8, !range !2473, !noundef !4
+  %14 = icmp samesign ugt i32 %13, 2
+  br i1 %14, label %"_ZN4core3ptr132drop_in_place$LT$core..option..Option$LT$tokio..sync..mpsc..block..Read$LT$core..option..Option$LT$trace..span..Span$GT$$GT$$GT$$GT$17h03c7fe07447d9f86E.llvm.9135219245553044050.exit.i", label %.lr.ph.i
 
-"_ZN84_$LT$tokio..sync..mpsc..chan..Chan$LT$T$C$S$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop28_$u7b$$u7b$closure$u7d$$u7d$17h4e8a658b414adab0E.llvm.9135219245553044050.exit": ; preds = %7
+"_ZN84_$LT$tokio..sync..mpsc..chan..Chan$LT$T$C$S$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop28_$u7b$$u7b$closure$u7d$$u7d$17h4e8a658b414adab0E.llvm.9135219245553044050.exit": ; preds = %8
   ret void
 }
 
@@ -32363,45 +32358,43 @@ define hidden void @"_ZN84_$LT$tokio..sync..mpsc..chan..Chan$LT$T$C$S$GT$$u20$as
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$3pop17h60d9e449074df86eE"(ptr noalias noundef nonnull sret({ i32, [53 x i32] }) align 8 captures(none) dereferenceable(216) %3, ptr noalias noundef align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 %0)
   %4 = load i32, ptr %3, align 8, !range !2473, !noundef !4
-  %.off4 = add nsw i32 %4, -3
-  %switch5 = icmp ult i32 %.off4, 2
-  br i1 %switch5, label %"_ZN4core3ptr132drop_in_place$LT$core..option..Option$LT$tokio..sync..mpsc..block..Read$LT$core..option..Option$LT$trace..span..Span$GT$$GT$$GT$$GT$17h03c7fe07447d9f86E.llvm.9135219245553044050.exit", label %.lr.ph
+  %5 = icmp samesign ugt i32 %4, 2
+  br i1 %5, label %"_ZN4core3ptr132drop_in_place$LT$core..option..Option$LT$tokio..sync..mpsc..block..Read$LT$core..option..Option$LT$trace..span..Span$GT$$GT$$GT$$GT$17h03c7fe07447d9f86E.llvm.9135219245553044050.exit", label %.lr.ph
 
 "_ZN4core3ptr132drop_in_place$LT$core..option..Option$LT$tokio..sync..mpsc..block..Read$LT$core..option..Option$LT$trace..span..Span$GT$$GT$$GT$$GT$17h03c7fe07447d9f86E.llvm.9135219245553044050.exit": ; preds = %"_ZN4core3ptr132drop_in_place$LT$core..option..Option$LT$tokio..sync..mpsc..block..Read$LT$core..option..Option$LT$trace..span..Span$GT$$GT$$GT$$GT$17h03c7fe07447d9f86E.llvm.9135219245553044050.exit3", %2
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.experimental.noalias.scope.decl(metadata !12978)
-  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %6 = load ptr, ptr %5, align 8, !alias.scope !12978, !nonnull !4, !noundef !4
-  br label %7
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %7 = load ptr, ptr %6, align 8, !alias.scope !12978, !nonnull !4, !noundef !4
+  br label %8
 
-7:                                                ; preds = %7, %"_ZN4core3ptr132drop_in_place$LT$core..option..Option$LT$tokio..sync..mpsc..block..Read$LT$core..option..Option$LT$trace..span..Span$GT$$GT$$GT$$GT$17h03c7fe07447d9f86E.llvm.9135219245553044050.exit"
-  %.06.i = phi ptr [ %6, %"_ZN4core3ptr132drop_in_place$LT$core..option..Option$LT$tokio..sync..mpsc..block..Read$LT$core..option..Option$LT$trace..span..Span$GT$$GT$$GT$$GT$17h03c7fe07447d9f86E.llvm.9135219245553044050.exit" ], [ %9, %7 ]
-  %8 = getelementptr inbounds nuw i8, ptr %.06.i, i64 6920
-  %9 = call noundef ptr @_ZN4core4sync6atomic11atomic_load17h02fdef863af6ada3E.llvm.5441949568091396765(ptr noundef nonnull %8, i8 noundef 0), !noalias !12978
+8:                                                ; preds = %8, %"_ZN4core3ptr132drop_in_place$LT$core..option..Option$LT$tokio..sync..mpsc..block..Read$LT$core..option..Option$LT$trace..span..Span$GT$$GT$$GT$$GT$17h03c7fe07447d9f86E.llvm.9135219245553044050.exit"
+  %.06.i = phi ptr [ %7, %"_ZN4core3ptr132drop_in_place$LT$core..option..Option$LT$tokio..sync..mpsc..block..Read$LT$core..option..Option$LT$trace..span..Span$GT$$GT$$GT$$GT$17h03c7fe07447d9f86E.llvm.9135219245553044050.exit" ], [ %10, %8 ]
+  %9 = getelementptr inbounds nuw i8, ptr %.06.i, i64 6920
+  %10 = call noundef ptr @_ZN4core4sync6atomic11atomic_load17h02fdef863af6ada3E.llvm.5441949568091396765(ptr noundef nonnull %9, i8 noundef 0), !noalias !12978
   call void @__rust_dealloc(ptr noundef nonnull %.06.i, i64 noundef 6944, i64 noundef 8) #21, !noalias !12981
-  %.not.i = icmp eq ptr %9, null
-  br i1 %.not.i, label %"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$11free_blocks17hb81d9dcdbfecdaa8E.exit", label %7
+  %.not.i = icmp eq ptr %10, null
+  br i1 %.not.i, label %"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$11free_blocks17hb81d9dcdbfecdaa8E.exit", label %8
 
-"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$11free_blocks17hb81d9dcdbfecdaa8E.exit": ; preds = %7
+"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$11free_blocks17hb81d9dcdbfecdaa8E.exit": ; preds = %8
   ret void
 
 .lr.ph:                                           ; preds = %2, %"_ZN4core3ptr132drop_in_place$LT$core..option..Option$LT$tokio..sync..mpsc..block..Read$LT$core..option..Option$LT$trace..span..Span$GT$$GT$$GT$$GT$17h03c7fe07447d9f86E.llvm.9135219245553044050.exit3"
-  %10 = phi i32 [ %12, %"_ZN4core3ptr132drop_in_place$LT$core..option..Option$LT$tokio..sync..mpsc..block..Read$LT$core..option..Option$LT$trace..span..Span$GT$$GT$$GT$$GT$17h03c7fe07447d9f86E.llvm.9135219245553044050.exit3" ], [ %4, %2 ]
-  %switch.not.i.i2 = icmp samesign ult i32 %10, 2
-  br i1 %switch.not.i.i2, label %11, label %"_ZN4core3ptr132drop_in_place$LT$core..option..Option$LT$tokio..sync..mpsc..block..Read$LT$core..option..Option$LT$trace..span..Span$GT$$GT$$GT$$GT$17h03c7fe07447d9f86E.llvm.9135219245553044050.exit3"
+  %11 = phi i32 [ %13, %"_ZN4core3ptr132drop_in_place$LT$core..option..Option$LT$tokio..sync..mpsc..block..Read$LT$core..option..Option$LT$trace..span..Span$GT$$GT$$GT$$GT$17h03c7fe07447d9f86E.llvm.9135219245553044050.exit3" ], [ %4, %2 ]
+  %switch.not.i.i2 = icmp samesign ult i32 %11, 2
+  br i1 %switch.not.i.i2, label %12, label %"_ZN4core3ptr132drop_in_place$LT$core..option..Option$LT$tokio..sync..mpsc..block..Read$LT$core..option..Option$LT$trace..span..Span$GT$$GT$$GT$$GT$17h03c7fe07447d9f86E.llvm.9135219245553044050.exit3"
 
-11:                                               ; preds = %.lr.ph
+12:                                               ; preds = %.lr.ph
   call void @"_ZN4core3ptr38drop_in_place$LT$trace..span..Span$GT$17h7b925e83e58928d3E.llvm.9135219245553044050"(ptr noalias noundef nonnull align 8 dereferenceable(216) %3)
   br label %"_ZN4core3ptr132drop_in_place$LT$core..option..Option$LT$tokio..sync..mpsc..block..Read$LT$core..option..Option$LT$trace..span..Span$GT$$GT$$GT$$GT$17h03c7fe07447d9f86E.llvm.9135219245553044050.exit3"
 
-"_ZN4core3ptr132drop_in_place$LT$core..option..Option$LT$tokio..sync..mpsc..block..Read$LT$core..option..Option$LT$trace..span..Span$GT$$GT$$GT$$GT$17h03c7fe07447d9f86E.llvm.9135219245553044050.exit3": ; preds = %.lr.ph, %11
+"_ZN4core3ptr132drop_in_place$LT$core..option..Option$LT$tokio..sync..mpsc..block..Read$LT$core..option..Option$LT$trace..span..Span$GT$$GT$$GT$$GT$17h03c7fe07447d9f86E.llvm.9135219245553044050.exit3": ; preds = %.lr.ph, %12
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$3pop17h60d9e449074df86eE"(ptr noalias noundef nonnull sret({ i32, [53 x i32] }) align 8 captures(none) dereferenceable(216) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 %0)
-  %12 = load i32, ptr %3, align 8, !range !2473, !noundef !4
-  %.off = add nsw i32 %12, -3
-  %switch = icmp ult i32 %.off, 2
-  br i1 %switch, label %"_ZN4core3ptr132drop_in_place$LT$core..option..Option$LT$tokio..sync..mpsc..block..Read$LT$core..option..Option$LT$trace..span..Span$GT$$GT$$GT$$GT$17h03c7fe07447d9f86E.llvm.9135219245553044050.exit", label %.lr.ph
+  %13 = load i32, ptr %3, align 8, !range !2473, !noundef !4
+  %14 = icmp samesign ugt i32 %13, 2
+  br i1 %14, label %"_ZN4core3ptr132drop_in_place$LT$core..option..Option$LT$tokio..sync..mpsc..block..Read$LT$core..option..Option$LT$trace..span..Span$GT$$GT$$GT$$GT$17h03c7fe07447d9f86E.llvm.9135219245553044050.exit", label %.lr.ph
 }
 
 ; Function Attrs: nonlazybind uwtable

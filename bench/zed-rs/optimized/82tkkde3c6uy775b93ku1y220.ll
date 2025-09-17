@@ -147,9 +147,8 @@ _ZN14regex_automata4util6search5Input8set_span17h4cafe4b6edcc2417E.exit: ; preds
 
 66:                                               ; preds = %61
   %67 = load i32, ptr %16, align 8, !range !23, !alias.scope !24, !noalias !25, !noundef !4
-  %.off.i.i = add nsw i32 %67, -1
-  %switch10.i.i = icmp ult i32 %.off.i.i, 2
-  br i1 %switch10.i.i, label %68, label %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h79cfc6c18ba3c86aE.exit.thread.i
+  %.not.i4 = icmp eq i32 %67, 0
+  br i1 %.not.i4, label %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h79cfc6c18ba3c86aE.exit.thread.i, label %68
 
 68:                                               ; preds = %66
   %69 = getelementptr inbounds nuw i8, ptr %50, i64 64

@@ -289,9 +289,8 @@ _ZN14regex_automata4util6search5Input8set_span17h92e7cb23660e5151E.exit: ; preds
 66:                                               ; preds = %61
   tail call void @llvm.experimental.noalias.scope.decl(metadata !67)
   %67 = load i32, ptr %16, align 8, !range !70, !alias.scope !71, !noalias !72, !noundef !11
-  %.off.i.i.i = add nsw i32 %67, -1
-  %switch.i1.i.i = icmp ult i32 %.off.i.i.i, 2
-  br i1 %switch.i1.i.i, label %_ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17hed577765fe40040cE.exit.thread.i.i, label %_ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17hed577765fe40040cE.exit.i.i
+  %.not.i.i = icmp eq i32 %67, 0
+  br i1 %.not.i.i, label %_ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17hed577765fe40040cE.exit.i.i, label %_ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17hed577765fe40040cE.exit.thread.i.i
 
 _ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17hed577765fe40040cE.exit.i.i: ; preds = %66
   %68 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 60

@@ -2422,18 +2422,17 @@ define hidden void @"_ZN14wasmtime_types1_74_$LT$impl$u20$serde..de..Deserialize
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden noalias noundef align 8 ptr @"_ZN14wasmtime_types1_74_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$wasmtime_types..Global$GT$9serialize17h1b123c95a1b59a11E"(ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %0, ptr noalias noundef align 8 captures(none) dereferenceable(16) %1) unnamed_addr #10 personality ptr @rust_eh_personality {
   %.val25 = load i32, ptr %0, align 4, !range !482, !alias.scope !483, !noalias !486, !noundef !4
-  %3 = add nsw i32 %.val25, -10
-  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %5 = load i64, ptr %4, align 8, !alias.scope !488, !noalias !491, !noundef !4
-  %switch.i = icmp ult i32 %3, 5
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %4 = load i64, ptr %3, align 8, !alias.scope !488, !noalias !491, !noundef !4
+  %5 = icmp samesign ugt i32 %.val25, 9
   %6 = icmp samesign ult i32 %.val25, 3
   %switch2.i.i.i.i.i.i = icmp eq i32 %.val25, 5
   %switch.i.i.i.i.i.i = or i1 %switch2.i.i.i.i.i.i, %6
   %7 = select i1 %switch.i.i.i.i.i.i, i64 17, i64 9
-  %.pn.i = select i1 %switch.i, i64 4, i64 %7
-  %.sink.i.i = add i64 %5, 1
+  %.pn.i = select i1 %5, i64 4, i64 %7
+  %.sink.i.i = add i64 %4, 1
   %8 = add i64 %.sink.i.i, %.pn.i
-  store i64 %8, ptr %4, align 8, !alias.scope !493
+  store i64 %8, ptr %3, align 8, !alias.scope !493
   ret ptr null
 }
 
@@ -2461,18 +2460,17 @@ define hidden noalias noundef align 8 ptr @"_ZN14wasmtime_types1_74_$LT$impl$u20
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden noalias noundef align 8 ptr @"_ZN14wasmtime_types1_74_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$wasmtime_types..Global$GT$9serialize17hf4ab3ce48fc91721E"(ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %0, ptr noalias noundef align 8 captures(none) dereferenceable(16) %1) unnamed_addr #10 personality ptr @rust_eh_personality {
   %.val25 = load i32, ptr %0, align 4, !range !482, !alias.scope !518, !noalias !521, !noundef !4
-  %3 = add nsw i32 %.val25, -10
-  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %5 = load i64, ptr %4, align 8, !alias.scope !523, !noalias !526, !noundef !4
-  %switch.i = icmp ult i32 %3, 5
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %4 = load i64, ptr %3, align 8, !alias.scope !523, !noalias !526, !noundef !4
+  %5 = icmp samesign ugt i32 %.val25, 9
   %6 = icmp samesign ult i32 %.val25, 3
   %switch2.i.i.i.i.i.i = icmp eq i32 %.val25, 5
   %switch.i.i.i.i.i.i = or i1 %switch2.i.i.i.i.i.i, %6
   %7 = select i1 %switch.i.i.i.i.i.i, i64 17, i64 9
-  %.pn.i = select i1 %switch.i, i64 4, i64 %7
-  %.sink.i.i = add i64 %5, 1
+  %.pn.i = select i1 %5, i64 4, i64 %7
+  %.sink.i.i = add i64 %4, 1
   %8 = add i64 %.sink.i.i, %.pn.i
-  store i64 %8, ptr %4, align 8, !alias.scope !528
+  store i64 %8, ptr %3, align 8, !alias.scope !528
   ret ptr null
 }
 
@@ -2945,13 +2943,12 @@ define hidden noalias noundef align 8 ptr @"_ZN14wasmtime_types1_78_$LT$impl$u20
   tail call void @llvm.experimental.noalias.scope.decl(metadata !960)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !963)
   %.val25.i.i = load i32, ptr %9, align 8, !range !482, !alias.scope !965, !noalias !968, !noundef !4
-  %12 = add nsw i32 %.val25.i.i, -10
-  %switch.i.i.i = icmp ult i32 %12, 5
+  %12 = icmp samesign ugt i32 %.val25.i.i, 9
   %13 = icmp samesign ult i32 %.val25.i.i, 3
   %switch2.i.i.i.i.i.i.i.i = icmp eq i32 %.val25.i.i, 5
   %switch.i.i.i.i.i.i.i.i = or i1 %switch2.i.i.i.i.i.i.i.i, %13
   %14 = select i1 %switch.i.i.i.i.i.i.i.i, i64 17, i64 9
-  %.pn.i.i.i = select i1 %switch.i.i.i, i64 4, i64 %14
+  %.pn.i.i.i = select i1 %12, i64 4, i64 %14
   %.sink.i.i.i.i = add i64 %11, 5
   %15 = add i64 %.sink.i.i.i.i, %.pn.i.i.i
   store i64 %15, ptr %10, align 8, !alias.scope !970, !noalias !977
@@ -3033,13 +3030,12 @@ define hidden noalias noundef align 8 ptr @"_ZN14wasmtime_types1_78_$LT$impl$u20
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1053)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1056)
   %.val25.i.i = load i32, ptr %9, align 8, !range !482, !alias.scope !1058, !noalias !1061, !noundef !4
-  %12 = add nsw i32 %.val25.i.i, -10
-  %switch.i.i.i = icmp ult i32 %12, 5
+  %12 = icmp samesign ugt i32 %.val25.i.i, 9
   %13 = icmp samesign ult i32 %.val25.i.i, 3
   %switch2.i.i.i.i.i.i.i.i = icmp eq i32 %.val25.i.i, 5
   %switch.i.i.i.i.i.i.i.i = or i1 %switch2.i.i.i.i.i.i.i.i, %13
   %14 = select i1 %switch.i.i.i.i.i.i.i.i, i64 17, i64 9
-  %.pn.i.i.i = select i1 %switch.i.i.i, i64 4, i64 %14
+  %.pn.i.i.i = select i1 %12, i64 4, i64 %14
   %.sink.i.i.i.i = add i64 %11, 5
   %15 = add i64 %.sink.i.i.i.i, %.pn.i.i.i
   store i64 %15, ptr %10, align 8, !alias.scope !1063, !noalias !1070
@@ -4751,9 +4747,8 @@ define hidden void @_ZN14wasmtime_types9TypeTrace30canonicalize_for_runtime_usag
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2503)
   %4 = load i32, ptr %0, align 4, !range !482, !alias.scope !2503, !noalias !2506, !noundef !4
-  %5 = add nsw i32 %4, -10
-  %switch.i = icmp ult i32 %5, 5
-  br i1 %switch.i, label %"_ZN73_$LT$wasmtime_types..WasmValType$u20$as$u20$wasmtime_types..TypeTrace$GT$9trace_mut17he7c9c6f87c6487efE.llvm.15361297093319246575.exit", label %6
+  %5 = icmp samesign ugt i32 %4, 9
+  br i1 %5, label %"_ZN73_$LT$wasmtime_types..WasmValType$u20$as$u20$wasmtime_types..TypeTrace$GT$9trace_mut17he7c9c6f87c6487efE.llvm.15361297093319246575.exit", label %6
 
 6:                                                ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2508)
@@ -16053,9 +16048,8 @@ define hidden noundef zeroext i1 @"_ZN72_$LT$wasmtime_types..EntityType$u20$as$u
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5323)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5326)
   %13 = load i32, ptr %12, align 8, !range !482, !alias.scope !5323, !noalias !5326, !noundef !4
-  %14 = add nsw i32 %13, -10
-  %switch.i = icmp ult i32 %14, 5
-  br i1 %switch.i, label %"_ZN73_$LT$wasmtime_types..WasmValType$u20$as$u20$wasmtime_types..TypeTrace$GT$9trace_mut17h1c0af69ddda7ec3eE.llvm.15361297093319246575.exit", label %15
+  %14 = icmp samesign ugt i32 %13, 9
+  br i1 %14, label %"_ZN73_$LT$wasmtime_types..WasmValType$u20$as$u20$wasmtime_types..TypeTrace$GT$9trace_mut17h1c0af69ddda7ec3eE.llvm.15361297093319246575.exit", label %15
 
 15:                                               ; preds = %11
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5328)
@@ -16935,9 +16929,8 @@ _ZN13wasmtime_slab10EntryIndex3new17h4a7c9af01761dd1aE.llvm.15361297093319246575
 define hidden noundef zeroext i1 @"_ZN73_$LT$wasmtime_types..WasmValType$u20$as$u20$wasmtime_types..TypeTrace$GT$9trace_mut17h1c0af69ddda7ec3eE.llvm.15361297093319246575"(ptr noalias noundef align 4 captures(none) dereferenceable(12) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %1) unnamed_addr #6 {
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %4 = load i32, ptr %0, align 4, !range !482, !noundef !4
-  %5 = add nsw i32 %4, -10
-  %switch = icmp ult i32 %5, 5
-  br i1 %switch, label %"_ZN74_$LT$wasmtime_types..WasmHeapType$u20$as$u20$wasmtime_types..TypeTrace$GT$9trace_mut17hfa6b7fbfc9ead47eE.llvm.15361297093319246575.exit", label %6
+  %5 = icmp samesign ugt i32 %4, 9
+  br i1 %5, label %"_ZN74_$LT$wasmtime_types..WasmHeapType$u20$as$u20$wasmtime_types..TypeTrace$GT$9trace_mut17hfa6b7fbfc9ead47eE.llvm.15361297093319246575.exit", label %6
 
 6:                                                ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5584)
@@ -17010,9 +17003,8 @@ default.unreachable2.i.i:                         ; preds = %11
 define hidden noundef zeroext i1 @"_ZN73_$LT$wasmtime_types..WasmValType$u20$as$u20$wasmtime_types..TypeTrace$GT$9trace_mut17he7c9c6f87c6487efE.llvm.15361297093319246575"(ptr noalias noundef align 4 captures(none) dereferenceable(12) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %1) unnamed_addr #6 personality ptr @rust_eh_personality {
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %4 = load i32, ptr %0, align 4, !range !482, !noundef !4
-  %5 = add nsw i32 %4, -10
-  %switch = icmp ult i32 %5, 5
-  br i1 %switch, label %"_ZN74_$LT$wasmtime_types..WasmHeapType$u20$as$u20$wasmtime_types..TypeTrace$GT$9trace_mut17ha25dd58ce57962fbE.llvm.15361297093319246575.exit", label %6
+  %5 = icmp samesign ugt i32 %4, 9
+  br i1 %5, label %"_ZN74_$LT$wasmtime_types..WasmHeapType$u20$as$u20$wasmtime_types..TypeTrace$GT$9trace_mut17ha25dd58ce57962fbE.llvm.15361297093319246575.exit", label %6
 
 6:                                                ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5604)
@@ -17132,12 +17124,12 @@ define hidden noundef zeroext i1 @"_ZN74_$LT$wasmtime_types..WasmFuncType$u20$as
   %15 = load ptr, ptr %14, align 8, !nonnull !4, !align !15, !noundef !4
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %17 = load i64, ptr %16, align 8, !noundef !4
-  %.idx41 = mul nsw i64 %17, 12
-  %18 = getelementptr inbounds i8, ptr %15, i64 %.idx41
+  %.idx40 = mul nsw i64 %17, 12
+  %18 = getelementptr inbounds i8, ptr %15, i64 %.idx40
   %19 = icmp eq i64 %17, 0
-  br i1 %19, label %._crit_edge40, label %.lr.ph39
+  br i1 %19, label %._crit_edge39, label %.lr.ph38
 
-.lr.ph39:                                         ; preds = %._crit_edge
+.lr.ph38:                                         ; preds = %._crit_edge
   %.val = load ptr, ptr %1, align 8
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val14 = load ptr, ptr %20, align 8
@@ -17147,13 +17139,12 @@ define hidden noundef zeroext i1 @"_ZN74_$LT$wasmtime_types..WasmFuncType$u20$as
   br label %57
 
 24:                                               ; preds = %.lr.ph, %"_ZN73_$LT$wasmtime_types..WasmValType$u20$as$u20$wasmtime_types..TypeTrace$GT$9trace_mut17h23d90899ea3022a0E.exit"
-  %.sroa.0.036 = phi ptr [ %5, %.lr.ph ], [ %25, %"_ZN73_$LT$wasmtime_types..WasmValType$u20$as$u20$wasmtime_types..TypeTrace$GT$9trace_mut17h23d90899ea3022a0E.exit" ]
-  %25 = getelementptr inbounds nuw i8, ptr %.sroa.0.036, i64 12
+  %.sroa.0.035 = phi ptr [ %5, %.lr.ph ], [ %25, %"_ZN73_$LT$wasmtime_types..WasmValType$u20$as$u20$wasmtime_types..TypeTrace$GT$9trace_mut17h23d90899ea3022a0E.exit" ]
+  %25 = getelementptr inbounds nuw i8, ptr %.sroa.0.035, i64 12
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5617)
-  %26 = load i32, ptr %.sroa.0.036, align 4, !range !482, !alias.scope !5617, !noundef !4
-  %27 = add nsw i32 %26, -10
-  %switch.i = icmp ult i32 %27, 5
-  br i1 %switch.i, label %"_ZN73_$LT$wasmtime_types..WasmValType$u20$as$u20$wasmtime_types..TypeTrace$GT$9trace_mut17h23d90899ea3022a0E.exit", label %28
+  %26 = load i32, ptr %.sroa.0.035, align 4, !range !482, !alias.scope !5617, !noundef !4
+  %27 = icmp samesign ugt i32 %26, 9
+  br i1 %27, label %"_ZN73_$LT$wasmtime_types..WasmValType$u20$as$u20$wasmtime_types..TypeTrace$GT$9trace_mut17h23d90899ea3022a0E.exit", label %28
 
 28:                                               ; preds = %24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5620)
@@ -17175,7 +17166,7 @@ default.unreachable5.i.i.i:                       ; preds = %33
   unreachable
 
 34:                                               ; preds = %33
-  %35 = getelementptr inbounds nuw i8, ptr %.sroa.0.036, i64 4
+  %35 = getelementptr inbounds nuw i8, ptr %.sroa.0.035, i64 4
   %36 = load i32, ptr %35, align 4, !alias.scope !5626, !noundef !4
   tail call void @llvm.assume(i1 %11)
   %37 = load i32, ptr %.val15, align 4, !noalias !5626, !noundef !4
@@ -17224,7 +17215,7 @@ default.unreachable5.i.i.i:                       ; preds = %33
 55:                                               ; preds = %"_ZN8wasmtime7runtime13type_registry17TypeRegistryInner18register_rec_group28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hf7c3c8c0d434c5e7E.exit.i.i.i", %.critedge.i.i.i
   %.sroa.5.0.i.i.i = phi i32 [ %44, %.critedge.i.i.i ], [ %54, %"_ZN8wasmtime7runtime13type_registry17TypeRegistryInner18register_rec_group28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hf7c3c8c0d434c5e7E.exit.i.i.i" ]
   %.sroa.0.0.i.i.i = phi i32 [ 2, %.critedge.i.i.i ], [ 0, %"_ZN8wasmtime7runtime13type_registry17TypeRegistryInner18register_rec_group28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hf7c3c8c0d434c5e7E.exit.i.i.i" ]
-  store i32 %.sroa.0.0.i.i.i, ptr %.sroa.0.036, align 4, !alias.scope !5626
+  store i32 %.sroa.0.0.i.i.i, ptr %.sroa.0.035, align 4, !alias.scope !5626
   store i32 %.sroa.5.0.i.i.i, ptr %35, align 4, !alias.scope !5626
   br label %"_ZN73_$LT$wasmtime_types..WasmValType$u20$as$u20$wasmtime_types..TypeTrace$GT$9trace_mut17h23d90899ea3022a0E.exit"
 
@@ -17232,17 +17223,16 @@ default.unreachable5.i.i.i:                       ; preds = %33
   %56 = icmp eq ptr %25, %8
   br i1 %56, label %._crit_edge, label %24
 
-._crit_edge40:                                    ; preds = %"_ZN73_$LT$wasmtime_types..WasmValType$u20$as$u20$wasmtime_types..TypeTrace$GT$9trace_mut17h23d90899ea3022a0E.exit26", %._crit_edge
+._crit_edge39:                                    ; preds = %"_ZN73_$LT$wasmtime_types..WasmValType$u20$as$u20$wasmtime_types..TypeTrace$GT$9trace_mut17h23d90899ea3022a0E.exit25", %._crit_edge
   ret i1 false
 
-57:                                               ; preds = %.lr.ph39, %"_ZN73_$LT$wasmtime_types..WasmValType$u20$as$u20$wasmtime_types..TypeTrace$GT$9trace_mut17h23d90899ea3022a0E.exit26"
-  %.sroa.027.037 = phi ptr [ %15, %.lr.ph39 ], [ %58, %"_ZN73_$LT$wasmtime_types..WasmValType$u20$as$u20$wasmtime_types..TypeTrace$GT$9trace_mut17h23d90899ea3022a0E.exit26" ]
-  %58 = getelementptr inbounds nuw i8, ptr %.sroa.027.037, i64 12
+57:                                               ; preds = %.lr.ph38, %"_ZN73_$LT$wasmtime_types..WasmValType$u20$as$u20$wasmtime_types..TypeTrace$GT$9trace_mut17h23d90899ea3022a0E.exit25"
+  %.sroa.026.036 = phi ptr [ %15, %.lr.ph38 ], [ %58, %"_ZN73_$LT$wasmtime_types..WasmValType$u20$as$u20$wasmtime_types..TypeTrace$GT$9trace_mut17h23d90899ea3022a0E.exit25" ]
+  %58 = getelementptr inbounds nuw i8, ptr %.sroa.026.036, i64 12
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5633)
-  %59 = load i32, ptr %.sroa.027.037, align 4, !range !482, !alias.scope !5633, !noundef !4
-  %60 = add nsw i32 %59, -10
-  %switch.i19 = icmp ult i32 %60, 5
-  br i1 %switch.i19, label %"_ZN73_$LT$wasmtime_types..WasmValType$u20$as$u20$wasmtime_types..TypeTrace$GT$9trace_mut17h23d90899ea3022a0E.exit26", label %61
+  %59 = load i32, ptr %.sroa.026.036, align 4, !range !482, !alias.scope !5633, !noundef !4
+  %60 = icmp samesign ugt i32 %59, 9
+  br i1 %60, label %"_ZN73_$LT$wasmtime_types..WasmValType$u20$as$u20$wasmtime_types..TypeTrace$GT$9trace_mut17h23d90899ea3022a0E.exit25", label %61
 
 61:                                               ; preds = %57
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5636)
@@ -17250,26 +17240,26 @@ default.unreachable5.i.i.i:                       ; preds = %33
   %63 = icmp ugt i32 %62, 6
   %64 = icmp eq i32 %62, 2
   %65 = or i1 %63, %64
-  br i1 %65, label %66, label %"_ZN73_$LT$wasmtime_types..WasmValType$u20$as$u20$wasmtime_types..TypeTrace$GT$9trace_mut17h23d90899ea3022a0E.exit26"
+  br i1 %65, label %66, label %"_ZN73_$LT$wasmtime_types..WasmValType$u20$as$u20$wasmtime_types..TypeTrace$GT$9trace_mut17h23d90899ea3022a0E.exit25"
 
 66:                                               ; preds = %61
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5639)
-  switch i32 %59, label %default.unreachable5.i.i.i25 [
-    i32 0, label %"_ZN73_$LT$wasmtime_types..WasmValType$u20$as$u20$wasmtime_types..TypeTrace$GT$9trace_mut17h23d90899ea3022a0E.exit26"
+  switch i32 %59, label %default.unreachable5.i.i.i24 [
+    i32 0, label %"_ZN73_$LT$wasmtime_types..WasmValType$u20$as$u20$wasmtime_types..TypeTrace$GT$9trace_mut17h23d90899ea3022a0E.exit25"
     i32 1, label %67
     i32 2, label %72
   ]
 
-default.unreachable5.i.i.i25:                     ; preds = %66
+default.unreachable5.i.i.i24:                     ; preds = %66
   unreachable
 
 67:                                               ; preds = %66
-  %68 = getelementptr inbounds nuw i8, ptr %.sroa.027.037, i64 4
+  %68 = getelementptr inbounds nuw i8, ptr %.sroa.026.036, i64 4
   %69 = load i32, ptr %68, align 4, !alias.scope !5642, !noundef !4
   tail call void @llvm.assume(i1 %21)
   %70 = load i32, ptr %.val, align 4, !noalias !5642, !noundef !4
   %71 = icmp ugt i32 %70, %69
-  br i1 %71, label %78, label %.critedge.i.i.i20
+  br i1 %71, label %78, label %.critedge.i.i.i19
 
 72:                                               ; preds = %66
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !5642
@@ -17285,41 +17275,41 @@ default.unreachable5.i.i.i25:                     ; preds = %66
   call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.99edeac83e7bf69e7d9a0be5913f3128.129) #50, !noalias !5642
   unreachable
 
-.critedge.i.i.i20:                                ; preds = %67
+.critedge.i.i.i19:                                ; preds = %67
   %77 = sub nuw i32 %69, %70
   br label %88
 
 78:                                               ; preds = %67
   tail call void @llvm.assume(i1 %22)
-  %.val.i.i.i23 = load ptr, ptr %23, align 8, !noalias !5642, !nonnull !4, !align !14, !noundef !4
+  %.val.i.i.i22 = load ptr, ptr %23, align 8, !noalias !5642, !nonnull !4, !align !14, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5643)
   %79 = zext i32 %69 to i64
-  %80 = getelementptr inbounds nuw i8, ptr %.val.i.i.i23, i64 16
+  %80 = getelementptr inbounds nuw i8, ptr %.val.i.i.i22, i64 16
   %81 = load i64, ptr %80, align 8, !alias.scope !5643, !noalias !5646, !noundef !4
   %82 = icmp ugt i64 %81, %79
-  br i1 %82, label %"_ZN8wasmtime7runtime13type_registry17TypeRegistryInner18register_rec_group28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hf7c3c8c0d434c5e7E.exit.i.i.i24", label %83, !prof !44
+  br i1 %82, label %"_ZN8wasmtime7runtime13type_registry17TypeRegistryInner18register_rec_group28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hf7c3c8c0d434c5e7E.exit.i.i.i23", label %83, !prof !44
 
 83:                                               ; preds = %78
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %79, i64 noundef %81, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.99edeac83e7bf69e7d9a0be5913f3128.439) #50, !noalias !5648
   unreachable
 
-"_ZN8wasmtime7runtime13type_registry17TypeRegistryInner18register_rec_group28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hf7c3c8c0d434c5e7E.exit.i.i.i24": ; preds = %78
-  %84 = getelementptr inbounds nuw i8, ptr %.val.i.i.i23, i64 8
+"_ZN8wasmtime7runtime13type_registry17TypeRegistryInner18register_rec_group28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hf7c3c8c0d434c5e7E.exit.i.i.i23": ; preds = %78
+  %84 = getelementptr inbounds nuw i8, ptr %.val.i.i.i22, i64 8
   %85 = load ptr, ptr %84, align 8, !alias.scope !5643, !noalias !5646, !nonnull !4, !noundef !4
   %86 = getelementptr inbounds nuw i32, ptr %85, i64 %79
   %87 = load i32, ptr %86, align 4, !noalias !5642, !noundef !4
   br label %88
 
-88:                                               ; preds = %"_ZN8wasmtime7runtime13type_registry17TypeRegistryInner18register_rec_group28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hf7c3c8c0d434c5e7E.exit.i.i.i24", %.critedge.i.i.i20
-  %.sroa.5.0.i.i.i21 = phi i32 [ %77, %.critedge.i.i.i20 ], [ %87, %"_ZN8wasmtime7runtime13type_registry17TypeRegistryInner18register_rec_group28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hf7c3c8c0d434c5e7E.exit.i.i.i24" ]
-  %.sroa.0.0.i.i.i22 = phi i32 [ 2, %.critedge.i.i.i20 ], [ 0, %"_ZN8wasmtime7runtime13type_registry17TypeRegistryInner18register_rec_group28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hf7c3c8c0d434c5e7E.exit.i.i.i24" ]
-  store i32 %.sroa.0.0.i.i.i22, ptr %.sroa.027.037, align 4, !alias.scope !5642
-  store i32 %.sroa.5.0.i.i.i21, ptr %68, align 4, !alias.scope !5642
-  br label %"_ZN73_$LT$wasmtime_types..WasmValType$u20$as$u20$wasmtime_types..TypeTrace$GT$9trace_mut17h23d90899ea3022a0E.exit26"
+88:                                               ; preds = %"_ZN8wasmtime7runtime13type_registry17TypeRegistryInner18register_rec_group28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hf7c3c8c0d434c5e7E.exit.i.i.i23", %.critedge.i.i.i19
+  %.sroa.5.0.i.i.i20 = phi i32 [ %77, %.critedge.i.i.i19 ], [ %87, %"_ZN8wasmtime7runtime13type_registry17TypeRegistryInner18register_rec_group28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hf7c3c8c0d434c5e7E.exit.i.i.i23" ]
+  %.sroa.0.0.i.i.i21 = phi i32 [ 2, %.critedge.i.i.i19 ], [ 0, %"_ZN8wasmtime7runtime13type_registry17TypeRegistryInner18register_rec_group28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hf7c3c8c0d434c5e7E.exit.i.i.i23" ]
+  store i32 %.sroa.0.0.i.i.i21, ptr %.sroa.026.036, align 4, !alias.scope !5642
+  store i32 %.sroa.5.0.i.i.i20, ptr %68, align 4, !alias.scope !5642
+  br label %"_ZN73_$LT$wasmtime_types..WasmValType$u20$as$u20$wasmtime_types..TypeTrace$GT$9trace_mut17h23d90899ea3022a0E.exit25"
 
-"_ZN73_$LT$wasmtime_types..WasmValType$u20$as$u20$wasmtime_types..TypeTrace$GT$9trace_mut17h23d90899ea3022a0E.exit26": ; preds = %57, %61, %66, %88
+"_ZN73_$LT$wasmtime_types..WasmValType$u20$as$u20$wasmtime_types..TypeTrace$GT$9trace_mut17h23d90899ea3022a0E.exit25": ; preds = %57, %61, %66, %88
   %89 = icmp eq ptr %58, %18
-  br i1 %89, label %._crit_edge40, label %57
+  br i1 %89, label %._crit_edge39, label %57
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -17346,12 +17336,12 @@ define hidden noundef zeroext i1 @"_ZN74_$LT$wasmtime_types..WasmFuncType$u20$as
   %14 = load ptr, ptr %13, align 8, !nonnull !4, !align !15, !noundef !4
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load i64, ptr %15, align 8, !noundef !4
-  %.idx38 = mul nsw i64 %16, 12
-  %17 = getelementptr inbounds i8, ptr %14, i64 %.idx38
+  %.idx37 = mul nsw i64 %16, 12
+  %17 = getelementptr inbounds i8, ptr %14, i64 %.idx37
   %18 = icmp eq i64 %16, 0
-  br i1 %18, label %._crit_edge37, label %.lr.ph36
+  br i1 %18, label %._crit_edge36, label %.lr.ph35
 
-.lr.ph36:                                         ; preds = %._crit_edge
+.lr.ph35:                                         ; preds = %._crit_edge
   %.val = load ptr, ptr %1, align 8
   %19 = icmp ne ptr %.val, null
   %20 = getelementptr inbounds nuw i8, ptr %.val, i64 16
@@ -17359,13 +17349,12 @@ define hidden noundef zeroext i1 @"_ZN74_$LT$wasmtime_types..WasmFuncType$u20$as
   br label %60
 
 22:                                               ; preds = %.lr.ph, %"_ZN73_$LT$wasmtime_types..WasmValType$u20$as$u20$wasmtime_types..TypeTrace$GT$9trace_mut17h64ecf3a5a72f4e13E.exit"
-  %.sroa.0.033 = phi ptr [ %5, %.lr.ph ], [ %23, %"_ZN73_$LT$wasmtime_types..WasmValType$u20$as$u20$wasmtime_types..TypeTrace$GT$9trace_mut17h64ecf3a5a72f4e13E.exit" ]
-  %23 = getelementptr inbounds nuw i8, ptr %.sroa.0.033, i64 12
+  %.sroa.0.032 = phi ptr [ %5, %.lr.ph ], [ %23, %"_ZN73_$LT$wasmtime_types..WasmValType$u20$as$u20$wasmtime_types..TypeTrace$GT$9trace_mut17h64ecf3a5a72f4e13E.exit" ]
+  %23 = getelementptr inbounds nuw i8, ptr %.sroa.0.032, i64 12
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5649)
-  %24 = load i32, ptr %.sroa.0.033, align 4, !range !482, !alias.scope !5649, !noundef !4
-  %25 = add nsw i32 %24, -10
-  %switch.i = icmp ult i32 %25, 5
-  br i1 %switch.i, label %"_ZN73_$LT$wasmtime_types..WasmValType$u20$as$u20$wasmtime_types..TypeTrace$GT$9trace_mut17h64ecf3a5a72f4e13E.exit", label %26
+  %24 = load i32, ptr %.sroa.0.032, align 4, !range !482, !alias.scope !5649, !noundef !4
+  %25 = icmp samesign ugt i32 %24, 9
+  br i1 %25, label %"_ZN73_$LT$wasmtime_types..WasmValType$u20$as$u20$wasmtime_types..TypeTrace$GT$9trace_mut17h64ecf3a5a72f4e13E.exit", label %26
 
 26:                                               ; preds = %22
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5652)
@@ -17388,7 +17377,7 @@ default.unreachable5.i.i.i:                       ; preds = %31
 
 32:                                               ; preds = %31
   tail call void @llvm.assume(i1 %10)
-  %33 = getelementptr inbounds nuw i8, ptr %.sroa.0.033, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %.sroa.0.032, i64 4
   %34 = load i32, ptr %33, align 4, !alias.scope !5658, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5659)
   %35 = load ptr, ptr %.val14, align 8, !alias.scope !5659, !noalias !5658, !nonnull !4, !align !15, !noundef !4
@@ -17425,7 +17414,7 @@ default.unreachable5.i.i.i:                       ; preds = %31
 
 "_ZN8wasmtime7runtime13type_registry17TypeRegistryInner18register_rec_group28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hddfd751cc24b9620E.exit.i.i.i": ; preds = %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17hceb6c82dab059baaE.exit.i.i.i.i", %38
   %.06.i.i.i.i = phi i32 [ %53, %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17hceb6c82dab059baaE.exit.i.i.i.i" ], [ %42, %38 ]
-  store i32 0, ptr %.sroa.0.033, align 4, !alias.scope !5658
+  store i32 0, ptr %.sroa.0.032, align 4, !alias.scope !5658
   store i32 %.06.i.i.i.i, ptr %33, align 4, !alias.scope !5658
   br label %"_ZN73_$LT$wasmtime_types..WasmValType$u20$as$u20$wasmtime_types..TypeTrace$GT$9trace_mut17h64ecf3a5a72f4e13E.exit"
 
@@ -17447,17 +17436,16 @@ default.unreachable5.i.i.i:                       ; preds = %31
   %59 = icmp eq ptr %23, %8
   br i1 %59, label %._crit_edge, label %22
 
-._crit_edge37:                                    ; preds = %"_ZN73_$LT$wasmtime_types..WasmValType$u20$as$u20$wasmtime_types..TypeTrace$GT$9trace_mut17h64ecf3a5a72f4e13E.exit22", %._crit_edge
+._crit_edge36:                                    ; preds = %"_ZN73_$LT$wasmtime_types..WasmValType$u20$as$u20$wasmtime_types..TypeTrace$GT$9trace_mut17h64ecf3a5a72f4e13E.exit21", %._crit_edge
   ret i1 false
 
-60:                                               ; preds = %.lr.ph36, %"_ZN73_$LT$wasmtime_types..WasmValType$u20$as$u20$wasmtime_types..TypeTrace$GT$9trace_mut17h64ecf3a5a72f4e13E.exit22"
-  %.sroa.023.034 = phi ptr [ %14, %.lr.ph36 ], [ %61, %"_ZN73_$LT$wasmtime_types..WasmValType$u20$as$u20$wasmtime_types..TypeTrace$GT$9trace_mut17h64ecf3a5a72f4e13E.exit22" ]
-  %61 = getelementptr inbounds nuw i8, ptr %.sroa.023.034, i64 12
+60:                                               ; preds = %.lr.ph35, %"_ZN73_$LT$wasmtime_types..WasmValType$u20$as$u20$wasmtime_types..TypeTrace$GT$9trace_mut17h64ecf3a5a72f4e13E.exit21"
+  %.sroa.022.033 = phi ptr [ %14, %.lr.ph35 ], [ %61, %"_ZN73_$LT$wasmtime_types..WasmValType$u20$as$u20$wasmtime_types..TypeTrace$GT$9trace_mut17h64ecf3a5a72f4e13E.exit21" ]
+  %61 = getelementptr inbounds nuw i8, ptr %.sroa.022.033, i64 12
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5669)
-  %62 = load i32, ptr %.sroa.023.034, align 4, !range !482, !alias.scope !5669, !noundef !4
-  %63 = add nsw i32 %62, -10
-  %switch.i17 = icmp ult i32 %63, 5
-  br i1 %switch.i17, label %"_ZN73_$LT$wasmtime_types..WasmValType$u20$as$u20$wasmtime_types..TypeTrace$GT$9trace_mut17h64ecf3a5a72f4e13E.exit22", label %64
+  %62 = load i32, ptr %.sroa.022.033, align 4, !range !482, !alias.scope !5669, !noundef !4
+  %63 = icmp samesign ugt i32 %62, 9
+  br i1 %63, label %"_ZN73_$LT$wasmtime_types..WasmValType$u20$as$u20$wasmtime_types..TypeTrace$GT$9trace_mut17h64ecf3a5a72f4e13E.exit21", label %64
 
 64:                                               ; preds = %60
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5672)
@@ -17465,22 +17453,22 @@ default.unreachable5.i.i.i:                       ; preds = %31
   %66 = icmp ugt i32 %65, 6
   %67 = icmp eq i32 %65, 2
   %68 = or i1 %66, %67
-  br i1 %68, label %69, label %"_ZN73_$LT$wasmtime_types..WasmValType$u20$as$u20$wasmtime_types..TypeTrace$GT$9trace_mut17h64ecf3a5a72f4e13E.exit22"
+  br i1 %68, label %69, label %"_ZN73_$LT$wasmtime_types..WasmValType$u20$as$u20$wasmtime_types..TypeTrace$GT$9trace_mut17h64ecf3a5a72f4e13E.exit21"
 
 69:                                               ; preds = %64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5675)
-  switch i32 %62, label %default.unreachable5.i.i.i21 [
-    i32 0, label %"_ZN73_$LT$wasmtime_types..WasmValType$u20$as$u20$wasmtime_types..TypeTrace$GT$9trace_mut17h64ecf3a5a72f4e13E.exit22"
+  switch i32 %62, label %default.unreachable5.i.i.i20 [
+    i32 0, label %"_ZN73_$LT$wasmtime_types..WasmValType$u20$as$u20$wasmtime_types..TypeTrace$GT$9trace_mut17h64ecf3a5a72f4e13E.exit21"
     i32 1, label %70
     i32 2, label %92
   ]
 
-default.unreachable5.i.i.i21:                     ; preds = %69
+default.unreachable5.i.i.i20:                     ; preds = %69
   unreachable
 
 70:                                               ; preds = %69
   tail call void @llvm.assume(i1 %19)
-  %71 = getelementptr inbounds nuw i8, ptr %.sroa.023.034, i64 4
+  %71 = getelementptr inbounds nuw i8, ptr %.sroa.022.033, i64 4
   %72 = load i32, ptr %71, align 4, !alias.scope !5678, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5679)
   %73 = load ptr, ptr %.val, align 8, !alias.scope !5679, !noalias !5678, !nonnull !4, !align !15, !noundef !4
@@ -17493,7 +17481,7 @@ default.unreachable5.i.i.i21:                     ; preds = %69
   %78 = load ptr, ptr %20, align 8, !alias.scope !5679, !noalias !5678, !nonnull !4, !align !15, !noundef !4
   %79 = load i32, ptr %78, align 4, !noalias !5682, !noundef !4
   %80 = add i32 %77, %79
-  br label %"_ZN8wasmtime7runtime13type_registry17TypeRegistryInner18register_rec_group28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hddfd751cc24b9620E.exit.i.i.i18"
+  br label %"_ZN8wasmtime7runtime13type_registry17TypeRegistryInner18register_rec_group28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hddfd751cc24b9620E.exit.i.i.i17"
 
 81:                                               ; preds = %70
   %82 = load ptr, ptr %21, align 8, !alias.scope !5679, !noalias !5678, !nonnull !4, !align !14, !noundef !4
@@ -17502,24 +17490,24 @@ default.unreachable5.i.i.i21:                     ; preds = %69
   %84 = getelementptr inbounds nuw i8, ptr %82, i64 16
   %85 = load i64, ptr %84, align 8, !alias.scope !5683, !noalias !5686, !noundef !4
   %86 = icmp ugt i64 %85, %83
-  br i1 %86, label %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17hceb6c82dab059baaE.exit.i.i.i.i20", label %87, !prof !44
+  br i1 %86, label %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17hceb6c82dab059baaE.exit.i.i.i.i19", label %87, !prof !44
 
 87:                                               ; preds = %81
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %83, i64 noundef %85, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.99edeac83e7bf69e7d9a0be5913f3128.442) #50, !noalias !5688
   unreachable
 
-"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17hceb6c82dab059baaE.exit.i.i.i.i20": ; preds = %81
+"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17hceb6c82dab059baaE.exit.i.i.i.i19": ; preds = %81
   %88 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %89 = load ptr, ptr %88, align 8, !alias.scope !5683, !noalias !5686, !nonnull !4, !noundef !4
   %90 = getelementptr inbounds nuw i32, ptr %89, i64 %83
   %91 = load i32, ptr %90, align 4, !noalias !5682, !noundef !4
-  br label %"_ZN8wasmtime7runtime13type_registry17TypeRegistryInner18register_rec_group28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hddfd751cc24b9620E.exit.i.i.i18"
+  br label %"_ZN8wasmtime7runtime13type_registry17TypeRegistryInner18register_rec_group28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hddfd751cc24b9620E.exit.i.i.i17"
 
-"_ZN8wasmtime7runtime13type_registry17TypeRegistryInner18register_rec_group28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hddfd751cc24b9620E.exit.i.i.i18": ; preds = %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17hceb6c82dab059baaE.exit.i.i.i.i20", %76
-  %.06.i.i.i.i19 = phi i32 [ %91, %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17hceb6c82dab059baaE.exit.i.i.i.i20" ], [ %80, %76 ]
-  store i32 0, ptr %.sroa.023.034, align 4, !alias.scope !5678
-  store i32 %.06.i.i.i.i19, ptr %71, align 4, !alias.scope !5678
-  br label %"_ZN73_$LT$wasmtime_types..WasmValType$u20$as$u20$wasmtime_types..TypeTrace$GT$9trace_mut17h64ecf3a5a72f4e13E.exit22"
+"_ZN8wasmtime7runtime13type_registry17TypeRegistryInner18register_rec_group28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hddfd751cc24b9620E.exit.i.i.i17": ; preds = %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17hceb6c82dab059baaE.exit.i.i.i.i19", %76
+  %.06.i.i.i.i18 = phi i32 [ %91, %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17hceb6c82dab059baaE.exit.i.i.i.i19" ], [ %80, %76 ]
+  store i32 0, ptr %.sroa.022.033, align 4, !alias.scope !5678
+  store i32 %.06.i.i.i.i18, ptr %71, align 4, !alias.scope !5678
+  br label %"_ZN73_$LT$wasmtime_types..WasmValType$u20$as$u20$wasmtime_types..TypeTrace$GT$9trace_mut17h64ecf3a5a72f4e13E.exit21"
 
 92:                                               ; preds = %69
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !5678
@@ -17535,9 +17523,9 @@ default.unreachable5.i.i.i21:                     ; preds = %69
   call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.99edeac83e7bf69e7d9a0be5913f3128.131) #50, !noalias !5678
   unreachable
 
-"_ZN73_$LT$wasmtime_types..WasmValType$u20$as$u20$wasmtime_types..TypeTrace$GT$9trace_mut17h64ecf3a5a72f4e13E.exit22": ; preds = %60, %64, %69, %"_ZN8wasmtime7runtime13type_registry17TypeRegistryInner18register_rec_group28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hddfd751cc24b9620E.exit.i.i.i18"
+"_ZN73_$LT$wasmtime_types..WasmValType$u20$as$u20$wasmtime_types..TypeTrace$GT$9trace_mut17h64ecf3a5a72f4e13E.exit21": ; preds = %60, %64, %69, %"_ZN8wasmtime7runtime13type_registry17TypeRegistryInner18register_rec_group28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hddfd751cc24b9620E.exit.i.i.i17"
   %97 = icmp eq ptr %61, %17
-  br i1 %97, label %._crit_edge37, label %60
+  br i1 %97, label %._crit_edge36, label %60
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -17564,12 +17552,12 @@ define hidden noundef zeroext i1 @"_ZN74_$LT$wasmtime_types..WasmFuncType$u20$as
   %14 = load ptr, ptr %13, align 8, !nonnull !4, !align !15, !noundef !4
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load i64, ptr %15, align 8, !noundef !4
-  %.idx38 = mul nsw i64 %16, 12
-  %17 = getelementptr inbounds i8, ptr %14, i64 %.idx38
+  %.idx37 = mul nsw i64 %16, 12
+  %17 = getelementptr inbounds i8, ptr %14, i64 %.idx37
   %18 = icmp eq i64 %16, 0
-  br i1 %18, label %._crit_edge37, label %.lr.ph36
+  br i1 %18, label %._crit_edge36, label %.lr.ph35
 
-.lr.ph36:                                         ; preds = %._crit_edge
+.lr.ph35:                                         ; preds = %._crit_edge
   %.val = load ptr, ptr %1, align 8
   %19 = icmp ne ptr %.val, null
   %20 = getelementptr inbounds nuw i8, ptr %.val, i64 16
@@ -17577,13 +17565,12 @@ define hidden noundef zeroext i1 @"_ZN74_$LT$wasmtime_types..WasmFuncType$u20$as
   br label %60
 
 22:                                               ; preds = %.lr.ph, %"_ZN73_$LT$wasmtime_types..WasmValType$u20$as$u20$wasmtime_types..TypeTrace$GT$9trace_mut17h0fb09d17fc83bb7aE.exit"
-  %.sroa.0.033 = phi ptr [ %5, %.lr.ph ], [ %23, %"_ZN73_$LT$wasmtime_types..WasmValType$u20$as$u20$wasmtime_types..TypeTrace$GT$9trace_mut17h0fb09d17fc83bb7aE.exit" ]
-  %23 = getelementptr inbounds nuw i8, ptr %.sroa.0.033, i64 12
+  %.sroa.0.032 = phi ptr [ %5, %.lr.ph ], [ %23, %"_ZN73_$LT$wasmtime_types..WasmValType$u20$as$u20$wasmtime_types..TypeTrace$GT$9trace_mut17h0fb09d17fc83bb7aE.exit" ]
+  %23 = getelementptr inbounds nuw i8, ptr %.sroa.0.032, i64 12
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5689)
-  %24 = load i32, ptr %.sroa.0.033, align 4, !range !482, !alias.scope !5689, !noundef !4
-  %25 = add nsw i32 %24, -10
-  %switch.i = icmp ult i32 %25, 5
-  br i1 %switch.i, label %"_ZN73_$LT$wasmtime_types..WasmValType$u20$as$u20$wasmtime_types..TypeTrace$GT$9trace_mut17h0fb09d17fc83bb7aE.exit", label %26
+  %24 = load i32, ptr %.sroa.0.032, align 4, !range !482, !alias.scope !5689, !noundef !4
+  %25 = icmp samesign ugt i32 %24, 9
+  br i1 %25, label %"_ZN73_$LT$wasmtime_types..WasmValType$u20$as$u20$wasmtime_types..TypeTrace$GT$9trace_mut17h0fb09d17fc83bb7aE.exit", label %26
 
 26:                                               ; preds = %22
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5692)
@@ -17606,7 +17593,7 @@ default.unreachable5.i.i.i:                       ; preds = %31
 
 32:                                               ; preds = %31
   tail call void @llvm.assume(i1 %10)
-  %33 = getelementptr inbounds nuw i8, ptr %.sroa.0.033, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %.sroa.0.032, i64 4
   %34 = load i32, ptr %33, align 4, !alias.scope !5698, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5699)
   %35 = load ptr, ptr %.val14, align 8, !alias.scope !5699, !noalias !5698, !nonnull !4, !align !15, !noundef !4
@@ -17643,7 +17630,7 @@ default.unreachable5.i.i.i:                       ; preds = %31
 
 "_ZN8wasmtime7runtime13type_registry17TypeRegistryInner18register_rec_group28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1053340b96a3ff79E.exit.i.i.i": ; preds = %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17hceb6c82dab059baaE.exit.i.i.i.i", %38
   %.06.i.i.i.i = phi i32 [ %53, %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17hceb6c82dab059baaE.exit.i.i.i.i" ], [ %42, %38 ]
-  store i32 0, ptr %.sroa.0.033, align 4, !alias.scope !5698
+  store i32 0, ptr %.sroa.0.032, align 4, !alias.scope !5698
   store i32 %.06.i.i.i.i, ptr %33, align 4, !alias.scope !5698
   br label %"_ZN73_$LT$wasmtime_types..WasmValType$u20$as$u20$wasmtime_types..TypeTrace$GT$9trace_mut17h0fb09d17fc83bb7aE.exit"
 
@@ -17665,17 +17652,16 @@ default.unreachable5.i.i.i:                       ; preds = %31
   %59 = icmp eq ptr %23, %8
   br i1 %59, label %._crit_edge, label %22
 
-._crit_edge37:                                    ; preds = %"_ZN73_$LT$wasmtime_types..WasmValType$u20$as$u20$wasmtime_types..TypeTrace$GT$9trace_mut17h0fb09d17fc83bb7aE.exit22", %._crit_edge
+._crit_edge36:                                    ; preds = %"_ZN73_$LT$wasmtime_types..WasmValType$u20$as$u20$wasmtime_types..TypeTrace$GT$9trace_mut17h0fb09d17fc83bb7aE.exit21", %._crit_edge
   ret i1 false
 
-60:                                               ; preds = %.lr.ph36, %"_ZN73_$LT$wasmtime_types..WasmValType$u20$as$u20$wasmtime_types..TypeTrace$GT$9trace_mut17h0fb09d17fc83bb7aE.exit22"
-  %.sroa.023.034 = phi ptr [ %14, %.lr.ph36 ], [ %61, %"_ZN73_$LT$wasmtime_types..WasmValType$u20$as$u20$wasmtime_types..TypeTrace$GT$9trace_mut17h0fb09d17fc83bb7aE.exit22" ]
-  %61 = getelementptr inbounds nuw i8, ptr %.sroa.023.034, i64 12
+60:                                               ; preds = %.lr.ph35, %"_ZN73_$LT$wasmtime_types..WasmValType$u20$as$u20$wasmtime_types..TypeTrace$GT$9trace_mut17h0fb09d17fc83bb7aE.exit21"
+  %.sroa.022.033 = phi ptr [ %14, %.lr.ph35 ], [ %61, %"_ZN73_$LT$wasmtime_types..WasmValType$u20$as$u20$wasmtime_types..TypeTrace$GT$9trace_mut17h0fb09d17fc83bb7aE.exit21" ]
+  %61 = getelementptr inbounds nuw i8, ptr %.sroa.022.033, i64 12
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5709)
-  %62 = load i32, ptr %.sroa.023.034, align 4, !range !482, !alias.scope !5709, !noundef !4
-  %63 = add nsw i32 %62, -10
-  %switch.i17 = icmp ult i32 %63, 5
-  br i1 %switch.i17, label %"_ZN73_$LT$wasmtime_types..WasmValType$u20$as$u20$wasmtime_types..TypeTrace$GT$9trace_mut17h0fb09d17fc83bb7aE.exit22", label %64
+  %62 = load i32, ptr %.sroa.022.033, align 4, !range !482, !alias.scope !5709, !noundef !4
+  %63 = icmp samesign ugt i32 %62, 9
+  br i1 %63, label %"_ZN73_$LT$wasmtime_types..WasmValType$u20$as$u20$wasmtime_types..TypeTrace$GT$9trace_mut17h0fb09d17fc83bb7aE.exit21", label %64
 
 64:                                               ; preds = %60
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5712)
@@ -17683,22 +17669,22 @@ default.unreachable5.i.i.i:                       ; preds = %31
   %66 = icmp ugt i32 %65, 6
   %67 = icmp eq i32 %65, 2
   %68 = or i1 %66, %67
-  br i1 %68, label %69, label %"_ZN73_$LT$wasmtime_types..WasmValType$u20$as$u20$wasmtime_types..TypeTrace$GT$9trace_mut17h0fb09d17fc83bb7aE.exit22"
+  br i1 %68, label %69, label %"_ZN73_$LT$wasmtime_types..WasmValType$u20$as$u20$wasmtime_types..TypeTrace$GT$9trace_mut17h0fb09d17fc83bb7aE.exit21"
 
 69:                                               ; preds = %64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5715)
-  switch i32 %62, label %default.unreachable5.i.i.i21 [
-    i32 0, label %"_ZN73_$LT$wasmtime_types..WasmValType$u20$as$u20$wasmtime_types..TypeTrace$GT$9trace_mut17h0fb09d17fc83bb7aE.exit22"
+  switch i32 %62, label %default.unreachable5.i.i.i20 [
+    i32 0, label %"_ZN73_$LT$wasmtime_types..WasmValType$u20$as$u20$wasmtime_types..TypeTrace$GT$9trace_mut17h0fb09d17fc83bb7aE.exit21"
     i32 1, label %70
     i32 2, label %92
   ]
 
-default.unreachable5.i.i.i21:                     ; preds = %69
+default.unreachable5.i.i.i20:                     ; preds = %69
   unreachable
 
 70:                                               ; preds = %69
   tail call void @llvm.assume(i1 %19)
-  %71 = getelementptr inbounds nuw i8, ptr %.sroa.023.034, i64 4
+  %71 = getelementptr inbounds nuw i8, ptr %.sroa.022.033, i64 4
   %72 = load i32, ptr %71, align 4, !alias.scope !5718, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5719)
   %73 = load ptr, ptr %.val, align 8, !alias.scope !5719, !noalias !5718, !nonnull !4, !align !15, !noundef !4
@@ -17711,7 +17697,7 @@ default.unreachable5.i.i.i21:                     ; preds = %69
   %78 = load ptr, ptr %20, align 8, !alias.scope !5719, !noalias !5718, !nonnull !4, !align !15, !noundef !4
   %79 = load i32, ptr %78, align 4, !noalias !5722, !noundef !4
   %80 = add i32 %77, %79
-  br label %"_ZN8wasmtime7runtime13type_registry17TypeRegistryInner18register_rec_group28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1053340b96a3ff79E.exit.i.i.i18"
+  br label %"_ZN8wasmtime7runtime13type_registry17TypeRegistryInner18register_rec_group28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1053340b96a3ff79E.exit.i.i.i17"
 
 81:                                               ; preds = %70
   %82 = load ptr, ptr %21, align 8, !alias.scope !5719, !noalias !5718, !nonnull !4, !align !14, !noundef !4
@@ -17720,24 +17706,24 @@ default.unreachable5.i.i.i21:                     ; preds = %69
   %84 = getelementptr inbounds nuw i8, ptr %82, i64 16
   %85 = load i64, ptr %84, align 8, !alias.scope !5723, !noalias !5726, !noundef !4
   %86 = icmp ugt i64 %85, %83
-  br i1 %86, label %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17hceb6c82dab059baaE.exit.i.i.i.i20", label %87, !prof !44
+  br i1 %86, label %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17hceb6c82dab059baaE.exit.i.i.i.i19", label %87, !prof !44
 
 87:                                               ; preds = %81
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %83, i64 noundef %85, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.99edeac83e7bf69e7d9a0be5913f3128.442) #50, !noalias !5728
   unreachable
 
-"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17hceb6c82dab059baaE.exit.i.i.i.i20": ; preds = %81
+"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17hceb6c82dab059baaE.exit.i.i.i.i19": ; preds = %81
   %88 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %89 = load ptr, ptr %88, align 8, !alias.scope !5723, !noalias !5726, !nonnull !4, !noundef !4
   %90 = getelementptr inbounds nuw i32, ptr %89, i64 %83
   %91 = load i32, ptr %90, align 4, !noalias !5722, !noundef !4
-  br label %"_ZN8wasmtime7runtime13type_registry17TypeRegistryInner18register_rec_group28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1053340b96a3ff79E.exit.i.i.i18"
+  br label %"_ZN8wasmtime7runtime13type_registry17TypeRegistryInner18register_rec_group28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1053340b96a3ff79E.exit.i.i.i17"
 
-"_ZN8wasmtime7runtime13type_registry17TypeRegistryInner18register_rec_group28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1053340b96a3ff79E.exit.i.i.i18": ; preds = %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17hceb6c82dab059baaE.exit.i.i.i.i20", %76
-  %.06.i.i.i.i19 = phi i32 [ %91, %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17hceb6c82dab059baaE.exit.i.i.i.i20" ], [ %80, %76 ]
-  store i32 0, ptr %.sroa.023.034, align 4, !alias.scope !5718
-  store i32 %.06.i.i.i.i19, ptr %71, align 4, !alias.scope !5718
-  br label %"_ZN73_$LT$wasmtime_types..WasmValType$u20$as$u20$wasmtime_types..TypeTrace$GT$9trace_mut17h0fb09d17fc83bb7aE.exit22"
+"_ZN8wasmtime7runtime13type_registry17TypeRegistryInner18register_rec_group28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1053340b96a3ff79E.exit.i.i.i17": ; preds = %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17hceb6c82dab059baaE.exit.i.i.i.i19", %76
+  %.06.i.i.i.i18 = phi i32 [ %91, %"_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17hceb6c82dab059baaE.exit.i.i.i.i19" ], [ %80, %76 ]
+  store i32 0, ptr %.sroa.022.033, align 4, !alias.scope !5718
+  store i32 %.06.i.i.i.i18, ptr %71, align 4, !alias.scope !5718
+  br label %"_ZN73_$LT$wasmtime_types..WasmValType$u20$as$u20$wasmtime_types..TypeTrace$GT$9trace_mut17h0fb09d17fc83bb7aE.exit21"
 
 92:                                               ; preds = %69
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !5718
@@ -17753,9 +17739,9 @@ default.unreachable5.i.i.i21:                     ; preds = %69
   call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.99edeac83e7bf69e7d9a0be5913f3128.131) #50, !noalias !5718
   unreachable
 
-"_ZN73_$LT$wasmtime_types..WasmValType$u20$as$u20$wasmtime_types..TypeTrace$GT$9trace_mut17h0fb09d17fc83bb7aE.exit22": ; preds = %60, %64, %69, %"_ZN8wasmtime7runtime13type_registry17TypeRegistryInner18register_rec_group28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1053340b96a3ff79E.exit.i.i.i18"
+"_ZN73_$LT$wasmtime_types..WasmValType$u20$as$u20$wasmtime_types..TypeTrace$GT$9trace_mut17h0fb09d17fc83bb7aE.exit21": ; preds = %60, %64, %69, %"_ZN8wasmtime7runtime13type_registry17TypeRegistryInner18register_rec_group28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1053340b96a3ff79E.exit.i.i.i17"
   %97 = icmp eq ptr %61, %17
-  br i1 %97, label %._crit_edge37, label %60
+  br i1 %97, label %._crit_edge36, label %60
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -17784,12 +17770,12 @@ define hidden noundef zeroext i1 @"_ZN74_$LT$wasmtime_types..WasmFuncType$u20$as
   %15 = load ptr, ptr %14, align 8, !nonnull !4, !align !15, !noundef !4
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %17 = load i64, ptr %16, align 8, !noundef !4
-  %.idx41 = mul nsw i64 %17, 12
-  %18 = getelementptr inbounds i8, ptr %15, i64 %.idx41
+  %.idx40 = mul nsw i64 %17, 12
+  %18 = getelementptr inbounds i8, ptr %15, i64 %.idx40
   %19 = icmp eq i64 %17, 0
-  br i1 %19, label %._crit_edge40, label %.lr.ph39
+  br i1 %19, label %._crit_edge39, label %.lr.ph38
 
-.lr.ph39:                                         ; preds = %._crit_edge
+.lr.ph38:                                         ; preds = %._crit_edge
   %.val = load ptr, ptr %1, align 8
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val14 = load ptr, ptr %20, align 8
@@ -17799,13 +17785,12 @@ define hidden noundef zeroext i1 @"_ZN74_$LT$wasmtime_types..WasmFuncType$u20$as
   br label %57
 
 24:                                               ; preds = %.lr.ph, %"_ZN73_$LT$wasmtime_types..WasmValType$u20$as$u20$wasmtime_types..TypeTrace$GT$9trace_mut17hc9a97e5e839a9296E.exit"
-  %.sroa.0.036 = phi ptr [ %5, %.lr.ph ], [ %25, %"_ZN73_$LT$wasmtime_types..WasmValType$u20$as$u20$wasmtime_types..TypeTrace$GT$9trace_mut17hc9a97e5e839a9296E.exit" ]
-  %25 = getelementptr inbounds nuw i8, ptr %.sroa.0.036, i64 12
+  %.sroa.0.035 = phi ptr [ %5, %.lr.ph ], [ %25, %"_ZN73_$LT$wasmtime_types..WasmValType$u20$as$u20$wasmtime_types..TypeTrace$GT$9trace_mut17hc9a97e5e839a9296E.exit" ]
+  %25 = getelementptr inbounds nuw i8, ptr %.sroa.0.035, i64 12
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5729)
-  %26 = load i32, ptr %.sroa.0.036, align 4, !range !482, !alias.scope !5729, !noundef !4
-  %27 = add nsw i32 %26, -10
-  %switch.i = icmp ult i32 %27, 5
-  br i1 %switch.i, label %"_ZN73_$LT$wasmtime_types..WasmValType$u20$as$u20$wasmtime_types..TypeTrace$GT$9trace_mut17hc9a97e5e839a9296E.exit", label %28
+  %26 = load i32, ptr %.sroa.0.035, align 4, !range !482, !alias.scope !5729, !noundef !4
+  %27 = icmp samesign ugt i32 %26, 9
+  br i1 %27, label %"_ZN73_$LT$wasmtime_types..WasmValType$u20$as$u20$wasmtime_types..TypeTrace$GT$9trace_mut17hc9a97e5e839a9296E.exit", label %28
 
 28:                                               ; preds = %24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5732)
@@ -17827,7 +17812,7 @@ default.unreachable5.i.i.i:                       ; preds = %33
   unreachable
 
 34:                                               ; preds = %33
-  %35 = getelementptr inbounds nuw i8, ptr %.sroa.0.036, i64 4
+  %35 = getelementptr inbounds nuw i8, ptr %.sroa.0.035, i64 4
   %36 = load i32, ptr %35, align 4, !alias.scope !5738, !noundef !4
   tail call void @llvm.assume(i1 %11)
   %37 = load i32, ptr %.val15, align 4, !noalias !5738, !noundef !4
@@ -17876,7 +17861,7 @@ default.unreachable5.i.i.i:                       ; preds = %33
 55:                                               ; preds = %"_ZN8wasmtime7runtime13type_registry17TypeRegistryInner18register_rec_group28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h54e28b6ad620d560E.exit.i.i.i", %.critedge.i.i.i
   %.sroa.5.0.i.i.i = phi i32 [ %44, %.critedge.i.i.i ], [ %54, %"_ZN8wasmtime7runtime13type_registry17TypeRegistryInner18register_rec_group28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h54e28b6ad620d560E.exit.i.i.i" ]
   %.sroa.0.0.i.i.i = phi i32 [ 2, %.critedge.i.i.i ], [ 0, %"_ZN8wasmtime7runtime13type_registry17TypeRegistryInner18register_rec_group28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h54e28b6ad620d560E.exit.i.i.i" ]
-  store i32 %.sroa.0.0.i.i.i, ptr %.sroa.0.036, align 4, !alias.scope !5738
+  store i32 %.sroa.0.0.i.i.i, ptr %.sroa.0.035, align 4, !alias.scope !5738
   store i32 %.sroa.5.0.i.i.i, ptr %35, align 4, !alias.scope !5738
   br label %"_ZN73_$LT$wasmtime_types..WasmValType$u20$as$u20$wasmtime_types..TypeTrace$GT$9trace_mut17hc9a97e5e839a9296E.exit"
 
@@ -17884,17 +17869,16 @@ default.unreachable5.i.i.i:                       ; preds = %33
   %56 = icmp eq ptr %25, %8
   br i1 %56, label %._crit_edge, label %24
 
-._crit_edge40:                                    ; preds = %"_ZN73_$LT$wasmtime_types..WasmValType$u20$as$u20$wasmtime_types..TypeTrace$GT$9trace_mut17hc9a97e5e839a9296E.exit26", %._crit_edge
+._crit_edge39:                                    ; preds = %"_ZN73_$LT$wasmtime_types..WasmValType$u20$as$u20$wasmtime_types..TypeTrace$GT$9trace_mut17hc9a97e5e839a9296E.exit25", %._crit_edge
   ret i1 false
 
-57:                                               ; preds = %.lr.ph39, %"_ZN73_$LT$wasmtime_types..WasmValType$u20$as$u20$wasmtime_types..TypeTrace$GT$9trace_mut17hc9a97e5e839a9296E.exit26"
-  %.sroa.027.037 = phi ptr [ %15, %.lr.ph39 ], [ %58, %"_ZN73_$LT$wasmtime_types..WasmValType$u20$as$u20$wasmtime_types..TypeTrace$GT$9trace_mut17hc9a97e5e839a9296E.exit26" ]
-  %58 = getelementptr inbounds nuw i8, ptr %.sroa.027.037, i64 12
+57:                                               ; preds = %.lr.ph38, %"_ZN73_$LT$wasmtime_types..WasmValType$u20$as$u20$wasmtime_types..TypeTrace$GT$9trace_mut17hc9a97e5e839a9296E.exit25"
+  %.sroa.026.036 = phi ptr [ %15, %.lr.ph38 ], [ %58, %"_ZN73_$LT$wasmtime_types..WasmValType$u20$as$u20$wasmtime_types..TypeTrace$GT$9trace_mut17hc9a97e5e839a9296E.exit25" ]
+  %58 = getelementptr inbounds nuw i8, ptr %.sroa.026.036, i64 12
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5745)
-  %59 = load i32, ptr %.sroa.027.037, align 4, !range !482, !alias.scope !5745, !noundef !4
-  %60 = add nsw i32 %59, -10
-  %switch.i19 = icmp ult i32 %60, 5
-  br i1 %switch.i19, label %"_ZN73_$LT$wasmtime_types..WasmValType$u20$as$u20$wasmtime_types..TypeTrace$GT$9trace_mut17hc9a97e5e839a9296E.exit26", label %61
+  %59 = load i32, ptr %.sroa.026.036, align 4, !range !482, !alias.scope !5745, !noundef !4
+  %60 = icmp samesign ugt i32 %59, 9
+  br i1 %60, label %"_ZN73_$LT$wasmtime_types..WasmValType$u20$as$u20$wasmtime_types..TypeTrace$GT$9trace_mut17hc9a97e5e839a9296E.exit25", label %61
 
 61:                                               ; preds = %57
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5748)
@@ -17902,26 +17886,26 @@ default.unreachable5.i.i.i:                       ; preds = %33
   %63 = icmp ugt i32 %62, 6
   %64 = icmp eq i32 %62, 2
   %65 = or i1 %63, %64
-  br i1 %65, label %66, label %"_ZN73_$LT$wasmtime_types..WasmValType$u20$as$u20$wasmtime_types..TypeTrace$GT$9trace_mut17hc9a97e5e839a9296E.exit26"
+  br i1 %65, label %66, label %"_ZN73_$LT$wasmtime_types..WasmValType$u20$as$u20$wasmtime_types..TypeTrace$GT$9trace_mut17hc9a97e5e839a9296E.exit25"
 
 66:                                               ; preds = %61
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5751)
-  switch i32 %59, label %default.unreachable5.i.i.i25 [
-    i32 0, label %"_ZN73_$LT$wasmtime_types..WasmValType$u20$as$u20$wasmtime_types..TypeTrace$GT$9trace_mut17hc9a97e5e839a9296E.exit26"
+  switch i32 %59, label %default.unreachable5.i.i.i24 [
+    i32 0, label %"_ZN73_$LT$wasmtime_types..WasmValType$u20$as$u20$wasmtime_types..TypeTrace$GT$9trace_mut17hc9a97e5e839a9296E.exit25"
     i32 1, label %67
     i32 2, label %72
   ]
 
-default.unreachable5.i.i.i25:                     ; preds = %66
+default.unreachable5.i.i.i24:                     ; preds = %66
   unreachable
 
 67:                                               ; preds = %66
-  %68 = getelementptr inbounds nuw i8, ptr %.sroa.027.037, i64 4
+  %68 = getelementptr inbounds nuw i8, ptr %.sroa.026.036, i64 4
   %69 = load i32, ptr %68, align 4, !alias.scope !5754, !noundef !4
   tail call void @llvm.assume(i1 %21)
   %70 = load i32, ptr %.val, align 4, !noalias !5754, !noundef !4
   %71 = icmp ugt i32 %70, %69
-  br i1 %71, label %78, label %.critedge.i.i.i20
+  br i1 %71, label %78, label %.critedge.i.i.i19
 
 72:                                               ; preds = %66
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !5754
@@ -17937,41 +17921,41 @@ default.unreachable5.i.i.i25:                     ; preds = %66
   call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.99edeac83e7bf69e7d9a0be5913f3128.129) #50, !noalias !5754
   unreachable
 
-.critedge.i.i.i20:                                ; preds = %67
+.critedge.i.i.i19:                                ; preds = %67
   %77 = sub nuw i32 %69, %70
   br label %88
 
 78:                                               ; preds = %67
   tail call void @llvm.assume(i1 %22)
-  %.val.i.i.i23 = load ptr, ptr %23, align 8, !noalias !5754, !nonnull !4, !align !14, !noundef !4
+  %.val.i.i.i22 = load ptr, ptr %23, align 8, !noalias !5754, !nonnull !4, !align !14, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5755)
   %79 = zext i32 %69 to i64
-  %80 = getelementptr inbounds nuw i8, ptr %.val.i.i.i23, i64 16
+  %80 = getelementptr inbounds nuw i8, ptr %.val.i.i.i22, i64 16
   %81 = load i64, ptr %80, align 8, !alias.scope !5755, !noalias !5758, !noundef !4
   %82 = icmp ugt i64 %81, %79
-  br i1 %82, label %"_ZN8wasmtime7runtime13type_registry17TypeRegistryInner18register_rec_group28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h54e28b6ad620d560E.exit.i.i.i24", label %83, !prof !44
+  br i1 %82, label %"_ZN8wasmtime7runtime13type_registry17TypeRegistryInner18register_rec_group28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h54e28b6ad620d560E.exit.i.i.i23", label %83, !prof !44
 
 83:                                               ; preds = %78
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %79, i64 noundef %81, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.99edeac83e7bf69e7d9a0be5913f3128.439) #50, !noalias !5760
   unreachable
 
-"_ZN8wasmtime7runtime13type_registry17TypeRegistryInner18register_rec_group28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h54e28b6ad620d560E.exit.i.i.i24": ; preds = %78
-  %84 = getelementptr inbounds nuw i8, ptr %.val.i.i.i23, i64 8
+"_ZN8wasmtime7runtime13type_registry17TypeRegistryInner18register_rec_group28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h54e28b6ad620d560E.exit.i.i.i23": ; preds = %78
+  %84 = getelementptr inbounds nuw i8, ptr %.val.i.i.i22, i64 8
   %85 = load ptr, ptr %84, align 8, !alias.scope !5755, !noalias !5758, !nonnull !4, !noundef !4
   %86 = getelementptr inbounds nuw i32, ptr %85, i64 %79
   %87 = load i32, ptr %86, align 4, !noalias !5754, !noundef !4
   br label %88
 
-88:                                               ; preds = %"_ZN8wasmtime7runtime13type_registry17TypeRegistryInner18register_rec_group28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h54e28b6ad620d560E.exit.i.i.i24", %.critedge.i.i.i20
-  %.sroa.5.0.i.i.i21 = phi i32 [ %77, %.critedge.i.i.i20 ], [ %87, %"_ZN8wasmtime7runtime13type_registry17TypeRegistryInner18register_rec_group28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h54e28b6ad620d560E.exit.i.i.i24" ]
-  %.sroa.0.0.i.i.i22 = phi i32 [ 2, %.critedge.i.i.i20 ], [ 0, %"_ZN8wasmtime7runtime13type_registry17TypeRegistryInner18register_rec_group28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h54e28b6ad620d560E.exit.i.i.i24" ]
-  store i32 %.sroa.0.0.i.i.i22, ptr %.sroa.027.037, align 4, !alias.scope !5754
-  store i32 %.sroa.5.0.i.i.i21, ptr %68, align 4, !alias.scope !5754
-  br label %"_ZN73_$LT$wasmtime_types..WasmValType$u20$as$u20$wasmtime_types..TypeTrace$GT$9trace_mut17hc9a97e5e839a9296E.exit26"
+88:                                               ; preds = %"_ZN8wasmtime7runtime13type_registry17TypeRegistryInner18register_rec_group28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h54e28b6ad620d560E.exit.i.i.i23", %.critedge.i.i.i19
+  %.sroa.5.0.i.i.i20 = phi i32 [ %77, %.critedge.i.i.i19 ], [ %87, %"_ZN8wasmtime7runtime13type_registry17TypeRegistryInner18register_rec_group28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h54e28b6ad620d560E.exit.i.i.i23" ]
+  %.sroa.0.0.i.i.i21 = phi i32 [ 2, %.critedge.i.i.i19 ], [ 0, %"_ZN8wasmtime7runtime13type_registry17TypeRegistryInner18register_rec_group28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h54e28b6ad620d560E.exit.i.i.i23" ]
+  store i32 %.sroa.0.0.i.i.i21, ptr %.sroa.026.036, align 4, !alias.scope !5754
+  store i32 %.sroa.5.0.i.i.i20, ptr %68, align 4, !alias.scope !5754
+  br label %"_ZN73_$LT$wasmtime_types..WasmValType$u20$as$u20$wasmtime_types..TypeTrace$GT$9trace_mut17hc9a97e5e839a9296E.exit25"
 
-"_ZN73_$LT$wasmtime_types..WasmValType$u20$as$u20$wasmtime_types..TypeTrace$GT$9trace_mut17hc9a97e5e839a9296E.exit26": ; preds = %57, %61, %66, %88
+"_ZN73_$LT$wasmtime_types..WasmValType$u20$as$u20$wasmtime_types..TypeTrace$GT$9trace_mut17hc9a97e5e839a9296E.exit25": ; preds = %57, %61, %66, %88
   %89 = icmp eq ptr %58, %18
-  br i1 %89, label %._crit_edge40, label %57
+  br i1 %89, label %._crit_edge39, label %57
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -31390,9 +31374,8 @@ define hidden noundef i32 @_ZN8wasmtime7runtime13type_registry17TypeRegistryInne
   %.sroa.0.015.i = phi ptr [ %24, %.critedge.backedge.i ], [ %13, %3 ]
   %24 = getelementptr inbounds nuw i8, ptr %.sroa.0.015.i, i64 12
   %.val18.i = load i32, ptr %.sroa.0.015.i, align 4, !range !482, !noalias !8330, !noundef !4
-  %25 = add nsw i32 %.val18.i, -10
-  %switch.i.i = icmp ult i32 %25, 5
-  br i1 %switch.i.i, label %.critedge.backedge.i, label %"_ZN73_$LT$wasmtime_types..WasmValType$u20$as$u20$wasmtime_types..TypeTrace$GT$5trace17h426e2e7598a2bc41E.exit.i"
+  %25 = icmp samesign ugt i32 %.val18.i, 9
+  br i1 %25, label %.critedge.backedge.i, label %"_ZN73_$LT$wasmtime_types..WasmValType$u20$as$u20$wasmtime_types..TypeTrace$GT$5trace17h426e2e7598a2bc41E.exit.i"
 
 "_ZN73_$LT$wasmtime_types..WasmValType$u20$as$u20$wasmtime_types..TypeTrace$GT$5trace17h426e2e7598a2bc41E.exit.i": ; preds = %.lr.ph.i
   %26 = add nsw i32 %.val18.i, -3
@@ -31411,9 +31394,8 @@ define hidden noundef i32 @_ZN8wasmtime7runtime13type_registry17TypeRegistryInne
   %.sroa.01.016.i = phi ptr [ %30, %.critedge13.backedge.i ], [ %19, %.critedge._crit_edge.i ]
   %30 = getelementptr inbounds nuw i8, ptr %.sroa.01.016.i, i64 12
   %.val.i = load i32, ptr %.sroa.01.016.i, align 4, !range !482, !noalias !8330, !noundef !4
-  %31 = add nsw i32 %.val.i, -10
-  %switch.i23.i = icmp ult i32 %31, 5
-  br i1 %switch.i23.i, label %.critedge13.backedge.i, label %"_ZN73_$LT$wasmtime_types..WasmValType$u20$as$u20$wasmtime_types..TypeTrace$GT$5trace17h426e2e7598a2bc41E.exit27.i"
+  %31 = icmp samesign ugt i32 %.val.i, 9
+  br i1 %31, label %.critedge13.backedge.i, label %"_ZN73_$LT$wasmtime_types..WasmValType$u20$as$u20$wasmtime_types..TypeTrace$GT$5trace17h426e2e7598a2bc41E.exit27.i"
 
 "_ZN73_$LT$wasmtime_types..WasmValType$u20$as$u20$wasmtime_types..TypeTrace$GT$5trace17h426e2e7598a2bc41E.exit27.i": ; preds = %.lr.ph17.i
   %32 = add nsw i32 %.val.i, -3

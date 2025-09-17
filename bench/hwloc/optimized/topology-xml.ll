@@ -8807,9 +8807,8 @@ hwloc__xml_verbose.exit345:                       ; preds = %903, %909
   br label %.thread397
 
 950:                                              ; preds = %932
-  %951 = and i32 %933, -2
-  %.not405 = icmp eq i32 %951, 14
-  br i1 %.not405, label %952, label %967
+  %951 = icmp ult i32 %933, 16
+  br i1 %951, label %952, label %967
 
 952:                                              ; preds = %950
   %953 = load i32, ptr %2, align 8, !tbaa !147

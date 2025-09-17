@@ -281,9 +281,8 @@ define internal fastcc void @"_ZN103_$LT$regex_automata..meta..regex..CapturesMa
 50:                                               ; preds = %45
   tail call void @llvm.experimental.noalias.scope.decl(metadata !25)
   %51 = load i32, ptr %2, align 8, !range !28, !alias.scope !29, !noalias !30, !noundef !4
-  %.off.i.i = add nsw i32 %51, -1
-  %switch.i1.i = icmp ult i32 %.off.i.i, 2
-  br i1 %switch.i1.i, label %_ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17hb56f9c0aa2c58affE.exit.thread.i, label %_ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17hb56f9c0aa2c58affE.exit.i
+  %.not.i = icmp eq i32 %51, 0
+  br i1 %.not.i, label %_ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17hb56f9c0aa2c58affE.exit.i, label %_ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17hb56f9c0aa2c58affE.exit.thread.i
 
 _ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17hb56f9c0aa2c58affE.exit.i: ; preds = %50
   %52 = getelementptr inbounds nuw i8, ptr %.pre, i64 60
@@ -380,8 +379,8 @@ _ZN14regex_automata4util8captures14GroupInfoInner9group_len17hf44aea63cceed637E.
 107:                                              ; preds = %103
   %108 = add i64 %100, -1
   %109 = add i64 %105, -1
-  %.not.i = icmp ugt i64 %108, %109
-  br i1 %.not.i, label %110, label %_ZN14regex_automata4util8captures8Captures9get_match17h9a113384f9ebfd93E.exit
+  %.not.i4 = icmp ugt i64 %108, %109
+  br i1 %.not.i4, label %110, label %_ZN14regex_automata4util8captures8Captures9get_match17h9a113384f9ebfd93E.exit
 
 110:                                              ; preds = %107
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !46
@@ -1131,9 +1130,8 @@ _ZN14regex_automata4util6search5Input8set_span17h77aedb0a5511365fE.exit: ; preds
 66:                                               ; preds = %61
   tail call void @llvm.experimental.noalias.scope.decl(metadata !174)
   %67 = load i32, ptr %16, align 8, !range !28, !alias.scope !177, !noalias !178, !noundef !4
-  %.off.i.i.i = add nsw i32 %67, -1
-  %switch.i1.i.i = icmp ult i32 %.off.i.i.i, 2
-  br i1 %switch.i1.i.i, label %_ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17hb56f9c0aa2c58affE.exit.thread.i.i, label %_ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17hb56f9c0aa2c58affE.exit.i.i
+  %.not.i.i = icmp eq i32 %67, 0
+  br i1 %.not.i.i, label %_ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17hb56f9c0aa2c58affE.exit.i.i, label %_ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17hb56f9c0aa2c58affE.exit.thread.i.i
 
 _ZN14regex_automata4meta5regex9RegexInfo17is_anchored_start17hb56f9c0aa2c58affE.exit.i.i: ; preds = %66
   %68 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 60

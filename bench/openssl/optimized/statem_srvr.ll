@@ -8136,61 +8136,60 @@ define internal fastcc void @ssl_check_for_safari(ptr noundef %0, ptr noundef re
   %6 = load i8, ptr %5, align 1, !tbaa !193
   %7 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 3
   %8 = load i8, ptr %7, align 1, !tbaa !193
-  %9 = and i64 %.sroa.10.0.copyload, -2
-  %10 = icmp eq i64 %9, 4
-  br i1 %10, label %PACKET_forward.exit.thread, label %11
+  %9 = icmp ult i64 %.sroa.10.0.copyload, 6
+  br i1 %9, label %PACKET_forward.exit.thread, label %10
 
-11:                                               ; preds = %3
-  %12 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 4
-  %13 = load i8, ptr %12, align 1, !tbaa !193
-  %14 = zext i8 %13 to i64
-  %15 = shl nuw nsw i64 %14, 8
-  %16 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 5
-  %17 = load i8, ptr %16, align 1, !tbaa !193
-  %18 = zext i8 %17 to i64
-  %19 = or disjoint i64 %15, %18
-  %20 = add i64 %.sroa.10.0.copyload, -6
-  %21 = icmp ult i64 %20, %19
-  br i1 %21, label %PACKET_forward.exit.thread, label %PACKET_get_length_prefixed_2.exit
+10:                                               ; preds = %3
+  %11 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 4
+  %12 = load i8, ptr %11, align 1, !tbaa !193
+  %13 = zext i8 %12 to i64
+  %14 = shl nuw nsw i64 %13, 8
+  %15 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 5
+  %16 = load i8, ptr %15, align 1, !tbaa !193
+  %17 = zext i8 %16 to i64
+  %18 = or disjoint i64 %14, %17
+  %19 = add i64 %.sroa.10.0.copyload, -6
+  %20 = icmp ult i64 %19, %18
+  br i1 %20, label %PACKET_forward.exit.thread, label %PACKET_get_length_prefixed_2.exit
 
-PACKET_get_length_prefixed_2.exit:                ; preds = %11
-  %22 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 6
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 %19
-  %24 = sub nuw i64 %20, %19
-  %25 = or i8 %8, %6
-  %26 = icmp eq i8 %25, 0
-  br i1 %26, label %27, label %PACKET_forward.exit.thread
+PACKET_get_length_prefixed_2.exit:                ; preds = %10
+  %21 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 6
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 %18
+  %23 = sub nuw i64 %19, %18
+  %24 = or i8 %8, %6
+  %25 = icmp eq i8 %24, 0
+  br i1 %25, label %26, label %PACKET_forward.exit.thread
 
-27:                                               ; preds = %PACKET_get_length_prefixed_2.exit
-  %28 = tail call i32 @SSL_client_version(ptr noundef %0) #12
-  %.mask = and i32 %28, -256
-  %29 = icmp eq i32 %.mask, 768
-  br i1 %29, label %30, label %34
+26:                                               ; preds = %PACKET_get_length_prefixed_2.exit
+  %27 = tail call i32 @SSL_client_version(ptr noundef %0) #12
+  %.mask = and i32 %27, -256
+  %28 = icmp eq i32 %.mask, 768
+  br i1 %28, label %29, label %33
 
-30:                                               ; preds = %27
-  %31 = tail call i32 @SSL_client_version(ptr noundef %0) #12
-  %32 = icmp sgt i32 %31, 770
-  %33 = select i1 %32, i64 34, i64 18
-  br label %34
+29:                                               ; preds = %26
+  %30 = tail call i32 @SSL_client_version(ptr noundef %0) #12
+  %31 = icmp sgt i32 %30, 770
+  %32 = select i1 %31, i64 34, i64 18
+  br label %33
 
-34:                                               ; preds = %27, %30
-  %35 = phi i64 [ %33, %30 ], [ 18, %27 ]
-  %.not.i = icmp eq i64 %24, %35
-  br i1 %.not.i, label %36, label %PACKET_equal.exit
+33:                                               ; preds = %26, %29
+  %34 = phi i64 [ %32, %29 ], [ 18, %26 ]
+  %.not.i = icmp eq i64 %23, %34
+  br i1 %.not.i, label %35, label %PACKET_equal.exit
 
-36:                                               ; preds = %34
-  %37 = tail call i32 @CRYPTO_memcmp(ptr noundef nonnull %23, ptr noundef nonnull @ssl_check_for_safari.kSafariExtensionsBlock, i64 noundef %24) #12
-  %38 = icmp eq i32 %37, 0
-  %39 = zext i1 %38 to i8
+35:                                               ; preds = %33
+  %36 = tail call i32 @CRYPTO_memcmp(ptr noundef nonnull %22, ptr noundef nonnull @ssl_check_for_safari.kSafariExtensionsBlock, i64 noundef %23) #12
+  %37 = icmp eq i32 %36, 0
+  %38 = zext i1 %37 to i8
   br label %PACKET_equal.exit
 
-PACKET_equal.exit:                                ; preds = %34, %36
-  %.0.i10 = phi i8 [ %39, %36 ], [ 0, %34 ]
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 1244
-  store i8 %.0.i10, ptr %40, align 4, !tbaa !289
+PACKET_equal.exit:                                ; preds = %33, %35
+  %.0.i10 = phi i8 [ %38, %35 ], [ 0, %33 ]
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 1244
+  store i8 %.0.i10, ptr %39, align 4, !tbaa !289
   br label %PACKET_forward.exit.thread
 
-PACKET_forward.exit.thread:                       ; preds = %2, %11, %3, %PACKET_get_length_prefixed_2.exit, %PACKET_equal.exit
+PACKET_forward.exit.thread:                       ; preds = %2, %10, %3, %PACKET_get_length_prefixed_2.exit, %PACKET_equal.exit
   ret void
 }
 

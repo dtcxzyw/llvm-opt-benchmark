@@ -988,9 +988,8 @@ pgstat_get_kind_info.exit.i:                      ; preds = %39
   br i1 %.not57.i, label %pgstat_get_kind_info.exit.thread.i, label %.thread.i
 
 44:                                               ; preds = %34
-  %45 = add nsw i64 %indvars.iv.i, -7
-  %or.cond.not.i = icmp ult i64 %45, 6
-  br i1 %or.cond.not.i, label %48, label %pgstat_get_kind_info.exit.thread.i
+  %45 = icmp samesign ugt i64 %indvars.iv.i, 6
+  br i1 %45, label %48, label %pgstat_get_kind_info.exit.thread.i
 
 .thread.i:                                        ; preds = %pgstat_get_kind_info.exit.i
   %46 = load i8, ptr %43, align 8

@@ -5045,123 +5045,121 @@ define hidden void @"_ZN4core3ptr449drop_in_place$LT$hashbrown..raw..RawTable$LT
 define void @"_ZN4core3ptr45drop_in_place$LT$cranelift_isle..ast..Def$GT$17h75d9adbf23b2608fE"(ptr align 16 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = load i64, ptr %0, align 16, !range !14, !noundef !3
-  %4 = add nsw i64 %3, -2
-  %5 = icmp ult i64 %4, 6
-  %6 = add nsw i64 %3, -1
-  %7 = select i1 %5, i64 %6, i64 2
-  switch i64 %7, label %8 [
-    i64 0, label %10
-    i64 1, label %11
-    i64 2, label %26
-    i64 3, label %40
-    i64 4, label %42
-    i64 5, label %44
+  %4 = add nsw i64 %3, -1
+  %.inv = icmp samesign ult i64 %3, 2
+  %5 = select i1 %.inv, i64 2, i64 %4
+  switch i64 %5, label %6 [
+    i64 5, label %42
+    i64 1, label %9
+    i64 2, label %24
+    i64 3, label %38
+    i64 4, label %40
   ]
 
-8:                                                ; preds = %1
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @"_ZN4core3ptr51drop_in_place$LT$cranelift_isle..ast..Converter$GT$17hab78dc17e34d110cE"(ptr nonnull align 8 %9)
-  br label %10
+6:                                                ; preds = %1
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @"_ZN4core3ptr51drop_in_place$LT$cranelift_isle..ast..Converter$GT$17hab78dc17e34d110cE"(ptr nonnull align 8 %7)
+  br label %8
 
-10:                                               ; preds = %44, %42, %40, %"_ZN4core3ptr46drop_in_place$LT$cranelift_isle..ast..Rule$GT$17hd3c0c9302076c1c5E.exit", %"_ZN4core3ptr46drop_in_place$LT$cranelift_isle..ast..Type$GT$17h678a3d691d400308E.exit", %8, %1
+8:                                                ; preds = %42, %40, %38, %"_ZN4core3ptr46drop_in_place$LT$cranelift_isle..ast..Rule$GT$17hd3c0c9302076c1c5E.exit", %"_ZN4core3ptr46drop_in_place$LT$cranelift_isle..ast..Type$GT$17h678a3d691d400308E.exit", %6
   ret void
 
-11:                                               ; preds = %1
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
+9:                                                ; preds = %1
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h55aca0dfe818031cE"(ptr nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 %2, ptr nonnull align 8 %12)
-          to label %.noexc.i unwind label %20
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h55aca0dfe818031cE"(ptr nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 %2, ptr nonnull align 8 %10)
+          to label %.noexc.i unwind label %18
 
-.noexc.i:                                         ; preds = %11
-  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %14 = load i64, ptr %13, align 8, !range !4, !noundef !3
-  %.not.i.i.i.i.i.i = icmp eq i64 %14, 0
-  br i1 %.not.i.i.i.i.i.i, label %"_ZN4core3ptr46drop_in_place$LT$cranelift_isle..ast..Type$GT$17h678a3d691d400308E.exit", label %15
+.noexc.i:                                         ; preds = %9
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %12 = load i64, ptr %11, align 8, !range !4, !noundef !3
+  %.not.i.i.i.i.i.i = icmp eq i64 %12, 0
+  br i1 %.not.i.i.i.i.i.i, label %"_ZN4core3ptr46drop_in_place$LT$cranelift_isle..ast..Type$GT$17h678a3d691d400308E.exit", label %13
 
-15:                                               ; preds = %.noexc.i
-  %16 = load ptr, ptr %2, align 8, !nonnull !3, !noundef !3
-  %17 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %18 = load i64, ptr %17, align 8, !noundef !3
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  invoke void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h85d293f56ff7b6d0E"(ptr nonnull align 1 %19, ptr nonnull %16, i64 %14, i64 %18)
-          to label %"_ZN4core3ptr46drop_in_place$LT$cranelift_isle..ast..Type$GT$17h678a3d691d400308E.exit" unwind label %20
+13:                                               ; preds = %.noexc.i
+  %14 = load ptr, ptr %2, align 8, !nonnull !3, !noundef !3
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %16 = load i64, ptr %15, align 8, !noundef !3
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  invoke void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h85d293f56ff7b6d0E"(ptr nonnull align 1 %17, ptr nonnull %14, i64 %12, i64 %16)
+          to label %"_ZN4core3ptr46drop_in_place$LT$cranelift_isle..ast..Type$GT$17h678a3d691d400308E.exit" unwind label %18
 
-20:                                               ; preds = %15, %11
-  %21 = landingpad { ptr, i32 }
+18:                                               ; preds = %13, %9
+  %19 = landingpad { ptr, i32 }
           cleanup
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  invoke void @"_ZN4core3ptr51drop_in_place$LT$cranelift_isle..ast..TypeValue$GT$17hcc616ef8c551cd9eE"(ptr nonnull align 8 %22) #11
-          to label %common.resume unwind label %23
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  invoke void @"_ZN4core3ptr51drop_in_place$LT$cranelift_isle..ast..TypeValue$GT$17hcc616ef8c551cd9eE"(ptr nonnull align 8 %20) #11
+          to label %common.resume unwind label %21
 
-23:                                               ; preds = %20
-  %24 = landingpad { ptr, i32 }
+21:                                               ; preds = %18
+  %22 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #12
   unreachable
 
-common.resume:                                    ; preds = %33, %20
-  %common.resume.op = phi { ptr, i32 } [ %21, %20 ], [ %.pn.i, %33 ]
+common.resume:                                    ; preds = %31, %18
+  %common.resume.op = phi { ptr, i32 } [ %19, %18 ], [ %.pn.i, %31 ]
   resume { ptr, i32 } %common.resume.op
 
-"_ZN4core3ptr46drop_in_place$LT$cranelift_isle..ast..Type$GT$17h678a3d691d400308E.exit": ; preds = %.noexc.i, %15
+"_ZN4core3ptr46drop_in_place$LT$cranelift_isle..ast..Type$GT$17h678a3d691d400308E.exit": ; preds = %.noexc.i, %13
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  call void @"_ZN4core3ptr51drop_in_place$LT$cranelift_isle..ast..TypeValue$GT$17hcc616ef8c551cd9eE"(ptr nonnull align 8 %25)
-  br label %10
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  call void @"_ZN4core3ptr51drop_in_place$LT$cranelift_isle..ast..TypeValue$GT$17hcc616ef8c551cd9eE"(ptr nonnull align 8 %23)
+  br label %8
 
-26:                                               ; preds = %1
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  invoke void @"_ZN4core3ptr49drop_in_place$LT$cranelift_isle..ast..Pattern$GT$17h342abc0b07ed4668E"(ptr nonnull align 16 %27)
-          to label %31 unwind label %28
+24:                                               ; preds = %1
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  invoke void @"_ZN4core3ptr49drop_in_place$LT$cranelift_isle..ast..Pattern$GT$17h342abc0b07ed4668E"(ptr nonnull align 16 %25)
+          to label %29 unwind label %26
 
-28:                                               ; preds = %26
-  %29 = landingpad { ptr, i32 }
+26:                                               ; preds = %24
+  %27 = landingpad { ptr, i32 }
           cleanup
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 304
+  invoke void @"_ZN4core3ptr70drop_in_place$LT$alloc..vec..Vec$LT$cranelift_isle..ast..IfLet$GT$$GT$17h3fbb1f510cc479bcE"(ptr nonnull align 8 %28) #11
+          to label %31 unwind label %35
+
+29:                                               ; preds = %24
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  invoke void @"_ZN4core3ptr70drop_in_place$LT$alloc..vec..Vec$LT$cranelift_isle..ast..IfLet$GT$$GT$17h3fbb1f510cc479bcE"(ptr nonnull align 8 %30) #11
-          to label %33 unwind label %37
+  invoke void @"_ZN4core3ptr70drop_in_place$LT$alloc..vec..Vec$LT$cranelift_isle..ast..IfLet$GT$$GT$17h3fbb1f510cc479bcE"(ptr nonnull align 8 %30)
+          to label %"_ZN4core3ptr46drop_in_place$LT$cranelift_isle..ast..Rule$GT$17hd3c0c9302076c1c5E.exit" unwind label %33
 
-31:                                               ; preds = %26
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  invoke void @"_ZN4core3ptr70drop_in_place$LT$alloc..vec..Vec$LT$cranelift_isle..ast..IfLet$GT$$GT$17h3fbb1f510cc479bcE"(ptr nonnull align 8 %32)
-          to label %"_ZN4core3ptr46drop_in_place$LT$cranelift_isle..ast..Rule$GT$17hd3c0c9302076c1c5E.exit" unwind label %35
+31:                                               ; preds = %33, %26
+  %.pn.i = phi { ptr, i32 } [ %34, %33 ], [ %27, %26 ]
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  invoke void @"_ZN4core3ptr46drop_in_place$LT$cranelift_isle..ast..Expr$GT$17h117aeb1508721414E"(ptr nonnull align 16 %32) #11
+          to label %common.resume unwind label %35
 
-33:                                               ; preds = %35, %28
-  %.pn.i = phi { ptr, i32 } [ %36, %35 ], [ %29, %28 ]
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  invoke void @"_ZN4core3ptr46drop_in_place$LT$cranelift_isle..ast..Expr$GT$17h117aeb1508721414E"(ptr nonnull align 16 %34) #11
-          to label %common.resume unwind label %37
-
-35:                                               ; preds = %31
-  %36 = landingpad { ptr, i32 }
+33:                                               ; preds = %29
+  %34 = landingpad { ptr, i32 }
           cleanup
-  br label %33
+  br label %31
 
-37:                                               ; preds = %33, %28
-  %38 = landingpad { ptr, i32 }
+35:                                               ; preds = %31, %26
+  %36 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #12
   unreachable
 
-"_ZN4core3ptr46drop_in_place$LT$cranelift_isle..ast..Rule$GT$17hd3c0c9302076c1c5E.exit": ; preds = %31
+"_ZN4core3ptr46drop_in_place$LT$cranelift_isle..ast..Rule$GT$17hd3c0c9302076c1c5E.exit": ; preds = %29
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  tail call void @"_ZN4core3ptr46drop_in_place$LT$cranelift_isle..ast..Expr$GT$17h117aeb1508721414E"(ptr nonnull align 16 %37)
+  br label %8
+
+38:                                               ; preds = %1
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @"_ZN4core3ptr46drop_in_place$LT$cranelift_isle..ast..Expr$GT$17h117aeb1508721414E"(ptr nonnull align 16 %39)
-  br label %10
+  tail call void @"_ZN4core3ptr51drop_in_place$LT$cranelift_isle..ast..Extractor$GT$17h1b9ed40ac0f8a83dE"(ptr nonnull align 16 %39)
+  br label %8
 
 40:                                               ; preds = %1
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @"_ZN4core3ptr51drop_in_place$LT$cranelift_isle..ast..Extractor$GT$17h1b9ed40ac0f8a83dE"(ptr nonnull align 16 %41)
-  br label %10
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @"_ZN4core3ptr46drop_in_place$LT$cranelift_isle..ast..Decl$GT$17h57556baaa9435625E"(ptr nonnull align 8 %41)
+  br label %8
 
 42:                                               ; preds = %1
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @"_ZN4core3ptr46drop_in_place$LT$cranelift_isle..ast..Decl$GT$17h57556baaa9435625E"(ptr nonnull align 8 %43)
-  br label %10
-
-44:                                               ; preds = %1
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @"_ZN4core3ptr48drop_in_place$LT$cranelift_isle..ast..Extern$GT$17h5ab85b3050e05024E"(ptr nonnull align 8 %45)
-  br label %10
+  tail call void @"_ZN4core3ptr48drop_in_place$LT$cranelift_isle..ast..Extern$GT$17h5ab85b3050e05024E"(ptr nonnull align 8 %43)
+  br label %8
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable

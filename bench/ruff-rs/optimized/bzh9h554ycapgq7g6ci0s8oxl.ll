@@ -59676,7 +59676,7 @@ define hidden noundef zeroext i1 @_ZN11ruff_linter5rules8pyflakes5rules13unused_
   %19 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hba79b7f9900aea78E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4) #29
-          to label %54 unwind label %52
+          to label %55 unwind label %53
 
 20:                                               ; preds = %2
   %21 = invoke noundef zeroext i1 @_ZN15ruff_python_ast4name13QualifiedName20is_unresolved_import17hedc5c1466ccbcd9eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(136) %17)
@@ -59722,20 +59722,19 @@ define hidden noundef zeroext i1 @_ZN11ruff_linter5rules8pyflakes5rules13unused_
   %.not = icmp eq i64 %49, -9223372036854775808
   %50 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %51 = load i8, ptr %50, align 8, !range !2678
-  %.off = add nsw i8 %51, -3
-  %switch = icmp ult i8 %.off, 2
-  %.sroa.0.0 = select i1 %.not, i1 %switch, i1 false
+  %52 = icmp samesign ugt i8 %51, 2
+  %.sroa.0.0 = select i1 %.not, i1 %52, i1 false
   call void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hba79b7f9900aea78E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.sroa.0.0
 
-52:                                               ; preds = %18
-  %53 = landingpad { ptr, i32 }
+53:                                               ; preds = %18
+  %54 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #30
   unreachable
 
-54:                                               ; preds = %18
+55:                                               ; preds = %18
   resume { ptr, i32 } %19
 }
 

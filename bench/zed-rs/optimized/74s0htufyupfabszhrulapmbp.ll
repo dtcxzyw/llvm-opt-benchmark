@@ -658,109 +658,106 @@ define hidden void @"_ZN4core3ptr121drop_in_place$LT$html5ever..tokenizer..inter
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @"_ZN4core3ptr59drop_in_place$LT$html5ever..tokenizer..interface..Token$GT$17h18070ca86b4dcce2E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !63, !noundef !4
-  %3 = add nsw i64 %2, -2
-  %4 = icmp ult i64 %3, 6
-  %5 = add nsw i64 %2, -1
-  %6 = select i1 %4, i64 %5, i64 0
-  switch i64 %6, label %7 [
-    i64 0, label %10
-    i64 1, label %11
-    i64 2, label %13
-    i64 3, label %30
+  %3 = tail call i64 @llvm.usub.sat.i64(i64 %2, i64 1)
+  switch i64 %3, label %4 [
+    i64 0, label %7
+    i64 1, label %8
+    i64 2, label %10
+    i64 3, label %27
     i64 4, label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hd09a1958d2250323E.exit"
     i64 5, label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hd09a1958d2250323E.exit"
   ]
 
-7:                                                ; preds = %1
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.val = load i64, ptr %8, align 8, !range !64, !noundef !4
+4:                                                ; preds = %1
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.val = load i64, ptr %5, align 8, !range !64, !noundef !4
   switch i64 %.val, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.5005022800651993668.exit.i.i1.i.i.i" [
     i64 -9223372036854775808, label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hd09a1958d2250323E.exit"
     i64 0, label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hd09a1958d2250323E.exit"
   ]
 
-"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.5005022800651993668.exit.i.i1.i.i.i": ; preds = %7
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.val1 = load ptr, ptr %9, align 8, !nonnull !4, !noundef !4
+"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.5005022800651993668.exit.i.i1.i.i.i": ; preds = %4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.val1 = load ptr, ptr %6, align 8, !nonnull !4, !noundef !4
   tail call void @__rust_dealloc(ptr noundef nonnull %.val1, i64 noundef %.val, i64 noundef 1) #27, !noalias !65
   br label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hd09a1958d2250323E.exit"
 
-10:                                               ; preds = %1
+7:                                                ; preds = %1
   tail call void @"_ZN4core3ptr61drop_in_place$LT$html5ever..tokenizer..interface..Doctype$GT$17hae0ca5ebdbc4e62aE"(ptr noalias noundef nonnull align 8 dereferenceable(80) %0)
   br label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hd09a1958d2250323E.exit"
 
-11:                                               ; preds = %1
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @"_ZN4core3ptr57drop_in_place$LT$html5ever..tokenizer..interface..Tag$GT$17h7e1885c0c2f7ca0fE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %12)
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @"_ZN4core3ptr57drop_in_place$LT$html5ever..tokenizer..interface..Tag$GT$17h7e1885c0c2f7ca0fE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %9)
   br label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hd09a1958d2250323E.exit"
 
-13:                                               ; preds = %1
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.val2 = load i64, ptr %14, align 8, !range !74, !alias.scope !75, !noundef !4
-  %15 = icmp ult i64 %.val2, 16
-  br i1 %15, label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hd09a1958d2250323E.exit", label %16
+10:                                               ; preds = %1
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.val2 = load i64, ptr %11, align 8, !range !74, !alias.scope !75, !noundef !4
+  %12 = icmp ult i64 %.val2, 16
+  br i1 %12, label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hd09a1958d2250323E.exit", label %13
 
-16:                                               ; preds = %13
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %.val3 = load i32, ptr %17, align 4
-  %18 = and i64 %.val2, -2
-  %19 = inttoptr i64 %18 to ptr
-  %20 = and i64 %.val2, 1
-  %.not.i.i.i = icmp eq i64 %20, 0
-  br i1 %.not.i.i.i, label %.sink.split.i.i, label %21
+13:                                               ; preds = %10
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %.val3 = load i32, ptr %14, align 4
+  %15 = and i64 %.val2, -2
+  %16 = inttoptr i64 %15 to ptr
+  %17 = and i64 %.val2, 1
+  %.not.i.i.i = icmp eq i64 %17, 0
+  br i1 %.not.i.i.i, label %.sink.split.i.i, label %18
 
-21:                                               ; preds = %16
-  %22 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %.sroa.02.0.i11.i.i = load i32, ptr %22, align 4, !noalias !78, !noundef !4
-  %23 = load i64, ptr %19, align 8, !noalias !83, !noundef !4
-  %24 = add i64 %23, -1
-  store i64 %24, ptr %19, align 8, !noalias !83
-  %25 = icmp eq i64 %23, 1
-  br i1 %25, label %.sink.split.i.i, label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hd09a1958d2250323E.exit"
+18:                                               ; preds = %13
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %.sroa.02.0.i11.i.i = load i32, ptr %19, align 4, !noalias !78, !noundef !4
+  %20 = load i64, ptr %16, align 8, !noalias !83, !noundef !4
+  %21 = add i64 %20, -1
+  store i64 %21, ptr %16, align 8, !noalias !83
+  %22 = icmp eq i64 %20, 1
+  br i1 %22, label %.sink.split.i.i, label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hd09a1958d2250323E.exit"
 
-.sink.split.i.i:                                  ; preds = %21, %16
-  %.sroa.02.0.i11.sink.i.i = phi i32 [ %.sroa.02.0.i11.i.i, %21 ], [ %.val3, %16 ]
-  %26 = zext i32 %.sroa.02.0.i11.sink.i.i to i64
-  %27 = add nuw nsw i64 %26, 15
-  %28 = and i64 %27, 8589934576
-  %29 = add nuw nsw i64 %28, 16
-  tail call void @__rust_dealloc(ptr noundef nonnull %19, i64 noundef %29, i64 noundef 8) #27, !noalias !83
+.sink.split.i.i:                                  ; preds = %18, %13
+  %.sroa.02.0.i11.sink.i.i = phi i32 [ %.sroa.02.0.i11.i.i, %18 ], [ %.val3, %13 ]
+  %23 = zext i32 %.sroa.02.0.i11.sink.i.i to i64
+  %24 = add nuw nsw i64 %23, 15
+  %25 = and i64 %24, 8589934576
+  %26 = add nuw nsw i64 %25, 16
+  tail call void @__rust_dealloc(ptr noundef nonnull %16, i64 noundef %26, i64 noundef 8) #27, !noalias !83
   br label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hd09a1958d2250323E.exit"
 
-30:                                               ; preds = %1
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.val4 = load i64, ptr %31, align 8, !range !74, !alias.scope !75, !noundef !4
-  %32 = icmp ult i64 %.val4, 16
-  br i1 %32, label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hd09a1958d2250323E.exit", label %33
+27:                                               ; preds = %1
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.val4 = load i64, ptr %28, align 8, !range !74, !alias.scope !75, !noundef !4
+  %29 = icmp ult i64 %.val4, 16
+  br i1 %29, label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hd09a1958d2250323E.exit", label %30
 
-33:                                               ; preds = %30
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %.val5 = load i32, ptr %34, align 4
-  %35 = and i64 %.val4, -2
-  %36 = inttoptr i64 %35 to ptr
-  %37 = and i64 %.val4, 1
-  %.not.i.i.i6 = icmp eq i64 %37, 0
-  br i1 %.not.i.i.i6, label %.sink.split.i.i8, label %38
+30:                                               ; preds = %27
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %.val5 = load i32, ptr %31, align 4
+  %32 = and i64 %.val4, -2
+  %33 = inttoptr i64 %32 to ptr
+  %34 = and i64 %.val4, 1
+  %.not.i.i.i6 = icmp eq i64 %34, 0
+  br i1 %.not.i.i.i6, label %.sink.split.i.i8, label %35
 
-38:                                               ; preds = %33
-  %39 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  %.sroa.02.0.i11.i.i7 = load i32, ptr %39, align 4, !noalias !84, !noundef !4
-  %40 = load i64, ptr %36, align 8, !noalias !89, !noundef !4
-  %41 = add i64 %40, -1
-  store i64 %41, ptr %36, align 8, !noalias !89
-  %42 = icmp eq i64 %40, 1
-  br i1 %42, label %.sink.split.i.i8, label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hd09a1958d2250323E.exit"
+35:                                               ; preds = %30
+  %36 = getelementptr inbounds nuw i8, ptr %33, i64 8
+  %.sroa.02.0.i11.i.i7 = load i32, ptr %36, align 4, !noalias !84, !noundef !4
+  %37 = load i64, ptr %33, align 8, !noalias !89, !noundef !4
+  %38 = add i64 %37, -1
+  store i64 %38, ptr %33, align 8, !noalias !89
+  %39 = icmp eq i64 %37, 1
+  br i1 %39, label %.sink.split.i.i8, label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hd09a1958d2250323E.exit"
 
-.sink.split.i.i8:                                 ; preds = %38, %33
-  %.sroa.02.0.i11.sink.i.i9 = phi i32 [ %.sroa.02.0.i11.i.i7, %38 ], [ %.val5, %33 ]
-  %43 = zext i32 %.sroa.02.0.i11.sink.i.i9 to i64
-  %44 = add nuw nsw i64 %43, 15
-  %45 = and i64 %44, 8589934576
-  %46 = add nuw nsw i64 %45, 16
-  tail call void @__rust_dealloc(ptr noundef nonnull %36, i64 noundef %46, i64 noundef 8) #27, !noalias !89
+.sink.split.i.i8:                                 ; preds = %35, %30
+  %.sroa.02.0.i11.sink.i.i9 = phi i32 [ %.sroa.02.0.i11.i.i7, %35 ], [ %.val5, %30 ]
+  %40 = zext i32 %.sroa.02.0.i11.sink.i.i9 to i64
+  %41 = add nuw nsw i64 %40, 15
+  %42 = and i64 %41, 8589934576
+  %43 = add nuw nsw i64 %42, 16
+  tail call void @__rust_dealloc(ptr noundef nonnull %33, i64 noundef %43, i64 noundef 8) #27, !noalias !89
   br label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hd09a1958d2250323E.exit"
 
-"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hd09a1958d2250323E.exit": ; preds = %.sink.split.i.i8, %38, %30, %.sink.split.i.i, %21, %13, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.5005022800651993668.exit.i.i1.i.i.i", %7, %7, %11, %10, %1, %1
+"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17hd09a1958d2250323E.exit": ; preds = %.sink.split.i.i8, %35, %27, %.sink.split.i.i, %18, %10, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.5005022800651993668.exit.i.i1.i.i.i", %4, %4, %8, %7, %1, %1
   ret void
 }
 
@@ -3236,9 +3233,8 @@ define internal fastcc void @"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$15po
 
 43:                                               ; preds = %28, %42
   %44 = load i32, ptr %8, align 8, !range !103, !noundef !4
-  %.off18 = add nsw i32 %44, -1
-  %switch19 = icmp ult i32 %.off18, 2
-  br i1 %switch19, label %45, label %46
+  %.not = icmp eq i32 %44, 0
+  br i1 %.not, label %46, label %45
 
 45:                                               ; preds = %43
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
@@ -11671,6 +11667,9 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #25
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.usub.sat.i64(i64, i64) #23
 
 attributes #0 = { alwaysinline nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

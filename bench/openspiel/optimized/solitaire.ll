@@ -7808,9 +7808,8 @@ _ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsI
   br label %51
 
 38:                                               ; preds = %19
-  %39 = add i64 %3, -53
-  %or.cond3 = icmp ult i64 %39, 152
-  br i1 %or.cond3, label %40, label %44
+  %39 = icmp ult i64 %3, 205
+  br i1 %39, label %40, label %44
 
 40:                                               ; preds = %38
   call void @_ZN10open_spiel9solitaire4MoveC1El(ptr noundef nonnull align 4 dereferenceable(40) %10, i64 noundef %3)
@@ -9065,9 +9064,8 @@ _ZNSt6vectorIlSaIlEE17_M_realloc_insertIJRKlEEEvN9__gnu_cxx17__normal_iteratorIP
   br label %_ZNSt6vectorIlSaIlEE9push_backERKl.exit
 
 137:                                              ; preds = %19
-  %138 = add i64 %1, -53
-  %or.cond3 = icmp ult i64 %138, 152
-  br i1 %or.cond3, label %139, label %_ZNSt6vectorIlSaIlEE9push_backERKl.exit
+  %138 = icmp ult i64 %1, 205
+  br i1 %138, label %139, label %_ZNSt6vectorIlSaIlEE9push_backERKl.exit
 
 139:                                              ; preds = %137
   call void @_ZN10open_spiel9solitaire4MoveC1El(ptr noundef nonnull align 4 dereferenceable(40) %11, i64 noundef %1)

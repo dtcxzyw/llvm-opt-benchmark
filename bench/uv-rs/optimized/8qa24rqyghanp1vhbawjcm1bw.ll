@@ -4760,12 +4760,12 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
 13:                                               ; preds = %3
   %14 = landingpad { ptr, i32 }
           cleanup
-  br label %91
+  br label %93
 
 15:                                               ; preds = %3
   %16 = load i64, ptr %11, align 8, !range !868, !noundef !27
   %17 = icmp eq i64 %16, 3
-  br i1 %17, label %18, label %35
+  br i1 %17, label %18, label %36
 
 18:                                               ; preds = %15
   store i64 0, ptr %0, align 8
@@ -4775,93 +4775,92 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   store i64 0, ptr %20, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %21 = load i64, ptr %1, align 8, !range !686, !alias.scope !1833, !noundef !27
-  %.off.i.i = add nsw i64 %21, -3
-  %switch.i.i = icmp ult i64 %.off.i.i, 2
-  br i1 %switch.i.i, label %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$core..option..IntoIter$LT$uv_distribution_types..index..Index$GT$$GT$$GT$17h56dd0e791763e603E.llvm.2565806491854022624.exit.i", label %22
+  %22 = icmp samesign ugt i64 %21, 2
+  br i1 %22, label %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$core..option..IntoIter$LT$uv_distribution_types..index..Index$GT$$GT$$GT$17h56dd0e791763e603E.llvm.2565806491854022624.exit.i", label %23
 
-22:                                               ; preds = %18
+23:                                               ; preds = %18
   invoke void @"_ZN4core3ptr56drop_in_place$LT$uv_distribution_types..index..Index$GT$17h9ad1ff9727702fa4E"(ptr noalias noundef nonnull align 8 dereferenceable(296) %1)
-          to label %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$core..option..IntoIter$LT$uv_distribution_types..index..Index$GT$$GT$$GT$17h56dd0e791763e603E.llvm.2565806491854022624.exit.i" unwind label %23
+          to label %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$core..option..IntoIter$LT$uv_distribution_types..index..Index$GT$$GT$$GT$17h56dd0e791763e603E.llvm.2565806491854022624.exit.i" unwind label %24
 
-23:                                               ; preds = %22
-  %24 = landingpad { ptr, i32 }
+24:                                               ; preds = %23
+  %25 = landingpad { ptr, i32 }
           cleanup
-  %25 = getelementptr inbounds nuw i8, ptr %1, i64 144
-  %26 = load i64, ptr %25, align 8, !range !578, !alias.scope !1838, !noundef !27
-  %27 = icmp eq i64 %26, -9223372036854775805
-  br i1 %27, label %common.resume, label %28
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 144
+  %27 = load i64, ptr %26, align 8, !range !578, !alias.scope !1838, !noundef !27
+  %28 = icmp eq i64 %27, -9223372036854775805
+  br i1 %28, label %common.resume, label %29
 
-28:                                               ; preds = %23
-  invoke void @"_ZN4core3ptr520drop_in_place$LT$core..iter..adapters..flatten..FlattenCompat$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$alloc..vec..Vec$LT$alloc..vec..Vec$LT$uv_cli..Maybe$LT$uv_distribution_types..index..Index$GT$$GT$$GT$$GT$$C$alloc..vec..Vec$LT$alloc..vec..Vec$LT$uv_cli..Maybe$LT$uv_distribution_types..index..Index$GT$$GT$$GT$$C$uv..settings..AddSettings..resolve..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$alloc..vec..into_iter..IntoIter$LT$uv_cli..Maybe$LT$uv_distribution_types..index..Index$GT$$GT$$GT$$GT$17h78ed9b674e3d4150E.llvm.2565806491854022624"(ptr noalias noundef nonnull align 8 dereferenceable(152) %25)
-          to label %common.resume unwind label %33
+29:                                               ; preds = %24
+  invoke void @"_ZN4core3ptr520drop_in_place$LT$core..iter..adapters..flatten..FlattenCompat$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$alloc..vec..Vec$LT$alloc..vec..Vec$LT$uv_cli..Maybe$LT$uv_distribution_types..index..Index$GT$$GT$$GT$$GT$$C$alloc..vec..Vec$LT$alloc..vec..Vec$LT$uv_cli..Maybe$LT$uv_distribution_types..index..Index$GT$$GT$$GT$$C$uv..settings..AddSettings..resolve..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$alloc..vec..into_iter..IntoIter$LT$uv_cli..Maybe$LT$uv_distribution_types..index..Index$GT$$GT$$GT$$GT$17h78ed9b674e3d4150E.llvm.2565806491854022624"(ptr noalias noundef nonnull align 8 dereferenceable(152) %26)
+          to label %common.resume unwind label %34
 
-"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$core..option..IntoIter$LT$uv_distribution_types..index..Index$GT$$GT$$GT$17h56dd0e791763e603E.llvm.2565806491854022624.exit.i": ; preds = %22, %18
-  %29 = getelementptr inbounds nuw i8, ptr %1, i64 144
-  %30 = load i64, ptr %29, align 8, !range !578, !alias.scope !1841, !noundef !27
-  %31 = icmp eq i64 %30, -9223372036854775805
-  br i1 %31, label %"_ZN4core3ptr649drop_in_place$LT$core..iter..adapters..chain..Chain$LT$core..option..IntoIter$LT$uv_distribution_types..index..Index$GT$$C$core..iter..adapters..filter_map..FilterMap$LT$core..iter..adapters..flatten..Flatten$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$alloc..vec..Vec$LT$alloc..vec..Vec$LT$uv_cli..Maybe$LT$uv_distribution_types..index..Index$GT$$GT$$GT$$GT$$C$alloc..vec..Vec$LT$alloc..vec..Vec$LT$uv_cli..Maybe$LT$uv_distribution_types..index..Index$GT$$GT$$GT$$C$uv..settings..AddSettings..resolve..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$uv_cli..Maybe$LT$uv_distribution_types..index..Index$GT$..into_option$GT$$GT$$GT$17hcbb2298608daa14fE.exit", label %32
+"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$core..option..IntoIter$LT$uv_distribution_types..index..Index$GT$$GT$$GT$17h56dd0e791763e603E.llvm.2565806491854022624.exit.i": ; preds = %23, %18
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 144
+  %31 = load i64, ptr %30, align 8, !range !578, !alias.scope !1841, !noundef !27
+  %32 = icmp eq i64 %31, -9223372036854775805
+  br i1 %32, label %"_ZN4core3ptr649drop_in_place$LT$core..iter..adapters..chain..Chain$LT$core..option..IntoIter$LT$uv_distribution_types..index..Index$GT$$C$core..iter..adapters..filter_map..FilterMap$LT$core..iter..adapters..flatten..Flatten$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$alloc..vec..Vec$LT$alloc..vec..Vec$LT$uv_cli..Maybe$LT$uv_distribution_types..index..Index$GT$$GT$$GT$$GT$$C$alloc..vec..Vec$LT$alloc..vec..Vec$LT$uv_cli..Maybe$LT$uv_distribution_types..index..Index$GT$$GT$$GT$$C$uv..settings..AddSettings..resolve..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$uv_cli..Maybe$LT$uv_distribution_types..index..Index$GT$..into_option$GT$$GT$$GT$17hcbb2298608daa14fE.exit", label %33
 
-32:                                               ; preds = %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$core..option..IntoIter$LT$uv_distribution_types..index..Index$GT$$GT$$GT$17h56dd0e791763e603E.llvm.2565806491854022624.exit.i"
-  tail call void @"_ZN4core3ptr520drop_in_place$LT$core..iter..adapters..flatten..FlattenCompat$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$alloc..vec..Vec$LT$alloc..vec..Vec$LT$uv_cli..Maybe$LT$uv_distribution_types..index..Index$GT$$GT$$GT$$GT$$C$alloc..vec..Vec$LT$alloc..vec..Vec$LT$uv_cli..Maybe$LT$uv_distribution_types..index..Index$GT$$GT$$GT$$C$uv..settings..AddSettings..resolve..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$alloc..vec..into_iter..IntoIter$LT$uv_cli..Maybe$LT$uv_distribution_types..index..Index$GT$$GT$$GT$$GT$17h78ed9b674e3d4150E.llvm.2565806491854022624"(ptr noalias noundef nonnull align 8 dereferenceable(152) %29)
+33:                                               ; preds = %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$core..option..IntoIter$LT$uv_distribution_types..index..Index$GT$$GT$$GT$17h56dd0e791763e603E.llvm.2565806491854022624.exit.i"
+  tail call void @"_ZN4core3ptr520drop_in_place$LT$core..iter..adapters..flatten..FlattenCompat$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$alloc..vec..Vec$LT$alloc..vec..Vec$LT$uv_cli..Maybe$LT$uv_distribution_types..index..Index$GT$$GT$$GT$$GT$$C$alloc..vec..Vec$LT$alloc..vec..Vec$LT$uv_cli..Maybe$LT$uv_distribution_types..index..Index$GT$$GT$$GT$$C$uv..settings..AddSettings..resolve..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$alloc..vec..into_iter..IntoIter$LT$uv_cli..Maybe$LT$uv_distribution_types..index..Index$GT$$GT$$GT$$GT$17h78ed9b674e3d4150E.llvm.2565806491854022624"(ptr noalias noundef nonnull align 8 dereferenceable(152) %30)
   br label %"_ZN4core3ptr649drop_in_place$LT$core..iter..adapters..chain..Chain$LT$core..option..IntoIter$LT$uv_distribution_types..index..Index$GT$$C$core..iter..adapters..filter_map..FilterMap$LT$core..iter..adapters..flatten..Flatten$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$alloc..vec..Vec$LT$alloc..vec..Vec$LT$uv_cli..Maybe$LT$uv_distribution_types..index..Index$GT$$GT$$GT$$GT$$C$alloc..vec..Vec$LT$alloc..vec..Vec$LT$uv_cli..Maybe$LT$uv_distribution_types..index..Index$GT$$GT$$GT$$C$uv..settings..AddSettings..resolve..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$uv_cli..Maybe$LT$uv_distribution_types..index..Index$GT$..into_option$GT$$GT$$GT$17hcbb2298608daa14fE.exit"
 
-33:                                               ; preds = %28
-  %34 = landingpad { ptr, i32 }
+34:                                               ; preds = %29
+  %35 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17h7e5529b9cf989fd4E() #23
   unreachable
 
-common.resume:                                    ; preds = %91, %.body, %23, %28
-  %common.resume.op = phi { ptr, i32 } [ %24, %28 ], [ %24, %23 ], [ %.pn.ph, %91 ], [ %eh.lpad-body, %.body ]
+common.resume:                                    ; preds = %93, %.body, %24, %29
+  %common.resume.op = phi { ptr, i32 } [ %25, %29 ], [ %25, %24 ], [ %.pn.ph, %93 ], [ %eh.lpad-body, %.body ]
   resume { ptr, i32 } %common.resume.op
 
-35:                                               ; preds = %15
+36:                                               ; preds = %15
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %10, ptr noundef nonnull align 8 dereferenceable(144) %11, i64 144, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call fastcc void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h8b008c6f3ee198efE"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %9, ptr noalias noundef readonly align 8 dereferenceable(296) %1)
-  %36 = load i64, ptr %9, align 8, !noundef !27
+  %37 = load i64, ptr %9, align 8, !noundef !27
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %37 = tail call i64 @llvm.uadd.sat.i64(i64 %36, i64 1)
-  %.sroa.0.0.sroa.speculated.i = tail call noundef range(i64 4, 0) i64 @llvm.umax.i64(i64 range(i64 1, 0) %37, i64 4)
+  %38 = tail call i64 @llvm.uadd.sat.i64(i64 %37, i64 1)
+  %.sroa.0.0.sroa.speculated.i = tail call noundef range(i64 4, 0) i64 @llvm.umax.i64(i64 range(i64 1, 0) %38, i64 4)
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !1844
   invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$15try_allocate_in17h12a5a6381bb43d08E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, i64 noundef %.sroa.0.0.sroa.speculated.i, i1 noundef zeroext false, i64 noundef 8, i64 noundef 144)
-          to label %.noexc unwind label %38
+          to label %.noexc unwind label %39
 
-"_ZN4core3ptr649drop_in_place$LT$core..iter..adapters..chain..Chain$LT$core..option..IntoIter$LT$uv_distribution_types..index..Index$GT$$C$core..iter..adapters..filter_map..FilterMap$LT$core..iter..adapters..flatten..Flatten$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$alloc..vec..Vec$LT$alloc..vec..Vec$LT$uv_cli..Maybe$LT$uv_distribution_types..index..Index$GT$$GT$$GT$$GT$$C$alloc..vec..Vec$LT$alloc..vec..Vec$LT$uv_cli..Maybe$LT$uv_distribution_types..index..Index$GT$$GT$$GT$$C$uv..settings..AddSettings..resolve..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$uv_cli..Maybe$LT$uv_distribution_types..index..Index$GT$..into_option$GT$$GT$$GT$17hcbb2298608daa14fE.exit": ; preds = %32, %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$core..option..IntoIter$LT$uv_distribution_types..index..Index$GT$$GT$$GT$17h56dd0e791763e603E.llvm.2565806491854022624.exit.i", %88
+"_ZN4core3ptr649drop_in_place$LT$core..iter..adapters..chain..Chain$LT$core..option..IntoIter$LT$uv_distribution_types..index..Index$GT$$C$core..iter..adapters..filter_map..FilterMap$LT$core..iter..adapters..flatten..Flatten$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$alloc..vec..Vec$LT$alloc..vec..Vec$LT$uv_cli..Maybe$LT$uv_distribution_types..index..Index$GT$$GT$$GT$$GT$$C$alloc..vec..Vec$LT$alloc..vec..Vec$LT$uv_cli..Maybe$LT$uv_distribution_types..index..Index$GT$$GT$$GT$$C$uv..settings..AddSettings..resolve..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$uv_cli..Maybe$LT$uv_distribution_types..index..Index$GT$..into_option$GT$$GT$$GT$17hcbb2298608daa14fE.exit": ; preds = %33, %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$core..option..IntoIter$LT$uv_distribution_types..index..Index$GT$$GT$$GT$17h56dd0e791763e603E.llvm.2565806491854022624.exit.i", %90
   ret void
 
-38:                                               ; preds = %44, %35
-  %39 = landingpad { ptr, i32 }
+39:                                               ; preds = %45, %36
+  %40 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr56drop_in_place$LT$uv_distribution_types..index..Index$GT$17h9ad1ff9727702fa4E"(ptr noalias noundef nonnull align 8 dereferenceable(144) %10) #24
-          to label %91 unwind label %89
+          to label %93 unwind label %91
 
-.noexc:                                           ; preds = %35
-  %40 = load i64, ptr %7, align 8, !range !210, !noalias !1844, !noundef !27
-  %trunc.i = trunc nuw i64 %40 to i1
-  %41 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %42 = load i64, ptr %41, align 8, !range !44, !noalias !1844, !noundef !27
-  %43 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  br i1 %trunc.i, label %44, label %46
+.noexc:                                           ; preds = %36
+  %41 = load i64, ptr %7, align 8, !range !210, !noalias !1844, !noundef !27
+  %trunc.i = trunc nuw i64 %41 to i1
+  %42 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %43 = load i64, ptr %42, align 8, !range !44, !noalias !1844, !noundef !27
+  %44 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  br i1 %trunc.i, label %45, label %47
 
-44:                                               ; preds = %.noexc
-  %45 = load i64, ptr %43, align 8, !noalias !1844
-  invoke void @_ZN5alloc7raw_vec12handle_error17h5290ea7eaad4c986E(i64 noundef %42, i64 %45, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2) #22
-          to label %.noexc5 unwind label %38
+45:                                               ; preds = %.noexc
+  %46 = load i64, ptr %44, align 8, !noalias !1844
+  invoke void @_ZN5alloc7raw_vec12handle_error17h5290ea7eaad4c986E(i64 noundef %43, i64 %46, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2) #22
+          to label %.noexc5 unwind label %39
 
-.noexc5:                                          ; preds = %44
+.noexc5:                                          ; preds = %45
   unreachable
 
-46:                                               ; preds = %.noexc
-  %47 = load ptr, ptr %43, align 8, !noalias !1844, !nonnull !27, !noundef !27
-  %48 = icmp ule i64 %.sroa.0.0.sroa.speculated.i, %42
-  tail call void @llvm.assume(i1 %48)
+47:                                               ; preds = %.noexc
+  %48 = load ptr, ptr %44, align 8, !noalias !1844, !nonnull !27, !noundef !27
+  %49 = icmp ule i64 %.sroa.0.0.sroa.speculated.i, %43
+  tail call void @llvm.assume(i1 %49)
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !1844
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %47, ptr noundef nonnull align 8 dereferenceable(144) %11, i64 144, i1 false)
-  store i64 %42, ptr %12, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %48, ptr noundef nonnull align 8 dereferenceable(144) %11, i64 144, i1 false)
+  store i64 %43, ptr %12, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store ptr %47, ptr %.sroa.4.0..sroa_idx, align 8
+  store ptr %48, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i64 1, ptr %.sroa.6.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -4872,132 +4871,131 @@ common.resume:                                    ; preds = %91, %.body, %23, %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1852)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1855)
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !1857
-  br label %49
-
-49:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hdb4943950756b6edE.llvm.13786897246299850740.exit.i.i", %46
-  invoke fastcc void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h969456b15a7791d3E"(ptr noalias noundef align 8 captures(none) dereferenceable(144) %6, ptr noalias noundef nonnull align 8 dereferenceable(296) %8)
-          to label %53 unwind label %51
-
-50:                                               ; preds = %67, %51
-  %.pn.i.i = phi { ptr, i32 } [ %52, %51 ], [ %68, %67 ]
-  invoke void @"_ZN4core3ptr649drop_in_place$LT$core..iter..adapters..chain..Chain$LT$core..option..IntoIter$LT$uv_distribution_types..index..Index$GT$$C$core..iter..adapters..filter_map..FilterMap$LT$core..iter..adapters..flatten..Flatten$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$alloc..vec..Vec$LT$alloc..vec..Vec$LT$uv_cli..Maybe$LT$uv_distribution_types..index..Index$GT$$GT$$GT$$GT$$C$alloc..vec..Vec$LT$alloc..vec..Vec$LT$uv_cli..Maybe$LT$uv_distribution_types..index..Index$GT$$GT$$GT$$C$uv..settings..AddSettings..resolve..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$uv_cli..Maybe$LT$uv_distribution_types..index..Index$GT$..into_option$GT$$GT$$GT$17hcbb2298608daa14fE"(ptr noalias noundef nonnull align 8 dereferenceable(296) %8) #24
-          to label %.body unwind label %69
-
-51:                                               ; preds = %49
-  %52 = landingpad { ptr, i32 }
-          cleanup
   br label %50
 
-53:                                               ; preds = %49
-  %54 = load i64, ptr %6, align 8, !range !868, !noalias !1858, !noundef !27
-  %55 = icmp eq i64 %54, 3
-  br i1 %55, label %71, label %56
+50:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hdb4943950756b6edE.llvm.13786897246299850740.exit.i.i", %47
+  invoke fastcc void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h969456b15a7791d3E"(ptr noalias noundef align 8 captures(none) dereferenceable(144) %6, ptr noalias noundef nonnull align 8 dereferenceable(296) %8)
+          to label %54 unwind label %52
 
-56:                                               ; preds = %53
+51:                                               ; preds = %68, %52
+  %.pn.i.i = phi { ptr, i32 } [ %53, %52 ], [ %69, %68 ]
+  invoke void @"_ZN4core3ptr649drop_in_place$LT$core..iter..adapters..chain..Chain$LT$core..option..IntoIter$LT$uv_distribution_types..index..Index$GT$$C$core..iter..adapters..filter_map..FilterMap$LT$core..iter..adapters..flatten..Flatten$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$alloc..vec..Vec$LT$alloc..vec..Vec$LT$uv_cli..Maybe$LT$uv_distribution_types..index..Index$GT$$GT$$GT$$GT$$C$alloc..vec..Vec$LT$alloc..vec..Vec$LT$uv_cli..Maybe$LT$uv_distribution_types..index..Index$GT$$GT$$GT$$C$uv..settings..AddSettings..resolve..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$uv_cli..Maybe$LT$uv_distribution_types..index..Index$GT$..into_option$GT$$GT$$GT$17hcbb2298608daa14fE"(ptr noalias noundef nonnull align 8 dereferenceable(296) %8) #24
+          to label %.body unwind label %70
+
+52:                                               ; preds = %50
+  %53 = landingpad { ptr, i32 }
+          cleanup
+  br label %51
+
+54:                                               ; preds = %50
+  %55 = load i64, ptr %6, align 8, !range !868, !noalias !1858, !noundef !27
+  %56 = icmp eq i64 %55, 3
+  br i1 %56, label %72, label %57
+
+57:                                               ; preds = %54
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !1858
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %5, ptr noundef nonnull align 8 dereferenceable(144) %6, i64 144, i1 false), !noalias !1858
-  %57 = load i64, ptr %.sroa.6.0..sroa_idx, align 8, !alias.scope !1859, !noalias !1860, !noundef !27
-  %58 = icmp ult i64 %57, 64051194700380388
-  call void @llvm.assume(i1 %58)
-  %59 = load i64, ptr %12, align 8, !range !1861, !alias.scope !1859, !noalias !1860, !noundef !27
-  %60 = icmp eq i64 %57, %59
-  br i1 %60, label %61, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hdb4943950756b6edE.llvm.13786897246299850740.exit.i.i"
+  %58 = load i64, ptr %.sroa.6.0..sroa_idx, align 8, !alias.scope !1859, !noalias !1860, !noundef !27
+  %59 = icmp ult i64 %58, 64051194700380388
+  call void @llvm.assume(i1 %59)
+  %60 = load i64, ptr %12, align 8, !range !1861, !alias.scope !1859, !noalias !1860, !noundef !27
+  %61 = icmp eq i64 %58, %60
+  br i1 %61, label %62, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hdb4943950756b6edE.llvm.13786897246299850740.exit.i.i"
 
-61:                                               ; preds = %56
+62:                                               ; preds = %57
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !1858
   call fastcc void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h8b008c6f3ee198efE"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(296) %8)
-  %62 = load i64, ptr %4, align 8, !noalias !1858, !noundef !27
+  %63 = load i64, ptr %4, align 8, !noalias !1858, !noundef !27
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1858
-  %63 = call i64 @llvm.uadd.sat.i64(i64 %62, i64 1)
-  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$7reserve21do_reserve_and_handle17h04d8988e9ae239ddE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %12, i64 noundef %57, i64 noundef %63, i64 noundef 8, i64 noundef 144)
-          to label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hdb4943950756b6edE.llvm.13786897246299850740.exit.i.i" unwind label %67
+  %64 = call i64 @llvm.uadd.sat.i64(i64 %63, i64 1)
+  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$7reserve21do_reserve_and_handle17h04d8988e9ae239ddE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %12, i64 noundef %58, i64 noundef %64, i64 noundef 8, i64 noundef 144)
+          to label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hdb4943950756b6edE.llvm.13786897246299850740.exit.i.i" unwind label %68
 
-"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hdb4943950756b6edE.llvm.13786897246299850740.exit.i.i": ; preds = %61, %56
-  %64 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !1859, !noalias !1860, !nonnull !27, !noundef !27
-  %65 = getelementptr inbounds nuw { { i64, [1 x i64] }, { i64, [10 x i64] }, { i64, [2 x i64] }, ptr, i8, i8, i8, i8, i8, [3 x i8] }, ptr %64, i64 %57
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %65, ptr noundef nonnull align 8 dereferenceable(144) %6, i64 144, i1 false)
-  %66 = add nuw nsw i64 %57, 1
-  store i64 %66, ptr %.sroa.6.0..sroa_idx, align 8, !alias.scope !1859, !noalias !1860
+"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hdb4943950756b6edE.llvm.13786897246299850740.exit.i.i": ; preds = %62, %57
+  %65 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !1859, !noalias !1860, !nonnull !27, !noundef !27
+  %66 = getelementptr inbounds nuw { { i64, [1 x i64] }, { i64, [10 x i64] }, { i64, [2 x i64] }, ptr, i8, i8, i8, i8, i8, [3 x i8] }, ptr %65, i64 %58
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %66, ptr noundef nonnull align 8 dereferenceable(144) %6, i64 144, i1 false)
+  %67 = add nuw nsw i64 %58, 1
+  store i64 %67, ptr %.sroa.6.0..sroa_idx, align 8, !alias.scope !1859, !noalias !1860
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !1858
-  br label %49
+  br label %50
 
-67:                                               ; preds = %61
-  %68 = landingpad { ptr, i32 }
+68:                                               ; preds = %62
+  %69 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr56drop_in_place$LT$uv_distribution_types..index..Index$GT$17h9ad1ff9727702fa4E"(ptr noalias noundef nonnull align 8 dereferenceable(144) %5) #24
-          to label %50 unwind label %69
+          to label %51 unwind label %70
 
-69:                                               ; preds = %67, %50
-  %70 = landingpad { ptr, i32 }
+70:                                               ; preds = %68, %51
+  %71 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h7e5529b9cf989fd4E() #23
   unreachable
 
-71:                                               ; preds = %53
-  %72 = load i64, ptr %8, align 8, !range !686, !alias.scope !1862, !noalias !1859, !noundef !27
-  %.off.i.i.i.i = add nsw i64 %72, -3
-  %switch.i.i.i.i = icmp ult i64 %.off.i.i.i.i, 2
-  br i1 %switch.i.i.i.i, label %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$core..option..IntoIter$LT$uv_distribution_types..index..Index$GT$$GT$$GT$17h56dd0e791763e603E.llvm.2565806491854022624.exit.i.i.i", label %73
+72:                                               ; preds = %54
+  %73 = load i64, ptr %8, align 8, !range !686, !alias.scope !1862, !noalias !1859, !noundef !27
+  %74 = icmp samesign ugt i64 %73, 2
+  br i1 %74, label %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$core..option..IntoIter$LT$uv_distribution_types..index..Index$GT$$GT$$GT$17h56dd0e791763e603E.llvm.2565806491854022624.exit.i.i.i", label %75
 
-73:                                               ; preds = %71
+75:                                               ; preds = %72
   invoke void @"_ZN4core3ptr56drop_in_place$LT$uv_distribution_types..index..Index$GT$17h9ad1ff9727702fa4E"(ptr noalias noundef nonnull align 8 dereferenceable(296) %8)
-          to label %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$core..option..IntoIter$LT$uv_distribution_types..index..Index$GT$$GT$$GT$17h56dd0e791763e603E.llvm.2565806491854022624.exit.i.i.i" unwind label %74
+          to label %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$core..option..IntoIter$LT$uv_distribution_types..index..Index$GT$$GT$$GT$17h56dd0e791763e603E.llvm.2565806491854022624.exit.i.i.i" unwind label %76
 
-74:                                               ; preds = %73
-  %75 = landingpad { ptr, i32 }
+76:                                               ; preds = %75
+  %77 = landingpad { ptr, i32 }
           cleanup
-  %76 = getelementptr inbounds nuw i8, ptr %8, i64 144
-  %77 = load i64, ptr %76, align 8, !range !578, !alias.scope !1867, !noalias !1859, !noundef !27
-  %78 = icmp eq i64 %77, -9223372036854775805
-  br i1 %78, label %.body, label %79
+  %78 = getelementptr inbounds nuw i8, ptr %8, i64 144
+  %79 = load i64, ptr %78, align 8, !range !578, !alias.scope !1867, !noalias !1859, !noundef !27
+  %80 = icmp eq i64 %79, -9223372036854775805
+  br i1 %80, label %.body, label %81
 
-79:                                               ; preds = %74
-  invoke void @"_ZN4core3ptr520drop_in_place$LT$core..iter..adapters..flatten..FlattenCompat$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$alloc..vec..Vec$LT$alloc..vec..Vec$LT$uv_cli..Maybe$LT$uv_distribution_types..index..Index$GT$$GT$$GT$$GT$$C$alloc..vec..Vec$LT$alloc..vec..Vec$LT$uv_cli..Maybe$LT$uv_distribution_types..index..Index$GT$$GT$$GT$$C$uv..settings..AddSettings..resolve..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$alloc..vec..into_iter..IntoIter$LT$uv_cli..Maybe$LT$uv_distribution_types..index..Index$GT$$GT$$GT$$GT$17h78ed9b674e3d4150E.llvm.2565806491854022624"(ptr noalias noundef nonnull align 8 dereferenceable(152) %76)
-          to label %.body unwind label %84
+81:                                               ; preds = %76
+  invoke void @"_ZN4core3ptr520drop_in_place$LT$core..iter..adapters..flatten..FlattenCompat$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$alloc..vec..Vec$LT$alloc..vec..Vec$LT$uv_cli..Maybe$LT$uv_distribution_types..index..Index$GT$$GT$$GT$$GT$$C$alloc..vec..Vec$LT$alloc..vec..Vec$LT$uv_cli..Maybe$LT$uv_distribution_types..index..Index$GT$$GT$$GT$$C$uv..settings..AddSettings..resolve..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$alloc..vec..into_iter..IntoIter$LT$uv_cli..Maybe$LT$uv_distribution_types..index..Index$GT$$GT$$GT$$GT$17h78ed9b674e3d4150E.llvm.2565806491854022624"(ptr noalias noundef nonnull align 8 dereferenceable(152) %78)
+          to label %.body unwind label %86
 
-"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$core..option..IntoIter$LT$uv_distribution_types..index..Index$GT$$GT$$GT$17h56dd0e791763e603E.llvm.2565806491854022624.exit.i.i.i": ; preds = %73, %71
-  %80 = getelementptr inbounds nuw i8, ptr %8, i64 144
-  %81 = load i64, ptr %80, align 8, !range !578, !alias.scope !1870, !noalias !1859, !noundef !27
-  %82 = icmp eq i64 %81, -9223372036854775805
-  br i1 %82, label %88, label %83
+"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$core..option..IntoIter$LT$uv_distribution_types..index..Index$GT$$GT$$GT$17h56dd0e791763e603E.llvm.2565806491854022624.exit.i.i.i": ; preds = %75, %72
+  %82 = getelementptr inbounds nuw i8, ptr %8, i64 144
+  %83 = load i64, ptr %82, align 8, !range !578, !alias.scope !1870, !noalias !1859, !noundef !27
+  %84 = icmp eq i64 %83, -9223372036854775805
+  br i1 %84, label %90, label %85
 
-83:                                               ; preds = %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$core..option..IntoIter$LT$uv_distribution_types..index..Index$GT$$GT$$GT$17h56dd0e791763e603E.llvm.2565806491854022624.exit.i.i.i"
-  invoke void @"_ZN4core3ptr520drop_in_place$LT$core..iter..adapters..flatten..FlattenCompat$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$alloc..vec..Vec$LT$alloc..vec..Vec$LT$uv_cli..Maybe$LT$uv_distribution_types..index..Index$GT$$GT$$GT$$GT$$C$alloc..vec..Vec$LT$alloc..vec..Vec$LT$uv_cli..Maybe$LT$uv_distribution_types..index..Index$GT$$GT$$GT$$C$uv..settings..AddSettings..resolve..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$alloc..vec..into_iter..IntoIter$LT$uv_cli..Maybe$LT$uv_distribution_types..index..Index$GT$$GT$$GT$$GT$17h78ed9b674e3d4150E.llvm.2565806491854022624"(ptr noalias noundef nonnull align 8 dereferenceable(152) %80)
-          to label %88 unwind label %86
+85:                                               ; preds = %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$core..option..IntoIter$LT$uv_distribution_types..index..Index$GT$$GT$$GT$17h56dd0e791763e603E.llvm.2565806491854022624.exit.i.i.i"
+  invoke void @"_ZN4core3ptr520drop_in_place$LT$core..iter..adapters..flatten..FlattenCompat$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$alloc..vec..Vec$LT$alloc..vec..Vec$LT$uv_cli..Maybe$LT$uv_distribution_types..index..Index$GT$$GT$$GT$$GT$$C$alloc..vec..Vec$LT$alloc..vec..Vec$LT$uv_cli..Maybe$LT$uv_distribution_types..index..Index$GT$$GT$$GT$$C$uv..settings..AddSettings..resolve..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$alloc..vec..into_iter..IntoIter$LT$uv_cli..Maybe$LT$uv_distribution_types..index..Index$GT$$GT$$GT$$GT$17h78ed9b674e3d4150E.llvm.2565806491854022624"(ptr noalias noundef nonnull align 8 dereferenceable(152) %82)
+          to label %90 unwind label %88
 
-84:                                               ; preds = %79
-  %85 = landingpad { ptr, i32 }
+86:                                               ; preds = %81
+  %87 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h7e5529b9cf989fd4E() #23
   unreachable
 
-86:                                               ; preds = %83
-  %87 = landingpad { ptr, i32 }
+88:                                               ; preds = %85
+  %89 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.body:                                            ; preds = %50, %74, %79, %86
-  %eh.lpad-body = phi { ptr, i32 } [ %87, %86 ], [ %75, %79 ], [ %75, %74 ], [ %.pn.i.i, %50 ]
+.body:                                            ; preds = %51, %76, %81, %88
+  %eh.lpad-body = phi { ptr, i32 } [ %89, %88 ], [ %77, %81 ], [ %77, %76 ], [ %.pn.i.i, %51 ]
   invoke void @"_ZN4core3ptr79drop_in_place$LT$alloc..vec..Vec$LT$uv_distribution_types..index..Index$GT$$GT$17h5e8d79d13b71efecE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %12) #24
-          to label %common.resume unwind label %89
+          to label %common.resume unwind label %91
 
-88:                                               ; preds = %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$core..option..IntoIter$LT$uv_distribution_types..index..Index$GT$$GT$$GT$17h56dd0e791763e603E.llvm.2565806491854022624.exit.i.i.i", %83
+90:                                               ; preds = %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$core..option..IntoIter$LT$uv_distribution_types..index..Index$GT$$GT$$GT$17h56dd0e791763e603E.llvm.2565806491854022624.exit.i.i.i", %85
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !1857
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %12, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %"_ZN4core3ptr649drop_in_place$LT$core..iter..adapters..chain..Chain$LT$core..option..IntoIter$LT$uv_distribution_types..index..Index$GT$$C$core..iter..adapters..filter_map..FilterMap$LT$core..iter..adapters..flatten..Flatten$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$alloc..vec..Vec$LT$alloc..vec..Vec$LT$uv_cli..Maybe$LT$uv_distribution_types..index..Index$GT$$GT$$GT$$GT$$C$alloc..vec..Vec$LT$alloc..vec..Vec$LT$uv_cli..Maybe$LT$uv_distribution_types..index..Index$GT$$GT$$GT$$C$uv..settings..AddSettings..resolve..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$uv_cli..Maybe$LT$uv_distribution_types..index..Index$GT$..into_option$GT$$GT$$GT$17hcbb2298608daa14fE.exit"
 
-89:                                               ; preds = %91, %.body, %38
-  %90 = landingpad { ptr, i32 }
+91:                                               ; preds = %93, %.body, %39
+  %92 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h7e5529b9cf989fd4E() #23
   unreachable
 
-91:                                               ; preds = %38, %13
-  %.pn.ph = phi { ptr, i32 } [ %14, %13 ], [ %39, %38 ]
+93:                                               ; preds = %39, %13
+  %.pn.ph = phi { ptr, i32 } [ %14, %13 ], [ %40, %39 ]
   invoke void @"_ZN4core3ptr649drop_in_place$LT$core..iter..adapters..chain..Chain$LT$core..option..IntoIter$LT$uv_distribution_types..index..Index$GT$$C$core..iter..adapters..filter_map..FilterMap$LT$core..iter..adapters..flatten..Flatten$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..IntoIter$LT$alloc..vec..Vec$LT$alloc..vec..Vec$LT$uv_cli..Maybe$LT$uv_distribution_types..index..Index$GT$$GT$$GT$$GT$$C$alloc..vec..Vec$LT$alloc..vec..Vec$LT$uv_cli..Maybe$LT$uv_distribution_types..index..Index$GT$$GT$$GT$$C$uv..settings..AddSettings..resolve..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$uv_cli..Maybe$LT$uv_distribution_types..index..Index$GT$..into_option$GT$$GT$$GT$17hcbb2298608daa14fE"(ptr noalias noundef nonnull align 8 dereferenceable(296) %1) #24
-          to label %common.resume unwind label %89
+          to label %common.resume unwind label %91
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -12556,12 +12554,12 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
 15:                                               ; preds = %3
   %16 = landingpad { ptr, i32 }
           cleanup
-  br label %122
+  br label %126
 
 17:                                               ; preds = %3
   %18 = load i64, ptr %13, align 8, !range !868, !noundef !27
   %19 = icmp eq i64 %18, 3
-  br i1 %19, label %20, label %35
+  br i1 %19, label %20, label %37
 
 20:                                               ; preds = %17
   store i64 0, ptr %0, align 8
@@ -12583,115 +12581,113 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %28 = landingpad { ptr, i32 }
           cleanup
   %29 = load i64, ptr %1, align 8, !range !686, !alias.scope !3842, !noundef !27
-  %.off.i.i = add nsw i64 %29, -3
-  %switch.i.i = icmp ult i64 %.off.i.i, 2
-  br i1 %switch.i.i, label %common.resume, label %30
+  %30 = icmp samesign ugt i64 %29, 2
+  br i1 %30, label %common.resume, label %31
 
-30:                                               ; preds = %27
+31:                                               ; preds = %27
   invoke void @"_ZN4core3ptr56drop_in_place$LT$uv_distribution_types..index..Index$GT$17h9ad1ff9727702fa4E"(ptr noalias noundef nonnull align 8 dereferenceable(640) %1)
-          to label %common.resume unwind label %33
+          to label %common.resume unwind label %35
 
 "_ZN4core3ptr1384drop_in_place$LT$core..option..Option$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$alloc..vec..Vec$LT$uv_distribution_types..index..Index$GT$$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$alloc..vec..Vec$LT$uv_distribution_types..pip_index..PipExtraIndex$GT$$GT$$GT$$C$$LT$uv_distribution_types..index..Index$u20$as$u20$core..convert..From$LT$uv_distribution_types..pip_index..PipExtraIndex$GT$$GT$..from$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..option..IntoIter$LT$uv_distribution_types..pip_index..PipIndex$GT$$C$$LT$uv_distribution_types..index..Index$u20$as$u20$core..convert..From$LT$uv_distribution_types..pip_index..PipIndex$GT$$GT$..from$GT$$GT$$C$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$alloc..vec..Vec$LT$uv_distribut": ; preds = %26, %20
-  %31 = load i64, ptr %1, align 8, !range !686, !alias.scope !3845, !noundef !27
-  %.off.i2.i = add nsw i64 %31, -3
-  %switch.i3.i = icmp ult i64 %.off.i2.i, 2
-  br i1 %switch.i3.i, label %"_ZN4core3ptr1644drop_in_place$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$alloc..vec..Vec$LT$uv_distribution_types..index..Index$GT$$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$alloc..vec..Vec$LT$uv_distribution_types..pip_index..PipExtraIndex$GT$$GT$$GT$$C$$LT$uv_distribution_types..index..Index$u20$as$u20$core..convert..From$LT$uv_distribution_types..pip_index..PipExtraIndex$GT$$GT$..from$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..option..IntoIter$LT$uv_distribution_types..pip_index..PipIndex$GT$$C$$LT$uv_distribution_types..index..Index$u20$as$u20$core..convert..From$LT$uv_distribution_types..pip_index..PipIndex$GT$$GT$..from$GT$$GT$$C$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$alloc..vec..Vec$L", label %32
+  %32 = load i64, ptr %1, align 8, !range !686, !alias.scope !3845, !noundef !27
+  %33 = icmp samesign ugt i64 %32, 2
+  br i1 %33, label %"_ZN4core3ptr1644drop_in_place$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$alloc..vec..Vec$LT$uv_distribution_types..index..Index$GT$$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$alloc..vec..Vec$LT$uv_distribution_types..pip_index..PipExtraIndex$GT$$GT$$GT$$C$$LT$uv_distribution_types..index..Index$u20$as$u20$core..convert..From$LT$uv_distribution_types..pip_index..PipExtraIndex$GT$$GT$..from$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..option..IntoIter$LT$uv_distribution_types..pip_index..PipIndex$GT$$C$$LT$uv_distribution_types..index..Index$u20$as$u20$core..convert..From$LT$uv_distribution_types..pip_index..PipIndex$GT$$GT$..from$GT$$GT$$C$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$alloc..vec..Vec$L", label %34
 
-32:                                               ; preds = %"_ZN4core3ptr1384drop_in_place$LT$core..option..Option$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$alloc..vec..Vec$LT$uv_distribution_types..index..Index$GT$$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$alloc..vec..Vec$LT$uv_distribution_types..pip_index..PipExtraIndex$GT$$GT$$GT$$C$$LT$uv_distribution_types..index..Index$u20$as$u20$core..convert..From$LT$uv_distribution_types..pip_index..PipExtraIndex$GT$$GT$..from$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..option..IntoIter$LT$uv_distribution_types..pip_index..PipIndex$GT$$C$$LT$uv_distribution_types..index..Index$u20$as$u20$core..convert..From$LT$uv_distribution_types..pip_index..PipIndex$GT$$GT$..from$GT$$GT$$C$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$alloc..vec..Vec$LT$uv_distribut"
+34:                                               ; preds = %"_ZN4core3ptr1384drop_in_place$LT$core..option..Option$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$alloc..vec..Vec$LT$uv_distribution_types..index..Index$GT$$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$alloc..vec..Vec$LT$uv_distribution_types..pip_index..PipExtraIndex$GT$$GT$$GT$$C$$LT$uv_distribution_types..index..Index$u20$as$u20$core..convert..From$LT$uv_distribution_types..pip_index..PipExtraIndex$GT$$GT$..from$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..option..IntoIter$LT$uv_distribution_types..pip_index..PipIndex$GT$$C$$LT$uv_distribution_types..index..Index$u20$as$u20$core..convert..From$LT$uv_distribution_types..pip_index..PipIndex$GT$$GT$..from$GT$$GT$$C$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$alloc..vec..Vec$LT$uv_distribut"
   tail call void @"_ZN4core3ptr56drop_in_place$LT$uv_distribution_types..index..Index$GT$17h9ad1ff9727702fa4E"(ptr noalias noundef nonnull align 8 dereferenceable(640) %1)
   br label %"_ZN4core3ptr1644drop_in_place$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$alloc..vec..Vec$LT$uv_distribution_types..index..Index$GT$$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$alloc..vec..Vec$LT$uv_distribution_types..pip_index..PipExtraIndex$GT$$GT$$GT$$C$$LT$uv_distribution_types..index..Index$u20$as$u20$core..convert..From$LT$uv_distribution_types..pip_index..PipExtraIndex$GT$$GT$..from$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..option..IntoIter$LT$uv_distribution_types..pip_index..PipIndex$GT$$C$$LT$uv_distribution_types..index..Index$u20$as$u20$core..convert..From$LT$uv_distribution_types..pip_index..PipIndex$GT$$GT$..from$GT$$GT$$C$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$alloc..vec..Vec$L"
 
-33:                                               ; preds = %30
-  %34 = landingpad { ptr, i32 }
+35:                                               ; preds = %31
+  %36 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17h7e5529b9cf989fd4E() #23
   unreachable
 
-common.resume:                                    ; preds = %122, %.body, %27, %30
-  %common.resume.op = phi { ptr, i32 } [ %28, %30 ], [ %28, %27 ], [ %.pn.ph, %122 ], [ %eh.lpad-body, %.body ]
+common.resume:                                    ; preds = %126, %.body, %27, %31
+  %common.resume.op = phi { ptr, i32 } [ %28, %31 ], [ %28, %27 ], [ %.pn.ph, %126 ], [ %eh.lpad-body, %.body ]
   resume { ptr, i32 } %common.resume.op
 
-35:                                               ; preds = %17
+37:                                               ; preds = %17
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %12, ptr noundef nonnull align 8 dereferenceable(144) %13, i64 144, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3848)
-  %36 = getelementptr inbounds nuw i8, ptr %1, i64 144
-  %37 = load i64, ptr %36, align 8, !range !941, !alias.scope !3848, !noalias !3851, !noundef !27
-  %38 = icmp eq i64 %37, 7
-  %39 = load i64, ptr %1, align 8, !range !686, !alias.scope !3848, !noalias !3851, !noundef !27
-  %40 = icmp eq i64 %39, 4
-  br i1 %38, label %41, label %42
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 144
+  %39 = load i64, ptr %38, align 8, !range !941, !alias.scope !3848, !noalias !3851, !noundef !27
+  %40 = icmp eq i64 %39, 7
+  %41 = load i64, ptr %1, align 8, !range !686, !alias.scope !3848, !noalias !3851, !noundef !27
+  %42 = icmp eq i64 %41, 4
+  br i1 %40, label %43, label %44
 
-41:                                               ; preds = %35
-  br i1 %40, label %54, label %43
+43:                                               ; preds = %37
+  br i1 %42, label %56, label %45
 
-42:                                               ; preds = %35
-  br i1 %40, label %46, label %47
+44:                                               ; preds = %37
+  br i1 %42, label %48, label %49
 
-43:                                               ; preds = %41
-  %44 = icmp ne i64 %39, 3
-  %45 = zext i1 %44 to i64
-  br label %54
+45:                                               ; preds = %43
+  %46 = icmp ne i64 %41, 3
+  %47 = zext i1 %46 to i64
+  br label %56
 
-46:                                               ; preds = %42
-  call fastcc void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hb141748382fe87f9E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %11, ptr noalias noundef readonly align 8 dereferenceable(496) %36)
+48:                                               ; preds = %44
+  call fastcc void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hb141748382fe87f9E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %11, ptr noalias noundef readonly align 8 dereferenceable(496) %38)
   %.pre = load i64, ptr %11, align 8
-  br label %54
+  br label %56
 
-47:                                               ; preds = %42
+49:                                               ; preds = %44
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !3853
-  call fastcc void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hb141748382fe87f9E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %9, ptr noalias noundef readonly align 8 dereferenceable(496) %36), !noalias !3851
-  %48 = load i64, ptr %9, align 8, !noalias !3853, !noundef !27
+  call fastcc void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hb141748382fe87f9E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %9, ptr noalias noundef readonly align 8 dereferenceable(496) %38), !noalias !3851
+  %50 = load i64, ptr %9, align 8, !noalias !3853, !noundef !27
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !3853
-  %49 = icmp ne i64 %39, 3
-  %50 = zext i1 %49 to i64
-  %51 = tail call i64 @llvm.uadd.sat.i64(i64 %48, i64 %50)
-  br label %54
+  %51 = icmp ne i64 %41, 3
+  %52 = zext i1 %51 to i64
+  %53 = tail call i64 @llvm.uadd.sat.i64(i64 %50, i64 %52)
+  br label %56
 
-"_ZN4core3ptr1644drop_in_place$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$alloc..vec..Vec$LT$uv_distribution_types..index..Index$GT$$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$alloc..vec..Vec$LT$uv_distribution_types..pip_index..PipExtraIndex$GT$$GT$$GT$$C$$LT$uv_distribution_types..index..Index$u20$as$u20$core..convert..From$LT$uv_distribution_types..pip_index..PipExtraIndex$GT$$GT$..from$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..option..IntoIter$LT$uv_distribution_types..pip_index..PipIndex$GT$$C$$LT$uv_distribution_types..index..Index$u20$as$u20$core..convert..From$LT$uv_distribution_types..pip_index..PipIndex$GT$$GT$..from$GT$$GT$$C$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$alloc..vec..Vec$L": ; preds = %32, %"_ZN4core3ptr1384drop_in_place$LT$core..option..Option$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$alloc..vec..Vec$LT$uv_distribution_types..index..Index$GT$$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$alloc..vec..Vec$LT$uv_distribution_types..pip_index..PipExtraIndex$GT$$GT$$GT$$C$$LT$uv_distribution_types..index..Index$u20$as$u20$core..convert..From$LT$uv_distribution_types..pip_index..PipExtraIndex$GT$$GT$..from$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..option..IntoIter$LT$uv_distribution_types..pip_index..PipIndex$GT$$C$$LT$uv_distribution_types..index..Index$u20$as$u20$core..convert..From$LT$uv_distribution_types..pip_index..PipIndex$GT$$GT$..from$GT$$GT$$C$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$alloc..vec..Vec$LT$uv_distribut", %119
+"_ZN4core3ptr1644drop_in_place$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$alloc..vec..Vec$LT$uv_distribution_types..index..Index$GT$$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$alloc..vec..Vec$LT$uv_distribution_types..pip_index..PipExtraIndex$GT$$GT$$GT$$C$$LT$uv_distribution_types..index..Index$u20$as$u20$core..convert..From$LT$uv_distribution_types..pip_index..PipExtraIndex$GT$$GT$..from$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..option..IntoIter$LT$uv_distribution_types..pip_index..PipIndex$GT$$C$$LT$uv_distribution_types..index..Index$u20$as$u20$core..convert..From$LT$uv_distribution_types..pip_index..PipIndex$GT$$GT$..from$GT$$GT$$C$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$alloc..vec..Vec$L": ; preds = %34, %"_ZN4core3ptr1384drop_in_place$LT$core..option..Option$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$alloc..vec..Vec$LT$uv_distribution_types..index..Index$GT$$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$alloc..vec..Vec$LT$uv_distribution_types..pip_index..PipExtraIndex$GT$$GT$$GT$$C$$LT$uv_distribution_types..index..Index$u20$as$u20$core..convert..From$LT$uv_distribution_types..pip_index..PipExtraIndex$GT$$GT$..from$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..option..IntoIter$LT$uv_distribution_types..pip_index..PipIndex$GT$$C$$LT$uv_distribution_types..index..Index$u20$as$u20$core..convert..From$LT$uv_distribution_types..pip_index..PipIndex$GT$$GT$..from$GT$$GT$$C$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$alloc..vec..Vec$LT$uv_distribut", %123
   ret void
 
-52:                                               ; preds = %61, %54
-  %53 = landingpad { ptr, i32 }
+54:                                               ; preds = %63, %56
+  %55 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr56drop_in_place$LT$uv_distribution_types..index..Index$GT$17h9ad1ff9727702fa4E"(ptr noalias noundef nonnull align 8 dereferenceable(144) %12) #24
-          to label %122 unwind label %120
+          to label %126 unwind label %124
 
-54:                                               ; preds = %41, %43, %46, %47
-  %55 = phi i64 [ %45, %43 ], [ %.pre, %46 ], [ %51, %47 ], [ 0, %41 ]
+56:                                               ; preds = %43, %45, %48, %49
+  %57 = phi i64 [ %47, %45 ], [ %.pre, %48 ], [ %53, %49 ], [ 0, %43 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  %56 = tail call i64 @llvm.uadd.sat.i64(i64 %55, i64 1)
-  %.sroa.0.0.sroa.speculated.i = tail call noundef range(i64 4, 0) i64 @llvm.umax.i64(i64 range(i64 1, 0) %56, i64 4)
+  %58 = tail call i64 @llvm.uadd.sat.i64(i64 %57, i64 1)
+  %.sroa.0.0.sroa.speculated.i = tail call noundef range(i64 4, 0) i64 @llvm.umax.i64(i64 range(i64 1, 0) %58, i64 4)
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !3854
   invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$15try_allocate_in17h12a5a6381bb43d08E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %8, i64 noundef %.sroa.0.0.sroa.speculated.i, i1 noundef zeroext false, i64 noundef 8, i64 noundef 144)
-          to label %.noexc unwind label %52
+          to label %.noexc unwind label %54
 
-.noexc:                                           ; preds = %54
-  %57 = load i64, ptr %8, align 8, !range !210, !noalias !3854, !noundef !27
-  %trunc.i5 = trunc nuw i64 %57 to i1
-  %58 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %59 = load i64, ptr %58, align 8, !range !44, !noalias !3854, !noundef !27
-  %60 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  br i1 %trunc.i5, label %61, label %63
-
-61:                                               ; preds = %.noexc
-  %62 = load i64, ptr %60, align 8, !noalias !3854
-  invoke void @_ZN5alloc7raw_vec12handle_error17h5290ea7eaad4c986E(i64 noundef %59, i64 %62, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2) #22
-          to label %.noexc7 unwind label %52
-
-.noexc7:                                          ; preds = %61
-  unreachable
+.noexc:                                           ; preds = %56
+  %59 = load i64, ptr %8, align 8, !range !210, !noalias !3854, !noundef !27
+  %trunc.i5 = trunc nuw i64 %59 to i1
+  %60 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %61 = load i64, ptr %60, align 8, !range !44, !noalias !3854, !noundef !27
+  %62 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  br i1 %trunc.i5, label %63, label %65
 
 63:                                               ; preds = %.noexc
-  %64 = load ptr, ptr %60, align 8, !noalias !3854, !nonnull !27, !noundef !27
-  %65 = icmp ule i64 %.sroa.0.0.sroa.speculated.i, %59
-  tail call void @llvm.assume(i1 %65)
+  %64 = load i64, ptr %62, align 8, !noalias !3854
+  invoke void @_ZN5alloc7raw_vec12handle_error17h5290ea7eaad4c986E(i64 noundef %61, i64 %64, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2) #22
+          to label %.noexc7 unwind label %54
+
+.noexc7:                                          ; preds = %63
+  unreachable
+
+65:                                               ; preds = %.noexc
+  %66 = load ptr, ptr %62, align 8, !noalias !3854, !nonnull !27, !noundef !27
+  %67 = icmp ule i64 %.sroa.0.0.sroa.speculated.i, %61
+  tail call void @llvm.assume(i1 %67)
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !3854
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %64, ptr noundef nonnull align 8 dereferenceable(144) %13, i64 144, i1 false)
-  store i64 %59, ptr %14, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %66, ptr noundef nonnull align 8 dereferenceable(144) %13, i64 144, i1 false)
+  store i64 %61, ptr %14, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store ptr %64, ptr %.sroa.4.0..sroa_idx, align 8
+  store ptr %66, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 16
   store i64 1, ptr %.sroa.6.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -12702,165 +12698,163 @@ common.resume:                                    ; preds = %122, %.body, %27, %
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3862)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3865)
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !3867
-  %66 = getelementptr inbounds nuw i8, ptr %10, i64 144
-  br label %67
+  %68 = getelementptr inbounds nuw i8, ptr %10, i64 144
+  br label %69
 
-67:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hdb4943950756b6edE.llvm.13786897246299850740.exit.i.i", %63
+69:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hdb4943950756b6edE.llvm.13786897246299850740.exit.i.i", %65
   invoke fastcc void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbfe96b160437ea5dE"(ptr noalias noundef align 8 captures(none) dereferenceable(144) %7, ptr noalias noundef nonnull align 8 dereferenceable(640) %10)
-          to label %71 unwind label %69
+          to label %73 unwind label %71
 
-68:                                               ; preds = %98, %69
-  %.pn.i.i = phi { ptr, i32 } [ %70, %69 ], [ %99, %98 ]
+70:                                               ; preds = %100, %71
+  %.pn.i.i = phi { ptr, i32 } [ %72, %71 ], [ %101, %100 ]
   invoke void @"_ZN4core3ptr1644drop_in_place$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$alloc..vec..Vec$LT$uv_distribution_types..index..Index$GT$$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$alloc..vec..Vec$LT$uv_distribution_types..pip_index..PipExtraIndex$GT$$GT$$GT$$C$$LT$uv_distribution_types..index..Index$u20$as$u20$core..convert..From$LT$uv_distribution_types..pip_index..PipExtraIndex$GT$$GT$..from$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..option..IntoIter$LT$uv_distribution_types..pip_index..PipIndex$GT$$C$$LT$uv_distribution_types..index..Index$u20$as$u20$core..convert..From$LT$uv_distribution_types..pip_index..PipIndex$GT$$GT$..from$GT$$GT$$C$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$alloc..vec..Vec$LT$uv_distribution_types..index..Index$GT$$GT$$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$alloc..vec..Vec$LT$uv_distribution_types..pip_index..PipExtraIndex$GT$$GT$$GT$$C$$LT$uv_distribution_types..index..Index$u20$as$u20$core..convert..From$LT$uv_distribution_types..pip_index..PipExtraIndex$GT$$GT$..from$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..option..IntoIter$LT$uv_distribution_types..pip_index..PipIndex$GT$$C$$LT$uv_distribution_types..index..Index$u20$as$u20$core..convert..From$LT$uv_distribution_types..pip_index..PipIndex$GT$$GT$..from$GT$$GT$$GT$17h5420c67b1e00c101E"(ptr noalias noundef nonnull align 8 dereferenceable(640) %10) #24
-          to label %.body unwind label %103
+          to label %.body unwind label %105
 
-69:                                               ; preds = %67
-  %70 = landingpad { ptr, i32 }
+71:                                               ; preds = %69
+  %72 = landingpad { ptr, i32 }
           cleanup
-  br label %68
+  br label %70
 
-71:                                               ; preds = %67
-  %72 = load i64, ptr %7, align 8, !range !868, !noalias !3868, !noundef !27
-  %73 = icmp eq i64 %72, 3
-  br i1 %73, label %105, label %74
+73:                                               ; preds = %69
+  %74 = load i64, ptr %7, align 8, !range !868, !noalias !3868, !noundef !27
+  %75 = icmp eq i64 %74, 3
+  br i1 %75, label %107, label %76
 
-74:                                               ; preds = %71
+76:                                               ; preds = %73
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !3868
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %6, ptr noundef nonnull align 8 dereferenceable(144) %7, i64 144, i1 false), !noalias !3868
-  %75 = load i64, ptr %.sroa.6.0..sroa_idx, align 8, !alias.scope !3869, !noalias !3870, !noundef !27
-  %76 = icmp ult i64 %75, 64051194700380388
-  call void @llvm.assume(i1 %76)
-  %77 = load i64, ptr %14, align 8, !range !1861, !alias.scope !3869, !noalias !3870, !noundef !27
-  %78 = icmp eq i64 %75, %77
-  br i1 %78, label %79, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hdb4943950756b6edE.llvm.13786897246299850740.exit.i.i"
+  %77 = load i64, ptr %.sroa.6.0..sroa_idx, align 8, !alias.scope !3869, !noalias !3870, !noundef !27
+  %78 = icmp ult i64 %77, 64051194700380388
+  call void @llvm.assume(i1 %78)
+  %79 = load i64, ptr %14, align 8, !range !1861, !alias.scope !3869, !noalias !3870, !noundef !27
+  %80 = icmp eq i64 %77, %79
+  br i1 %80, label %81, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hdb4943950756b6edE.llvm.13786897246299850740.exit.i.i"
 
-79:                                               ; preds = %74
+81:                                               ; preds = %76
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !3868
   call void @llvm.experimental.noalias.scope.decl(metadata !3871)
-  %80 = load i64, ptr %66, align 8, !range !941, !alias.scope !3874, !noalias !3875, !noundef !27
-  %81 = icmp eq i64 %80, 7
-  %82 = load i64, ptr %10, align 8, !range !686, !alias.scope !3874, !noalias !3875, !noundef !27
-  %83 = icmp eq i64 %82, 4
-  br i1 %81, label %84, label %85
+  %82 = load i64, ptr %68, align 8, !range !941, !alias.scope !3874, !noalias !3875, !noundef !27
+  %83 = icmp eq i64 %82, 7
+  %84 = load i64, ptr %10, align 8, !range !686, !alias.scope !3874, !noalias !3875, !noundef !27
+  %85 = icmp eq i64 %84, 4
+  br i1 %83, label %86, label %87
 
-84:                                               ; preds = %79
-  br i1 %83, label %100, label %86
+86:                                               ; preds = %81
+  br i1 %85, label %102, label %88
 
-85:                                               ; preds = %79
-  br i1 %83, label %89, label %90
+87:                                               ; preds = %81
+  br i1 %85, label %91, label %92
 
-86:                                               ; preds = %84
-  %87 = icmp ne i64 %82, 3
-  %88 = zext i1 %87 to i64
-  br label %100
+88:                                               ; preds = %86
+  %89 = icmp ne i64 %84, 3
+  %90 = zext i1 %89 to i64
+  br label %102
 
-89:                                               ; preds = %85
-  call fastcc void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hb141748382fe87f9E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef readonly align 8 dereferenceable(496) %66)
+91:                                               ; preds = %87
+  call fastcc void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hb141748382fe87f9E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef readonly align 8 dereferenceable(496) %68)
   %.pre.i.i = load i64, ptr %5, align 8, !noalias !3868
-  br label %100
+  br label %102
 
-90:                                               ; preds = %85
+92:                                               ; preds = %87
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !3877
-  call fastcc void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hb141748382fe87f9E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef readonly align 8 dereferenceable(496) %66), !noalias !3878
-  %91 = load i64, ptr %4, align 8, !noalias !3877, !noundef !27
+  call fastcc void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hb141748382fe87f9E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef readonly align 8 dereferenceable(496) %68), !noalias !3878
+  %93 = load i64, ptr %4, align 8, !noalias !3877, !noundef !27
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !3877
-  %92 = icmp ne i64 %82, 3
-  %93 = zext i1 %92 to i64
-  %94 = call i64 @llvm.uadd.sat.i64(i64 %91, i64 %93)
-  br label %100
+  %94 = icmp ne i64 %84, 3
+  %95 = zext i1 %94 to i64
+  %96 = call i64 @llvm.uadd.sat.i64(i64 %93, i64 %95)
+  br label %102
 
-"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hdb4943950756b6edE.llvm.13786897246299850740.exit.i.i": ; preds = %100, %74
-  %95 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !3869, !noalias !3870, !nonnull !27, !noundef !27
-  %96 = getelementptr inbounds nuw { { i64, [1 x i64] }, { i64, [10 x i64] }, { i64, [2 x i64] }, ptr, i8, i8, i8, i8, i8, [3 x i8] }, ptr %95, i64 %75
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %96, ptr noundef nonnull align 8 dereferenceable(144) %7, i64 144, i1 false)
-  %97 = add nuw nsw i64 %75, 1
-  store i64 %97, ptr %.sroa.6.0..sroa_idx, align 8, !alias.scope !3869, !noalias !3870
+"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hdb4943950756b6edE.llvm.13786897246299850740.exit.i.i": ; preds = %102, %76
+  %97 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !3869, !noalias !3870, !nonnull !27, !noundef !27
+  %98 = getelementptr inbounds nuw { { i64, [1 x i64] }, { i64, [10 x i64] }, { i64, [2 x i64] }, ptr, i8, i8, i8, i8, i8, [3 x i8] }, ptr %97, i64 %77
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %98, ptr noundef nonnull align 8 dereferenceable(144) %7, i64 144, i1 false)
+  %99 = add nuw nsw i64 %77, 1
+  store i64 %99, ptr %.sroa.6.0..sroa_idx, align 8, !alias.scope !3869, !noalias !3870
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !3868
-  br label %67
+  br label %69
 
-98:                                               ; preds = %100
-  %99 = landingpad { ptr, i32 }
+100:                                              ; preds = %102
+  %101 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr56drop_in_place$LT$uv_distribution_types..index..Index$GT$17h9ad1ff9727702fa4E"(ptr noalias noundef nonnull align 8 dereferenceable(144) %6) #24
-          to label %68 unwind label %103
+          to label %70 unwind label %105
 
-100:                                              ; preds = %90, %89, %86, %84
-  %101 = phi i64 [ %94, %90 ], [ %.pre.i.i, %89 ], [ %88, %86 ], [ 0, %84 ]
+102:                                              ; preds = %92, %91, %88, %86
+  %103 = phi i64 [ %96, %92 ], [ %.pre.i.i, %91 ], [ %90, %88 ], [ 0, %86 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !3868
-  %102 = call i64 @llvm.uadd.sat.i64(i64 %101, i64 1)
-  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$7reserve21do_reserve_and_handle17h04d8988e9ae239ddE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14, i64 noundef %75, i64 noundef %102, i64 noundef 8, i64 noundef 144)
-          to label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hdb4943950756b6edE.llvm.13786897246299850740.exit.i.i" unwind label %98
+  %104 = call i64 @llvm.uadd.sat.i64(i64 %103, i64 1)
+  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$7reserve21do_reserve_and_handle17h04d8988e9ae239ddE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14, i64 noundef %77, i64 noundef %104, i64 noundef 8, i64 noundef 144)
+          to label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hdb4943950756b6edE.llvm.13786897246299850740.exit.i.i" unwind label %100
 
-103:                                              ; preds = %98, %68
-  %104 = landingpad { ptr, i32 }
+105:                                              ; preds = %100, %70
+  %106 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h7e5529b9cf989fd4E() #23
   unreachable
 
-105:                                              ; preds = %71
-  %106 = load i64, ptr %66, align 8, !range !941, !alias.scope !3879, !noalias !3869, !noundef !27
-  %107 = icmp eq i64 %106, 7
-  br i1 %107, label %"_ZN4core3ptr1384drop_in_place$LT$core..option..Option$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$alloc..vec..Vec$LT$uv_distribution_types..index..Index$GT$$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$alloc..vec..Vec$LT$uv_distribution_types..pip_index..PipExtraIndex$GT$$GT$$GT$$C$$LT$uv_distribution_types..index..Index$u20$as$u20$core..convert..From$LT$uv_distribution_types..pip_index..PipExtraIndex$GT$$GT$..from$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..option..IntoIter$LT$uv_distribution_types..pip_index..PipIndex$GT$$C$$LT$uv_distribution_types..index..Index$u20$as$u20$core..convert..From$LT$uv_distribution_types..pip_index..PipIndex$GT$$GT$..from$GT$$GT$$C$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$alloc..vec..Vec$LT$uv_distribu9", label %108
+107:                                              ; preds = %73
+  %108 = load i64, ptr %68, align 8, !range !941, !alias.scope !3879, !noalias !3869, !noundef !27
+  %109 = icmp eq i64 %108, 7
+  br i1 %109, label %"_ZN4core3ptr1384drop_in_place$LT$core..option..Option$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$alloc..vec..Vec$LT$uv_distribution_types..index..Index$GT$$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$alloc..vec..Vec$LT$uv_distribution_types..pip_index..PipExtraIndex$GT$$GT$$GT$$C$$LT$uv_distribution_types..index..Index$u20$as$u20$core..convert..From$LT$uv_distribution_types..pip_index..PipExtraIndex$GT$$GT$..from$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..option..IntoIter$LT$uv_distribution_types..pip_index..PipIndex$GT$$C$$LT$uv_distribution_types..index..Index$u20$as$u20$core..convert..From$LT$uv_distribution_types..pip_index..PipIndex$GT$$GT$..from$GT$$GT$$C$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$alloc..vec..Vec$LT$uv_distribu9", label %110
 
-108:                                              ; preds = %105
-  invoke void @"_ZN4core3ptr1356drop_in_place$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$alloc..vec..Vec$LT$uv_distribution_types..index..Index$GT$$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$alloc..vec..Vec$LT$uv_distribution_types..pip_index..PipExtraIndex$GT$$GT$$GT$$C$$LT$uv_distribution_types..index..Index$u20$as$u20$core..convert..From$LT$uv_distribution_types..pip_index..PipExtraIndex$GT$$GT$..from$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..option..IntoIter$LT$uv_distribution_types..pip_index..PipIndex$GT$$C$$LT$uv_distribution_types..index..Index$u20$as$u20$core..convert..From$LT$uv_distribution_types..pip_index..PipIndex$GT$$GT$..from$GT$$GT$$C$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$alloc..vec..Vec$LT$uv_distribution_types..index..Index$GT$$GT$$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$alloc..vec..Vec$LT$uv_distribution_types..pip_index..PipExtraIndex$GT$$GT$$GT$$C$$LT$uv_distribution_types..index..Index$u20$as$u20$core..convert..From$LT$uv_distribution_types..pip_index..PipExtraIndex$GT$$GT$..from$GT$$GT$$GT$17h2d1b40e20377b55eE"(ptr noalias noundef nonnull align 8 dereferenceable(496) %66)
-          to label %"_ZN4core3ptr1384drop_in_place$LT$core..option..Option$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$alloc..vec..Vec$LT$uv_distribution_types..index..Index$GT$$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$alloc..vec..Vec$LT$uv_distribution_types..pip_index..PipExtraIndex$GT$$GT$$GT$$C$$LT$uv_distribution_types..index..Index$u20$as$u20$core..convert..From$LT$uv_distribution_types..pip_index..PipExtraIndex$GT$$GT$..from$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..option..IntoIter$LT$uv_distribution_types..pip_index..PipIndex$GT$$C$$LT$uv_distribution_types..index..Index$u20$as$u20$core..convert..From$LT$uv_distribution_types..pip_index..PipIndex$GT$$GT$..from$GT$$GT$$C$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$alloc..vec..Vec$LT$uv_distribu9" unwind label %109
+110:                                              ; preds = %107
+  invoke void @"_ZN4core3ptr1356drop_in_place$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$alloc..vec..Vec$LT$uv_distribution_types..index..Index$GT$$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$alloc..vec..Vec$LT$uv_distribution_types..pip_index..PipExtraIndex$GT$$GT$$GT$$C$$LT$uv_distribution_types..index..Index$u20$as$u20$core..convert..From$LT$uv_distribution_types..pip_index..PipExtraIndex$GT$$GT$..from$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..option..IntoIter$LT$uv_distribution_types..pip_index..PipIndex$GT$$C$$LT$uv_distribution_types..index..Index$u20$as$u20$core..convert..From$LT$uv_distribution_types..pip_index..PipIndex$GT$$GT$..from$GT$$GT$$C$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$alloc..vec..Vec$LT$uv_distribution_types..index..Index$GT$$GT$$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$alloc..vec..Vec$LT$uv_distribution_types..pip_index..PipExtraIndex$GT$$GT$$GT$$C$$LT$uv_distribution_types..index..Index$u20$as$u20$core..convert..From$LT$uv_distribution_types..pip_index..PipExtraIndex$GT$$GT$..from$GT$$GT$$GT$17h2d1b40e20377b55eE"(ptr noalias noundef nonnull align 8 dereferenceable(496) %68)
+          to label %"_ZN4core3ptr1384drop_in_place$LT$core..option..Option$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$alloc..vec..Vec$LT$uv_distribution_types..index..Index$GT$$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$alloc..vec..Vec$LT$uv_distribution_types..pip_index..PipExtraIndex$GT$$GT$$GT$$C$$LT$uv_distribution_types..index..Index$u20$as$u20$core..convert..From$LT$uv_distribution_types..pip_index..PipExtraIndex$GT$$GT$..from$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..option..IntoIter$LT$uv_distribution_types..pip_index..PipIndex$GT$$C$$LT$uv_distribution_types..index..Index$u20$as$u20$core..convert..From$LT$uv_distribution_types..pip_index..PipIndex$GT$$GT$..from$GT$$GT$$C$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$alloc..vec..Vec$LT$uv_distribu9" unwind label %111
 
-109:                                              ; preds = %108
-  %110 = landingpad { ptr, i32 }
+111:                                              ; preds = %110
+  %112 = landingpad { ptr, i32 }
           cleanup
-  %111 = load i64, ptr %10, align 8, !range !686, !alias.scope !3884, !noalias !3869, !noundef !27
-  %.off.i.i.i.i = add nsw i64 %111, -3
-  %switch.i.i.i.i = icmp ult i64 %.off.i.i.i.i, 2
-  br i1 %switch.i.i.i.i, label %.body, label %112
+  %113 = load i64, ptr %10, align 8, !range !686, !alias.scope !3884, !noalias !3869, !noundef !27
+  %114 = icmp samesign ugt i64 %113, 2
+  br i1 %114, label %.body, label %115
 
-112:                                              ; preds = %109
+115:                                              ; preds = %111
   invoke void @"_ZN4core3ptr56drop_in_place$LT$uv_distribution_types..index..Index$GT$17h9ad1ff9727702fa4E"(ptr noalias noundef nonnull align 8 dereferenceable(640) %10)
-          to label %.body unwind label %115
+          to label %.body unwind label %119
 
-"_ZN4core3ptr1384drop_in_place$LT$core..option..Option$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$alloc..vec..Vec$LT$uv_distribution_types..index..Index$GT$$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$alloc..vec..Vec$LT$uv_distribution_types..pip_index..PipExtraIndex$GT$$GT$$GT$$C$$LT$uv_distribution_types..index..Index$u20$as$u20$core..convert..From$LT$uv_distribution_types..pip_index..PipExtraIndex$GT$$GT$..from$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..option..IntoIter$LT$uv_distribution_types..pip_index..PipIndex$GT$$C$$LT$uv_distribution_types..index..Index$u20$as$u20$core..convert..From$LT$uv_distribution_types..pip_index..PipIndex$GT$$GT$..from$GT$$GT$$C$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$alloc..vec..Vec$LT$uv_distribu9": ; preds = %108, %105
-  %113 = load i64, ptr %10, align 8, !range !686, !alias.scope !3887, !noalias !3869, !noundef !27
-  %.off.i2.i.i.i = add nsw i64 %113, -3
-  %switch.i3.i.i.i = icmp ult i64 %.off.i2.i.i.i, 2
-  br i1 %switch.i3.i.i.i, label %119, label %114
+"_ZN4core3ptr1384drop_in_place$LT$core..option..Option$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$alloc..vec..Vec$LT$uv_distribution_types..index..Index$GT$$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$alloc..vec..Vec$LT$uv_distribution_types..pip_index..PipExtraIndex$GT$$GT$$GT$$C$$LT$uv_distribution_types..index..Index$u20$as$u20$core..convert..From$LT$uv_distribution_types..pip_index..PipExtraIndex$GT$$GT$..from$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..option..IntoIter$LT$uv_distribution_types..pip_index..PipIndex$GT$$C$$LT$uv_distribution_types..index..Index$u20$as$u20$core..convert..From$LT$uv_distribution_types..pip_index..PipIndex$GT$$GT$..from$GT$$GT$$C$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$alloc..vec..Vec$LT$uv_distribu9": ; preds = %110, %107
+  %116 = load i64, ptr %10, align 8, !range !686, !alias.scope !3887, !noalias !3869, !noundef !27
+  %117 = icmp samesign ugt i64 %116, 2
+  br i1 %117, label %123, label %118
 
-114:                                              ; preds = %"_ZN4core3ptr1384drop_in_place$LT$core..option..Option$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$alloc..vec..Vec$LT$uv_distribution_types..index..Index$GT$$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$alloc..vec..Vec$LT$uv_distribution_types..pip_index..PipExtraIndex$GT$$GT$$GT$$C$$LT$uv_distribution_types..index..Index$u20$as$u20$core..convert..From$LT$uv_distribution_types..pip_index..PipExtraIndex$GT$$GT$..from$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..option..IntoIter$LT$uv_distribution_types..pip_index..PipIndex$GT$$C$$LT$uv_distribution_types..index..Index$u20$as$u20$core..convert..From$LT$uv_distribution_types..pip_index..PipIndex$GT$$GT$..from$GT$$GT$$C$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$alloc..vec..Vec$LT$uv_distribu9"
+118:                                              ; preds = %"_ZN4core3ptr1384drop_in_place$LT$core..option..Option$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$alloc..vec..Vec$LT$uv_distribution_types..index..Index$GT$$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$alloc..vec..Vec$LT$uv_distribution_types..pip_index..PipExtraIndex$GT$$GT$$GT$$C$$LT$uv_distribution_types..index..Index$u20$as$u20$core..convert..From$LT$uv_distribution_types..pip_index..PipExtraIndex$GT$$GT$..from$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..option..IntoIter$LT$uv_distribution_types..pip_index..PipIndex$GT$$C$$LT$uv_distribution_types..index..Index$u20$as$u20$core..convert..From$LT$uv_distribution_types..pip_index..PipIndex$GT$$GT$..from$GT$$GT$$C$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$alloc..vec..Vec$LT$uv_distribu9"
   invoke void @"_ZN4core3ptr56drop_in_place$LT$uv_distribution_types..index..Index$GT$17h9ad1ff9727702fa4E"(ptr noalias noundef nonnull align 8 dereferenceable(640) %10)
-          to label %119 unwind label %117
+          to label %123 unwind label %121
 
-115:                                              ; preds = %112
-  %116 = landingpad { ptr, i32 }
+119:                                              ; preds = %115
+  %120 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h7e5529b9cf989fd4E() #23
   unreachable
 
-117:                                              ; preds = %114
-  %118 = landingpad { ptr, i32 }
+121:                                              ; preds = %118
+  %122 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.body:                                            ; preds = %68, %109, %112, %117
-  %eh.lpad-body = phi { ptr, i32 } [ %118, %117 ], [ %110, %112 ], [ %110, %109 ], [ %.pn.i.i, %68 ]
+.body:                                            ; preds = %70, %111, %115, %121
+  %eh.lpad-body = phi { ptr, i32 } [ %122, %121 ], [ %112, %115 ], [ %112, %111 ], [ %.pn.i.i, %70 ]
   invoke void @"_ZN4core3ptr79drop_in_place$LT$alloc..vec..Vec$LT$uv_distribution_types..index..Index$GT$$GT$17h5e8d79d13b71efecE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14) #24
-          to label %common.resume unwind label %120
+          to label %common.resume unwind label %124
 
-119:                                              ; preds = %"_ZN4core3ptr1384drop_in_place$LT$core..option..Option$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$alloc..vec..Vec$LT$uv_distribution_types..index..Index$GT$$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$alloc..vec..Vec$LT$uv_distribution_types..pip_index..PipExtraIndex$GT$$GT$$GT$$C$$LT$uv_distribution_types..index..Index$u20$as$u20$core..convert..From$LT$uv_distribution_types..pip_index..PipExtraIndex$GT$$GT$..from$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..option..IntoIter$LT$uv_distribution_types..pip_index..PipIndex$GT$$C$$LT$uv_distribution_types..index..Index$u20$as$u20$core..convert..From$LT$uv_distribution_types..pip_index..PipIndex$GT$$GT$..from$GT$$GT$$C$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$alloc..vec..Vec$LT$uv_distribu9", %114
+123:                                              ; preds = %"_ZN4core3ptr1384drop_in_place$LT$core..option..Option$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$alloc..vec..Vec$LT$uv_distribution_types..index..Index$GT$$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$alloc..vec..Vec$LT$uv_distribution_types..pip_index..PipExtraIndex$GT$$GT$$GT$$C$$LT$uv_distribution_types..index..Index$u20$as$u20$core..convert..From$LT$uv_distribution_types..pip_index..PipExtraIndex$GT$$GT$..from$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..option..IntoIter$LT$uv_distribution_types..pip_index..PipIndex$GT$$C$$LT$uv_distribution_types..index..Index$u20$as$u20$core..convert..From$LT$uv_distribution_types..pip_index..PipIndex$GT$$GT$..from$GT$$GT$$C$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$alloc..vec..Vec$LT$uv_distribu9", %118
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !3867
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %"_ZN4core3ptr1644drop_in_place$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$alloc..vec..Vec$LT$uv_distribution_types..index..Index$GT$$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$alloc..vec..Vec$LT$uv_distribution_types..pip_index..PipExtraIndex$GT$$GT$$GT$$C$$LT$uv_distribution_types..index..Index$u20$as$u20$core..convert..From$LT$uv_distribution_types..pip_index..PipExtraIndex$GT$$GT$..from$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..option..IntoIter$LT$uv_distribution_types..pip_index..PipIndex$GT$$C$$LT$uv_distribution_types..index..Index$u20$as$u20$core..convert..From$LT$uv_distribution_types..pip_index..PipIndex$GT$$GT$..from$GT$$GT$$C$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$alloc..vec..Vec$L"
 
-120:                                              ; preds = %122, %.body, %52
-  %121 = landingpad { ptr, i32 }
+124:                                              ; preds = %126, %.body, %54
+  %125 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h7e5529b9cf989fd4E() #23
   unreachable
 
-122:                                              ; preds = %52, %15
-  %.pn.ph = phi { ptr, i32 } [ %16, %15 ], [ %53, %52 ]
+126:                                              ; preds = %54, %15
+  %.pn.ph = phi { ptr, i32 } [ %16, %15 ], [ %55, %54 ]
   invoke void @"_ZN4core3ptr1644drop_in_place$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$alloc..vec..Vec$LT$uv_distribution_types..index..Index$GT$$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$alloc..vec..Vec$LT$uv_distribution_types..pip_index..PipExtraIndex$GT$$GT$$GT$$C$$LT$uv_distribution_types..index..Index$u20$as$u20$core..convert..From$LT$uv_distribution_types..pip_index..PipExtraIndex$GT$$GT$..from$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..option..IntoIter$LT$uv_distribution_types..pip_index..PipIndex$GT$$C$$LT$uv_distribution_types..index..Index$u20$as$u20$core..convert..From$LT$uv_distribution_types..pip_index..PipIndex$GT$$GT$..from$GT$$GT$$C$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$alloc..vec..Vec$LT$uv_distribution_types..index..Index$GT$$GT$$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$alloc..vec..Vec$LT$uv_distribution_types..pip_index..PipExtraIndex$GT$$GT$$GT$$C$$LT$uv_distribution_types..index..Index$u20$as$u20$core..convert..From$LT$uv_distribution_types..pip_index..PipExtraIndex$GT$$GT$..from$GT$$GT$$C$core..iter..adapters..map..Map$LT$core..option..IntoIter$LT$uv_distribution_types..pip_index..PipIndex$GT$$C$$LT$uv_distribution_types..index..Index$u20$as$u20$core..convert..From$LT$uv_distribution_types..pip_index..PipIndex$GT$$GT$..from$GT$$GT$$GT$17h5420c67b1e00c101E"(ptr noalias noundef nonnull align 8 dereferenceable(640) %1) #24
-          to label %common.resume unwind label %120
+          to label %common.resume unwind label %124
 }
 
 ; Function Attrs: nonlazybind uwtable

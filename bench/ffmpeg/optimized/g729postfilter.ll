@@ -43,22 +43,22 @@ define void @ff_g729_postfilter(ptr noundef readonly captures(none) %0, ptr noun
   br i1 %exitcond.not, label %.preheader, label %17, !llvm.loop !8
 
 .preheader:                                       ; preds = %17, %.preheader
-  %indvars.iv80 = phi i64 [ %indvars.iv.next81, %.preheader ], [ 0, %17 ]
-  %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
-  %30 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv.next81
+  %indvars.iv79 = phi i64 [ %indvars.iv.next80, %.preheader ], [ 0, %17 ]
+  %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
+  %30 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv.next80
   %31 = load i16, ptr %30, align 2, !tbaa !4
   %32 = sext i16 %31 to i32
-  %33 = getelementptr inbounds nuw i16, ptr @formant_pp_factor_den_pow, i64 %indvars.iv80
+  %33 = getelementptr inbounds nuw i16, ptr @formant_pp_factor_den_pow, i64 %indvars.iv79
   %34 = load i16, ptr %33, align 2, !tbaa !4
   %35 = sext i16 %34 to i32
   %36 = mul nsw i32 %35, %32
   %37 = add nsw i32 %36, 16384
   %38 = lshr i32 %37, 15
   %39 = trunc i32 %38 to i16
-  %40 = getelementptr inbounds nuw i16, ptr %16, i64 %indvars.iv.next81
+  %40 = getelementptr inbounds nuw i16, ptr %16, i64 %indvars.iv.next80
   store i16 %39, ptr %40, align 2, !tbaa !4
-  %exitcond83.not = icmp eq i64 %indvars.iv.next81, 10
-  br i1 %exitcond83.not, label %41, label %.preheader, !llvm.loop !10
+  %exitcond82.not = icmp eq i64 %indvars.iv.next80, 10
+  br i1 %exitcond82.not, label %41, label %.preheader, !llvm.loop !10
 
 41:                                               ; preds = %.preheader
   %42 = getelementptr inbounds i8, ptr %8, i64 -20
@@ -709,28 +709,27 @@ get_tilt_comp.exit:                               ; preds = %long_term_filter.ex
   %.0.i62 = phi i32 [ 14, %372 ], [ 11, %376 ]
   %381 = shl nuw nsw i32 %.036.i, 16
   %382 = call i32 @llvm.abs.i32(i32 %.037.i, i1 true)
-  %383 = add nsw i32 %382, -1
-  %.not.i.i63 = icmp ult i32 %383, 65536
+  %383 = icmp eq i32 %.037.i, 0
   %384 = shl nuw nsw i32 %382, 16
-  %sext.i64 = sub nuw i32 -2147483648, %384
-  %385 = ashr exact i32 %sext.i64, 16
-  %386 = select i1 %.not.i.i63, i32 %385, i32 32767
+  %sext.i63 = sub nuw i32 -2147483648, %384
+  %385 = ashr exact i32 %sext.i63, 16
+  %386 = select i1 %383, i32 32767, i32 %385
   %387 = sdiv i32 %381, %386
   %388 = add nsw i32 %9, -1
   %389 = sext i32 %388 to i64
   %390 = getelementptr inbounds i16, ptr %367, i64 %389
   %391 = load i16, ptr %390, align 2, !tbaa !4
   %392 = icmp sgt i32 %9, 1
-  br i1 %392, label %.lr.ph.i66, label %apply_tilt_comp.exit
+  br i1 %392, label %.lr.ph.i65, label %apply_tilt_comp.exit
 
-.lr.ph.i66:                                       ; preds = %380
+.lr.ph.i65:                                       ; preds = %380
   %393 = and i32 %.037.i, -2
   %394 = zext nneg i32 %388 to i64
   br label %395
 
-395:                                              ; preds = %395, %.lr.ph.i66
-  %indvars.iv.i67 = phi i64 [ %394, %.lr.ph.i66 ], [ %indvars.iv.next.i68, %395 ]
-  %396 = getelementptr i16, ptr %367, i64 %indvars.iv.i67
+395:                                              ; preds = %395, %.lr.ph.i65
+  %indvars.iv.i66 = phi i64 [ %394, %.lr.ph.i65 ], [ %indvars.iv.next.i67, %395 ]
+  %396 = getelementptr i16, ptr %367, i64 %indvars.iv.i66
   %397 = getelementptr i8, ptr %396, i64 -2
   %398 = load i16, ptr %397, align 2, !tbaa !4
   %399 = sext i16 %398 to i32
@@ -744,10 +743,10 @@ get_tilt_comp.exit:                               ; preds = %long_term_filter.ex
   %407 = add nsw i32 %406, %.036.i
   %408 = ashr i32 %407, %.0.i62
   %409 = trunc i32 %408 to i16
-  %410 = getelementptr inbounds nuw i16, ptr %8, i64 %indvars.iv.i67
+  %410 = getelementptr inbounds nuw i16, ptr %8, i64 %indvars.iv.i66
   store i16 %409, ptr %410, align 2, !tbaa !4
-  %indvars.iv.next.i68 = add nsw i64 %indvars.iv.i67, -1
-  %411 = icmp samesign ugt i64 %indvars.iv.i67, 1
+  %indvars.iv.next.i67 = add nsw i64 %indvars.iv.i66, -1
+  %411 = icmp samesign ugt i64 %indvars.iv.i66, 1
   br i1 %411, label %395, label %apply_tilt_comp.exit, !llvm.loop !31
 
 apply_tilt_comp.exit:                             ; preds = %395, %380
@@ -813,7 +812,7 @@ define signext i16 @ff_g729_adaptive_gain_control(i32 noundef %0, i32 noundef %1
   %19 = icmp samesign ugt i32 %17, 14
   %20 = lshr i32 %0, %.neg
   %21 = shl i32 %0, %18
-  %.0.i55 = select i1 %19, i32 %20, i32 %21
+  %.0.i53 = select i1 %19, i32 %20, i32 %21
   %.not.i46 = icmp ult i32 %1, 65536
   %22 = lshr i32 %1, 16
   %spec.select.i47 = select i1 %.not.i46, i32 %1, i32 %22
@@ -828,42 +827,42 @@ define signext i16 @ff_g729_adaptive_gain_control(i32 noundef %0, i32 noundef %1
   %27 = load i8, ptr %26, align 1, !tbaa !14
   %28 = zext i8 %27 to i32
   %29 = add nuw nsw i32 %.1.i51, %28
-  %.neg59 = add nsw i32 %29, -14
+  %.neg57 = add nsw i32 %29, -14
   %30 = sub nsw i32 14, %29
   %31 = icmp samesign ugt i32 %29, 14
-  %32 = lshr i32 %1, %.neg59
+  %32 = lshr i32 %1, %.neg57
   %33 = shl i32 %1, %30
-  %.0.i56 = select i1 %31, i32 %32, i32 %33
-  %34 = icmp slt i32 %.0.i55, %.0.i56
+  %.0.i54 = select i1 %31, i32 %32, i32 %33
+  %34 = icmp slt i32 %.0.i53, %.0.i54
   br i1 %34, label %35, label %44
 
 35:                                               ; preds = %9
-  %36 = shl i32 %.0.i55, 15
-  %37 = sdiv i32 %36, %.0.i56
+  %36 = shl i32 %.0.i53, 15
+  %37 = sdiv i32 %36, %.0.i54
   %38 = xor i32 %29, -1
   %39 = add nsw i32 %17, %38
   %40 = icmp slt i32 %39, 0
   %41 = sub nsw i32 0, %39
   %42 = lshr i32 %37, %41
   %43 = shl i32 %37, %39
-  %.0.i57 = select i1 %40, i32 %42, i32 %43
+  %.0.i55 = select i1 %40, i32 %42, i32 %43
   br label %54
 
 44:                                               ; preds = %9
-  %45 = sub nsw i32 %.0.i55, %.0.i56
+  %45 = sub nsw i32 %.0.i53, %.0.i54
   %46 = shl i32 %45, 14
-  %47 = sdiv i32 %46, %.0.i56
+  %47 = sdiv i32 %46, %.0.i54
   %48 = add nsw i32 %47, 16384
   %49 = sub nsw i32 %30, %18
   %50 = icmp slt i32 %49, 0
   %51 = sub nsw i32 0, %49
   %52 = lshr i32 %48, %51
   %53 = shl i32 %48, %49
-  %.0.i58 = select i1 %50, i32 %52, i32 %53
+  %.0.i56 = select i1 %50, i32 %52, i32 %53
   br label %54
 
 54:                                               ; preds = %44, %35
-  %.039 = phi i32 [ %.0.i57, %35 ], [ %.0.i58, %44 ]
+  %.039 = phi i32 [ %.0.i55, %35 ], [ %.0.i56, %44 ]
   %55 = tail call i32 @llvm.umin.i32(i32 %.039, i32 32767)
   %56 = mul nuw nsw i32 %55, 410
   %57 = add nuw nsw i32 %56, 16384
@@ -882,8 +881,8 @@ define signext i16 @ff_g729_adaptive_gain_control(i32 noundef %0, i32 noundef %1
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.04060 = phi i16 [ %4, %.lr.ph.preheader ], [ %67, %.lr.ph ]
-  %62 = sext i16 %.04060 to i32
+  %.04058 = phi i16 [ %4, %.lr.ph.preheader ], [ %67, %.lr.ph ]
+  %62 = sext i16 %.04058 to i32
   %63 = mul nsw i32 %62, 64716
   %64 = add nsw i32 %63, 32768
   %65 = lshr i32 %64, 16
@@ -898,8 +897,8 @@ define signext i16 @ff_g729_adaptive_gain_control(i32 noundef %0, i32 noundef %1
   %74 = ashr i32 %73, 14
   %75 = tail call i32 @llvm.smax.i32(i32 %74, i32 -32768)
   %76 = tail call i32 @llvm.smin.i32(i32 %75, i32 32767)
-  %.0.i54 = trunc nsw i32 %76 to i16
-  store i16 %.0.i54, ptr %68, align 2, !tbaa !4
+  %.0.i52 = trunc nsw i32 %76 to i16
+  store i16 %.0.i52, ptr %68, align 2, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !32

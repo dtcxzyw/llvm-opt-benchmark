@@ -1278,158 +1278,158 @@ define dso_local noundef zeroext i1 @XLogReaderValidatePageHeader(ptr noundef ca
 30:                                               ; preds = %3
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %32 = load i16, ptr %31, align 2
-  %.not79 = icmp ult i16 %32, 16
-  br i1 %.not79, label %46, label %33
+  %33 = icmp ugt i16 %32, 15
+  br i1 %33, label %34, label %47
 
-33:                                               ; preds = %30
+34:                                               ; preds = %30
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 1224
-  %35 = load i32, ptr %34, align 8
-  %36 = udiv i64 4294967296, %11
-  %37 = udiv i64 %12, %36
-  %38 = trunc i64 %37 to i32
-  %39 = urem i64 %12, %36
-  %40 = trunc nuw i64 %39 to i32
-  %41 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 64, ptr noundef nonnull @.str.34, i32 noundef %35, i32 noundef %38, i32 noundef %40) #15
-  %42 = load i16, ptr %31, align 2
-  %43 = zext i16 %42 to i32
-  %44 = lshr i64 %1, 32
-  %45 = trunc nuw i64 %44 to i32
-  call void (ptr, ptr, ...) @report_invalid_record(ptr noundef nonnull %0, ptr noundef nonnull @.str.1, i32 noundef %43, ptr noundef nonnull %5, i32 noundef %45, i32 noundef %14, i32 noundef %15)
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 1224
+  %36 = load i32, ptr %35, align 8
+  %37 = udiv i64 4294967296, %11
+  %38 = udiv i64 %12, %37
+  %39 = trunc i64 %38 to i32
+  %40 = urem i64 %12, %37
+  %41 = trunc nuw i64 %40 to i32
+  %42 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 64, ptr noundef nonnull @.str.34, i32 noundef %36, i32 noundef %39, i32 noundef %41) #15
+  %43 = load i16, ptr %31, align 2
+  %44 = zext i16 %43 to i32
+  %45 = lshr i64 %1, 32
+  %46 = trunc nuw i64 %45 to i32
+  call void (ptr, ptr, ...) @report_invalid_record(ptr noundef nonnull %0, ptr noundef nonnull @.str.1, i32 noundef %44, ptr noundef nonnull %5, i32 noundef %46, i32 noundef %14, i32 noundef %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.critedge
 
-46:                                               ; preds = %30
-  %47 = and i16 %32, 2
-  %.not80 = icmp eq i16 %47, 0
-  br i1 %.not80, label %63, label %48
+47:                                               ; preds = %30
+  %48 = and i16 %32, 2
+  %.not79 = icmp eq i16 %48, 0
+  br i1 %.not79, label %64, label %49
 
-48:                                               ; preds = %46
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %50 = load i64, ptr %49, align 8
-  %.not81 = icmp eq i64 %50, 0
-  br i1 %.not81, label %55, label %51
+49:                                               ; preds = %47
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %51 = load i64, ptr %50, align 8
+  %.not80 = icmp eq i64 %51, 0
+  br i1 %.not80, label %56, label %52
 
-51:                                               ; preds = %48
-  %52 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %53 = load i64, ptr %52, align 8
-  %.not82 = icmp eq i64 %53, %50
-  br i1 %.not82, label %55, label %54
+52:                                               ; preds = %49
+  %53 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %54 = load i64, ptr %53, align 8
+  %.not81 = icmp eq i64 %54, %51
+  br i1 %.not81, label %56, label %55
 
-54:                                               ; preds = %51
-  tail call void (ptr, ptr, ...) @report_invalid_record(ptr noundef nonnull %0, ptr noundef nonnull @.str.2, i64 noundef %53, i64 noundef %50)
+55:                                               ; preds = %52
+  tail call void (ptr, ptr, ...) @report_invalid_record(ptr noundef nonnull %0, ptr noundef nonnull @.str.2, i64 noundef %54, i64 noundef %51)
   br label %.critedge
 
-55:                                               ; preds = %51, %48
-  %56 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %57 = load i32, ptr %56, align 8
-  %.not83 = icmp eq i32 %57, %10
-  br i1 %.not83, label %59, label %58
+56:                                               ; preds = %52, %49
+  %57 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %58 = load i32, ptr %57, align 8
+  %.not82 = icmp eq i32 %58, %10
+  br i1 %.not82, label %60, label %59
 
-58:                                               ; preds = %55
+59:                                               ; preds = %56
   tail call void (ptr, ptr, ...) @report_invalid_record(ptr noundef nonnull %0, ptr noundef nonnull @.str.3)
   br label %.critedge
 
-59:                                               ; preds = %55
-  %60 = getelementptr inbounds nuw i8, ptr %2, i64 36
-  %61 = load i32, ptr %60, align 4
-  %.not84 = icmp eq i32 %61, 8192
-  br i1 %.not84, label %78, label %62
+60:                                               ; preds = %56
+  %61 = getelementptr inbounds nuw i8, ptr %2, i64 36
+  %62 = load i32, ptr %61, align 4
+  %.not83 = icmp eq i32 %62, 8192
+  br i1 %.not83, label %79, label %63
 
-62:                                               ; preds = %59
+63:                                               ; preds = %60
   tail call void (ptr, ptr, ...) @report_invalid_record(ptr noundef nonnull %0, ptr noundef nonnull @.str.4)
   br label %.critedge
 
-63:                                               ; preds = %46
-  %64 = icmp eq i32 %15, 0
-  br i1 %64, label %65, label %78
+64:                                               ; preds = %47
+  %65 = icmp eq i32 %15, 0
+  br i1 %65, label %66, label %79
 
-65:                                               ; preds = %63
+66:                                               ; preds = %64
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 1224
-  %67 = load i32, ptr %66, align 8
-  %68 = udiv i64 4294967296, %11
-  %69 = udiv i64 %12, %68
-  %70 = trunc i64 %69 to i32
-  %71 = urem i64 %12, %68
-  %72 = trunc nuw i64 %71 to i32
-  %73 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %6, i64 noundef 64, ptr noundef nonnull @.str.34, i32 noundef %67, i32 noundef %70, i32 noundef %72) #15
-  %74 = load i16, ptr %31, align 2
-  %75 = zext i16 %74 to i32
-  %76 = lshr i64 %1, 32
-  %77 = trunc nuw i64 %76 to i32
-  call void (ptr, ptr, ...) @report_invalid_record(ptr noundef nonnull %0, ptr noundef nonnull @.str.1, i32 noundef %75, ptr noundef nonnull %6, i32 noundef %77, i32 noundef %14, i32 noundef 0)
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 1224
+  %68 = load i32, ptr %67, align 8
+  %69 = udiv i64 4294967296, %11
+  %70 = udiv i64 %12, %69
+  %71 = trunc i64 %70 to i32
+  %72 = urem i64 %12, %69
+  %73 = trunc nuw i64 %72 to i32
+  %74 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %6, i64 noundef 64, ptr noundef nonnull @.str.34, i32 noundef %68, i32 noundef %71, i32 noundef %73) #15
+  %75 = load i16, ptr %31, align 2
+  %76 = zext i16 %75 to i32
+  %77 = lshr i64 %1, 32
+  %78 = trunc nuw i64 %77 to i32
+  call void (ptr, ptr, ...) @report_invalid_record(ptr noundef nonnull %0, ptr noundef nonnull @.str.1, i32 noundef %76, ptr noundef nonnull %6, i32 noundef %78, i32 noundef %14, i32 noundef 0)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.critedge
 
-78:                                               ; preds = %59, %63
-  %79 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %80 = load i64, ptr %79, align 8
-  %.not85 = icmp eq i64 %80, %1
-  br i1 %.not85, label %96, label %81
+79:                                               ; preds = %60, %64
+  %80 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %81 = load i64, ptr %80, align 8
+  %.not84 = icmp eq i64 %81, %1
+  br i1 %.not84, label %97, label %82
 
-81:                                               ; preds = %78
+82:                                               ; preds = %79
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %82 = getelementptr inbounds nuw i8, ptr %0, i64 1224
-  %83 = load i32, ptr %82, align 8
-  %84 = udiv i64 4294967296, %11
-  %85 = udiv i64 %12, %84
-  %86 = trunc i64 %85 to i32
-  %87 = urem i64 %12, %84
-  %88 = trunc nuw i64 %87 to i32
-  %89 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %7, i64 noundef 64, ptr noundef nonnull @.str.34, i32 noundef %83, i32 noundef %86, i32 noundef %88) #15
-  %90 = load i64, ptr %79, align 8
-  %91 = lshr i64 %90, 32
-  %92 = trunc nuw i64 %91 to i32
-  %93 = trunc i64 %90 to i32
-  %94 = lshr i64 %1, 32
-  %95 = trunc nuw i64 %94 to i32
-  call void (ptr, ptr, ...) @report_invalid_record(ptr noundef nonnull %0, ptr noundef nonnull @.str.5, i32 noundef %92, i32 noundef %93, ptr noundef nonnull %7, i32 noundef %95, i32 noundef %14, i32 noundef %15)
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 1224
+  %84 = load i32, ptr %83, align 8
+  %85 = udiv i64 4294967296, %11
+  %86 = udiv i64 %12, %85
+  %87 = trunc i64 %86 to i32
+  %88 = urem i64 %12, %85
+  %89 = trunc nuw i64 %88 to i32
+  %90 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %7, i64 noundef 64, ptr noundef nonnull @.str.34, i32 noundef %84, i32 noundef %87, i32 noundef %89) #15
+  %91 = load i64, ptr %80, align 8
+  %92 = lshr i64 %91, 32
+  %93 = trunc nuw i64 %92 to i32
+  %94 = trunc i64 %91 to i32
+  %95 = lshr i64 %1, 32
+  %96 = trunc nuw i64 %95 to i32
+  call void (ptr, ptr, ...) @report_invalid_record(ptr noundef nonnull %0, ptr noundef nonnull @.str.5, i32 noundef %93, i32 noundef %94, ptr noundef nonnull %7, i32 noundef %96, i32 noundef %14, i32 noundef %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.critedge
 
-96:                                               ; preds = %78
-  %97 = getelementptr inbounds nuw i8, ptr %0, i64 1240
-  %98 = load i64, ptr %97, align 8
-  %99 = icmp ugt i64 %1, %98
-  br i1 %99, label %100, label %119
+97:                                               ; preds = %79
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 1240
+  %99 = load i64, ptr %98, align 8
+  %100 = icmp ugt i64 %1, %99
+  br i1 %100, label %101, label %120
 
-100:                                              ; preds = %96
-  %101 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %102 = load i32, ptr %101, align 4
-  %103 = getelementptr inbounds nuw i8, ptr %0, i64 1248
-  %104 = load i32, ptr %103, align 8
-  %105 = icmp ult i32 %102, %104
-  br i1 %105, label %106, label %119
+101:                                              ; preds = %97
+  %102 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %103 = load i32, ptr %102, align 4
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 1248
+  %105 = load i32, ptr %104, align 8
+  %106 = icmp ult i32 %103, %105
+  br i1 %106, label %107, label %120
 
-106:                                              ; preds = %100
+107:                                              ; preds = %101
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %107 = getelementptr inbounds nuw i8, ptr %0, i64 1224
-  %108 = load i32, ptr %107, align 8
-  %109 = udiv i64 4294967296, %11
-  %110 = udiv i64 %12, %109
-  %111 = trunc i64 %110 to i32
-  %112 = urem i64 %12, %109
-  %113 = trunc nuw i64 %112 to i32
-  %114 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %8, i64 noundef 64, ptr noundef nonnull @.str.34, i32 noundef %108, i32 noundef %111, i32 noundef %113) #15
-  %115 = load i32, ptr %101, align 4
-  %116 = load i32, ptr %103, align 8
-  %117 = lshr i64 %1, 32
-  %118 = trunc nuw i64 %117 to i32
-  call void (ptr, ptr, ...) @report_invalid_record(ptr noundef nonnull %0, ptr noundef nonnull @.str.6, i32 noundef %115, i32 noundef %116, ptr noundef nonnull %8, i32 noundef %118, i32 noundef %14, i32 noundef %15)
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 1224
+  %109 = load i32, ptr %108, align 8
+  %110 = udiv i64 4294967296, %11
+  %111 = udiv i64 %12, %110
+  %112 = trunc i64 %111 to i32
+  %113 = urem i64 %12, %110
+  %114 = trunc nuw i64 %113 to i32
+  %115 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %8, i64 noundef 64, ptr noundef nonnull @.str.34, i32 noundef %109, i32 noundef %112, i32 noundef %114) #15
+  %116 = load i32, ptr %102, align 4
+  %117 = load i32, ptr %104, align 8
+  %118 = lshr i64 %1, 32
+  %119 = trunc nuw i64 %118 to i32
+  call void (ptr, ptr, ...) @report_invalid_record(ptr noundef nonnull %0, ptr noundef nonnull @.str.6, i32 noundef %116, i32 noundef %117, ptr noundef nonnull %8, i32 noundef %119, i32 noundef %14, i32 noundef %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.critedge
 
-119:                                              ; preds = %100, %96
-  store i64 %1, ptr %97, align 8
-  %120 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %121 = load i32, ptr %120, align 4
-  %122 = getelementptr inbounds nuw i8, ptr %0, i64 1248
-  store i32 %121, ptr %122, align 8
+120:                                              ; preds = %101, %97
+  store i64 %1, ptr %98, align 8
+  %121 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %122 = load i32, ptr %121, align 4
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 1248
+  store i32 %122, ptr %123, align 8
   br label %.critedge
 
-.critedge:                                        ; preds = %54, %58, %62, %119, %106, %81, %65, %33, %17
-  %.0 = phi i1 [ false, %17 ], [ false, %33 ], [ false, %81 ], [ false, %106 ], [ true, %119 ], [ false, %65 ], [ false, %62 ], [ false, %58 ], [ false, %54 ]
+.critedge:                                        ; preds = %55, %59, %63, %120, %107, %82, %66, %34, %17
+  %.0 = phi i1 [ false, %17 ], [ false, %34 ], [ false, %82 ], [ false, %107 ], [ true, %120 ], [ false, %66 ], [ false, %63 ], [ false, %59 ], [ false, %55 ]
   ret i1 %.0
 }
 

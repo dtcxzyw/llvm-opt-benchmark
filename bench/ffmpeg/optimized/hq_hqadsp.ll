@@ -215,9 +215,9 @@ define internal void @hq_idct_put(ptr noundef writeonly captures(none) %0, i32 n
   %exitcond31.not = icmp eq i64 %indvars.iv.next29, 8
   br i1 %exitcond31.not, label %.preheader20, label %.preheader21, !llvm.loop !13
 
-.preheader:                                       ; preds = %.preheader20, %180
-  %indvars.iv36 = phi i64 [ 0, %.preheader20 ], [ %indvars.iv.next37, %180 ]
-  %.01925 = phi ptr [ %0, %.preheader20 ], [ %181, %180 ]
+.preheader:                                       ; preds = %.preheader20, %181
+  %indvars.iv36 = phi i64 [ 0, %.preheader20 ], [ %indvars.iv.next37, %181 ]
+  %.01925 = phi ptr [ %0, %.preheader20 ], [ %182, %181 ]
   %.idx40 = shl nuw nsw i64 %indvars.iv36, 4
   %invariant.gep = getelementptr inbounds nuw i8, ptr %2, i64 %.idx40
   br label %175
@@ -226,24 +226,24 @@ define internal void @hq_idct_put(ptr noundef writeonly captures(none) %0, i32 n
   %indvars.iv32 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next33, %175 ]
   %gep = getelementptr inbounds nuw i16, ptr %invariant.gep, i64 %indvars.iv32
   %176 = load i16, ptr %gep, align 2, !tbaa !9
-  %.not.i = icmp ult i16 %176, 256
+  %177 = icmp ugt i16 %176, 255
   %isnotneg.i = icmp sgt i16 %176, -1
-  %177 = sext i1 %isnotneg.i to i8
-  %178 = trunc i16 %176 to i8
-  %.0.i = select i1 %.not.i, i8 %178, i8 %177
-  %179 = getelementptr inbounds nuw i8, ptr %.01925, i64 %indvars.iv32
-  store i8 %.0.i, ptr %179, align 1, !tbaa !14
+  %178 = sext i1 %isnotneg.i to i8
+  %179 = trunc i16 %176 to i8
+  %.0.i = select i1 %177, i8 %178, i8 %179
+  %180 = getelementptr inbounds nuw i8, ptr %.01925, i64 %indvars.iv32
+  store i8 %.0.i, ptr %180, align 1, !tbaa !14
   %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
   %exitcond35.not = icmp eq i64 %indvars.iv.next33, 8
-  br i1 %exitcond35.not, label %180, label %175, !llvm.loop !15
+  br i1 %exitcond35.not, label %181, label %175, !llvm.loop !15
 
-180:                                              ; preds = %175
-  %181 = getelementptr inbounds i8, ptr %.01925, i64 %81
+181:                                              ; preds = %175
+  %182 = getelementptr inbounds i8, ptr %.01925, i64 %81
   %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
   %exitcond39.not = icmp eq i64 %indvars.iv.next37, 8
-  br i1 %exitcond39.not, label %182, label %.preheader, !llvm.loop !16
+  br i1 %exitcond39.not, label %183, label %.preheader, !llvm.loop !16
 
-182:                                              ; preds = %180
+183:                                              ; preds = %181
   ret void
 }
 

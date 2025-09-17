@@ -936,9 +936,8 @@ _setup_overlay.exit:                              ; preds = %197, %_get_disabled
   br i1 %or.cond, label %425, label %415
 
 415:                                              ; preds = %388
-  %416 = add i32 %414, -3
-  %or.cond359 = icmp ult i32 %416, 3
-  br i1 %or.cond359, label %417, label %420
+  %416 = icmp ult i32 %414, 6
+  br i1 %416, label %417, label %420
 
 417:                                              ; preds = %415
   %418 = fmul reassoc nsz arcp contract afn float %287, 5.000000e-01

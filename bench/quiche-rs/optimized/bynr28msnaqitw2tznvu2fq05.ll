@@ -3151,7 +3151,7 @@ define void @"_ZN110_$LT$tokio_quiche..http3..driver..streams..WaitForUpstreamCa
 
 .thread:                                          ; preds = %6
   store i64 4, ptr %0, align 8
-  br label %"_ZN4core3ptr176drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$$LP$$RP$$C$tokio_util..sync..mpsc..PollSendError$LT$tokio_quiche..http3..driver..InboundFrame$GT$$GT$$GT$$GT$17h2a0ca66a3336d846E.exit13"
+  br label %"_ZN4core3ptr176drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$$LP$$RP$$C$tokio_util..sync..mpsc..PollSendError$LT$tokio_quiche..http3..driver..InboundFrame$GT$$GT$$GT$$GT$17h2a0ca66a3336d846E.exit12"
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -3169,9 +3169,8 @@ define void @"_ZN110_$LT$tokio_quiche..http3..driver..streams..WaitForUpstreamCa
   %15 = landingpad { ptr, i32 }
           cleanup
   %16 = load i64, ptr %4, align 8, !range !266, !alias.scope !267, !noundef !8
-  %17 = and i64 %16, -2
-  %switch.i = icmp eq i64 %17, -9223372036854775806
-  br i1 %switch.i, label %"_ZN4core3ptr176drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$$LP$$RP$$C$tokio_util..sync..mpsc..PollSendError$LT$tokio_quiche..http3..driver..InboundFrame$GT$$GT$$GT$$GT$17h2a0ca66a3336d846E.exit", label %18
+  %17 = icmp ugt i64 %16, -9223372036854775807
+  br i1 %17, label %"_ZN4core3ptr176drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$$LP$$RP$$C$tokio_util..sync..mpsc..PollSendError$LT$tokio_quiche..http3..driver..InboundFrame$GT$$GT$$GT$$GT$17h2a0ca66a3336d846E.exit", label %18
 
 18:                                               ; preds = %14
   invoke void @"_ZN4core3ptr107drop_in_place$LT$tokio_util..sync..mpsc..PollSendError$LT$tokio_quiche..http3..driver..InboundFrame$GT$$GT$17h0f37b800193154f1E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %4)
@@ -3196,15 +3195,14 @@ define void @"_ZN110_$LT$tokio_quiche..http3..driver..streams..WaitForUpstreamCa
   store i64 %.sroa.02.0.copyload, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %12, ptr %.sroa.4.0..sroa_idx, align 8
-  %23 = and i64 %7, -2
-  %switch.i12 = icmp eq i64 %23, -9223372036854775806
-  br i1 %switch.i12, label %"_ZN4core3ptr176drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$$LP$$RP$$C$tokio_util..sync..mpsc..PollSendError$LT$tokio_quiche..http3..driver..InboundFrame$GT$$GT$$GT$$GT$17h2a0ca66a3336d846E.exit13", label %24
+  %23 = icmp ugt i64 %7, -9223372036854775807
+  br i1 %23, label %"_ZN4core3ptr176drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$$LP$$RP$$C$tokio_util..sync..mpsc..PollSendError$LT$tokio_quiche..http3..driver..InboundFrame$GT$$GT$$GT$$GT$17h2a0ca66a3336d846E.exit12", label %24
 
 24:                                               ; preds = %22
   call void @"_ZN4core3ptr107drop_in_place$LT$tokio_util..sync..mpsc..PollSendError$LT$tokio_quiche..http3..driver..InboundFrame$GT$$GT$17h0f37b800193154f1E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %4)
-  br label %"_ZN4core3ptr176drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$$LP$$RP$$C$tokio_util..sync..mpsc..PollSendError$LT$tokio_quiche..http3..driver..InboundFrame$GT$$GT$$GT$$GT$17h2a0ca66a3336d846E.exit13"
+  br label %"_ZN4core3ptr176drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$$LP$$RP$$C$tokio_util..sync..mpsc..PollSendError$LT$tokio_quiche..http3..driver..InboundFrame$GT$$GT$$GT$$GT$17h2a0ca66a3336d846E.exit12"
 
-"_ZN4core3ptr176drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$$LP$$RP$$C$tokio_util..sync..mpsc..PollSendError$LT$tokio_quiche..http3..driver..InboundFrame$GT$$GT$$GT$$GT$17h2a0ca66a3336d846E.exit13": ; preds = %.thread, %22, %24
+"_ZN4core3ptr176drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$$LP$$RP$$C$tokio_util..sync..mpsc..PollSendError$LT$tokio_quiche..http3..driver..InboundFrame$GT$$GT$$GT$$GT$17h2a0ca66a3336d846E.exit12": ; preds = %.thread, %22, %24
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }

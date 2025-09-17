@@ -1030,67 +1030,66 @@ define void @_ZN7xgboost22CalculateContributionsERKNS_7RegTreeERKNS0_4FVecEPSt6v
   unreachable
 
 _ZNSt6vectorIN7xgboost11PathElementESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; preds = %20
-  %.off = add i32 %24, 1
-  %.not.i.i.i.i = icmp ult i32 %.off, 3
-  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN7xgboost11PathElementESaIS1_EEC2EmRKS2_.exit, label %.noexc16
+  %28 = icmp slt i32 %24, 2
+  br i1 %28, label %_ZNSt6vectorIN7xgboost11PathElementESaIS1_EEC2EmRKS2_.exit, label %.noexc16
 
 .noexc16:                                         ; preds = %_ZNSt6vectorIN7xgboost11PathElementESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
-  %28 = shl nuw nsw i64 %26, 4
-  %29 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %28) #31
-  %30 = getelementptr inbounds nuw %"struct.xgboost::PathElement", ptr %29, i64 %26
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %29, i8 0, i64 16, i1 false)
-  %31 = add nsw i64 %26, -1
-  %32 = icmp eq i64 %31, 0
-  br i1 %32, label %_ZNSt6vectorIN7xgboost11PathElementESaIS1_EEC2EmRKS2_.exit, label %33
+  %29 = shl nuw nsw i64 %26, 4
+  %30 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %29) #31
+  %31 = getelementptr inbounds nuw %"struct.xgboost::PathElement", ptr %30, i64 %26
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %30, i8 0, i64 16, i1 false)
+  %32 = add nsw i64 %26, -1
+  %33 = icmp eq i64 %32, 0
+  br i1 %33, label %_ZNSt6vectorIN7xgboost11PathElementESaIS1_EEC2EmRKS2_.exit, label %34
 
-33:                                               ; preds = %.noexc16
-  %34 = getelementptr inbounds nuw i8, ptr %29, i64 16
-  %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %31, 4
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 %.idx.i.i.i.i.i.i.i
+34:                                               ; preds = %.noexc16
+  %35 = getelementptr inbounds nuw i8, ptr %30, i64 16
+  %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %32, 4
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 %.idx.i.i.i.i.i.i.i
   br label %.lr.ph.i.i.i.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %33
-  %.06.i.i.i.i.i.i.i.i.i = phi ptr [ %36, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %34, %33 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.06.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %29, i64 16, i1 false), !tbaa.struct !68
-  %36 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i.i.i.i, i64 16
-  %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %36, %35
+.lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %34
+  %.06.i.i.i.i.i.i.i.i.i = phi ptr [ %37, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %35, %34 ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.06.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %30, i64 16, i1 false), !tbaa.struct !68
+  %37 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i.i.i.i, i64 16
+  %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %37, %36
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIN7xgboost11PathElementESaIS1_EEC2EmRKS2_.exit, label %.lr.ph.i.i.i.i.i.i.i.i.i, !llvm.loop !69
 
 _ZNSt6vectorIN7xgboost11PathElementESaIS1_EEC2EmRKS2_.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %.noexc16, %_ZNSt6vectorIN7xgboost11PathElementESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
-  %.sroa.10.0 = phi ptr [ %30, %.noexc16 ], [ null, %_ZNSt6vectorIN7xgboost11PathElementESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i ], [ %30, %.lr.ph.i.i.i.i.i.i.i.i.i ]
-  %.sroa.019.0 = phi ptr [ %29, %.noexc16 ], [ null, %_ZNSt6vectorIN7xgboost11PathElementESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i ], [ %29, %.lr.ph.i.i.i.i.i.i.i.i.i ]
+  %.sroa.10.0 = phi ptr [ %31, %.noexc16 ], [ null, %_ZNSt6vectorIN7xgboost11PathElementESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i ], [ %31, %.lr.ph.i.i.i.i.i.i.i.i.i ]
+  %.sroa.019.0 = phi ptr [ %30, %.noexc16 ], [ null, %_ZNSt6vectorIN7xgboost11PathElementESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i ], [ %30, %.lr.ph.i.i.i.i.i.i.i.i.i ]
   invoke void @_ZN7xgboost8TreeShapERKNS_7RegTreeERKNS0_4FVecEPfijPNS_11PathElementEffiijf(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef nonnull align 8 dereferenceable(25) %1, ptr noundef %3, i32 noundef 0, i32 noundef 0, ptr noundef %.sroa.019.0, float noundef 1.000000e+00, float noundef 1.000000e+00, i32 noundef -1, i32 noundef %4, i32 noundef %5, float noundef 1.000000e+00)
-          to label %37 unwind label %42
+          to label %38 unwind label %43
 
-37:                                               ; preds = %_ZNSt6vectorIN7xgboost11PathElementESaIS1_EEC2EmRKS2_.exit
+38:                                               ; preds = %_ZNSt6vectorIN7xgboost11PathElementESaIS1_EEC2EmRKS2_.exit
   %.not.i.i.i = icmp eq ptr %.sroa.019.0, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIN7xgboost11PathElementESaIS1_EED2Ev.exit, label %38
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIN7xgboost11PathElementESaIS1_EED2Ev.exit, label %39
 
-38:                                               ; preds = %37
-  %39 = ptrtoint ptr %.sroa.10.0 to i64
-  %40 = ptrtoint ptr %.sroa.019.0 to i64
-  %41 = sub i64 %39, %40
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.019.0, i64 noundef %41) #28
+39:                                               ; preds = %38
+  %40 = ptrtoint ptr %.sroa.10.0 to i64
+  %41 = ptrtoint ptr %.sroa.019.0 to i64
+  %42 = sub i64 %40, %41
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.019.0, i64 noundef %42) #28
   br label %_ZNSt6vectorIN7xgboost11PathElementESaIS1_EED2Ev.exit
 
-_ZNSt6vectorIN7xgboost11PathElementESaIS1_EED2Ev.exit: ; preds = %37, %38
+_ZNSt6vectorIN7xgboost11PathElementESaIS1_EED2Ev.exit: ; preds = %38, %39
   ret void
 
-42:                                               ; preds = %_ZNSt6vectorIN7xgboost11PathElementESaIS1_EEC2EmRKS2_.exit
-  %43 = landingpad { ptr, i32 }
+43:                                               ; preds = %_ZNSt6vectorIN7xgboost11PathElementESaIS1_EEC2EmRKS2_.exit
+  %44 = landingpad { ptr, i32 }
           cleanup
   %.not.i.i.i17 = icmp eq ptr %.sroa.019.0, null
-  br i1 %.not.i.i.i17, label %_ZNSt6vectorIN7xgboost11PathElementESaIS1_EED2Ev.exit18, label %44
+  br i1 %.not.i.i.i17, label %_ZNSt6vectorIN7xgboost11PathElementESaIS1_EED2Ev.exit18, label %45
 
-44:                                               ; preds = %42
-  %45 = ptrtoint ptr %.sroa.10.0 to i64
-  %46 = ptrtoint ptr %.sroa.019.0 to i64
-  %47 = sub i64 %45, %46
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.019.0, i64 noundef %47) #28
+45:                                               ; preds = %43
+  %46 = ptrtoint ptr %.sroa.10.0 to i64
+  %47 = ptrtoint ptr %.sroa.019.0 to i64
+  %48 = sub i64 %46, %47
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.019.0, i64 noundef %48) #28
   br label %_ZNSt6vectorIN7xgboost11PathElementESaIS1_EED2Ev.exit18
 
-_ZNSt6vectorIN7xgboost11PathElementESaIS1_EED2Ev.exit18: ; preds = %44, %42
-  resume { ptr, i32 } %43
+_ZNSt6vectorIN7xgboost11PathElementESaIS1_EED2Ev.exit18: ; preds = %45, %43
+  resume { ptr, i32 } %44
 }
 
 ; Function Attrs: mustprogress uwtable

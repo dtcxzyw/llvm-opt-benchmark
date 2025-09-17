@@ -2008,164 +2008,179 @@ define range(i32 -558323010, 1) i32 @av_frame_apply_cropping(ptr noundef capture
   %.promoted = load i64, ptr %3, align 16
   br label %.lr.ph57.i.split.split
 
-.lr.ph57.i.split.split:                           ; preds = %.lr.ph57.i.split.split.preheader, %92
-  %85 = phi i64 [ %102, %92 ], [ %.promoted, %.lr.ph57.i.split.split.preheader ]
-  %86 = phi i1 [ true, %92 ], [ false, %.lr.ph57.i.split.split.preheader ]
+.lr.ph57.i.split.split:                           ; preds = %.lr.ph57.i.split.split.preheader, %100
+  %85 = phi i64 [ %112, %100 ], [ %.promoted, %.lr.ph57.i.split.split.preheader ]
+  %86 = phi i1 [ true, %100 ], [ false, %.lr.ph57.i.split.split.preheader ]
+  %.not131 = phi i1 [ false, %100 ], [ true, %.lr.ph57.i.split.split.preheader ]
+  br i1 %.not131, label %92, label %87
+
+87:                                               ; preds = %.lr.ph57.i.split.split
+  %88 = load i8, ptr %46, align 1, !tbaa !104
+  %89 = zext i8 %88 to i64
+  %90 = load i8, ptr %47, align 2, !tbaa !105
+  %91 = zext i8 %90 to i64
+  br label %92
+
+92:                                               ; preds = %87, %.lr.ph57.i.split.split
+  %93 = phi i64 [ %89, %87 ], [ 0, %.lr.ph57.i.split.split ]
+  %94 = phi i64 [ %91, %87 ], [ 0, %.lr.ph57.i.split.split ]
   br i1 %86, label %.split.us, label %.lr.ph.i
 
-.split.us:                                        ; preds = %.lr.ph57.i.split.split
+.split.us:                                        ; preds = %92
   store i64 %85, ptr %3, align 16
-  %87 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 0, ptr %87, align 8, !tbaa !39
+  %95 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i64 0, ptr %95, align 8, !tbaa !39
   br label %.loopexit
 
-88:                                               ; preds = %.lr.ph.i
+96:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i.us
-  br i1 %exitcond.not.i, label %calc_cropping_offsets.exit.loopexit131, label %.lr.ph.i, !llvm.loop !108
+  br i1 %exitcond.not.i, label %calc_cropping_offsets.exit.loopexit132, label %.lr.ph.i, !llvm.loop !108
 
-.lr.ph.i:                                         ; preds = %.lr.ph57.i.split.split, %88
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %88 ], [ 0, %.lr.ph57.i.split.split ]
-  %89 = getelementptr inbounds nuw %struct.AVComponentDescriptor, ptr %49, i64 %indvars.iv.i
-  %90 = load i32, ptr %89, align 4, !tbaa !106
-  %91 = icmp eq i32 %90, 0
-  br i1 %91, label %92, label %88
+.lr.ph.i:                                         ; preds = %92, %96
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %96 ], [ 0, %92 ]
+  %97 = getelementptr inbounds nuw %struct.AVComponentDescriptor, ptr %49, i64 %indvars.iv.i
+  %98 = load i32, ptr %97, align 4, !tbaa !106
+  %99 = icmp eq i32 %98, 0
+  br i1 %99, label %100, label %96
 
-92:                                               ; preds = %.lr.ph.i
-  %93 = load i64, ptr %18, align 8, !tbaa !57
-  %94 = load i32, ptr %50, align 8, !tbaa !22
-  %95 = sext i32 %94 to i64
-  %96 = mul i64 %93, %95
-  %97 = load i64, ptr %12, align 8, !tbaa !59
-  %98 = getelementptr inbounds nuw i8, ptr %89, i64 4
-  %99 = load i32, ptr %98, align 4, !tbaa !109
-  %100 = sext i32 %99 to i64
-  %101 = mul i64 %97, %100
-  %102 = add i64 %101, %96
-  %103 = load ptr, ptr %84, align 8, !tbaa !47
-  %.not.i = icmp eq ptr %103, null
-  br i1 %.not.i, label %.loopexit.loopexit132, label %.lr.ph57.i.split.split, !llvm.loop !110
+100:                                              ; preds = %.lr.ph.i
+  %101 = load i64, ptr %18, align 8, !tbaa !57
+  %102 = lshr i64 %101, %94
+  %103 = load i32, ptr %50, align 8, !tbaa !22
+  %104 = sext i32 %103 to i64
+  %105 = mul i64 %102, %104
+  %106 = load i64, ptr %12, align 8, !tbaa !59
+  %107 = lshr i64 %106, %93
+  %108 = getelementptr inbounds nuw i8, ptr %97, i64 4
+  %109 = load i32, ptr %108, align 4, !tbaa !109
+  %110 = sext i32 %109 to i64
+  %111 = mul i64 %107, %110
+  %112 = add i64 %111, %105
+  %113 = load ptr, ptr %84, align 8, !tbaa !47
+  %.not.i = icmp eq ptr %113, null
+  br i1 %.not.i, label %.loopexit.loopexit133, label %.lr.ph57.i.split.split, !llvm.loop !110
 
-.loopexit.loopexit132:                            ; preds = %92
-  store i64 %102, ptr %3, align 16
+.loopexit.loopexit133:                            ; preds = %100
+  store i64 %112, ptr %3, align 16
   br label %.loopexit
 
-.loopexit:                                        ; preds = %67, %.loopexit.loopexit132, %.split.us, %44
-  %104 = and i32 %1, 1
-  %.not86 = icmp eq i32 %104, 0
-  br i1 %.not86, label %105, label %145
+.loopexit:                                        ; preds = %67, %.loopexit.loopexit133, %.split.us, %44
+  %114 = and i32 %1, 1
+  %.not86 = icmp eq i32 %114, 0
+  br i1 %.not86, label %115, label %155
 
-105:                                              ; preds = %.loopexit
-  %106 = load i64, ptr %12, align 8, !tbaa !59
-  %.not87 = icmp eq i64 %106, 0
-  br i1 %.not87, label %116, label %107
+115:                                              ; preds = %.loopexit
+  %116 = load i64, ptr %12, align 8, !tbaa !59
+  %.not87 = icmp eq i64 %116, 0
+  br i1 %.not87, label %126, label %117
 
-107:                                              ; preds = %105
-  %108 = sub i64 0, %106
-  %109 = and i64 %106, %108
-  %110 = mul i64 %109, 125613361
-  %111 = lshr i64 %110, 27
-  %112 = and i64 %111, 31
-  %113 = getelementptr inbounds nuw i8, ptr @ff_ctz_c.debruijn_ctz32, i64 %112
-  %114 = load i8, ptr %113, align 1, !tbaa !90
-  %115 = zext i8 %114 to i32
-  br label %116
+117:                                              ; preds = %115
+  %118 = sub i64 0, %116
+  %119 = and i64 %116, %118
+  %120 = mul i64 %119, 125613361
+  %121 = lshr i64 %120, 27
+  %122 = and i64 %121, 31
+  %123 = getelementptr inbounds nuw i8, ptr @ff_ctz_c.debruijn_ctz32, i64 %122
+  %124 = load i8, ptr %123, align 1, !tbaa !90
+  %125 = zext i8 %124 to i32
+  br label %126
 
-116:                                              ; preds = %105, %107
-  %117 = phi i32 [ %115, %107 ], [ 2147483647, %105 ]
+126:                                              ; preds = %115, %117
+  %127 = phi i32 [ %125, %117 ], [ 2147483647, %115 ]
   br i1 %.not55.i, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %131, %116
-  %.068.lcssa = phi i32 [ 2147483647, %116 ], [ %132, %131 ]
-  %118 = icmp slt i32 %117, %.068.lcssa
-  br i1 %118, label %calc_cropping_offsets.exit, label %135
+._crit_edge:                                      ; preds = %141, %126
+  %.068.lcssa = phi i32 [ 2147483647, %126 ], [ %142, %141 ]
+  %128 = icmp slt i32 %127, %.068.lcssa
+  br i1 %128, label %calc_cropping_offsets.exit, label %145
 
-.lr.ph:                                           ; preds = %116, %131
-  %indvars.iv = phi i64 [ %indvars.iv.next, %131 ], [ 0, %116 ]
-  %.068104 = phi i32 [ %132, %131 ], [ 2147483647, %116 ]
-  %119 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv
-  %120 = load i64, ptr %119, align 8, !tbaa !39
-  %.not89 = icmp eq i64 %120, 0
-  br i1 %.not89, label %131, label %121
+.lr.ph:                                           ; preds = %126, %141
+  %indvars.iv = phi i64 [ %indvars.iv.next, %141 ], [ 0, %126 ]
+  %.068104 = phi i32 [ %142, %141 ], [ 2147483647, %126 ]
+  %129 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv
+  %130 = load i64, ptr %129, align 8, !tbaa !39
+  %.not89 = icmp eq i64 %130, 0
+  br i1 %.not89, label %141, label %131
 
-121:                                              ; preds = %.lr.ph
-  %122 = sub i64 0, %120
-  %123 = and i64 %120, %122
-  %124 = mul i64 %123, 125613361
-  %125 = lshr i64 %124, 27
-  %126 = and i64 %125, 31
-  %127 = getelementptr inbounds nuw i8, ptr @ff_ctz_c.debruijn_ctz32, i64 %126
-  %128 = load i8, ptr %127, align 1, !tbaa !90
-  %129 = zext i8 %128 to i32
-  %130 = tail call i32 @llvm.smin.i32(i32 %129, i32 %.068104)
-  br label %131
+131:                                              ; preds = %.lr.ph
+  %132 = sub i64 0, %130
+  %133 = and i64 %130, %132
+  %134 = mul i64 %133, 125613361
+  %135 = lshr i64 %134, 27
+  %136 = and i64 %135, 31
+  %137 = getelementptr inbounds nuw i8, ptr @ff_ctz_c.debruijn_ctz32, i64 %136
+  %138 = load i8, ptr %137, align 1, !tbaa !90
+  %139 = zext i8 %138 to i32
+  %140 = tail call i32 @llvm.smin.i32(i32 %139, i32 %.068104)
+  br label %141
 
-131:                                              ; preds = %.lr.ph, %121
-  %132 = phi i32 [ %130, %121 ], [ %.068104, %.lr.ph ]
+141:                                              ; preds = %.lr.ph, %131
+  %142 = phi i32 [ %140, %131 ], [ %.068104, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %133 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv.next
-  %134 = load ptr, ptr %133, align 8, !tbaa !47
-  %.not88 = icmp eq ptr %134, null
+  %143 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv.next
+  %144 = load ptr, ptr %143, align 8, !tbaa !47
+  %.not88 = icmp eq ptr %144, null
   br i1 %.not88, label %._crit_edge, label %.lr.ph, !llvm.loop !111
 
-135:                                              ; preds = %._crit_edge
-  %136 = icmp slt i32 %.068.lcssa, 5
-  %137 = icmp ne i32 %117, 2147483647
-  %or.cond = select i1 %136, i1 %137, i1 false
-  br i1 %or.cond, label %138, label %145
+145:                                              ; preds = %._crit_edge
+  %146 = icmp slt i32 %.068.lcssa, 5
+  %147 = icmp ne i32 %127, 2147483647
+  %or.cond = select i1 %146, i1 %147, i1 false
+  br i1 %or.cond, label %148, label %155
 
-138:                                              ; preds = %135
-  %139 = add nuw nsw i32 %117, 5
-  %140 = sub nuw nsw i32 %139, %.068.lcssa
-  %notmask = shl nsw i32 -1, %140
-  %141 = sext i32 %notmask to i64
-  %142 = and i64 %106, %141
-  store i64 %142, ptr %12, align 8, !tbaa !59
-  %143 = call fastcc i32 @calc_cropping_offsets(ptr noundef %3, ptr noundef nonnull %0, ptr noundef %30)
-  %144 = icmp slt i32 %143, 0
-  br i1 %144, label %calc_cropping_offsets.exit, label %145
+148:                                              ; preds = %145
+  %149 = add nuw nsw i32 %127, 5
+  %150 = sub nuw nsw i32 %149, %.068.lcssa
+  %notmask = shl nsw i32 -1, %150
+  %151 = sext i32 %notmask to i64
+  %152 = and i64 %116, %151
+  store i64 %152, ptr %12, align 8, !tbaa !59
+  %153 = call fastcc i32 @calc_cropping_offsets(ptr noundef %3, ptr noundef nonnull %0, ptr noundef %30)
+  %154 = icmp slt i32 %153, 0
+  br i1 %154, label %calc_cropping_offsets.exit, label %155
 
-145:                                              ; preds = %138, %135, %.loopexit
+155:                                              ; preds = %148, %145, %.loopexit
   br i1 %.not55.i, label %._crit_edge110, label %.lr.ph109
 
-._crit_edge110:                                   ; preds = %.lr.ph109, %145
-  %146 = load i64, ptr %12, align 8, !tbaa !59
-  %147 = load i64, ptr %14, align 8, !tbaa !60
-  %148 = add i64 %147, %146
-  %149 = load i32, ptr %4, align 8, !tbaa !35
-  %150 = trunc i64 %148 to i32
-  %151 = sub i32 %149, %150
-  store i32 %151, ptr %4, align 8, !tbaa !35
-  %152 = load i64, ptr %18, align 8, !tbaa !57
-  %153 = load i64, ptr %20, align 8, !tbaa !58
-  %154 = add i64 %153, %152
-  %155 = load i32, ptr %8, align 4, !tbaa !36
-  %156 = trunc i64 %154 to i32
-  %157 = sub i32 %155, %156
-  store i32 %157, ptr %8, align 4, !tbaa !36
+._crit_edge110:                                   ; preds = %.lr.ph109, %155
+  %156 = load i64, ptr %12, align 8, !tbaa !59
+  %157 = load i64, ptr %14, align 8, !tbaa !60
+  %158 = add i64 %157, %156
+  %159 = load i32, ptr %4, align 8, !tbaa !35
+  %160 = trunc i64 %158 to i32
+  %161 = sub i32 %159, %160
+  store i32 %161, ptr %4, align 8, !tbaa !35
+  %162 = load i64, ptr %18, align 8, !tbaa !57
+  %163 = load i64, ptr %20, align 8, !tbaa !58
+  %164 = add i64 %163, %162
+  %165 = load i32, ptr %8, align 4, !tbaa !36
+  %166 = trunc i64 %164 to i32
+  %167 = sub i32 %165, %166
+  store i32 %167, ptr %8, align 4, !tbaa !36
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %18, i8 0, i64 32, i1 false)
   br label %calc_cropping_offsets.exit
 
-.lr.ph109:                                        ; preds = %145, %.lr.ph109
-  %indvars.iv120 = phi i64 [ %indvars.iv.next121, %.lr.ph109 ], [ 0, %145 ]
-  %158 = phi ptr [ %164, %.lr.ph109 ], [ %45, %145 ]
-  %159 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv120
-  %160 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv120
-  %161 = load i64, ptr %160, align 8, !tbaa !39
-  %162 = getelementptr inbounds nuw i8, ptr %158, i64 %161
-  store ptr %162, ptr %159, align 8, !tbaa !47
+.lr.ph109:                                        ; preds = %155, %.lr.ph109
+  %indvars.iv120 = phi i64 [ %indvars.iv.next121, %.lr.ph109 ], [ 0, %155 ]
+  %168 = phi ptr [ %174, %.lr.ph109 ], [ %45, %155 ]
+  %169 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv120
+  %170 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv120
+  %171 = load i64, ptr %170, align 8, !tbaa !39
+  %172 = getelementptr inbounds nuw i8, ptr %168, i64 %171
+  store ptr %172, ptr %169, align 8, !tbaa !47
   %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 1
-  %163 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv.next121
-  %164 = load ptr, ptr %163, align 8, !tbaa !47
-  %.not90 = icmp eq ptr %164, null
+  %173 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv.next121
+  %174 = load ptr, ptr %173, align 8, !tbaa !47
+  %.not90 = icmp eq ptr %174, null
   br i1 %.not90, label %._crit_edge110, label %.lr.ph109, !llvm.loop !112
 
-calc_cropping_offsets.exit.loopexit131:           ; preds = %88
+calc_cropping_offsets.exit.loopexit132:           ; preds = %96
   store i64 %85, ptr %3, align 16
   br label %calc_cropping_offsets.exit
 
-calc_cropping_offsets.exit:                       ; preds = %66, %calc_cropping_offsets.exit.loopexit131, %.lr.ph57.i.split, %.lr.ph57.i.split.us, %138, %._crit_edge, %27, %11, %17, %2, %7, %._crit_edge110, %35
-  %.066 = phi i32 [ 0, %35 ], [ 0, %._crit_edge110 ], [ -22, %7 ], [ -22, %2 ], [ -34, %17 ], [ -34, %11 ], [ -558323010, %27 ], [ %143, %138 ], [ -558323010, %._crit_edge ], [ -558323010, %.lr.ph57.i.split.us ], [ -558323010, %.lr.ph57.i.split ], [ -558323010, %calc_cropping_offsets.exit.loopexit131 ], [ -558323010, %66 ]
+calc_cropping_offsets.exit:                       ; preds = %66, %calc_cropping_offsets.exit.loopexit132, %.lr.ph57.i.split, %.lr.ph57.i.split.us, %148, %._crit_edge, %27, %11, %17, %2, %7, %._crit_edge110, %35
+  %.066 = phi i32 [ 0, %35 ], [ 0, %._crit_edge110 ], [ -22, %7 ], [ -22, %2 ], [ -34, %17 ], [ -34, %11 ], [ -558323010, %27 ], [ %153, %148 ], [ -558323010, %._crit_edge ], [ -558323010, %.lr.ph57.i.split.us ], [ -558323010, %.lr.ph57.i.split ], [ -558323010, %calc_cropping_offsets.exit.loopexit132 ], [ -558323010, %66 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.066
 }

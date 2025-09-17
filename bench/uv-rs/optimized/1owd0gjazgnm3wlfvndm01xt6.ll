@@ -9377,125 +9377,122 @@ define internal fastcc void @"_ZN4core3ptr76drop_in_place$LT$core..option..Optio
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @"_ZN4core3ptr76drop_in_place$LT$uv_resolver..resolver..availability..UnavailableVersion$GT$17h1d1865035580997cE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 {
   %2 = load i64, ptr %0, align 8, !range !1173, !noundef !13
-  %3 = add nsw i64 %2, -3
-  %4 = icmp ult i64 %3, 5
-  %5 = add nsw i64 %2, -2
-  %6 = select i1 %4, i64 %5, i64 0
-  switch i64 %6, label %7 [
-    i64 0, label %9
+  %3 = tail call i64 @llvm.usub.sat.i64(i64 %2, i64 2)
+  switch i64 %3, label %4 [
+    i64 0, label %6
     i64 1, label %"_ZN4core3ptr86drop_in_place$LT$uv_distribution_types..prioritized_distribution..IncompatibleDist$GT$17hc4166ca72518dbd1E.exit"
     i64 2, label %"_ZN4core3ptr86drop_in_place$LT$uv_distribution_types..prioritized_distribution..IncompatibleDist$GT$17hc4166ca72518dbd1E.exit"
     i64 3, label %"_ZN4core3ptr86drop_in_place$LT$uv_distribution_types..prioritized_distribution..IncompatibleDist$GT$17hc4166ca72518dbd1E.exit"
     i64 4, label %"_ZN4core3ptr86drop_in_place$LT$uv_distribution_types..prioritized_distribution..IncompatibleDist$GT$17hc4166ca72518dbd1E.exit"
   ]
 
-7:                                                ; preds = %1
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @"_ZN4core3ptr102drop_in_place$LT$alloc..boxed..Box$LT$$u5b$uv_pep440..version_specifier..VersionSpecifier$u5d$$GT$$GT$17h80f5ca2858629a8dE.llvm.14234798039696082073"(ptr noalias noundef nonnull align 8 dereferenceable(16) %8)
+4:                                                ; preds = %1
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @"_ZN4core3ptr102drop_in_place$LT$alloc..boxed..Box$LT$$u5b$uv_pep440..version_specifier..VersionSpecifier$u5d$$GT$$GT$17h80f5ca2858629a8dE.llvm.14234798039696082073"(ptr noalias noundef nonnull align 8 dereferenceable(16) %5)
   br label %"_ZN4core3ptr86drop_in_place$LT$uv_distribution_types..prioritized_distribution..IncompatibleDist$GT$17hc4166ca72518dbd1E.exit"
 
-9:                                                ; preds = %1
+6:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2190)
   switch i64 %2, label %"_ZN4core3ptr86drop_in_place$LT$uv_distribution_types..prioritized_distribution..IncompatibleDist$GT$17hc4166ca72518dbd1E.exit" [
-    i64 0, label %10
-    i64 1, label %33
+    i64 0, label %7
+    i64 1, label %30
   ]
 
-10:                                               ; preds = %9
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+7:                                                ; preds = %6
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2193)
-  %12 = load i8, ptr %11, align 8, !range !376, !alias.scope !2196, !noundef !13
-  switch i8 %12, label %"_ZN4core3ptr86drop_in_place$LT$uv_distribution_types..prioritized_distribution..IncompatibleDist$GT$17hc4166ca72518dbd1E.exit" [
-    i8 2, label %13
-    i8 3, label %15
+  %9 = load i8, ptr %8, align 8, !range !376, !alias.scope !2196, !noundef !13
+  switch i8 %9, label %"_ZN4core3ptr86drop_in_place$LT$uv_distribution_types..prioritized_distribution..IncompatibleDist$GT$17hc4166ca72518dbd1E.exit" [
+    i8 2, label %10
+    i8 3, label %12
   ]
 
-13:                                               ; preds = %10
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @"_ZN4core3ptr102drop_in_place$LT$alloc..boxed..Box$LT$$u5b$uv_pep440..version_specifier..VersionSpecifier$u5d$$GT$$GT$17h80f5ca2858629a8dE.llvm.14234798039696082073"(ptr noalias noundef nonnull align 8 dereferenceable(16) %14)
+10:                                               ; preds = %7
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  tail call void @"_ZN4core3ptr102drop_in_place$LT$alloc..boxed..Box$LT$$u5b$uv_pep440..version_specifier..VersionSpecifier$u5d$$GT$$GT$17h80f5ca2858629a8dE.llvm.14234798039696082073"(ptr noalias noundef nonnull align 8 dereferenceable(16) %11)
   br label %"_ZN4core3ptr86drop_in_place$LT$uv_distribution_types..prioritized_distribution..IncompatibleDist$GT$17hc4166ca72518dbd1E.exit"
 
-15:                                               ; preds = %10
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.val.i.i = load i8, ptr %16, align 8, !range !181, !alias.scope !2196, !noundef !13
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.val1.i.i = load ptr, ptr %17, align 8, !alias.scope !2196
-  %18 = icmp eq i8 %.val.i.i, 0
-  br i1 %18, label %"_ZN4core3ptr86drop_in_place$LT$uv_distribution_types..prioritized_distribution..IncompatibleDist$GT$17hc4166ca72518dbd1E.exit", label %19
+12:                                               ; preds = %7
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.val.i.i = load i8, ptr %13, align 8, !range !181, !alias.scope !2196, !noundef !13
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.val1.i.i = load ptr, ptr %14, align 8, !alias.scope !2196
+  %15 = icmp eq i8 %.val.i.i, 0
+  br i1 %15, label %"_ZN4core3ptr86drop_in_place$LT$uv_distribution_types..prioritized_distribution..IncompatibleDist$GT$17hc4166ca72518dbd1E.exit", label %16
 
-19:                                               ; preds = %15
-  %20 = icmp ne ptr %.val1.i.i, null
-  tail call void @llvm.assume(i1 %20)
-  %21 = load i64, ptr %.val1.i.i, align 8, !noalias !2197, !noundef !13
-  %22 = and i64 %21, 1
-  %23 = icmp eq i64 %22, 0
-  br i1 %23, label %24, label %"_ZN4core3ptr86drop_in_place$LT$uv_distribution_types..prioritized_distribution..IncompatibleDist$GT$17hc4166ca72518dbd1E.exit"
+16:                                               ; preds = %12
+  %17 = icmp ne ptr %.val1.i.i, null
+  tail call void @llvm.assume(i1 %17)
+  %18 = load i64, ptr %.val1.i.i, align 8, !noalias !2197, !noundef !13
+  %19 = and i64 %18, 1
+  %20 = icmp eq i64 %19, 0
+  br i1 %20, label %21, label %"_ZN4core3ptr86drop_in_place$LT$uv_distribution_types..prioritized_distribution..IncompatibleDist$GT$17hc4166ca72518dbd1E.exit"
 
-24:                                               ; preds = %19
-  %25 = getelementptr inbounds nuw i8, ptr %.val1.i.i, i64 8
-  %26 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17h5a7ada26034e81a7E.llvm.14234798039696082073(ptr noundef nonnull %25, i8 noundef 0), !noalias !2197
-  %27 = and i64 %26, 1
-  %.not.i.i.i.i.i.i = icmp eq i64 %27, 0
-  br i1 %.not.i.i.i.i.i.i, label %28, label %"_ZN4core3ptr86drop_in_place$LT$uv_distribution_types..prioritized_distribution..IncompatibleDist$GT$17hc4166ca72518dbd1E.exit"
+21:                                               ; preds = %16
+  %22 = getelementptr inbounds nuw i8, ptr %.val1.i.i, i64 8
+  %23 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17h5a7ada26034e81a7E.llvm.14234798039696082073(ptr noundef nonnull %22, i8 noundef 0), !noalias !2197
+  %24 = and i64 %23, 1
+  %.not.i.i.i.i.i.i = icmp eq i64 %24, 0
+  br i1 %.not.i.i.i.i.i.i, label %25, label %"_ZN4core3ptr86drop_in_place$LT$uv_distribution_types..prioritized_distribution..IncompatibleDist$GT$17hc4166ca72518dbd1E.exit"
 
-28:                                               ; preds = %24
-  %29 = atomicrmw sub ptr %25, i64 2 release, align 8, !noalias !2197
-  %30 = icmp eq i64 %29, 2
-  br i1 %30, label %31, label %"_ZN4core3ptr86drop_in_place$LT$uv_distribution_types..prioritized_distribution..IncompatibleDist$GT$17hc4166ca72518dbd1E.exit", !prof !114
+25:                                               ; preds = %21
+  %26 = atomicrmw sub ptr %22, i64 2 release, align 8, !noalias !2197
+  %27 = icmp eq i64 %26, 2
+  br i1 %27, label %28, label %"_ZN4core3ptr86drop_in_place$LT$uv_distribution_types..prioritized_distribution..IncompatibleDist$GT$17hc4166ca72518dbd1E.exit", !prof !114
 
-31:                                               ; preds = %28
-  %32 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17h5a7ada26034e81a7E.llvm.14234798039696082073(ptr noundef nonnull %25, i8 noundef 2), !noalias !2197
+28:                                               ; preds = %25
+  %29 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17h5a7ada26034e81a7E.llvm.14234798039696082073(ptr noundef nonnull %22, i8 noundef 2), !noalias !2197
   tail call void @_ZN6arcstr7arc_str9ThinInner12destroy_cold17h28090481e7d68c00E(ptr noundef nonnull %.val1.i.i), !noalias !2197
   br label %"_ZN4core3ptr86drop_in_place$LT$uv_distribution_types..prioritized_distribution..IncompatibleDist$GT$17hc4166ca72518dbd1E.exit"
 
-33:                                               ; preds = %9
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
+30:                                               ; preds = %6
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2204)
-  %35 = load i8, ptr %34, align 8, !range !439, !alias.scope !2207, !noundef !13
-  switch i8 %35, label %"_ZN4core3ptr86drop_in_place$LT$uv_distribution_types..prioritized_distribution..IncompatibleDist$GT$17hc4166ca72518dbd1E.exit" [
-    i8 1, label %36
-    i8 2, label %38
+  %32 = load i8, ptr %31, align 8, !range !439, !alias.scope !2207, !noundef !13
+  switch i8 %32, label %"_ZN4core3ptr86drop_in_place$LT$uv_distribution_types..prioritized_distribution..IncompatibleDist$GT$17hc4166ca72518dbd1E.exit" [
+    i8 1, label %33
+    i8 2, label %35
   ]
 
-36:                                               ; preds = %33
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @"_ZN4core3ptr102drop_in_place$LT$alloc..boxed..Box$LT$$u5b$uv_pep440..version_specifier..VersionSpecifier$u5d$$GT$$GT$17h80f5ca2858629a8dE.llvm.14234798039696082073"(ptr noalias noundef nonnull align 8 dereferenceable(16) %37)
+33:                                               ; preds = %30
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  tail call void @"_ZN4core3ptr102drop_in_place$LT$alloc..boxed..Box$LT$$u5b$uv_pep440..version_specifier..VersionSpecifier$u5d$$GT$$GT$17h80f5ca2858629a8dE.llvm.14234798039696082073"(ptr noalias noundef nonnull align 8 dereferenceable(16) %34)
   br label %"_ZN4core3ptr86drop_in_place$LT$uv_distribution_types..prioritized_distribution..IncompatibleDist$GT$17hc4166ca72518dbd1E.exit"
 
-38:                                               ; preds = %33
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.val.i1.i = load i8, ptr %39, align 8, !range !181, !alias.scope !2207, !noundef !13
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.val1.i2.i = load ptr, ptr %40, align 8, !alias.scope !2207
-  %41 = icmp eq i8 %.val.i1.i, 0
-  br i1 %41, label %"_ZN4core3ptr86drop_in_place$LT$uv_distribution_types..prioritized_distribution..IncompatibleDist$GT$17hc4166ca72518dbd1E.exit", label %42
+35:                                               ; preds = %30
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.val.i1.i = load i8, ptr %36, align 8, !range !181, !alias.scope !2207, !noundef !13
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.val1.i2.i = load ptr, ptr %37, align 8, !alias.scope !2207
+  %38 = icmp eq i8 %.val.i1.i, 0
+  br i1 %38, label %"_ZN4core3ptr86drop_in_place$LT$uv_distribution_types..prioritized_distribution..IncompatibleDist$GT$17hc4166ca72518dbd1E.exit", label %39
 
-42:                                               ; preds = %38
-  %43 = icmp ne ptr %.val1.i2.i, null
-  tail call void @llvm.assume(i1 %43)
-  %44 = load i64, ptr %.val1.i2.i, align 8, !noalias !2208, !noundef !13
-  %45 = and i64 %44, 1
-  %46 = icmp eq i64 %45, 0
-  br i1 %46, label %47, label %"_ZN4core3ptr86drop_in_place$LT$uv_distribution_types..prioritized_distribution..IncompatibleDist$GT$17hc4166ca72518dbd1E.exit"
+39:                                               ; preds = %35
+  %40 = icmp ne ptr %.val1.i2.i, null
+  tail call void @llvm.assume(i1 %40)
+  %41 = load i64, ptr %.val1.i2.i, align 8, !noalias !2208, !noundef !13
+  %42 = and i64 %41, 1
+  %43 = icmp eq i64 %42, 0
+  br i1 %43, label %44, label %"_ZN4core3ptr86drop_in_place$LT$uv_distribution_types..prioritized_distribution..IncompatibleDist$GT$17hc4166ca72518dbd1E.exit"
 
-47:                                               ; preds = %42
-  %48 = getelementptr inbounds nuw i8, ptr %.val1.i2.i, i64 8
-  %49 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17h5a7ada26034e81a7E.llvm.14234798039696082073(ptr noundef nonnull %48, i8 noundef 0), !noalias !2208
-  %50 = and i64 %49, 1
-  %.not.i.i.i.i.i3.i = icmp eq i64 %50, 0
-  br i1 %.not.i.i.i.i.i3.i, label %51, label %"_ZN4core3ptr86drop_in_place$LT$uv_distribution_types..prioritized_distribution..IncompatibleDist$GT$17hc4166ca72518dbd1E.exit"
+44:                                               ; preds = %39
+  %45 = getelementptr inbounds nuw i8, ptr %.val1.i2.i, i64 8
+  %46 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17h5a7ada26034e81a7E.llvm.14234798039696082073(ptr noundef nonnull %45, i8 noundef 0), !noalias !2208
+  %47 = and i64 %46, 1
+  %.not.i.i.i.i.i3.i = icmp eq i64 %47, 0
+  br i1 %.not.i.i.i.i.i3.i, label %48, label %"_ZN4core3ptr86drop_in_place$LT$uv_distribution_types..prioritized_distribution..IncompatibleDist$GT$17hc4166ca72518dbd1E.exit"
 
-51:                                               ; preds = %47
-  %52 = atomicrmw sub ptr %48, i64 2 release, align 8, !noalias !2208
-  %53 = icmp eq i64 %52, 2
-  br i1 %53, label %54, label %"_ZN4core3ptr86drop_in_place$LT$uv_distribution_types..prioritized_distribution..IncompatibleDist$GT$17hc4166ca72518dbd1E.exit", !prof !114
+48:                                               ; preds = %44
+  %49 = atomicrmw sub ptr %45, i64 2 release, align 8, !noalias !2208
+  %50 = icmp eq i64 %49, 2
+  br i1 %50, label %51, label %"_ZN4core3ptr86drop_in_place$LT$uv_distribution_types..prioritized_distribution..IncompatibleDist$GT$17hc4166ca72518dbd1E.exit", !prof !114
 
-54:                                               ; preds = %51
-  %55 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17h5a7ada26034e81a7E.llvm.14234798039696082073(ptr noundef nonnull %48, i8 noundef 2), !noalias !2208
+51:                                               ; preds = %48
+  %52 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17h5a7ada26034e81a7E.llvm.14234798039696082073(ptr noundef nonnull %45, i8 noundef 2), !noalias !2208
   tail call void @_ZN6arcstr7arc_str9ThinInner12destroy_cold17h28090481e7d68c00E(ptr noundef nonnull %.val1.i2.i), !noalias !2208
   br label %"_ZN4core3ptr86drop_in_place$LT$uv_distribution_types..prioritized_distribution..IncompatibleDist$GT$17hc4166ca72518dbd1E.exit"
 
-"_ZN4core3ptr86drop_in_place$LT$uv_distribution_types..prioritized_distribution..IncompatibleDist$GT$17hc4166ca72518dbd1E.exit": ; preds = %54, %51, %47, %42, %38, %36, %33, %31, %28, %24, %19, %15, %13, %10, %9, %7, %1, %1, %1, %1
+"_ZN4core3ptr86drop_in_place$LT$uv_distribution_types..prioritized_distribution..IncompatibleDist$GT$17hc4166ca72518dbd1E.exit": ; preds = %51, %48, %44, %39, %35, %33, %30, %28, %25, %21, %16, %12, %10, %7, %6, %4, %1, %1, %1, %1
   ret void
 }
 
@@ -36868,8 +36865,7 @@ define void @_ZN11uv_resolver8resolver9ForkState34visit_package_version_dependen
   %.sroa.358.0..sroa_idx = getelementptr inbounds nuw i8, ptr %42, i64 16
   %109 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %110 = load i64, ptr %10, align 8, !range !789
-  %.off201 = add nsw i64 %110, -1
-  %switch202 = icmp ult i64 %.off201, 2
+  %.not376 = icmp eq i64 %110, 0
   %.sroa.4158.0..sroa_idx = getelementptr inbounds nuw i8, ptr %57, i64 8
   %.sroa.4.0..sroa_idx245 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %.sroa.5246.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 16
@@ -38137,12 +38133,12 @@ _ZN11uv_resolver7pubgrub7package14PubGrubPackage12name_no_root17h2076f803571b1b1
 
 .thread282:                                       ; preds = %.thread279, %"_ZN14version_ranges15Ranges$LT$V$GT$14bounding_range17h975a2db3a9d951e8E.exit"
   call void @llvm.lifetime.end.p0(ptr nonnull %60)
-  br i1 %switch202, label %621, label %"_ZN4core3ptr364drop_in_place$LT$core..result..Result$LT$std..sync..poison..mutex..MutexGuard$LT$std..collections..hash..set..HashSet$LT$alloc..string..String$C$rustc_hash..FxBuildHasher$GT$$GT$$C$std..sync..poison..PoisonError$LT$std..sync..poison..mutex..MutexGuard$LT$std..collections..hash..set..HashSet$LT$alloc..string..String$C$rustc_hash..FxBuildHasher$GT$$GT$$GT$$GT$$GT$17h1d4351fc7f304931E.exit"
+  br i1 %.not376, label %"_ZN4core3ptr364drop_in_place$LT$core..result..Result$LT$std..sync..poison..mutex..MutexGuard$LT$std..collections..hash..set..HashSet$LT$alloc..string..String$C$rustc_hash..FxBuildHasher$GT$$GT$$C$std..sync..poison..PoisonError$LT$std..sync..poison..mutex..MutexGuard$LT$std..collections..hash..set..HashSet$LT$alloc..string..String$C$rustc_hash..FxBuildHasher$GT$$GT$$GT$$GT$$GT$17h1d4351fc7f304931E.exit", label %621
 
 619:                                              ; preds = %"_ZN14version_ranges15Ranges$LT$V$GT$14bounding_range17h975a2db3a9d951e8E.exit"
   %620 = icmp eq i64 %.pr, 2
   call void @llvm.lifetime.end.p0(ptr nonnull %60)
-  br i1 %switch202, label %621, label %"_ZN4core3ptr364drop_in_place$LT$core..result..Result$LT$std..sync..poison..mutex..MutexGuard$LT$std..collections..hash..set..HashSet$LT$alloc..string..String$C$rustc_hash..FxBuildHasher$GT$$GT$$C$std..sync..poison..PoisonError$LT$std..sync..poison..mutex..MutexGuard$LT$std..collections..hash..set..HashSet$LT$alloc..string..String$C$rustc_hash..FxBuildHasher$GT$$GT$$GT$$GT$$GT$17h1d4351fc7f304931E.exit"
+  br i1 %.not376, label %"_ZN4core3ptr364drop_in_place$LT$core..result..Result$LT$std..sync..poison..mutex..MutexGuard$LT$std..collections..hash..set..HashSet$LT$alloc..string..String$C$rustc_hash..FxBuildHasher$GT$$GT$$C$std..sync..poison..PoisonError$LT$std..sync..poison..mutex..MutexGuard$LT$std..collections..hash..set..HashSet$LT$alloc..string..String$C$rustc_hash..FxBuildHasher$GT$$GT$$GT$$GT$$GT$17h1d4351fc7f304931E.exit", label %621
 
 621:                                              ; preds = %619, %.thread282
   %.sroa.0154.0 = phi i1 [ true, %.thread282 ], [ %620, %619 ]
@@ -38266,8 +38262,8 @@ _ZN11uv_resolver7pubgrub7package14PubGrubPackage12name_no_root17h2076f803571b1b1
           to label %661 unwind label %.loopexit.split-lp
 
 659:                                              ; preds = %641, %646
-  %.sink398 = phi i64 [ 32, %646 ], [ 48, %641 ]
-  %660 = getelementptr inbounds nuw i8, ptr %643, i64 %.sink398
+  %.sink399 = phi i64 [ 32, %646 ], [ 48, %641 ]
+  %660 = getelementptr inbounds nuw i8, ptr %643, i64 %.sink399
   store ptr %660, ptr %56, align 8
   store ptr %56, ptr %57, align 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h099c61e10142e066E", ptr %.sroa.4158.0..sroa_idx, align 8

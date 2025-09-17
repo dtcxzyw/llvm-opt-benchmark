@@ -1167,8 +1167,7 @@ define dso_local i32 @fastlz_decompress(ptr noundef readonly captures(address) %
   br label %fastlz1_decompress.exit
 
 86:                                               ; preds = %4
-  %.mask = and i8 %5, -32
-  %87 = icmp eq i8 %.mask, 32
+  %87 = icmp ult i8 %5, 64
   br i1 %87, label %88, label %fastlz1_decompress.exit
 
 88:                                               ; preds = %86

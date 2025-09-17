@@ -318,52 +318,52 @@ define internal void @remap2_8bit_line_c(ptr noundef writeonly captures(none) %0
   %10 = getelementptr inbounds nuw i16, ptr %4, i64 %9
   %11 = getelementptr inbounds nuw i16, ptr %5, i64 %9
   %12 = getelementptr inbounds nuw i16, ptr %6, i64 %9
-  br label %18
+  br label %19
 
-13:                                               ; preds = %20
-  %14 = ashr i32 %39, 14
-  %.not.i = icmp ult i32 %14, 256
+13:                                               ; preds = %21
+  %14 = ashr i32 %40, 14
+  %15 = icmp ugt i32 %14, 255
   %isnotneg.i = icmp sgt i32 %14, -1
-  %15 = sext i1 %isnotneg.i to i8
-  %16 = trunc nuw i32 %14 to i8
-  %.0.i = select i1 %.not.i, i8 %16, i8 %15
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv43
-  store i8 %.0.i, ptr %17, align 1, !tbaa !17
+  %16 = sext i1 %isnotneg.i to i8
+  %17 = trunc nuw i32 %14 to i8
+  %.0.i = select i1 %15, i8 %16, i8 %17
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv43
+  store i8 %.0.i, ptr %18, align 1, !tbaa !17
   %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next44, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
 
-18:                                               ; preds = %.lr.ph, %20
-  %19 = phi i1 [ true, %.lr.ph ], [ false, %20 ]
-  %indvars.iv40 = phi i64 [ 0, %.lr.ph ], [ 2, %20 ]
-  %.03236 = phi i32 [ 0, %.lr.ph ], [ %39, %20 ]
-  br label %21
+19:                                               ; preds = %.lr.ph, %21
+  %20 = phi i1 [ true, %.lr.ph ], [ false, %21 ]
+  %indvars.iv40 = phi i64 [ 0, %.lr.ph ], [ 2, %21 ]
+  %.03236 = phi i32 [ 0, %.lr.ph ], [ %40, %21 ]
+  br label %22
 
-20:                                               ; preds = %21
-  br i1 %19, label %18, label %13, !llvm.loop !22
+21:                                               ; preds = %22
+  br i1 %20, label %19, label %13, !llvm.loop !22
 
-21:                                               ; preds = %18, %21
-  %22 = phi i1 [ true, %18 ], [ false, %21 ]
-  %indvars.iv = phi i64 [ 0, %18 ], [ 1, %21 ]
-  %.134 = phi i32 [ %.03236, %18 ], [ %39, %21 ]
-  %23 = or disjoint i64 %indvars.iv, %indvars.iv40
-  %24 = getelementptr inbounds nuw i16, ptr %12, i64 %23
-  %25 = load i16, ptr %24, align 2, !tbaa !15
-  %26 = sext i16 %25 to i32
-  %27 = getelementptr inbounds nuw i16, ptr %11, i64 %23
-  %28 = load i16, ptr %27, align 2, !tbaa !15
-  %29 = sext i16 %28 to i64
-  %30 = mul nsw i64 %3, %29
-  %31 = getelementptr inbounds nuw i16, ptr %10, i64 %23
-  %32 = load i16, ptr %31, align 2, !tbaa !15
-  %33 = sext i16 %32 to i64
-  %34 = getelementptr i8, ptr %2, i64 %30
-  %35 = getelementptr i8, ptr %34, i64 %33
-  %36 = load i8, ptr %35, align 1, !tbaa !17
-  %37 = zext i8 %36 to i32
-  %38 = mul nsw i32 %37, %26
-  %39 = add nsw i32 %38, %.134
-  br i1 %22, label %21, label %20, !llvm.loop !23
+22:                                               ; preds = %19, %22
+  %23 = phi i1 [ true, %19 ], [ false, %22 ]
+  %indvars.iv = phi i64 [ 0, %19 ], [ 1, %22 ]
+  %.134 = phi i32 [ %.03236, %19 ], [ %40, %22 ]
+  %24 = or disjoint i64 %indvars.iv, %indvars.iv40
+  %25 = getelementptr inbounds nuw i16, ptr %12, i64 %24
+  %26 = load i16, ptr %25, align 2, !tbaa !15
+  %27 = sext i16 %26 to i32
+  %28 = getelementptr inbounds nuw i16, ptr %11, i64 %24
+  %29 = load i16, ptr %28, align 2, !tbaa !15
+  %30 = sext i16 %29 to i64
+  %31 = mul nsw i64 %3, %30
+  %32 = getelementptr inbounds nuw i16, ptr %10, i64 %24
+  %33 = load i16, ptr %32, align 2, !tbaa !15
+  %34 = sext i16 %33 to i64
+  %35 = getelementptr i8, ptr %2, i64 %31
+  %36 = getelementptr i8, ptr %35, i64 %34
+  %37 = load i8, ptr %36, align 1, !tbaa !17
+  %38 = zext i8 %37 to i32
+  %39 = mul nsw i32 %38, %27
+  %40 = add nsw i32 %39, %.134
+  br i1 %23, label %22, label %21, !llvm.loop !23
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -385,52 +385,52 @@ define internal void @remap2_16bit_line_c(ptr noundef writeonly captures(none) %
   %11 = getelementptr inbounds nuw i16, ptr %4, i64 %10
   %12 = getelementptr inbounds nuw i16, ptr %5, i64 %10
   %13 = getelementptr inbounds nuw i16, ptr %6, i64 %10
-  br label %19
+  br label %20
 
-14:                                               ; preds = %21
-  %15 = ashr i32 %40, 14
-  %.not.i = icmp ult i32 %15, 65536
+14:                                               ; preds = %22
+  %15 = ashr i32 %41, 14
+  %16 = icmp ugt i32 %15, 65535
   %isnotneg.i = icmp sgt i32 %15, -1
-  %16 = sext i1 %isnotneg.i to i16
-  %17 = trunc nuw i32 %15 to i16
-  %.0.i = select i1 %.not.i, i16 %17, i16 %16
-  %18 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv43
-  store i16 %.0.i, ptr %18, align 2, !tbaa !15
+  %17 = sext i1 %isnotneg.i to i16
+  %18 = trunc nuw i32 %15 to i16
+  %.0.i = select i1 %16, i16 %17, i16 %18
+  %19 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv43
+  store i16 %.0.i, ptr %19, align 2, !tbaa !15
   %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next44, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
 
-19:                                               ; preds = %.lr.ph, %21
-  %20 = phi i1 [ true, %.lr.ph ], [ false, %21 ]
-  %indvars.iv40 = phi i64 [ 0, %.lr.ph ], [ 2, %21 ]
-  %.03236 = phi i32 [ 0, %.lr.ph ], [ %40, %21 ]
-  br label %22
+20:                                               ; preds = %.lr.ph, %22
+  %21 = phi i1 [ true, %.lr.ph ], [ false, %22 ]
+  %indvars.iv40 = phi i64 [ 0, %.lr.ph ], [ 2, %22 ]
+  %.03236 = phi i32 [ 0, %.lr.ph ], [ %41, %22 ]
+  br label %23
 
-21:                                               ; preds = %22
-  br i1 %20, label %19, label %14, !llvm.loop !25
+22:                                               ; preds = %23
+  br i1 %21, label %20, label %14, !llvm.loop !25
 
-22:                                               ; preds = %19, %22
-  %23 = phi i1 [ true, %19 ], [ false, %22 ]
-  %indvars.iv = phi i64 [ 0, %19 ], [ 1, %22 ]
-  %.134 = phi i32 [ %.03236, %19 ], [ %40, %22 ]
-  %24 = or disjoint i64 %indvars.iv, %indvars.iv40
-  %25 = getelementptr inbounds nuw i16, ptr %13, i64 %24
-  %26 = load i16, ptr %25, align 2, !tbaa !15
-  %27 = sext i16 %26 to i32
-  %28 = getelementptr inbounds nuw i16, ptr %12, i64 %24
-  %29 = load i16, ptr %28, align 2, !tbaa !15
-  %30 = sext i16 %29 to i64
-  %31 = mul nsw i64 %8, %30
-  %32 = getelementptr inbounds nuw i16, ptr %11, i64 %24
-  %33 = load i16, ptr %32, align 2, !tbaa !15
-  %34 = sext i16 %33 to i64
-  %35 = getelementptr i16, ptr %2, i64 %31
-  %36 = getelementptr i16, ptr %35, i64 %34
-  %37 = load i16, ptr %36, align 2, !tbaa !15
-  %38 = zext i16 %37 to i32
-  %39 = mul nsw i32 %38, %27
-  %40 = add nsw i32 %39, %.134
-  br i1 %23, label %22, label %21, !llvm.loop !26
+23:                                               ; preds = %20, %23
+  %24 = phi i1 [ true, %20 ], [ false, %23 ]
+  %indvars.iv = phi i64 [ 0, %20 ], [ 1, %23 ]
+  %.134 = phi i32 [ %.03236, %20 ], [ %41, %23 ]
+  %25 = or disjoint i64 %indvars.iv, %indvars.iv40
+  %26 = getelementptr inbounds nuw i16, ptr %13, i64 %25
+  %27 = load i16, ptr %26, align 2, !tbaa !15
+  %28 = sext i16 %27 to i32
+  %29 = getelementptr inbounds nuw i16, ptr %12, i64 %25
+  %30 = load i16, ptr %29, align 2, !tbaa !15
+  %31 = sext i16 %30 to i64
+  %32 = mul nsw i64 %8, %31
+  %33 = getelementptr inbounds nuw i16, ptr %11, i64 %25
+  %34 = load i16, ptr %33, align 2, !tbaa !15
+  %35 = sext i16 %34 to i64
+  %36 = getelementptr i16, ptr %2, i64 %32
+  %37 = getelementptr i16, ptr %36, i64 %35
+  %38 = load i16, ptr %37, align 2, !tbaa !15
+  %39 = zext i16 %38 to i32
+  %40 = mul nsw i32 %39, %28
+  %41 = add nsw i32 %40, %.134
+  br i1 %24, label %23, label %22, !llvm.loop !26
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -451,55 +451,55 @@ define internal void @remap3_8bit_line_c(ptr noundef writeonly captures(none) %0
   %10 = getelementptr inbounds nuw i16, ptr %4, i64 %9
   %11 = getelementptr inbounds nuw i16, ptr %5, i64 %9
   %12 = getelementptr inbounds nuw i16, ptr %6, i64 %9
-  br label %18
+  br label %19
 
-13:                                               ; preds = %20
-  %14 = ashr i32 %38, 14
-  %.not.i = icmp ult i32 %14, 256
+13:                                               ; preds = %21
+  %14 = ashr i32 %39, 14
+  %15 = icmp ugt i32 %14, 255
   %isnotneg.i = icmp sgt i32 %14, -1
-  %15 = sext i1 %isnotneg.i to i8
-  %16 = trunc nuw i32 %14 to i8
-  %.0.i = select i1 %.not.i, i8 %16, i8 %15
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv44
-  store i8 %.0.i, ptr %17, align 1, !tbaa !17
+  %16 = sext i1 %isnotneg.i to i8
+  %17 = trunc nuw i32 %14 to i8
+  %.0.i = select i1 %15, i8 %16, i8 %17
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv44
+  store i8 %.0.i, ptr %18, align 1, !tbaa !17
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
   %exitcond47.not = icmp eq i64 %indvars.iv.next45, %wide.trip.count
   br i1 %exitcond47.not, label %._crit_edge, label %.lr.ph, !llvm.loop !27
 
-18:                                               ; preds = %.lr.ph, %20
-  %indvars.iv40 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next41, %20 ]
-  %.03236 = phi i32 [ 0, %.lr.ph ], [ %38, %20 ]
-  %19 = mul nuw nsw i64 %indvars.iv40, 3
-  br label %21
+19:                                               ; preds = %.lr.ph, %21
+  %indvars.iv40 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next41, %21 ]
+  %.03236 = phi i32 [ 0, %.lr.ph ], [ %39, %21 ]
+  %20 = mul nuw nsw i64 %indvars.iv40, 3
+  br label %22
 
-20:                                               ; preds = %21
+21:                                               ; preds = %22
   %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
   %exitcond43.not = icmp eq i64 %indvars.iv.next41, 3
-  br i1 %exitcond43.not, label %13, label %18, !llvm.loop !28
+  br i1 %exitcond43.not, label %13, label %19, !llvm.loop !28
 
-21:                                               ; preds = %18, %21
-  %indvars.iv = phi i64 [ 0, %18 ], [ %indvars.iv.next, %21 ]
-  %.134 = phi i32 [ %.03236, %18 ], [ %38, %21 ]
-  %22 = add nuw nsw i64 %indvars.iv, %19
-  %23 = getelementptr inbounds nuw i16, ptr %12, i64 %22
-  %24 = load i16, ptr %23, align 2, !tbaa !15
-  %25 = sext i16 %24 to i32
-  %26 = getelementptr inbounds nuw i16, ptr %11, i64 %22
-  %27 = load i16, ptr %26, align 2, !tbaa !15
-  %28 = sext i16 %27 to i64
-  %29 = mul nsw i64 %3, %28
-  %30 = getelementptr inbounds nuw i16, ptr %10, i64 %22
-  %31 = load i16, ptr %30, align 2, !tbaa !15
-  %32 = sext i16 %31 to i64
-  %33 = getelementptr i8, ptr %2, i64 %29
-  %34 = getelementptr i8, ptr %33, i64 %32
-  %35 = load i8, ptr %34, align 1, !tbaa !17
-  %36 = zext i8 %35 to i32
-  %37 = mul nsw i32 %36, %25
-  %38 = add nsw i32 %37, %.134
+22:                                               ; preds = %19, %22
+  %indvars.iv = phi i64 [ 0, %19 ], [ %indvars.iv.next, %22 ]
+  %.134 = phi i32 [ %.03236, %19 ], [ %39, %22 ]
+  %23 = add nuw nsw i64 %indvars.iv, %20
+  %24 = getelementptr inbounds nuw i16, ptr %12, i64 %23
+  %25 = load i16, ptr %24, align 2, !tbaa !15
+  %26 = sext i16 %25 to i32
+  %27 = getelementptr inbounds nuw i16, ptr %11, i64 %23
+  %28 = load i16, ptr %27, align 2, !tbaa !15
+  %29 = sext i16 %28 to i64
+  %30 = mul nsw i64 %3, %29
+  %31 = getelementptr inbounds nuw i16, ptr %10, i64 %23
+  %32 = load i16, ptr %31, align 2, !tbaa !15
+  %33 = sext i16 %32 to i64
+  %34 = getelementptr i8, ptr %2, i64 %30
+  %35 = getelementptr i8, ptr %34, i64 %33
+  %36 = load i8, ptr %35, align 1, !tbaa !17
+  %37 = zext i8 %36 to i32
+  %38 = mul nsw i32 %37, %26
+  %39 = add nsw i32 %38, %.134
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %20, label %21, !llvm.loop !29
+  br i1 %exitcond.not, label %21, label %22, !llvm.loop !29
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -521,55 +521,55 @@ define internal void @remap3_16bit_line_c(ptr noundef writeonly captures(none) %
   %11 = getelementptr inbounds nuw i16, ptr %4, i64 %10
   %12 = getelementptr inbounds nuw i16, ptr %5, i64 %10
   %13 = getelementptr inbounds nuw i16, ptr %6, i64 %10
-  br label %19
+  br label %20
 
-14:                                               ; preds = %21
-  %15 = ashr i32 %39, 14
-  %.not.i = icmp ult i32 %15, 65536
+14:                                               ; preds = %22
+  %15 = ashr i32 %40, 14
+  %16 = icmp ugt i32 %15, 65535
   %isnotneg.i = icmp sgt i32 %15, -1
-  %16 = sext i1 %isnotneg.i to i16
-  %17 = trunc nuw i32 %15 to i16
-  %.0.i = select i1 %.not.i, i16 %17, i16 %16
-  %18 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv44
-  store i16 %.0.i, ptr %18, align 2, !tbaa !15
+  %17 = sext i1 %isnotneg.i to i16
+  %18 = trunc nuw i32 %15 to i16
+  %.0.i = select i1 %16, i16 %17, i16 %18
+  %19 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv44
+  store i16 %.0.i, ptr %19, align 2, !tbaa !15
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
   %exitcond47.not = icmp eq i64 %indvars.iv.next45, %wide.trip.count
   br i1 %exitcond47.not, label %._crit_edge, label %.lr.ph, !llvm.loop !30
 
-19:                                               ; preds = %.lr.ph, %21
-  %indvars.iv40 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next41, %21 ]
-  %.03236 = phi i32 [ 0, %.lr.ph ], [ %39, %21 ]
-  %20 = mul nuw nsw i64 %indvars.iv40, 3
-  br label %22
+20:                                               ; preds = %.lr.ph, %22
+  %indvars.iv40 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next41, %22 ]
+  %.03236 = phi i32 [ 0, %.lr.ph ], [ %40, %22 ]
+  %21 = mul nuw nsw i64 %indvars.iv40, 3
+  br label %23
 
-21:                                               ; preds = %22
+22:                                               ; preds = %23
   %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
   %exitcond43.not = icmp eq i64 %indvars.iv.next41, 3
-  br i1 %exitcond43.not, label %14, label %19, !llvm.loop !31
+  br i1 %exitcond43.not, label %14, label %20, !llvm.loop !31
 
-22:                                               ; preds = %19, %22
-  %indvars.iv = phi i64 [ 0, %19 ], [ %indvars.iv.next, %22 ]
-  %.134 = phi i32 [ %.03236, %19 ], [ %39, %22 ]
-  %23 = add nuw nsw i64 %indvars.iv, %20
-  %24 = getelementptr inbounds nuw i16, ptr %13, i64 %23
-  %25 = load i16, ptr %24, align 2, !tbaa !15
-  %26 = sext i16 %25 to i32
-  %27 = getelementptr inbounds nuw i16, ptr %12, i64 %23
-  %28 = load i16, ptr %27, align 2, !tbaa !15
-  %29 = sext i16 %28 to i64
-  %30 = mul nsw i64 %8, %29
-  %31 = getelementptr inbounds nuw i16, ptr %11, i64 %23
-  %32 = load i16, ptr %31, align 2, !tbaa !15
-  %33 = sext i16 %32 to i64
-  %34 = getelementptr i16, ptr %2, i64 %30
-  %35 = getelementptr i16, ptr %34, i64 %33
-  %36 = load i16, ptr %35, align 2, !tbaa !15
-  %37 = zext i16 %36 to i32
-  %38 = mul nsw i32 %37, %26
-  %39 = add nsw i32 %38, %.134
+23:                                               ; preds = %20, %23
+  %indvars.iv = phi i64 [ 0, %20 ], [ %indvars.iv.next, %23 ]
+  %.134 = phi i32 [ %.03236, %20 ], [ %40, %23 ]
+  %24 = add nuw nsw i64 %indvars.iv, %21
+  %25 = getelementptr inbounds nuw i16, ptr %13, i64 %24
+  %26 = load i16, ptr %25, align 2, !tbaa !15
+  %27 = sext i16 %26 to i32
+  %28 = getelementptr inbounds nuw i16, ptr %12, i64 %24
+  %29 = load i16, ptr %28, align 2, !tbaa !15
+  %30 = sext i16 %29 to i64
+  %31 = mul nsw i64 %8, %30
+  %32 = getelementptr inbounds nuw i16, ptr %11, i64 %24
+  %33 = load i16, ptr %32, align 2, !tbaa !15
+  %34 = sext i16 %33 to i64
+  %35 = getelementptr i16, ptr %2, i64 %31
+  %36 = getelementptr i16, ptr %35, i64 %34
+  %37 = load i16, ptr %36, align 2, !tbaa !15
+  %38 = zext i16 %37 to i32
+  %39 = mul nsw i32 %38, %27
+  %40 = add nsw i32 %39, %.134
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %21, label %22, !llvm.loop !32
+  br i1 %exitcond.not, label %22, label %23, !llvm.loop !32
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -590,55 +590,55 @@ define internal void @remap4_8bit_line_c(ptr noundef writeonly captures(none) %0
   %10 = getelementptr inbounds nuw i16, ptr %4, i64 %9
   %11 = getelementptr inbounds nuw i16, ptr %5, i64 %9
   %12 = getelementptr inbounds nuw i16, ptr %6, i64 %9
-  br label %18
+  br label %19
 
-13:                                               ; preds = %20
-  %14 = ashr i32 %38, 14
-  %.not.i = icmp ult i32 %14, 256
+13:                                               ; preds = %21
+  %14 = ashr i32 %39, 14
+  %15 = icmp ugt i32 %14, 255
   %isnotneg.i = icmp sgt i32 %14, -1
-  %15 = sext i1 %isnotneg.i to i8
-  %16 = trunc nuw i32 %14 to i8
-  %.0.i = select i1 %.not.i, i8 %16, i8 %15
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv44
-  store i8 %.0.i, ptr %17, align 1, !tbaa !17
+  %16 = sext i1 %isnotneg.i to i8
+  %17 = trunc nuw i32 %14 to i8
+  %.0.i = select i1 %15, i8 %16, i8 %17
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv44
+  store i8 %.0.i, ptr %18, align 1, !tbaa !17
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
   %exitcond47.not = icmp eq i64 %indvars.iv.next45, %wide.trip.count
   br i1 %exitcond47.not, label %._crit_edge, label %.lr.ph, !llvm.loop !33
 
-18:                                               ; preds = %.lr.ph, %20
-  %indvars.iv40 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next41, %20 ]
-  %.03236 = phi i32 [ 0, %.lr.ph ], [ %38, %20 ]
-  %19 = shl nuw nsw i64 %indvars.iv40, 2
-  br label %21
+19:                                               ; preds = %.lr.ph, %21
+  %indvars.iv40 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next41, %21 ]
+  %.03236 = phi i32 [ 0, %.lr.ph ], [ %39, %21 ]
+  %20 = shl nuw nsw i64 %indvars.iv40, 2
+  br label %22
 
-20:                                               ; preds = %21
+21:                                               ; preds = %22
   %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
   %exitcond43.not = icmp eq i64 %indvars.iv.next41, 4
-  br i1 %exitcond43.not, label %13, label %18, !llvm.loop !34
+  br i1 %exitcond43.not, label %13, label %19, !llvm.loop !34
 
-21:                                               ; preds = %18, %21
-  %indvars.iv = phi i64 [ 0, %18 ], [ %indvars.iv.next, %21 ]
-  %.134 = phi i32 [ %.03236, %18 ], [ %38, %21 ]
-  %22 = add nuw nsw i64 %indvars.iv, %19
-  %23 = getelementptr inbounds nuw i16, ptr %12, i64 %22
-  %24 = load i16, ptr %23, align 2, !tbaa !15
-  %25 = sext i16 %24 to i32
-  %26 = getelementptr inbounds nuw i16, ptr %11, i64 %22
-  %27 = load i16, ptr %26, align 2, !tbaa !15
-  %28 = sext i16 %27 to i64
-  %29 = mul nsw i64 %3, %28
-  %30 = getelementptr inbounds nuw i16, ptr %10, i64 %22
-  %31 = load i16, ptr %30, align 2, !tbaa !15
-  %32 = sext i16 %31 to i64
-  %33 = getelementptr i8, ptr %2, i64 %29
-  %34 = getelementptr i8, ptr %33, i64 %32
-  %35 = load i8, ptr %34, align 1, !tbaa !17
-  %36 = zext i8 %35 to i32
-  %37 = mul nsw i32 %36, %25
-  %38 = add nsw i32 %37, %.134
+22:                                               ; preds = %19, %22
+  %indvars.iv = phi i64 [ 0, %19 ], [ %indvars.iv.next, %22 ]
+  %.134 = phi i32 [ %.03236, %19 ], [ %39, %22 ]
+  %23 = add nuw nsw i64 %indvars.iv, %20
+  %24 = getelementptr inbounds nuw i16, ptr %12, i64 %23
+  %25 = load i16, ptr %24, align 2, !tbaa !15
+  %26 = sext i16 %25 to i32
+  %27 = getelementptr inbounds nuw i16, ptr %11, i64 %23
+  %28 = load i16, ptr %27, align 2, !tbaa !15
+  %29 = sext i16 %28 to i64
+  %30 = mul nsw i64 %3, %29
+  %31 = getelementptr inbounds nuw i16, ptr %10, i64 %23
+  %32 = load i16, ptr %31, align 2, !tbaa !15
+  %33 = sext i16 %32 to i64
+  %34 = getelementptr i8, ptr %2, i64 %30
+  %35 = getelementptr i8, ptr %34, i64 %33
+  %36 = load i8, ptr %35, align 1, !tbaa !17
+  %37 = zext i8 %36 to i32
+  %38 = mul nsw i32 %37, %26
+  %39 = add nsw i32 %38, %.134
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %20, label %21, !llvm.loop !35
+  br i1 %exitcond.not, label %21, label %22, !llvm.loop !35
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -660,55 +660,55 @@ define internal void @remap4_16bit_line_c(ptr noundef writeonly captures(none) %
   %11 = getelementptr inbounds nuw i16, ptr %4, i64 %10
   %12 = getelementptr inbounds nuw i16, ptr %5, i64 %10
   %13 = getelementptr inbounds nuw i16, ptr %6, i64 %10
-  br label %19
+  br label %20
 
-14:                                               ; preds = %21
-  %15 = ashr i32 %39, 14
-  %.not.i = icmp ult i32 %15, 65536
+14:                                               ; preds = %22
+  %15 = ashr i32 %40, 14
+  %16 = icmp ugt i32 %15, 65535
   %isnotneg.i = icmp sgt i32 %15, -1
-  %16 = sext i1 %isnotneg.i to i16
-  %17 = trunc nuw i32 %15 to i16
-  %.0.i = select i1 %.not.i, i16 %17, i16 %16
-  %18 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv44
-  store i16 %.0.i, ptr %18, align 2, !tbaa !15
+  %17 = sext i1 %isnotneg.i to i16
+  %18 = trunc nuw i32 %15 to i16
+  %.0.i = select i1 %16, i16 %17, i16 %18
+  %19 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv44
+  store i16 %.0.i, ptr %19, align 2, !tbaa !15
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
   %exitcond47.not = icmp eq i64 %indvars.iv.next45, %wide.trip.count
   br i1 %exitcond47.not, label %._crit_edge, label %.lr.ph, !llvm.loop !36
 
-19:                                               ; preds = %.lr.ph, %21
-  %indvars.iv40 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next41, %21 ]
-  %.03236 = phi i32 [ 0, %.lr.ph ], [ %39, %21 ]
-  %20 = shl nuw nsw i64 %indvars.iv40, 2
-  br label %22
+20:                                               ; preds = %.lr.ph, %22
+  %indvars.iv40 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next41, %22 ]
+  %.03236 = phi i32 [ 0, %.lr.ph ], [ %40, %22 ]
+  %21 = shl nuw nsw i64 %indvars.iv40, 2
+  br label %23
 
-21:                                               ; preds = %22
+22:                                               ; preds = %23
   %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
   %exitcond43.not = icmp eq i64 %indvars.iv.next41, 4
-  br i1 %exitcond43.not, label %14, label %19, !llvm.loop !37
+  br i1 %exitcond43.not, label %14, label %20, !llvm.loop !37
 
-22:                                               ; preds = %19, %22
-  %indvars.iv = phi i64 [ 0, %19 ], [ %indvars.iv.next, %22 ]
-  %.134 = phi i32 [ %.03236, %19 ], [ %39, %22 ]
-  %23 = add nuw nsw i64 %indvars.iv, %20
-  %24 = getelementptr inbounds nuw i16, ptr %13, i64 %23
-  %25 = load i16, ptr %24, align 2, !tbaa !15
-  %26 = sext i16 %25 to i32
-  %27 = getelementptr inbounds nuw i16, ptr %12, i64 %23
-  %28 = load i16, ptr %27, align 2, !tbaa !15
-  %29 = sext i16 %28 to i64
-  %30 = mul nsw i64 %8, %29
-  %31 = getelementptr inbounds nuw i16, ptr %11, i64 %23
-  %32 = load i16, ptr %31, align 2, !tbaa !15
-  %33 = sext i16 %32 to i64
-  %34 = getelementptr i16, ptr %2, i64 %30
-  %35 = getelementptr i16, ptr %34, i64 %33
-  %36 = load i16, ptr %35, align 2, !tbaa !15
-  %37 = zext i16 %36 to i32
-  %38 = mul nsw i32 %37, %26
-  %39 = add nsw i32 %38, %.134
+23:                                               ; preds = %20, %23
+  %indvars.iv = phi i64 [ 0, %20 ], [ %indvars.iv.next, %23 ]
+  %.134 = phi i32 [ %.03236, %20 ], [ %40, %23 ]
+  %24 = add nuw nsw i64 %indvars.iv, %21
+  %25 = getelementptr inbounds nuw i16, ptr %13, i64 %24
+  %26 = load i16, ptr %25, align 2, !tbaa !15
+  %27 = sext i16 %26 to i32
+  %28 = getelementptr inbounds nuw i16, ptr %12, i64 %24
+  %29 = load i16, ptr %28, align 2, !tbaa !15
+  %30 = sext i16 %29 to i64
+  %31 = mul nsw i64 %8, %30
+  %32 = getelementptr inbounds nuw i16, ptr %11, i64 %24
+  %33 = load i16, ptr %32, align 2, !tbaa !15
+  %34 = sext i16 %33 to i64
+  %35 = getelementptr i16, ptr %2, i64 %31
+  %36 = getelementptr i16, ptr %35, i64 %34
+  %37 = load i16, ptr %36, align 2, !tbaa !15
+  %38 = zext i16 %37 to i32
+  %39 = mul nsw i32 %38, %27
+  %40 = add nsw i32 %39, %.134
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %21, label %22, !llvm.loop !38
+  br i1 %exitcond.not, label %22, label %23, !llvm.loop !38
 }
 
 ; Function Attrs: cold mustprogress nofree norecurse nosync nounwind optsize willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable

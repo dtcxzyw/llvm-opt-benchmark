@@ -772,7 +772,7 @@ define internal zeroext i1 @capture_eth(ptr noundef %0, i32 noundef %1, i32 noun
   %7 = icmp ugt i32 %1, -15
   %.not = icmp ugt i32 %6, %2
   %or.cond69 = or i1 %7, %.not
-  br i1 %or.cond69, label %78, label %8
+  br i1 %or.cond69, label %77, label %8
 
 8:                                                ; preds = %5
   %9 = add nuw i32 %1, 12
@@ -833,57 +833,55 @@ define internal zeroext i1 @capture_eth(ptr noundef %0, i32 noundef %1, i32 noun
 47:                                               ; preds = %41
   %48 = load ptr, ptr @isl_cap_handle, align 8
   %49 = tail call zeroext i1 @call_capture_dissector(ptr noundef %48, ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4)
-  br label %78
+  br label %77
 
 50:                                               ; preds = %8
-  %51 = add i16 %16, -1501
-  %or.cond = icmp ult i16 %51, 35
-  br i1 %or.cond, label %78, label %.thread72
+  %51 = icmp ult i8 %.val, 6
+  br i1 %51, label %77, label %.thread72
 
 52:                                               ; preds = %19, %23, %29, %35, %41
-  %53 = add nsw i16 %16, -1
-  %or.cond5 = icmp ult i16 %53, 1500
-  br i1 %or.cond5, label %54, label %.thread72
+  %.not86 = icmp eq i16 %16, 0
+  br i1 %.not86, label %.thread72, label %53
 
-54:                                               ; preds = %52
-  %55 = sext i32 %6 to i64
-  %56 = getelementptr i8, ptr %0, i64 %55
-  %57 = load i8, ptr %56, align 1
-  %58 = icmp eq i8 %57, -1
-  br i1 %58, label %59, label %71
+53:                                               ; preds = %52
+  %54 = sext i32 %6 to i64
+  %55 = getelementptr i8, ptr %0, i64 %54
+  %56 = load i8, ptr %55, align 1
+  %57 = icmp eq i8 %56, -1
+  br i1 %57, label %58, label %70
 
-59:                                               ; preds = %54
-  %60 = add i32 %1, 15
-  %61 = sext i32 %60 to i64
-  %62 = getelementptr i8, ptr %0, i64 %61
-  %63 = load i8, ptr %62, align 1
-  %64 = icmp eq i8 %63, -1
-  br i1 %64, label %65, label %71
+58:                                               ; preds = %53
+  %59 = add i32 %1, 15
+  %60 = sext i32 %59 to i64
+  %61 = getelementptr i8, ptr %0, i64 %60
+  %62 = load i8, ptr %61, align 1
+  %63 = icmp eq i8 %62, -1
+  br i1 %63, label %64, label %70
 
-65:                                               ; preds = %59
-  %66 = trunc i32 %6 to i16
-  %67 = add i16 %16, %66
-  %68 = zext i16 %67 to i32
-  %spec.select81 = tail call i32 @llvm.smin.i32(i32 %2, i32 %68)
-  %69 = load ptr, ptr @ipx_cap_handle, align 8
-  %70 = tail call zeroext i1 @call_capture_dissector(ptr noundef %69, ptr noundef %0, i32 noundef %6, i32 noundef %spec.select81, ptr noundef %3, ptr noundef %4)
-  br label %78
+64:                                               ; preds = %58
+  %65 = trunc i32 %6 to i16
+  %66 = add i16 %16, %65
+  %67 = zext i16 %66 to i32
+  %spec.select81 = tail call i32 @llvm.smin.i32(i32 %2, i32 %67)
+  %68 = load ptr, ptr @ipx_cap_handle, align 8
+  %69 = tail call zeroext i1 @call_capture_dissector(ptr noundef %68, ptr noundef %0, i32 noundef %6, i32 noundef %spec.select81, ptr noundef %3, ptr noundef %4)
+  br label %77
 
-71:                                               ; preds = %59, %54
-  %72 = trunc i32 %6 to i16
-  %73 = add i16 %16, %72
-  %74 = zext i16 %73 to i32
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %2, i32 %74)
-  %75 = load ptr, ptr @llc_cap_handle, align 8
-  %76 = tail call zeroext i1 @call_capture_dissector(ptr noundef %75, ptr noundef %0, i32 noundef %6, i32 noundef %spec.select, ptr noundef %3, ptr noundef %4)
-  br label %78
+70:                                               ; preds = %58, %53
+  %71 = trunc i32 %6 to i16
+  %72 = add i16 %16, %71
+  %73 = zext i16 %72 to i32
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %2, i32 %73)
+  %74 = load ptr, ptr @llc_cap_handle, align 8
+  %75 = tail call zeroext i1 @call_capture_dissector(ptr noundef %74, ptr noundef %0, i32 noundef %6, i32 noundef %spec.select, ptr noundef %3, ptr noundef %4)
+  br label %77
 
 .thread72:                                        ; preds = %50, %52
-  %77 = tail call zeroext i1 @try_capture_dissector(ptr noundef nonnull @.str.117, i32 noundef %17, ptr noundef %0, i32 noundef %6, i32 noundef %2, ptr noundef %3, ptr noundef %4)
-  br label %78
+  %76 = tail call zeroext i1 @try_capture_dissector(ptr noundef nonnull @.str.117, i32 noundef %17, ptr noundef %0, i32 noundef %6, i32 noundef %2, ptr noundef %3, ptr noundef %4)
+  br label %77
 
-78:                                               ; preds = %50, %5, %.thread72, %71, %65, %47
-  %.061 = phi i1 [ %49, %47 ], [ %70, %65 ], [ %76, %71 ], [ %77, %.thread72 ], [ false, %5 ], [ false, %50 ]
+77:                                               ; preds = %50, %5, %.thread72, %70, %64, %47
+  %.061 = phi i1 [ %49, %47 ], [ %69, %64 ], [ %75, %70 ], [ %76, %.thread72 ], [ false, %5 ], [ false, %50 ]
   ret i1 %.061
 }
 

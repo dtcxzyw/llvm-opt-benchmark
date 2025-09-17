@@ -51,10 +51,7 @@ define void @"_ZN62_$LT$quinn_udp..RecvMeta$u20$as$u20$core..default..Default$GT
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define noundef range(i8 0, 4) i8 @_ZN9quinn_udp12EcnCodepoint9from_bits17he259dda146ceb1d4E(i8 noundef %0) unnamed_addr #3 {
   %2 = and i8 %0, 3
-  %.off = add nsw i8 %2, -1
-  %switch = icmp ult i8 %.off, 3
-  %.sroa.0.0 = select i1 %switch, i8 %2, i8 0
-  ret i8 %.sroa.0.0
+  ret i8 %2
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)

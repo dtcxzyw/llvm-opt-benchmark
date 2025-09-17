@@ -7974,9 +7974,8 @@ define void @_ZN10ty_project8metadata7options16OptionDiagnostic3new17h94ad9b722a
 define hidden noundef align 8 dereferenceable_or_null(312) ptr @_ZN10ty_project8metadata9pyproject9PyProject2ty17he8d09650e47a8903E(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(440) %0) unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load i64, ptr %2, align 8, !range !361, !noundef !3
-  %4 = and i64 %3, -2
-  %switch = icmp eq i64 %4, -9223372036854775806
-  %spec.select = select i1 %switch, ptr null, ptr %2
+  %4 = icmp ugt i64 %3, -9223372036854775807
+  %spec.select = select i1 %4, ptr null, ptr %2
   ret ptr %spec.select
 }
 
