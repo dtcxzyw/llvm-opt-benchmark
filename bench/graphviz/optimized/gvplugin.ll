@@ -1150,7 +1150,7 @@ strview.exit:                                     ; preds = %6, %10
   %or.cond87 = select i1 %18, i1 true, i1 %.not4569
   br i1 %or.cond87, label %.critedge.preheader, label %.lr.ph72
 
-.lr.ph72:                                         ; preds = %strview.exit
+.preheader:                                       ; preds = %strview.exit
   %19 = icmp eq i64 %.sroa.3.0.i.fr, 0
   br i1 %19, label %.lr.ph72.split.us, label %.lr.ph72.split
 
@@ -1356,8 +1356,8 @@ strview_case_eq.exit62:                           ; preds = %strview.exit59
   %102 = trunc i64 %.sroa.3.0.i56 to i32
   tail call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull @gvplugin_list.xb, ptr noundef nonnull @.str.17, i32 noundef %102, ptr noundef nonnull %91)
   %103 = load ptr, ptr %.179, align 8, !tbaa !19
-  %.not46101 = icmp eq ptr %103, null
-  br i1 %.not46101, label %.thread, label %.lr.ph80.outer, !llvm.loop !60
+  %.not46100 = icmp eq ptr %103, null
+  br i1 %.not46100, label %.thread, label %.lr.ph80.outer, !llvm.loop !60
 
 .critedge._crit_edge:                             ; preds = %.critedge
   br i1 %.576.ph, label %agxbuse.exit, label %.thread

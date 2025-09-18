@@ -6561,12 +6561,12 @@ _PyCursesStatefulCheckFunction.exit.i:            ; preds = %16
   %or.cond.i = or i1 %21, %22
   br i1 %or.cond.i, label %_curses_tigetstr_impl.exit, label %23
 
-23:                                               ; preds = %_PyCursesStatefulCheckFunction.exit.i
-  %24 = call ptr @PyBytes_FromString(ptr noundef nonnull %20) #9
+21:                                               ; preds = %_PyCursesStatefulCheckFunction.exit.i
+  %22 = call ptr @PyBytes_FromString(ptr noundef nonnull %20) #9
   br label %_curses_tigetstr_impl.exit
 
-_curses_tigetstr_impl.exit:                       ; preds = %23, %_PyCursesStatefulCheckFunction.exit.i, %_PyCursesStatefulCheckFunction.exit.thread.i, %8, %14, %7
-  %.0 = phi ptr [ null, %8 ], [ null, %14 ], [ null, %7 ], [ %24, %23 ], [ @_Py_NoneStruct, %_PyCursesStatefulCheckFunction.exit.i ], [ null, %_PyCursesStatefulCheckFunction.exit.thread.i ]
+_curses_tigetstr_impl.exit:                       ; preds = %21, %_PyCursesStatefulCheckFunction.exit.i, %_PyCursesStatefulCheckFunction.exit.thread.i, %8, %14, %7
+  %.0 = phi ptr [ null, %8 ], [ null, %14 ], [ null, %7 ], [ %22, %23 ], [ @_Py_NoneStruct, %_PyCursesStatefulCheckFunction.exit.i ], [ null, %_PyCursesStatefulCheckFunction.exit.thread.i ]
   ret ptr %.0
 }
 

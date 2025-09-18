@@ -25902,8 +25902,8 @@ proto_get_protocol_filter_name.exit:              ; preds = %.lr.ph, %13
   %.0.i = phi ptr [ %15, %13 ], [ @.str.110, %.lr.ph ]
   tail call void @wmem_strbuf_append(ptr noundef %7, ptr noundef %.0.i)
   %16 = tail call ptr @wmem_list_frame_next(ptr noundef nonnull %.011)
-  %.not9 = icmp eq ptr %16, null
-  br i1 %.not9, label %._crit_edge, label %17
+  %cond = icmp eq ptr %16, null
+  br i1 %cond, label %._crit_edge, label %17
 
 17:                                               ; preds = %proto_get_protocol_filter_name.exit
   tail call void @wmem_strbuf_append_c(ptr noundef %7, i8 noundef signext 58)

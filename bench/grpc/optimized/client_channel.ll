@@ -9588,8 +9588,8 @@ _ZNK9grpc_core8internal31ClientChannelGlobalParsedConfig16parsed_lb_configEv.exi
   %318 = getelementptr inbounds nuw i8, ptr %317, i64 8
   %319 = atomicrmw add ptr %318, i64 1 monotonic, align 8, !noalias !418
   %.pre.i.i.i = load ptr, ptr %316, align 8, !tbaa !415, !noalias !418
-  %.not113.i = icmp eq ptr %.pre.i.i.i, null
-  br i1 %.not113.i, label %_ZN9grpc_core13RefCountedPtrINS_19LoadBalancingPolicy6ConfigEED2Ev.exit.thread.i, label %320
+  %cond.i = icmp eq ptr %.pre.i.i.i, null
+  br i1 %cond.i, label %_ZN9grpc_core13RefCountedPtrINS_19LoadBalancingPolicy6ConfigEED2Ev.exit.thread.i, label %320
 
 320:                                              ; preds = %_ZNK9grpc_core8internal31ClientChannelGlobalParsedConfig16parsed_lb_configEv.exit.i
   %321 = getelementptr inbounds nuw i8, ptr %.pre.i.i.i, i64 8
@@ -9806,9 +9806,9 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi71EEERS2_RAT__Kc.exit.i: ; 
 372:                                              ; preds = %._crit_edge.i.i.i.i.i, %._crit_edge.i.i.i.i.thread.i
   %373 = phi ptr [ %359, %._crit_edge.i.i.i.i.thread.i ], [ %369, %._crit_edge.i.i.i.i.i ]
   %374 = phi ptr [ %359, %._crit_edge.i.i.i.i.thread.i ], [ %361, %._crit_edge.i.i.i.i.i ]
-  %.sroa.11.2111144149.i = phi ptr [ @.str.92, %._crit_edge.i.i.i.i.thread.i ], [ %.sroa.11.2.i, %._crit_edge.i.i.i.i.i ]
-  %.sroa.086.2110145148.i = phi i64 [ 10, %._crit_edge.i.i.i.i.thread.i ], [ %.sroa.086.2.i, %._crit_edge.i.i.i.i.i ]
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %373, ptr align 1 %.sroa.11.2111144149.i, i64 %.sroa.086.2110145148.i, i1 false), !noalias !423
+  %.sroa.11.2111143148.i = phi ptr [ @.str.92, %._crit_edge.i.i.i.i.thread.i ], [ %.sroa.11.2.i, %._crit_edge.i.i.i.i.i ]
+  %.sroa.086.2110144147.i = phi i64 [ 10, %._crit_edge.i.i.i.i.thread.i ], [ %.sroa.086.2.i, %._crit_edge.i.i.i.i.i ]
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %373, ptr align 1 %.sroa.11.2111143148.i, i64 %.sroa.086.2110144147.i, i1 false), !noalias !423
   br label %375
 
 375:                                              ; preds = %372, %370, %._crit_edge.i.i.i.i.i

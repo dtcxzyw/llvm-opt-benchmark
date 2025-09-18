@@ -664,8 +664,8 @@ submodule_gitfile_path.exit:                      ; preds = %298
   call void @strbuf_release(ptr noundef nonnull %7) #12
   %.not6.i = icmp eq ptr %303, null
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %.not312433 = icmp eq ptr %303, inttoptr (i64 1 to ptr)
-  %.not312 = or i1 %.not6.i, %.not312433
+  %switch = icmp eq ptr %303, inttoptr (i64 1 to ptr)
+  %.not312 = or i1 %.not6.i, %switch
   br i1 %.not312, label %306, label %304
 
 304:                                              ; preds = %submodule_gitfile_path.exit

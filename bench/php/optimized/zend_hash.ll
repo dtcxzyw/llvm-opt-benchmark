@@ -2172,7 +2172,7 @@ zend_hash_iterator_find_copy_pos.exit:            ; preds = %24, %21
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %63 = load i8, ptr %62, align 8, !tbaa !5
   %64 = icmp eq i8 %63, 0
-  br i1 %64, label %65, label %_zend_hash_get_valid_pos.exit.loopexit59.split.loop.exit62
+  br i1 %64, label %65, label %_zend_hash_get_valid_pos.exit.loopexit58.split.loop.exit61
 
 65:                                               ; preds = %60
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2186,7 +2186,7 @@ zend_hash_iterator_find_copy_pos.exit:            ; preds = %24, %21
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %69 = load i8, ptr %68, align 8, !tbaa !5
   %70 = icmp eq i8 %69, 0
-  br i1 %70, label %71, label %_zend_hash_get_valid_pos.exit.loopexit.split.loop.exit64
+  br i1 %70, label %71, label %_zend_hash_get_valid_pos.exit.loopexit.split.loop.exit63
 
 71:                                               ; preds = %66
   %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
@@ -2194,15 +2194,15 @@ zend_hash_iterator_find_copy_pos.exit:            ; preds = %24, %21
   %exitcond46.not = icmp eq i32 %52, %lftr.wideiv45
   br i1 %exitcond46.not, label %_zend_hash_get_valid_pos.exit, label %66
 
-_zend_hash_get_valid_pos.exit.loopexit.split.loop.exit64: ; preds = %66
+_zend_hash_get_valid_pos.exit.loopexit.split.loop.exit63: ; preds = %66
   %72 = trunc nuw i64 %indvars.iv42 to i32
   br label %_zend_hash_get_valid_pos.exit
 
-_zend_hash_get_valid_pos.exit.loopexit59.split.loop.exit62: ; preds = %60
+_zend_hash_get_valid_pos.exit.loopexit58.split.loop.exit61: ; preds = %60
   %73 = trunc nuw i64 %indvars.iv to i32
   br label %_zend_hash_get_valid_pos.exit
 
-_zend_hash_get_valid_pos.exit:                    ; preds = %65, %71, %_zend_hash_get_valid_pos.exit.loopexit59.split.loop.exit62, %_zend_hash_get_valid_pos.exit.loopexit.split.loop.exit64, %.preheader26, %.preheader
+_zend_hash_get_valid_pos.exit:                    ; preds = %65, %71, %_zend_hash_get_valid_pos.exit.loopexit58.split.loop.exit61, %_zend_hash_get_valid_pos.exit.loopexit.split.loop.exit63, %.preheader26, %.preheader
   %.1.i = phi i32 [ %47, %.preheader ], [ %47, %.preheader26 ], [ %72, %_zend_hash_get_valid_pos.exit.loopexit.split.loop.exit64 ], [ %73, %_zend_hash_get_valid_pos.exit.loopexit59.split.loop.exit62 ], [ %52, %71 ], [ %52, %65 ]
   %74 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %.1.i, ptr %74, align 8, !tbaa !65
@@ -2382,7 +2382,7 @@ zend_gc_try_delref.exit:                          ; preds = %53, %47, %43
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
   %79 = load i8, ptr %78, align 8, !tbaa !5
   %80 = icmp eq i8 %79, 0
-  br i1 %80, label %81, label %_zend_hash_get_valid_pos.exit.loopexit71.split.loop.exit74
+  br i1 %80, label %81, label %_zend_hash_get_valid_pos.exit.loopexit70.split.loop.exit73
 
 81:                                               ; preds = %76
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2396,7 +2396,7 @@ zend_gc_try_delref.exit:                          ; preds = %53, %47, %43
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %85 = load i8, ptr %84, align 8, !tbaa !5
   %86 = icmp eq i8 %85, 0
-  br i1 %86, label %87, label %_zend_hash_get_valid_pos.exit.loopexit.split.loop.exit76
+  br i1 %86, label %87, label %_zend_hash_get_valid_pos.exit.loopexit.split.loop.exit75
 
 87:                                               ; preds = %82
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
@@ -2404,15 +2404,15 @@ zend_gc_try_delref.exit:                          ; preds = %53, %47, %43
   %exitcond58.not = icmp eq i32 %68, %lftr.wideiv57
   br i1 %exitcond58.not, label %_zend_hash_get_valid_pos.exit, label %82
 
-_zend_hash_get_valid_pos.exit.loopexit.split.loop.exit76: ; preds = %82
+_zend_hash_get_valid_pos.exit.loopexit.split.loop.exit75: ; preds = %82
   %88 = trunc nuw i64 %indvars.iv54 to i32
   br label %_zend_hash_get_valid_pos.exit
 
-_zend_hash_get_valid_pos.exit.loopexit71.split.loop.exit74: ; preds = %76
+_zend_hash_get_valid_pos.exit.loopexit70.split.loop.exit73: ; preds = %76
   %89 = trunc nuw i64 %indvars.iv to i32
   br label %_zend_hash_get_valid_pos.exit
 
-_zend_hash_get_valid_pos.exit:                    ; preds = %81, %87, %_zend_hash_get_valid_pos.exit.loopexit71.split.loop.exit74, %_zend_hash_get_valid_pos.exit.loopexit.split.loop.exit76, %.preheader38, %.preheader
+_zend_hash_get_valid_pos.exit:                    ; preds = %81, %87, %_zend_hash_get_valid_pos.exit.loopexit70.split.loop.exit73, %_zend_hash_get_valid_pos.exit.loopexit.split.loop.exit75, %.preheader38, %.preheader
   %.1.i = phi i32 [ %63, %.preheader ], [ %63, %.preheader38 ], [ %88, %_zend_hash_get_valid_pos.exit.loopexit.split.loop.exit76 ], [ %89, %_zend_hash_get_valid_pos.exit.loopexit71.split.loop.exit74 ], [ %68, %87 ], [ %68, %81 ]
   %90 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %.1.i, ptr %90, align 8, !tbaa !65
@@ -5090,13 +5090,13 @@ define dso_local void @zend_hash_iterator_del(i32 noundef %0) local_unnamed_addr
   %25 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %21, i64 %24
   %26 = load ptr, ptr %25, align 8, !tbaa !63
   %27 = icmp eq ptr %26, null
-  br i1 %27, label %22, label %.critedge.split.loop.exit25
+  br i1 %27, label %22, label %.critedge.split.loop.exit24
 
-.critedge.split.loop.exit25:                      ; preds = %23
+.critedge.split.loop.exit24:                      ; preds = %23
   %28 = trunc nuw i64 %indvars.iv to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %22, %.critedge.split.loop.exit25
+.critedge:                                        ; preds = %22, %.critedge.split.loop.exit24
   %.0.lcssa = phi i32 [ %28, %.critedge.split.loop.exit25 ], [ 0, %22 ]
   store i32 %.0.lcssa, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1108), align 4, !tbaa !62
   br label %29

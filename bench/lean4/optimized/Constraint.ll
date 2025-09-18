@@ -10628,15 +10628,15 @@ lean_inc.exit:                                    ; preds = %lean_nat_eq.exit143
 135:                                              ; preds = %lean_inc.exit
   %136 = lshr i64 %122, 1
   %137 = tail call ptr @lean_big_size_t_to_int(i64 noundef %136) #4
-  %.pre191 = ptrtoint ptr %137 to i64
+  %.pre192 = ptrtoint ptr %137 to i64
   br label %lean_nat_to_int.exit160
 
 lean_nat_to_int.exit160:                          ; preds = %lean_inc.exit.thread, %lean_inc.exit, %135
   %138 = phi ptr [ %133, %lean_inc.exit ], [ %133, %135 ], [ %132, %lean_inc.exit.thread ]
-  %.pre-phi192 = phi i64 [ %122, %lean_inc.exit ], [ %.pre191, %135 ], [ %122, %lean_inc.exit.thread ]
+  %.pre-phi193 = phi i64 [ %122, %lean_inc.exit ], [ %.pre192, %135 ], [ %122, %lean_inc.exit.thread ]
   %.1.i159 = phi ptr [ %121, %lean_inc.exit ], [ %137, %135 ], [ %121, %lean_inc.exit.thread ]
   %139 = tail call ptr @l_Lean_Omega_IntList_sdiv(ptr noundef %6, ptr noundef %.1.i159) #4
-  %140 = and i64 %.pre-phi192, 1
+  %140 = and i64 %.pre-phi193, 1
   %.not183 = icmp eq i64 %140, 0
   br i1 %.not183, label %141, label %lean_dec.exit100
 

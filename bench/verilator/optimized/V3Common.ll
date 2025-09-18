@@ -4569,8 +4569,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit196.i: ; preds = %
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %1180 = getelementptr inbounds nuw i8, ptr %.035387.i, i64 8
   %1181 = load ptr, ptr %1180, align 8, !tbaa !167
-  %.not.i197.i = icmp eq ptr %1181, null
-  br i1 %.not.i197.i, label %._crit_edge.i.i114.i, label %1182
+  %cond.i = icmp eq ptr %1181, null
+  br i1 %cond.i, label %._crit_edge.i.i114.i, label %1182
 
 1182:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit196.i
   %1183 = getelementptr inbounds nuw i8, ptr %1181, i64 64

@@ -7772,8 +7772,8 @@ mi_os_prim_free.exit.i:                           ; preds = %135, %133
   %.b53 = load i1, ptr @mi_os_mem_config.1, align 8
   %145 = load i32, ptr getelementptr inbounds nuw (i8, ptr @options, i64 200), align 8
   %146 = icmp eq i32 %145, 0
-  %or.cond15.i = select i1 %.b53, i1 %146, i1 false, !prof !118
-  br i1 %or.cond15.i, label %147, label %unix_mmap_prim.exit116.i, !prof !118
+  %or.cond16.i = select i1 %.b53, i1 %146, i1 false, !prof !118
+  br i1 %or.cond16.i, label %147, label %unix_mmap_prim.exit116.i, !prof !118
 
 147:                                              ; preds = %141
   tail call fastcc void @mi_option_init(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @options, i64 192))

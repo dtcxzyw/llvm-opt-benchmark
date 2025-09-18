@@ -1581,8 +1581,8 @@ define internal void @cf_h1_proxy_close(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %or.cond, label %16, label %22
 
 15:                                               ; preds = %7
-  %.old1.not = icmp eq ptr %0, null
-  br i1 %.old1.not, label %.thread29, label %16
+  %cond = icmp eq ptr %0, null
+  br i1 %cond, label %63, label %16
 
 16:                                               ; preds = %10, %15
   %17 = load ptr, ptr %0, align 8, !tbaa !77
@@ -1597,7 +1597,7 @@ define internal void @cf_h1_proxy_close(ptr noundef %0, ptr noundef %1) #0 {
 
 22:                                               ; preds = %2, %3, %10
   %.not25 = icmp eq ptr %0, null
-  br i1 %.not25, label %.thread29, label %.thread
+  br i1 %.not25, label %63, label %.thread
 
 .thread:                                          ; preds = %21, %16, %22
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 36
@@ -1667,16 +1667,16 @@ h1_tunnel_go_state.exit:                          ; preds = %50, %28, %.thread
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %58 = load ptr, ptr %57, align 8, !tbaa !86
   %.not27 = icmp eq ptr %58, null
-  br i1 %.not27, label %.thread29, label %59
+  br i1 %.not27, label %63, label %59
 
 59:                                               ; preds = %h1_tunnel_go_state.exit
   %60 = load ptr, ptr %58, align 8, !tbaa !77
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 32
   %62 = load ptr, ptr %61, align 8, !tbaa !134
   tail call void %62(ptr noundef nonnull %58, ptr noundef %1) #5
-  br label %.thread29
+  br label %63
 
-.thread29:                                        ; preds = %15, %h1_tunnel_go_state.exit, %59, %22
+63:                                               ; preds = %15, %h1_tunnel_go_state.exit, %59, %22
   ret void
 }
 

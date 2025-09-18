@@ -34271,7 +34271,7 @@ define void @_ZN6open3d8geometry9VoxelGrid16CreateFromOctreeERKNS0_6OctreeE(ptr 
   store ptr @"_ZNSt17_Function_handlerIFbRKSt10shared_ptrIN6open3d8geometry10OctreeNodeEERKS0_INS2_14OctreeNodeInfoEEEZNS2_9VoxelGrid16CreateFromOctreeERKNS2_6OctreeEE3$_0E9_M_invokeERKSt9_Any_dataS6_SA_", ptr %13, align 8, !tbaa !750
   store ptr @"_ZNSt17_Function_handlerIFbRKSt10shared_ptrIN6open3d8geometry10OctreeNodeEERKS0_INS2_14OctreeNodeInfoEEEZNS2_9VoxelGrid16CreateFromOctreeERKNS2_6OctreeEE3$_0E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation", ptr %12, align 8, !tbaa !753
   invoke void @_ZNK6open3d8geometry6Octree8TraverseERKSt8functionIFbRKSt10shared_ptrINS0_10OctreeNodeEERKS3_INS0_14OctreeNodeInfoEEEE(ptr noundef nonnull align 8 dereferenceable(112) %1, ptr noundef nonnull align 8 dereferenceable(32) %4)
-          to label %15 unwind label %42
+          to label %15 unwind label %41
 
 15:                                               ; preds = %2
   %16 = load ptr, ptr %12, align 8, !tbaa !753
@@ -34320,170 +34320,170 @@ _ZNSt13unordered_mapIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEEN6open3d8geometry5Vox
   call void @llvm.memset.p0.i64(ptr align 8 %33, i8 0, i64 %36, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, i8 0, i64 16, i1 false)
   %37 = load ptr, ptr %8, align 8, !tbaa !754
-  %.not62 = icmp eq ptr %37, null
-  br i1 %.not62, label %_ZNSt10_HashtableISt10shared_ptrIN6open3d8geometry19OctreeColorLeafNodeEESt4pairIKS4_S0_INS2_14OctreeNodeInfoEEESaIS9_ENSt8__detail10_Select1stESt8equal_toIS4_ESt4hashIS4_ENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i, label %.lr.ph
+  %cond = icmp eq ptr %37, null
+  br i1 %cond, label %_ZNSt10_HashtableISt10shared_ptrIN6open3d8geometry19OctreeColorLeafNodeEESt4pairIKS4_S0_INS2_14OctreeNodeInfoEEESaIS9_ENSt8__detail10_Select1stESt8equal_toIS4_ESt4hashIS4_ENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNSt13unordered_mapIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEEN6open3d8geometry5VoxelENS3_7utility10hash_eigenIS2_EESt8equal_toIS2_ESaISt4pairIKS2_S5_EEE5clearEv.exit
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.promoted = load double, ptr %38, align 8, !tbaa !33
-  br label %50
+  br label %49
 
-.lr.ph66:                                         ; preds = %50
+.lr.ph66:                                         ; preds = %49
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.sroa.542.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.643.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %40 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %41 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  br label %71
+  %39 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  br label %70
 
-42:                                               ; preds = %2
-  %43 = landingpad { ptr, i32 }
+41:                                               ; preds = %2
+  %42 = landingpad { ptr, i32 }
           cleanup
-  %44 = load ptr, ptr %12, align 8, !tbaa !753
-  %.not.i25 = icmp eq ptr %44, null
-  br i1 %.not.i25, label %_ZNSt14_Function_baseD2Ev.exit26, label %45
+  %43 = load ptr, ptr %12, align 8, !tbaa !753
+  %.not.i25 = icmp eq ptr %43, null
+  br i1 %.not.i25, label %_ZNSt14_Function_baseD2Ev.exit26, label %44
 
-45:                                               ; preds = %42
-  %46 = invoke noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
-          to label %_ZNSt14_Function_baseD2Ev.exit26 unwind label %47
+44:                                               ; preds = %41
+  %45 = invoke noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit26 unwind label %46
 
-47:                                               ; preds = %45
-  %48 = landingpad { ptr, i32 }
+46:                                               ; preds = %44
+  %47 = landingpad { ptr, i32 }
           catch ptr null
-  %49 = extractvalue { ptr, i32 } %48, 0
-  call void @__clang_call_terminate(ptr %49) #37
+  %48 = extractvalue { ptr, i32 } %47, 0
+  call void @__clang_call_terminate(ptr %48) #37
   unreachable
 
-_ZNSt14_Function_baseD2Ev.exit26:                 ; preds = %42, %45
+_ZNSt14_Function_baseD2Ev.exit26:                 ; preds = %41, %44
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %115
+  br label %114
 
-50:                                               ; preds = %.lr.ph, %50
-  %51 = phi double [ %.promoted, %.lr.ph ], [ %57, %50 ]
-  %.sroa.053.063 = phi ptr [ %37, %.lr.ph ], [ %58, %50 ]
-  %52 = getelementptr inbounds nuw i8, ptr %.sroa.053.063, i64 24
-  %53 = load ptr, ptr %52, align 8, !tbaa !755
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 24
-  %55 = load double, ptr %54, align 8, !tbaa !33
-  %56 = fcmp olt double %55, %51
-  %57 = select i1 %56, double %55, double %51
-  store double %57, ptr %38, align 8, !tbaa !41
-  %58 = load ptr, ptr %.sroa.053.063, align 8, !tbaa !18
-  %.not = icmp eq ptr %58, null
-  br i1 %.not, label %.lr.ph66, label %50
+49:                                               ; preds = %.lr.ph, %49
+  %50 = phi double [ %.promoted, %.lr.ph ], [ %56, %50 ]
+  %.sroa.053.063 = phi ptr [ %37, %.lr.ph ], [ %57, %50 ]
+  %51 = getelementptr inbounds nuw i8, ptr %.sroa.053.063, i64 24
+  %52 = load ptr, ptr %51, align 8, !tbaa !755
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 24
+  %54 = load double, ptr %53, align 8, !tbaa !33
+  %55 = fcmp olt double %54, %50
+  %56 = select i1 %55, double %54, double %50
+  store double %56, ptr %38, align 8, !tbaa !41
+  %57 = load ptr, ptr %.sroa.053.063, align 8, !tbaa !18
+  %.not = icmp eq ptr %57, null
+  br i1 %.not, label %.lr.ph66, label %49
 
-._crit_edge:                                      ; preds = %102
+._crit_edge:                                      ; preds = %101
   %.pre = load ptr, ptr %8, align 8, !tbaa !754
   %.not5.i.i.i.i = icmp eq ptr %.pre, null
   br i1 %.not5.i.i.i.i, label %_ZNSt10_HashtableISt10shared_ptrIN6open3d8geometry19OctreeColorLeafNodeEESt4pairIKS4_S0_INS2_14OctreeNodeInfoEEESaIS9_ENSt8__detail10_Select1stESt8equal_toIS4_ESt4hashIS4_ENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %._crit_edge, %.noexc.i.i.i
-  %.06.i.i.i.i = phi ptr [ %59, %.noexc.i.i.i ], [ %.pre, %._crit_edge ]
-  %59 = load ptr, ptr %.06.i.i.i.i, align 8, !tbaa !18
+  %.06.i.i.i.i = phi ptr [ %58, %.noexc.i.i.i ], [ %.pre, %._crit_edge ]
+  %58 = load ptr, ptr %.06.i.i.i.i, align 8, !tbaa !18
   invoke void @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKSt10shared_ptrIN6open3d8geometry19OctreeColorLeafNodeEES3_INS5_14OctreeNodeInfoEEELb0EEEEE18_M_deallocate_nodeEPSC_(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull %.06.i.i.i.i)
-          to label %.noexc.i.i.i unwind label %60
+          to label %.noexc.i.i.i unwind label %59
 
 .noexc.i.i.i:                                     ; preds = %.lr.ph.i.i.i.i
-  %.not.i.i.i.i = icmp eq ptr %59, null
+  %.not.i.i.i.i = icmp eq ptr %58, null
   br i1 %.not.i.i.i.i, label %_ZNSt10_HashtableISt10shared_ptrIN6open3d8geometry19OctreeColorLeafNodeEESt4pairIKS4_S0_INS2_14OctreeNodeInfoEEESaIS9_ENSt8__detail10_Select1stESt8equal_toIS4_ESt4hashIS4_ENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !760
 
-60:                                               ; preds = %.lr.ph.i.i.i.i
-  %61 = landingpad { ptr, i32 }
+59:                                               ; preds = %.lr.ph.i.i.i.i
+  %60 = landingpad { ptr, i32 }
           catch ptr null
-  %62 = extractvalue { ptr, i32 } %61, 0
-  call void @__clang_call_terminate(ptr %62) #37
+  %61 = extractvalue { ptr, i32 } %60, 0
+  call void @__clang_call_terminate(ptr %61) #37
   unreachable
 
 _ZNSt10_HashtableISt10shared_ptrIN6open3d8geometry19OctreeColorLeafNodeEESt4pairIKS4_S0_INS2_14OctreeNodeInfoEEESaIS9_ENSt8__detail10_Select1stESt8equal_toIS4_ESt4hashIS4_ENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i: ; preds = %.noexc.i.i.i, %_ZNSt13unordered_mapIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEEN6open3d8geometry5VoxelENS3_7utility10hash_eigenIS2_EESt8equal_toIS2_ESaISt4pairIKS2_S5_EEE5clearEv.exit, %._crit_edge
-  %63 = load ptr, ptr %3, align 8, !tbaa !745
-  %64 = load i64, ptr %7, align 8, !tbaa !747
-  %65 = shl i64 %64, 3
-  call void @llvm.memset.p0.i64(ptr align 8 %63, i8 0, i64 %65, i1 false)
+  %62 = load ptr, ptr %3, align 8, !tbaa !745
+  %63 = load i64, ptr %7, align 8, !tbaa !747
+  %64 = shl i64 %63, 3
+  call void @llvm.memset.p0.i64(ptr align 8 %62, i8 0, i64 %64, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
-  %66 = load ptr, ptr %3, align 8, !tbaa !745
-  %67 = icmp eq ptr %66, %6
-  br i1 %67, label %_ZNSt13unordered_mapISt10shared_ptrIN6open3d8geometry19OctreeColorLeafNodeEES0_INS2_14OctreeNodeInfoEESt4hashIS4_ESt8equal_toIS4_ESaISt4pairIKS4_S6_EEED2Ev.exit, label %68
+  %65 = load ptr, ptr %3, align 8, !tbaa !745
+  %66 = icmp eq ptr %65, %6
+  br i1 %66, label %_ZNSt13unordered_mapISt10shared_ptrIN6open3d8geometry19OctreeColorLeafNodeEES0_INS2_14OctreeNodeInfoEESt4hashIS4_ESt8equal_toIS4_ESaISt4pairIKS4_S6_EEED2Ev.exit, label %67
 
-68:                                               ; preds = %_ZNSt10_HashtableISt10shared_ptrIN6open3d8geometry19OctreeColorLeafNodeEESt4pairIKS4_S0_INS2_14OctreeNodeInfoEEESaIS9_ENSt8__detail10_Select1stESt8equal_toIS4_ESt4hashIS4_ENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i
-  %69 = load i64, ptr %7, align 8, !tbaa !747
-  %70 = shl i64 %69, 3
-  call void @_ZdlPvm(ptr noundef %66, i64 noundef %70) #35
+67:                                               ; preds = %_ZNSt10_HashtableISt10shared_ptrIN6open3d8geometry19OctreeColorLeafNodeEESt4pairIKS4_S0_INS2_14OctreeNodeInfoEEESaIS9_ENSt8__detail10_Select1stESt8equal_toIS4_ESt4hashIS4_ENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i
+  %68 = load i64, ptr %7, align 8, !tbaa !747
+  %69 = shl i64 %68, 3
+  call void @_ZdlPvm(ptr noundef %65, i64 noundef %69) #35
   br label %_ZNSt13unordered_mapISt10shared_ptrIN6open3d8geometry19OctreeColorLeafNodeEES0_INS2_14OctreeNodeInfoEESt4hashIS4_ESt8equal_toIS4_ESaISt4pairIKS4_S6_EEED2Ev.exit
 
-_ZNSt13unordered_mapISt10shared_ptrIN6open3d8geometry19OctreeColorLeafNodeEES0_INS2_14OctreeNodeInfoEESt4hashIS4_ESt8equal_toIS4_ESaISt4pairIKS4_S6_EEED2Ev.exit: ; preds = %_ZNSt10_HashtableISt10shared_ptrIN6open3d8geometry19OctreeColorLeafNodeEESt4pairIKS4_S0_INS2_14OctreeNodeInfoEEESaIS9_ENSt8__detail10_Select1stESt8equal_toIS4_ESt4hashIS4_ENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i, %68
+_ZNSt13unordered_mapISt10shared_ptrIN6open3d8geometry19OctreeColorLeafNodeEES0_INS2_14OctreeNodeInfoEESt4hashIS4_ESt8equal_toIS4_ESaISt4pairIKS4_S6_EEED2Ev.exit: ; preds = %_ZNSt10_HashtableISt10shared_ptrIN6open3d8geometry19OctreeColorLeafNodeEESt4pairIKS4_S0_INS2_14OctreeNodeInfoEEESaIS9_ENSt8__detail10_Select1stESt8equal_toIS4_ESt4hashIS4_ENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i, %67
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
-71:                                               ; preds = %.lr.ph66, %102
-  %.sroa.049.065 = phi ptr [ %37, %.lr.ph66 ], [ %112, %102 ]
-  %72 = getelementptr inbounds nuw i8, ptr %.sroa.049.065, i64 8
-  %73 = getelementptr inbounds nuw i8, ptr %.sroa.049.065, i64 24
-  %74 = load ptr, ptr %73, align 8, !tbaa !755
-  %75 = load <2 x double>, ptr %74, align 1, !tbaa !28
-  %76 = getelementptr inbounds nuw i8, ptr %74, i64 16
-  %77 = load double, ptr %76, align 8, !tbaa !33
-  %78 = getelementptr inbounds nuw i8, ptr %74, i64 24
-  %79 = load double, ptr %78, align 8, !tbaa !761
-  %80 = fmul double %79, 5.000000e-01
-  %.sroa.6.16.vec.insert.i.i.i.i.i.i = insertelement <2 x double> poison, double %80, i64 0
-  %81 = shufflevector <2 x double> %.sroa.6.16.vec.insert.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
-  %82 = fadd <2 x double> %75, %81
-  %83 = fadd double %77, %80
-  %84 = load <2 x double>, ptr %24, align 8, !tbaa !28
-  %85 = load double, ptr %26, align 8, !tbaa !33
-  %86 = load double, ptr %39, align 8, !tbaa !33, !noalias !763
-  %foldExtExtBinop = fsub <2 x double> %82, %84
-  %87 = extractelement <2 x double> %foldExtExtBinop, i64 0
-  %88 = fdiv double %87, %86
-  %89 = call noundef double @llvm.floor.f64(double %88)
-  %90 = fptosi double %89 to i32
-  %foldExtExtBinop76 = fsub <2 x double> %82, %84
-  %91 = extractelement <2 x double> %foldExtExtBinop76, i64 1
-  %92 = fdiv double %91, %86
-  %93 = call noundef double @llvm.floor.f64(double %92)
-  %94 = fptosi double %93 to i32
-  %95 = fsub double %83, %85
-  %96 = fdiv double %95, %86
-  %97 = call noundef double @llvm.floor.f64(double %96)
-  %98 = fptosi double %97 to i32
+70:                                               ; preds = %.lr.ph66, %101
+  %.sroa.049.065 = phi ptr [ %37, %.lr.ph66 ], [ %111, %102 ]
+  %71 = getelementptr inbounds nuw i8, ptr %.sroa.049.065, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %.sroa.049.065, i64 24
+  %73 = load ptr, ptr %72, align 8, !tbaa !755
+  %74 = load <2 x double>, ptr %73, align 1, !tbaa !28
+  %75 = getelementptr inbounds nuw i8, ptr %73, i64 16
+  %76 = load double, ptr %75, align 8, !tbaa !33
+  %77 = getelementptr inbounds nuw i8, ptr %73, i64 24
+  %78 = load double, ptr %77, align 8, !tbaa !761
+  %79 = fmul double %78, 5.000000e-01
+  %.sroa.6.16.vec.insert.i.i.i.i.i.i = insertelement <2 x double> poison, double %79, i64 0
+  %80 = shufflevector <2 x double> %.sroa.6.16.vec.insert.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
+  %81 = fadd <2 x double> %74, %80
+  %82 = fadd double %76, %79
+  %83 = load <2 x double>, ptr %24, align 8, !tbaa !28
+  %84 = load double, ptr %26, align 8, !tbaa !33
+  %85 = load double, ptr %39, align 8, !tbaa !33, !noalias !763
+  %foldExtExtBinop = fsub <2 x double> %81, %83
+  %86 = extractelement <2 x double> %foldExtExtBinop, i64 0
+  %87 = fdiv double %86, %85
+  %88 = call noundef double @llvm.floor.f64(double %87)
+  %89 = fptosi double %88 to i32
+  %foldExtExtBinop76 = fsub <2 x double> %81, %83
+  %90 = extractelement <2 x double> %foldExtExtBinop76, i64 1
+  %91 = fdiv double %90, %85
+  %92 = call noundef double @llvm.floor.f64(double %91)
+  %93 = fptosi double %92 to i32
+  %94 = fsub double %82, %84
+  %95 = fdiv double %94, %85
+  %96 = call noundef double @llvm.floor.f64(double %95)
+  %97 = fptosi double %96 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %99 = load ptr, ptr %72, align 8, !tbaa !766
-  %100 = getelementptr inbounds nuw i8, ptr %99, i64 8
-  store i32 %90, ptr %5, align 8
-  store i32 %94, ptr %.sroa.542.0..sroa_idx, align 4
-  store i32 %98, ptr %.sroa.643.0..sroa_idx, align 8, !tbaa !28
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %40, ptr noundef nonnull align 8 dereferenceable(24) %100, i64 24, i1 false), !tbaa.struct !30
-  %101 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESt4pairIKS3_N6open3d8geometry5VoxelEESaIS9_ENS_10_Select1stESt8equal_toIS3_ENS6_7utility10hash_eigenIS3_EENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS5_(ptr noundef nonnull align 8 dereferenceable(56) %29, ptr noundef nonnull align 8 dereferenceable(40) %5)
-          to label %102 unwind label %113
+  %98 = load ptr, ptr %71, align 8, !tbaa !766
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 8
+  store i32 %89, ptr %5, align 8
+  store i32 %93, ptr %.sroa.542.0..sroa_idx, align 4
+  store i32 %97, ptr %.sroa.643.0..sroa_idx, align 8, !tbaa !28
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %39, ptr noundef nonnull align 8 dereferenceable(24) %99, i64 24, i1 false), !tbaa.struct !30
+  %100 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__detail9_Map_baseIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESt4pairIKS3_N6open3d8geometry5VoxelEESaIS9_ENS_10_Select1stESt8equal_toIS3_ENS6_7utility10hash_eigenIS3_EENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS5_(ptr noundef nonnull align 8 dereferenceable(56) %29, ptr noundef nonnull align 8 dereferenceable(40) %5)
+          to label %102 unwind label %112
 
-102:                                              ; preds = %71
-  %103 = load i32, ptr %5, align 8, !tbaa !31
-  store i32 %103, ptr %101, align 8, !tbaa !31
-  %104 = getelementptr inbounds nuw i8, ptr %101, i64 4
-  %105 = load i32, ptr %.sroa.542.0..sroa_idx, align 4, !tbaa !31
-  store i32 %105, ptr %104, align 4, !tbaa !31
-  %106 = getelementptr inbounds nuw i8, ptr %101, i64 8
-  %107 = load i32, ptr %.sroa.643.0..sroa_idx, align 8, !tbaa !31
-  store i32 %107, ptr %106, align 8, !tbaa !31
-  %108 = getelementptr inbounds nuw i8, ptr %101, i64 16
-  %109 = load <2 x double>, ptr %40, align 8, !tbaa !28
-  store <2 x double> %109, ptr %108, align 8, !tbaa !28
-  %110 = getelementptr inbounds nuw i8, ptr %101, i64 32
-  %111 = load double, ptr %41, align 8, !tbaa !33
-  store double %111, ptr %110, align 8, !tbaa !33
+101:                                              ; preds = %70
+  %102 = load i32, ptr %5, align 8, !tbaa !31
+  store i32 %102, ptr %100, align 8, !tbaa !31
+  %103 = getelementptr inbounds nuw i8, ptr %100, i64 4
+  %104 = load i32, ptr %.sroa.542.0..sroa_idx, align 4, !tbaa !31
+  store i32 %104, ptr %103, align 4, !tbaa !31
+  %105 = getelementptr inbounds nuw i8, ptr %100, i64 8
+  %106 = load i32, ptr %.sroa.643.0..sroa_idx, align 8, !tbaa !31
+  store i32 %106, ptr %105, align 8, !tbaa !31
+  %107 = getelementptr inbounds nuw i8, ptr %100, i64 16
+  %108 = load <2 x double>, ptr %39, align 8, !tbaa !28
+  store <2 x double> %108, ptr %107, align 8, !tbaa !28
+  %109 = getelementptr inbounds nuw i8, ptr %100, i64 32
+  %110 = load double, ptr %40, align 8, !tbaa !33
+  store double %110, ptr %109, align 8, !tbaa !33
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %112 = load ptr, ptr %.sroa.049.065, align 8, !tbaa !18
-  %.not60 = icmp eq ptr %112, null
-  br i1 %.not60, label %._crit_edge, label %71
+  %111 = load ptr, ptr %.sroa.049.065, align 8, !tbaa !18
+  %.not60 = icmp eq ptr %111, null
+  br i1 %.not60, label %._crit_edge, label %70
 
-113:                                              ; preds = %71
-  %114 = landingpad { ptr, i32 }
+112:                                              ; preds = %70
+  %113 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %115
+  br label %114
 
-115:                                              ; preds = %113, %_ZNSt14_Function_baseD2Ev.exit26
-  %.pn20.pn.pn.pn = phi { ptr, i32 } [ %43, %_ZNSt14_Function_baseD2Ev.exit26 ], [ %114, %113 ]
+114:                                              ; preds = %112, %_ZNSt14_Function_baseD2Ev.exit26
+  %.pn20.pn.pn.pn = phi { ptr, i32 } [ %42, %_ZNSt14_Function_baseD2Ev.exit26 ], [ %113, %113 ]
   call void @_ZNSt13unordered_mapISt10shared_ptrIN6open3d8geometry19OctreeColorLeafNodeEES0_INS2_14OctreeNodeInfoEESt4hashIS4_ESt8equal_toIS4_ESaISt4pairIKS4_S6_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #38
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn20.pn.pn.pn

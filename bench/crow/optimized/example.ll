@@ -75270,49 +75270,49 @@ _ZNSt10error_codeaSIN4asio5error12basic_errorsEEENSt9enable_ifIXsr18is_error_cod
 13:                                               ; preds = %4
   %14 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) @_ZZN4asio6detail16get_signal_stateEvE5state) #37
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.05581 = load ptr, ptr %15, align 8, !tbaa !316
-  %.not82 = icmp eq ptr %.05581, null
-  br i1 %.not82, label %.critedge.thread, label %.lr.ph.preheader
+  %.05582 = load ptr, ptr %15, align 8, !tbaa !316
+  %cond6383 = icmp eq ptr %.05582, null
+  br i1 %cond6383, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %13
-  %16 = load i32, ptr %.05581, align 8, !tbaa !313
+  %16 = load i32, ptr %.05582, align 8, !tbaa !313
   %17 = icmp slt i32 %16, %2
-  br i1 %17, label %.lr.ph99, label %.critedge
+  br i1 %17, label %.lr.ph102, label %.critedge
 
-.lr.ph:                                           ; preds = %.lr.ph99
+.lr.ph:                                           ; preds = %.lr.ph102
   %18 = load i32, ptr %.055, align 8, !tbaa !313
   %19 = icmp slt i32 %18, %2
-  br i1 %19, label %.lr.ph99, label %.critedge.loopexit, !llvm.loop !1580
+  br i1 %19, label %.lr.ph102, label %.critedge.loopexit, !llvm.loop !1580
 
-.lr.ph99:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0558498 = phi ptr [ %.055, %.lr.ph ], [ %.05581, %.lr.ph.preheader ]
-  %20 = getelementptr inbounds nuw i8, ptr %.0558498, i64 40
+.lr.ph102:                                        ; preds = %.lr.ph.preheader, %.lr.ph
+  %.05585101 = phi ptr [ %.055, %.lr.ph ], [ %.05582, %.lr.ph.preheader ]
+  %20 = getelementptr inbounds nuw i8, ptr %.05585101, i64 40
   %.055 = load ptr, ptr %20, align 8, !tbaa !316
-  %.not = icmp eq ptr %.055, null
-  br i1 %.not, label %.critedge.thread.loopexit, label %.lr.ph, !llvm.loop !1580
+  %cond63 = icmp eq ptr %.055, null
+  br i1 %cond63, label %.loopexit.loopexit, label %.lr.ph, !llvm.loop !1580
 
 .critedge.loopexit:                               ; preds = %.lr.ph
-  %21 = getelementptr inbounds nuw i8, ptr %.0558498, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %.05585101, i64 40
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit, %.lr.ph.preheader
-  %.05584.lcssa = phi ptr [ %.05581, %.lr.ph.preheader ], [ %.055, %.critedge.loopexit ]
-  %.05683.lcssa = phi ptr [ %15, %.lr.ph.preheader ], [ %21, %.critedge.loopexit ]
+  %.05585.lcssa = phi ptr [ %.05582, %.lr.ph.preheader ], [ %.055, %.critedge.loopexit ]
+  %.05684.lcssa = phi ptr [ %15, %.lr.ph.preheader ], [ %21, %.critedge.loopexit ]
   %.lcssa = phi i32 [ %16, %.lr.ph.preheader ], [ %18, %.critedge.loopexit ]
   %.not59 = icmp eq i32 %.lcssa, %2
-  br i1 %.not59, label %58, label %.critedge.thread
+  br i1 %.not59, label %58, label %.loopexit
 
-.critedge.thread.loopexit:                        ; preds = %.lr.ph99
-  %22 = getelementptr inbounds nuw i8, ptr %.0558498, i64 40
-  br label %.critedge.thread
+.loopexit.loopexit:                               ; preds = %.lr.ph102
+  %22 = getelementptr inbounds nuw i8, ptr %.05585101, i64 40
+  br label %.loopexit
 
-.critedge.thread:                                 ; preds = %.critedge.thread.loopexit, %13, %.critedge
-  %.05680 = phi ptr [ %.05683.lcssa, %.critedge ], [ %15, %13 ], [ %22, %.critedge.thread.loopexit ]
-  %.05578 = phi ptr [ %.05584.lcssa, %.critedge ], [ null, %13 ], [ null, %.critedge.thread.loopexit ]
+.loopexit:                                        ; preds = %.loopexit.loopexit, %13, %.critedge
+  %.05681 = phi ptr [ %.05684.lcssa, %.critedge ], [ %15, %13 ], [ %22, %.critedge.thread.loopexit ]
+  %.05579 = phi ptr [ %.05585.lcssa, %.critedge ], [ null, %13 ], [ null, %.critedge.thread.loopexit ]
   %23 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #40
           to label %24 unwind label %_ZN4asio6detail11scoped_lockINS0_18posix_static_mutexEED2Ev.exit
 
-24:                                               ; preds = %.critedge.thread
+24:                                               ; preds = %.loopexit
   store i32 0, ptr %23, align 8, !tbaa !313
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %25, i8 0, i64 40, i1 false)
@@ -75350,7 +75350,7 @@ _ZNSt10error_codeaSIN4asio5error12basic_errorsEEENSt9enable_ifIXsr18is_error_cod
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN4asio15system_categoryEvE8instance) #37
   br label %57
 
-_ZN4asio6detail11scoped_lockINS0_18posix_static_mutexEED2Ev.exit: ; preds = %.critedge.thread
+_ZN4asio6detail11scoped_lockINS0_18posix_static_mutexEED2Ev.exit: ; preds = %.loopexit
   %44 = landingpad { ptr, i32 }
           cleanup
   %45 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZZN4asio6detail16get_signal_stateEvE5state) #37
@@ -75364,22 +75364,22 @@ _ZN4asio6detail11scoped_lockINS0_18posix_static_mutexEED2Ev.exit: ; preds = %.cr
   store i32 %2, ptr %23, align 8, !tbaa !313
   store ptr %1, ptr %25, align 8, !tbaa !1561
   %48 = getelementptr inbounds nuw i8, ptr %23, i64 40
-  store ptr %.05578, ptr %48, align 8, !tbaa !319
-  store ptr %23, ptr %.05680, align 8, !tbaa !316
+  store ptr %.05579, ptr %48, align 8, !tbaa !319
+  store ptr %23, ptr %.05681, align 8, !tbaa !316
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %26
   %51 = load ptr, ptr %50, align 8, !tbaa !316
   %52 = getelementptr inbounds nuw i8, ptr %23, i64 24
   store ptr %51, ptr %52, align 8, !tbaa !317
   %.not62 = icmp eq ptr %51, null
-  br i1 %.not62, label %.thread73, label %53
+  br i1 %.not62, label %.thread74, label %53
 
 53:                                               ; preds = %47
   %54 = getelementptr inbounds nuw i8, ptr %51, i64 32
   store ptr %23, ptr %54, align 8, !tbaa !318
-  br label %.thread73
+  br label %.thread74
 
-.thread73:                                        ; preds = %47, %53
+.thread74:                                        ; preds = %47, %53
   store ptr %23, ptr %50, align 8, !tbaa !316
   %55 = load i64, ptr %27, align 8, !tbaa !10
   %56 = add i64 %55, 1
@@ -75388,28 +75388,28 @@ _ZN4asio6detail11scoped_lockINS0_18posix_static_mutexEED2Ev.exit: ; preds = %.cr
 
 57:                                               ; preds = %35, %40, %42
   store i32 %37, ptr %3, align 8, !tbaa !130
-  %.sroa.567.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr @_ZZN4asio15system_categoryEvE8instance, ptr %.sroa.567.0..sroa_idx, align 8, !tbaa !267
+  %.sroa.568.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr @_ZZN4asio15system_categoryEvE8instance, ptr %.sroa.568.0..sroa_idx, align 8, !tbaa !267
   call void @_ZdlPvm(ptr noundef nonnull %23, i64 noundef 48) #38
   %.sroa.0.0.copyload46 = load i32, ptr %3, align 8, !tbaa !130
-  %.sroa.450.0.copyload51 = load ptr, ptr %.sroa.567.0..sroa_idx, align 8, !tbaa !267
+  %.sroa.450.0.copyload51 = load ptr, ptr %.sroa.568.0..sroa_idx, align 8, !tbaa !267
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %_ZN4asio6detail11scoped_lockINS0_18posix_static_mutexEED2Ev.exit63
+  br label %_ZN4asio6detail11scoped_lockINS0_18posix_static_mutexEED2Ev.exit64
 
-58:                                               ; preds = %.thread73, %.critedge
+58:                                               ; preds = %.thread74, %.critedge
   %59 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() #41
   store i32 0, ptr %3, align 8, !tbaa !130
-  %.sroa.465.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %59, ptr %.sroa.465.0..sroa_idx, align 8, !tbaa !267
-  br label %_ZN4asio6detail11scoped_lockINS0_18posix_static_mutexEED2Ev.exit63
+  %.sroa.466.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr %59, ptr %.sroa.466.0..sroa_idx, align 8, !tbaa !267
+  br label %_ZN4asio6detail11scoped_lockINS0_18posix_static_mutexEED2Ev.exit64
 
-_ZN4asio6detail11scoped_lockINS0_18posix_static_mutexEED2Ev.exit63: ; preds = %57, %58
+_ZN4asio6detail11scoped_lockINS0_18posix_static_mutexEED2Ev.exit64: ; preds = %57, %58
   %.sroa.0.4 = phi i32 [ 0, %58 ], [ %.sroa.0.0.copyload46, %57 ]
   %.sroa.450.4 = phi ptr [ %59, %58 ], [ %.sroa.450.0.copyload51, %57 ]
   %60 = call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZZN4asio6detail16get_signal_stateEvE5state) #37
   br label %61
 
-61:                                               ; preds = %_ZN4asio6detail11scoped_lockINS0_18posix_static_mutexEED2Ev.exit63, %_ZNSt10error_codeaSIN4asio5error12basic_errorsEEENSt9enable_ifIXsr18is_error_code_enumIT_EE5valueERS_E4typeES5_.exit
+61:                                               ; preds = %_ZN4asio6detail11scoped_lockINS0_18posix_static_mutexEED2Ev.exit64, %_ZNSt10error_codeaSIN4asio5error12basic_errorsEEENSt9enable_ifIXsr18is_error_code_enumIT_EE5valueERS_E4typeES5_.exit
   %.sroa.0.0 = phi i32 [ 22, %_ZNSt10error_codeaSIN4asio5error12basic_errorsEEENSt9enable_ifIXsr18is_error_code_enumIT_EE5valueERS_E4typeES5_.exit ], [ %.sroa.0.4, %_ZN4asio6detail11scoped_lockINS0_18posix_static_mutexEED2Ev.exit63 ]
   %.sroa.450.0 = phi ptr [ @_ZZN4asio15system_categoryEvE8instance, %_ZNSt10error_codeaSIN4asio5error12basic_errorsEEENSt9enable_ifIXsr18is_error_code_enumIT_EE5valueERS_E4typeES5_.exit ], [ %.sroa.450.4, %_ZN4asio6detail11scoped_lockINS0_18posix_static_mutexEED2Ev.exit63 ]
   %.fca.0.insert = insertvalue { i32, ptr } poison, i32 %.sroa.0.0, 0

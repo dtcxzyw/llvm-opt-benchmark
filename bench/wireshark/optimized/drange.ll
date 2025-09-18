@@ -878,8 +878,8 @@ drange_node_tostr.exit:                           ; preds = %10, %12, %16, %20
   tail call void @g_free(ptr noundef %.0.i)
   %27 = getelementptr inbounds nuw i8, ptr %.013, i64 8
   %28 = load ptr, ptr %27, align 8
-  %.not11 = icmp eq ptr %28, null
-  br i1 %.not11, label %._crit_edge, label %29
+  %cond = icmp eq ptr %28, null
+  br i1 %cond, label %._crit_edge, label %29
 
 29:                                               ; preds = %drange_node_tostr.exit
   %30 = load i64, ptr %4, align 8

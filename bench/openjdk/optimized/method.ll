@@ -9411,17 +9411,17 @@ _ZN14JNIMethodBlock8containsEPP6Method.exit:      ; preds = %24, %18, %1
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN6Method26checked_resolve_jmethod_idEP10_jmethodID(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 align 2 {
   %2 = icmp eq ptr %0, null
-  br i1 %2, label %18, label %3
+  br i1 %2, label %16, label %3
 
 3:                                                ; preds = %1
   %4 = load ptr, ptr %0, align 8
   %5 = icmp eq ptr %4, null
   %6 = icmp eq ptr %4, inttoptr (i64 55 to ptr)
   %or.cond = or i1 %5, %6
-  br i1 %or.cond, label %18, label %7
+  br i1 %or.cond, label %16, label %7
 
-7:                                                ; preds = %3
-  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
+5:                                                ; preds = %3
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
@@ -9433,8 +9433,8 @@ define hidden noundef ptr @_ZN6Method26checked_resolve_jmethod_idEP10_jmethodID(
   %17 = select i1 %16, ptr %4, ptr null
   br label %18
 
-18:                                               ; preds = %3, %1, %7
-  %.0 = phi ptr [ %17, %7 ], [ null, %1 ], [ null, %3 ]
+16:                                               ; preds = %3, %1, %5
+  %.0 = phi ptr [ %15, %7 ], [ null, %1 ], [ null, %3 ]
   ret ptr %.0
 }
 

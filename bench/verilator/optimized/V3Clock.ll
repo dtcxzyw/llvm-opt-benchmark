@@ -1100,8 +1100,8 @@ define linkonce_odr dso_local void @_ZN12ClockVisitorC2EP10AstNetlist(ptr nounde
 17:                                               ; preds = %.lr.ph
   %18 = getelementptr inbounds nuw i8, ptr %.022, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !93
-  %.not.i = icmp eq ptr %19, null
-  br i1 %.not.i, label %._crit_edge, label %20
+  %cond = icmp eq ptr %19, null
+  br i1 %cond, label %._crit_edge, label %20
 
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 64
@@ -1945,8 +1945,8 @@ _ZN7AstNode9privateAsI12AstMTaskBodyPS_EEPT_S2_.exit: ; preds = %12, %.lr.ph
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(152) %.08, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %10 = getelementptr inbounds nuw i8, ptr %.08, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !93
-  %.not.i = icmp eq ptr %11, null
-  br i1 %.not.i, label %._crit_edge, label %12
+  %cond = icmp eq ptr %11, null
+  br i1 %cond, label %._crit_edge, label %12
 
 12:                                               ; preds = %_ZN7AstNode9privateAsI12AstMTaskBodyPS_EEPT_S2_.exit
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 64
@@ -3194,8 +3194,8 @@ _ZN5AstOrC2EP8FileLineP11AstNodeExprS3_.exit:     ; preds = %23, %18, %9
   %26 = phi ptr [ %12, %9 ], [ %14, %18 ], [ %14, %23 ]
   %27 = getelementptr inbounds nuw i8, ptr %.01530, i64 8
   %28 = load ptr, ptr %27, align 8, !tbaa !93
-  %.not.i = icmp eq ptr %28, null
-  br i1 %.not.i, label %._crit_edge, label %29
+  %cond = icmp eq ptr %28, null
+  br i1 %cond, label %._crit_edge, label %29
 
 29:                                               ; preds = %_ZN5AstOrC2EP8FileLineP11AstNodeExprS3_.exit
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 64

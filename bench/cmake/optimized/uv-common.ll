@@ -2306,12 +2306,12 @@ define dso_local range(i32 -106, 111) i32 @uv__udp_check_before_send(ptr noundef
   br i1 %.not, label %5, label %16
 
 5:                                                ; preds = %2
-  %.not13 = icmp eq ptr %1, null
+  %cond = icmp eq ptr %1, null
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %7 = load i32, ptr %6, align 8, !tbaa !36
   %8 = and i32 %7, 33554432
   %.not15 = icmp eq i32 %8, 0
-  br i1 %.not13, label %10, label %9
+  br i1 %cond, label %10, label %9
 
 9:                                                ; preds = %5
   br i1 %.not15, label %11, label %16
@@ -2350,12 +2350,12 @@ define dso_local i32 @uv_udp_send(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %.not.i, label %9, label %uv__udp_check_before_send.exit.thread
 
 9:                                                ; preds = %6
-  %.not13.i = icmp eq ptr %4, null
+  %cond.i = icmp eq ptr %4, null
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %11 = load i32, ptr %10, align 8, !tbaa !36
   %12 = and i32 %11, 33554432
   %.not15.i = icmp eq i32 %12, 0
-  br i1 %.not13.i, label %14, label %13
+  br i1 %cond.i, label %14, label %13
 
 13:                                               ; preds = %9
   br i1 %.not15.i, label %15, label %uv__udp_check_before_send.exit.thread
@@ -2397,12 +2397,12 @@ define dso_local i32 @uv_udp_try_send(ptr noundef %0, ptr noundef %1, i32 nounde
   br i1 %.not.i, label %7, label %uv__udp_check_before_send.exit.thread
 
 7:                                                ; preds = %4
-  %.not13.i = icmp eq ptr %3, null
+  %cond.i = icmp eq ptr %3, null
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %9 = load i32, ptr %8, align 8, !tbaa !36
   %10 = and i32 %9, 33554432
   %.not15.i = icmp eq i32 %10, 0
-  br i1 %.not13.i, label %12, label %11
+  br i1 %cond.i, label %12, label %11
 
 11:                                               ; preds = %7
   br i1 %.not15.i, label %13, label %uv__udp_check_before_send.exit.thread

@@ -1607,46 +1607,46 @@ define internal fastcc void @reset_signal_handlers(ptr noundef nonnull %0) unnam
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %2, i8 0, i64 152, i1 false)
   br label %5
 
-4:                                                ; preds = %19
+4:                                                ; preds = %16
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
-5:                                                ; preds = %1, %19
-  %.012 = phi i32 [ 1, %1 ], [ %20, %19 ]
+5:                                                ; preds = %1, %16
+  %.012 = phi i32 [ 1, %1 ], [ %17, %19 ]
   switch i32 %.012, label %6 [
-    i32 19, label %19
-    i32 9, label %19
+    i32 19, label %16
+    i32 9, label %16
   ]
 
 6:                                                ; preds = %5
   %7 = call i32 @sigismember(ptr noundef nonnull %0, i32 noundef %.012) #12
   %8 = icmp eq i32 %7, 1
-  br i1 %8, label %19, label %9
+  br i1 %8, label %16, label %9
 
 9:                                                ; preds = %6
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %10 = call i32 @sigaction(i32 noundef %.012, ptr noundef null, ptr noundef nonnull %3) #12
   %11 = icmp eq i32 %10, -1
-  br i1 %11, label %18, label %12
+  br i1 %11, label %18, label %13
 
-12:                                               ; preds = %9
+13:                                               ; preds = %9
   %13 = load ptr, ptr %3, align 8
   %14 = icmp eq ptr %13, inttoptr (i64 1 to ptr)
   %15 = icmp eq ptr %13, null
   %or.cond3 = or i1 %14, %15
   br i1 %or.cond3, label %18, label %16
 
-16:                                               ; preds = %12
+15:                                               ; preds = %13
   %17 = call i32 @sigaction(i32 noundef %.012, ptr noundef nonnull %2, ptr noundef null) #12
   br label %18
 
 18:                                               ; preds = %16, %12, %9
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %19
+  br label %16
 
-19:                                               ; preds = %5, %5, %18, %6
-  %20 = add nuw nsw i32 %.012, 1
-  %exitcond.not = icmp eq i32 %20, 65
+16:                                               ; preds = %5, %5, %18, %6
+  %17 = add nuw nsw i32 %.012, 1
+  %exitcond.not = icmp eq i32 %17, 65
   br i1 %exitcond.not, label %4, label %5, !llvm.loop !48
 }
 

@@ -520,7 +520,7 @@ define ptr @ossl_err_get_state_int() local_unnamed_addr #0 {
   %2 = load i32, ptr %1, align 4, !tbaa !3
   %3 = tail call i32 @OPENSSL_init_crypto(i64 noundef 262144, ptr noundef null) #10
   %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %30, label %4
+  br i1 %.not, label %50, label %4
 
 4:                                                ; preds = %0
   %5 = tail call i32 @CRYPTO_THREAD_run_once(ptr noundef nonnull @err_init, ptr noundef nonnull @err_do_init_ossl_) #10
@@ -528,56 +528,56 @@ define ptr @ossl_err_get_state_int() local_unnamed_addr #0 {
   %7 = load i32, ptr @err_do_init_ossl_ret_, align 4
   %8 = icmp ne i32 %7, 0
   %or.cond = select i1 %6, i1 %8, i1 false
-  br i1 %or.cond, label %9, label %30
+  br i1 %or.cond, label %9, label %50
 
 9:                                                ; preds = %4
   %10 = tail call ptr @CRYPTO_THREAD_get_local(ptr noundef nonnull @err_thread_local) #10
   %11 = icmp eq ptr %10, inttoptr (i64 -1 to ptr)
   br i1 %11, label %30, label %12
 
-12:                                               ; preds = %9
+11:                                               ; preds = %9
   %13 = icmp eq ptr %10, null
   br i1 %13, label %14, label %29
 
-14:                                               ; preds = %12
-  %15 = tail call i32 @CRYPTO_THREAD_set_local(ptr noundef nonnull @err_thread_local, ptr noundef nonnull inttoptr (i64 -1 to ptr)) #10
-  %.not11 = icmp eq i32 %15, 0
-  br i1 %.not11, label %30, label %16
+13:                                               ; preds = %11
+  %14 = tail call i32 @CRYPTO_THREAD_set_local(ptr noundef nonnull @err_thread_local, ptr noundef nonnull inttoptr (i64 -1 to ptr)) #10
+  %15 = icmp eq i32 %14, 0
+  br i1 %15, label %30, label %16
 
-16:                                               ; preds = %14
+16:                                               ; preds = %13
   %17 = tail call ptr @OSSL_ERR_STATE_new() #10
   %18 = icmp eq ptr %17, null
   br i1 %18, label %19, label %21
 
-19:                                               ; preds = %16
-  %20 = tail call i32 @CRYPTO_THREAD_set_local(ptr noundef nonnull @err_thread_local, ptr noundef null) #10
+18:                                               ; preds = %16
+  %19 = tail call i32 @CRYPTO_THREAD_set_local(ptr noundef nonnull @err_thread_local, ptr noundef null) #10
   br label %30
 
-21:                                               ; preds = %16
+30:                                               ; preds = %16
   %22 = tail call i32 @ossl_init_thread_start(ptr noundef null, ptr noundef null, ptr noundef nonnull @err_delete_thread_state) #10
   %.not12 = icmp eq i32 %22, 0
   br i1 %.not12, label %25, label %23
 
-23:                                               ; preds = %21
+err_clear.exit.i:                                 ; preds = %30
   %24 = tail call i32 @CRYPTO_THREAD_set_local(ptr noundef nonnull @err_thread_local, ptr noundef nonnull %17) #10
   %.not13 = icmp eq i32 %24, 0
   br i1 %.not13, label %25, label %27
 
-25:                                               ; preds = %23, %21
+OSSL_ERR_STATE_free.exit:                         ; preds = %err_clear.exit.i, %21
   tail call void @OSSL_ERR_STATE_free(ptr noundef nonnull %17)
-  %26 = tail call i32 @CRYPTO_THREAD_set_local(ptr noundef nonnull @err_thread_local, ptr noundef null) #10
-  br label %30
+  %46 = tail call i32 @CRYPTO_THREAD_set_local(ptr noundef nonnull @err_thread_local, ptr noundef null) #10
+  br label %50
 
-27:                                               ; preds = %23
-  %28 = tail call i32 @OPENSSL_init_crypto(i64 noundef 2, ptr noundef null) #10
-  br label %29
+47:                                               ; preds = %23
+  %48 = tail call i32 @OPENSSL_init_crypto(i64 noundef 2, ptr noundef null) #10
+  br label %49
 
-29:                                               ; preds = %27, %12
+49:                                               ; preds = %27, %12
   %.08 = phi ptr [ %17, %27 ], [ %10, %12 ]
   store i32 %2, ptr %1, align 4, !tbaa !3
-  br label %30
+  br label %50
 
-30:                                               ; preds = %14, %9, %4, %0, %29, %25, %19
+50:                                               ; preds = %14, %9, %4, %0, %49, %OSSL_ERR_STATE_free.exit, %19
   %.0 = phi ptr [ null, %19 ], [ %.08, %29 ], [ null, %25 ], [ null, %0 ], [ null, %4 ], [ null, %9 ], [ null, %14 ]
   ret ptr %.0
 }

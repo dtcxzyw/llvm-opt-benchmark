@@ -1899,13 +1899,13 @@ define internal fastcc void @"_ZN4core3ptr107drop_in_place$LT$core..option..Opti
 "_ZN4core3ptr79drop_in_place$LT$alloc..sync..Weak$LT$tokio..sync..semaphore..Semaphore$GT$$GT$17h3ead1c5db20779c1E.exit": ; preds = %7, %3, %0
   ret void
 
-3:                                                ; preds = %0
-  %4 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
-  %5 = atomicrmw sub ptr %4, i64 1 release, align 8, !noalias !286
-  %6 = icmp eq i64 %5, 1
-  br i1 %6, label %7, label %"_ZN4core3ptr79drop_in_place$LT$alloc..sync..Weak$LT$tokio..sync..semaphore..Semaphore$GT$$GT$17h3ead1c5db20779c1E.exit"
+1:                                                ; preds = %0
+  %2 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
+  %3 = atomicrmw sub ptr %2, i64 1 release, align 8, !noalias !286
+  %4 = icmp eq i64 %3, 1
+  br i1 %4, label %5, label %"_ZN4core3ptr79drop_in_place$LT$alloc..sync..Weak$LT$tokio..sync..semaphore..Semaphore$GT$$GT$17h3ead1c5db20779c1E.exit"
 
-7:                                                ; preds = %3
+5:                                                ; preds = %1
   fence acquire
   tail call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef 56, i64 noundef 8) #26, !noalias !286
   br label %"_ZN4core3ptr79drop_in_place$LT$alloc..sync..Weak$LT$tokio..sync..semaphore..Semaphore$GT$$GT$17h3ead1c5db20779c1E.exit"
@@ -34909,7 +34909,7 @@ define hidden void @"_ZN4core3ptr606drop_in_place$LT$tower..buffer..worker..Work
 
 7:                                                ; preds = %2
   invoke void @"_ZN4core3ptr859drop_in_place$LT$tower..buffer..message..Message$LT$http..request..Request$LT$http_body..combinators..box_body..UnsyncBoxBody$LT$bytes..bytes..Bytes$C$tonic..status..Status$GT$$GT$$C$tower..util..either..Either$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$http..response..Response$LT$hyper..body..body..Body$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$$u2b$core..marker..Send$GT$$GT$$C$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$http..response..Response$LT$hyper..body..body..Body$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$$u2b$core..marker..Send$GT$$GT$$GT$$GT$$GT$17h8222cfd8b717e223E"(ptr noalias noundef nonnull align 8 dereferenceable(304) %4)
-          to label %"_ZN4core3ptr887drop_in_place$LT$core..option..Option$LT$tower..buffer..message..Message$LT$http..request..Request$LT$http_body..combinators..box_body..UnsyncBoxBody$LT$bytes..bytes..Bytes$C$tonic..status..Status$GT$$GT$$C$tower..util..either..Either$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$http..response..Response$LT$hyper..body..body..Body$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$$u2b$core..marker..Send$GT$$GT$$C$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$http..response..Response$LT$hyper..body..body..Body$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$$u2b$core..marker..Send$GT$$GT$$GT$$GT$$GT$$GT$17h06594319e14ef145E.exit" unwind label %61
+          to label %"_ZN4core3ptr887drop_in_place$LT$core..option..Option$LT$tower..buffer..message..Message$LT$http..request..Request$LT$http_body..combinators..box_body..UnsyncBoxBody$LT$bytes..bytes..Bytes$C$tonic..status..Status$GT$$GT$$C$tower..util..either..Either$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$http..response..Response$LT$hyper..body..body..Body$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$$u2b$core..marker..Send$GT$$GT$$C$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$http..response..Response$LT$hyper..body..body..Body$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$$u2b$core..marker..Send$GT$$GT$$GT$$GT$$GT$$GT$17h06594319e14ef145E.exit" unwind label %59
 
 "_ZN5tower6buffer6worker1_100_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$tower..buffer..worker..Worker$LT$T$C$Request$GT$$GT$4drop17hc6f2f64937bf8516E.exit": ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -34925,7 +34925,7 @@ define hidden void @"_ZN4core3ptr606drop_in_place$LT$tower..buffer..worker..Work
   %.pn = phi { ptr, i32 } [ %14, %13 ], [ %3, %7 ], [ %3, %2 ]
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 328
   invoke void @"_ZN4core3ptr914drop_in_place$LT$tokio..sync..mpsc..unbounded..UnboundedReceiver$LT$tower..buffer..message..Message$LT$http..request..Request$LT$http_body..combinators..box_body..UnsyncBoxBody$LT$bytes..bytes..Bytes$C$tonic..status..Status$GT$$GT$$C$tower..util..either..Either$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$http..response..Response$LT$hyper..body..body..Body$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$$u2b$core..marker..Send$GT$$GT$$C$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$http..response..Response$LT$hyper..body..body..Body$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$$u2b$core..marker..Send$GT$$GT$$GT$$GT$$GT$$GT$17hfab569ffd4d93ffbE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %12) #25
-          to label %16 unwind label %61
+          to label %16 unwind label %59
 
 13:                                               ; preds = %11
   %14 = landingpad { ptr, i32 }
@@ -34940,7 +34940,7 @@ define hidden void @"_ZN4core3ptr606drop_in_place$LT$tower..buffer..worker..Work
 16:                                               ; preds = %17, %"_ZN4core3ptr887drop_in_place$LT$core..option..Option$LT$tower..buffer..message..Message$LT$http..request..Request$LT$http_body..combinators..box_body..UnsyncBoxBody$LT$bytes..bytes..Bytes$C$tonic..status..Status$GT$$GT$$C$tower..util..either..Either$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$http..response..Response$LT$hyper..body..body..Body$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$$u2b$core..marker..Send$GT$$GT$$C$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$http..response..Response$LT$hyper..body..body..Body$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$$u2b$core..marker..Send$GT$$GT$$GT$$GT$$GT$$GT$17h06594319e14ef145E.exit"
   %.pn2 = phi { ptr, i32 } [ %18, %17 ], [ %.pn, %"_ZN4core3ptr887drop_in_place$LT$core..option..Option$LT$tower..buffer..message..Message$LT$http..request..Request$LT$http_body..combinators..box_body..UnsyncBoxBody$LT$bytes..bytes..Bytes$C$tonic..status..Status$GT$$GT$$C$tower..util..either..Either$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$http..response..Response$LT$hyper..body..body..Body$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$$u2b$core..marker..Send$GT$$GT$$C$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$http..response..Response$LT$hyper..body..body..Body$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$$u2b$core..marker..Send$GT$$GT$$GT$$GT$$GT$$GT$17h06594319e14ef145E.exit" ]
   invoke fastcc void @"_ZN4core3ptr438drop_in_place$LT$tower..util..either..Either$LT$tonic..transport..service..connection..Connection$C$tower..util..boxed..sync..BoxService$LT$http..request..Request$LT$http_body..combinators..box_body..UnsyncBoxBody$LT$bytes..bytes..Bytes$C$tonic..status..Status$GT$$GT$$C$http..response..Response$LT$hyper..body..body..Body$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$$GT$$GT$17h3d22cfb028898030E"(ptr noalias noundef align 8 dereferenceable(24) %0) #25
-          to label %20 unwind label %61
+          to label %20 unwind label %59
 
 17:                                               ; preds = %"_ZN4core3ptr887drop_in_place$LT$core..option..Option$LT$tower..buffer..message..Message$LT$http..request..Request$LT$http_body..combinators..box_body..UnsyncBoxBody$LT$bytes..bytes..Bytes$C$tonic..status..Status$GT$$GT$$C$tower..util..either..Either$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$http..response..Response$LT$hyper..body..body..Body$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$$u2b$core..marker..Send$GT$$GT$$C$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$http..response..Response$LT$hyper..body..body..Body$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$$u2b$core..marker..Send$GT$$GT$$GT$$GT$$GT$$GT$17h06594319e14ef145E.exit12"
   %18 = landingpad { ptr, i32 }
@@ -34967,7 +34967,7 @@ define hidden void @"_ZN4core3ptr606drop_in_place$LT$tower..buffer..worker..Work
 27:                                               ; preds = %24
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h54a89d26bebdfbe5E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %21)
-          to label %"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$tower..buffer..error..ServiceError$GT$$GT$17h5709aea0b2e3159eE.exit" unwind label %61
+          to label %"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$tower..buffer..error..ServiceError$GT$$GT$17h5709aea0b2e3159eE.exit" unwind label %59
 
 28:                                               ; preds = %19
   %29 = landingpad { ptr, i32 }
@@ -35005,7 +35005,7 @@ define hidden void @"_ZN4core3ptr606drop_in_place$LT$tower..buffer..worker..Work
 42:                                               ; preds = %"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$tower..buffer..error..ServiceError$GT$$GT$17h5709aea0b2e3159eE.exit"
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h2e61d4ec776ff17fE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %38)
-          to label %"_ZN4core3ptr50drop_in_place$LT$tower..buffer..worker..Handle$GT$17hed95591838732301E.exit" unwind label %61
+          to label %"_ZN4core3ptr50drop_in_place$LT$tower..buffer..worker..Handle$GT$17hed95591838732301E.exit" unwind label %59
 
 43:                                               ; preds = %37
   %44 = landingpad { ptr, i32 }
@@ -35053,16 +35053,16 @@ define hidden void @"_ZN4core3ptr606drop_in_place$LT$tower..buffer..worker..Work
   %59 = icmp eq i64 %58, 1
   br i1 %59, label %60, label %"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$alloc..sync..Weak$LT$tokio..sync..semaphore..Semaphore$GT$$GT$$GT$17h6fc9d85a4c5832d0E.exit"
 
-60:                                               ; preds = %56
+58:                                               ; preds = %56
   fence acquire
   tail call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %.val, i64 noundef 56, i64 noundef 8) #26, !noalias !7176
   br label %"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$alloc..sync..Weak$LT$tokio..sync..semaphore..Semaphore$GT$$GT$$GT$17h6fc9d85a4c5832d0E.exit"
 
-"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$alloc..sync..Weak$LT$tokio..sync..semaphore..Semaphore$GT$$GT$$GT$17h6fc9d85a4c5832d0E.exit": ; preds = %"_ZN4core3ptr50drop_in_place$LT$tower..buffer..worker..Handle$GT$17hed95591838732301E.exit18", %56, %60
+"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$alloc..sync..Weak$LT$tokio..sync..semaphore..Semaphore$GT$$GT$$GT$17h6fc9d85a4c5832d0E.exit": ; preds = %"_ZN4core3ptr50drop_in_place$LT$tower..buffer..worker..Handle$GT$17hed95591838732301E.exit18", %56, %58
   ret void
 
-61:                                               ; preds = %42, %27, %7, %16, %"_ZN4core3ptr887drop_in_place$LT$core..option..Option$LT$tower..buffer..message..Message$LT$http..request..Request$LT$http_body..combinators..box_body..UnsyncBoxBody$LT$bytes..bytes..Bytes$C$tonic..status..Status$GT$$GT$$C$tower..util..either..Either$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$http..response..Response$LT$hyper..body..body..Body$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$$u2b$core..marker..Send$GT$$GT$$C$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$http..response..Response$LT$hyper..body..body..Body$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$$u2b$core..marker..Send$GT$$GT$$GT$$GT$$GT$$GT$17h06594319e14ef145E.exit"
-  %62 = landingpad { ptr, i32 }
+59:                                               ; preds = %42, %27, %7, %16, %"_ZN4core3ptr887drop_in_place$LT$core..option..Option$LT$tower..buffer..message..Message$LT$http..request..Request$LT$http_body..combinators..box_body..UnsyncBoxBody$LT$bytes..bytes..Bytes$C$tonic..status..Status$GT$$GT$$C$tower..util..either..Either$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$http..response..Response$LT$hyper..body..body..Body$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$$u2b$core..marker..Send$GT$$GT$$C$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$http..response..Response$LT$hyper..body..body..Body$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$$u2b$core..marker..Send$GT$$GT$$GT$$GT$$GT$$GT$17h06594319e14ef145E.exit"
+  %60 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #23
   unreachable

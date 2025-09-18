@@ -2853,8 +2853,8 @@ define internal fastcc void @_ZL24print_module_entry_tablePK13GrowableArrayIP19M
   %31 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %32 = load volatile ptr, ptr %31, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !9
-  %.not1226 = icmp eq ptr %32, null
-  br i1 %.not1226, label %._crit_edge, label %.lr.ph
+  %cond26 = icmp eq ptr %32, null
+  br i1 %cond26, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %33 = phi ptr [ %42, %.lr.ph ], [ %32, %.lr.ph.preheader ]
@@ -2870,8 +2870,8 @@ define internal fastcc void @_ZL24print_module_entry_tablePK13GrowableArrayIP19M
   %41 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %42 = load volatile ptr, ptr %41, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !9
-  %.not12 = icmp eq ptr %42, null
-  br i1 %.not12, label %._crit_edge, label %.lr.ph, !llvm.loop !19
+  %cond = icmp eq ptr %42, null
+  br i1 %cond, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph.preheader, %17
   %43 = load ptr, ptr @tty, align 8

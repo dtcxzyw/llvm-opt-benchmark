@@ -10333,25 +10333,25 @@ define i32 @FT_Get_Name_Index(ptr noundef %0, ptr noundef %1) local_unnamed_addr
   %14 = icmp eq ptr %13, inttoptr (i64 -2 to ptr)
   br i1 %14, label %.thread, label %15
 
-15:                                               ; preds = %9
+14:                                               ; preds = %9
   %16 = icmp eq ptr %13, null
   br i1 %16, label %17, label %.thread34
 
-17:                                               ; preds = %15
+20:                                               ; preds = %14
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %19 = load ptr, ptr %18, align 8, !tbaa !25
+  %.pre = load ptr, ptr %18, align 8, !tbaa !25
   %20 = load ptr, ptr %19, align 8, !tbaa !88
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 64
   %22 = load ptr, ptr %21, align 8, !tbaa !90
   %.not28 = icmp eq ptr %22, null
   br i1 %.not28, label %.thread38, label %23
 
-.thread38:                                        ; preds = %17
+22:                                               ; preds = %20
   store ptr inttoptr (i64 -2 to ptr), ptr %12, align 8, !tbaa !412
   br label %.thread
 
-23:                                               ; preds = %17
-  %24 = tail call ptr %22(ptr noundef nonnull %19, ptr noundef nonnull @.str.4) #34
+29:                                               ; preds = %20
+  %30 = tail call ptr %22(ptr noundef nonnull %19, ptr noundef nonnull @.str.4) #34
   %.not29 = icmp eq ptr %24, null
   %25 = select i1 %.not29, ptr inttoptr (i64 -2 to ptr), ptr %24
   %26 = load ptr, ptr %10, align 8, !tbaa !82
@@ -10370,7 +10370,7 @@ define i32 @FT_Get_Name_Index(ptr noundef %0, ptr noundef %1) local_unnamed_addr
   %31 = tail call i32 %29(ptr noundef nonnull %0, ptr noundef nonnull %1) #34
   br label %.thread
 
-.thread:                                          ; preds = %9, %.thread38, %23, %.thread34, %30, %3, %2
+.thread:                                          ; preds = %9, %22, %23, %.thread34, %30, %3, %2
   %.021 = phi i32 [ 0, %3 ], [ 0, %2 ], [ %31, %30 ], [ 0, %.thread34 ], [ 0, %23 ], [ 0, %.thread38 ], [ 0, %9 ]
   ret i32 %.021
 }
@@ -10409,25 +10409,25 @@ define i32 @FT_Get_Glyph_Name(ptr noundef %0, i32 noundef %1, ptr noundef %2, i3
   %21 = icmp eq ptr %20, inttoptr (i64 -2 to ptr)
   br i1 %21, label %.thread, label %22
 
-22:                                               ; preds = %16
+21:                                               ; preds = %16
   %23 = icmp eq ptr %20, null
   br i1 %23, label %24, label %.thread45
 
-24:                                               ; preds = %22
+27:                                               ; preds = %21
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %26 = load ptr, ptr %25, align 8, !tbaa !25
+  %.pre = load ptr, ptr %25, align 8, !tbaa !25
   %27 = load ptr, ptr %26, align 8, !tbaa !88
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 64
   %29 = load ptr, ptr %28, align 8, !tbaa !90
   %.not39 = icmp eq ptr %29, null
   br i1 %.not39, label %.thread49, label %30
 
-.thread49:                                        ; preds = %24
-  store ptr inttoptr (i64 -2 to ptr), ptr %19, align 8, !tbaa !412
+29:                                               ; preds = %27
+  store ptr inttoptr (i64 -2 to ptr), ptr %.pre, align 8, !tbaa !412
   br label %.thread
 
-30:                                               ; preds = %24
-  %31 = tail call ptr %29(ptr noundef nonnull %26, ptr noundef nonnull @.str.4) #34
+35:                                               ; preds = %30
+  %36 = tail call ptr %29(ptr noundef nonnull %26, ptr noundef nonnull @.str.4) #34
   %.not40 = icmp eq ptr %31, null
   %32 = select i1 %.not40, ptr inttoptr (i64 -2 to ptr), ptr %31
   %33 = load ptr, ptr %17, align 8, !tbaa !82
@@ -10445,7 +10445,7 @@ define i32 @FT_Get_Glyph_Name(ptr noundef %0, i32 noundef %1, ptr noundef %2, i3
   %37 = tail call i32 %35(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %2, i32 noundef %3) #34
   br label %.thread
 
-.thread:                                          ; preds = %16, %.thread49, %36, %.thread45, %30, %12, %8, %5, %4
+.thread:                                          ; preds = %16, %29, %36, %.thread45, %30, %12, %8, %5, %4
   %.028 = phi i32 [ 35, %4 ], [ 6, %5 ], [ 16, %8 ], [ 6, %12 ], [ %37, %36 ], [ 6, %.thread45 ], [ 6, %30 ], [ 6, %.thread49 ], [ 6, %16 ]
   ret i32 %.028
 }
@@ -10463,25 +10463,25 @@ define ptr @FT_Get_Postscript_Name(ptr noundef %0) local_unnamed_addr #0 {
   %8 = icmp eq ptr %7, inttoptr (i64 -2 to ptr)
   br i1 %8, label %.thread, label %9
 
-9:                                                ; preds = %3
+8:                                                ; preds = %3
   %10 = icmp eq ptr %7, null
   br i1 %10, label %11, label %.thread31
 
-11:                                               ; preds = %9
+16:                                               ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %13 = load ptr, ptr %12, align 8, !tbaa !25
   %14 = load ptr, ptr %13, align 8, !tbaa !88
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 64
   %16 = load ptr, ptr %15, align 8, !tbaa !90
   %.not = icmp eq ptr %16, null
-  br i1 %.not, label %.thread35, label %17
+  br i1 %.not, label %.fold.split, label %17
 
-.thread35:                                        ; preds = %11
+.fold.split:                                      ; preds = %16
   store ptr inttoptr (i64 -2 to ptr), ptr %6, align 8, !tbaa !416
   br label %.thread
 
-17:                                               ; preds = %11
-  %18 = tail call ptr %16(ptr noundef nonnull %13, ptr noundef nonnull @.str.5) #34
+22:                                               ; preds = %11
+  %23 = tail call ptr %16(ptr noundef nonnull %13, ptr noundef nonnull @.str.5) #34
   %.not26 = icmp eq ptr %18, null
   %19 = select i1 %.not26, ptr inttoptr (i64 -2 to ptr), ptr %18
   %20 = load ptr, ptr %4, align 8, !tbaa !82
@@ -10499,7 +10499,7 @@ define ptr @FT_Get_Postscript_Name(ptr noundef %0) local_unnamed_addr #0 {
   %24 = tail call ptr %22(ptr noundef nonnull %0) #34
   br label %.thread
 
-.thread:                                          ; preds = %3, %.thread35, %17, %.thread31, %23, %1
+.thread:                                          ; preds = %3, %.fold.split, %20, %.thread31, %23, %1
   %.020 = phi ptr [ null, %1 ], [ %24, %23 ], [ null, %.thread31 ], [ null, %17 ], [ null, %.thread35 ], [ null, %3 ]
   ret ptr %.020
 }

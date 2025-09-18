@@ -126,7 +126,7 @@ define hidden void @"_ZN44_$LT$C$u20$as$u20$gpui..BorrowAppContext$GT$13update_g
 16:                                               ; preds = %"_ZN4core3ptr48drop_in_place$LT$rodio..stream..OutputStream$GT$17he63bb0817c6c7a45E.exit.i.i", %15, %1
   %17 = landingpad { ptr, i32 }
           cleanup
-  br label %42
+  br label %40
 
 "_ZN78_$LT$gpui..app..GlobalLease$LT$G$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17hd9d11a92d89dd5f7E.llvm.1926931935225978806.exit": ; preds = %.noexc
   tail call void @llvm.experimental.noalias.scope.decl(metadata !18)
@@ -174,7 +174,7 @@ define hidden void @"_ZN44_$LT$C$u20$as$u20$gpui..BorrowAppContext$GT$13update_g
   %32 = icmp eq ptr %31, null
   %33 = icmp eq ptr %31, inttoptr (i64 -1 to ptr)
   %or.cond.i.i = or i1 %32, %33
-  br i1 %or.cond.i.i, label %39, label %34
+  br i1 %or.cond.i.i, label %37, label %34
 
 34:                                               ; preds = %"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$rodio..stream..OutputStream$GT$$GT$17h798fd8a187115bfcE.llvm.1926931935225978806.exit.i"
   %35 = getelementptr inbounds nuw i8, ptr %31, i64 8
@@ -185,27 +185,27 @@ define hidden void @"_ZN44_$LT$C$u20$as$u20$gpui..BorrowAppContext$GT$13update_g
 38:                                               ; preds = %34
   fence acquire
   call void @__rust_dealloc(ptr noundef nonnull %31, i64 noundef 56, i64 noundef 8) #22, !noalias !31
-  br label %39
+  br label %37
 
-39:                                               ; preds = %"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$rodio..stream..OutputStream$GT$$GT$17h798fd8a187115bfcE.llvm.1926931935225978806.exit.i", %34, %38
-  %40 = load ptr, ptr %3, align 8, !nonnull !4, !align !11, !noundef !4
-  %41 = load ptr, ptr %7, align 8, !nonnull !4, !align !5, !noundef !4
-  call void @_ZN4gpui3app10AppContext16end_global_lease17h8e8a05f785dfda7dE.llvm.1926931935225978806(ptr noalias noundef nonnull align 8 dereferenceable(1176) %0, ptr noundef nonnull align 1 %40, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %41)
+37:                                               ; preds = %"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$rodio..stream..OutputStream$GT$$GT$17h798fd8a187115bfcE.llvm.1926931935225978806.exit.i", %34, %38
+  %38 = load ptr, ptr %3, align 8, !nonnull !4, !align !11, !noundef !4
+  %39 = load ptr, ptr %7, align 8, !nonnull !4, !align !5, !noundef !4
+  call void @_ZN4gpui3app10AppContext16end_global_lease17h8e8a05f785dfda7dE.llvm.1926931935225978806(ptr noalias noundef nonnull align 8 dereferenceable(1176) %0, ptr noundef nonnull align 1 %38, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %39)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
-42:                                               ; preds = %16, %24
+40:                                               ; preds = %16, %24
   %.pn.ph = phi { ptr, i32 } [ %25, %24 ], [ %17, %16 ]
   invoke void @"_ZN4core3ptr69drop_in_place$LT$gpui..app..GlobalLease$LT$audio..GlobalAudio$GT$$GT$17ha3704f835c766bd1E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3) #23
-          to label %45 unwind label %43
+          to label %45 unwind label %41
 
-43:                                               ; preds = %42
-  %44 = landingpad { ptr, i32 }
+41:                                               ; preds = %40
+  %42 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #21
   unreachable
 
-45:                                               ; preds = %42
+43:                                               ; preds = %40
   resume { ptr, i32 } %.pn.ph
 }
 
@@ -375,13 +375,13 @@ define hidden void @"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$rodi
 "_ZN4core3ptr54drop_in_place$LT$rodio..stream..OutputStreamHandle$GT$17h8545e75a6e256a88E.exit": ; preds = %9, %5, %1
   ret void
 
-5:                                                ; preds = %1
-  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %7 = atomicrmw sub ptr %6, i64 1 release, align 8, !noalias !61
-  %8 = icmp eq i64 %7, 1
-  br i1 %8, label %9, label %"_ZN4core3ptr54drop_in_place$LT$rodio..stream..OutputStreamHandle$GT$17h8545e75a6e256a88E.exit"
+3:                                                ; preds = %1
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %5 = atomicrmw sub ptr %4, i64 1 release, align 8, !noalias !61
+  %6 = icmp eq i64 %5, 1
+  br i1 %6, label %7, label %"_ZN4core3ptr54drop_in_place$LT$rodio..stream..OutputStreamHandle$GT$17h8545e75a6e256a88E.exit"
 
-9:                                                ; preds = %5
+7:                                                ; preds = %3
   fence acquire
   tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef 56, i64 noundef 8) #22, !noalias !61
   br label %"_ZN4core3ptr54drop_in_place$LT$rodio..stream..OutputStreamHandle$GT$17h8545e75a6e256a88E.exit"

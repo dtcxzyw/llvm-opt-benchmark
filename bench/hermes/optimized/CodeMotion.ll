@@ -649,19 +649,19 @@ for.body.preheader.i.i.i.i:                       ; preds = %_ZN6hermes12LoopAna
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pre1.i.i.i, i64 %add.ptr.i.idx.i.i.i.i
   br label %for.body.i.i.i.i
 
-for.body.i.i.i.i:                                 ; preds = %if.end13.i.i.i.i40, %for.body.preheader.i.i.i.i
+for.body.i.i.i.i:                                 ; preds = %if.end13.i.i.i.i38, %for.body.preheader.i.i.i.i
   %P.08.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %if.end13.i.i.i.i40 ], [ %.pre1.i.i.i, %for.body.preheader.i.i.i.i ]
   %85 = load ptr, ptr %P.08.i.i.i.i, align 8
   %cmp.i.i.i.i.i38 = icmp eq ptr %85, inttoptr (i64 -8 to ptr)
   %cmp.i6.i.i.i.i = icmp eq ptr %85, inttoptr (i64 -16 to ptr)
   %or.cond.i.i.i.i = or i1 %cmp.i.i.i.i.i38, %cmp.i6.i.i.i.i
-  br i1 %or.cond.i.i.i.i, label %if.end13.i.i.i.i40, label %if.then11.i.i.i.i
+  br i1 %or.cond.i.i.i.i, label %if.end13.i.i.i.i38, label %if.then11.i.i.i.i
 
 if.then11.i.i.i.i:                                ; preds = %for.body.i.i.i.i
   %second.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %P.08.i.i.i.i, i64 8
   %86 = load ptr, ptr %second.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i39 = icmp eq ptr %86, null
-  br i1 %cmp.not.i.i.i.i.i39, label %_ZNSt10unique_ptrIN4llvh15DomTreeNodeBaseIN6hermes10BasicBlockEEESt14default_deleteIS4_EED2Ev.exit.i.i.i.i, label %delete.notnull.i.i.i.i.i.i
+  %cmp.not.i.i.i.i.i41 = icmp eq ptr %86, null
+  br i1 %cmp.not.i.i.i.i.i41, label %_ZNSt10unique_ptrIN4llvh15DomTreeNodeBaseIN6hermes10BasicBlockEEESt14default_deleteIS4_EED2Ev.exit.i.i.i.i, label %delete.notnull.i.i.i.i.i.i
 
 delete.notnull.i.i.i.i.i.i:                       ; preds = %if.then11.i.i.i.i
   %Children.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %86, i64 24
@@ -679,14 +679,14 @@ _ZNKSt14default_deleteIN4llvh15DomTreeNodeBaseIN6hermes10BasicBlockEEEEclEPS4_.e
 
 _ZNSt10unique_ptrIN4llvh15DomTreeNodeBaseIN6hermes10BasicBlockEEESt14default_deleteIS4_EED2Ev.exit.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN4llvh15DomTreeNodeBaseIN6hermes10BasicBlockEEEEclEPS4_.exit.i.i.i.i.i, %if.then11.i.i.i.i
   store ptr null, ptr %second.i.i.i.i.i, align 8
-  br label %if.end13.i.i.i.i40
+  br label %if.end13.i.i.i.i38
 
-if.end13.i.i.i.i40:                               ; preds = %_ZNSt10unique_ptrIN4llvh15DomTreeNodeBaseIN6hermes10BasicBlockEEESt14default_deleteIS4_EED2Ev.exit.i.i.i.i, %for.body.i.i.i.i
+if.end13.i.i.i.i38:                               ; preds = %_ZNSt10unique_ptrIN4llvh15DomTreeNodeBaseIN6hermes10BasicBlockEEESt14default_deleteIS4_EED2Ev.exit.i.i.i.i, %for.body.i.i.i.i
   %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %P.08.i.i.i.i, i64 16
   %cmp6.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %add.ptr.i.i.i.i.i
   br i1 %cmp6.not.i.i.i.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes10BasicBlockESt10unique_ptrINS_15DomTreeNodeBaseIS3_EESt14default_deleteIS7_EENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_SA_EEEES4_SA_SC_SF_E10destroyAllEv.exit.loopexit.i.i.i, label %for.body.i.i.i.i, !llvm.loop !14
 
-_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes10BasicBlockESt10unique_ptrINS_15DomTreeNodeBaseIS3_EESt14default_deleteIS7_EENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_SA_EEEES4_SA_SC_SF_E10destroyAllEv.exit.loopexit.i.i.i: ; preds = %if.end13.i.i.i.i40
+_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes10BasicBlockESt10unique_ptrINS_15DomTreeNodeBaseIS3_EESt14default_deleteIS7_EENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_SA_EEEES4_SA_SC_SF_E10destroyAllEv.exit.loopexit.i.i.i: ; preds = %if.end13.i.i.i.i38
   %.pre.i.i.i = load ptr, ptr %DomTreeNodes.i.i, align 8
   br label %_ZN4llvh8DenseMapIPN6hermes10BasicBlockESt10unique_ptrINS_15DomTreeNodeBaseIS2_EESt14default_deleteIS6_EENS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S9_EEED2Ev.exit.i.i
 
@@ -694,9 +694,9 @@ _ZN4llvh8DenseMapIPN6hermes10BasicBlockESt10unique_ptrINS_15DomTreeNodeBaseIS2_E
   %88 = phi ptr [ %.pre.i.i.i, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes10BasicBlockESt10unique_ptrINS_15DomTreeNodeBaseIS3_EESt14default_deleteIS7_EENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_SA_EEEES4_SA_SC_SF_E10destroyAllEv.exit.loopexit.i.i.i ], [ %.pre1.i.i.i, %_ZN6hermes12LoopAnalysisD2Ev.exit ]
   call void @_ZdlPv(ptr noundef %88) #5
   %89 = load ptr, ptr %dominance, align 8
-  %add.ptr.i.i.i.i.i.i41 = getelementptr inbounds nuw i8, ptr %dominance, i64 16
-  %cmp.i.i.i1.i.i = icmp eq ptr %89, %add.ptr.i.i.i.i.i.i41
-  br i1 %cmp.i.i.i1.i.i, label %_ZN6hermes13DominanceInfoD2Ev.exit, label %if.then.i.i.i.i
+  %add.ptr.i.i.i.i.i.i39 = getelementptr inbounds nuw i8, ptr %dominance, i64 16
+  %cmp.i.i.i.i.i40 = icmp eq ptr %89, %add.ptr.i.i.i.i.i.i39
+  br i1 %cmp.i.i.i.i.i40, label %_ZN6hermes13DominanceInfoD2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZN4llvh8DenseMapIPN6hermes10BasicBlockESt10unique_ptrINS_15DomTreeNodeBaseIS2_EESt14default_deleteIS6_EENS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S9_EEED2Ev.exit.i.i
   call void @free(ptr noundef %89) #5

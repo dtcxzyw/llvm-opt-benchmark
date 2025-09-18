@@ -1597,7 +1597,7 @@ declare ptr @av_buffer_pool_init2(i64 noundef, ptr noundef, ptr noundef, ptr nou
 define internal ptr @allocate_shm_buffer(ptr noundef %0, i64 noundef %1) #1 {
   %3 = tail call i32 @shmget(i32 noundef 0, i64 noundef %1, i32 noundef 1023) #10
   %4 = icmp eq i32 %3, -1
-  br i1 %4, label %18, label %5
+  br i1 %4, label %16, label %5
 
 5:                                                ; preds = %2
   %6 = tail call i32 @xcb_generate_id(ptr noundef %0) #10
@@ -1607,7 +1607,7 @@ define internal ptr @allocate_shm_buffer(ptr noundef %0, i64 noundef %1) #1 {
   %10 = icmp ne ptr %8, inttoptr (i64 -1 to ptr)
   %11 = icmp ne ptr %8, null
   %or.cond = and i1 %10, %11
-  br i1 %or.cond, label %12, label %18
+  br i1 %or.cond, label %12, label %16
 
 12:                                               ; preds = %5
   %13 = zext i32 %6 to i64
@@ -1616,11 +1616,11 @@ define internal ptr @allocate_shm_buffer(ptr noundef %0, i64 noundef %1) #1 {
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %16, label %18
 
-16:                                               ; preds = %12
-  %17 = tail call i32 @shmdt(ptr noundef nonnull %8) #10
-  br label %18
+14:                                               ; preds = %12
+  %15 = tail call i32 @shmdt(ptr noundef nonnull %8) #10
+  br label %16
 
-18:                                               ; preds = %12, %16, %5, %2
+16:                                               ; preds = %12, %14, %5, %2
   %.0 = phi ptr [ null, %2 ], [ null, %5 ], [ null, %16 ], [ %15, %12 ]
   ret ptr %.0
 }

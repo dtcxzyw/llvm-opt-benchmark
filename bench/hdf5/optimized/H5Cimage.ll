@@ -1634,9 +1634,9 @@ H5C__cache_image_block_entry_header_size.exit.i.i: ; preds = %345, %334
   %525 = and i64 %524, 65535
   %526 = getelementptr inbounds nuw ptr, ptr %166, i64 %525
   %.0262321.i = load ptr, ptr %526, align 8, !tbaa !108
-  %.not283322.i = icmp eq ptr %.0262321.i, null
+  %cond322.i = icmp eq ptr %.0262321.i, null
   %.not284.i = icmp eq i64 %523, -1
-  %or.cond.i = or i1 %.not284.i, %.not283322.i
+  %or.cond.i = or i1 %.not284.i, %cond322.i
   br i1 %or.cond.i, label %._crit_edge.i, label %.lr.ph.split.i
 
 .lr.ph.split.i:                                   ; preds = %519, %540
@@ -1678,8 +1678,8 @@ H5C__cache_image_block_entry_header_size.exit.i.i: ; preds = %345, %334
 540:                                              ; preds = %.lr.ph.split.i
   %541 = getelementptr inbounds nuw i8, ptr %.0262323.i, i64 104
   %.0262.i = load ptr, ptr %541, align 8, !tbaa !108
-  %.not283.i = icmp eq ptr %.0262.i, null
-  br i1 %.not283.i, label %._crit_edge.i, label %.lr.ph.split.i, !llvm.loop !140
+  %cond.i = icmp eq ptr %.0262.i, null
+  br i1 %cond.i, label %._crit_edge.i, label %.lr.ph.split.i, !llvm.loop !140
 
 ._crit_edge.i:                                    ; preds = %519, %540
   %542 = load i64, ptr @H5E_CACHE_g, align 8, !tbaa !53

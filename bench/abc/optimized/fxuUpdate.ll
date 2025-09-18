@@ -61,7 +61,7 @@ define void @Fxu_Update(ptr noundef %0, ptr noundef readonly captures(address_is
   tail call void @Fxu_MatrixAddLiteral(ptr noundef %0, ptr noundef %20, ptr noundef %11) #7
   tail call void @Fxu_MatrixAddLiteral(ptr noundef %0, ptr noundef %20, ptr noundef %13) #7
   %31 = load ptr, ptr %23, align 8, !tbaa !35
-  %.not = icmp eq ptr %31, null
+  %switch = icmp eq ptr %31, null
   %.not6067 = icmp eq ptr %31, inttoptr (i64 1 to ptr)
   %or.cond = or i1 %.not, %.not6067
   br i1 %or.cond, label %.loopexit, label %.lr.ph
@@ -258,7 +258,7 @@ Fxu_UpdateMatrixDoubleCreateCubes.exit:           ; preds = %50
   store ptr null, ptr %58, align 8, !tbaa !63
   tail call fastcc void @Fxu_UpdateDoublePairs(ptr noundef %0, ptr noundef %4, ptr noundef %7)
   %60 = load ptr, ptr %56, align 8, !tbaa !35
-  %.not = icmp eq ptr %60, null
+  %switch = icmp eq ptr %60, null
   %.not4048 = icmp eq ptr %60, inttoptr (i64 1 to ptr)
   %or.cond = or i1 %.not, %.not4048
   br i1 %or.cond, label %.loopexit, label %.lr.ph
@@ -381,7 +381,7 @@ define void @Fxu_UpdateSingle(ptr noundef %0) local_unnamed_addr #0 {
   tail call void @Fxu_MatrixAddLiteral(ptr noundef %0, ptr noundef %13, ptr noundef %6) #7
   tail call void @Fxu_MatrixAddLiteral(ptr noundef %0, ptr noundef %13, ptr noundef %8) #7
   %24 = load ptr, ptr %16, align 8, !tbaa !35
-  %.not = icmp eq ptr %24, null
+  %switch = icmp eq ptr %24, null
   %.not4652 = icmp eq ptr %24, inttoptr (i64 1 to ptr)
   %or.cond = or i1 %.not, %.not4652
   br i1 %or.cond, label %.loopexit, label %.lr.ph

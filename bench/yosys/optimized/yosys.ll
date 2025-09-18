@@ -32954,17 +32954,17 @@ define void @_ZN5Yosys5shellEPNS_5RTLIL6DesignE(ptr noundef %0) local_unnamed_ad
   store ptr @.str.362, ptr @rl_basic_word_break_characters, align 8, !tbaa !41
   %6 = tail call noundef ptr @_ZN5Yosys13create_promptEPNS_5RTLIL6DesignEi(ptr noundef %0, i32 noundef %5)
   %7 = tail call ptr @readline(ptr noundef nonnull @_ZZN5Yosys13create_promptEPNS_5RTLIL6DesignEiE6buffer)
-  %.not43 = icmp eq ptr %7, null
-  br i1 %.not43, label %._crit_edge46, label %.lr.ph45
+  %cond42 = icmp eq ptr %7, null
+  br i1 %cond42, label %._crit_edge45, label %.lr.ph44
 
-.lr.ph45:                                         ; preds = %1
+.lr.ph44:                                         ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 272
   br label %12
 
-12:                                               ; preds = %.lr.ph45, %.backedge
+12:                                               ; preds = %.lr.ph44, %.backedge
   %13 = phi ptr [ %7, %.lr.ph45 ], [ %20, %.backedge ]
   %14 = call i64 @strspn(ptr noundef nonnull %13, ptr noundef nonnull @.str.349) #44
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 %14
@@ -32977,8 +32977,8 @@ define void @_ZN5Yosys5shellEPNS_5RTLIL6DesignE(ptr noundef %0) local_unnamed_ad
   %18 = load i32, ptr @_ZZN5Yosys5shellEPNS_5RTLIL6DesignEE17recursion_counter, align 4, !tbaa !23
   %19 = call noundef ptr @_ZN5Yosys13create_promptEPNS_5RTLIL6DesignEi(ptr noundef %0, i32 noundef %18)
   %20 = call ptr @readline(ptr noundef nonnull @_ZZN5Yosys13create_promptEPNS_5RTLIL6DesignEiE6buffer)
-  %.not = icmp eq ptr %20, null
-  br i1 %.not, label %._crit_edge46, label %12, !llvm.loop !207
+  %cond = icmp eq ptr %20, null
+  br i1 %cond, label %._crit_edge45, label %12, !llvm.loop !207
 
 21:                                               ; preds = %12
   call void @add_history(ptr noundef nonnull %13)
@@ -33138,7 +33138,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit35: ; preds = %_ZN
   %.merged = phi { ptr, i32 } [ %83, %82 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit35 ]
   resume { ptr, i32 } %.merged
 
-._crit_edge46:                                    ; preds = %.backedge, %1
+._crit_edge45:                                    ; preds = %.backedge, %1
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str)
   br label %86
 
@@ -33146,7 +33146,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit35: ; preds = %_ZN
   call void @free(ptr noundef nonnull %13) #39
   br label %86
 
-86:                                               ; preds = %85, %._crit_edge46
+86:                                               ; preds = %85, %._crit_edge45
   %87 = load i32, ptr @_ZZN5Yosys5shellEPNS_5RTLIL6DesignEE17recursion_counter, align 4, !tbaa !23
   %88 = add nsw i32 %87, -1
   store i32 %88, ptr @_ZZN5Yosys5shellEPNS_5RTLIL6DesignEE17recursion_counter, align 4, !tbaa !23

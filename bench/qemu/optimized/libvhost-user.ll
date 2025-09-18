@@ -4779,7 +4779,7 @@ define internal fastcc void @vu_get_inflight_fd(ptr noundef %0, ptr noundef nonn
   tail call void (ptr, ptr, ...) @vu_panic(ptr noundef %0, ptr noundef nonnull @.str.85, i32 noundef %4)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i64 0, ptr %6, align 1
-  br label %38
+  br label %37
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 12
@@ -4813,36 +4813,36 @@ define internal fastcc void @vu_get_inflight_fd(ptr noundef %0, ptr noundef nonn
   br i1 %29, label %.sink.split.i, label %memfd_alloc.exit
 
 .sink.split.i:                                    ; preds = %27, %24, %21
-  %30 = tail call i32 @close(i32 noundef %19) #21
+  %29 = tail call i32 @close(i32 noundef %19) #21
   br label %memfd_alloc.exit.thread
 
-memfd_alloc.exit:                                 ; preds = %27
+memfd_alloc.exit.thread:                          ; preds = %27
   %.not23 = icmp eq ptr %28, null
   br i1 %.not23, label %memfd_alloc.exit.thread, label %31
 
 memfd_alloc.exit.thread:                          ; preds = %.sink.split.i, %7, %memfd_alloc.exit
   tail call void (ptr, ptr, ...) @vu_panic(ptr noundef %0, ptr noundef nonnull @.str.87)
   store i64 0, ptr %8, align 1
-  br label %38
+  br label %37
 
-31:                                               ; preds = %memfd_alloc.exit
+30:                                               ; preds = %memfd_alloc.exit
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %28, i8 0, i64 %18, i1 false)
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %28, ptr %33, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store ptr %28, ptr %32, align 8
   store i64 %18, ptr %8, align 1
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i64 %18, ptr %34, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %1, i64 284
-  store i32 %19, ptr %35, align 1
-  store i32 %19, ptr %32, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %1, i64 316
-  store i32 1, ptr %36, align 1
-  %37 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  store i64 0, ptr %37, align 1
-  br label %38
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i64 %18, ptr %33, align 8
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 284
+  store i32 %19, ptr %34, align 1
+  store i32 %19, ptr %31, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 316
+  store i32 1, ptr %35, align 1
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  store i64 0, ptr %36, align 1
+  br label %37
 
-38:                                               ; preds = %31, %memfd_alloc.exit.thread, %5
+37:                                               ; preds = %30, %memfd_alloc.exit.thread, %5
   ret void
 }
 

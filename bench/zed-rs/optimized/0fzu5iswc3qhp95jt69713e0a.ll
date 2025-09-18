@@ -19479,7 +19479,7 @@ define internal fastcc void @"_ZN4core3ptr41drop_in_place$LT$client..Subscriptio
           cleanup
   %4 = load ptr, ptr %0, align 8, !noundef !4
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %26, label %20
+  br i1 %.not, label %26, label %18
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %0, align 8, !noundef !4
@@ -19490,19 +19490,19 @@ define internal fastcc void @"_ZN4core3ptr41drop_in_place$LT$client..Subscriptio
   %8 = icmp eq ptr %6, inttoptr (i64 -1 to ptr)
   br i1 %8, label %"_ZN4core3ptr60drop_in_place$LT$alloc..sync..Weak$LT$client..Client$GT$$GT$17h0e34346e19ce3514E.exit", label %9
 
-9:                                                ; preds = %7
-  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %11 = atomicrmw sub ptr %10, i64 1 release, align 8
-  %12 = icmp eq i64 %11, 1
-  br i1 %12, label %"_ZN4core3ptr60drop_in_place$LT$alloc..sync..Weak$LT$client..Client$GT$$GT$17h0e34346e19ce3514E.exit.sink.split", label %"_ZN4core3ptr60drop_in_place$LT$alloc..sync..Weak$LT$client..Client$GT$$GT$17h0e34346e19ce3514E.exit"
+11:                                               ; preds = %7
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %11 = atomicrmw sub ptr %12, i64 1 release, align 8
+  %13 = icmp eq i64 %11, 1
+  br i1 %13, label %"_ZN4core3ptr60drop_in_place$LT$alloc..sync..Weak$LT$client..Client$GT$$GT$17h0e34346e19ce3514E.exit.sink.split", label %"_ZN4core3ptr60drop_in_place$LT$alloc..sync..Weak$LT$client..Client$GT$$GT$17h0e34346e19ce3514E.exit"
 
-13:                                               ; preds = %5
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
+14:                                               ; preds = %5
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val2 = load ptr, ptr %14, align 8, !nonnull !4, !noundef !4
-  %15 = icmp eq ptr %.val2, inttoptr (i64 -1 to ptr)
-  br i1 %15, label %"_ZN4core3ptr60drop_in_place$LT$alloc..sync..Weak$LT$client..Client$GT$$GT$17h0e34346e19ce3514E.exit", label %16
+  %17 = icmp eq ptr %.val2, inttoptr (i64 -1 to ptr)
+  br i1 %17, label %"_ZN4core3ptr60drop_in_place$LT$alloc..sync..Weak$LT$client..Client$GT$$GT$17h0e34346e19ce3514E.exit", label %"_ZN4core3ptr60drop_in_place$LT$alloc..sync..Weak$LT$client..Client$GT$$GT$17h0e34346e19ce3514E.exit.sink.split"
 
-16:                                               ; preds = %13
+"_ZN4core3ptr60drop_in_place$LT$alloc..sync..Weak$LT$client..Client$GT$$GT$17h0e34346e19ce3514E.exit.sink.split": ; preds = %14
   %17 = getelementptr inbounds nuw i8, ptr %.val2, i64 8
   %18 = atomicrmw sub ptr %17, i64 1 release, align 8
   %19 = icmp eq i64 %18, 1
@@ -19514,22 +19514,22 @@ define internal fastcc void @"_ZN4core3ptr41drop_in_place$LT$client..Subscriptio
   tail call void @__rust_dealloc(ptr noundef nonnull %.val2.sink, i64 noundef 312, i64 noundef 8) #25
   br label %"_ZN4core3ptr60drop_in_place$LT$alloc..sync..Weak$LT$client..Client$GT$$GT$17h0e34346e19ce3514E.exit"
 
-"_ZN4core3ptr60drop_in_place$LT$alloc..sync..Weak$LT$client..Client$GT$$GT$17h0e34346e19ce3514E.exit": ; preds = %"_ZN4core3ptr60drop_in_place$LT$alloc..sync..Weak$LT$client..Client$GT$$GT$17h0e34346e19ce3514E.exit.sink.split", %16, %13, %9, %7
+"_ZN4core3ptr60drop_in_place$LT$alloc..sync..Weak$LT$client..Client$GT$$GT$17h0e34346e19ce3514E.exit": ; preds = %"_ZN4core3ptr60drop_in_place$LT$alloc..sync..Weak$LT$client..Client$GT$$GT$17h0e34346e19ce3514E.exit.sink.split", %16, %14, %11, %7
   ret void
 
-20:                                               ; preds = %2
+18:                                               ; preds = %2
   %21 = icmp eq ptr %4, inttoptr (i64 -1 to ptr)
   br i1 %21, label %"_ZN4core3ptr60drop_in_place$LT$alloc..sync..Weak$LT$client..Client$GT$$GT$17h0e34346e19ce3514E.exit6", label %22
 
 22:                                               ; preds = %20
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %24 = atomicrmw sub ptr %23, i64 1 release, align 8
-  %25 = icmp eq i64 %24, 1
-  br i1 %25, label %"_ZN4core3ptr60drop_in_place$LT$alloc..sync..Weak$LT$client..Client$GT$$GT$17h0e34346e19ce3514E.exit6.sink.split", label %"_ZN4core3ptr60drop_in_place$LT$alloc..sync..Weak$LT$client..Client$GT$$GT$17h0e34346e19ce3514E.exit6"
+  %24 = icmp eq i64 %24, 1
+  br i1 %24, label %"_ZN4core3ptr60drop_in_place$LT$alloc..sync..Weak$LT$client..Client$GT$$GT$17h0e34346e19ce3514E.exit6.sink.split", label %"_ZN4core3ptr60drop_in_place$LT$alloc..sync..Weak$LT$client..Client$GT$$GT$17h0e34346e19ce3514E.exit6"
 
-26:                                               ; preds = %2
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.val4 = load ptr, ptr %27, align 8, !nonnull !4, !noundef !4
+25:                                               ; preds = %2
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.val4 = load ptr, ptr %26, align 8, !nonnull !4, !noundef !4
   %28 = icmp eq ptr %.val4, inttoptr (i64 -1 to ptr)
   br i1 %28, label %"_ZN4core3ptr60drop_in_place$LT$alloc..sync..Weak$LT$client..Client$GT$$GT$17h0e34346e19ce3514E.exit6", label %29
 
@@ -19545,7 +19545,7 @@ define internal fastcc void @"_ZN4core3ptr41drop_in_place$LT$client..Subscriptio
   tail call void @__rust_dealloc(ptr noundef nonnull %.val4.sink, i64 noundef 312, i64 noundef 8) #25
   br label %"_ZN4core3ptr60drop_in_place$LT$alloc..sync..Weak$LT$client..Client$GT$$GT$17h0e34346e19ce3514E.exit6"
 
-"_ZN4core3ptr60drop_in_place$LT$alloc..sync..Weak$LT$client..Client$GT$$GT$17h0e34346e19ce3514E.exit6": ; preds = %"_ZN4core3ptr60drop_in_place$LT$alloc..sync..Weak$LT$client..Client$GT$$GT$17h0e34346e19ce3514E.exit6.sink.split", %29, %26, %22, %20
+"_ZN4core3ptr60drop_in_place$LT$alloc..sync..Weak$LT$client..Client$GT$$GT$17h0e34346e19ce3514E.exit6": ; preds = %"_ZN4core3ptr60drop_in_place$LT$alloc..sync..Weak$LT$client..Client$GT$$GT$17h0e34346e19ce3514E.exit6.sink.split", %29, %25, %22, %18
   resume { ptr, i32 } %3
 }
 

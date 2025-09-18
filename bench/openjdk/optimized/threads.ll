@@ -2986,63 +2986,63 @@ _ZNK9LockStack8containsEP7oopDesc.exit.i:         ; preds = %34
   %46 = or i1 %.not.i10, %45
   br i1 %46, label %_ZN7Threads25owning_thread_from_objectEP11ThreadsListP7oopDesc.exit, label %47
 
-47:                                               ; preds = %44
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %51 = load i32, ptr %50, align 4
-  %52 = zext i32 %51 to i64
-  %.idx.i11 = shl nuw nsw i64 %52, 3
-  %53 = getelementptr inbounds nuw i8, ptr %49, i64 %.idx.i11
-  %.not30.i = icmp eq i32 %51, 0
+45:                                               ; preds = %44
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %47 = load ptr, ptr %46, align 8
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %49 = load i32, ptr %48, align 4
+  %50 = zext i32 %49 to i64
+  %.idx.i11 = shl nuw nsw i64 %50, 3
+  %51 = getelementptr inbounds nuw i8, ptr %47, i64 %.idx.i11
+  %.not30.i = icmp eq i32 %49, 0
   br i1 %.not30.i, label %._crit_edge.i, label %.lr.ph.i12
 
-54:                                               ; preds = %.lr.ph.i12
-  %55 = getelementptr inbounds nuw i8, ptr %.sroa.024.031.i, i64 8
-  %.not.i13 = icmp eq ptr %55, %53
+52:                                               ; preds = %.lr.ph.i12
+  %53 = getelementptr inbounds nuw i8, ptr %.sroa.024.031.i, i64 8
+  %.not.i13 = icmp eq ptr %53, %51
   br i1 %.not.i13, label %._crit_edge.i.loopexit, label %.lr.ph.i12
 
-.lr.ph.i12:                                       ; preds = %47, %54
-  %.sroa.024.031.i = phi ptr [ %55, %54 ], [ %49, %47 ]
-  %56 = load i64, ptr @PrefetchScanIntervalInBytes, align 8
-  tail call void asm sideeffect "prefetcht0 ($0,$1,1)", "r,r,~{dirflag},~{fpsr},~{flags}"(ptr %.sroa.024.031.i, i64 %56) #16, !srcloc !9
-  %57 = load ptr, ptr %.sroa.024.031.i, align 8
-  %58 = icmp eq ptr %6, %57
-  br i1 %58, label %_ZN7Threads25owning_thread_from_objectEP11ThreadsListP7oopDesc.exit, label %54
+.lr.ph.i12:                                       ; preds = %45, %52
+  %.sroa.024.031.i = phi ptr [ %53, %54 ], [ %47, %47 ]
+  %54 = load i64, ptr @PrefetchScanIntervalInBytes, align 8
+  tail call void asm sideeffect "prefetcht0 ($0,$1,1)", "r,r,~{dirflag},~{fpsr},~{flags}"(ptr %.sroa.024.031.i, i64 %54) #16, !srcloc !9
+  %55 = load ptr, ptr %.sroa.024.031.i, align 8
+  %56 = icmp eq ptr %6, %55
+  br i1 %56, label %_ZN7Threads25owning_thread_from_objectEP11ThreadsListP7oopDesc.exit, label %52
 
-._crit_edge.i.loopexit:                           ; preds = %54
+._crit_edge.i.loopexit:                           ; preds = %52
   %.pre = load i32, ptr @LockingMode, align 4
   br label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %._crit_edge.i.loopexit, %47
-  %59 = phi i32 [ %.pre, %._crit_edge.i.loopexit ], [ %3, %47 ]
-  %60 = icmp eq i32 %59, 0
-  br i1 %60, label %_ZN7Threads25owning_thread_from_objectEP11ThreadsListP7oopDesc.exit, label %61
+._crit_edge.i:                                    ; preds = %._crit_edge.i.loopexit, %45
+  %57 = phi i32 [ %.pre, %._crit_edge.i.loopexit ], [ %3, %47 ]
+  %58 = icmp eq i32 %57, 0
+  br i1 %58, label %_ZN7Threads25owning_thread_from_objectEP11ThreadsListP7oopDesc.exit, label %59
 
-61:                                               ; preds = %._crit_edge.i
-  %62 = load ptr, ptr %48, align 8
-  %63 = load i32, ptr %50, align 4
-  %64 = zext i32 %63 to i64
-  %.idx38.i = shl nuw nsw i64 %64, 3
-  %65 = getelementptr inbounds nuw i8, ptr %62, i64 %.idx38.i
-  %.not2832.i = icmp eq i32 %63, 0
+59:                                               ; preds = %._crit_edge.i
+  %60 = load ptr, ptr %46, align 8
+  %61 = load i32, ptr %48, align 4
+  %62 = zext i32 %61 to i64
+  %.idx38.i = shl nuw nsw i64 %62, 3
+  %63 = getelementptr inbounds nuw i8, ptr %60, i64 %.idx38.i
+  %.not2832.i = icmp eq i32 %61, 0
   br i1 %.not2832.i, label %_ZN7Threads25owning_thread_from_objectEP11ThreadsListP7oopDesc.exit, label %.lr.ph35.i
 
-66:                                               ; preds = %.lr.ph35.i
-  %67 = getelementptr inbounds nuw i8, ptr %.sroa.0.033.i, i64 8
-  %.not28.i = icmp eq ptr %67, %65
+64:                                               ; preds = %.lr.ph35.i
+  %65 = getelementptr inbounds nuw i8, ptr %.sroa.0.033.i, i64 8
+  %.not28.i = icmp eq ptr %65, %63
   br i1 %.not28.i, label %_ZN7Threads25owning_thread_from_objectEP11ThreadsListP7oopDesc.exit, label %.lr.ph35.i
 
-.lr.ph35.i:                                       ; preds = %61, %66
-  %.sroa.0.033.i = phi ptr [ %67, %66 ], [ %62, %61 ]
-  %68 = load i64, ptr @PrefetchScanIntervalInBytes, align 8
-  tail call void asm sideeffect "prefetcht0 ($0,$1,1)", "r,r,~{dirflag},~{fpsr},~{flags}"(ptr %.sroa.0.033.i, i64 %68) #16, !srcloc !9
-  %69 = load ptr, ptr %.sroa.0.033.i, align 8
-  %70 = tail call noundef zeroext i1 @_ZNK10JavaThread13is_lock_ownedEPh(ptr noundef nonnull align 8 dereferenceable(1800) %69, ptr noundef nonnull %6) #16
-  br i1 %70, label %_ZN7Threads25owning_thread_from_objectEP11ThreadsListP7oopDesc.exit, label %66
+.lr.ph35.i:                                       ; preds = %59, %64
+  %.sroa.0.033.i = phi ptr [ %65, %66 ], [ %60, %61 ]
+  %66 = load i64, ptr @PrefetchScanIntervalInBytes, align 8
+  tail call void asm sideeffect "prefetcht0 ($0,$1,1)", "r,r,~{dirflag},~{fpsr},~{flags}"(ptr %.sroa.0.033.i, i64 %66) #16, !srcloc !9
+  %67 = load ptr, ptr %.sroa.0.033.i, align 8
+  %68 = tail call noundef zeroext i1 @_ZNK10JavaThread13is_lock_ownedEPh(ptr noundef nonnull align 8 dereferenceable(1800) %67, ptr noundef nonnull %6) #16
+  br i1 %68, label %_ZN7Threads25owning_thread_from_objectEP11ThreadsListP7oopDesc.exit, label %64
 
-_ZN7Threads25owning_thread_from_objectEP11ThreadsListP7oopDesc.exit: ; preds = %.lr.ph.i12, %.lr.ph35.i, %66, %_ZNK9LockStack8containsEP7oopDesc.exit.i, %36, %61, %._crit_edge.i, %44, %9, %41
-  %.0 = phi ptr [ %43, %41 ], [ null, %9 ], [ null, %44 ], [ null, %._crit_edge.i ], [ null, %61 ], [ %20, %36 ], [ null, %_ZNK9LockStack8containsEP7oopDesc.exit.i ], [ null, %66 ], [ %69, %.lr.ph35.i ], [ %57, %.lr.ph.i12 ]
+_ZN7Threads25owning_thread_from_objectEP11ThreadsListP7oopDesc.exit: ; preds = %.lr.ph.i12, %.lr.ph35.i, %64, %_ZNK9LockStack8containsEP7oopDesc.exit.i, %36, %59, %._crit_edge.i, %44, %9, %41
+  %.0 = phi ptr [ %43, %41 ], [ null, %9 ], [ null, %44 ], [ null, %._crit_edge.i ], [ null, %61 ], [ %20, %36 ], [ null, %_ZNK9LockStack8containsEP7oopDesc.exit.i ], [ null, %66 ], [ %67, %.lr.ph35.i ], [ %55, %.lr.ph.i12 ]
   ret ptr %.0
 }
 

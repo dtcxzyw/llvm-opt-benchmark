@@ -153,21 +153,21 @@ define noundef i32 @PaUtil_CancelThreading(ptr noundef readonly captures(none) %
   %14 = icmp ne ptr %13, null
   %15 = icmp ne ptr %13, inttoptr (i64 -1 to ptr)
   %or.cond = and i1 %14, %15
-  br i1 %or.cond, label %16, label %20
+  br i1 %or.cond, label %16, label %18
 
-16:                                               ; preds = %10
-  br i1 %.not, label %19, label %17
+14:                                               ; preds = %10
+  br i1 %.not, label %17, label %15
 
-17:                                               ; preds = %16
-  %18 = load i32, ptr %13, align 4, !tbaa !11
-  store i32 %18, ptr %2, align 4, !tbaa !11
-  br label %19
+15:                                               ; preds = %14
+  %16 = load i32, ptr %13, align 4, !tbaa !11
+  store i32 %16, ptr %2, align 4, !tbaa !11
+  br label %17
 
-19:                                               ; preds = %17, %16
+17:                                               ; preds = %15, %14
   call void @free(ptr noundef nonnull %13) #16
-  br label %20
+  br label %18
 
-20:                                               ; preds = %19, %10
+18:                                               ; preds = %19, %10
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 0
 }
@@ -582,9 +582,9 @@ define range(i32 -9999, 1) i32 @PaUnixThread_Terminate(ptr noundef initializes((
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %31 = call i32 @pthread_mutex_destroy(ptr noundef nonnull %30) #16
   store i32 0, ptr @paUtilErr_, align 4, !tbaa !11
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %33 = call i32 @pthread_cond_destroy(ptr noundef nonnull %32) #16
-  store i32 %33, ptr @paUtilErr_, align 4, !tbaa !11
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %31 = call i32 @pthread_cond_destroy(ptr noundef nonnull %30) #16
+  store i32 %31, ptr @paUtilErr_, align 4, !tbaa !11
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }

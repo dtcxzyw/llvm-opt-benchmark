@@ -3736,8 +3736,8 @@ set_ipxnetent.exit.i.i.preheader:                 ; preds = %20, %19
 
 set_ipxnetent.exit.i.i:                           ; preds = %set_ipxnetent.exit.i.i.preheader, %24
   %23 = tail call fastcc ptr @get_ipxnetent()
-  %.not.i.i = icmp eq ptr %23, null
-  br i1 %.not.i.i, label %26, label %24
+  %cond.i.i = icmp eq ptr %23, null
+  br i1 %cond.i.i, label %26, label %24
 
 24:                                               ; preds = %set_ipxnetent.exit.i.i
   %25 = load i32, ptr %23, align 4
@@ -3815,7 +3815,7 @@ define hidden noalias ptr @get_vlan_name(ptr noundef %0, i16 noundef zeroext %1)
   %4 = alloca [1024 x i8], align 16
   %5 = load i8, ptr getelementptr inbounds nuw (i8, ptr @gbl_resolv_flags, i64 6), align 1, !range !16, !noundef !17
   %6 = trunc nuw i8 %5 to i1
-  br i1 %6, label %7, label %59
+  br i1 %6, label %7, label %60
 
 7:                                                ; preds = %2
   %8 = zext i16 %1 to i32
@@ -3838,50 +3838,50 @@ define hidden noalias ptr @get_vlan_name(ptr noundef %0, i16 noundef zeroext %1)
 
 20:                                               ; preds = %14
   tail call void @rewind(ptr noundef nonnull %19)
-  br label %set_vlanent.exit.i.i.preheader
+  br label %set_vlanent.exit.split.i.i
 
 21:                                               ; preds = %14
   %22 = load ptr, ptr @g_pvlan_path, align 8
   %23 = tail call noalias ptr @fopen(ptr noundef readonly %22, ptr noundef nonnull @.str.54)
   store ptr %23, ptr @vlan_p, align 8
-  br label %set_vlanent.exit.i.i.preheader
-
-set_vlanent.exit.i.i.preheader:                   ; preds = %21, %20
   br label %set_vlanent.exit.i.i
 
-set_vlanent.exit.i.i:                             ; preds = %set_vlanent.exit.i.i.preheader, %48
+set_vlanent.exit.i.i:                             ; preds = %21, %20
+  br label %set_vlanent.exit.i.i
+
+set_vlanent.exit.split.i.i:                       ; preds = %set_vlanent.exit.i.i, %50
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %24 = load ptr, ptr @vlan_p, align 8
-  %25 = icmp eq ptr %24, null
-  br i1 %25, label %.thread.i.i, label %.preheader.i.i.i
+  %26 = load ptr, ptr @vlan_p, align 8
+  %27 = icmp eq ptr %26, null
+  br i1 %27, label %.loopexit.i.thread26.i, label %.preheader.i.i.i
 
-.thread.i.i:                                      ; preds = %set_vlanent.exit.i.i
+.loopexit.i.thread26.i:                           ; preds = %set_vlanent.exit.split.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %53
+  br label %.loopexit.i.thread.i
 
-.preheader.i.i.i:                                 ; preds = %set_vlanent.exit.i.i
-  %26 = call ptr @fgets(ptr noundef nonnull %4, i32 noundef 1024, ptr noundef nonnull %24)
-  %.not.i5.i.i.i = icmp eq ptr %26, null
+.preheader.i.i.i:                                 ; preds = %set_vlanent.exit.split.i.i
+  %28 = call ptr @fgets(ptr noundef nonnull %4, i32 noundef 1024, ptr noundef nonnull %26)
+  %.not.i5.i.i.i = icmp eq ptr %28, null
   br i1 %.not.i5.i.i.i, label %.loopexit.i.i, label %fgetline.exit.i.i.i
 
 fgetline.exit.i.i.i:                              ; preds = %.preheader.i.i.i, %parse_vlan_line.exit.i.i.i
-  %27 = call i64 @strcspn(ptr noundef nonnull %4, ptr noundef nonnull @.str.56) #27
-  %sext.i.i.i.i = shl i64 %27, 32
-  %28 = ashr exact i64 %sext.i.i.i.i, 32
-  %29 = getelementptr i8, ptr %4, i64 %28
-  store i8 0, ptr %29, align 1
-  %30 = and i64 %27, 2147483648
-  %31 = icmp eq i64 %30, 0
-  br i1 %31, label %32, label %.loopexit.i.i
+  %29 = call i64 @strcspn(ptr noundef nonnull %4, ptr noundef nonnull @.str.56) #27
+  %sext.i.i.i.i = shl i64 %29, 32
+  %30 = ashr exact i64 %sext.i.i.i.i, 32
+  %31 = getelementptr i8, ptr %4, i64 %30
+  store i8 0, ptr %31, align 1
+  %32 = and i64 %29, 2147483648
+  %33 = icmp eq i64 %32, 0
+  br i1 %33, label %34, label %.loopexit.i.i
 
-32:                                               ; preds = %fgetline.exit.i.i.i
+34:                                               ; preds = %fgetline.exit.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %33 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %4, i32 noundef 35) #27
-  %.not.i1.i.i.i = icmp eq ptr %33, null
-  br i1 %.not.i1.i.i.i, label %35, label %34
+  %35 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %4, i32 noundef 35) #27
+  %.not.i1.i.i.i = icmp eq ptr %35, null
+  br i1 %.not.i1.i.i.i, label %35, label %36
 
-34:                                               ; preds = %32
-  store i8 0, ptr %33, align 1
+36:                                               ; preds = %34
+  store i8 0, ptr %35, align 1
   br label %35
 
 35:                                               ; preds = %34, %32
@@ -3889,12 +3889,12 @@ fgetline.exit.i.i.i:                              ; preds = %.preheader.i.i.i, %
   %37 = icmp eq ptr %36, null
   br i1 %37, label %parse_vlan_line.exit.i.i.i, label %38
 
-38:                                               ; preds = %35
-  %39 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %36, ptr noundef nonnull @.str.80, ptr noundef nonnull %3) #28
-  %40 = icmp eq i32 %39, 1
-  br i1 %40, label %41, label %parse_vlan_line.exit.i.i.i
+37:                                               ; preds = %35
+  %38 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %36, ptr noundef nonnull @.str.80, ptr noundef nonnull %3) #28
+  %39 = icmp eq i32 %38, 1
+  br i1 %39, label %41, label %parse_vlan_line.exit.i.i.i
 
-41:                                               ; preds = %38
+40:                                               ; preds = %37
   %42 = load i16, ptr %3, align 2
   %43 = zext i16 %42 to i32
   store i32 %43, ptr @get_vlanent.vlan, align 4
@@ -3902,50 +3902,50 @@ fgetline.exit.i.i.i:                              ; preds = %.preheader.i.i.i, %
   %45 = icmp eq ptr %44, null
   br i1 %45, label %parse_vlan_line.exit.i.i.i, label %48
 
-parse_vlan_line.exit.i.i.i:                       ; preds = %41, %38, %35
+parse_vlan_line.exit.i.i.i:; preds = %41, %38, %35
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %46 = load ptr, ptr @vlan_p, align 8
-  %47 = call ptr @fgets(ptr noundef nonnull %4, i32 noundef 1024, ptr noundef %46)
-  %.not.i.i.i.i = icmp eq ptr %47, null
+  %48 = load ptr, ptr @vlan_p, align 8
+  %49 = call ptr @fgets(ptr noundef nonnull %4, i32 noundef 1024, ptr noundef %48)
+  %.not.i.i.i.i = icmp eq ptr %49, null
   br i1 %.not.i.i.i.i, label %.loopexit.i.i, label %fgetline.exit.i.i.i, !llvm.loop !50
 
-48:                                               ; preds = %41
-  %49 = call i64 @g_strlcpy(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @get_vlanent.vlan, i64 4), ptr noundef nonnull %44, i64 noundef 128)
+50:                                               ; preds = %41
+  %51 = call i64 @g_strlcpy(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @get_vlanent.vlan, i64 4), ptr noundef nonnull %44, i64 noundef 128)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %50 = load i32, ptr @get_vlanent.vlan, align 4
-  %.not3.i.i = icmp eq i32 %50, %8
-  br i1 %.not3.i.i, label %get_vlannamebyid.exit.i, label %set_vlanent.exit.i.i, !llvm.loop !51
+  %52 = load i32, ptr @get_vlanent.vlan, align 4
+  %.not3.i.i = icmp eq i32 %52, %8
+  br i1 %.not3.i.i, label %get_vlannamebyid.exit.i, label %set_vlanent.exit.split.i.i, !llvm.loop !51
 
 .loopexit.i.i:                                    ; preds = %.preheader.i.i.i, %parse_vlan_line.exit.i.i.i, %fgetline.exit.i.i.i
-  %.pr.i.i = load ptr, ptr @vlan_p, align 8
+  %.pre.pr.i = load ptr, ptr @vlan_p, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %.not.i4.i.i = icmp eq ptr %.pr.i.i, null
-  br i1 %.not.i4.i.i, label %53, label %51
+  %.not.i4.i.i = icmp eq ptr %.pre.pr.i, null
+  br i1 %.not.i4.i.i, label %.loopexit.i.thread.i, label %53
 
-51:                                               ; preds = %.loopexit.i.i
-  %52 = call i32 @fclose(ptr noundef nonnull %.pr.i.i)
+53:                                               ; preds = %.loopexit.i.i
+  %54 = call i32 @fclose(ptr noundef nonnull %.pre.pr.i)
   store ptr null, ptr @vlan_p, align 8
-  br label %53
+  br label %.loopexit.i.thread.i
 
-53:                                               ; preds = %51, %.loopexit.i.i, %.thread.i.i
-  %54 = getelementptr inbounds nuw i8, ptr %16, i64 4
-  %55 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %54, i64 noundef 128, i32 noundef 2, i64 noundef 128, ptr noundef nonnull @.str.79, i32 noundef range(i32 0, 65536) %8)
+.loopexit.i.thread.i:                             ; preds = %53, %.loopexit.i.i, %.loopexit.i.thread26.i
+  %55 = getelementptr inbounds nuw i8, ptr %16, i64 4
+  %56 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %55, i64 noundef 128, i32 noundef 2, i64 noundef 128, ptr noundef nonnull @.str.79, i32 noundef range(i32 0, 65536) %8)
   br label %vlan_name_lookup.exit
 
-get_vlannamebyid.exit.i:                          ; preds = %48
-  %56 = getelementptr inbounds nuw i8, ptr %16, i64 4
-  %57 = call i64 @g_strlcpy(ptr noundef nonnull %56, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @get_vlanent.vlan, i64 4), i64 noundef 128)
+get_vlannamebyid.exit.i:                          ; preds = %50
+  %57 = getelementptr inbounds nuw i8, ptr %16, i64 4
+  %58 = call i64 @g_strlcpy(ptr noundef nonnull %57, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @get_vlanent.vlan, i64 4), i64 noundef 128)
   br label %vlan_name_lookup.exit
 
-vlan_name_lookup.exit:                            ; preds = %7, %53, %get_vlannamebyid.exit.i
+vlan_name_lookup.exit:                            ; preds = %7, %.loopexit.i.thread.i, %get_vlannamebyid.exit.i
   %.pn.i = phi ptr [ %12, %7 ], [ %16, %get_vlannamebyid.exit.i ], [ %16, %53 ]
   %.0.i = getelementptr inbounds nuw i8, ptr %.pn.i, i64 4
-  %58 = call noalias ptr @wmem_strdup(ptr noundef %0, ptr noundef nonnull %.0.i)
-  br label %59
+  %59 = call noalias ptr @wmem_strdup(ptr noundef %0, ptr noundef nonnull %.0.i)
+  br label %60
 
-59:                                               ; preds = %2, %vlan_name_lookup.exit
-  %.0 = phi ptr [ %58, %vlan_name_lookup.exit ], [ null, %2 ]
+60:                                               ; preds = %2, %vlan_name_lookup.exit
+  %.0 = phi ptr [ %59, %vlan_name_lookup.exit ], [ null, %2 ]
   ret ptr %.0
 }
 

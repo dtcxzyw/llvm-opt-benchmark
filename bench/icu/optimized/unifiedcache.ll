@@ -1019,8 +1019,8 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %4
           to label %12 unwind label %68
 
 12:                                               ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
-  %.not = icmp eq ptr %11, null
-  br i1 %.not, label %70, label %13
+  %cond = icmp eq ptr %11, null
+  br i1 %cond, label %70, label %13
 
 13:                                               ; preds = %12
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 16

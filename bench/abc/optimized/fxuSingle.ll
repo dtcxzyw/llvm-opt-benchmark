@@ -76,7 +76,7 @@ define void @Fxu_MatrixComputeSingles(ptr noundef initializes((120, 124)) %0, i3
 
 ._crit_edge63.i:                                  ; preds = %._crit_edge.i
   %.pre.i = load ptr, ptr %11, align 8, !tbaa !30
-  %.not36.i = icmp eq ptr %.pre.i, null
+  %switch.i = icmp eq ptr %.pre.i, null
   %.not3764.i = icmp eq ptr %.pre.i, inttoptr (i64 1 to ptr)
   %or.cond.i = or i1 %.not36.i, %.not3764.i
   br i1 %or.cond.i, label %Fxu_MatrixComputeSinglesOneCollect.exit, label %.lr.ph66.i
@@ -231,14 +231,14 @@ Fxu_SingleCountCoincidence.exit.i:                ; preds = %71
   br label %Vec_PtrPush.exitthread-pre-split.i
 
 Vec_PtrPush.exitthread-pre-split.i:               ; preds = %94, %92, %85, %83
-  %.sink88.i = phi ptr [ %84, %83 ], [ %86, %85 ], [ %93, %92 ], [ %95, %94 ]
+  %.sink86.i = phi ptr [ %84, %83 ], [ %86, %85 ], [ %93, %92 ], [ %95, %94 ]
   %.sink.i = phi i32 [ 16, %83 ], [ 16, %85 ], [ %88, %92 ], [ %88, %94 ]
-  store ptr %.sink88.i, ptr %9, align 8, !tbaa !27
+  store ptr %.sink86.i, ptr %9, align 8, !tbaa !27
   br label %Vec_PtrPush.exit.i
 
 Vec_PtrPush.exit.i:                               ; preds = %Vec_PtrPush.exitthread-pre-split.i, %.Vec_PtrGrow.exit11_crit_edge.i.i
   %96 = phi i32 [ %.sink.i, %Vec_PtrPush.exitthread-pre-split.i ], [ %28, %.Vec_PtrGrow.exit11_crit_edge.i.i ]
-  %97 = phi ptr [ %.sink88.i, %Vec_PtrPush.exitthread-pre-split.i ], [ %.pre.i.i, %.Vec_PtrGrow.exit11_crit_edge.i.i ]
+  %97 = phi ptr [ %.sink86.i, %Vec_PtrPush.exitthread-pre-split.i ], [ %.pre.i.i, %.Vec_PtrGrow.exit11_crit_edge.i.i ]
   %98 = add nsw i32 %29, 1
   store i32 %98, ptr %7, align 4, !tbaa !24
   %99 = sext i32 %29 to i64
@@ -593,7 +593,7 @@ define void @Fxu_MatrixComputeSinglesOne(ptr noundef %0, ptr noundef %1) local_u
 
 ._crit_edge47:                                    ; preds = %._crit_edge
   %.pre = load ptr, ptr %3, align 8, !tbaa !30
-  %.not34 = icmp eq ptr %.pre, null
+  %switch = icmp eq ptr %.pre, null
   %.not3548 = icmp eq ptr %.pre, inttoptr (i64 1 to ptr)
   %or.cond = or i1 %.not34, %.not3548
   br i1 %or.cond, label %.loopexit, label %.lr.ph50

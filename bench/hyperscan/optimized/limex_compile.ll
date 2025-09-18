@@ -26364,9 +26364,9 @@ _ZN5boost14dynamic_bitsetImSaImEE6resizeEmb.exit125: ; preds = %_ZNSt6vectorImSa
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %28, i8 0, i64 24, i1 false)
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  %.sroa.039.078.i = load ptr, ptr %96, align 8
-  %.not79.i = icmp eq ptr %.sroa.039.078.i, null
-  br i1 %.not79.i, label %._crit_edge.i.thread, label %.lr.ph.i
+  %.sroa.040.079.i = load ptr, ptr %96, align 8
+  %.not80.i = icmp eq ptr %.sroa.040.079.i, null
+  br i1 %.not80.i, label %._crit_edge.i.thread, label %.lr.ph.i
 
 ._crit_edge.i.thread:                             ; preds = %95
   %97 = getelementptr inbounds nuw i8, ptr %28, i64 8
@@ -26455,10 +26455,10 @@ _ZN5boost14dynamic_bitsetImSaImEE6resizeEmb.exit125: ; preds = %_ZNSt6vectorImSa
 
 129:                                              ; preds = %_ZN3ue212_GLOBAL__N_110AccelBuildD2Ev.exit.i, %.lr.ph.i
   %130 = phi ptr [ null, %.lr.ph.i ], [ %329, %_ZN3ue212_GLOBAL__N_110AccelBuildD2Ev.exit.i ]
-  %.sroa.039.080.i = phi ptr [ %.sroa.039.078.i, %.lr.ph.i ], [ %.sroa.039.0.i, %_ZN3ue212_GLOBAL__N_110AccelBuildD2Ev.exit.i ]
-  %131 = getelementptr inbounds nuw i8, ptr %.sroa.039.080.i, i64 8
+  %.sroa.040.081.i = phi ptr [ %.sroa.040.079.i, %.lr.ph.i ], [ %.sroa.040.0.i, %_ZN3ue212_GLOBAL__N_110AccelBuildD2Ev.exit.i ]
+  %131 = getelementptr inbounds nuw i8, ptr %.sroa.040.081.i, i64 8
   %.sroa.03.0.copyload.i = load ptr, ptr %131, align 8
-  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.039.080.i, i64 16
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.040.081.i, i64 16
   %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %25, i8 0, i64 56, i1 false)
@@ -27005,8 +27005,8 @@ _ZNSt6vectorIN3ue212_GLOBAL__N_110AccelBuildESaIS2_EE9push_backERKS2_.exit.i: ; 
 
 _ZN3ue212_GLOBAL__N_110AccelBuildD2Ev.exit.i:     ; preds = %334, %331, %_ZNSt6vectorIN3ue212_GLOBAL__N_110AccelBuildESaIS2_EE9push_backERKS2_.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
-  %.sroa.039.0.i = load ptr, ptr %.sroa.039.080.i, align 8
-  %.not.i127 = icmp eq ptr %.sroa.039.0.i, null
+  %.sroa.040.0.i = load ptr, ptr %.sroa.040.081.i, align 8
+  %.not.i127 = icmp eq ptr %.sroa.040.0.i, null
   br i1 %.not.i127, label %._crit_edge.i, label %129
 
 .loopexit.i:                                      ; preds = %_ZNKSt6vectorIN3ue212_GLOBAL__N_110AccelBuildESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i, %_ZNKSt13unordered_mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEEjSt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_jEEE2atERSE_.exit.i.i

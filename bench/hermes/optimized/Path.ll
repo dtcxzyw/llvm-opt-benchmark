@@ -7949,9 +7949,9 @@ entry:
   store i32 0, ptr %call, align 4
   %0 = load i64, ptr %It, align 8
   %1 = inttoptr i64 %0 to ptr
-  %call115 = tail call ptr @readdir(ptr noundef %1) #29
-  %cmp16 = icmp eq ptr %call115, null
-  br i1 %cmp16, label %land.lhs.true, label %if.then7.lr.ph
+  %call120 = tail call ptr @readdir(ptr noundef %1) #29
+  %cond21 = icmp eq ptr %call120, null
+  br i1 %cond21, label %land.lhs.true, label %if.then7.lr.ph
 
 if.then7.lr.ph:                                   ; preds = %entry
   %Length.i35 = getelementptr inbounds nuw i8, ptr %Name, i64 8
@@ -7968,8 +7968,8 @@ if.then:                                          ; preds = %land.lhs.true
   br label %return
 
 if.then7:                                         ; preds = %if.then7.lr.ph, %if.then23
-  %call117 = phi ptr [ %call115, %if.then7.lr.ph ], [ %call1, %if.then23 ]
-  %d_name = getelementptr inbounds nuw i8, ptr %call117, i64 19
+  %call122 = phi ptr [ %call115, %if.then7.lr.ph ], [ %call1, %if.then23 ]
+  %d_name = getelementptr inbounds nuw i8, ptr %call122, i64 19
   store ptr %d_name, ptr %Name, align 8
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %d_name) #28
   store i64 %call.i, ptr %Length.i35, align 8
@@ -7989,7 +7989,7 @@ land.lhs.true15:                                  ; preds = %if.then7
   br i1 %cmp18, label %land.lhs.true19, label %if.end
 
 land.lhs.true19:                                  ; preds = %land.lhs.true15
-  %arrayidx.i = getelementptr inbounds nuw i8, ptr %call117, i64 20
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %call122, i64 20
   %6 = load i8, ptr %arrayidx.i, align 1
   %cmp22 = icmp eq i8 %6, 46
   br i1 %cmp22, label %if.then23, label %if.end
@@ -7999,8 +7999,8 @@ if.then23:                                        ; preds = %land.lhs.true19, %l
   %7 = load i64, ptr %It, align 8
   %8 = inttoptr i64 %7 to ptr
   %call1 = tail call ptr @readdir(ptr noundef %8) #29
-  %cmp = icmp eq ptr %call1, null
-  br i1 %cmp, label %land.lhs.true, label %if.then7
+  %cond = icmp eq ptr %call1, null
+  br i1 %cond, label %land.lhs.true, label %if.then7
 
 if.end:                                           ; preds = %if.then7, %land.lhs.true10, %land.lhs.true19, %land.lhs.true15
   %CurrentEntry = getelementptr inbounds nuw i8, ptr %It, i64 8
@@ -8009,7 +8009,7 @@ if.end:                                           ; preds = %if.then7, %land.lhs
   %RHSKind.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 17
   store i8 1, ptr %RHSKind.i, align 1
   store ptr %Name, ptr %ref.tmp, align 8
-  %9 = getelementptr i8, ptr %call117, i64 18
+  %9 = getelementptr i8, ptr %call122, i64 18
   %call1.val = load i8, ptr %9, align 2
   %conv.i = zext i8 %call1.val to i32
   %shl.i = shl nuw nsw i32 %conv.i, 12

@@ -3971,7 +3971,7 @@ signal_add_constants.exit:                        ; preds = %137
   %170 = inttoptr i64 %169 to ptr
   %171 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 2208), align 8, !tbaa !177
   %172 = icmp eq ptr %171, %170
-  br i1 %172, label %194, label %signal_get_set_handlers.exit
+  br i1 %172, label %195, label %signal_get_set_handlers.exit
 
 .preheader:                                       ; preds = %162, %Py_XDECREF.exit.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %Py_XDECREF.exit.i ], [ 1, %162 ]
@@ -3989,66 +3989,66 @@ signal_add_constants.exit:                        ; preds = %137
   %182 = inttoptr i64 %181 to ptr
   %183 = load i32, ptr %.020.i, align 8, !tbaa !180
   %184 = icmp slt i32 %183, 0
-  br i1 %184, label %_Py_NewRef.exit.i, label %185
+  br i1 %184, label %_Py_NewRef.exit.i, label %179
 
-185:                                              ; preds = %.preheader
+179:                                              ; preds = %.preheader
   %186 = add nuw i32 %183, 1
   store i32 %186, ptr %.020.i, align 8, !tbaa !180
   br label %_Py_NewRef.exit.i
 
 _Py_NewRef.exit.i:                                ; preds = %185, %.preheader
-  %187 = ptrtoint ptr %.020.i to i64
-  store atomic i64 %187, ptr %180 seq_cst, align 8
+  %188 = ptrtoint ptr %.020.i to i64
+  store atomic i64 %188, ptr %180 seq_cst, align 8
   %.not.i24.i = icmp eq i64 %181, 0
-  br i1 %.not.i24.i, label %Py_XDECREF.exit.i, label %188
+  br i1 %.not.i24.i, label %Py_XDECREF.exit.i, label %189
 
-188:                                              ; preds = %_Py_NewRef.exit.i
-  %189 = load i32, ptr %182, align 8, !tbaa !180
-  %.not.i.i.i = icmp sgt i32 %189, -1
-  br i1 %.not.i.i.i, label %190, label %Py_XDECREF.exit.i
+189:                                              ; preds = %_Py_NewRef.exit.i
+  %190 = load i32, ptr %182, align 8, !tbaa !180
+  %.not.i.i.i = icmp sgt i32 %190, -1
+  br i1 %.not.i.i.i, label %191, label %Py_XDECREF.exit.i
 
-190:                                              ; preds = %188
-  %191 = add nsw i32 %189, -1
-  store i32 %191, ptr %182, align 8, !tbaa !180
-  %192 = icmp eq i32 %191, 0
-  br i1 %192, label %193, label %Py_XDECREF.exit.i
+191:                                              ; preds = %189
+  %192 = add nsw i32 %190, -1
+  store i32 %192, ptr %182, align 8, !tbaa !180
+  %193 = icmp eq i32 %192, 0
+  br i1 %193, label %194, label %Py_XDECREF.exit.i
 
-193:                                              ; preds = %190
+194:                                              ; preds = %191
   tail call void @_Py_Dealloc(ptr noundef nonnull %182) #15
   br label %Py_XDECREF.exit.i
 
-Py_XDECREF.exit.i:                                ; preds = %193, %190, %188, %_Py_NewRef.exit.i
+Py_XDECREF.exit.i:                                ; preds = %194, %191, %189, %_Py_NewRef.exit.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 65
   br i1 %exitcond.not.i, label %168, label %.preheader, !llvm.loop !229
 
-194:                                              ; preds = %168
-  %195 = tail call ptr @PyMapping_GetItemString(ptr noundef %143, ptr noundef nonnull @.str.4) #15
-  %.not.not.i = icmp eq ptr %195, null
-  br i1 %.not.not.i, label %signal_get_set_handlers.exit, label %196
+195:                                              ; preds = %168
+  %196 = tail call ptr @PyMapping_GetItemString(ptr noundef %143, ptr noundef nonnull @.str.4) #15
+  %.not.not.i = icmp eq ptr %196, null
+  br i1 %.not.not.i, label %signal_get_set_handlers.exit, label %197
 
-196:                                              ; preds = %194
-  %197 = ptrtoint ptr %195 to i64
-  store atomic i64 %197, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 1192) seq_cst, align 8
-  %198 = load i32, ptr %170, align 8, !tbaa !180
-  %.not.i.i = icmp sgt i32 %198, -1
-  br i1 %.not.i.i, label %199, label %Py_DECREF.exit.i
+197:                                              ; preds = %195
+  %198 = ptrtoint ptr %196 to i64
+  store atomic i64 %198, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 1192) seq_cst, align 8
+  %199 = load i32, ptr %170, align 8, !tbaa !180
+  %.not.i.i = icmp sgt i32 %199, -1
+  br i1 %.not.i.i, label %200, label %Py_DECREF.exit.i
 
-199:                                              ; preds = %196
-  %200 = add nsw i32 %198, -1
-  store i32 %200, ptr %170, align 8, !tbaa !180
-  %201 = icmp eq i32 %200, 0
-  br i1 %201, label %202, label %Py_DECREF.exit.i
+200:                                              ; preds = %197
+  %201 = add nsw i32 %199, -1
+  store i32 %201, ptr %170, align 8, !tbaa !180
+  %202 = icmp eq i32 %201, 0
+  br i1 %202, label %203, label %Py_DECREF.exit.i
 
-202:                                              ; preds = %199
+203:                                              ; preds = %200
   tail call void @_Py_Dealloc(ptr noundef nonnull %170) #15
   br label %Py_DECREF.exit.i
 
-Py_DECREF.exit.i:                                 ; preds = %202, %199, %196
-  %203 = tail call ptr @PyOS_setsig(i32 noundef 2, ptr noundef nonnull @signal_handler) #15
+Py_DECREF.exit.i:                                 ; preds = %203, %200, %197
+  %204 = tail call ptr @PyOS_setsig(i32 noundef 2, ptr noundef nonnull @signal_handler) #15
   br label %signal_get_set_handlers.exit
 
-signal_get_set_handlers.exit:                     ; preds = %168, %Py_DECREF.exit.i, %137, %134, %131, %126, %121, %118, %115, %112, %109, %106, %103, %100, %97, %94, %91, %88, %85, %82, %79, %76, %73, %70, %67, %64, %61, %58, %55, %52, %49, %46, %43, %40, %37, %34, %31, %28, %25, %22, %19, %16, %13, %10, %162, %194, %142, %147, %151, %155, %159, %signal_add_constants.exit, %1
+signal_get_set_handlers.exit:                     ; preds = %168, %Py_DECREF.exit.i, %137, %134, %131, %126, %121, %118, %115, %112, %109, %106, %103, %100, %97, %94, %91, %88, %85, %82, %79, %76, %73, %70, %67, %64, %61, %58, %55, %52, %49, %46, %43, %40, %37, %34, %31, %28, %25, %22, %19, %16, %13, %10, %162, %195, %142, %147, %151, %155, %159, %signal_add_constants.exit, %1
   %.0 = phi i32 [ -1, %1 ], [ -1, %signal_add_constants.exit ], [ -1, %142 ], [ -1, %147 ], [ -1, %151 ], [ -1, %155 ], [ -1, %159 ], [ -1, %194 ], [ 0, %162 ], [ -1, %10 ], [ -1, %13 ], [ -1, %16 ], [ -1, %19 ], [ -1, %22 ], [ -1, %25 ], [ -1, %28 ], [ -1, %31 ], [ -1, %34 ], [ -1, %37 ], [ -1, %40 ], [ -1, %43 ], [ -1, %46 ], [ -1, %49 ], [ -1, %52 ], [ -1, %55 ], [ -1, %58 ], [ -1, %61 ], [ -1, %64 ], [ -1, %67 ], [ -1, %70 ], [ -1, %73 ], [ -1, %76 ], [ -1, %79 ], [ -1, %82 ], [ -1, %85 ], [ -1, %88 ], [ -1, %91 ], [ -1, %94 ], [ -1, %97 ], [ -1, %100 ], [ -1, %103 ], [ -1, %106 ], [ -1, %109 ], [ -1, %112 ], [ -1, %115 ], [ -1, %118 ], [ -1, %121 ], [ -1, %126 ], [ -1, %131 ], [ -1, %134 ], [ -1, %137 ], [ 0, %Py_DECREF.exit.i ], [ 0, %168 ]
   ret i32 %.0
 }

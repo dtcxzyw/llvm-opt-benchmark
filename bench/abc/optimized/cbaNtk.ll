@@ -3576,7 +3576,7 @@ define void @Cba_NtkObjOrder(ptr noundef captures(none) %0, ptr noundef captures
   %5 = getelementptr i8, ptr %1, i64 4
   %.val33 = load i32, ptr %5, align 4, !tbaa !46
   %6 = icmp slt i32 %.val33, 2
-  br i1 %6, label %119, label %.lr.ph
+  br i1 %6, label %116, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %7 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #26
@@ -3801,14 +3801,14 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %118 ], [ 0, %.lr.ph.i.i.preheader ]
   %112 = getelementptr inbounds nuw ptr, ptr %.pre.pre.pre.pre, i64 %indvars.iv.i.i
   %113 = load ptr, ptr %112, align 8, !tbaa !9
-  %114 = icmp ne ptr %113, inttoptr (i64 1 to ptr)
+  %switch.i.i = icmp ne ptr %113, inttoptr (i64 1 to ptr)
   %115 = icmp ne ptr %113, inttoptr (i64 2 to ptr)
   %or.cond.i.i = and i1 %114, %115
   %116 = icmp ne ptr %113, null
   %or.cond3.i.i = and i1 %116, %or.cond.i.i
-  br i1 %or.cond3.i.i, label %117, label %118
+  br i1 %or.cond3.i.i, label %115, label %118
 
-117:                                              ; preds = %.lr.ph.i.i
+115:                                              ; preds = %.lr.ph.i.i
   tail call void @free(ptr noundef nonnull %113) #25
   br label %118
 
@@ -3820,9 +3820,9 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 Vec_PtrFreeFree.exit:                             ; preds = %118, %.critedge2
   tail call void @free(ptr noundef nonnull %.pre.pre.pre.pre) #25
   tail call void @free(ptr noundef nonnull %7) #25
-  br label %119
+  br label %116
 
-119:                                              ; preds = %3, %Vec_PtrFreeFree.exit
+116:                                              ; preds = %3, %Vec_PtrFreeFree.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }

@@ -2452,7 +2452,7 @@ lean_nat_eq.exit:                                 ; preds = %1
 
 lean_nat_eq.exit.thread:                          ; preds = %1
   %4 = tail call zeroext i1 @lean_nat_big_eq(ptr noundef %0, ptr noundef nonnull inttoptr (i64 3 to ptr)) #7
-  br i1 %4, label %25, label %lean_nat_eq.exit31.thread
+  br i1 %4, label %23, label %lean_nat_eq.exit31.thread
 
 lean_nat_eq.exit31:                               ; preds = %lean_nat_eq.exit
   %.not59 = icmp eq ptr %0, inttoptr (i64 5 to ptr)
@@ -2460,7 +2460,7 @@ lean_nat_eq.exit31:                               ; preds = %lean_nat_eq.exit
 
 lean_nat_eq.exit31.thread:                        ; preds = %lean_nat_eq.exit.thread
   %5 = tail call zeroext i1 @lean_nat_big_eq(ptr noundef %0, ptr noundef nonnull inttoptr (i64 5 to ptr)) #7
-  br i1 %5, label %23, label %lean_nat_eq.exit34.thread
+  br i1 %5, label %21, label %lean_nat_eq.exit34.thread
 
 lean_nat_eq.exit34:                               ; preds = %lean_nat_eq.exit31
   %.not60 = icmp eq ptr %0, inttoptr (i64 7 to ptr)
@@ -2468,7 +2468,7 @@ lean_nat_eq.exit34:                               ; preds = %lean_nat_eq.exit31
 
 lean_nat_eq.exit34.thread:                        ; preds = %lean_nat_eq.exit31.thread
   %6 = tail call zeroext i1 @lean_nat_big_eq(ptr noundef %0, ptr noundef nonnull inttoptr (i64 7 to ptr)) #7
-  br i1 %6, label %21, label %lean_nat_eq.exit37.thread
+  br i1 %6, label %19, label %lean_nat_eq.exit37.thread
 
 lean_nat_eq.exit37:                               ; preds = %lean_nat_eq.exit34
   %.not61 = icmp eq ptr %0, inttoptr (i64 9 to ptr)
@@ -2476,7 +2476,7 @@ lean_nat_eq.exit37:                               ; preds = %lean_nat_eq.exit34
 
 lean_nat_eq.exit37.thread:                        ; preds = %lean_nat_eq.exit34.thread
   %7 = tail call zeroext i1 @lean_nat_big_eq(ptr noundef %0, ptr noundef nonnull inttoptr (i64 9 to ptr)) #7
-  br i1 %7, label %19, label %lean_nat_eq.exit40.thread
+  br i1 %7, label %17, label %lean_nat_eq.exit40.thread
 
 lean_nat_eq.exit40:                               ; preds = %lean_nat_eq.exit37
   %.not62 = icmp eq ptr %0, inttoptr (i64 11 to ptr)
@@ -2484,7 +2484,7 @@ lean_nat_eq.exit40:                               ; preds = %lean_nat_eq.exit37
 
 lean_nat_eq.exit40.thread:                        ; preds = %lean_nat_eq.exit37.thread
   %8 = tail call zeroext i1 @lean_nat_big_eq(ptr noundef %0, ptr noundef nonnull inttoptr (i64 11 to ptr)) #7
-  br i1 %8, label %17, label %lean_nat_eq.exit43.thread
+  br i1 %8, label %15, label %lean_nat_eq.exit43.thread
 
 lean_nat_eq.exit43:                               ; preds = %lean_nat_eq.exit40
   %.not63 = icmp eq ptr %0, inttoptr (i64 13 to ptr)
@@ -2492,46 +2492,46 @@ lean_nat_eq.exit43:                               ; preds = %lean_nat_eq.exit40
 
 lean_nat_eq.exit43.thread:                        ; preds = %lean_nat_eq.exit40.thread
   %9 = tail call zeroext i1 @lean_nat_big_eq(ptr noundef %0, ptr noundef nonnull inttoptr (i64 13 to ptr)) #7
-  br i1 %9, label %15, label %lean_nat_eq.exit46
+  br i1 %9, label %13, label %lean_nat_eq.exit46
 
 10:                                               ; preds = %lean_nat_eq.exit43
   %11 = icmp eq ptr %0, inttoptr (i64 15 to ptr)
   br i1 %11, label %13, label %27
 
 lean_nat_eq.exit46:                               ; preds = %lean_nat_eq.exit43.thread
-  %12 = tail call zeroext i1 @lean_nat_big_eq(ptr noundef %0, ptr noundef nonnull inttoptr (i64 15 to ptr)) #7
-  br i1 %12, label %13, label %27
+  %10 = tail call zeroext i1 @lean_nat_big_eq(ptr noundef %0, ptr noundef nonnull inttoptr (i64 15 to ptr)) #7
+  br i1 %10, label %11, label %25
 
-13:                                               ; preds = %10, %lean_nat_eq.exit46
-  %14 = load ptr, ptr @l_Std_Time_Weekday_ofNat_x3f___closed__1, align 8, !tbaa !10
-  br label %27
+11:                                               ; preds = %10, %lean_nat_eq.exit46
+  %12 = load ptr, ptr @l_Std_Time_Weekday_ofNat_x3f___closed__1, align 8, !tbaa !10
+  br label %25
 
-15:                                               ; preds = %lean_nat_eq.exit43.thread, %lean_nat_eq.exit43
-  %16 = load ptr, ptr @l_Std_Time_Weekday_ofNat_x3f___closed__2, align 8, !tbaa !10
-  br label %27
+13:                                               ; preds = %lean_nat_eq.exit43.thread, %lean_nat_eq.exit43
+  %14 = load ptr, ptr @l_Std_Time_Weekday_ofNat_x3f___closed__2, align 8, !tbaa !10
+  br label %25
 
-17:                                               ; preds = %lean_nat_eq.exit40.thread, %lean_nat_eq.exit40
-  %18 = load ptr, ptr @l_Std_Time_Weekday_ofNat_x3f___closed__3, align 8, !tbaa !10
-  br label %27
+15:                                               ; preds = %lean_nat_eq.exit40.thread, %lean_nat_eq.exit40
+  %16 = load ptr, ptr @l_Std_Time_Weekday_ofNat_x3f___closed__3, align 8, !tbaa !10
+  br label %25
 
-19:                                               ; preds = %lean_nat_eq.exit37.thread, %lean_nat_eq.exit37
-  %20 = load ptr, ptr @l_Std_Time_Weekday_ofNat_x3f___closed__4, align 8, !tbaa !10
-  br label %27
+17:                                               ; preds = %lean_nat_eq.exit37.thread, %lean_nat_eq.exit37
+  %18 = load ptr, ptr @l_Std_Time_Weekday_ofNat_x3f___closed__4, align 8, !tbaa !10
+  br label %25
 
-21:                                               ; preds = %lean_nat_eq.exit34.thread, %lean_nat_eq.exit34
-  %22 = load ptr, ptr @l_Std_Time_Weekday_ofNat_x3f___closed__5, align 8, !tbaa !10
-  br label %27
+19:                                               ; preds = %lean_nat_eq.exit34.thread, %lean_nat_eq.exit34
+  %20 = load ptr, ptr @l_Std_Time_Weekday_ofNat_x3f___closed__5, align 8, !tbaa !10
+  br label %25
 
-23:                                               ; preds = %lean_nat_eq.exit31.thread, %lean_nat_eq.exit31
-  %24 = load ptr, ptr @l_Std_Time_Weekday_ofNat_x3f___closed__6, align 8, !tbaa !10
-  br label %27
+21:                                               ; preds = %lean_nat_eq.exit31.thread, %lean_nat_eq.exit31
+  %22 = load ptr, ptr @l_Std_Time_Weekday_ofNat_x3f___closed__6, align 8, !tbaa !10
+  br label %25
 
-25:                                               ; preds = %lean_nat_eq.exit.thread, %lean_nat_eq.exit
-  %26 = load ptr, ptr @l_Std_Time_Weekday_ofNat_x3f___closed__7, align 8, !tbaa !10
-  br label %27
+23:                                               ; preds = %lean_nat_eq.exit.thread, %lean_nat_eq.exit
+  %24 = load ptr, ptr @l_Std_Time_Weekday_ofNat_x3f___closed__7, align 8, !tbaa !10
+  br label %25
 
-27:                                               ; preds = %10, %lean_nat_eq.exit46, %23, %19, %15, %13, %17, %21, %25
-  %.6 = phi ptr [ %26, %25 ], [ %24, %23 ], [ %22, %21 ], [ %20, %19 ], [ %18, %17 ], [ %16, %15 ], [ %14, %13 ], [ inttoptr (i64 1 to ptr), %lean_nat_eq.exit46 ], [ inttoptr (i64 1 to ptr), %10 ]
+25:                                               ; preds = %10, %lean_nat_eq.exit46, %21, %17, %13, %11, %15, %19, %23
+  %.6 = phi ptr [ %24, %25 ], [ %24, %23 ], [ %22, %21 ], [ %20, %19 ], [ %18, %17 ], [ %16, %15 ], [ %14, %13 ], [ inttoptr (i64 1 to ptr), %lean_nat_eq.exit46 ], [ inttoptr (i64 1 to ptr), %10 ]
   ret ptr %.6
 }
 

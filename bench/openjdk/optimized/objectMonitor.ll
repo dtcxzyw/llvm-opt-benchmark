@@ -623,7 +623,7 @@ define hidden noundef zeroext i1 @_ZN13ObjectMonitor9enter_forEP10JavaThread(ptr
   %4 = tail call noundef i32 asm sideeffect "lock xaddl $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1, ptr nonnull %3) #12, !srcloc !13
   %5 = load volatile i32, ptr %3, align 4
   %6 = icmp slt i32 %5, 0
-  br i1 %6, label %49, label %7
+  br i1 %6, label %58, label %7
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -634,13 +634,13 @@ define hidden noundef zeroext i1 @_ZN13ObjectMonitor9enter_forEP10JavaThread(ptr
 11:                                               ; preds = %7
   %12 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE90ELS1_106ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not.i = icmp eq ptr %12, null
-  br i1 %.not.i, label %_ZN13ObjectMonitor24set_owner_from_BasicLockEPvP10JavaThread.exit, label %13
+  br i1 %.not.i, label %_ZN13ObjectMonitor18try_set_owner_fromEPvS0_.exit24, label %13
 
 13:                                               ; preds = %11
   %14 = ptrtoint ptr %0 to i64
   %15 = ptrtoint ptr %1 to i64
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE90ELS1_106ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.54, i64 noundef %14, i64 noundef 0, i64 noundef %15)
-  br label %_ZN13ObjectMonitor24set_owner_from_BasicLockEPvP10JavaThread.exit
+  br label %_ZN13ObjectMonitor18try_set_owner_fromEPvS0_.exit24
 
 _ZN13ObjectMonitor18try_set_owner_fromEPvS0_.exit: ; preds = %7
   %16 = icmp eq ptr %9, %1
@@ -651,11 +651,11 @@ _ZN13ObjectMonitor18try_set_owner_fromEPvS0_.exit: ; preds = %7
   %19 = load volatile i64, ptr %18, align 8
   %20 = add nsw i64 %19, 1
   store volatile i64 %20, ptr %18, align 8
-  br label %_ZN13ObjectMonitor24set_owner_from_BasicLockEPvP10JavaThread.exit
+  br label %_ZN13ObjectMonitor18try_set_owner_fromEPvS0_.exit24
 
 21:                                               ; preds = %_ZN13ObjectMonitor18try_set_owner_fromEPvS0_.exit
   %22 = icmp eq ptr %9, inttoptr (i64 2 to ptr)
-  br i1 %22, label %23, label %37
+  br i1 %22, label %23, label %41
 
 23:                                               ; preds = %21
   %24 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %1, ptr nonnull inttoptr (i64 2 to ptr), ptr nonnull %8) #12, !srcloc !8
@@ -675,42 +675,42 @@ _ZN13ObjectMonitor18try_set_owner_fromEPvS0_.exit: ; preds = %7
 
 31:                                               ; preds = %26, %28
   %32 = tail call noundef i32 asm sideeffect "lock xaddl $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1, ptr nonnull %3) #12, !srcloc !13
-  br label %_ZN13ObjectMonitor24set_owner_from_BasicLockEPvP10JavaThread.exit
+  br label %_ZN13ObjectMonitor18try_set_owner_fromEPvS0_.exit24
 
-_ZN13ObjectMonitor18try_set_owner_fromEPvS0_.exit22: ; preds = %23
+36:                                               ; preds = %23
   %33 = icmp eq ptr %24, null
-  br i1 %33, label %34, label %_ZN13ObjectMonitor24set_owner_from_BasicLockEPvP10JavaThread.exit
+  br i1 %33, label %34, label %_ZN13ObjectMonitor18try_set_owner_fromEPvS0_.exit24
 
-34:                                               ; preds = %_ZN13ObjectMonitor18try_set_owner_fromEPvS0_.exit22
+38:                                               ; preds = %36
   %35 = tail call noundef ptr @_ZN13ObjectMonitor18try_set_owner_fromEPvS0_(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef null, ptr noundef %1)
   %36 = icmp eq ptr %35, null
   br label %_ZN13ObjectMonitor24set_owner_from_BasicLockEPvP10JavaThread.exit
 
-37:                                               ; preds = %21
-  %38 = load i32, ptr @LockingMode, align 4
-  %39 = icmp eq i32 %38, 1
-  br i1 %39, label %40, label %_ZN13ObjectMonitor24set_owner_from_BasicLockEPvP10JavaThread.exit
+41:                                               ; preds = %21
+  %42 = load i32, ptr @LockingMode, align 4
+  %43 = icmp eq i32 %42, 1
+  br i1 %43, label %44, label %_ZN13ObjectMonitor18try_set_owner_fromEPvS0_.exit24
 
-40:                                               ; preds = %37
-  %41 = tail call noundef zeroext i1 @_ZNK10JavaThread13is_lock_ownedEPh(ptr noundef nonnull align 8 dereferenceable(1800) %1, ptr noundef nonnull %9) #12
-  br i1 %41, label %42, label %_ZN13ObjectMonitor24set_owner_from_BasicLockEPvP10JavaThread.exit
+44:                                               ; preds = %41
+  %45 = tail call noundef zeroext i1 @_ZNK10JavaThread13is_lock_ownedEPh(ptr noundef nonnull align 8 dereferenceable(1800) %1, ptr noundef nonnull %9) #12
+  br i1 %45, label %46, label %_ZN13ObjectMonitor18try_set_owner_fromEPvS0_.exit24
 
-42:                                               ; preds = %40
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store volatile i64 1, ptr %43, align 8
+46:                                               ; preds = %44
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  store volatile i64 1, ptr %47, align 8
   store volatile ptr %1, ptr %8, align 8
-  %44 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE90ELS1_106ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not.i23 = icmp eq ptr %44, null
-  br i1 %.not.i23, label %_ZN13ObjectMonitor24set_owner_from_BasicLockEPvP10JavaThread.exit, label %45
+  %48 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE90ELS1_106ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %.not.i25 = icmp eq ptr %48, null
+  br i1 %.not.i25, label %_ZN13ObjectMonitor18try_set_owner_fromEPvS0_.exit24, label %49
 
-45:                                               ; preds = %42
-  %46 = ptrtoint ptr %0 to i64
-  %47 = ptrtoint ptr %9 to i64
-  %48 = ptrtoint ptr %1 to i64
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE90ELS1_106ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.55, i64 noundef %46, i64 noundef %47, i64 noundef %48)
-  br label %_ZN13ObjectMonitor24set_owner_from_BasicLockEPvP10JavaThread.exit
+49:                                               ; preds = %46
+  %50 = ptrtoint ptr %0 to i64
+  %51 = ptrtoint ptr %9 to i64
+  %52 = ptrtoint ptr %1 to i64
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE90ELS1_106ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.55, i64 noundef %50, i64 noundef %51, i64 noundef %52)
+  br label %_ZN13ObjectMonitor18try_set_owner_fromEPvS0_.exit24
 
-49:                                               ; preds = %2
+58:                                               ; preds = %2
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %51 = load ptr, ptr %50, align 8
   %52 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm598084EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
@@ -720,32 +720,32 @@ _ZN13ObjectMonitor18try_set_owner_fromEPvS0_.exit22: ; preds = %23
 
 54:                                               ; preds = %49
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !6
-  %55 = load ptr, ptr %50, align 8
-  %56 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm593988EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
-  %57 = tail call noundef ptr %56(ptr noundef %55) #12
-  %58 = icmp eq ptr %57, null
-  br i1 %58, label %_ZN13ObjectMonitor24set_owner_from_BasicLockEPvP10JavaThread.exit, label %59
+  %59 = load ptr, ptr %50, align 8
+  %60 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm593988EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
+  %61 = tail call noundef ptr %56(ptr noundef %59) #12
+  %62 = icmp eq ptr %61, null
+  br i1 %62, label %_ZN13ObjectMonitor18try_set_owner_fromEPvS0_.exit24, label %63
 
-59:                                               ; preds = %54
-  %60 = load volatile i64, ptr %0, align 8
-  %61 = ptrtoint ptr %0 to i64
-  %62 = or disjoint i64 %61, 2
-  %63 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %60, i64 %62, ptr nonnull align 8 dereferenceable(16) %53) #12, !srcloc !8
-  %.not9.i = icmp eq i64 %63, %62
-  br i1 %.not9.i, label %_ZN13ObjectMonitor24set_owner_from_BasicLockEPvP10JavaThread.exit, label %64
+63:                                               ; preds = %54
+  %64 = load volatile i64, ptr %0, align 8
+  %65 = ptrtoint ptr %0 to i64
+  %66 = or disjoint i64 %65, 2
+  %67 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %64, i64 %66, ptr nonnull align 8 dereferenceable(16) %53) #12, !srcloc !8
+  %.not9.i = icmp eq i64 %67, %66
+  br i1 %.not9.i, label %_ZN13ObjectMonitor18try_set_owner_fromEPvS0_.exit24, label %68
 
-64:                                               ; preds = %59
-  %65 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE90ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
-  %.not10.i = icmp eq ptr %65, null
-  br i1 %.not10.i, label %_ZN13ObjectMonitor24set_owner_from_BasicLockEPvP10JavaThread.exit, label %66
+68:                                               ; preds = %63
+  %69 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE90ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %.not10.i = icmp eq ptr %69, null
+  br i1 %.not10.i, label %_ZN13ObjectMonitor18try_set_owner_fromEPvS0_.exit24, label %70
 
-66:                                               ; preds = %64
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE90ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.17, i64 noundef %60, i64 noundef %62, i64 noundef %63)
-  br label %_ZN13ObjectMonitor24set_owner_from_BasicLockEPvP10JavaThread.exit
+70:                                               ; preds = %68
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE90ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.17, i64 noundef %64, i64 noundef %66, i64 noundef %67)
+  br label %_ZN13ObjectMonitor18try_set_owner_fromEPvS0_.exit24
 
-_ZN13ObjectMonitor24set_owner_from_BasicLockEPvP10JavaThread.exit: ; preds = %13, %11, %66, %64, %59, %54, %45, %42, %49, %_ZN13ObjectMonitor18try_set_owner_fromEPvS0_.exit22, %34, %31, %40, %37, %17
+_ZN13ObjectMonitor18try_set_owner_fromEPvS0_.exit24: ; preds = %13, %11, %70, %68, %63, %54, %49, %46, %58, %_ZN13ObjectMonitor18try_set_owner_fromEPvS0_.exit22, %34, %31, %44, %41, %17
   %.0 = phi i1 [ false, %49 ], [ true, %17 ], [ true, %31 ], [ %36, %34 ], [ false, %_ZN13ObjectMonitor18try_set_owner_fromEPvS0_.exit22 ], [ false, %40 ], [ false, %37 ], [ true, %42 ], [ true, %45 ], [ false, %54 ], [ false, %59 ], [ false, %64 ], [ false, %66 ], [ true, %11 ], [ true, %13 ]
-  %67 = tail call noundef i32 asm sideeffect "lock xaddl $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 -1, ptr nonnull %3) #12, !srcloc !13
+  %71 = tail call noundef i32 asm sideeffect "lock xaddl $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 -1, ptr nonnull %3) #12, !srcloc !13
   ret i1 %.0
 }
 

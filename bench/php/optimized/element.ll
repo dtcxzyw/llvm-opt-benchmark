@@ -4299,22 +4299,22 @@ define hidden void @zim_DOMElement_insertAdjacentElement(ptr noundef readonly ca
   br label %dom_element_insert_adjacent_element.exit
 
 47:                                               ; preds = %40
-  %48 = icmp ne ptr %43, inttoptr (i64 -1 to ptr)
+  %switch.i = icmp ne ptr %43, inttoptr (i64 -1 to ptr)
   %49 = icmp ne ptr %43, inttoptr (i64 -2 to ptr)
   %or.cond.i = and i1 %48, %49
   br i1 %or.cond.i, label %50, label %52
 
+48:                                               ; preds = %47
+  %49 = call zeroext i1 @php_dom_create_object(ptr noundef %42, ptr noundef %1, ptr noundef nonnull %29) #11
+  br label %dom_element_insert_adjacent_element.exit
+
 50:                                               ; preds = %47
-  %51 = call zeroext i1 @php_dom_create_object(ptr noundef %42, ptr noundef %1, ptr noundef nonnull %29) #11
+  %51 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !14
+  %52 = icmp ne ptr %51, null
+  call void @llvm.assume(i1 %52)
   br label %dom_element_insert_adjacent_element.exit
 
-52:                                               ; preds = %47
-  %53 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !14
-  %54 = icmp ne ptr %53, null
-  call void @llvm.assume(i1 %54)
-  br label %dom_element_insert_adjacent_element.exit
-
-dom_element_insert_adjacent_element.exit:         ; preds = %52, %50, %45, %32, %18, %9
+dom_element_insert_adjacent_element.exit:         ; preds = %50, %48, %45, %32, %18, %9
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
@@ -4478,22 +4478,22 @@ thread-pre-split67:                               ; preds = %instanceof_function
   br label %dom_element_insert_adjacent_element.exit
 
 85:                                               ; preds = %78
-  %86 = icmp ne ptr %81, inttoptr (i64 -1 to ptr)
+  %switch.i = icmp ne ptr %81, inttoptr (i64 -1 to ptr)
   %87 = icmp ne ptr %81, inttoptr (i64 -2 to ptr)
   %or.cond.i = and i1 %86, %87
   br i1 %or.cond.i, label %88, label %90
 
+86:                                               ; preds = %85
+  %87 = tail call zeroext i1 @php_dom_create_object(ptr noundef %80, ptr noundef %1, ptr noundef nonnull %67) #11
+  br label %dom_element_insert_adjacent_element.exit
+
 88:                                               ; preds = %85
-  %89 = tail call zeroext i1 @php_dom_create_object(ptr noundef %80, ptr noundef %1, ptr noundef nonnull %67) #11
+  %89 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !14
+  %90 = icmp ne ptr %89, null
+  tail call void @llvm.assume(i1 %90)
   br label %dom_element_insert_adjacent_element.exit
 
-90:                                               ; preds = %85
-  %91 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !14
-  %92 = icmp ne ptr %91, null
-  tail call void @llvm.assume(i1 %92)
-  br label %dom_element_insert_adjacent_element.exit
-
-dom_element_insert_adjacent_element.exit:         ; preds = %90, %88, %83, %70, %57, %43
+dom_element_insert_adjacent_element.exit:         ; preds = %88, %86, %83, %70, %57, %43
   ret void
 }
 
@@ -4561,13 +4561,13 @@ define hidden void @zim_DOMElement_insertAdjacentText(ptr noundef readonly captu
   %42 = icmp eq ptr %41, null
   %43 = icmp eq ptr %41, inttoptr (i64 -1 to ptr)
   %or.cond.i = or i1 %42, %43
-  br i1 %or.cond.i, label %44, label %dom_element_insert_adjacent_text.exit
+  br i1 %or.cond.i, label %42, label %dom_element_insert_adjacent_text.exit
 
-44:                                               ; preds = %34
+42:                                               ; preds = %34
   call void @xmlFreeNode(ptr noundef %40) #11
   br label %dom_element_insert_adjacent_text.exit
 
-dom_element_insert_adjacent_text.exit:            ; preds = %44, %34, %31, %19, %9
+dom_element_insert_adjacent_text.exit:            ; preds = %42, %34, %31, %19, %9
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
@@ -4709,13 +4709,13 @@ zend_parse_arg_str_ex.exit..critedge_crit_edge:   ; preds = %zend_parse_arg_str_
   %69 = icmp eq ptr %68, null
   %70 = icmp eq ptr %68, inttoptr (i64 -1 to ptr)
   %or.cond.i = or i1 %69, %70
-  br i1 %or.cond.i, label %71, label %dom_element_insert_adjacent_text.exit
+  br i1 %or.cond.i, label %69, label %dom_element_insert_adjacent_text.exit
 
-71:                                               ; preds = %61
+69:                                               ; preds = %61
   call void @xmlFreeNode(ptr noundef %67) #11
   br label %dom_element_insert_adjacent_text.exit
 
-dom_element_insert_adjacent_text.exit:            ; preds = %71, %61, %58, %46, %.thread71
+dom_element_insert_adjacent_text.exit:            ; preds = %69, %61, %58, %46, %.thread71
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
