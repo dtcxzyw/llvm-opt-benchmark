@@ -520,7 +520,7 @@ define ptr @ossl_err_get_state_int() local_unnamed_addr #0 {
   %2 = load i32, ptr %1, align 4, !tbaa !3
   %3 = tail call i32 @OPENSSL_init_crypto(i64 noundef 262144, ptr noundef null) #10
   %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %50, label %4
+  br i1 %.not, label %30, label %4
 
 4:                                                ; preds = %0
   %5 = tail call i32 @CRYPTO_THREAD_run_once(ptr noundef nonnull @err_init, ptr noundef nonnull @err_do_init_ossl_) #10
@@ -528,106 +528,57 @@ define ptr @ossl_err_get_state_int() local_unnamed_addr #0 {
   %7 = load i32, ptr @err_do_init_ossl_ret_, align 4
   %8 = icmp ne i32 %7, 0
   %or.cond = select i1 %6, i1 %8, i1 false
-  br i1 %or.cond, label %9, label %50
+  br i1 %or.cond, label %9, label %30
 
 9:                                                ; preds = %4
   %10 = tail call ptr @CRYPTO_THREAD_get_local(ptr noundef nonnull @err_thread_local) #10
-  %magicptr = ptrtoint ptr %10 to i64
-  switch i64 %magicptr, label %49 [
-    i64 -1, label %50
-    i64 0, label %11
-  ]
+  %11 = icmp eq ptr %10, inttoptr (i64 -1 to ptr)
+  br i1 %11, label %30, label %12
 
-11:                                               ; preds = %9
-  %12 = tail call i32 @CRYPTO_THREAD_set_local(ptr noundef nonnull @err_thread_local, ptr noundef nonnull inttoptr (i64 -1 to ptr)) #10
-  %.not11 = icmp eq i32 %12, 0
-  br i1 %.not11, label %50, label %13
+12:                                               ; preds = %9
+  %13 = icmp eq ptr %10, null
+  br i1 %13, label %14, label %29
 
-13:                                               ; preds = %11
-  %14 = tail call ptr @OSSL_ERR_STATE_new() #10
-  %15 = icmp eq ptr %14, null
-  br i1 %15, label %16, label %18
+14:                                               ; preds = %12
+  %15 = tail call i32 @CRYPTO_THREAD_set_local(ptr noundef nonnull @err_thread_local, ptr noundef nonnull inttoptr (i64 -1 to ptr)) #10
+  %.not11 = icmp eq i32 %15, 0
+  br i1 %.not11, label %30, label %16
 
-16:                                               ; preds = %13
-  %17 = tail call i32 @CRYPTO_THREAD_set_local(ptr noundef nonnull @err_thread_local, ptr noundef null) #10
-  br label %50
+16:                                               ; preds = %14
+  %17 = tail call ptr @OSSL_ERR_STATE_new() #10
+  %18 = icmp eq ptr %17, null
+  br i1 %18, label %19, label %21
 
-18:                                               ; preds = %13
-  %19 = tail call i32 @ossl_init_thread_start(ptr noundef null, ptr noundef null, ptr noundef nonnull @err_delete_thread_state) #10
-  %.not12 = icmp eq i32 %19, 0
-  br i1 %.not12, label %.preheader.i, label %20
-
-20:                                               ; preds = %18
-  %21 = tail call i32 @CRYPTO_THREAD_set_local(ptr noundef nonnull @err_thread_local, ptr noundef nonnull %14) #10
-  %.not13 = icmp eq i32 %21, 0
-  br i1 %.not13, label %.preheader.i, label %47
-
-.preheader.i:                                     ; preds = %18, %20
-  %22 = getelementptr inbounds nuw i8, ptr %14, i64 512
-  %23 = getelementptr inbounds nuw i8, ptr %14, i64 256
-  %24 = getelementptr inbounds nuw i8, ptr %14, i64 384
-  %25 = getelementptr inbounds nuw i8, ptr %14, i64 64
-  %26 = getelementptr inbounds nuw i8, ptr %14, i64 128
-  %27 = getelementptr inbounds nuw i8, ptr %14, i64 704
-  %28 = getelementptr inbounds nuw i8, ptr %14, i64 576
-  %29 = getelementptr inbounds nuw i8, ptr %14, i64 768
+19:                                               ; preds = %16
+  %20 = tail call i32 @CRYPTO_THREAD_set_local(ptr noundef nonnull @err_thread_local, ptr noundef null) #10
   br label %30
 
-30:                                               ; preds = %err_clear.exit.i, %.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %err_clear.exit.i ]
-  %31 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv.i
-  %32 = load i32, ptr %31, align 4, !tbaa !3
-  %33 = and i32 %32, 1
-  %.not.i.i.i = icmp eq i32 %33, 0
-  %34 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv.i
-  br i1 %.not.i.i.i, label %err_clear.exit.i, label %35
+21:                                               ; preds = %16
+  %22 = tail call i32 @ossl_init_thread_start(ptr noundef null, ptr noundef null, ptr noundef nonnull @err_delete_thread_state) #10
+  %.not12 = icmp eq i32 %22, 0
+  br i1 %.not12, label %25, label %23
 
-35:                                               ; preds = %30
-  %36 = load ptr, ptr %34, align 8, !tbaa !7
-  tail call void @CRYPTO_free(ptr noundef %36, ptr noundef nonnull @.str.7, i32 noundef 25) #10
-  br label %err_clear.exit.i
+23:                                               ; preds = %21
+  %24 = tail call i32 @CRYPTO_THREAD_set_local(ptr noundef nonnull @err_thread_local, ptr noundef nonnull %17) #10
+  %.not13 = icmp eq i32 %24, 0
+  br i1 %.not13, label %25, label %27
 
-err_clear.exit.i:                                 ; preds = %35, %30
-  store ptr null, ptr %34, align 8, !tbaa !7
-  %37 = getelementptr inbounds nuw i64, ptr %24, i64 %indvars.iv.i
-  store i64 0, ptr %37, align 8, !tbaa !10
-  store i32 0, ptr %31, align 4, !tbaa !3
-  %38 = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv.i
-  store i32 0, ptr %38, align 4, !tbaa !3
-  %39 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv.i
-  store i32 0, ptr %39, align 4, !tbaa !3
-  %40 = getelementptr inbounds nuw i64, ptr %26, i64 %indvars.iv.i
-  store i64 0, ptr %40, align 8, !tbaa !10
-  %41 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv.i
-  store i32 -1, ptr %41, align 4, !tbaa !3
-  %42 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv.i
-  %43 = load ptr, ptr %42, align 8, !tbaa !7
-  tail call void @CRYPTO_free(ptr noundef %43, ptr noundef nonnull @.str.7, i32 noundef 91) #10
-  store ptr null, ptr %42, align 8, !tbaa !7
-  %44 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv.i
-  %45 = load ptr, ptr %44, align 8, !tbaa !7
-  tail call void @CRYPTO_free(ptr noundef %45, ptr noundef nonnull @.str.7, i32 noundef 93) #10
-  store ptr null, ptr %44, align 8, !tbaa !7
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %OSSL_ERR_STATE_free.exit, label %30, !llvm.loop !12
+25:                                               ; preds = %23, %21
+  tail call void @OSSL_ERR_STATE_free(ptr noundef nonnull %17)
+  %26 = tail call i32 @CRYPTO_THREAD_set_local(ptr noundef nonnull @err_thread_local, ptr noundef null) #10
+  br label %30
 
-OSSL_ERR_STATE_free.exit:                         ; preds = %err_clear.exit.i
-  tail call void @CRYPTO_free(ptr noundef nonnull %14, ptr noundef nonnull @.str, i32 noundef 210) #10
-  %46 = tail call i32 @CRYPTO_THREAD_set_local(ptr noundef nonnull @err_thread_local, ptr noundef null) #10
-  br label %50
+27:                                               ; preds = %23
+  %28 = tail call i32 @OPENSSL_init_crypto(i64 noundef 2, ptr noundef null) #10
+  br label %29
 
-47:                                               ; preds = %20
-  %48 = tail call i32 @OPENSSL_init_crypto(i64 noundef 2, ptr noundef null) #10
-  br label %49
-
-49:                                               ; preds = %9, %47
-  %.08 = phi ptr [ %14, %47 ], [ %10, %9 ]
+29:                                               ; preds = %27, %12
+  %.08 = phi ptr [ %17, %27 ], [ %10, %12 ]
   store i32 %2, ptr %1, align 4, !tbaa !3
-  br label %50
+  br label %30
 
-50:                                               ; preds = %11, %9, %4, %0, %49, %OSSL_ERR_STATE_free.exit, %16
-  %.0 = phi ptr [ null, %16 ], [ %.08, %49 ], [ null, %OSSL_ERR_STATE_free.exit ], [ null, %0 ], [ null, %4 ], [ null, %9 ], [ null, %11 ]
+30:                                               ; preds = %14, %9, %4, %0, %29, %25, %19
+  %.0 = phi ptr [ null, %19 ], [ %.08, %29 ], [ null, %25 ], [ null, %0 ], [ null, %4 ], [ null, %9 ], [ null, %14 ]
   ret ptr %.0
 }
 

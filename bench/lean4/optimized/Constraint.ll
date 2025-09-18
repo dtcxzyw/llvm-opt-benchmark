@@ -10254,14 +10254,16 @@ define ptr @l_Lean_Omega_normalize_x3f(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %.not184, label %lean_nat_eq.exit.thread, label %lean_nat_eq.exit, !prof !4
 
 lean_nat_eq.exit:                                 ; preds = %7
-  switch i64 %9, label %lean_inc.exit110 [
-    i64 1, label %lean_dec.exit103
-    i64 3, label %lean_dec.exit106
-  ]
+  %.not185 = icmp eq ptr %8, inttoptr (i64 1 to ptr)
+  br i1 %.not185, label %lean_dec.exit103, label %lean_nat_eq.exit137
 
 lean_nat_eq.exit.thread:                          ; preds = %7
   %11 = tail call zeroext i1 @lean_nat_big_eq(ptr noundef %8, ptr noundef nonnull inttoptr (i64 1 to ptr)) #4
   br i1 %11, label %.thread171, label %lean_nat_eq.exit137.thread
+
+lean_nat_eq.exit137:                              ; preds = %lean_nat_eq.exit
+  %.not187 = icmp eq ptr %8, inttoptr (i64 3 to ptr)
+  br i1 %.not187, label %lean_dec.exit106, label %lean_inc.exit110
 
 lean_nat_eq.exit137.thread:                       ; preds = %lean_nat_eq.exit.thread
   %12 = tail call zeroext i1 @lean_nat_big_eq(ptr noundef %8, ptr noundef nonnull inttoptr (i64 3 to ptr)) #4
@@ -10289,7 +10291,7 @@ lean_inc.exit110.thread:                          ; preds = %18, %17, %15
   %19 = tail call ptr @l_Lean_Omega_Constraint_div(ptr noundef %4, ptr noundef nonnull %8)
   br label %lean_nat_to_int.exit
 
-lean_inc.exit110:                                 ; preds = %lean_nat_eq.exit
+lean_inc.exit110:                                 ; preds = %lean_nat_eq.exit137
   %20 = tail call ptr @l_Lean_Omega_Constraint_div(ptr noundef %4, ptr noundef %8)
   %21 = icmp ult ptr %8, inttoptr (i64 4294967296 to ptr)
   br i1 %21, label %lean_nat_to_int.exit, label %22
@@ -10364,7 +10366,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit107
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %8) #4
   br label %lean_dec.exit106
 
-lean_dec.exit106:                                 ; preds = %lean_nat_eq.exit, %44, %43, %41
+lean_dec.exit106:                                 ; preds = %lean_nat_eq.exit137, %44, %43, %41
   tail call void @lean_free_object(ptr noundef nonnull %0) #4
   %45 = ptrtoint ptr %6 to i64
   %46 = and i64 %45, 1
@@ -10581,14 +10583,16 @@ lean_dec.exit101:                                 ; preds = %120, %119, %117, %l
   br i1 %.not180, label %lean_nat_eq.exit140.thread, label %lean_nat_eq.exit140, !prof !4
 
 lean_nat_eq.exit140:                              ; preds = %lean_dec.exit101
-  switch i64 %122, label %lean_inc.exit [
-    i64 1, label %lean_dec.exit96
-    i64 3, label %lean_dec.exit99
-  ]
+  %.not181 = icmp eq ptr %121, inttoptr (i64 1 to ptr)
+  br i1 %.not181, label %lean_dec.exit96, label %lean_nat_eq.exit143
 
 lean_nat_eq.exit140.thread:                       ; preds = %lean_dec.exit101
   %124 = tail call zeroext i1 @lean_nat_big_eq(ptr noundef %121, ptr noundef nonnull inttoptr (i64 1 to ptr)) #4
   br i1 %124, label %.thread177, label %lean_nat_eq.exit143.thread
+
+lean_nat_eq.exit143:                              ; preds = %lean_nat_eq.exit140
+  %.not182 = icmp eq ptr %121, inttoptr (i64 3 to ptr)
+  br i1 %.not182, label %lean_dec.exit99, label %lean_inc.exit
 
 lean_nat_eq.exit143.thread:                       ; preds = %lean_nat_eq.exit140.thread
   %125 = tail call zeroext i1 @lean_nat_big_eq(ptr noundef %121, ptr noundef nonnull inttoptr (i64 3 to ptr)) #4
@@ -10616,7 +10620,7 @@ lean_inc.exit.thread:                             ; preds = %131, %130, %128
   %132 = tail call ptr @l_Lean_Omega_Constraint_div(ptr noundef %4, ptr noundef nonnull %121)
   br label %lean_nat_to_int.exit160
 
-lean_inc.exit:                                    ; preds = %lean_nat_eq.exit140
+lean_inc.exit:                                    ; preds = %lean_nat_eq.exit143
   %133 = tail call ptr @l_Lean_Omega_Constraint_div(ptr noundef %4, ptr noundef %121)
   %134 = icmp ult ptr %121, inttoptr (i64 4294967296 to ptr)
   br i1 %134, label %lean_nat_to_int.exit160, label %135
@@ -10624,15 +10628,15 @@ lean_inc.exit:                                    ; preds = %lean_nat_eq.exit140
 135:                                              ; preds = %lean_inc.exit
   %136 = lshr i64 %122, 1
   %137 = tail call ptr @lean_big_size_t_to_int(i64 noundef %136) #4
-  %.pre192 = ptrtoint ptr %137 to i64
+  %.pre191 = ptrtoint ptr %137 to i64
   br label %lean_nat_to_int.exit160
 
 lean_nat_to_int.exit160:                          ; preds = %lean_inc.exit.thread, %lean_inc.exit, %135
   %138 = phi ptr [ %133, %lean_inc.exit ], [ %133, %135 ], [ %132, %lean_inc.exit.thread ]
-  %.pre-phi193 = phi i64 [ %122, %lean_inc.exit ], [ %.pre192, %135 ], [ %122, %lean_inc.exit.thread ]
+  %.pre-phi192 = phi i64 [ %122, %lean_inc.exit ], [ %.pre191, %135 ], [ %122, %lean_inc.exit.thread ]
   %.1.i159 = phi ptr [ %121, %lean_inc.exit ], [ %137, %135 ], [ %121, %lean_inc.exit.thread ]
   %139 = tail call ptr @l_Lean_Omega_IntList_sdiv(ptr noundef %6, ptr noundef %.1.i159) #4
-  %140 = and i64 %.pre-phi193, 1
+  %140 = and i64 %.pre-phi192, 1
   %.not183 = icmp eq i64 %140, 0
   br i1 %.not183, label %141, label %lean_dec.exit100
 
@@ -10706,7 +10710,7 @@ lean_alloc_ctor.exit162:                          ; preds = %lean_alloc_ctor.exi
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %121) #4
   br label %lean_dec.exit99
 
-lean_dec.exit99:                                  ; preds = %lean_nat_eq.exit140, %163, %162, %160
+lean_dec.exit99:                                  ; preds = %lean_nat_eq.exit143, %163, %162, %160
   br i1 %.not, label %164, label %lean_dec.exit98
 
 164:                                              ; preds = %lean_dec.exit99

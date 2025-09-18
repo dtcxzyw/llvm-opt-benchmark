@@ -4614,19 +4614,21 @@ malloc_mutex_lock.exit:                           ; preds = %5, %9
   %13 = zext i32 %1 to i64
   %14 = getelementptr inbounds nuw %struct.tcaches_s, ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !39
-  %switch = icmp ult ptr %15, inttoptr (i64 2 to ptr)
-  %16 = load ptr, ptr @tcaches_avail, align 8, !tbaa !174
-  store ptr %16, ptr %14, align 8, !tbaa !39
+  %16 = icmp eq ptr %15, inttoptr (i64 1 to ptr)
+  %17 = load ptr, ptr @tcaches_avail, align 8, !tbaa !174
+  store ptr %17, ptr %14, align 8, !tbaa !39
   store ptr %14, ptr @tcaches_avail, align 8, !tbaa !174
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @tcaches_mtx, i64 64) monotonic, align 8
-  %17 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @tcaches_mtx, i64 72)) #16
-  br i1 %switch, label %19, label %18
+  %18 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @tcaches_mtx, i64 72)) #16
+  %.not10 = icmp eq ptr %15, null
+  %.not = or i1 %16, %.not10
+  br i1 %.not, label %20, label %19
 
-18:                                               ; preds = %malloc_mutex_lock.exit
+19:                                               ; preds = %malloc_mutex_lock.exit
   tail call fastcc void @tcache_destroy(ptr noundef %0, ptr noundef nonnull %15, i1 noundef zeroext false)
-  br label %19
+  br label %20
 
-19:                                               ; preds = %18, %malloc_mutex_lock.exit
+20:                                               ; preds = %19, %malloc_mutex_lock.exit
   ret void
 }
 

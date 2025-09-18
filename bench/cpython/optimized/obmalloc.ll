@@ -7772,8 +7772,8 @@ mi_os_prim_free.exit.i:                           ; preds = %135, %133
   %.b53 = load i1, ptr @mi_os_mem_config.1, align 8
   %145 = load i32, ptr getelementptr inbounds nuw (i8, ptr @options, i64 200), align 8
   %146 = icmp eq i32 %145, 0
-  %or.cond16.i = select i1 %.b53, i1 %146, i1 false, !prof !118
-  br i1 %or.cond16.i, label %147, label %unix_mmap_prim.exit116.i, !prof !118
+  %or.cond15.i = select i1 %.b53, i1 %146, i1 false, !prof !118
+  br i1 %or.cond15.i, label %147, label %unix_mmap_prim.exit116.i, !prof !118
 
 147:                                              ; preds = %141
   tail call fastcc void @mi_option_init(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @options, i64 192))
@@ -7782,13 +7782,12 @@ mi_os_prim_free.exit.i:                           ; preds = %135, %133
 unix_mmap_prim.exit116.i:                         ; preds = %147, %141
   store i8 0, ptr %8, align 1, !tbaa !117
   %148 = tail call ptr @mmap64(ptr noundef null, i64 noundef %139, i32 noundef range(i32 0, 4) %142, i32 noundef range(i32 34, 2013528099) %spec.select.i.i103.i, i32 noundef -1, i64 noundef 0) #54
-  %magicptr12.i = ptrtoint ptr %148 to i64
-  switch i64 %magicptr12.i, label %153 [
-    i64 -1, label %_mi_prim_alloc.exit109.i
-    i64 0, label %_mi_prim_alloc.exit109.i
-  ]
+  %.not33.i114.i = icmp eq ptr %148, inttoptr (i64 -1 to ptr)
+  %.not.i10710.i = icmp eq ptr %148, null
+  %.not.i107.i = or i1 %.not33.i114.i, %.not.i10710.i
+  br i1 %.not.i107.i, label %_mi_prim_alloc.exit109.i, label %153
 
-_mi_prim_alloc.exit109.i:                         ; preds = %unix_mmap_prim.exit116.i, %unix_mmap_prim.exit116.i
+_mi_prim_alloc.exit109.i:                         ; preds = %unix_mmap_prim.exit116.i
   %149 = tail call ptr @__errno_location() #64
   %150 = load i32, ptr %149, align 4, !tbaa !96
   %.not.i90.i = icmp eq i32 %150, 0
@@ -7830,7 +7829,7 @@ mi_atomic_maxi64_relaxed.exit.i.i.i93.i:          ; preds = %159, %157
   br label %_mi_stat_increase.exit.i94.i
 
 _mi_stat_increase.exit.i94.i:                     ; preds = %166, %164
-  br i1 %2, label %169, label %mi_os_prim_alloc.exit97.i
+  br i1 %2, label %169, label %mi_align_up_ptr.exit99.i
 
 169:                                              ; preds = %_mi_stat_increase.exit.i94.i
   %170 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 120), i64 %139 monotonic, align 8
@@ -7854,23 +7853,20 @@ mi_atomic_maxi64_relaxed.exit.i.i27.i.i:          ; preds = %175, %173
 
 179:                                              ; preds = %mi_atomic_maxi64_relaxed.exit.i.i27.i.i
   %180 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 96), i64 %139 monotonic, align 8
-  br label %mi_os_prim_alloc.exit97.i
+  br label %mi_align_up_ptr.exit99.i
 
 181:                                              ; preds = %mi_atomic_maxi64_relaxed.exit.i.i27.i.i
   %182 = sub i64 0, %139
   %183 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 104), i64 %182 monotonic, align 8
-  br label %mi_os_prim_alloc.exit97.i
+  br label %mi_align_up_ptr.exit99.i
 
-mi_os_prim_alloc.exit97.i:                        ; preds = %181, %179, %_mi_stat_increase.exit.i94.i
-  %184 = icmp eq ptr %148, null
-  br i1 %184, label %mi_os_prim_alloc_aligned.exit.thread, label %mi_align_up_ptr.exit99.i
-
-mi_align_up_ptr.exit99.i:                         ; preds = %mi_os_prim_alloc.exit97.i
-  %185 = add i64 %98, %magicptr12.i
+mi_align_up_ptr.exit99.i:                         ; preds = %181, %179, %_mi_stat_increase.exit.i94.i
+  %184 = ptrtoint ptr %148 to i64
+  %185 = add i64 %98, %184
   %186 = sub i64 0, %.0.i16
   %187 = and i64 %185, %186
   %188 = inttoptr i64 %187 to ptr
-  %189 = sub i64 %187, %magicptr12.i
+  %189 = sub i64 %187, %184
   %190 = load i64, ptr @mi_os_mem_config.0, align 8, !tbaa !84
   %191 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %190)
   %192 = icmp samesign ult i64 %191, 2
@@ -7932,8 +7928,8 @@ mi_os_prim_alloc_aligned.exit.thread30:           ; preds = %96, %mi_os_prim_all
   store i64 %.0.i16, ptr %210, align 8, !tbaa !54
   br label %mi_os_prim_alloc_aligned.exit.thread
 
-mi_os_prim_alloc_aligned.exit.thread:             ; preds = %_mi_align_up.exit.i, %mi_os_prim_alloc.exit.thread25, %_mi_prim_alloc.exit109.i, %151, %138, %mi_os_prim_alloc.exit97.i, %mi_os_prim_free.exit.i, %mi_os_prim_alloc.exit, %_mi_align_up.exit, %mi_os_prim_alloc_aligned.exit.thread30, %mi_os_prim_alloc_aligned.exit
-  %.0.i1829 = phi ptr [ %.02334, %mi_os_prim_alloc_aligned.exit.thread30 ], [ null, %mi_os_prim_alloc_aligned.exit ], [ null, %_mi_align_up.exit ], [ null, %mi_os_prim_alloc.exit ], [ null, %mi_os_prim_free.exit.i ], [ null, %mi_os_prim_alloc.exit97.i ], [ null, %138 ], [ null, %151 ], [ null, %_mi_prim_alloc.exit109.i ], [ null, %mi_os_prim_alloc.exit.thread25 ], [ null, %_mi_align_up.exit.i ]
+mi_os_prim_alloc_aligned.exit.thread:             ; preds = %_mi_align_up.exit.i, %mi_os_prim_alloc.exit.thread25, %_mi_prim_alloc.exit109.i, %151, %138, %mi_os_prim_free.exit.i, %mi_os_prim_alloc.exit, %_mi_align_up.exit, %mi_os_prim_alloc_aligned.exit.thread30, %mi_os_prim_alloc_aligned.exit
+  %.0.i1829 = phi ptr [ %.02334, %mi_os_prim_alloc_aligned.exit.thread30 ], [ null, %mi_os_prim_alloc_aligned.exit ], [ null, %_mi_align_up.exit ], [ null, %mi_os_prim_alloc.exit ], [ null, %mi_os_prim_free.exit.i ], [ null, %138 ], [ null, %151 ], [ null, %_mi_prim_alloc.exit109.i ], [ null, %mi_os_prim_alloc.exit.thread25 ], [ null, %_mi_align_up.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %211

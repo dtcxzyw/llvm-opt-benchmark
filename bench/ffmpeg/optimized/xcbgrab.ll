@@ -1597,32 +1597,31 @@ declare ptr @av_buffer_pool_init2(i64 noundef, ptr noundef, ptr noundef, ptr nou
 define internal ptr @allocate_shm_buffer(ptr noundef %0, i64 noundef %1) #1 {
   %3 = tail call i32 @shmget(i32 noundef 0, i64 noundef %1, i32 noundef 1023) #10
   %4 = icmp eq i32 %3, -1
-  br i1 %4, label %16, label %5
+  br i1 %4, label %18, label %5
 
 5:                                                ; preds = %2
   %6 = tail call i32 @xcb_generate_id(ptr noundef %0) #10
   %7 = tail call i32 @xcb_shm_attach(ptr noundef %0, i32 noundef %6, i32 noundef %3, i8 noundef zeroext 0) #10
   %8 = tail call ptr @shmat(i32 noundef %3, ptr noundef null, i32 noundef 0) #10
   %9 = tail call i32 @shmctl(i32 noundef %3, i32 noundef 0, ptr noundef null) #10
-  %magicptr = ptrtoint ptr %8 to i64
-  switch i64 %magicptr, label %10 [
-    i64 -1, label %16
-    i64 0, label %16
-  ]
+  %10 = icmp ne ptr %8, inttoptr (i64 -1 to ptr)
+  %11 = icmp ne ptr %8, null
+  %or.cond = and i1 %10, %11
+  br i1 %or.cond, label %12, label %18
 
-10:                                               ; preds = %5
-  %11 = zext i32 %6 to i64
-  %12 = inttoptr i64 %11 to ptr
-  %13 = tail call ptr @av_buffer_create(ptr noundef nonnull %8, i64 noundef %1, ptr noundef nonnull @free_shm_buffer, ptr noundef %12, i32 noundef 0) #10
-  %.not = icmp eq ptr %13, null
-  br i1 %.not, label %14, label %16
+12:                                               ; preds = %5
+  %13 = zext i32 %6 to i64
+  %14 = inttoptr i64 %13 to ptr
+  %15 = tail call ptr @av_buffer_create(ptr noundef nonnull %8, i64 noundef %1, ptr noundef nonnull @free_shm_buffer, ptr noundef %14, i32 noundef 0) #10
+  %.not = icmp eq ptr %15, null
+  br i1 %.not, label %16, label %18
 
-14:                                               ; preds = %10
-  %15 = tail call i32 @shmdt(ptr noundef nonnull %8) #10
-  br label %16
+16:                                               ; preds = %12
+  %17 = tail call i32 @shmdt(ptr noundef nonnull %8) #10
+  br label %18
 
-16:                                               ; preds = %10, %14, %5, %5, %2
-  %.0 = phi ptr [ null, %2 ], [ null, %5 ], [ null, %5 ], [ null, %14 ], [ %13, %10 ]
+18:                                               ; preds = %12, %16, %5, %2
+  %.0 = phi ptr [ null, %2 ], [ null, %5 ], [ null, %16 ], [ %15, %12 ]
   ret ptr %.0
 }
 

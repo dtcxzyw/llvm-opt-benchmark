@@ -18892,7 +18892,7 @@ _ZNSt12_Vector_baseIN6Assimp3ASE4BoneESaIS2_EE13_M_deallocateEPS2_m.exit: ; pred
 define linkonce_odr hidden void @_ZNSt6vectorIN6Assimp3ASE8MaterialESaIS2_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS2_S4_EEmRKS2_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(729) %3) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.std::vector<Assimp::ASE::Material>::_Temporary_value", align 8
   %.not = icmp eq i64 %2, 0
-  br i1 %.not, label %248, label %6
+  br i1 %.not, label %247, label %6
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -19099,7 +19099,7 @@ _ZN6Assimp3ASE8MaterialaSERKS1_.exit.i.i.i:       ; preds = %.noexc, %86
   %97 = load ptr, ptr %96, align 8
   call void %97(ptr noundef nonnull align 8 dereferenceable(729) %16) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %249
+  br label %248
 
 98:                                               ; preds = %15
   %99 = sub nuw i64 %2, %21
@@ -19246,7 +19246,7 @@ _ZSt4fillIPN6Assimp3ASE8MaterialES2_EvT_S4_RKT0_.exit: ; preds = %_ZN6Assimp3ASE
   %153 = load ptr, ptr %152, align 8
   call void %153(ptr noundef nonnull align 8 dereferenceable(729) %16) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %248
+  br label %247
 
 154:                                              ; preds = %6
   %155 = load ptr, ptr %0, align 8
@@ -19455,13 +19455,13 @@ _ZNSt12_Vector_baseIN6Assimp3ASE8MaterialESaIS2_EE13_M_deallocateEPS2_m.exit: ; 
   store ptr %.0.lcssa.i.i.i.i.i112, ptr %9, align 8
   %236 = getelementptr inbounds nuw %"struct.Assimp::ASE::Material", ptr %171, i64 %165
   store ptr %236, ptr %7, align 8
-  br label %248
+  br label %247
 
 .body96:                                          ; preds = %182
   %237 = extractvalue { ptr, i32 } %183, 0
   %238 = tail call ptr @__cxa_begin_catch(ptr %237) #29
-  %cond = icmp eq ptr %171, null
-  br i1 %cond, label %239, label %246
+  %.not66 = icmp eq ptr %171, null
+  br i1 %.not66, label %239, label %_ZSt8_DestroyIPN6Assimp3ASE8MaterialES2_EvT_S4_RSaIT0_E.exit121
 
 239:                                              ; preds = %.body96
   %.idx137 = mul nuw nsw i64 %2, 736
@@ -19481,32 +19481,32 @@ _ZNSt12_Vector_baseIN6Assimp3ASE8MaterialESaIS2_EE13_M_deallocateEPS2_m.exit: ; 
   %245 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %249 unwind label %250
+          to label %248 unwind label %249
 
-246:                                              ; preds = %.body96
-  %247 = mul nuw nsw i64 %165, 736
-  tail call void @_ZdlPvm(ptr noundef nonnull %171, i64 noundef %247) #30
+_ZSt8_DestroyIPN6Assimp3ASE8MaterialES2_EvT_S4_RSaIT0_E.exit121: ; preds = %.body96
+  %246 = mul nuw nsw i64 %165, 736
+  tail call void @_ZdlPvm(ptr noundef nonnull %171, i64 noundef %246) #30
   br label %_ZNSt12_Vector_baseIN6Assimp3ASE8MaterialESaIS2_EE13_M_deallocateEPS2_m.exit128
 
-_ZNSt12_Vector_baseIN6Assimp3ASE8MaterialESaIS2_EE13_M_deallocateEPS2_m.exit128: ; preds = %.lr.ph.i.i.i118, %246
+_ZNSt12_Vector_baseIN6Assimp3ASE8MaterialESaIS2_EE13_M_deallocateEPS2_m.exit128: ; preds = %.lr.ph.i.i.i118, %_ZSt8_DestroyIPN6Assimp3ASE8MaterialES2_EvT_S4_RSaIT0_E.exit121
   invoke void @__cxa_rethrow() #31
-          to label %253 unwind label %244
+          to label %252 unwind label %244
 
-248:                                              ; preds = %_ZSt4fillIPN6Assimp3ASE8MaterialES2_EvT_S4_RKT0_.exit, %_ZNSt12_Vector_baseIN6Assimp3ASE8MaterialESaIS2_EE13_M_deallocateEPS2_m.exit, %4
+247:                                              ; preds = %_ZSt4fillIPN6Assimp3ASE8MaterialES2_EvT_S4_RKT0_.exit, %_ZNSt12_Vector_baseIN6Assimp3ASE8MaterialESaIS2_EE13_M_deallocateEPS2_m.exit, %4
   ret void
 
-249:                                              ; preds = %244, %.body
+248:                                              ; preds = %244, %.body
   %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %245, %244 ]
   resume { ptr, i32 } %.pn
 
-250:                                              ; preds = %244
-  %251 = landingpad { ptr, i32 }
+249:                                              ; preds = %244
+  %250 = landingpad { ptr, i32 }
           catch ptr null
-  %252 = extractvalue { ptr, i32 } %251, 0
-  tail call void @__clang_call_terminate(ptr %252) #34
+  %251 = extractvalue { ptr, i32 } %250, 0
+  tail call void @__clang_call_terminate(ptr %251) #34
   unreachable
 
-253:                                              ; preds = %_ZNSt12_Vector_baseIN6Assimp3ASE8MaterialESaIS2_EE13_M_deallocateEPS2_m.exit128
+252:                                              ; preds = %_ZNSt12_Vector_baseIN6Assimp3ASE8MaterialESaIS2_EE13_M_deallocateEPS2_m.exit128
   unreachable
 }
 

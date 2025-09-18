@@ -126,7 +126,7 @@ define hidden void @"_ZN44_$LT$C$u20$as$u20$gpui..BorrowAppContext$GT$13update_g
 16:                                               ; preds = %"_ZN4core3ptr48drop_in_place$LT$rodio..stream..OutputStream$GT$17he63bb0817c6c7a45E.exit.i.i", %15, %1
   %17 = landingpad { ptr, i32 }
           cleanup
-  br label %40
+  br label %42
 
 "_ZN78_$LT$gpui..app..GlobalLease$LT$G$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17hd9d11a92d89dd5f7E.llvm.1926931935225978806.exit": ; preds = %.noexc
   tail call void @llvm.experimental.noalias.scope.decl(metadata !18)
@@ -153,7 +153,7 @@ define hidden void @"_ZN44_$LT$C$u20$as$u20$gpui..BorrowAppContext$GT$13update_g
           cleanup
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 8
   invoke void @"_ZN4core3ptr45drop_in_place$LT$cpal..host..alsa..Stream$GT$17h4f102f01743cf700E.llvm.13778495326778027450"(ptr noalias noundef nonnull align 8 dereferenceable(40) %26)
-          to label %40 unwind label %27, !noalias !18
+          to label %42 unwind label %27, !noalias !18
 
 27:                                               ; preds = %24
   %28 = landingpad { ptr, i32 }
@@ -171,42 +171,41 @@ define hidden void @"_ZN44_$LT$C$u20$as$u20$gpui..BorrowAppContext$GT$13update_g
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %31 = load ptr, ptr %30, align 8, !alias.scope !18, !noundef !4
   store ptr null, ptr %30, align 8, !alias.scope !18
-  %magicptr.i.i = ptrtoint ptr %31 to i64
-  switch i64 %magicptr.i.i, label %32 [
-    i64 0, label %37
-    i64 -1, label %37
-  ]
+  %32 = icmp eq ptr %31, null
+  %33 = icmp eq ptr %31, inttoptr (i64 -1 to ptr)
+  %or.cond.i.i = or i1 %32, %33
+  br i1 %or.cond.i.i, label %39, label %34
 
-32:                                               ; preds = %"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$rodio..stream..OutputStream$GT$$GT$17h798fd8a187115bfcE.llvm.1926931935225978806.exit.i"
-  %33 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %34 = atomicrmw sub ptr %33, i64 1 release, align 8, !noalias !31
-  %35 = icmp eq i64 %34, 1
-  br i1 %35, label %36, label %37
+34:                                               ; preds = %"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$rodio..stream..OutputStream$GT$$GT$17h798fd8a187115bfcE.llvm.1926931935225978806.exit.i"
+  %35 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  %36 = atomicrmw sub ptr %35, i64 1 release, align 8, !noalias !31
+  %37 = icmp eq i64 %36, 1
+  br i1 %37, label %38, label %39
 
-36:                                               ; preds = %32
+38:                                               ; preds = %34
   fence acquire
   call void @__rust_dealloc(ptr noundef nonnull %31, i64 noundef 56, i64 noundef 8) #22, !noalias !31
-  br label %37
+  br label %39
 
-37:                                               ; preds = %"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$rodio..stream..OutputStream$GT$$GT$17h798fd8a187115bfcE.llvm.1926931935225978806.exit.i", %"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$rodio..stream..OutputStream$GT$$GT$17h798fd8a187115bfcE.llvm.1926931935225978806.exit.i", %32, %36
-  %38 = load ptr, ptr %3, align 8, !nonnull !4, !align !11, !noundef !4
-  %39 = load ptr, ptr %7, align 8, !nonnull !4, !align !5, !noundef !4
-  call void @_ZN4gpui3app10AppContext16end_global_lease17h8e8a05f785dfda7dE.llvm.1926931935225978806(ptr noalias noundef nonnull align 8 dereferenceable(1176) %0, ptr noundef nonnull align 1 %38, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %39)
+39:                                               ; preds = %"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$rodio..stream..OutputStream$GT$$GT$17h798fd8a187115bfcE.llvm.1926931935225978806.exit.i", %34, %38
+  %40 = load ptr, ptr %3, align 8, !nonnull !4, !align !11, !noundef !4
+  %41 = load ptr, ptr %7, align 8, !nonnull !4, !align !5, !noundef !4
+  call void @_ZN4gpui3app10AppContext16end_global_lease17h8e8a05f785dfda7dE.llvm.1926931935225978806(ptr noalias noundef nonnull align 8 dereferenceable(1176) %0, ptr noundef nonnull align 1 %40, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %41)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
-40:                                               ; preds = %16, %24
+42:                                               ; preds = %16, %24
   %.pn.ph = phi { ptr, i32 } [ %25, %24 ], [ %17, %16 ]
   invoke void @"_ZN4core3ptr69drop_in_place$LT$gpui..app..GlobalLease$LT$audio..GlobalAudio$GT$$GT$17ha3704f835c766bd1E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3) #23
-          to label %43 unwind label %41
+          to label %45 unwind label %43
 
-41:                                               ; preds = %40
-  %42 = landingpad { ptr, i32 }
+43:                                               ; preds = %42
+  %44 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #21
   unreachable
 
-43:                                               ; preds = %40
+45:                                               ; preds = %42
   resume { ptr, i32 } %.pn.ph
 }
 
@@ -368,22 +367,21 @@ define hidden void @"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$rodi
 ; Function Attrs: nounwind nonlazybind uwtable
 define hidden void @"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$rodio..stream..OutputStreamHandle$GT$$GT$17h849a11e6d8f69bb7E.llvm.1926931935225978806"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #3 {
   %2 = load ptr, ptr %0, align 8, !noundef !4
-  %magicptr = ptrtoint ptr %2 to i64
-  switch i64 %magicptr, label %3 [
-    i64 0, label %"_ZN4core3ptr54drop_in_place$LT$rodio..stream..OutputStreamHandle$GT$17h8545e75a6e256a88E.exit"
-    i64 -1, label %"_ZN4core3ptr54drop_in_place$LT$rodio..stream..OutputStreamHandle$GT$17h8545e75a6e256a88E.exit"
-  ]
+  %3 = icmp eq ptr %2, null
+  %4 = icmp eq ptr %2, inttoptr (i64 -1 to ptr)
+  %or.cond = or i1 %3, %4
+  br i1 %or.cond, label %"_ZN4core3ptr54drop_in_place$LT$rodio..stream..OutputStreamHandle$GT$17h8545e75a6e256a88E.exit", label %5
 
-"_ZN4core3ptr54drop_in_place$LT$rodio..stream..OutputStreamHandle$GT$17h8545e75a6e256a88E.exit": ; preds = %1, %1, %7, %3
+"_ZN4core3ptr54drop_in_place$LT$rodio..stream..OutputStreamHandle$GT$17h8545e75a6e256a88E.exit": ; preds = %9, %5, %1
   ret void
 
-3:                                                ; preds = %1
-  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %5 = atomicrmw sub ptr %4, i64 1 release, align 8, !noalias !61
-  %6 = icmp eq i64 %5, 1
-  br i1 %6, label %7, label %"_ZN4core3ptr54drop_in_place$LT$rodio..stream..OutputStreamHandle$GT$17h8545e75a6e256a88E.exit"
+5:                                                ; preds = %1
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %7 = atomicrmw sub ptr %6, i64 1 release, align 8, !noalias !61
+  %8 = icmp eq i64 %7, 1
+  br i1 %8, label %9, label %"_ZN4core3ptr54drop_in_place$LT$rodio..stream..OutputStreamHandle$GT$17h8545e75a6e256a88E.exit"
 
-7:                                                ; preds = %3
+9:                                                ; preds = %5
   fence acquire
   tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef 56, i64 noundef 8) #22, !noalias !61
   br label %"_ZN4core3ptr54drop_in_place$LT$rodio..stream..OutputStreamHandle$GT$17h8545e75a6e256a88E.exit"
@@ -1369,24 +1367,23 @@ define hidden void @"_ZN5audio5Audio8end_call28_$u7b$$u7b$closure$u7d$$u7d$17hde
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %17 = load ptr, ptr %16, align 8, !noundef !4
   store ptr null, ptr %16, align 8
-  %magicptr.i = ptrtoint ptr %17 to i64
-  switch i64 %magicptr.i, label %18 [
-    i64 0, label %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$rodio..stream..OutputStreamHandle$GT$$GT$17h849a11e6d8f69bb7E.llvm.1926931935225978806.exit"
-    i64 -1, label %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$rodio..stream..OutputStreamHandle$GT$$GT$17h849a11e6d8f69bb7E.llvm.1926931935225978806.exit"
-  ]
+  %18 = icmp eq ptr %17, null
+  %19 = icmp eq ptr %17, inttoptr (i64 -1 to ptr)
+  %or.cond.i = or i1 %18, %19
+  br i1 %or.cond.i, label %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$rodio..stream..OutputStreamHandle$GT$$GT$17h849a11e6d8f69bb7E.llvm.1926931935225978806.exit", label %20
 
-18:                                               ; preds = %"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$rodio..stream..OutputStream$GT$$GT$17h798fd8a187115bfcE.llvm.1926931935225978806.exit"
-  %19 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %20 = atomicrmw sub ptr %19, i64 1 release, align 8, !noalias !350
-  %21 = icmp eq i64 %20, 1
-  br i1 %21, label %22, label %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$rodio..stream..OutputStreamHandle$GT$$GT$17h849a11e6d8f69bb7E.llvm.1926931935225978806.exit"
+20:                                               ; preds = %"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$rodio..stream..OutputStream$GT$$GT$17h798fd8a187115bfcE.llvm.1926931935225978806.exit"
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %22 = atomicrmw sub ptr %21, i64 1 release, align 8, !noalias !350
+  %23 = icmp eq i64 %22, 1
+  br i1 %23, label %24, label %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$rodio..stream..OutputStreamHandle$GT$$GT$17h849a11e6d8f69bb7E.llvm.1926931935225978806.exit"
 
-22:                                               ; preds = %18
+24:                                               ; preds = %20
   fence acquire
   call void @__rust_dealloc(ptr noundef nonnull %17, i64 noundef 56, i64 noundef 8) #22, !noalias !350
   br label %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$rodio..stream..OutputStreamHandle$GT$$GT$17h849a11e6d8f69bb7E.llvm.1926931935225978806.exit"
 
-"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$rodio..stream..OutputStreamHandle$GT$$GT$17h849a11e6d8f69bb7E.llvm.1926931935225978806.exit": ; preds = %"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$rodio..stream..OutputStream$GT$$GT$17h798fd8a187115bfcE.llvm.1926931935225978806.exit", %"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$rodio..stream..OutputStream$GT$$GT$17h798fd8a187115bfcE.llvm.1926931935225978806.exit", %18, %22
+"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$rodio..stream..OutputStreamHandle$GT$$GT$17h849a11e6d8f69bb7E.llvm.1926931935225978806.exit": ; preds = %"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$rodio..stream..OutputStream$GT$$GT$17h798fd8a187115bfcE.llvm.1926931935225978806.exit", %20, %24
   ret void
 }
 

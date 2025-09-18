@@ -801,8 +801,8 @@ declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) loca
 
 ; Function Attrs: nounwind uwtable
 define void @optfree(ptr noundef captures(address_is_null) %0) local_unnamed_addr #2 {
-  %cond = icmp eq ptr %0, null
-  br i1 %cond, label %._crit_edge44, label %2
+  %.not = icmp eq ptr %0, null
+  br i1 %.not, label %._crit_edge44, label %2
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -831,7 +831,7 @@ define void @optfree(ptr noundef captures(address_is_null) %0) local_unnamed_add
   tail call void @free(ptr noundef nonnull %.lcssa) #18
   br label %.lr.ph43.preheader
 
-.lr.ph43.preheader:                               ; preds = %2, %._crit_edge
+.lr.ph43.preheader:                               ; preds = %._crit_edge, %2
   br label %.lr.ph43
 
 .lr.ph43:                                         ; preds = %.lr.ph43.preheader, %._crit_edge39

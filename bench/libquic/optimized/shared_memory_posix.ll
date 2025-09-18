@@ -375,24 +375,23 @@ define noundef zeroext i1 @_ZN4base12SharedMemory21CreateAndMapAnonymousEm(ptr n
   %17 = select i1 %16, i32 1, i32 3
   %18 = call ptr @mmap(ptr noundef null, i64 noundef %1, i32 noundef %17, i32 noundef 1, i32 noundef %7, i64 noundef 0) #22
   store ptr %18, ptr %11, align 8, !tbaa !23
-  %magicptr.i.i = ptrtoint ptr %18 to i64
-  switch i64 %magicptr.i.i, label %19 [
-    i64 -1, label %21
-    i64 0, label %21
-  ]
+  %.not9.i.i = icmp ne ptr %18, inttoptr (i64 -1 to ptr)
+  %19 = icmp ne ptr %18, null
+  %spec.select.i.i = and i1 %.not9.i.i, %19
+  br i1 %spec.select.i.i, label %20, label %22
 
-19:                                               ; preds = %13
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %1, ptr %20, align 8, !tbaa !24
+20:                                               ; preds = %13
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %1, ptr %21, align 8, !tbaa !24
   br label %_ZN4base12SharedMemory3MapEm.exit
 
-21:                                               ; preds = %13, %13
+22:                                               ; preds = %13
   store ptr null, ptr %11, align 8, !tbaa !23
   br label %_ZN4base12SharedMemory3MapEm.exit
 
-_ZN4base12SharedMemory3MapEm.exit:                ; preds = %21, %19, %10, %6, %2
-  %22 = phi i1 [ false, %2 ], [ false, %6 ], [ false, %10 ], [ false, %21 ], [ true, %19 ]
-  ret i1 %22
+_ZN4base12SharedMemory3MapEm.exit:                ; preds = %22, %20, %10, %6, %2
+  %23 = phi i1 [ false, %2 ], [ false, %6 ], [ false, %10 ], [ false, %22 ], [ true, %20 ]
+  ret i1 %23
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
@@ -1859,13 +1858,13 @@ define noundef zeroext i1 @_ZN4base12SharedMemory5MapAtElm(ptr noundef nonnull a
   %5 = icmp eq i32 %4, -1
   %6 = icmp ugt i64 %2, 2147483647
   %or.cond = or i1 %6, %5
-  br i1 %or.cond, label %19, label %7
+  br i1 %or.cond, label %20, label %7
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !23
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %10, label %19
+  br i1 %.not, label %10, label %20
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1874,23 +1873,22 @@ define noundef zeroext i1 @_ZN4base12SharedMemory5MapAtElm(ptr noundef nonnull a
   %14 = select i1 %13, i32 1, i32 3
   %15 = tail call ptr @mmap(ptr noundef null, i64 noundef %2, i32 noundef %14, i32 noundef 1, i32 noundef %4, i64 noundef %1) #22
   store ptr %15, ptr %8, align 8, !tbaa !23
-  %magicptr = ptrtoint ptr %15 to i64
-  switch i64 %magicptr, label %16 [
-    i64 -1, label %18
-    i64 0, label %18
-  ]
+  %.not9 = icmp ne ptr %15, inttoptr (i64 -1 to ptr)
+  %16 = icmp ne ptr %15, null
+  %spec.select = and i1 %.not9, %16
+  br i1 %spec.select, label %17, label %19
 
-16:                                               ; preds = %10
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %2, ptr %17, align 8, !tbaa !24
-  br label %19
+17:                                               ; preds = %10
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %2, ptr %18, align 8, !tbaa !24
+  br label %20
 
-18:                                               ; preds = %10, %10
+19:                                               ; preds = %10
   store ptr null, ptr %8, align 8, !tbaa !23
-  br label %19
+  br label %20
 
-19:                                               ; preds = %16, %18, %7, %3
-  %.0 = phi i1 [ false, %3 ], [ false, %7 ], [ false, %18 ], [ true, %16 ]
+20:                                               ; preds = %17, %19, %7, %3
+  %.0 = phi i1 [ false, %3 ], [ false, %7 ], [ false, %19 ], [ true, %17 ]
   ret i1 %.0
 }
 

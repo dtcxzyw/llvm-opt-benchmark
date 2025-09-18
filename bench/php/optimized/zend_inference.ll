@@ -31830,11 +31830,10 @@ define internal fastcc ptr @zend_fetch_prop_info(ptr noundef readonly captures(n
   store ptr %48, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 520), align 8, !tbaa !172
   %59 = tail call ptr @zend_get_property_info(ptr noundef nonnull %.0, ptr noundef %46, i32 noundef 1) #18
   store ptr %58, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 520), align 8, !tbaa !172
-  %magicptr.i = ptrtoint ptr %59 to i64
-  switch i64 %magicptr.i, label %lookup_prop_info.exit.thread31 [
-    i64 -1, label %.thread
-    i64 0, label %.thread
-  ]
+  %.not31.i = icmp eq ptr %59, inttoptr (i64 -1 to ptr)
+  %.not24 = icmp eq ptr %59, null
+  %or.cond = or i1 %.not31.i, %.not24
+  br i1 %or.cond, label %.thread, label %lookup_prop_info.exit.thread31
 
 60:                                               ; preds = %53, %44
   %61 = getelementptr inbounds nuw i8, ptr %.0, i64 120
@@ -31869,8 +31868,8 @@ lookup_prop_info.exit.thread31:                   ; preds = %57, %63, %69
   %spec.store.select = select i1 %.not25, ptr %.1.i34, ptr null
   br label %.thread
 
-.thread:                                          ; preds = %60, %68, %69, %57, %57, %18, %27, %lookup_prop_info.exit.thread31, %4
-  %.018 = phi ptr [ null, %4 ], [ %spec.store.select, %lookup_prop_info.exit.thread31 ], [ null, %27 ], [ null, %18 ], [ null, %57 ], [ null, %57 ], [ null, %69 ], [ null, %68 ], [ null, %60 ]
+.thread:                                          ; preds = %57, %60, %68, %69, %18, %27, %lookup_prop_info.exit.thread31, %4
+  %.018 = phi ptr [ null, %4 ], [ %spec.store.select, %lookup_prop_info.exit.thread31 ], [ null, %27 ], [ null, %18 ], [ null, %69 ], [ null, %68 ], [ null, %60 ], [ null, %57 ]
   ret ptr %.018
 }
 
@@ -32007,11 +32006,10 @@ define internal fastcc ptr @zend_fetch_static_prop_info(ptr noundef %0, ptr noun
   store ptr %69, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 520), align 8, !tbaa !172
   %80 = tail call ptr @zend_get_property_info(ptr noundef nonnull %.129, ptr noundef %67, i32 noundef 1) #18
   store ptr %79, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 520), align 8, !tbaa !172
-  %magicptr.i = ptrtoint ptr %80 to i64
-  switch i64 %magicptr.i, label %lookup_prop_info.exit.thread6 [
-    i64 -1, label %.thread
-    i64 0, label %.thread
-  ]
+  %.not31.i = icmp eq ptr %80, inttoptr (i64 -1 to ptr)
+  %.not38 = icmp eq ptr %80, null
+  %or.cond = or i1 %.not31.i, %.not38
+  br i1 %or.cond, label %.thread, label %lookup_prop_info.exit.thread6
 
 81:                                               ; preds = %74, %65
   %82 = getelementptr inbounds nuw i8, ptr %.129, i64 120
@@ -32046,8 +32044,8 @@ lookup_prop_info.exit.thread6:                    ; preds = %78, %84, %90
   %spec.store.select = select i1 %.not39, ptr null, ptr %.1.i9
   br label %.thread
 
-.thread:                                          ; preds = %81, %89, %90, %78, %78, %7, %17, %20, %10, %48, %lookup_prop_info.exit.thread6, %3
-  %.0 = phi ptr [ null, %3 ], [ null, %48 ], [ %spec.store.select, %lookup_prop_info.exit.thread6 ], [ null, %10 ], [ null, %20 ], [ null, %17 ], [ null, %7 ], [ null, %78 ], [ null, %78 ], [ null, %90 ], [ null, %89 ], [ null, %81 ]
+.thread:                                          ; preds = %78, %81, %89, %90, %7, %17, %20, %10, %48, %lookup_prop_info.exit.thread6, %3
+  %.0 = phi ptr [ null, %3 ], [ null, %48 ], [ %spec.store.select, %lookup_prop_info.exit.thread6 ], [ null, %10 ], [ null, %20 ], [ null, %17 ], [ null, %7 ], [ null, %90 ], [ null, %89 ], [ null, %81 ], [ null, %78 ]
   ret ptr %.0
 }
 

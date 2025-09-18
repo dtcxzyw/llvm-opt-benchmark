@@ -2182,14 +2182,16 @@ declare ptr @PyOS_setsig(i32 noundef, ptr noundef) local_unnamed_addr #2
 define internal void @readline_sigwinch_handler(i32 noundef %0) #0 {
   store volatile i32 1, ptr @sigwinch_received, align 4, !tbaa !17
   %2 = load ptr, ptr @sigwinch_ohandler, align 8, !tbaa !19
-  %switch = icmp ult ptr %2, inttoptr (i64 2 to ptr)
-  br i1 %switch, label %4, label %3
+  %3 = icmp ne ptr %2, null
+  %4 = icmp ne ptr %2, inttoptr (i64 1 to ptr)
+  %or.cond = and i1 %3, %4
+  br i1 %or.cond, label %5, label %6
 
-3:                                                ; preds = %1
+5:                                                ; preds = %1
   tail call void %2(i32 noundef %0) #14
-  br label %4
+  br label %6
 
-4:                                                ; preds = %1, %3
+6:                                                ; preds = %5, %1
   ret void
 }
 

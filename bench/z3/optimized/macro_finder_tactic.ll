@@ -3421,96 +3421,100 @@ define linkonce_odr hidden void @_ZN6recfun4decl6plugin12get_rec_funsEv(ptr dead
   %.not1.i.i.i.i = icmp eq i32 %10, 0
   br i1 %.not1.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %2, %14
-  %.sroa.0.0.i.i = phi ptr [ %15, %14 ], [ %8, %2 ]
+.lr.ph.i.i.i.i:                                   ; preds = %2, %15
+  %.sroa.0.0.i.i = phi ptr [ %16, %15 ], [ %8, %2 ]
   %13 = load ptr, ptr %.sroa.0.0.i.i, align 8, !tbaa !195
-  %switch.i.i.i.i = icmp ult ptr %13, inttoptr (i64 2 to ptr)
-  br i1 %switch.i.i.i.i, label %14, label %.loopexit
+  %.not.i.i.i.i.i = icmp ne ptr %13, null
+  %14 = icmp ne ptr %13, inttoptr (i64 1 to ptr)
+  %spec.select.i.i.i.i.i = and i1 %.not.i.i.i.i.i, %14
+  br i1 %spec.select.i.i.i.i.i, label %.loopexit, label %15
 
-14:                                               ; preds = %.lr.ph.i.i.i.i
-  %15 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 16
-  %.not.i.i.i.i = icmp eq ptr %15, %12
+15:                                               ; preds = %.lr.ph.i.i.i.i
+  %16 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 16
+  %.not.i.i.i.i = icmp eq ptr %16, %12
   br i1 %.not.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i, !llvm.loop !199
 
-.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %14, %2
-  %.sroa.0.1.i.i = phi ptr [ %8, %2 ], [ %.sroa.0.0.i.i, %.lr.ph.i.i.i.i ], [ %12, %14 ]
-  %16 = getelementptr inbounds nuw %"class.obj_map<func_decl, recfun::def *>::obj_map_entry", ptr %8, i64 %11
-  %.not16 = icmp eq ptr %.sroa.0.1.i.i, %16
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %15, %2
+  %.sroa.0.1.i.i = phi ptr [ %8, %2 ], [ %12, %15 ], [ %.sroa.0.0.i.i, %.lr.ph.i.i.i.i ]
+  %17 = getelementptr inbounds nuw %"class.obj_map<func_decl, recfun::def *>::obj_map_entry", ptr %8, i64 %11
+  %.not16 = icmp eq ptr %.sroa.0.1.i.i, %17
   br i1 %.not16, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZN14core_hashtableIN7obj_mapI9func_declPN6recfun3defEE13obj_map_entryE8obj_hashINS5_8key_dataEE10default_eqIS8_EE8iteratorppEv.exit, %.loopexit
   ret void
 
 .lr.ph:                                           ; preds = %.loopexit, %_ZN14core_hashtableIN7obj_mapI9func_declPN6recfun3defEE13obj_map_entryE8obj_hashINS5_8key_dataEE10default_eqIS8_EE8iteratorppEv.exit
-  %17 = phi ptr [ %32, %_ZN14core_hashtableIN7obj_mapI9func_declPN6recfun3defEE13obj_map_entryE8obj_hashINS5_8key_dataEE10default_eqIS8_EE8iteratorppEv.exit ], [ null, %.loopexit ]
+  %18 = phi ptr [ %33, %_ZN14core_hashtableIN7obj_mapI9func_declPN6recfun3defEE13obj_map_entryE8obj_hashINS5_8key_dataEE10default_eqIS8_EE8iteratorppEv.exit ], [ null, %.loopexit ]
   %.sroa.013.017 = phi ptr [ %.sroa.013.2, %_ZN14core_hashtableIN7obj_mapI9func_declPN6recfun3defEE13obj_map_entryE8obj_hashINS5_8key_dataEE10default_eqIS8_EE8iteratorppEv.exit ], [ %.sroa.0.1.i.i, %.loopexit ]
-  %18 = load ptr, ptr %.sroa.013.017, align 8, !tbaa !200
-  %.not.i.i.i.i12 = icmp eq ptr %18, null
-  br i1 %.not.i.i.i.i12, label %_ZN15ref_vector_coreI9func_decl19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i, label %19
+  %19 = load ptr, ptr %.sroa.013.017, align 8, !tbaa !200
+  %.not.i.i.i.i12 = icmp eq ptr %19, null
+  br i1 %.not.i.i.i.i12, label %_ZN15ref_vector_coreI9func_decl19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i, label %20
 
-19:                                               ; preds = %.lr.ph
-  %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %21 = load i32, ptr %20, align 4, !tbaa !51
-  %22 = add i32 %21, 1
-  store i32 %22, ptr %20, align 4, !tbaa !51
+20:                                               ; preds = %.lr.ph
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %22 = load i32, ptr %21, align 4, !tbaa !51
+  %23 = add i32 %22, 1
+  store i32 %23, ptr %21, align 4, !tbaa !51
   br label %_ZN15ref_vector_coreI9func_decl19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i
 
-_ZN15ref_vector_coreI9func_decl19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i: ; preds = %19, %.lr.ph
-  %23 = icmp eq ptr %17, null
-  br i1 %23, label %30, label %24
+_ZN15ref_vector_coreI9func_decl19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i: ; preds = %20, %.lr.ph
+  %24 = icmp eq ptr %18, null
+  br i1 %24, label %31, label %25
 
-24:                                               ; preds = %_ZN15ref_vector_coreI9func_decl19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i
-  %25 = getelementptr inbounds i8, ptr %17, i64 -4
-  %26 = load i32, ptr %25, align 4, !tbaa !46
-  %27 = getelementptr inbounds i8, ptr %17, i64 -8
-  %28 = load i32, ptr %27, align 4, !tbaa !46
-  %29 = icmp eq i32 %26, %28
-  br i1 %29, label %30, label %31
+25:                                               ; preds = %_ZN15ref_vector_coreI9func_decl19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i
+  %26 = getelementptr inbounds i8, ptr %18, i64 -4
+  %27 = load i32, ptr %26, align 4, !tbaa !46
+  %28 = getelementptr inbounds i8, ptr %18, i64 -8
+  %29 = load i32, ptr %28, align 4, !tbaa !46
+  %30 = icmp eq i32 %27, %29
+  br i1 %30, label %31, label %32
 
-30:                                               ; preds = %24, %_ZN15ref_vector_coreI9func_decl19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i
+31:                                               ; preds = %25, %_ZN15ref_vector_coreI9func_decl19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i
   invoke void @_ZN6vectorIP9func_declLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %6)
-          to label %.noexc unwind label %42
+          to label %.noexc unwind label %44
 
-.noexc:                                           ; preds = %30
+.noexc:                                           ; preds = %31
   %.pre.i.i = load ptr, ptr %6, align 8, !tbaa !42
   %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %.pre.i.i, i64 -4
   %.pre2.i.i = load i32, ptr %.phi.trans.insert.i.i, align 4, !tbaa !46
-  br label %31
+  br label %32
 
-31:                                               ; preds = %.noexc, %24
-  %32 = phi ptr [ %.pre.i.i, %.noexc ], [ %17, %24 ]
-  %33 = phi i32 [ %.pre2.i.i, %.noexc ], [ %26, %24 ]
-  %34 = getelementptr inbounds i8, ptr %32, i64 -4
-  %35 = zext i32 %33 to i64
-  %36 = getelementptr inbounds nuw ptr, ptr %32, i64 %35
-  store ptr %18, ptr %36, align 8, !tbaa !47
-  %37 = add i32 %33, 1
-  store i32 %37, ptr %34, align 4, !tbaa !46
-  %38 = getelementptr inbounds nuw i8, ptr %.sroa.013.017, i64 16
-  %.not1.i.i = icmp eq ptr %38, %12
+32:                                               ; preds = %.noexc, %25
+  %33 = phi ptr [ %.pre.i.i, %.noexc ], [ %18, %25 ]
+  %34 = phi i32 [ %.pre2.i.i, %.noexc ], [ %27, %25 ]
+  %35 = getelementptr inbounds i8, ptr %33, i64 -4
+  %36 = zext i32 %34 to i64
+  %37 = getelementptr inbounds nuw ptr, ptr %33, i64 %36
+  store ptr %19, ptr %37, align 8, !tbaa !47
+  %38 = add i32 %34, 1
+  store i32 %38, ptr %35, align 4, !tbaa !46
+  %39 = getelementptr inbounds nuw i8, ptr %.sroa.013.017, i64 16
+  %.not1.i.i = icmp eq ptr %39, %12
   br i1 %.not1.i.i, label %_ZN14core_hashtableIN7obj_mapI9func_declPN6recfun3defEE13obj_map_entryE8obj_hashINS5_8key_dataEE10default_eqIS8_EE8iteratorppEv.exit, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %31, %40
-  %.sroa.013.1 = phi ptr [ %41, %40 ], [ %38, %31 ]
-  %39 = load ptr, ptr %.sroa.013.1, align 8, !tbaa !195
-  %switch.i.i = icmp ult ptr %39, inttoptr (i64 2 to ptr)
-  br i1 %switch.i.i, label %40, label %_ZN14core_hashtableIN7obj_mapI9func_declPN6recfun3defEE13obj_map_entryE8obj_hashINS5_8key_dataEE10default_eqIS8_EE8iteratorppEv.exit
+.lr.ph.i.i:                                       ; preds = %32, %42
+  %.sroa.013.1 = phi ptr [ %43, %42 ], [ %39, %32 ]
+  %40 = load ptr, ptr %.sroa.013.1, align 8, !tbaa !195
+  %.not.i.i.i = icmp ne ptr %40, null
+  %41 = icmp ne ptr %40, inttoptr (i64 1 to ptr)
+  %spec.select.i.i.i = and i1 %.not.i.i.i, %41
+  br i1 %spec.select.i.i.i, label %_ZN14core_hashtableIN7obj_mapI9func_declPN6recfun3defEE13obj_map_entryE8obj_hashINS5_8key_dataEE10default_eqIS8_EE8iteratorppEv.exit, label %42
 
-40:                                               ; preds = %.lr.ph.i.i
-  %41 = getelementptr inbounds nuw i8, ptr %.sroa.013.1, i64 16
-  %.not.i.i = icmp eq ptr %41, %12
+42:                                               ; preds = %.lr.ph.i.i
+  %43 = getelementptr inbounds nuw i8, ptr %.sroa.013.1, i64 16
+  %.not.i.i = icmp eq ptr %43, %12
   br i1 %.not.i.i, label %_ZN14core_hashtableIN7obj_mapI9func_declPN6recfun3defEE13obj_map_entryE8obj_hashINS5_8key_dataEE10default_eqIS8_EE8iteratorppEv.exit, label %.lr.ph.i.i, !llvm.loop !199
 
-_ZN14core_hashtableIN7obj_mapI9func_declPN6recfun3defEE13obj_map_entryE8obj_hashINS5_8key_dataEE10default_eqIS8_EE8iteratorppEv.exit: ; preds = %.lr.ph.i.i, %40, %31
-  %.sroa.013.2 = phi ptr [ %38, %31 ], [ %.sroa.013.1, %.lr.ph.i.i ], [ %41, %40 ]
-  %.not = icmp eq ptr %.sroa.013.2, %16
+_ZN14core_hashtableIN7obj_mapI9func_declPN6recfun3defEE13obj_map_entryE8obj_hashINS5_8key_dataEE10default_eqIS8_EE8iteratorppEv.exit: ; preds = %.lr.ph.i.i, %42, %32
+  %.sroa.013.2 = phi ptr [ %39, %32 ], [ %43, %42 ], [ %.sroa.013.1, %.lr.ph.i.i ]
+  %.not = icmp eq ptr %.sroa.013.2, %17
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-42:                                               ; preds = %30
-  %43 = landingpad { ptr, i32 }
+44:                                               ; preds = %31
+  %45 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN15ref_vector_coreI9func_decl19ref_manager_wrapperIS0_11ast_managerEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #17
-  resume { ptr, i32 } %43
+  resume { ptr, i32 } %45
 }
 
 ; Function Attrs: mustprogress uwtable

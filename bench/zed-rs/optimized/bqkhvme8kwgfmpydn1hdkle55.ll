@@ -1129,70 +1129,71 @@ define internal fastcc void @"_ZN4core3ptr62drop_in_place$LT$$u5b$client..Subscr
   %.idx.i = select i1 %.not.i, i64 8, i64 0
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx.i
   invoke void @"_ZN4core3ptr60drop_in_place$LT$alloc..sync..Weak$LT$client..Client$GT$$GT$17h38724e38c1ff0be4E.llvm.17231173475946515404"(ptr noalias noundef nonnull align 8 dereferenceable(8) %7) #48
-          to label %.body unwind label %22
+          to label %.body unwind label %24
 
 8:                                                ; preds = %2
   %9 = load ptr, ptr %3, align 8, !alias.scope !322, !noundef !12
-  %magicptr = ptrtoint ptr %9 to i64
-  switch i64 %magicptr, label %10 [
-    i64 0, label %14
-    i64 -1, label %"_ZN4core3ptr41drop_in_place$LT$client..Subscription$GT$17hc94d2fdeb06a7ca6E.exit"
-  ]
+  %.not1.i = icmp eq ptr %9, null
+  br i1 %.not1.i, label %16, label %10
 
 10:                                               ; preds = %8
-  %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %12 = atomicrmw sub ptr %11, i64 1 release, align 8, !noalias !325
-  %13 = icmp eq i64 %12, 1
-  br i1 %13, label %"_ZN4core3ptr60drop_in_place$LT$alloc..sync..Weak$LT$client..Client$GT$$GT$17h38724e38c1ff0be4E.llvm.17231173475946515404.exit.sink.split.i", label %"_ZN4core3ptr41drop_in_place$LT$client..Subscription$GT$17hc94d2fdeb06a7ca6E.exit"
+  %11 = icmp eq ptr %9, inttoptr (i64 -1 to ptr)
+  br i1 %11, label %"_ZN4core3ptr41drop_in_place$LT$client..Subscription$GT$17hc94d2fdeb06a7ca6E.exit", label %12
 
-14:                                               ; preds = %8
-  %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
+12:                                               ; preds = %10
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %14 = atomicrmw sub ptr %13, i64 1 release, align 8, !noalias !325
+  %15 = icmp eq i64 %14, 1
+  br i1 %15, label %"_ZN4core3ptr60drop_in_place$LT$alloc..sync..Weak$LT$client..Client$GT$$GT$17h38724e38c1ff0be4E.llvm.17231173475946515404.exit.sink.split.i", label %"_ZN4core3ptr41drop_in_place$LT$client..Subscription$GT$17hc94d2fdeb06a7ca6E.exit"
+
+16:                                               ; preds = %8
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !330)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !333)
-  %16 = load ptr, ptr %15, align 8, !alias.scope !336, !nonnull !12, !noundef !12
-  %17 = icmp eq ptr %16, inttoptr (i64 -1 to ptr)
-  br i1 %17, label %"_ZN4core3ptr41drop_in_place$LT$client..Subscription$GT$17hc94d2fdeb06a7ca6E.exit", label %18
+  %18 = load ptr, ptr %17, align 8, !alias.scope !336, !nonnull !12, !noundef !12
+  %19 = icmp eq ptr %18, inttoptr (i64 -1 to ptr)
+  br i1 %19, label %"_ZN4core3ptr41drop_in_place$LT$client..Subscription$GT$17hc94d2fdeb06a7ca6E.exit", label %20
 
-18:                                               ; preds = %14
-  %19 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %20 = atomicrmw sub ptr %19, i64 1 release, align 8, !noalias !337
-  %21 = icmp eq i64 %20, 1
-  br i1 %21, label %"_ZN4core3ptr60drop_in_place$LT$alloc..sync..Weak$LT$client..Client$GT$$GT$17h38724e38c1ff0be4E.llvm.17231173475946515404.exit.sink.split.i", label %"_ZN4core3ptr41drop_in_place$LT$client..Subscription$GT$17hc94d2fdeb06a7ca6E.exit"
+20:                                               ; preds = %16
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %22 = atomicrmw sub ptr %21, i64 1 release, align 8, !noalias !337
+  %23 = icmp eq i64 %22, 1
+  br i1 %23, label %"_ZN4core3ptr60drop_in_place$LT$alloc..sync..Weak$LT$client..Client$GT$$GT$17h38724e38c1ff0be4E.llvm.17231173475946515404.exit.sink.split.i", label %"_ZN4core3ptr41drop_in_place$LT$client..Subscription$GT$17hc94d2fdeb06a7ca6E.exit"
 
-"_ZN4core3ptr60drop_in_place$LT$alloc..sync..Weak$LT$client..Client$GT$$GT$17h38724e38c1ff0be4E.llvm.17231173475946515404.exit.sink.split.i": ; preds = %18, %10
-  %.sink.in.i = phi ptr [ %3, %10 ], [ %15, %18 ]
+"_ZN4core3ptr60drop_in_place$LT$alloc..sync..Weak$LT$client..Client$GT$$GT$17h38724e38c1ff0be4E.llvm.17231173475946515404.exit.sink.split.i": ; preds = %20, %12
+  %.sink.in.i = phi ptr [ %3, %12 ], [ %17, %20 ]
   fence acquire
   %.sink.i = load ptr, ptr %.sink.in.i, align 8, !alias.scope !322, !nonnull !12, !noundef !12
   tail call void @__rust_dealloc(ptr noundef nonnull %.sink.i, i64 noundef 312, i64 noundef 8) #41, !noalias !12
   br label %"_ZN4core3ptr41drop_in_place$LT$client..Subscription$GT$17hc94d2fdeb06a7ca6E.exit"
 
-22:                                               ; preds = %.invoke.i
-  %23 = landingpad { ptr, i32 }
+24:                                               ; preds = %.invoke.i
+  %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #49
   unreachable
 
-"_ZN4core3ptr41drop_in_place$LT$client..Subscription$GT$17hc94d2fdeb06a7ca6E.exit": ; preds = %8, %10, %14, %18, %"_ZN4core3ptr60drop_in_place$LT$alloc..sync..Weak$LT$client..Client$GT$$GT$17h38724e38c1ff0be4E.llvm.17231173475946515404.exit.sink.split.i"
-  %24 = icmp eq i64 %4, 2
-  br i1 %24, label %25, label %2
+"_ZN4core3ptr41drop_in_place$LT$client..Subscription$GT$17hc94d2fdeb06a7ca6E.exit": ; preds = %10, %12, %16, %20, %"_ZN4core3ptr60drop_in_place$LT$alloc..sync..Weak$LT$client..Client$GT$$GT$17h38724e38c1ff0be4E.llvm.17231173475946515404.exit.sink.split.i"
+  %26 = icmp eq i64 %4, 2
+  br i1 %26, label %27, label %2
 
-25:                                               ; preds = %"_ZN4core3ptr41drop_in_place$LT$client..Subscription$GT$17hc94d2fdeb06a7ca6E.exit"
+27:                                               ; preds = %"_ZN4core3ptr41drop_in_place$LT$client..Subscription$GT$17hc94d2fdeb06a7ca6E.exit"
   ret void
 
 .body:                                            ; preds = %.invoke.i
-  %26 = icmp eq i64 %4, 2
-  br i1 %26, label %.critedge, label %27
+  %28 = icmp eq i64 %4, 2
+  br i1 %28, label %.critedge, label %29
 
-27:                                               ; preds = %.body
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  invoke void @"_ZN4core3ptr41drop_in_place$LT$client..Subscription$GT$17hc94d2fdeb06a7ca6E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %28) #48
-          to label %.critedge unwind label %29
+29:                                               ; preds = %.body
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  invoke void @"_ZN4core3ptr41drop_in_place$LT$client..Subscription$GT$17hc94d2fdeb06a7ca6E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %30) #48
+          to label %.critedge unwind label %31
 
-.critedge:                                        ; preds = %27, %.body
+.critedge:                                        ; preds = %29, %.body
   resume { ptr, i32 } %5
 
-29:                                               ; preds = %27
-  %30 = landingpad { ptr, i32 }
+31:                                               ; preds = %29
+  %32 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #49
   unreachable

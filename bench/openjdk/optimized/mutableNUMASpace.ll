@@ -2403,7 +2403,7 @@ _ZNK16MutableNUMASpace16lgrp_space_indexEi.exit.thread: ; preds = %15, %2
   %30 = load ptr, ptr %29, align 8
   %31 = tail call noundef ptr %30(ptr noundef nonnull align 8 dereferenceable(56) %27, i64 noundef %1) #11
   %.not = icmp eq ptr %31, null
-  br i1 %.not, label %60, label %32
+  br i1 %.not, label %59, label %32
 
 32:                                               ; preds = %21
   %33 = getelementptr inbounds nuw i8, ptr %27, i64 48
@@ -2425,7 +2425,7 @@ _ZNK16MutableNUMASpace16lgrp_space_indexEi.exit.thread: ; preds = %15, %2
 
 47:                                               ; preds = %32
   %48 = tail call noundef zeroext i1 @_ZN12MutableSpace14cas_deallocateEPP12HeapWordImplm(ptr noundef nonnull align 8 dereferenceable(56) %27, ptr noundef nonnull %31, i64 noundef %1) #11
-  br i1 %48, label %60, label %49
+  br i1 %48, label %59, label %49
 
 49:                                               ; preds = %47
   %50 = load ptr, ptr @g_assert_poison, align 8
@@ -2434,28 +2434,27 @@ _ZNK16MutableNUMASpace16lgrp_space_indexEi.exit.thread: ; preds = %15, %2
   unreachable
 
 51:                                               ; preds = %32
-  %52 = getelementptr inbounds ptr, ptr %31, i64 %1
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  br label %54
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  br label %53
 
-54:                                               ; preds = %57, %51
-  %55 = load volatile ptr, ptr %53, align 8
-  %56 = icmp ult ptr %55, %52
-  br i1 %56, label %57, label %.loopexit
+53:                                               ; preds = %56, %51
+  %54 = load volatile ptr, ptr %52, align 8
+  %55 = icmp ult ptr %54, %35
+  br i1 %55, label %56, label %.thread44
 
-57:                                               ; preds = %54
-  %58 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %52, ptr %55, ptr nonnull %53) #11, !srcloc !20
-  %59 = icmp eq ptr %58, %55
-  br i1 %59, label %.loopexit, label %54, !llvm.loop !21
+56:                                               ; preds = %53
+  %57 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %35, ptr %54, ptr nonnull %52) #11, !srcloc !20
+  %58 = icmp eq ptr %57, %54
+  br i1 %58, label %.thread44, label %53, !llvm.loop !21
 
-60:                                               ; preds = %21, %47
-  %61 = getelementptr inbounds nuw i8, ptr %25, i64 24
-  store i8 1, ptr %61, align 8
-  br label %.loopexit
+59:                                               ; preds = %47, %21
+  %60 = getelementptr inbounds nuw i8, ptr %25, i64 24
+  store i8 1, ptr %60, align 8
+  br label %.thread44
 
-.loopexit:                                        ; preds = %57, %54, %60
-  %.03145 = phi ptr [ null, %60 ], [ %31, %54 ], [ %31, %57 ]
-  ret ptr %.03145
+.thread44:                                        ; preds = %56, %53, %59
+  %.0314147 = phi ptr [ null, %59 ], [ %31, %53 ], [ %31, %56 ]
+  ret ptr %.0314147
 }
 
 declare noundef i32 @_ZN2os17numa_get_group_idEv() local_unnamed_addr #1

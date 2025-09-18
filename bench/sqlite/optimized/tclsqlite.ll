@@ -7240,8 +7240,8 @@ define internal fastcc void @DbHookCmd(ptr noundef %0, ptr noundef %1, ptr nound
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 1896
   %10 = load ptr, ptr %9, align 8, !tbaa !77
   tail call void %10(ptr noundef %0, ptr noundef nonnull %6) #14
-  %cond = icmp eq ptr %2, null
-  br i1 %cond, label %30, label %11
+  %.not24 = icmp eq ptr %2, null
+  br i1 %.not24, label %.thread, label %11
 
 11:                                               ; preds = %7
   %12 = load ptr, ptr %3, align 8, !tbaa !15
@@ -7249,55 +7249,55 @@ define internal fastcc void @DbHookCmd(ptr noundef %0, ptr noundef %1, ptr nound
   %14 = add nsw i32 %13, -1
   store i32 %14, ptr %12, align 8, !tbaa !61
   %15 = icmp slt i32 %13, 2
-  br i1 %15, label %16, label %.thread
+  br i1 %15, label %16, label %.thread31
 
 16:                                               ; preds = %11
   %17 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 256
   %19 = load ptr, ptr %18, align 8, !tbaa !64
   tail call void %19(ptr noundef nonnull %12) #14
-  br label %.thread
+  br label %.thread31
 
-.thread:                                          ; preds = %11, %16
+.thread31:                                        ; preds = %11, %16
   store ptr null, ptr %3, align 8, !tbaa !15
   br label %21
 
 20:                                               ; preds = %4
   %.not25 = icmp eq ptr %2, null
-  br i1 %.not25, label %30, label %21
+  br i1 %.not25, label %.thread, label %21
 
-21:                                               ; preds = %.thread, %20
+21:                                               ; preds = %.thread31, %20
   %22 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 2736
   %24 = load ptr, ptr %23, align 8, !tbaa !19
   %25 = tail call ptr %24(ptr noundef nonnull %2) #14
   %26 = load i8, ptr %25, align 1, !tbaa !18
   %.not26 = icmp eq i8 %26, 0
-  br i1 %.not26, label %30, label %27
+  br i1 %.not26, label %.thread, label %27
 
 27:                                               ; preds = %21
   store ptr %2, ptr %3, align 8, !tbaa !15
   %28 = load i32, ptr %2, align 8, !tbaa !61
   %29 = add nsw i32 %28, 1
   store i32 %29, ptr %2, align 8, !tbaa !61
-  br label %30
+  br label %.thread
 
-30:                                               ; preds = %7, %21, %27, %20
-  %31 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %32 = load ptr, ptr %31, align 8, !tbaa !199
-  %.not27 = icmp eq ptr %32, null
-  %33 = select i1 %.not27, ptr null, ptr @DbUpdateHandler
-  %34 = tail call ptr @sqlite3_update_hook(ptr noundef %5, ptr noundef %33, ptr noundef nonnull %1) #14
-  %35 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  %36 = load ptr, ptr %35, align 8, !tbaa !200
-  %.not28 = icmp eq ptr %36, null
-  %37 = select i1 %.not28, ptr null, ptr @DbRollbackHandler
-  %38 = tail call ptr @sqlite3_rollback_hook(ptr noundef %5, ptr noundef %37, ptr noundef nonnull %1) #14
-  %39 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  %40 = load ptr, ptr %39, align 8, !tbaa !201
-  %.not29 = icmp eq ptr %40, null
-  %41 = select i1 %.not29, ptr null, ptr @DbWalHandler
-  %42 = tail call ptr @sqlite3_wal_hook(ptr noundef %5, ptr noundef %41, ptr noundef nonnull %1) #14
+.thread:                                          ; preds = %7, %21, %27, %20
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  %31 = load ptr, ptr %30, align 8, !tbaa !199
+  %.not27 = icmp eq ptr %31, null
+  %32 = select i1 %.not27, ptr null, ptr @DbUpdateHandler
+  %33 = tail call ptr @sqlite3_update_hook(ptr noundef %5, ptr noundef %32, ptr noundef nonnull %1) #14
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 120
+  %35 = load ptr, ptr %34, align 8, !tbaa !200
+  %.not28 = icmp eq ptr %35, null
+  %36 = select i1 %.not28, ptr null, ptr @DbRollbackHandler
+  %37 = tail call ptr @sqlite3_rollback_hook(ptr noundef %5, ptr noundef %36, ptr noundef nonnull %1) #14
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 128
+  %39 = load ptr, ptr %38, align 8, !tbaa !201
+  %.not29 = icmp eq ptr %39, null
+  %40 = select i1 %.not29, ptr null, ptr @DbWalHandler
+  %41 = tail call ptr @sqlite3_wal_hook(ptr noundef %5, ptr noundef %40, ptr noundef nonnull %1) #14
   ret void
 }
 

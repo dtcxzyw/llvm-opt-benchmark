@@ -4097,8 +4097,8 @@ _ZN6icu_775MutexC2EPNS_6UMutexE.exit:             ; preds = %5
   %14 = load i32, ptr %13, align 4, !tbaa !76
   store ptr null, ptr %11, align 8, !tbaa !77
   store i32 0, ptr %13, align 4, !tbaa !76
-  %cond.i = icmp eq ptr %12, null
-  br i1 %cond.i, label %.thread55, label %15
+  %.not14.i = icmp eq ptr %12, null
+  br i1 %.not14.i, label %.thread55, label %15
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -4164,8 +4164,8 @@ _ZNK6icu_7717TimeZoneNamesImpl6doFindERNS_18ZNameSearchHandlerERKNS_13UnicodeStr
   %46 = load i32, ptr %45, align 4, !tbaa !76
   store ptr null, ptr %43, align 8, !tbaa !77
   store i32 0, ptr %45, align 4, !tbaa !76
-  %cond.i37 = icmp eq ptr %44, null
-  br i1 %cond.i37, label %.thread65, label %47
+  %.not14.i37 = icmp eq ptr %44, null
+  br i1 %.not14.i37, label %.thread65, label %47
 
 47:                                               ; preds = %42
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -4242,7 +4242,7 @@ define noundef ptr @_ZNK6icu_7717TimeZoneNamesImpl6doFindERNS_18ZNameSearchHandl
   tail call void @_ZNK6icu_7711TextTrieMap6searchERKNS_13UnicodeStringEiPNS_30TextTrieMapSearchResultHandlerER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(64) %2, i32 noundef %3, ptr noundef nonnull %1, ptr noundef nonnull align 4 dereferenceable(4) %4)
   %7 = load i32, ptr %4, align 4, !tbaa !13
   %8 = icmp slt i32 %7, 1
-  br i1 %8, label %9, label %31
+  br i1 %8, label %9, label %.thread
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -4251,8 +4251,8 @@ define noundef ptr @_ZNK6icu_7717TimeZoneNamesImpl6doFindERNS_18ZNameSearchHandl
   %13 = load i32, ptr %12, align 4, !tbaa !76
   store ptr null, ptr %10, align 8, !tbaa !77
   store i32 0, ptr %12, align 4, !tbaa !76
-  %cond = icmp eq ptr %11, null
-  br i1 %cond, label %31, label %14
+  %.not14 = icmp eq ptr %11, null
+  br i1 %.not14, label %.thread, label %14
 
 14:                                               ; preds = %9
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -4269,17 +4269,17 @@ define noundef ptr @_ZNK6icu_7717TimeZoneNamesImpl6doFindERNS_18ZNameSearchHandl
   %26 = load i8, ptr %25, align 8
   %.not15 = icmp eq i8 %26, 0
   %or.cond = select i1 %24, i1 %.not15, i1 false
-  br i1 %or.cond, label %27, label %31
+  br i1 %or.cond, label %27, label %.thread
 
 27:                                               ; preds = %14
   %28 = load ptr, ptr %11, align 8, !tbaa !20
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load ptr, ptr %29, align 8
   tail call void %30(ptr noundef nonnull align 8 dereferenceable(16) %11) #22
-  br label %31
+  br label %.thread
 
-31:                                               ; preds = %14, %27, %9, %5
-  %.0 = phi ptr [ null, %5 ], [ %11, %14 ], [ null, %9 ], [ null, %27 ]
+.thread:                                          ; preds = %9, %14, %27, %5
+  %.0 = phi ptr [ null, %5 ], [ %11, %14 ], [ null, %27 ], [ null, %9 ]
   ret ptr %.0
 }
 

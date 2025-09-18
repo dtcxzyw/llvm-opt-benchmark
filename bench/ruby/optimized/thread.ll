@@ -6387,7 +6387,7 @@ define dso_local ptr @rb_nogvl(ptr noundef nonnull %0, ptr noundef %1, ptr nound
   call void @rb_errno_set(i32 noundef %17) #16
   %18 = load ptr, ptr %6, align 8, !tbaa !244
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %85
+  br label %87
 
 select.unfold:                                    ; preds = %12
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -6411,148 +6411,146 @@ rb_ec_vm_ptr.exit:                                ; preds = %.thread, %22
   %25 = getelementptr inbounds nuw i8, ptr %.0.i, i64 40
   %26 = load ptr, ptr %25, align 8, !tbaa !166
   %27 = icmp ne ptr %26, %.val
-  %magicptr = ptrtoint ptr %2 to i64
-  switch i64 %magicptr, label %28 [
-    i64 -1, label %36
-    i64 0, label %.fold.split
-  ]
+  %28 = icmp eq ptr %2, inttoptr (i64 -1 to ptr)
+  br i1 %28, label %38, label %29
 
-28:                                               ; preds = %rb_ec_vm_ptr.exit
-  %29 = getelementptr inbounds nuw i8, ptr %.val, i64 24
-  %30 = load ptr, ptr %29, align 8, !tbaa !52
-  %31 = call i32 @rb_ractor_living_thread_num(ptr noundef %30) #16
-  %32 = icmp ne i32 %31, 1
-  %or.cond3.not68 = select i1 %32, i1 true, i1 %27
-  %33 = and i32 %4, 2
-  %.not55 = icmp eq i32 %33, 0
+29:                                               ; preds = %rb_ec_vm_ptr.exit
+  %.not54 = icmp eq ptr %2, null
+  br i1 %.not54, label %38, label %30
+
+30:                                               ; preds = %29
+  %31 = getelementptr inbounds nuw i8, ptr %.val, i64 24
+  %32 = load ptr, ptr %31, align 8, !tbaa !52
+  %33 = call i32 @rb_ractor_living_thread_num(ptr noundef %32) #16
+  %34 = icmp ne i32 %33, 1
+  %or.cond3.not68 = select i1 %34, i1 true, i1 %27
+  %35 = and i32 %4, 2
+  %.not55 = icmp eq i32 %35, 0
   %or.cond = or i1 %.not55, %or.cond3.not68
-  br i1 %or.cond, label %36, label %34
+  br i1 %or.cond, label %38, label %36
 
-34:                                               ; preds = %28
-  %35 = getelementptr inbounds nuw i8, ptr %.0.i, i64 504
-  store volatile i32 1, ptr %35, align 8, !tbaa !167
-  br label %36
+36:                                               ; preds = %30
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i, i64 504
+  store volatile i32 1, ptr %37, align 8, !tbaa !167
+  br label %38
 
-.fold.split:                                      ; preds = %rb_ec_vm_ptr.exit
-  br label %36
-
-36:                                               ; preds = %rb_ec_vm_ptr.exit, %.fold.split, %28, %34
-  %.047 = phi ptr [ %3, %34 ], [ %3, %28 ], [ %.val, %rb_ec_vm_ptr.exit ], [ %3, %.fold.split ]
-  %.046 = phi ptr [ %2, %34 ], [ %2, %28 ], [ @ubf_select, %rb_ec_vm_ptr.exit ], [ null, %.fold.split ]
+38:                                               ; preds = %rb_ec_vm_ptr.exit, %29, %30, %36
+  %.047 = phi ptr [ %3, %36 ], [ %3, %30 ], [ %3, %29 ], [ %.val, %rb_ec_vm_ptr.exit ]
+  %.046 = phi ptr [ %2, %36 ], [ %2, %30 ], [ null, %29 ], [ @ubf_select, %rb_ec_vm_ptr.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store volatile ptr %.0.i, ptr %7, align 8, !tbaa !147
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %37 = and i32 %4, 1
-  %38 = call fastcc i32 @blocking_region_begin(ptr noundef %.val, ptr noundef %8, ptr noundef %.046, ptr noundef %.047, i32 noundef %37)
-  %.not56 = icmp eq i32 %38, 0
-  br i1 %.not56, label %56, label %39
+  %39 = and i32 %4, 1
+  %40 = call fastcc i32 @blocking_region_begin(ptr noundef %.val, ptr noundef %8, ptr noundef %.046, ptr noundef %.047, i32 noundef %39)
+  %.not56 = icmp eq i32 %40, 0
+  br i1 %.not56, label %58, label %41
 
-39:                                               ; preds = %36
-  %40 = getelementptr inbounds nuw i8, ptr %.val, i64 48
-  %41 = load ptr, ptr %40, align 8, !tbaa !74
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 168
-  %43 = call i32 @_setjmp(ptr noundef nonnull %42) #44
-  %44 = load ptr, ptr %40, align 8, !tbaa !74
-  %45 = getelementptr inbounds nuw i8, ptr %44, i64 152
-  %46 = call ptr asm sideeffect "movq\09%rsp, $0", "=r,~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !245
-  store ptr %46, ptr %45, align 8, !tbaa !77
-  %47 = getelementptr inbounds nuw i8, ptr %.val, i64 24
-  %48 = load ptr, ptr %47, align 8, !tbaa !52
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 288
-  %50 = call i32 @pthread_mutex_lock(ptr noundef nonnull %49) #16
-  %.not.i.i.i = icmp eq i32 %50, 0
-  br i1 %.not.i.i.i, label %thread_sched_lock_.exit.i, label %51
+41:                                               ; preds = %38
+  %42 = getelementptr inbounds nuw i8, ptr %.val, i64 48
+  %43 = load ptr, ptr %42, align 8, !tbaa !74
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 168
+  %45 = call i32 @_setjmp(ptr noundef nonnull %44) #44
+  %46 = load ptr, ptr %42, align 8, !tbaa !74
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 152
+  %48 = call ptr asm sideeffect "movq\09%rsp, $0", "=r,~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !245
+  store ptr %48, ptr %47, align 8, !tbaa !77
+  %49 = getelementptr inbounds nuw i8, ptr %.val, i64 24
+  %50 = load ptr, ptr %49, align 8, !tbaa !52
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 288
+  %52 = call i32 @pthread_mutex_lock(ptr noundef nonnull %51) #16
+  %.not.i.i.i = icmp eq i32 %52, 0
+  br i1 %.not.i.i.i, label %thread_sched_lock_.exit.i, label %53
 
-51:                                               ; preds = %39
-  call void @rb_bug_errno(ptr noundef nonnull @.str.1, i32 noundef %50) #37
+53:                                               ; preds = %41
+  call void @rb_bug_errno(ptr noundef nonnull @.str.1, i32 noundef %52) #37
   unreachable
 
-thread_sched_lock_.exit.i:                        ; preds = %39
-  call fastcc void @thread_sched_to_waiting_common0(ptr noundef nonnull %49, ptr noundef nonnull %.val, i1 noundef zeroext false)
-  %52 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %49) #16
-  %.not.i.i6.i = icmp eq i32 %52, 0
-  br i1 %.not.i.i6.i, label %thread_sched_to_waiting.exit, label %53
+thread_sched_lock_.exit.i:                        ; preds = %41
+  call fastcc void @thread_sched_to_waiting_common0(ptr noundef nonnull %51, ptr noundef nonnull %.val, i1 noundef zeroext false)
+  %54 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %51) #16
+  %.not.i.i6.i = icmp eq i32 %54, 0
+  br i1 %.not.i.i6.i, label %thread_sched_to_waiting.exit, label %55
 
-53:                                               ; preds = %thread_sched_lock_.exit.i
-  call void @rb_bug_errno(ptr noundef nonnull @.str.3, i32 noundef %52) #37
+55:                                               ; preds = %thread_sched_lock_.exit.i
+  call void @rb_bug_errno(ptr noundef nonnull @.str.3, i32 noundef %54) #37
   unreachable
 
 thread_sched_to_waiting.exit:                     ; preds = %thread_sched_lock_.exit.i
-  %54 = call ptr %0(ptr noundef %1) #16
-  %55 = call i32 @rb_errno() #16
+  %56 = call ptr %0(ptr noundef %1) #16
+  %57 = call i32 @rb_errno() #16
   call fastcc void @blocking_region_end(ptr noundef nonnull %.val, ptr noundef %8)
-  br label %56
+  br label %58
 
-56:                                               ; preds = %thread_sched_to_waiting.exit, %36
-  %.048 = phi ptr [ %54, %thread_sched_to_waiting.exit ], [ null, %36 ]
-  %.0 = phi i32 [ %55, %thread_sched_to_waiting.exit ], [ 0, %36 ]
+58:                                               ; preds = %thread_sched_to_waiting.exit, %38
+  %.048 = phi ptr [ %56, %thread_sched_to_waiting.exit ], [ null, %38 ]
+  %.0 = phi i32 [ %57, %thread_sched_to_waiting.exit ], [ 0, %38 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.0..0..0..0. = load volatile ptr, ptr %7, align 8, !tbaa !147
-  br i1 %27, label %59, label %57
+  br i1 %27, label %61, label %59
 
-57:                                               ; preds = %56
-  %58 = getelementptr inbounds nuw i8, ptr %.0..0..0..0., i64 504
-  store volatile i32 0, ptr %58, align 8, !tbaa !167
-  br label %59
+59:                                               ; preds = %58
+  %60 = getelementptr inbounds nuw i8, ptr %.0..0..0..0., i64 504
+  store volatile i32 0, ptr %60, align 8, !tbaa !167
+  br label %61
 
-59:                                               ; preds = %57, %56
-  %60 = icmp eq i32 %37, 0
-  br i1 %60, label %61, label %vm_check_ints_blocking.exit
+61:                                               ; preds = %59, %58
+  %62 = icmp eq i32 %39, 0
+  br i1 %62, label %63, label %vm_check_ints_blocking.exit
 
-61:                                               ; preds = %59
+63:                                               ; preds = %61
   %.val.i = load ptr, ptr %21, align 8, !tbaa !7
-  %62 = getelementptr i8, ptr %.val.i, i64 272
-  %.val6.i = load i64, ptr %62, align 8, !tbaa !22
-  %63 = inttoptr i64 %.val6.i to ptr
-  %64 = load i64, ptr %63, align 8, !tbaa !42
-  %65 = and i64 %64, 8192
-  %.not.i.i.i58 = icmp eq i64 %65, 0
-  br i1 %.not.i.i.i58, label %69, label %66
+  %64 = getelementptr i8, ptr %.val.i, i64 272
+  %.val6.i = load i64, ptr %64, align 8, !tbaa !22
+  %65 = inttoptr i64 %.val6.i to ptr
+  %66 = load i64, ptr %65, align 8, !tbaa !42
+  %67 = and i64 %66, 8192
+  %.not.i.i.i58 = icmp eq i64 %67, 0
+  br i1 %.not.i.i.i58, label %71, label %68
 
-66:                                               ; preds = %61
-  %67 = lshr i64 %64, 15
-  %68 = and i64 %67, 127
+68:                                               ; preds = %63
+  %69 = lshr i64 %66, 15
+  %70 = and i64 %69, 127
   br label %rb_threadptr_pending_interrupt_empty_p.exit.i
 
-69:                                               ; preds = %61
-  %70 = getelementptr inbounds nuw i8, ptr %63, i64 16
-  %71 = load i64, ptr %70, align 8, !tbaa !44
+71:                                               ; preds = %63
+  %72 = getelementptr inbounds nuw i8, ptr %65, i64 16
+  %73 = load i64, ptr %72, align 8, !tbaa !44
   br label %rb_threadptr_pending_interrupt_empty_p.exit.i
 
-rb_threadptr_pending_interrupt_empty_p.exit.i:    ; preds = %69, %66
-  %.0.i.i.i = phi i64 [ %68, %66 ], [ %71, %69 ]
+rb_threadptr_pending_interrupt_empty_p.exit.i:    ; preds = %71, %68
+  %.0.i.i.i = phi i64 [ %70, %68 ], [ %73, %71 ]
   %.not.i59 = icmp eq i64 %.0.i.i.i, 0
-  br i1 %.not.i59, label %72, label %77, !prof !45
+  br i1 %.not.i59, label %74, label %79, !prof !45
 
-72:                                               ; preds = %rb_threadptr_pending_interrupt_empty_p.exit.i
-  %73 = getelementptr i8, ptr %20, i64 32
-  %.val7.i = load i32, ptr %73, align 8, !tbaa !46
-  %74 = getelementptr i8, ptr %20, i64 36
-  %.val8.i = load i32, ptr %74, align 4, !tbaa !47
-  %75 = xor i32 %.val8.i, -1
-  %76 = and i32 %.val7.i, %75
-  %.not9.i = icmp eq i32 %76, 0
-  br i1 %.not9.i, label %vm_check_ints_blocking.exit, label %83, !prof !45
+74:                                               ; preds = %rb_threadptr_pending_interrupt_empty_p.exit.i
+  %75 = getelementptr i8, ptr %20, i64 32
+  %.val7.i = load i32, ptr %75, align 8, !tbaa !46
+  %76 = getelementptr i8, ptr %20, i64 36
+  %.val8.i = load i32, ptr %76, align 4, !tbaa !47
+  %77 = xor i32 %.val8.i, -1
+  %78 = and i32 %.val7.i, %77
+  %.not9.i = icmp eq i32 %78, 0
+  br i1 %.not9.i, label %vm_check_ints_blocking.exit, label %85, !prof !45
 
-77:                                               ; preds = %rb_threadptr_pending_interrupt_empty_p.exit.i
-  %78 = getelementptr inbounds nuw i8, ptr %.val.i, i64 240
-  %79 = load i8, ptr %78, align 8
-  %80 = and i8 %79, -65
-  store i8 %80, ptr %78, align 8
-  %81 = getelementptr inbounds nuw i8, ptr %20, i64 32
-  %82 = atomicrmw volatile or ptr %81, i32 2 seq_cst, align 4
-  br label %83
-
-83:                                               ; preds = %77, %72
-  %84 = call i32 @rb_threadptr_execute_interrupts(ptr noundef nonnull %.val.i, i32 noundef 1)
-  br label %vm_check_ints_blocking.exit
-
-vm_check_ints_blocking.exit:                      ; preds = %83, %72, %59
-  call void @rb_errno_set(i32 noundef %.0) #16
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+79:                                               ; preds = %rb_threadptr_pending_interrupt_empty_p.exit.i
+  %80 = getelementptr inbounds nuw i8, ptr %.val.i, i64 240
+  %81 = load i8, ptr %80, align 8
+  %82 = and i8 %81, -65
+  store i8 %82, ptr %80, align 8
+  %83 = getelementptr inbounds nuw i8, ptr %20, i64 32
+  %84 = atomicrmw volatile or ptr %83, i32 2 seq_cst, align 4
   br label %85
 
-85:                                               ; preds = %15, %vm_check_ints_blocking.exit
+85:                                               ; preds = %79, %74
+  %86 = call i32 @rb_threadptr_execute_interrupts(ptr noundef nonnull %.val.i, i32 noundef 1)
+  br label %vm_check_ints_blocking.exit
+
+vm_check_ints_blocking.exit:                      ; preds = %85, %74, %61
+  call void @rb_errno_set(i32 noundef %.0) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  br label %87
+
+87:                                               ; preds = %15, %vm_check_ints_blocking.exit
   %.3 = phi ptr [ %.048, %vm_check_ints_blocking.exit ], [ %18, %15 ]
   ret ptr %.3
 }

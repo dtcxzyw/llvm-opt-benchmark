@@ -1145,14 +1145,12 @@ strview.exit:                                     ; preds = %6, %10
   %15 = load ptr, ptr %14, align 8, !tbaa !10
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 %.sroa.3.0.i.fr
   %17 = load i8, ptr %16, align 1, !tbaa !42
-  %18 = icmp eq i8 %17, 58
-  br i1 %18, label %.preheader, label %.critedge.preheader
+  %18 = icmp ne i8 %17, 58
+  %.not4569 = icmp eq ptr %15, null
+  %or.cond87 = select i1 %18, i1 true, i1 %.not4569
+  br i1 %or.cond87, label %.critedge.preheader, label %.lr.ph72
 
-.preheader:                                       ; preds = %strview.exit
-  %cond = icmp eq ptr %15, null
-  br i1 %cond, label %agxbuse.exit, label %.lr.ph72
-
-.lr.ph72:                                         ; preds = %.preheader
+.lr.ph72:                                         ; preds = %strview.exit
   %19 = icmp eq i64 %.sroa.3.0.i.fr, 0
   br i1 %19, label %.lr.ph72.split.us, label %.lr.ph72.split
 
@@ -1308,8 +1306,7 @@ strview_case_eq.exit.thread:                      ; preds = %.critedge84, %strvi
   br i1 %.142.lcssa, label %.critedge.preheader, label %.thread
 
 .critedge.preheader:                              ; preds = %._crit_edge73, %strview.exit
-  %.not4675 = icmp eq ptr %15, null
-  br i1 %.not4675, label %agxbuse.exit, label %.lr.ph80.outer
+  br i1 %.not4569, label %agxbuse.exit, label %.lr.ph80.outer
 
 .lr.ph80.outer:                                   ; preds = %.critedge.preheader, %.critedge.thread
   %.179.ph = phi ptr [ %103, %.critedge.thread ], [ %15, %.critedge.preheader ]
@@ -1359,8 +1356,8 @@ strview_case_eq.exit62:                           ; preds = %strview.exit59
   %102 = trunc i64 %.sroa.3.0.i56 to i32
   tail call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull @gvplugin_list.xb, ptr noundef nonnull @.str.17, i32 noundef %102, ptr noundef nonnull %91)
   %103 = load ptr, ptr %.179, align 8, !tbaa !19
-  %.not46100 = icmp eq ptr %103, null
-  br i1 %.not46100, label %.thread, label %.lr.ph80.outer, !llvm.loop !60
+  %.not46101 = icmp eq ptr %103, null
+  br i1 %.not46101, label %.thread, label %.lr.ph80.outer, !llvm.loop !60
 
 .critedge._crit_edge:                             ; preds = %.critedge
   br i1 %.576.ph, label %agxbuse.exit, label %.thread
@@ -1431,8 +1428,8 @@ agxbclear.exit.thread.i:                          ; preds = %agxbputc.exit.i, %.
   %122 = load ptr, ptr @gvplugin_list.xb, align 8, !tbaa !42
   br label %agxbuse.exit
 
-agxbuse.exit:                                     ; preds = %.preheader, %.critedge.preheader, %121, %agxbclear.exit.thread.i, %.critedge._crit_edge, %3
-  %.0 = phi ptr [ null, %3 ], [ @.str.18, %.critedge._crit_edge ], [ %122, %121 ], [ @gvplugin_list.xb, %agxbclear.exit.thread.i ], [ @.str.18, %.critedge.preheader ], [ @.str.18, %.preheader ]
+agxbuse.exit:                                     ; preds = %.critedge.preheader, %121, %agxbclear.exit.thread.i, %.critedge._crit_edge, %3
+  %.0 = phi ptr [ null, %3 ], [ @.str.18, %.critedge._crit_edge ], [ %122, %121 ], [ @gvplugin_list.xb, %agxbclear.exit.thread.i ], [ @.str.18, %.critedge.preheader ]
   ret ptr %.0
 }
 

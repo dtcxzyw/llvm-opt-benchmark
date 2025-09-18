@@ -946,7 +946,7 @@ _ZNK8Variable21is_inside_union_fieldEv.exit.preheader: ; preds = %_ZNK8Variable1
   %13 = load ptr, ptr %12, align 8, !tbaa !20
   %14 = load i32, ptr %13, align 8, !tbaa !90
   %15 = icmp eq i32 %14, 2
-  br i1 %15, label %.critedge, label %.lr.ph
+  br i1 %15, label %.critedge, label %.lr.ph, !llvm.loop !120
 
 .critedge:                                        ; preds = %.lr.ph
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -1230,7 +1230,7 @@ define dso_local noundef ptr @_ZNK9FactUnion14join_var_factsERKSt6vectorIPK4Fact
   %47 = sub i64 %45, %46
   %48 = ashr exact i64 %47, 3
   %49 = icmp ult i64 %42, %48
-  br i1 %49, label %10, label %._crit_edge, !llvm.loop !120
+  br i1 %49, label %10, label %._crit_edge, !llvm.loop !121
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1383,9 +1383,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK9FactUnion13is_assertableE
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZNK4Fact10is_relatedERKS_(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #3 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load i32, ptr %3, align 8, !tbaa !121
+  %4 = load i32, ptr %3, align 8, !tbaa !122
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %6 = load i32, ptr %5, align 8, !tbaa !121
+  %6 = load i32, ptr %5, align 8, !tbaa !122
   %7 = icmp eq i32 %4, %6
   br i1 %7, label %8, label %18
 
@@ -1596,4 +1596,5 @@ attributes #18 = { builtin allocsize(0) }
 !118 = !{!116, !83, i64 0}
 !119 = !{}
 !120 = distinct !{!120, !86}
-!121 = !{!9, !10, i64 8}
+!121 = distinct !{!121, !86}
+!122 = !{!9, !10, i64 8}

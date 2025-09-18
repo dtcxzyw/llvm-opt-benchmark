@@ -92,7 +92,7 @@ define noundef ptr @lv_fs_get_drv(i8 noundef signext %0) local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 13) i32 @lv_fs_open(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %1, null
-  br i1 %4, label %lv_fs_get_drv.exit.thread, label %5
+  br i1 %4, label %.critedge, label %5
 
 5:                                                ; preds = %3
   %6 = load i8, ptr %1, align 1, !tbaa !14
@@ -111,7 +111,7 @@ lv_fs_resolve_path.exit:                          ; preds = %5, %7
   %.0.i = phi ptr [ %1, %5 ], [ %spec.select.i, %7 ]
   %12 = tail call ptr @lv_ll_get_head(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 832)) #6
   %.not6.i = icmp eq ptr %12, null
-  br i1 %.not6.i, label %lv_fs_get_drv.exit.thread, label %.lr.ph.i
+  br i1 %.not6.i, label %.critedge, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %lv_fs_resolve_path.exit, %16
   %.07.i = phi ptr [ %17, %16 ], [ %12, %lv_fs_resolve_path.exit ]
@@ -122,8 +122,8 @@ lv_fs_resolve_path.exit:                          ; preds = %5, %7
 
 16:                                               ; preds = %.lr.ph.i
   %17 = tail call ptr @lv_ll_get_next(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 832), ptr noundef nonnull %.07.i) #6
-  %.not.i46 = icmp eq ptr %17, null
-  br i1 %.not.i46, label %lv_fs_get_drv.exit.thread, label %.lr.ph.i, !llvm.loop !11
+  %.not.i45 = icmp eq ptr %17, null
+  br i1 %.not.i45, label %.critedge, label %.lr.ph.i, !llvm.loop !11
 
 lv_fs_get_drv.exit:                               ; preds = %.lr.ph.i
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -133,13 +133,13 @@ lv_fs_get_drv.exit:                               ; preds = %.lr.ph.i
 
 20:                                               ; preds = %lv_fs_get_drv.exit
   %21 = tail call zeroext i1 %19(ptr noundef nonnull %13) #6
-  br i1 %21, label %22, label %lv_fs_get_drv.exit.thread
+  br i1 %21, label %22, label %.critedge
 
 22:                                               ; preds = %20, %lv_fs_get_drv.exit
   %23 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %24 = load ptr, ptr %23, align 8, !tbaa !15
   %25 = icmp eq ptr %24, null
-  br i1 %25, label %lv_fs_get_drv.exit.thread, label %26
+  br i1 %25, label %.critedge, label %26
 
 26:                                               ; preds = %22
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -151,61 +151,60 @@ lv_fs_get_drv.exit:                               ; preds = %.lr.ph.i
 
 .thread:                                          ; preds = %26
   store ptr %0, ptr %0, align 8, !tbaa !20
-  br label %34
+  br label %36
 
 31:                                               ; preds = %26
   %32 = tail call ptr %24(ptr noundef nonnull %13, ptr noundef %.0.i, i32 noundef %2) #6
-  %magicptr49 = ptrtoint ptr %32 to i64
-  switch i64 %magicptr49, label %33 [
-    i64 -1, label %lv_fs_get_drv.exit.thread
-    i64 0, label %lv_fs_get_drv.exit.thread
-  ]
+  %33 = icmp ne ptr %32, null
+  %34 = icmp ne ptr %32, inttoptr (i64 -1 to ptr)
+  %or.cond.not = and i1 %33, %34
+  br i1 %or.cond.not, label %35, label %.critedge
 
-33:                                               ; preds = %31
+35:                                               ; preds = %31
   store ptr %32, ptr %0, align 8, !tbaa !20
   %.pr = load i32, ptr %28, align 4, !tbaa !19
   %.not43 = icmp eq i32 %.pr, 0
-  br i1 %.not43, label %lv_fs_get_drv.exit.thread, label %34
+  br i1 %.not43, label %.critedge, label %36
 
-34:                                               ; preds = %.thread, %33
-  %35 = tail call ptr @lv_malloc_zeroed(i64 noundef 24) #6
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %35, ptr %36, align 8, !tbaa !21
-  %.not44 = icmp eq ptr %35, null
-  br i1 %.not44, label %.preheader, label %37
+36:                                               ; preds = %.thread, %35
+  %37 = tail call ptr @lv_malloc_zeroed(i64 noundef 24) #6
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %37, ptr %38, align 8, !tbaa !21
+  %.not44 = icmp eq ptr %37, null
+  br i1 %.not44, label %.preheader, label %39
 
-.preheader:                                       ; preds = %34, %.preheader
+.preheader:                                       ; preds = %36, %.preheader
   br label %.preheader
 
-37:                                               ; preds = %34
-  %38 = load i32, ptr %28, align 4, !tbaa !19
-  %39 = icmp eq i32 %38, -1
-  br i1 %39, label %40, label %47
+39:                                               ; preds = %36
+  %40 = load i32, ptr %28, align 4, !tbaa !19
+  %41 = icmp eq i32 %40, -1
+  br i1 %41, label %42, label %49
 
-40:                                               ; preds = %37
-  %41 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %42 = load ptr, ptr %41, align 8, !tbaa !22
-  %43 = getelementptr inbounds nuw i8, ptr %35, i64 16
-  store ptr %42, ptr %43, align 8, !tbaa !24
-  store i32 0, ptr %35, align 8, !tbaa !26
-  %44 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  store i32 0, ptr %44, align 8, !tbaa !27
-  %45 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %46 = load i32, ptr %45, align 8, !tbaa !28
-  br label %lv_fs_get_drv.exit.thread.sink.split
+42:                                               ; preds = %39
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %44 = load ptr, ptr %43, align 8, !tbaa !22
+  %45 = getelementptr inbounds nuw i8, ptr %37, i64 16
+  store ptr %44, ptr %45, align 8, !tbaa !24
+  store i32 0, ptr %37, align 8, !tbaa !26
+  %46 = getelementptr inbounds nuw i8, ptr %37, i64 8
+  store i32 0, ptr %46, align 8, !tbaa !27
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %48 = load i32, ptr %47, align 8, !tbaa !28
+  br label %.critedge.sink.split
 
-47:                                               ; preds = %37
-  store i32 -1, ptr %35, align 8, !tbaa !26
-  br label %lv_fs_get_drv.exit.thread.sink.split
+49:                                               ; preds = %39
+  store i32 -1, ptr %37, align 8, !tbaa !26
+  br label %.critedge.sink.split
 
-lv_fs_get_drv.exit.thread.sink.split:             ; preds = %47, %40
-  %.sink = phi i32 [ %46, %40 ], [ -2, %47 ]
-  %48 = getelementptr inbounds nuw i8, ptr %35, i64 4
-  store i32 %.sink, ptr %48, align 4, !tbaa !29
-  br label %lv_fs_get_drv.exit.thread
+.critedge.sink.split:                             ; preds = %49, %42
+  %.sink = phi i32 [ %48, %42 ], [ -2, %49 ]
+  %50 = getelementptr inbounds nuw i8, ptr %37, i64 4
+  store i32 %.sink, ptr %50, align 4, !tbaa !29
+  br label %.critedge
 
-lv_fs_get_drv.exit.thread:                        ; preds = %16, %lv_fs_get_drv.exit.thread.sink.split, %31, %31, %lv_fs_resolve_path.exit, %20, %22, %33, %3
-  %.0 = phi i32 [ 11, %3 ], [ 1, %20 ], [ 9, %22 ], [ 0, %33 ], [ 3, %lv_fs_resolve_path.exit ], [ 12, %31 ], [ 12, %31 ], [ 0, %lv_fs_get_drv.exit.thread.sink.split ], [ 3, %16 ]
+.critedge:                                        ; preds = %16, %.critedge.sink.split, %lv_fs_resolve_path.exit, %20, %22, %35, %31, %3
+  %.0 = phi i32 [ 11, %3 ], [ 1, %20 ], [ 9, %22 ], [ 0, %35 ], [ 12, %31 ], [ 3, %lv_fs_resolve_path.exit ], [ 0, %.critedge.sink.split ], [ 3, %16 ]
   ret i32 %.0
 }
 
@@ -864,20 +863,19 @@ lv_fs_get_drv.exit:                               ; preds = %.lr.ph.i
 
 25:                                               ; preds = %21
   %26 = tail call ptr %23(ptr noundef nonnull %12, ptr noundef %.0.i) #6
-  %magicptr = ptrtoint ptr %26 to i64
-  switch i64 %magicptr, label %27 [
-    i64 -1, label %lv_fs_get_drv.exit.thread
-    i64 0, label %lv_fs_get_drv.exit.thread
-  ]
+  %27 = icmp eq ptr %26, null
+  %28 = icmp eq ptr %26, inttoptr (i64 -1 to ptr)
+  %or.cond = or i1 %27, %28
+  br i1 %or.cond, label %lv_fs_get_drv.exit.thread, label %29
 
-27:                                               ; preds = %25
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %12, ptr %28, align 8, !tbaa !37
+29:                                               ; preds = %25
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %12, ptr %30, align 8, !tbaa !37
   store ptr %26, ptr %0, align 8, !tbaa !39
   br label %lv_fs_get_drv.exit.thread
 
-lv_fs_get_drv.exit.thread:                        ; preds = %15, %lv_fs_resolve_path.exit, %19, %21, %25, %25, %27, %2
-  %.0 = phi i32 [ 11, %2 ], [ 1, %19 ], [ 9, %21 ], [ 0, %27 ], [ 12, %25 ], [ 12, %25 ], [ 3, %lv_fs_resolve_path.exit ], [ 3, %15 ]
+lv_fs_get_drv.exit.thread:                        ; preds = %15, %lv_fs_resolve_path.exit, %19, %21, %25, %29, %2
+  %.0 = phi i32 [ 11, %2 ], [ 1, %19 ], [ 9, %21 ], [ 0, %29 ], [ 12, %25 ], [ 3, %lv_fs_resolve_path.exit ], [ 3, %15 ]
   ret i32 %.0
 }
 

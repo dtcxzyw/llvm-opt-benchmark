@@ -360,43 +360,42 @@ define dso_local noalias noundef ptr @sodium_malloc(i64 noundef %0) local_unname
   %15 = mul i64 %2, 3
   %16 = add i64 %14, %15
   %17 = tail call ptr @mmap(ptr noundef null, i64 noundef %16, i32 noundef 3, i32 noundef 34, i32 noundef -1, i64 noundef 0) #14
-  %magicptr.i = ptrtoint ptr %17 to i64
-  switch i64 %magicptr.i, label %_sodium_malloc.exit [
-    i64 -1, label %_sodium_malloc.exit.thread
-    i64 0, label %_sodium_malloc.exit.thread
-  ]
+  %18 = icmp eq ptr %17, inttoptr (i64 -1 to ptr)
+  %19 = icmp eq ptr %17, null
+  %20 = or i1 %18, %19
+  br i1 %20, label %_sodium_malloc.exit.thread, label %_sodium_malloc.exit
 
 _sodium_malloc.exit:                              ; preds = %10
-  %18 = load i64, ptr @page_size, align 8
-  %19 = shl nuw i64 %18, 1
-  %20 = getelementptr i8, ptr %17, i64 %19
-  %21 = getelementptr i8, ptr %17, i64 %18
-  %22 = tail call i32 @mprotect(ptr noundef %21, i64 noundef %18, i32 noundef 0) #14
-  %23 = getelementptr i8, ptr %20, i64 %14
-  %24 = load i64, ptr @page_size, align 8
-  %25 = tail call i32 @mprotect(ptr noundef %23, i64 noundef %24, i32 noundef 0) #14
-  %26 = tail call i32 @madvise(ptr noundef nonnull %20, i64 noundef %14, i32 noundef 16) #14
-  %27 = tail call i32 @mlock(ptr noundef nonnull %20, i64 noundef %14) #14
-  %28 = load i64, ptr @page_size, align 8
-  %29 = add i64 %28, %11
-  %30 = sub i64 0, %28
-  %31 = and i64 %29, %30
-  %32 = getelementptr i8, ptr %20, i64 %31
-  %33 = sub i64 -16, %0
-  %34 = getelementptr i8, ptr %32, i64 %33
-  %35 = getelementptr i8, ptr %34, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %34, ptr noundef nonnull align 16 dereferenceable(16) @canary, i64 noundef 16, i1 noundef false) #14
+  %21 = load i64, ptr @page_size, align 8
+  %22 = shl nuw i64 %21, 1
+  %23 = getelementptr i8, ptr %17, i64 %22
+  %24 = getelementptr i8, ptr %17, i64 %21
+  %25 = tail call i32 @mprotect(ptr noundef %24, i64 noundef %21, i32 noundef 0) #14
+  %26 = getelementptr i8, ptr %23, i64 %14
+  %27 = load i64, ptr @page_size, align 8
+  %28 = tail call i32 @mprotect(ptr noundef %26, i64 noundef %27, i32 noundef 0) #14
+  %29 = tail call i32 @madvise(ptr noundef nonnull %23, i64 noundef %14, i32 noundef 16) #14
+  %30 = tail call i32 @mlock(ptr noundef nonnull %23, i64 noundef %14) #14
+  %31 = load i64, ptr @page_size, align 8
+  %32 = add i64 %31, %11
+  %33 = sub i64 0, %31
+  %34 = and i64 %32, %33
+  %35 = getelementptr i8, ptr %23, i64 %34
+  %36 = sub i64 -16, %0
+  %37 = getelementptr i8, ptr %35, i64 %36
+  %38 = getelementptr i8, ptr %37, i64 16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %37, ptr noundef nonnull align 16 dereferenceable(16) @canary, i64 noundef 16, i1 noundef false) #14
   store i64 %14, ptr %17, align 1
-  %36 = tail call i32 @mprotect(ptr noundef nonnull %17, i64 noundef %28, i32 noundef 1) #14
-  %37 = icmp eq ptr %35, null
-  br i1 %37, label %_sodium_malloc.exit.thread, label %38
+  %39 = tail call i32 @mprotect(ptr noundef nonnull %17, i64 noundef %31, i32 noundef 1) #14
+  %40 = icmp eq ptr %38, null
+  br i1 %40, label %_sodium_malloc.exit.thread, label %41
 
-38:                                               ; preds = %_sodium_malloc.exit
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %35, i8 noundef -37, i64 noundef %0, i1 noundef false) #14
+41:                                               ; preds = %_sodium_malloc.exit
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %38, i8 noundef -37, i64 noundef %0, i1 noundef false) #14
   br label %_sodium_malloc.exit.thread
 
-_sodium_malloc.exit.thread:                       ; preds = %10, %10, %5, %_sodium_malloc.exit, %38
-  %.0 = phi ptr [ %35, %38 ], [ null, %_sodium_malloc.exit ], [ null, %5 ], [ null, %10 ], [ null, %10 ]
+_sodium_malloc.exit.thread:                       ; preds = %10, %5, %_sodium_malloc.exit, %41
+  %.0 = phi ptr [ %38, %41 ], [ null, %_sodium_malloc.exit ], [ null, %5 ], [ null, %10 ]
   ret ptr %.0
 }
 

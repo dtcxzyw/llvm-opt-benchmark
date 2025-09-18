@@ -35200,16 +35200,17 @@ while.cond.i.i.i529:                              ; preds = %invoke.cont459, %wh
   %.pn.i.i.i530 = phi ptr [ %storemerge.i.i.i531, %while.cond.i.i.i529 ], [ @_ZN5eastl18gpEmptyBucketArrayE, %invoke.cont459 ]
   %storemerge.i.i.i531 = getelementptr inbounds nuw i8, ptr %.pn.i.i.i530, i64 8
   %374 = load ptr, ptr %storemerge.i.i.i531, align 8
-  %magicptr = ptrtoint ptr %374 to i64
-  switch i64 %magicptr, label %for.body.i510 [
-    i64 0, label %while.cond.i.i.i529
-    i64 -1, label %invoke.cont460
-  ]
+  %cmp.i.i.i532 = icmp eq ptr %374, null
+  br i1 %cmp.i.i.i532, label %while.cond.i.i.i529, label %_ZNK5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5beginEv.exit.i, !llvm.loop !5
 
-for.body.i510:                                    ; preds = %while.cond.i.i.i529, %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i
-  %nElementCount.012.i511 = phi i64 [ %inc.i514, %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i ], [ 0, %while.cond.i.i.i529 ]
-  %temp.sroa.5.011.i512 = phi ptr [ %temp.sroa.5.1.i519, %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i ], [ %storemerge.i.i.i531, %while.cond.i.i.i529 ]
-  %temp.sroa.0.010.i513 = phi ptr [ %temp.sroa.0.1.i518, %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i ], [ %374, %while.cond.i.i.i529 ]
+_ZNK5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5beginEv.exit.i: ; preds = %while.cond.i.i.i529
+  %cmp.i.not9.i509 = icmp eq ptr %374, inttoptr (i64 -1 to ptr)
+  br i1 %cmp.i.not9.i509, label %invoke.cont460, label %for.body.i510
+
+for.body.i510:                                    ; preds = %_ZNK5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5beginEv.exit.i, %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i
+  %nElementCount.012.i511 = phi i64 [ %inc.i514, %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i ], [ 0, %_ZNK5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5beginEv.exit.i ]
+  %temp.sroa.5.011.i512 = phi ptr [ %temp.sroa.5.1.i519, %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i ], [ %storemerge.i.i.i531, %_ZNK5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5beginEv.exit.i ]
+  %temp.sroa.0.010.i513 = phi ptr [ %temp.sroa.0.1.i518, %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i ], [ %374, %_ZNK5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5beginEv.exit.i ]
   %inc.i514 = add i64 %nElementCount.012.i511, 1
   %mpNext.i.i.i515 = getelementptr inbounds nuw i8, ptr %temp.sroa.0.010.i513, i64 8
   %storemerge1.i.i.i516 = load ptr, ptr %mpNext.i.i.i515, align 8
@@ -35233,8 +35234,8 @@ for.end.i521.loopexit:                            ; preds = %_ZN5eastl18hashtabl
   %376 = icmp eq i64 %inc.i514, 0
   br label %invoke.cont460
 
-invoke.cont460:                                   ; preds = %while.cond.i.i.i529, %for.end.i521.loopexit, %invoke.cont459
-  %retval.0.i495 = phi i1 [ false, %invoke.cont459 ], [ %376, %for.end.i521.loopexit ], [ true, %while.cond.i.i.i529 ]
+invoke.cont460:                                   ; preds = %_ZNK5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5beginEv.exit.i, %for.end.i521.loopexit, %invoke.cont459
+  %retval.0.i495 = phi i1 [ false, %invoke.cont459 ], [ true, %_ZNK5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5beginEv.exit.i ], [ %376, %for.end.i521.loopexit ]
   %call463 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %retval.0.i495, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 414, ptr noundef nonnull @.str.21)
           to label %invoke.cont462 unwind label %lpad427.loopexit.split-lp
 
@@ -36372,16 +36373,17 @@ while.cond.i.i.i697:                              ; preds = %invoke.cont600, %wh
   %.pn.i.i.i698 = phi ptr [ %storemerge.i.i.i699, %while.cond.i.i.i697 ], [ @_ZN5eastl18gpEmptyBucketArrayE, %invoke.cont600 ]
   %storemerge.i.i.i699 = getelementptr inbounds nuw i8, ptr %.pn.i.i.i698, i64 8
   %523 = load ptr, ptr %storemerge.i.i.i699, align 8
-  %magicptr3765 = ptrtoint ptr %523 to i64
-  switch i64 %magicptr3765, label %for.body.i677 [
-    i64 0, label %while.cond.i.i.i697
-    i64 -1, label %invoke.cont601
-  ]
+  %cmp.i.i.i700 = icmp eq ptr %523, null
+  br i1 %cmp.i.i.i700, label %while.cond.i.i.i697, label %_ZNK5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm12ELm16ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5beginEv.exit.i672, !llvm.loop !5
 
-for.body.i677:                                    ; preds = %while.cond.i.i.i697, %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i685
-  %nElementCount.012.i678 = phi i64 [ %inc.i681, %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i685 ], [ 0, %while.cond.i.i.i697 ]
-  %temp.sroa.5.011.i679 = phi ptr [ %temp.sroa.5.1.i687, %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i685 ], [ %storemerge.i.i.i699, %while.cond.i.i.i697 ]
-  %temp.sroa.0.010.i680 = phi ptr [ %temp.sroa.0.1.i686, %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i685 ], [ %523, %while.cond.i.i.i697 ]
+_ZNK5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm12ELm16ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5beginEv.exit.i672: ; preds = %while.cond.i.i.i697
+  %cmp.i.not9.i676 = icmp eq ptr %523, inttoptr (i64 -1 to ptr)
+  br i1 %cmp.i.not9.i676, label %invoke.cont601, label %for.body.i677
+
+for.body.i677:                                    ; preds = %_ZNK5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm12ELm16ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5beginEv.exit.i672, %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i685
+  %nElementCount.012.i678 = phi i64 [ %inc.i681, %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i685 ], [ 0, %_ZNK5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm12ELm16ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5beginEv.exit.i672 ]
+  %temp.sroa.5.011.i679 = phi ptr [ %temp.sroa.5.1.i687, %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i685 ], [ %storemerge.i.i.i699, %_ZNK5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm12ELm16ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5beginEv.exit.i672 ]
+  %temp.sroa.0.010.i680 = phi ptr [ %temp.sroa.0.1.i686, %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i685 ], [ %523, %_ZNK5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm12ELm16ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5beginEv.exit.i672 ]
   %inc.i681 = add i64 %nElementCount.012.i678, 1
   %mpNext.i.i.i682 = getelementptr inbounds nuw i8, ptr %temp.sroa.0.010.i680, i64 8
   %storemerge1.i.i.i683 = load ptr, ptr %mpNext.i.i.i682, align 8
@@ -36405,8 +36407,8 @@ for.end.i689.loopexit:                            ; preds = %_ZN5eastl18hashtabl
   %525 = icmp eq i64 %inc.i681, 0
   br label %invoke.cont601
 
-invoke.cont601:                                   ; preds = %while.cond.i.i.i697, %for.end.i689.loopexit, %invoke.cont600
-  %retval.0.i661 = phi i1 [ false, %invoke.cont600 ], [ %525, %for.end.i689.loopexit ], [ true, %while.cond.i.i.i697 ]
+invoke.cont601:                                   ; preds = %_ZNK5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm12ELm16ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5beginEv.exit.i672, %for.end.i689.loopexit, %invoke.cont600
+  %retval.0.i661 = phi i1 [ false, %invoke.cont600 ], [ true, %_ZNK5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm12ELm16ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5beginEv.exit.i672 ], [ %525, %for.end.i689.loopexit ]
   %call604 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %retval.0.i661, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 502, ptr noundef nonnull @.str.21)
           to label %invoke.cont603 unwind label %lpad591.loopexit.split-lp.loopexit.split-lp
 
@@ -36574,16 +36576,17 @@ while.cond.i.i.i800:                              ; preds = %invoke.cont630, %wh
   %.pn.i.i.i801 = phi ptr [ %storemerge.i.i.i802, %while.cond.i.i.i800 ], [ @_ZN5eastl18gpEmptyBucketArrayE, %invoke.cont630 ]
   %storemerge.i.i.i802 = getelementptr inbounds nuw i8, ptr %.pn.i.i.i801, i64 8
   %546 = load ptr, ptr %storemerge.i.i.i802, align 8
-  %magicptr3766 = ptrtoint ptr %546 to i64
-  switch i64 %magicptr3766, label %for.body.i780 [
-    i64 0, label %while.cond.i.i.i800
-    i64 -1, label %invoke.cont631
-  ]
+  %cmp.i.i.i803 = icmp eq ptr %546, null
+  br i1 %cmp.i.i.i803, label %while.cond.i.i.i800, label %_ZNK5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm12ELm16ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5beginEv.exit.i775, !llvm.loop !5
 
-for.body.i780:                                    ; preds = %while.cond.i.i.i800, %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i788
-  %nElementCount.012.i781 = phi i64 [ %inc.i784, %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i788 ], [ 0, %while.cond.i.i.i800 ]
-  %temp.sroa.5.011.i782 = phi ptr [ %temp.sroa.5.1.i790, %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i788 ], [ %storemerge.i.i.i802, %while.cond.i.i.i800 ]
-  %temp.sroa.0.010.i783 = phi ptr [ %temp.sroa.0.1.i789, %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i788 ], [ %546, %while.cond.i.i.i800 ]
+_ZNK5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm12ELm16ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5beginEv.exit.i775: ; preds = %while.cond.i.i.i800
+  %cmp.i.not9.i779 = icmp eq ptr %546, inttoptr (i64 -1 to ptr)
+  br i1 %cmp.i.not9.i779, label %invoke.cont631, label %for.body.i780
+
+for.body.i780:                                    ; preds = %_ZNK5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm12ELm16ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5beginEv.exit.i775, %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i788
+  %nElementCount.012.i781 = phi i64 [ %inc.i784, %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i788 ], [ 0, %_ZNK5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm12ELm16ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5beginEv.exit.i775 ]
+  %temp.sroa.5.011.i782 = phi ptr [ %temp.sroa.5.1.i790, %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i788 ], [ %storemerge.i.i.i802, %_ZNK5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm12ELm16ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5beginEv.exit.i775 ]
+  %temp.sroa.0.010.i783 = phi ptr [ %temp.sroa.0.1.i789, %_ZN5eastl18hashtable_iteratorIiLb1ELb0EEppEv.exit.i788 ], [ %546, %_ZNK5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm12ELm16ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5beginEv.exit.i775 ]
   %inc.i784 = add i64 %nElementCount.012.i781, 1
   %mpNext.i.i.i785 = getelementptr inbounds nuw i8, ptr %temp.sroa.0.010.i783, i64 8
   %storemerge1.i.i.i786 = load ptr, ptr %mpNext.i.i.i785, align 8
@@ -36607,8 +36610,8 @@ for.end.i792.loopexit:                            ; preds = %_ZN5eastl18hashtabl
   %548 = icmp eq i64 %inc.i784, 0
   br label %invoke.cont631
 
-invoke.cont631:                                   ; preds = %while.cond.i.i.i800, %for.end.i792.loopexit, %invoke.cont630
-  %retval.0.i764 = phi i1 [ false, %invoke.cont630 ], [ %548, %for.end.i792.loopexit ], [ true, %while.cond.i.i.i800 ]
+invoke.cont631:                                   ; preds = %_ZNK5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm12ELm16ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5beginEv.exit.i775, %for.end.i792.loopexit, %invoke.cont630
+  %retval.0.i764 = phi i1 [ false, %invoke.cont630 ], [ true, %_ZNK5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm12ELm16ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE5beginEv.exit.i775 ], [ %548, %for.end.i792.loopexit ]
   %call634 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %retval.0.i764, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 512, ptr noundef nonnull @.str.21)
           to label %invoke.cont633 unwind label %lpad591.loopexit.split-lp.loopexit.split-lp
 

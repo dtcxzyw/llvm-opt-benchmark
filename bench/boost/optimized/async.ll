@@ -183876,28 +183876,28 @@ _ZN5boost6system10error_codeaSINS_4asio5error12basic_errorsEEERNSt9enable_ifIXsr
   %19 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) @_ZZN5boost4asio6detail16get_signal_stateEvE5state) #61
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.071112 = load ptr, ptr %20, align 8, !tbaa !174
-  %cond113 = icmp eq ptr %.071112, null
-  br i1 %cond113, label %.loopexit, label %.lr.ph.preheader
+  %.not113 = icmp eq ptr %.071112, null
+  br i1 %.not113, label %.critedge.thread, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %18
   %21 = load i32, ptr %.071112, align 8, !tbaa !3711
   %22 = icmp slt i32 %21, %3
-  br i1 %22, label %.lr.ph134, label %.critedge
+  br i1 %22, label %.lr.ph132, label %.critedge
 
-.lr.ph:                                           ; preds = %.lr.ph134
+.lr.ph:                                           ; preds = %.lr.ph132
   %23 = load i32, ptr %.071, align 8, !tbaa !3711
   %24 = icmp slt i32 %23, %3
-  br i1 %24, label %.lr.ph134, label %.critedge.loopexit, !llvm.loop !3712
+  br i1 %24, label %.lr.ph132, label %.critedge.loopexit, !llvm.loop !3712
 
-.lr.ph134:                                        ; preds = %.lr.ph.preheader, %.lr.ph
-  %.071115133 = phi ptr [ %.071, %.lr.ph ], [ %.071112, %.lr.ph.preheader ]
-  %25 = getelementptr inbounds nuw i8, ptr %.071115133, i64 40
+.lr.ph132:                                        ; preds = %.lr.ph.preheader, %.lr.ph
+  %.071115131 = phi ptr [ %.071, %.lr.ph ], [ %.071112, %.lr.ph.preheader ]
+  %25 = getelementptr inbounds nuw i8, ptr %.071115131, i64 40
   %.071 = load ptr, ptr %25, align 8, !tbaa !174
-  %cond = icmp eq ptr %.071, null
-  br i1 %cond, label %.loopexit.loopexit, label %.lr.ph, !llvm.loop !3712
+  %.not = icmp eq ptr %.071, null
+  br i1 %.not, label %.critedge.thread.loopexit, label %.lr.ph, !llvm.loop !3712
 
 .critedge.loopexit:                               ; preds = %.lr.ph
-  %26 = getelementptr inbounds nuw i8, ptr %.071115133, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %.071115131, i64 40
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit, %.lr.ph.preheader
@@ -183905,19 +183905,19 @@ _ZN5boost6system10error_codeaSINS_4asio5error12basic_errorsEEERNSt9enable_ifIXsr
   %.070114.lcssa = phi ptr [ %20, %.lr.ph.preheader ], [ %26, %.critedge.loopexit ]
   %.lcssa = phi i32 [ %21, %.lr.ph.preheader ], [ %23, %.critedge.loopexit ]
   %.not77 = icmp eq i32 %.lcssa, %3
-  br i1 %.not77, label %104, label %.loopexit
+  br i1 %.not77, label %104, label %.critedge.thread
 
-.loopexit.loopexit:                               ; preds = %.lr.ph134
-  %27 = getelementptr inbounds nuw i8, ptr %.071115133, i64 40
-  br label %.loopexit
+.critedge.thread.loopexit:                        ; preds = %.lr.ph132
+  %27 = getelementptr inbounds nuw i8, ptr %.071115131, i64 40
+  br label %.critedge.thread
 
-.loopexit:                                        ; preds = %.loopexit.loopexit, %18, %.critedge
-  %.070111 = phi ptr [ %.070114.lcssa, %.critedge ], [ %20, %18 ], [ %27, %.loopexit.loopexit ]
-  %.071109 = phi ptr [ %.071115.lcssa, %.critedge ], [ null, %18 ], [ null, %.loopexit.loopexit ]
+.critedge.thread:                                 ; preds = %.critedge.thread.loopexit, %18, %.critedge
+  %.070111 = phi ptr [ %.070114.lcssa, %.critedge ], [ %20, %18 ], [ %27, %.critedge.thread.loopexit ]
+  %.071109 = phi ptr [ %.071115.lcssa, %.critedge ], [ null, %18 ], [ null, %.critedge.thread.loopexit ]
   %28 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #64
           to label %29 unwind label %_ZN5boost4asio6detail11scoped_lockINS1_18posix_static_mutexEED2Ev.exit
 
-29:                                               ; preds = %.loopexit
+29:                                               ; preds = %.critedge.thread
   store i32 0, ptr %28, align 8, !tbaa !3711
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %30, i8 0, i64 40, i1 false)
@@ -183942,7 +183942,7 @@ _ZN5boost6system10error_codeaSINS_4asio5error12basic_errorsEEERNSt9enable_ifIXsr
   store i32 %4, ptr %40, align 8, !tbaa !3713
   br label %43
 
-_ZN5boost4asio6detail11scoped_lockINS1_18posix_static_mutexEED2Ev.exit: ; preds = %.loopexit
+_ZN5boost4asio6detail11scoped_lockINS1_18posix_static_mutexEED2Ev.exit: ; preds = %.critedge.thread
   %41 = landingpad { ptr, i32 }
           cleanup
   %42 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZZN5boost4asio6detail16get_signal_stateEvE5state) #61

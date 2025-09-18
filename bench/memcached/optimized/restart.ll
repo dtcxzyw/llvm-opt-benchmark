@@ -143,8 +143,8 @@ define dso_local range(i32 0, 4) i32 @restart_get_kv(ptr noundef captures(none) 
 
 .preheader:                                       ; preds = %17
   %.03150 = load ptr, ptr @cb_stack, align 8, !tbaa !9
-  %cond4251 = icmp eq ptr %.03150, null
-  br i1 %cond4251, label %._crit_edge, label %.lr.ph53
+  %.not4151 = icmp eq ptr %.03150, null
+  br i1 %.not4151, label %._crit_edge, label %.lr.ph53
 
 .lr.ph53:                                         ; preds = %.preheader
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 1
@@ -160,14 +160,14 @@ define dso_local range(i32 0, 4) i32 @restart_get_kv(ptr noundef captures(none) 
 25:                                               ; preds = %21
   %26 = getelementptr inbounds nuw i8, ptr %.03152, i64 8
   %.031 = load ptr, ptr %26, align 8, !tbaa !9
-  %cond42 = icmp eq ptr %.031, null
-  br i1 %cond42, label %._crit_edge, label %21, !llvm.loop !28
+  %.not41 = icmp eq ptr %.031, null
+  br i1 %.not41, label %._crit_edge, label %21, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %25, %.preheader
   %27 = load ptr, ptr @stderr, align 8, !tbaa !4
   %28 = getelementptr inbounds nuw i8, ptr %18, i64 1
   %29 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str.1, ptr noundef nonnull %28) #22
-  br label %.thread
+  br label %.thread42
 
 30:                                               ; preds = %17
   %31 = getelementptr inbounds nuw i8, ptr %18, i64 1
@@ -217,26 +217,26 @@ define dso_local range(i32 0, 4) i32 @restart_get_kv(ptr noundef captures(none) 
 46:                                               ; preds = %44, %.critedge
   %47 = load ptr, ptr %4, align 8, !tbaa !18
   store ptr %47, ptr %6, align 8, !tbaa !22
-  br label %.thread
+  br label %.thread42
 
 48:                                               ; preds = %17
   %49 = load ptr, ptr @stderr, align 8, !tbaa !4
   %50 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %49, ptr noundef nonnull @.str.2, ptr noundef nonnull %18) #22
   %51 = load ptr, ptr %4, align 8, !tbaa !18
   call void @free(ptr noundef %51) #20
-  br label %.thread
+  br label %.thread42
 
 52:                                               ; preds = %21
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.03152, ptr %53, align 8, !tbaa !30
-  br label %.thread
+  br label %.thread42
 
 54:                                               ; preds = %9
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 1, ptr %55, align 8, !tbaa !31
-  br label %.thread
+  br label %.thread42
 
-.thread:                                          ; preds = %48, %46, %._crit_edge, %54, %52
+.thread42:                                        ; preds = %48, %46, %._crit_edge, %54, %52
   %.1 = phi i32 [ 3, %52 ], [ 3, %54 ], [ 2, %48 ], [ 0, %46 ], [ 1, %._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

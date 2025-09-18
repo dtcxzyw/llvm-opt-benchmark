@@ -19478,72 +19478,74 @@ define internal fastcc void @"_ZN4core3ptr41drop_in_place$LT$client..Subscriptio
   %3 = landingpad { ptr, i32 }
           cleanup
   %4 = load ptr, ptr %0, align 8, !noundef !4
-  %magicptr8 = ptrtoint ptr %4 to i64
-  switch i64 %magicptr8, label %18 [
-    i64 0, label %22
-    i64 -1, label %"_ZN4core3ptr60drop_in_place$LT$alloc..sync..Weak$LT$client..Client$GT$$GT$17h0e34346e19ce3514E.exit6"
-  ]
+  %.not = icmp eq ptr %4, null
+  br i1 %.not, label %26, label %20
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %0, align 8, !noundef !4
-  %magicptr = ptrtoint ptr %6 to i64
-  switch i64 %magicptr, label %7 [
-    i64 0, label %11
-    i64 -1, label %"_ZN4core3ptr60drop_in_place$LT$alloc..sync..Weak$LT$client..Client$GT$$GT$17h0e34346e19ce3514E.exit"
-  ]
+  %.not1 = icmp eq ptr %6, null
+  br i1 %.not1, label %13, label %7
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %9 = atomicrmw sub ptr %8, i64 1 release, align 8
-  %10 = icmp eq i64 %9, 1
-  br i1 %10, label %"_ZN4core3ptr60drop_in_place$LT$alloc..sync..Weak$LT$client..Client$GT$$GT$17h0e34346e19ce3514E.exit.sink.split", label %"_ZN4core3ptr60drop_in_place$LT$alloc..sync..Weak$LT$client..Client$GT$$GT$17h0e34346e19ce3514E.exit"
+  %8 = icmp eq ptr %6, inttoptr (i64 -1 to ptr)
+  br i1 %8, label %"_ZN4core3ptr60drop_in_place$LT$alloc..sync..Weak$LT$client..Client$GT$$GT$17h0e34346e19ce3514E.exit", label %9
 
-11:                                               ; preds = %5
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.val2 = load ptr, ptr %12, align 8, !nonnull !4, !noundef !4
-  %13 = icmp eq ptr %.val2, inttoptr (i64 -1 to ptr)
-  br i1 %13, label %"_ZN4core3ptr60drop_in_place$LT$alloc..sync..Weak$LT$client..Client$GT$$GT$17h0e34346e19ce3514E.exit", label %14
+9:                                                ; preds = %7
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %11 = atomicrmw sub ptr %10, i64 1 release, align 8
+  %12 = icmp eq i64 %11, 1
+  br i1 %12, label %"_ZN4core3ptr60drop_in_place$LT$alloc..sync..Weak$LT$client..Client$GT$$GT$17h0e34346e19ce3514E.exit.sink.split", label %"_ZN4core3ptr60drop_in_place$LT$alloc..sync..Weak$LT$client..Client$GT$$GT$17h0e34346e19ce3514E.exit"
 
-14:                                               ; preds = %11
-  %15 = getelementptr inbounds nuw i8, ptr %.val2, i64 8
-  %16 = atomicrmw sub ptr %15, i64 1 release, align 8
-  %17 = icmp eq i64 %16, 1
-  br i1 %17, label %"_ZN4core3ptr60drop_in_place$LT$alloc..sync..Weak$LT$client..Client$GT$$GT$17h0e34346e19ce3514E.exit.sink.split", label %"_ZN4core3ptr60drop_in_place$LT$alloc..sync..Weak$LT$client..Client$GT$$GT$17h0e34346e19ce3514E.exit"
+13:                                               ; preds = %5
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.val2 = load ptr, ptr %14, align 8, !nonnull !4, !noundef !4
+  %15 = icmp eq ptr %.val2, inttoptr (i64 -1 to ptr)
+  br i1 %15, label %"_ZN4core3ptr60drop_in_place$LT$alloc..sync..Weak$LT$client..Client$GT$$GT$17h0e34346e19ce3514E.exit", label %16
 
-"_ZN4core3ptr60drop_in_place$LT$alloc..sync..Weak$LT$client..Client$GT$$GT$17h0e34346e19ce3514E.exit.sink.split": ; preds = %14, %7
-  %.val2.sink = phi ptr [ %6, %7 ], [ %.val2, %14 ]
+16:                                               ; preds = %13
+  %17 = getelementptr inbounds nuw i8, ptr %.val2, i64 8
+  %18 = atomicrmw sub ptr %17, i64 1 release, align 8
+  %19 = icmp eq i64 %18, 1
+  br i1 %19, label %"_ZN4core3ptr60drop_in_place$LT$alloc..sync..Weak$LT$client..Client$GT$$GT$17h0e34346e19ce3514E.exit.sink.split", label %"_ZN4core3ptr60drop_in_place$LT$alloc..sync..Weak$LT$client..Client$GT$$GT$17h0e34346e19ce3514E.exit"
+
+"_ZN4core3ptr60drop_in_place$LT$alloc..sync..Weak$LT$client..Client$GT$$GT$17h0e34346e19ce3514E.exit.sink.split": ; preds = %16, %9
+  %.val2.sink = phi ptr [ %6, %9 ], [ %.val2, %16 ]
   fence acquire
   tail call void @__rust_dealloc(ptr noundef nonnull %.val2.sink, i64 noundef 312, i64 noundef 8) #25
   br label %"_ZN4core3ptr60drop_in_place$LT$alloc..sync..Weak$LT$client..Client$GT$$GT$17h0e34346e19ce3514E.exit"
 
-"_ZN4core3ptr60drop_in_place$LT$alloc..sync..Weak$LT$client..Client$GT$$GT$17h0e34346e19ce3514E.exit": ; preds = %"_ZN4core3ptr60drop_in_place$LT$alloc..sync..Weak$LT$client..Client$GT$$GT$17h0e34346e19ce3514E.exit.sink.split", %5, %14, %11, %7
+"_ZN4core3ptr60drop_in_place$LT$alloc..sync..Weak$LT$client..Client$GT$$GT$17h0e34346e19ce3514E.exit": ; preds = %"_ZN4core3ptr60drop_in_place$LT$alloc..sync..Weak$LT$client..Client$GT$$GT$17h0e34346e19ce3514E.exit.sink.split", %16, %13, %9, %7
   ret void
 
-18:                                               ; preds = %2
-  %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %20 = atomicrmw sub ptr %19, i64 1 release, align 8
-  %21 = icmp eq i64 %20, 1
-  br i1 %21, label %"_ZN4core3ptr60drop_in_place$LT$alloc..sync..Weak$LT$client..Client$GT$$GT$17h0e34346e19ce3514E.exit6.sink.split", label %"_ZN4core3ptr60drop_in_place$LT$alloc..sync..Weak$LT$client..Client$GT$$GT$17h0e34346e19ce3514E.exit6"
+20:                                               ; preds = %2
+  %21 = icmp eq ptr %4, inttoptr (i64 -1 to ptr)
+  br i1 %21, label %"_ZN4core3ptr60drop_in_place$LT$alloc..sync..Weak$LT$client..Client$GT$$GT$17h0e34346e19ce3514E.exit6", label %22
 
-22:                                               ; preds = %2
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.val4 = load ptr, ptr %23, align 8, !nonnull !4, !noundef !4
-  %24 = icmp eq ptr %.val4, inttoptr (i64 -1 to ptr)
-  br i1 %24, label %"_ZN4core3ptr60drop_in_place$LT$alloc..sync..Weak$LT$client..Client$GT$$GT$17h0e34346e19ce3514E.exit6", label %25
+22:                                               ; preds = %20
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %24 = atomicrmw sub ptr %23, i64 1 release, align 8
+  %25 = icmp eq i64 %24, 1
+  br i1 %25, label %"_ZN4core3ptr60drop_in_place$LT$alloc..sync..Weak$LT$client..Client$GT$$GT$17h0e34346e19ce3514E.exit6.sink.split", label %"_ZN4core3ptr60drop_in_place$LT$alloc..sync..Weak$LT$client..Client$GT$$GT$17h0e34346e19ce3514E.exit6"
 
-25:                                               ; preds = %22
-  %26 = getelementptr inbounds nuw i8, ptr %.val4, i64 8
-  %27 = atomicrmw sub ptr %26, i64 1 release, align 8
-  %28 = icmp eq i64 %27, 1
-  br i1 %28, label %"_ZN4core3ptr60drop_in_place$LT$alloc..sync..Weak$LT$client..Client$GT$$GT$17h0e34346e19ce3514E.exit6.sink.split", label %"_ZN4core3ptr60drop_in_place$LT$alloc..sync..Weak$LT$client..Client$GT$$GT$17h0e34346e19ce3514E.exit6"
+26:                                               ; preds = %2
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.val4 = load ptr, ptr %27, align 8, !nonnull !4, !noundef !4
+  %28 = icmp eq ptr %.val4, inttoptr (i64 -1 to ptr)
+  br i1 %28, label %"_ZN4core3ptr60drop_in_place$LT$alloc..sync..Weak$LT$client..Client$GT$$GT$17h0e34346e19ce3514E.exit6", label %29
 
-"_ZN4core3ptr60drop_in_place$LT$alloc..sync..Weak$LT$client..Client$GT$$GT$17h0e34346e19ce3514E.exit6.sink.split": ; preds = %25, %18
-  %.val4.sink = phi ptr [ %4, %18 ], [ %.val4, %25 ]
+29:                                               ; preds = %26
+  %30 = getelementptr inbounds nuw i8, ptr %.val4, i64 8
+  %31 = atomicrmw sub ptr %30, i64 1 release, align 8
+  %32 = icmp eq i64 %31, 1
+  br i1 %32, label %"_ZN4core3ptr60drop_in_place$LT$alloc..sync..Weak$LT$client..Client$GT$$GT$17h0e34346e19ce3514E.exit6.sink.split", label %"_ZN4core3ptr60drop_in_place$LT$alloc..sync..Weak$LT$client..Client$GT$$GT$17h0e34346e19ce3514E.exit6"
+
+"_ZN4core3ptr60drop_in_place$LT$alloc..sync..Weak$LT$client..Client$GT$$GT$17h0e34346e19ce3514E.exit6.sink.split": ; preds = %29, %22
+  %.val4.sink = phi ptr [ %4, %22 ], [ %.val4, %29 ]
   fence acquire
   tail call void @__rust_dealloc(ptr noundef nonnull %.val4.sink, i64 noundef 312, i64 noundef 8) #25
   br label %"_ZN4core3ptr60drop_in_place$LT$alloc..sync..Weak$LT$client..Client$GT$$GT$17h0e34346e19ce3514E.exit6"
 
-"_ZN4core3ptr60drop_in_place$LT$alloc..sync..Weak$LT$client..Client$GT$$GT$17h0e34346e19ce3514E.exit6": ; preds = %"_ZN4core3ptr60drop_in_place$LT$alloc..sync..Weak$LT$client..Client$GT$$GT$17h0e34346e19ce3514E.exit6.sink.split", %2, %25, %22, %18
+"_ZN4core3ptr60drop_in_place$LT$alloc..sync..Weak$LT$client..Client$GT$$GT$17h0e34346e19ce3514E.exit6": ; preds = %"_ZN4core3ptr60drop_in_place$LT$alloc..sync..Weak$LT$client..Client$GT$$GT$17h0e34346e19ce3514E.exit6.sink.split", %29, %26, %22, %20
   resume { ptr, i32 } %3
 }
 

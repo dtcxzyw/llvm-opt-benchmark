@@ -16755,54 +16755,56 @@ declare i32 @wmem_register_callback(ptr noundef, ptr noundef, ptr noundef) local
 define internal noundef zeroext i1 @ssl_decoder_destroy_cb(ptr readnone captures(none) %0, i32 %1, ptr noundef captures(none) %2) #1 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %5 = load ptr, ptr %4, align 8
-  %magicptr = ptrtoint ptr %5 to i64
-  switch i64 %magicptr, label %6 [
-    i64 0, label %7
-    i64 -1, label %ssl_cipher_cleanup.exit
-  ]
+  %.not = icmp eq ptr %5, null
+  br i1 %.not, label %8, label %6
 
 6:                                                ; preds = %3
-  tail call void @gcry_cipher_close(ptr noundef %5)
+  %.not.i = icmp eq ptr %5, inttoptr (i64 -1 to ptr)
+  br i1 %.not.i, label %ssl_cipher_cleanup.exit, label %7
+
+7:                                                ; preds = %6
+  tail call void @gcry_cipher_close(ptr noundef nonnull %5)
   br label %ssl_cipher_cleanup.exit
 
-ssl_cipher_cleanup.exit:                          ; preds = %3, %6
+ssl_cipher_cleanup.exit:                          ; preds = %6, %7
   store ptr null, ptr %4, align 8
-  br label %7
+  br label %8
 
-7:                                                ; preds = %3, %ssl_cipher_cleanup.exit
-  %8 = getelementptr inbounds nuw i8, ptr %2, i64 96
-  %9 = load ptr, ptr %8, align 8
-  %magicptr12 = ptrtoint ptr %9 to i64
-  switch i64 %magicptr12, label %10 [
-    i64 0, label %11
-    i64 -1, label %ssl_cipher_cleanup.exit11
-  ]
+8:                                                ; preds = %ssl_cipher_cleanup.exit, %3
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 96
+  %10 = load ptr, ptr %9, align 8
+  %.not8 = icmp eq ptr %10, null
+  br i1 %.not8, label %13, label %11
 
-10:                                               ; preds = %7
-  tail call void @gcry_cipher_close(ptr noundef %9)
+11:                                               ; preds = %8
+  %.not.i10 = icmp eq ptr %10, inttoptr (i64 -1 to ptr)
+  br i1 %.not.i10, label %ssl_cipher_cleanup.exit11, label %12
+
+12:                                               ; preds = %11
+  tail call void @gcry_cipher_close(ptr noundef nonnull %10)
   br label %ssl_cipher_cleanup.exit11
 
-ssl_cipher_cleanup.exit11:                        ; preds = %7, %10
-  store ptr null, ptr %8, align 8
-  br label %11
+ssl_cipher_cleanup.exit11:                        ; preds = %11, %12
+  store ptr null, ptr %9, align 8
+  br label %13
 
-11:                                               ; preds = %7, %ssl_cipher_cleanup.exit11
-  %12 = getelementptr inbounds nuw i8, ptr %2, i64 112
-  %13 = load ptr, ptr %12, align 8
-  %.not9 = icmp eq ptr %13, null
-  br i1 %.not9, label %20, label %14
+13:                                               ; preds = %ssl_cipher_cleanup.exit11, %8
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 112
+  %15 = load ptr, ptr %14, align 8
+  %.not9 = icmp eq ptr %15, null
+  br i1 %.not9, label %22, label %16
 
-14:                                               ; preds = %11
-  %15 = load i32, ptr %13, align 8
-  %16 = icmp eq i32 %15, 1
-  br i1 %16, label %17, label %20
+16:                                               ; preds = %13
+  %17 = load i32, ptr %15, align 8
+  %18 = icmp eq i32 %17, 1
+  br i1 %18, label %19, label %22
 
-17:                                               ; preds = %14
-  %18 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %19 = tail call i32 @inflateEnd(ptr noundef nonnull %18)
-  br label %20
+19:                                               ; preds = %16
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %21 = tail call i32 @inflateEnd(ptr noundef nonnull %20)
+  br label %22
 
-20:                                               ; preds = %17, %14, %11
+22:                                               ; preds = %19, %16, %13
   ret i1 false
 }
 

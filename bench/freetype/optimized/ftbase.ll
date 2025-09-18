@@ -10330,52 +10330,48 @@ define i32 @FT_Get_Name_Index(ptr noundef %0, ptr noundef %1) local_unnamed_addr
   %11 = load ptr, ptr %10, align 8, !tbaa !82
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 80
   %13 = load ptr, ptr %12, align 8, !tbaa !412
-  %magicptr = ptrtoint ptr %13 to i64
-  switch i64 %magicptr, label %.fold.split [
-    i64 -2, label %.thread
-    i64 0, label %14
-  ]
+  %14 = icmp eq ptr %13, inttoptr (i64 -2 to ptr)
+  br i1 %14, label %.thread, label %15
 
-14:                                               ; preds = %9
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %16 = load ptr, ptr %15, align 8, !tbaa !25
-  %17 = load ptr, ptr %16, align 8, !tbaa !88
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 64
-  %19 = load ptr, ptr %18, align 8, !tbaa !90
-  %.not28 = icmp eq ptr %19, null
-  br i1 %.not28, label %22, label %20
+15:                                               ; preds = %9
+  %16 = icmp eq ptr %13, null
+  br i1 %16, label %17, label %.thread34
 
-20:                                               ; preds = %14
-  %21 = tail call ptr %19(ptr noundef nonnull %16, ptr noundef nonnull @.str.4) #34
-  %.pre = load ptr, ptr %10, align 8, !tbaa !82
-  br label %22
+17:                                               ; preds = %15
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %19 = load ptr, ptr %18, align 8, !tbaa !25
+  %20 = load ptr, ptr %19, align 8, !tbaa !88
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 64
+  %22 = load ptr, ptr %21, align 8, !tbaa !90
+  %.not28 = icmp eq ptr %22, null
+  br i1 %.not28, label %.thread38, label %23
 
-22:                                               ; preds = %20, %14
-  %23 = phi ptr [ %.pre, %20 ], [ %11, %14 ]
-  %.0 = phi ptr [ %21, %20 ], [ null, %14 ]
-  %.not29 = icmp eq ptr %.0, null
-  %24 = select i1 %.not29, ptr inttoptr (i64 -2 to ptr), ptr %.0
-  %25 = getelementptr inbounds nuw i8, ptr %23, i64 80
-  store ptr %24, ptr %25, align 8, !tbaa !412
-  br label %.fold.split
-
-.fold.split:                                      ; preds = %9, %22
-  %.022 = phi ptr [ %.0, %22 ], [ %13, %9 ]
-  %.not30 = icmp eq ptr %.022, null
-  br i1 %.not30, label %.thread, label %26
-
-26:                                               ; preds = %.fold.split
-  %27 = getelementptr inbounds nuw i8, ptr %.022, i64 8
-  %28 = load ptr, ptr %27, align 8, !tbaa !413
-  %.not31 = icmp eq ptr %28, null
-  br i1 %.not31, label %.thread, label %29
-
-29:                                               ; preds = %26
-  %30 = tail call i32 %28(ptr noundef nonnull %0, ptr noundef nonnull %1) #34
+.thread38:                                        ; preds = %17
+  store ptr inttoptr (i64 -2 to ptr), ptr %12, align 8, !tbaa !412
   br label %.thread
 
-.thread:                                          ; preds = %9, %.fold.split, %26, %29, %3, %2
-  %.021 = phi i32 [ 0, %3 ], [ 0, %2 ], [ %30, %29 ], [ 0, %26 ], [ 0, %.fold.split ], [ 0, %9 ]
+23:                                               ; preds = %17
+  %24 = tail call ptr %22(ptr noundef nonnull %19, ptr noundef nonnull @.str.4) #34
+  %.not29 = icmp eq ptr %24, null
+  %25 = select i1 %.not29, ptr inttoptr (i64 -2 to ptr), ptr %24
+  %26 = load ptr, ptr %10, align 8, !tbaa !82
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 80
+  store ptr %25, ptr %27, align 8, !tbaa !412
+  br i1 %.not29, label %.thread, label %.thread34
+
+.thread34:                                        ; preds = %15, %23
+  %.02237 = phi ptr [ %24, %23 ], [ %13, %15 ]
+  %28 = getelementptr inbounds nuw i8, ptr %.02237, i64 8
+  %29 = load ptr, ptr %28, align 8, !tbaa !413
+  %.not31 = icmp eq ptr %29, null
+  br i1 %.not31, label %.thread, label %30
+
+30:                                               ; preds = %.thread34
+  %31 = tail call i32 %29(ptr noundef nonnull %0, ptr noundef nonnull %1) #34
+  br label %.thread
+
+.thread:                                          ; preds = %9, %.thread38, %23, %.thread34, %30, %3, %2
+  %.021 = phi i32 [ 0, %3 ], [ 0, %2 ], [ %31, %30 ], [ 0, %.thread34 ], [ 0, %23 ], [ 0, %.thread38 ], [ 0, %9 ]
   ret i32 %.021
 }
 
@@ -10410,51 +10406,47 @@ define i32 @FT_Get_Glyph_Name(ptr noundef %0, i32 noundef %1, ptr noundef %2, i3
   %18 = load ptr, ptr %17, align 8, !tbaa !82
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 80
   %20 = load ptr, ptr %19, align 8, !tbaa !412
-  %magicptr = ptrtoint ptr %20 to i64
-  switch i64 %magicptr, label %.fold.split [
-    i64 -2, label %.thread
-    i64 0, label %21
-  ]
+  %21 = icmp eq ptr %20, inttoptr (i64 -2 to ptr)
+  br i1 %21, label %.thread, label %22
 
-21:                                               ; preds = %16
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %23 = load ptr, ptr %22, align 8, !tbaa !25
-  %24 = load ptr, ptr %23, align 8, !tbaa !88
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 64
-  %26 = load ptr, ptr %25, align 8, !tbaa !90
-  %.not39 = icmp eq ptr %26, null
-  br i1 %.not39, label %29, label %27
+22:                                               ; preds = %16
+  %23 = icmp eq ptr %20, null
+  br i1 %23, label %24, label %.thread45
 
-27:                                               ; preds = %21
-  %28 = tail call ptr %26(ptr noundef nonnull %23, ptr noundef nonnull @.str.4) #34
-  %.pre = load ptr, ptr %17, align 8, !tbaa !82
-  br label %29
+24:                                               ; preds = %22
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %26 = load ptr, ptr %25, align 8, !tbaa !25
+  %27 = load ptr, ptr %26, align 8, !tbaa !88
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 64
+  %29 = load ptr, ptr %28, align 8, !tbaa !90
+  %.not39 = icmp eq ptr %29, null
+  br i1 %.not39, label %.thread49, label %30
 
-29:                                               ; preds = %27, %21
-  %30 = phi ptr [ %.pre, %27 ], [ %18, %21 ]
-  %.0 = phi ptr [ %28, %27 ], [ null, %21 ]
-  %.not40 = icmp eq ptr %.0, null
-  %31 = select i1 %.not40, ptr inttoptr (i64 -2 to ptr), ptr %.0
-  %32 = getelementptr inbounds nuw i8, ptr %30, i64 80
-  store ptr %31, ptr %32, align 8, !tbaa !412
-  br label %.fold.split
-
-.fold.split:                                      ; preds = %16, %29
-  %.029 = phi ptr [ %.0, %29 ], [ %20, %16 ]
-  %.not41 = icmp eq ptr %.029, null
-  br i1 %.not41, label %.thread, label %33
-
-33:                                               ; preds = %.fold.split
-  %34 = load ptr, ptr %.029, align 8, !tbaa !415
-  %.not42 = icmp eq ptr %34, null
-  br i1 %.not42, label %.thread, label %35
-
-35:                                               ; preds = %33
-  %36 = tail call i32 %34(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %2, i32 noundef %3) #34
+.thread49:                                        ; preds = %24
+  store ptr inttoptr (i64 -2 to ptr), ptr %19, align 8, !tbaa !412
   br label %.thread
 
-.thread:                                          ; preds = %16, %35, %33, %.fold.split, %12, %8, %5, %4
-  %.028 = phi i32 [ 35, %4 ], [ 6, %5 ], [ 16, %8 ], [ 6, %12 ], [ %36, %35 ], [ 6, %33 ], [ 6, %.fold.split ], [ 6, %16 ]
+30:                                               ; preds = %24
+  %31 = tail call ptr %29(ptr noundef nonnull %26, ptr noundef nonnull @.str.4) #34
+  %.not40 = icmp eq ptr %31, null
+  %32 = select i1 %.not40, ptr inttoptr (i64 -2 to ptr), ptr %31
+  %33 = load ptr, ptr %17, align 8, !tbaa !82
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 80
+  store ptr %32, ptr %34, align 8, !tbaa !412
+  br i1 %.not40, label %.thread, label %.thread45
+
+.thread45:                                        ; preds = %22, %30
+  %.02948 = phi ptr [ %31, %30 ], [ %20, %22 ]
+  %35 = load ptr, ptr %.02948, align 8, !tbaa !415
+  %.not42 = icmp eq ptr %35, null
+  br i1 %.not42, label %.thread, label %36
+
+36:                                               ; preds = %.thread45
+  %37 = tail call i32 %35(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %2, i32 noundef %3) #34
+  br label %.thread
+
+.thread:                                          ; preds = %16, %.thread49, %36, %.thread45, %30, %12, %8, %5, %4
+  %.028 = phi i32 [ 35, %4 ], [ 6, %5 ], [ 16, %8 ], [ 6, %12 ], [ %37, %36 ], [ 6, %.thread45 ], [ 6, %30 ], [ 6, %.thread49 ], [ 6, %16 ]
   ret i32 %.028
 }
 
@@ -10468,51 +10460,47 @@ define ptr @FT_Get_Postscript_Name(ptr noundef %0) local_unnamed_addr #0 {
   %5 = load ptr, ptr %4, align 8, !tbaa !82
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %7 = load ptr, ptr %6, align 8, !tbaa !416
-  %magicptr = ptrtoint ptr %7 to i64
-  switch i64 %magicptr, label %.fold.split [
-    i64 -2, label %.thread
-    i64 0, label %8
-  ]
+  %8 = icmp eq ptr %7, inttoptr (i64 -2 to ptr)
+  br i1 %8, label %.thread, label %9
 
-8:                                                ; preds = %3
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %10 = load ptr, ptr %9, align 8, !tbaa !25
-  %11 = load ptr, ptr %10, align 8, !tbaa !88
-  %12 = getelementptr inbounds nuw i8, ptr %11, i64 64
-  %13 = load ptr, ptr %12, align 8, !tbaa !90
-  %.not = icmp eq ptr %13, null
-  br i1 %.not, label %16, label %14
+9:                                                ; preds = %3
+  %10 = icmp eq ptr %7, null
+  br i1 %10, label %11, label %.thread31
 
-14:                                               ; preds = %8
-  %15 = tail call ptr %13(ptr noundef nonnull %10, ptr noundef nonnull @.str.5) #34
-  %.pre = load ptr, ptr %4, align 8, !tbaa !82
-  br label %16
+11:                                               ; preds = %9
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %13 = load ptr, ptr %12, align 8, !tbaa !25
+  %14 = load ptr, ptr %13, align 8, !tbaa !88
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 64
+  %16 = load ptr, ptr %15, align 8, !tbaa !90
+  %.not = icmp eq ptr %16, null
+  br i1 %.not, label %.thread35, label %17
 
-16:                                               ; preds = %14, %8
-  %17 = phi ptr [ %.pre, %14 ], [ %5, %8 ]
-  %.0 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.not26 = icmp eq ptr %.0, null
-  %18 = select i1 %.not26, ptr inttoptr (i64 -2 to ptr), ptr %.0
-  %19 = getelementptr inbounds nuw i8, ptr %17, i64 56
-  store ptr %18, ptr %19, align 8, !tbaa !416
-  br label %.fold.split
-
-.fold.split:                                      ; preds = %3, %16
-  %.021 = phi ptr [ %.0, %16 ], [ %7, %3 ]
-  %.not27 = icmp eq ptr %.021, null
-  br i1 %.not27, label %.thread, label %20
-
-20:                                               ; preds = %.fold.split
-  %21 = load ptr, ptr %.021, align 8, !tbaa !417
-  %.not28 = icmp eq ptr %21, null
-  br i1 %.not28, label %.thread, label %22
-
-22:                                               ; preds = %20
-  %23 = tail call ptr %21(ptr noundef nonnull %0) #34
+.thread35:                                        ; preds = %11
+  store ptr inttoptr (i64 -2 to ptr), ptr %6, align 8, !tbaa !416
   br label %.thread
 
-.thread:                                          ; preds = %3, %.fold.split, %20, %22, %1
-  %.020 = phi ptr [ null, %1 ], [ %23, %22 ], [ null, %20 ], [ null, %.fold.split ], [ null, %3 ]
+17:                                               ; preds = %11
+  %18 = tail call ptr %16(ptr noundef nonnull %13, ptr noundef nonnull @.str.5) #34
+  %.not26 = icmp eq ptr %18, null
+  %19 = select i1 %.not26, ptr inttoptr (i64 -2 to ptr), ptr %18
+  %20 = load ptr, ptr %4, align 8, !tbaa !82
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 56
+  store ptr %19, ptr %21, align 8, !tbaa !416
+  br i1 %.not26, label %.thread, label %.thread31
+
+.thread31:                                        ; preds = %9, %17
+  %.02134 = phi ptr [ %18, %17 ], [ %7, %9 ]
+  %22 = load ptr, ptr %.02134, align 8, !tbaa !417
+  %.not28 = icmp eq ptr %22, null
+  br i1 %.not28, label %.thread, label %23
+
+23:                                               ; preds = %.thread31
+  %24 = tail call ptr %22(ptr noundef nonnull %0) #34
+  br label %.thread
+
+.thread:                                          ; preds = %3, %.thread35, %17, %.thread31, %23, %1
+  %.020 = phi ptr [ null, %1 ], [ %24, %23 ], [ null, %.thread31 ], [ null, %17 ], [ null, %.thread35 ], [ null, %3 ]
   ret ptr %.020
 }
 

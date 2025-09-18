@@ -1945,146 +1945,147 @@ define void @_ZN5folly12EpollBackend13addTimerEventERNS_14EventBaseEventEPK7time
   %21 = getelementptr inbounds nuw i8, ptr %.0, i64 24
   store i64 %20, ptr %21, align 8, !tbaa !44
   %22 = load ptr, ptr %.0, align 8, !tbaa !92
+  %.not = icmp eq ptr %22, inttoptr (i64 1 to ptr)
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %magicptr = ptrtoint ptr %22 to i64
-  switch i64 %magicptr, label %24 [
-    i64 1, label %58
-    i64 0, label %29
-  ]
+  br i1 %.not, label %60, label %24
 
 24:                                               ; preds = %12
-  %25 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %26 = load ptr, ptr %25, align 8, !tbaa !94
-  %27 = icmp eq ptr %26, %.0
-  %28 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  %spec.select.i.i = select i1 %27, ptr %25, ptr %28
-  br label %29
+  %25 = icmp eq ptr %22, null
+  br i1 %25, label %31, label %26
 
-29:                                               ; preds = %12, %24
-  %.0.i.i = phi ptr [ %spec.select.i.i, %24 ], [ %23, %12 ]
-  %30 = getelementptr inbounds nuw i8, ptr %.0, i64 8
-  %31 = load ptr, ptr %30, align 8, !tbaa !94
-  %32 = getelementptr inbounds nuw i8, ptr %.0, i64 16
-  %33 = load ptr, ptr %32, align 8, !tbaa !95
-  %34 = icmp eq ptr %31, null
-  %35 = icmp eq ptr %33, null
-  %or.cond.i.i.i = or i1 %34, %35
-  br i1 %or.cond.i.i.i, label %36, label %.preheader.i.i
+26:                                               ; preds = %24
+  %27 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %28 = load ptr, ptr %27, align 8, !tbaa !94
+  %29 = icmp eq ptr %28, %.0
+  %30 = getelementptr inbounds nuw i8, ptr %22, i64 16
+  %spec.select.i.i = select i1 %29, ptr %27, ptr %30
+  br label %31
 
-36:                                               ; preds = %29
-  %37 = select i1 %34, ptr %33, ptr %31
-  store ptr %37, ptr %.0.i.i, align 8, !tbaa !96
-  %.not38.i.i.i = icmp eq ptr %37, null
-  br i1 %.not38.i.i.i, label %_ZN5folly13IntrusiveHeapINS_12EpollBackend9TimerInfoESt4lessIvEvNS_17DerivedNodeTraitsIS2_vEEE5eraseEPS2_.exit.i, label %38
+31:                                               ; preds = %26, %24
+  %.0.i.i = phi ptr [ %23, %24 ], [ %spec.select.i.i, %26 ]
+  %32 = getelementptr inbounds nuw i8, ptr %.0, i64 8
+  %33 = load ptr, ptr %32, align 8, !tbaa !94
+  %34 = getelementptr inbounds nuw i8, ptr %.0, i64 16
+  %35 = load ptr, ptr %34, align 8, !tbaa !95
+  %36 = icmp eq ptr %33, null
+  %37 = icmp eq ptr %35, null
+  %or.cond.i.i.i = or i1 %36, %37
+  br i1 %or.cond.i.i.i, label %38, label %.preheader.i.i
 
-38:                                               ; preds = %36
-  store ptr %22, ptr %37, align 8, !tbaa !92
+38:                                               ; preds = %31
+  %39 = select i1 %36, ptr %35, ptr %33
+  store ptr %39, ptr %.0.i.i, align 8, !tbaa !96
+  %.not38.i.i.i = icmp eq ptr %39, null
+  br i1 %.not38.i.i.i, label %_ZN5folly13IntrusiveHeapINS_12EpollBackend9TimerInfoESt4lessIvEvNS_17DerivedNodeTraitsIS2_vEEE5eraseEPS2_.exit.i, label %40
+
+40:                                               ; preds = %38
+  store ptr %22, ptr %39, align 8, !tbaa !92
   br label %_ZN5folly13IntrusiveHeapINS_12EpollBackend9TimerInfoESt4lessIvEvNS_17DerivedNodeTraitsIS2_vEEE5eraseEPS2_.exit.i
 
-.preheader.i.i:                                   ; preds = %29, %.preheader.i.i
-  %.032.i.i.i = phi ptr [ %43, %.preheader.i.i ], [ %33, %29 ]
-  %.030.i.i.i = phi ptr [ %.032..0.i.i.i, %.preheader.i.i ], [ %22, %29 ]
-  %.029.i.i.i = phi ptr [ %44, %.preheader.i.i ], [ %.0.i.i, %29 ]
-  %.0.i.i.i = phi ptr [ %.0..032.i.i.i, %.preheader.i.i ], [ %31, %29 ]
-  %39 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 24
-  %40 = getelementptr inbounds nuw i8, ptr %.032.i.i.i, i64 24
-  %.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %40, align 8, !tbaa !44
-  %.sroa.0.0.copyload.i2.i.i.i.i.i.i.i.i = load i64, ptr %39, align 8, !tbaa !44
-  %41 = icmp slt i64 %.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i, %.sroa.0.0.copyload.i2.i.i.i.i.i.i.i.i
-  %.032..0.i.i.i = select i1 %41, ptr %.032.i.i.i, ptr %.0.i.i.i
-  %.0..032.i.i.i = select i1 %41, ptr %.0.i.i.i, ptr %.032.i.i.i
-  %42 = getelementptr inbounds nuw i8, ptr %.032..0.i.i.i, i64 16
-  %43 = load ptr, ptr %42, align 8, !tbaa !95
+.preheader.i.i:                                   ; preds = %31, %.preheader.i.i
+  %.032.i.i.i = phi ptr [ %45, %.preheader.i.i ], [ %35, %31 ]
+  %.030.i.i.i = phi ptr [ %.032..0.i.i.i, %.preheader.i.i ], [ %22, %31 ]
+  %.029.i.i.i = phi ptr [ %46, %.preheader.i.i ], [ %.0.i.i, %31 ]
+  %.0.i.i.i = phi ptr [ %.0..032.i.i.i, %.preheader.i.i ], [ %33, %31 ]
+  %41 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %.032.i.i.i, i64 24
+  %.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %42, align 8, !tbaa !44
+  %.sroa.0.0.copyload.i2.i.i.i.i.i.i.i.i = load i64, ptr %41, align 8, !tbaa !44
+  %43 = icmp slt i64 %.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i, %.sroa.0.0.copyload.i2.i.i.i.i.i.i.i.i
+  %.032..0.i.i.i = select i1 %43, ptr %.032.i.i.i, ptr %.0.i.i.i
+  %.0..032.i.i.i = select i1 %43, ptr %.0.i.i.i, ptr %.032.i.i.i
+  %44 = getelementptr inbounds nuw i8, ptr %.032..0.i.i.i, i64 16
+  %45 = load ptr, ptr %44, align 8, !tbaa !95
   store ptr %.032..0.i.i.i, ptr %.029.i.i.i, align 8, !tbaa !96
-  %44 = getelementptr inbounds nuw i8, ptr %.032..0.i.i.i, i64 8
-  %45 = load ptr, ptr %44, align 8, !tbaa !94
-  store ptr %45, ptr %42, align 8, !tbaa !95
+  %46 = getelementptr inbounds nuw i8, ptr %.032..0.i.i.i, i64 8
+  %47 = load ptr, ptr %46, align 8, !tbaa !94
+  store ptr %47, ptr %44, align 8, !tbaa !95
   store ptr %.030.i.i.i, ptr %.032..0.i.i.i, align 8, !tbaa !92
-  %.not.i.i.i = icmp eq ptr %43, null
-  br i1 %.not.i.i.i, label %46, label %.preheader.i.i, !llvm.loop !97
+  %.not.i.i.i = icmp eq ptr %45, null
+  br i1 %.not.i.i.i, label %48, label %.preheader.i.i, !llvm.loop !97
 
-46:                                               ; preds = %.preheader.i.i
-  store ptr %.0..032.i.i.i, ptr %44, align 8, !tbaa !96
+48:                                               ; preds = %.preheader.i.i
+  store ptr %.0..032.i.i.i, ptr %46, align 8, !tbaa !96
   store ptr %.032..0.i.i.i, ptr %.0..032.i.i.i, align 8, !tbaa !92
   br label %_ZN5folly13IntrusiveHeapINS_12EpollBackend9TimerInfoESt4lessIvEvNS_17DerivedNodeTraitsIS2_vEEE5eraseEPS2_.exit.i
 
-_ZN5folly13IntrusiveHeapINS_12EpollBackend9TimerInfoESt4lessIvEvNS_17DerivedNodeTraitsIS2_vEEE5eraseEPS2_.exit.i: ; preds = %46, %38, %36
+_ZN5folly13IntrusiveHeapINS_12EpollBackend9TimerInfoESt4lessIvEvNS_17DerivedNodeTraitsIS2_vEEE5eraseEPS2_.exit.i: ; preds = %48, %40, %38
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0, i8 0, i64 24, i1 false)
-  %47 = load ptr, ptr %23, align 8, !tbaa !107
-  %48 = icmp eq ptr %47, null
-  br i1 %48, label %49, label %.preheader.i3.i
+  %49 = load ptr, ptr %23, align 8, !tbaa !107
+  %50 = icmp eq ptr %49, null
+  br i1 %50, label %51, label %.preheader.i3.i
 
-49:                                               ; preds = %_ZN5folly13IntrusiveHeapINS_12EpollBackend9TimerInfoESt4lessIvEvNS_17DerivedNodeTraitsIS2_vEEE5eraseEPS2_.exit.i
+51:                                               ; preds = %_ZN5folly13IntrusiveHeapINS_12EpollBackend9TimerInfoESt4lessIvEvNS_17DerivedNodeTraitsIS2_vEEE5eraseEPS2_.exit.i
   store ptr %.0, ptr %23, align 8, !tbaa !96
   store ptr null, ptr %.0, align 8, !tbaa !92
   br label %_ZN5folly13IntrusiveHeapINS_12EpollBackend9TimerInfoESt4lessIvEvNS_17DerivedNodeTraitsIS2_vEEE6updateEPS2_.exit
 
 .preheader.i3.i:                                  ; preds = %_ZN5folly13IntrusiveHeapINS_12EpollBackend9TimerInfoESt4lessIvEvNS_17DerivedNodeTraitsIS2_vEEE5eraseEPS2_.exit.i, %.preheader.i3.i
-  %.032.i.i4.i = phi ptr [ %54, %.preheader.i3.i ], [ %47, %_ZN5folly13IntrusiveHeapINS_12EpollBackend9TimerInfoESt4lessIvEvNS_17DerivedNodeTraitsIS2_vEEE5eraseEPS2_.exit.i ]
+  %.032.i.i4.i = phi ptr [ %56, %.preheader.i3.i ], [ %49, %_ZN5folly13IntrusiveHeapINS_12EpollBackend9TimerInfoESt4lessIvEvNS_17DerivedNodeTraitsIS2_vEEE5eraseEPS2_.exit.i ]
   %.030.i.i5.i = phi ptr [ %.032..0.i.i10.i, %.preheader.i3.i ], [ null, %_ZN5folly13IntrusiveHeapINS_12EpollBackend9TimerInfoESt4lessIvEvNS_17DerivedNodeTraitsIS2_vEEE5eraseEPS2_.exit.i ]
-  %.029.i.i6.i = phi ptr [ %55, %.preheader.i3.i ], [ %23, %_ZN5folly13IntrusiveHeapINS_12EpollBackend9TimerInfoESt4lessIvEvNS_17DerivedNodeTraitsIS2_vEEE5eraseEPS2_.exit.i ]
+  %.029.i.i6.i = phi ptr [ %57, %.preheader.i3.i ], [ %23, %_ZN5folly13IntrusiveHeapINS_12EpollBackend9TimerInfoESt4lessIvEvNS_17DerivedNodeTraitsIS2_vEEE5eraseEPS2_.exit.i ]
   %.0.i.i7.i = phi ptr [ %.0..032.i.i11.i, %.preheader.i3.i ], [ %.0, %_ZN5folly13IntrusiveHeapINS_12EpollBackend9TimerInfoESt4lessIvEvNS_17DerivedNodeTraitsIS2_vEEE5eraseEPS2_.exit.i ]
-  %50 = getelementptr inbounds nuw i8, ptr %.0.i.i7.i, i64 24
-  %51 = getelementptr inbounds nuw i8, ptr %.032.i.i4.i, i64 24
-  %.sroa.0.0.copyload.i.i.i.i.i.i.i.i8.i = load i64, ptr %51, align 8, !tbaa !44
-  %.sroa.0.0.copyload.i2.i.i.i.i.i.i.i9.i = load i64, ptr %50, align 8, !tbaa !44
-  %52 = icmp slt i64 %.sroa.0.0.copyload.i.i.i.i.i.i.i.i8.i, %.sroa.0.0.copyload.i2.i.i.i.i.i.i.i9.i
-  %.032..0.i.i10.i = select i1 %52, ptr %.032.i.i4.i, ptr %.0.i.i7.i
-  %.0..032.i.i11.i = select i1 %52, ptr %.0.i.i7.i, ptr %.032.i.i4.i
-  %53 = getelementptr inbounds nuw i8, ptr %.032..0.i.i10.i, i64 16
-  %54 = load ptr, ptr %53, align 8, !tbaa !95
+  %52 = getelementptr inbounds nuw i8, ptr %.0.i.i7.i, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %.032.i.i4.i, i64 24
+  %.sroa.0.0.copyload.i.i.i.i.i.i.i.i8.i = load i64, ptr %53, align 8, !tbaa !44
+  %.sroa.0.0.copyload.i2.i.i.i.i.i.i.i9.i = load i64, ptr %52, align 8, !tbaa !44
+  %54 = icmp slt i64 %.sroa.0.0.copyload.i.i.i.i.i.i.i.i8.i, %.sroa.0.0.copyload.i2.i.i.i.i.i.i.i9.i
+  %.032..0.i.i10.i = select i1 %54, ptr %.032.i.i4.i, ptr %.0.i.i7.i
+  %.0..032.i.i11.i = select i1 %54, ptr %.0.i.i7.i, ptr %.032.i.i4.i
+  %55 = getelementptr inbounds nuw i8, ptr %.032..0.i.i10.i, i64 16
+  %56 = load ptr, ptr %55, align 8, !tbaa !95
   store ptr %.032..0.i.i10.i, ptr %.029.i.i6.i, align 8, !tbaa !96
-  %55 = getelementptr inbounds nuw i8, ptr %.032..0.i.i10.i, i64 8
-  %56 = load ptr, ptr %55, align 8, !tbaa !94
-  store ptr %56, ptr %53, align 8, !tbaa !95
+  %57 = getelementptr inbounds nuw i8, ptr %.032..0.i.i10.i, i64 8
+  %58 = load ptr, ptr %57, align 8, !tbaa !94
+  store ptr %58, ptr %55, align 8, !tbaa !95
   store ptr %.030.i.i5.i, ptr %.032..0.i.i10.i, align 8, !tbaa !92
-  %.not.i.i12.i = icmp eq ptr %54, null
-  br i1 %.not.i.i12.i, label %57, label %.preheader.i3.i, !llvm.loop !97
+  %.not.i.i12.i = icmp eq ptr %56, null
+  br i1 %.not.i.i12.i, label %59, label %.preheader.i3.i, !llvm.loop !97
 
-57:                                               ; preds = %.preheader.i3.i
-  store ptr %.0..032.i.i11.i, ptr %55, align 8, !tbaa !96
+59:                                               ; preds = %.preheader.i3.i
+  store ptr %.0..032.i.i11.i, ptr %57, align 8, !tbaa !96
   store ptr %.032..0.i.i10.i, ptr %.0..032.i.i11.i, align 8, !tbaa !92
   br label %_ZN5folly13IntrusiveHeapINS_12EpollBackend9TimerInfoESt4lessIvEvNS_17DerivedNodeTraitsIS2_vEEE6updateEPS2_.exit
 
-58:                                               ; preds = %12
+60:                                               ; preds = %12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0, i8 0, i64 24, i1 false)
-  %59 = load ptr, ptr %23, align 8, !tbaa !107
-  %60 = icmp eq ptr %59, null
-  br i1 %60, label %61, label %.preheader.i
+  %61 = load ptr, ptr %23, align 8, !tbaa !107
+  %62 = icmp eq ptr %61, null
+  br i1 %62, label %63, label %.preheader.i
 
-61:                                               ; preds = %58
+63:                                               ; preds = %60
   store ptr %.0, ptr %23, align 8, !tbaa !96
   store ptr null, ptr %.0, align 8, !tbaa !92
   br label %_ZN5folly13IntrusiveHeapINS_12EpollBackend9TimerInfoESt4lessIvEvNS_17DerivedNodeTraitsIS2_vEEE6updateEPS2_.exit
 
-.preheader.i:                                     ; preds = %58, %.preheader.i
-  %.032.i.i = phi ptr [ %66, %.preheader.i ], [ %59, %58 ]
-  %.030.i.i = phi ptr [ %.032..0.i.i, %.preheader.i ], [ null, %58 ]
-  %.029.i.i = phi ptr [ %67, %.preheader.i ], [ %23, %58 ]
-  %.0.i.i16 = phi ptr [ %.0..032.i.i, %.preheader.i ], [ %.0, %58 ]
-  %62 = getelementptr inbounds nuw i8, ptr %.0.i.i16, i64 24
-  %63 = getelementptr inbounds nuw i8, ptr %.032.i.i, i64 24
-  %.sroa.0.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %63, align 8, !tbaa !44
-  %.sroa.0.0.copyload.i2.i.i.i.i.i.i.i = load i64, ptr %62, align 8, !tbaa !44
-  %64 = icmp slt i64 %.sroa.0.0.copyload.i.i.i.i.i.i.i.i, %.sroa.0.0.copyload.i2.i.i.i.i.i.i.i
-  %.032..0.i.i = select i1 %64, ptr %.032.i.i, ptr %.0.i.i16
-  %.0..032.i.i = select i1 %64, ptr %.0.i.i16, ptr %.032.i.i
-  %65 = getelementptr inbounds nuw i8, ptr %.032..0.i.i, i64 16
-  %66 = load ptr, ptr %65, align 8, !tbaa !95
+.preheader.i:                                     ; preds = %60, %.preheader.i
+  %.032.i.i = phi ptr [ %68, %.preheader.i ], [ %61, %60 ]
+  %.030.i.i = phi ptr [ %.032..0.i.i, %.preheader.i ], [ null, %60 ]
+  %.029.i.i = phi ptr [ %69, %.preheader.i ], [ %23, %60 ]
+  %.0.i.i16 = phi ptr [ %.0..032.i.i, %.preheader.i ], [ %.0, %60 ]
+  %64 = getelementptr inbounds nuw i8, ptr %.0.i.i16, i64 24
+  %65 = getelementptr inbounds nuw i8, ptr %.032.i.i, i64 24
+  %.sroa.0.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %65, align 8, !tbaa !44
+  %.sroa.0.0.copyload.i2.i.i.i.i.i.i.i = load i64, ptr %64, align 8, !tbaa !44
+  %66 = icmp slt i64 %.sroa.0.0.copyload.i.i.i.i.i.i.i.i, %.sroa.0.0.copyload.i2.i.i.i.i.i.i.i
+  %.032..0.i.i = select i1 %66, ptr %.032.i.i, ptr %.0.i.i16
+  %.0..032.i.i = select i1 %66, ptr %.0.i.i16, ptr %.032.i.i
+  %67 = getelementptr inbounds nuw i8, ptr %.032..0.i.i, i64 16
+  %68 = load ptr, ptr %67, align 8, !tbaa !95
   store ptr %.032..0.i.i, ptr %.029.i.i, align 8, !tbaa !96
-  %67 = getelementptr inbounds nuw i8, ptr %.032..0.i.i, i64 8
-  %68 = load ptr, ptr %67, align 8, !tbaa !94
-  store ptr %68, ptr %65, align 8, !tbaa !95
+  %69 = getelementptr inbounds nuw i8, ptr %.032..0.i.i, i64 8
+  %70 = load ptr, ptr %69, align 8, !tbaa !94
+  store ptr %70, ptr %67, align 8, !tbaa !95
   store ptr %.030.i.i, ptr %.032..0.i.i, align 8, !tbaa !92
-  %.not.i.i = icmp eq ptr %66, null
-  br i1 %.not.i.i, label %69, label %.preheader.i, !llvm.loop !97
+  %.not.i.i = icmp eq ptr %68, null
+  br i1 %.not.i.i, label %71, label %.preheader.i, !llvm.loop !97
 
-69:                                               ; preds = %.preheader.i
-  store ptr %.0..032.i.i, ptr %67, align 8, !tbaa !96
+71:                                               ; preds = %.preheader.i
+  store ptr %.0..032.i.i, ptr %69, align 8, !tbaa !96
   store ptr %.032..0.i.i, ptr %.0..032.i.i, align 8, !tbaa !92
   br label %_ZN5folly13IntrusiveHeapINS_12EpollBackend9TimerInfoESt4lessIvEvNS_17DerivedNodeTraitsIS2_vEEE6updateEPS2_.exit
 
-_ZN5folly13IntrusiveHeapINS_12EpollBackend9TimerInfoESt4lessIvEvNS_17DerivedNodeTraitsIS2_vEEE6updateEPS2_.exit: ; preds = %69, %61, %57, %49
+_ZN5folly13IntrusiveHeapINS_12EpollBackend9TimerInfoESt4lessIvEvNS_17DerivedNodeTraitsIS2_vEEE6updateEPS2_.exit: ; preds = %71, %63, %59, %51
   tail call void @_ZN5folly12EpollBackend13updateTimerFdEv(ptr noundef nonnull align 8 dereferenceable(160) %0)
   ret void
 }

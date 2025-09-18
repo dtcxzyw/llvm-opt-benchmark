@@ -1056,9 +1056,9 @@ define hidden noundef zeroext i1 @"_ZN89_$LT$chrono..format..formatting..Delayed
   %.sroa.10215.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.sroa.11216.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 40
   %67 = udiv i32 %.sroa.14.0.copyload.i.i, 1000000
-  %.lhs.trunc33.i.i = trunc nuw nsw i32 %67 to i16
-  %68 = urem i16 %.lhs.trunc33.i.i, 1000
-  %.zext34.i.i = zext nneg i16 %68 to i32
+  %.lhs.trunc34.i.i = trunc nuw nsw i32 %67 to i16
+  %68 = urem i16 %.lhs.trunc34.i.i, 1000
+  %.zext35.i.i = zext nneg i16 %68 to i32
   %.sroa.4104.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %37, i64 8
   %.sroa.5206.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.sroa.7207.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -1130,8 +1130,8 @@ define hidden noundef zeroext i1 @"_ZN89_$LT$chrono..format..formatting..Delayed
   %88 = and i32 %87, 511
   %89 = and i32 %60, 7
   %90 = add nuw nsw i32 %88, %89
-  %.lhs.trunc29.i.i = trunc nuw nsw i32 %90 to i16
-  %91 = urem i16 %.lhs.trunc29.i.i, 7
+  %.lhs.trunc30.i.i = trunc nuw nsw i32 %90 to i16
+  %91 = urem i16 %.lhs.trunc30.i.i, 7
   %92 = lshr i32 %60, 3
   %93 = and i32 %92, 1023
   %94 = zext nneg i32 %93 to i64
@@ -1346,7 +1346,7 @@ define hidden noundef zeroext i1 @"_ZN89_$LT$chrono..format..formatting..Delayed
   %251 = or disjoint i8 %250, 48
   br label %252
 
-.loopexit.i:                                      ; preds = %_ZN4core3ops5range11RangeBounds8contains17ha6bf60999512d964E.exit.thread.i.invoke, %.noexc17, %.noexc16, %.noexc15, %"_ZN58_$LT$alloc..string..String$u20$as$u20$core..fmt..Write$GT$10write_char17hf78211a952f51adcE.exit.i2.i", %1177, %1185, %1183, %1171, %.noexc135.i, %.noexc134.i, %.noexc133.i, %.noexc132.i, %.noexc131.i, %.noexc130.i, %.noexc129.i, %1127, %.noexc126.i, %.noexc125.i, %.noexc124.i, %.noexc123.i, %.noexc122.i, %1079, %.noexc120.i, %.noexc119.i, %.noexc118.i, %_ZN6chrono6format10formatting14write_hundreds17h8dc2d59dfadf27d1E.exit67.i.i, %1049, %_ZN4core3fmt5Write9write_fmt17h0f5a93105fcaf27eE.exit.i106.i, %.noexc166.i, %.noexc165.i, %.noexc164.i, %.noexc163.i, %.noexc162.i, %.noexc161.i, %.noexc160.i, %.noexc159.i, %.noexc158.i, %998, %.noexc155.i, %.noexc154.i, %.noexc153.i, %.noexc152.i, %.noexc151.i, %.noexc150.i, %962, %949, %"_ZN58_$LT$alloc..string..String$u20$as$u20$core..fmt..Write$GT$10write_char17hf78211a952f51adcE.exit.i142.i", %.noexc146.i, %_ZN6chrono6format10formatting14write_hundreds17h8dc2d59dfadf27d1E.exit.i.i, %.noexc143.i, %917, %910, %908, %906, %902, %899, %897, %895, %_ZN4core3fmt5Write9write_fmt17h0f5a93105fcaf27eE.exit175.i.i, %.noexc85.i, %_ZN4core3fmt5Write9write_fmt17h0f5a93105fcaf27eE.exit170.i.i, %.noexc83.i, %_ZN4core3fmt5Write9write_fmt17h0f5a93105fcaf27eE.exit165.i.i, %.noexc81.i, %_ZN4core3fmt5Write9write_fmt17h0f5a93105fcaf27eE.exit.i.i, %887, %885, %882, %880, %.loopexit35.i.i, %.invoke317.i, %"_ZN6chrono6format10formatting22DelayedFormat$LT$I$GT$14format_numeric9write_two17h792dbd52d0e87e10E.exit158.i.i", %682, %"_ZN58_$LT$alloc..string..String$u20$as$u20$core..fmt..Write$GT$10write_char17hf78211a952f51adcE.exit.i153.i.i", %"_ZN6chrono6format10formatting22DelayedFormat$LT$I$GT$14format_numeric9write_two17h792dbd52d0e87e10E.exit152.i.i", %658, %"_ZN58_$LT$alloc..string..String$u20$as$u20$core..fmt..Write$GT$10write_char17hf78211a952f51adcE.exit.i147.i.i", %"_ZN6chrono6format10formatting22DelayedFormat$LT$I$GT$14format_numeric9write_two17h792dbd52d0e87e10E.exit146.i.i", %634, %"_ZN58_$LT$alloc..string..String$u20$as$u20$core..fmt..Write$GT$10write_char17hf78211a952f51adcE.exit.i141.i.i", %"_ZN6chrono6format10formatting22DelayedFormat$LT$I$GT$14format_numeric9write_two17h792dbd52d0e87e10E.exit140.i.i", %610, %"_ZN58_$LT$alloc..string..String$u20$as$u20$core..fmt..Write$GT$10write_char17hf78211a952f51adcE.exit.i135.i.i", %switch.lookup50, %switch.lookup49, %"_ZN6chrono6format10formatting22DelayedFormat$LT$I$GT$14format_numeric9write_two17h792dbd52d0e87e10E.exit134.i.i", %571, %"_ZN58_$LT$alloc..string..String$u20$as$u20$core..fmt..Write$GT$10write_char17hf78211a952f51adcE.exit.i129.i.i", %554, %"_ZN6chrono6format10formatting22DelayedFormat$LT$I$GT$14format_numeric9write_two17h792dbd52d0e87e10E.exit128.i.i", %539, %"_ZN58_$LT$alloc..string..String$u20$as$u20$core..fmt..Write$GT$10write_char17hf78211a952f51adcE.exit.i123.i.i", %"_ZN6chrono6format10formatting22DelayedFormat$LT$I$GT$14format_numeric9write_two17h792dbd52d0e87e10E.exit115.i.i", %516, %"_ZN58_$LT$alloc..string..String$u20$as$u20$core..fmt..Write$GT$10write_char17hf78211a952f51adcE.exit.i110.i.i", %"_ZN6chrono6format10formatting22DelayedFormat$LT$I$GT$14format_numeric9write_two17h792dbd52d0e87e10E.exit109.i.i", %492, %"_ZN58_$LT$alloc..string..String$u20$as$u20$core..fmt..Write$GT$10write_char17hf78211a952f51adcE.exit.i104.i.i", %"_ZN6chrono6format10formatting22DelayedFormat$LT$I$GT$14format_numeric9write_two17h792dbd52d0e87e10E.exit103.i.i", %454, %"_ZN58_$LT$alloc..string..String$u20$as$u20$core..fmt..Write$GT$10write_char17hf78211a952f51adcE.exit.i98.i.i", %"_ZN6chrono6format10formatting22DelayedFormat$LT$I$GT$14format_numeric9write_two17h792dbd52d0e87e10E.exit97.i.i", %421, %"_ZN58_$LT$alloc..string..String$u20$as$u20$core..fmt..Write$GT$10write_char17hf78211a952f51adcE.exit.i92.i.i", %402, %"_ZN6chrono6format10formatting22DelayedFormat$LT$I$GT$14format_numeric9write_two17h792dbd52d0e87e10E.exit90.i.i", %386, %"_ZN58_$LT$alloc..string..String$u20$as$u20$core..fmt..Write$GT$10write_char17hf78211a952f51adcE.exit.i85.i.i", %368, %365, %"_ZN6chrono6format10formatting22DelayedFormat$LT$I$GT$14format_numeric9write_two17h792dbd52d0e87e10E.exit82.i.i", %350, %"_ZN58_$LT$alloc..string..String$u20$as$u20$core..fmt..Write$GT$10write_char17hf78211a952f51adcE.exit.i77.i.i", %"_ZN6chrono6format10formatting22DelayedFormat$LT$I$GT$14format_numeric9write_two17h792dbd52d0e87e10E.exit.i.i", %326, %"_ZN58_$LT$alloc..string..String$u20$as$u20$core..fmt..Write$GT$10write_char17hf78211a952f51adcE.exit.i.i.i"
+.loopexit.i:                                      ; preds = %_ZN4core3ops5range11RangeBounds8contains17ha6bf60999512d964E.exit.thread.i.invoke, %.noexc17, %.noexc16, %.noexc15, %"_ZN58_$LT$alloc..string..String$u20$as$u20$core..fmt..Write$GT$10write_char17hf78211a952f51adcE.exit.i2.i", %1177, %1185, %1183, %1171, %.noexc135.i, %.noexc134.i, %.noexc133.i, %.noexc132.i, %.noexc131.i, %.noexc130.i, %.noexc129.i, %1127, %.noexc126.i, %.noexc125.i, %.noexc124.i, %.noexc123.i, %.noexc122.i, %1079, %.noexc120.i, %.noexc119.i, %.noexc118.i, %_ZN6chrono6format10formatting14write_hundreds17h8dc2d59dfadf27d1E.exit67.i.i, %1049, %_ZN4core3fmt5Write9write_fmt17h0f5a93105fcaf27eE.exit.i106.i, %.noexc166.i, %.noexc165.i, %.noexc164.i, %.noexc163.i, %.noexc162.i, %.noexc161.i, %.noexc160.i, %.noexc159.i, %.noexc158.i, %998, %.noexc155.i, %.noexc154.i, %.noexc153.i, %.noexc152.i, %.noexc151.i, %.noexc150.i, %962, %949, %"_ZN58_$LT$alloc..string..String$u20$as$u20$core..fmt..Write$GT$10write_char17hf78211a952f51adcE.exit.i142.i", %.noexc146.i, %_ZN6chrono6format10formatting14write_hundreds17h8dc2d59dfadf27d1E.exit.i.i, %.noexc143.i, %917, %910, %908, %906, %902, %899, %897, %895, %_ZN4core3fmt5Write9write_fmt17h0f5a93105fcaf27eE.exit175.i.i, %.noexc85.i, %_ZN4core3fmt5Write9write_fmt17h0f5a93105fcaf27eE.exit170.i.i, %.noexc83.i, %_ZN4core3fmt5Write9write_fmt17h0f5a93105fcaf27eE.exit165.i.i, %.noexc81.i, %_ZN4core3fmt5Write9write_fmt17h0f5a93105fcaf27eE.exit.i.i, %887, %885, %882, %880, %.loopexit36.i.i, %.invoke317.i, %"_ZN6chrono6format10formatting22DelayedFormat$LT$I$GT$14format_numeric9write_two17h792dbd52d0e87e10E.exit158.i.i", %682, %"_ZN58_$LT$alloc..string..String$u20$as$u20$core..fmt..Write$GT$10write_char17hf78211a952f51adcE.exit.i153.i.i", %"_ZN6chrono6format10formatting22DelayedFormat$LT$I$GT$14format_numeric9write_two17h792dbd52d0e87e10E.exit152.i.i", %658, %"_ZN58_$LT$alloc..string..String$u20$as$u20$core..fmt..Write$GT$10write_char17hf78211a952f51adcE.exit.i147.i.i", %"_ZN6chrono6format10formatting22DelayedFormat$LT$I$GT$14format_numeric9write_two17h792dbd52d0e87e10E.exit146.i.i", %634, %"_ZN58_$LT$alloc..string..String$u20$as$u20$core..fmt..Write$GT$10write_char17hf78211a952f51adcE.exit.i141.i.i", %"_ZN6chrono6format10formatting22DelayedFormat$LT$I$GT$14format_numeric9write_two17h792dbd52d0e87e10E.exit140.i.i", %610, %"_ZN58_$LT$alloc..string..String$u20$as$u20$core..fmt..Write$GT$10write_char17hf78211a952f51adcE.exit.i135.i.i", %switch.lookup50, %switch.lookup49, %"_ZN6chrono6format10formatting22DelayedFormat$LT$I$GT$14format_numeric9write_two17h792dbd52d0e87e10E.exit134.i.i", %571, %"_ZN58_$LT$alloc..string..String$u20$as$u20$core..fmt..Write$GT$10write_char17hf78211a952f51adcE.exit.i129.i.i", %554, %"_ZN6chrono6format10formatting22DelayedFormat$LT$I$GT$14format_numeric9write_two17h792dbd52d0e87e10E.exit128.i.i", %539, %"_ZN58_$LT$alloc..string..String$u20$as$u20$core..fmt..Write$GT$10write_char17hf78211a952f51adcE.exit.i123.i.i", %"_ZN6chrono6format10formatting22DelayedFormat$LT$I$GT$14format_numeric9write_two17h792dbd52d0e87e10E.exit115.i.i", %516, %"_ZN58_$LT$alloc..string..String$u20$as$u20$core..fmt..Write$GT$10write_char17hf78211a952f51adcE.exit.i110.i.i", %"_ZN6chrono6format10formatting22DelayedFormat$LT$I$GT$14format_numeric9write_two17h792dbd52d0e87e10E.exit109.i.i", %492, %"_ZN58_$LT$alloc..string..String$u20$as$u20$core..fmt..Write$GT$10write_char17hf78211a952f51adcE.exit.i104.i.i", %"_ZN6chrono6format10formatting22DelayedFormat$LT$I$GT$14format_numeric9write_two17h792dbd52d0e87e10E.exit103.i.i", %454, %"_ZN58_$LT$alloc..string..String$u20$as$u20$core..fmt..Write$GT$10write_char17hf78211a952f51adcE.exit.i98.i.i", %"_ZN6chrono6format10formatting22DelayedFormat$LT$I$GT$14format_numeric9write_two17h792dbd52d0e87e10E.exit97.i.i", %421, %"_ZN58_$LT$alloc..string..String$u20$as$u20$core..fmt..Write$GT$10write_char17hf78211a952f51adcE.exit.i92.i.i", %402, %"_ZN6chrono6format10formatting22DelayedFormat$LT$I$GT$14format_numeric9write_two17h792dbd52d0e87e10E.exit90.i.i", %386, %"_ZN58_$LT$alloc..string..String$u20$as$u20$core..fmt..Write$GT$10write_char17hf78211a952f51adcE.exit.i85.i.i", %368, %365, %"_ZN6chrono6format10formatting22DelayedFormat$LT$I$GT$14format_numeric9write_two17h792dbd52d0e87e10E.exit82.i.i", %350, %"_ZN58_$LT$alloc..string..String$u20$as$u20$core..fmt..Write$GT$10write_char17hf78211a952f51adcE.exit.i77.i.i", %"_ZN6chrono6format10formatting22DelayedFormat$LT$I$GT$14format_numeric9write_two17h792dbd52d0e87e10E.exit.i.i", %326, %"_ZN58_$LT$alloc..string..String$u20$as$u20$core..fmt..Write$GT$10write_char17hf78211a952f51adcE.exit.i.i.i"
   %lpad.loopexit.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
@@ -2815,7 +2815,7 @@ switch.lookup50:                                  ; preds = %268
 "_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h7c291fc6c2e87df1E.exit.thread.i.i.i": ; preds = %760, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h7c291fc6c2e87df1E.exit.thread23.i.i.i"
   %808 = load i64, ptr %.sroa.058.sroa.3.0..sroa_idx.i.i, align 8, !range !399, !alias.scope !443, !noalias !392, !noundef !3
   %809 = trunc nuw i64 %808 to i1
-  br i1 %809, label %810, label %.loopexit35.i.i
+  br i1 %809, label %810, label %.loopexit36.i.i
 
 810:                                              ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h7c291fc6c2e87df1E.exit.thread.i.i.i"
   %811 = invoke noundef range(i32 0, 1114113) i32 @"_ZN82_$LT$core..char..ToLowercase$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h758ad9639d82d50dE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %86)
@@ -2842,7 +2842,7 @@ switch.lookup50:                                  ; preds = %268
 
 "_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..char..ToLowercase$GT$$GT$17h1b1c0130706729bfE.exit.i8.i.i.i": ; preds = %815, %812
   store i64 0, ptr %.sroa.058.sroa.3.0..sroa_idx.i.i, align 8, !alias.scope !443, !noalias !392
-  br label %.loopexit35.i.i
+  br label %.loopexit36.i.i
 
 818:                                              ; preds = %807
   %819 = landingpad { ptr, i32 }
@@ -2978,11 +2978,11 @@ switch.lookup50:                                  ; preds = %268
   %.pre.i.pre.i.i = load i64, ptr %51, align 8, !range !399, !alias.scope !405, !noalias !392
   br label %750
 
-.loopexit35.i.i:                                  ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h7c291fc6c2e87df1E.exit.thread.i.i.i", %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..char..ToLowercase$GT$$GT$17h1b1c0130706729bfE.exit.i8.i.i.i"
+.loopexit36.i.i:                                  ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h7c291fc6c2e87df1E.exit.thread.i.i.i", %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..char..ToLowercase$GT$$GT$17h1b1c0130706729bfE.exit.i8.i.i.i"
   invoke void @"_ZN4core3ptr278drop_in_place$LT$core..iter..adapters..flatten..FlatMap$LT$core..str..iter..Chars$C$core..char..ToLowercase$C$chrono..format..formatting..DelayedFormat$LT$chrono..format..strftime..StrftimeItems$GT$..format_fixed$LT$alloc..string..String$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h16bc775b9e98661fE"(ptr noalias noundef nonnull align 8 dereferenceable(96) %51)
           to label %.noexc74.i unwind label %.loopexit.i
 
-.noexc74.i:                                       ; preds = %.loopexit35.i.i
+.noexc74.i:                                       ; preds = %.loopexit36.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %51), !noalias !392
   br label %.critedge.i
 
@@ -3084,7 +3084,7 @@ _ZN4core3fmt5Write9write_fmt17h0f5a93105fcaf27eE.exit.i.i: ; preds = %707
 .noexc81.i:                                       ; preds = %_ZN4core3fmt5Write9write_fmt17h0f5a93105fcaf27eE.exit.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %43), !noalias !392
   call void @llvm.lifetime.start.p0(ptr nonnull %42), !noalias !392
-  store i32 %.zext34.i.i, ptr %42, align 4, !noalias !392
+  store i32 %.zext35.i.i, ptr %42, align 4, !noalias !392
   store ptr %42, ptr %43, align 8, !noalias !392
   store ptr @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$u32$GT$3fmt17h192ecd7f68372d7fE", ptr %.sroa.486.0..sroa_idx.i.i, align 8, !noalias !392
   call void @llvm.lifetime.start.p0(ptr nonnull %24), !noalias !471
@@ -3190,7 +3190,7 @@ _ZN4core3fmt5Write9write_fmt17h0f5a93105fcaf27eE.exit175.i.i: ; preds = %710
 895:                                              ; preds = %893
   call void @llvm.lifetime.start.p0(ptr nonnull %37), !noalias !392
   call void @llvm.lifetime.start.p0(ptr nonnull %36), !noalias !392
-  store i32 %.zext34.i.i, ptr %36, align 4, !noalias !392
+  store i32 %.zext35.i.i, ptr %36, align 4, !noalias !392
   store ptr %36, ptr %37, align 8, !noalias !392
   store ptr @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$u32$GT$3fmt17h192ecd7f68372d7fE", ptr %.sroa.4104.0..sroa_idx.i.i, align 8, !noalias !392
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !503

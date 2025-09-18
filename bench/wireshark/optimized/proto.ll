@@ -25902,12 +25902,12 @@ proto_get_protocol_filter_name.exit:              ; preds = %.lr.ph, %13
   %.0.i = phi ptr [ %15, %13 ], [ @.str.110, %.lr.ph ]
   tail call void @wmem_strbuf_append(ptr noundef %7, ptr noundef %.0.i)
   %16 = tail call ptr @wmem_list_frame_next(ptr noundef nonnull %.011)
-  %cond = icmp eq ptr %16, null
-  br i1 %cond, label %._crit_edge, label %17
+  %.not9 = icmp eq ptr %16, null
+  br i1 %.not9, label %._crit_edge, label %17
 
 17:                                               ; preds = %proto_get_protocol_filter_name.exit
   tail call void @wmem_strbuf_append_c(ptr noundef %7, i8 noundef signext 58)
-  br label %.lr.ph
+  br label %.lr.ph, !llvm.loop !47
 
 ._crit_edge:                                      ; preds = %proto_get_protocol_filter_name.exit, %1
   %18 = tail call ptr @wmem_strbuf_finalize(ptr noundef %7)
@@ -26086,7 +26086,7 @@ define void @proto_disable_all() local_unnamed_addr #24 {
   %10 = getelementptr inbounds nuw i8, ptr %.07, i64 8
   %11 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %11, null
-  br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !47
+  br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !48
 
 .loopexit:                                        ; preds = %9, %0
   ret void
@@ -26127,7 +26127,7 @@ proto_heuristic_dissector_foreach.exit:           ; preds = %11, %13
   %16 = getelementptr inbounds nuw i8, ptr %.09, i64 8
   %17 = load ptr, ptr %16, align 8
   %.not = icmp eq ptr %17, null
-  br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !48
+  br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !49
 
 .loopexit:                                        ; preds = %proto_heuristic_dissector_foreach.exit, %0
   ret void
@@ -26190,7 +26190,7 @@ proto_register_field_common.exit.us:              ; preds = %.lr.ph.split.us, %.
   %17 = add nuw nsw i32 %.020.us, 1
   %18 = getelementptr i8, ptr %.01519.us, i64 80
   %exitcond25.not = icmp eq i32 %17, %2
-  br i1 %exitcond25.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !49
+  br i1 %exitcond25.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !50
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %proto_register_field_common.exit
   %.020 = phi i32 [ %27, %proto_register_field_common.exit ], [ 0, %.lr.ph ]
@@ -26219,7 +26219,7 @@ proto_register_field_common.exit:                 ; preds = %.lr.ph.split, %.lr.
   %27 = add nuw nsw i32 %.020, 1
   %28 = getelementptr i8, ptr %.01519, i64 80
   %exitcond.not = icmp eq i32 %27, %2
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !49
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !50
 
 ._crit_edge:                                      ; preds = %proto_register_field_common.exit, %proto_register_field_common.exit.us, %10
   ret void
@@ -26287,7 +26287,7 @@ define void @proto_deregister_field(i32 noundef %0, i32 noundef %1) local_unname
 33:                                               ; preds = %14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %14, !llvm.loop !50
+  br i1 %exitcond.not, label %.loopexit, label %14, !llvm.loop !51
 
 .loopexit:                                        ; preds = %33, %.preheader, %5, %7, %2, %20
   ret void
@@ -26354,7 +26354,7 @@ define void @proto_deregister_all_fields_with_prefix(i32 noundef %0, ptr noundef
 
 31:                                               ; preds = %.preheader, %20
   %.not22 = icmp eq i32 %indvars, 0
-  br i1 %.not22, label %.loopexit, label %.preheader, !llvm.loop !51
+  br i1 %.not22, label %.loopexit, label %.preheader, !llvm.loop !52
 
 .loopexit:                                        ; preds = %31, %8, %5, %2
   ret void
@@ -26458,7 +26458,7 @@ define void @proto_free_field_strings(i32 noundef %0, i32 noundef %1, ptr nounde
   %25 = getelementptr i8, ptr %.05385, i64 40
   %26 = load ptr, ptr %25, align 8
   %.not67 = icmp eq ptr %26, null
-  br i1 %.not67, label %.thread, label %.lr.ph, !llvm.loop !52
+  br i1 %.not67, label %.thread, label %.lr.ph, !llvm.loop !53
 
 27:                                               ; preds = %19
   %28 = and i32 %1, 512
@@ -26481,7 +26481,7 @@ define void @proto_free_field_strings(i32 noundef %0, i32 noundef %1, ptr nounde
   %36 = getelementptr i8, ptr %.05587, i64 24
   %37 = load ptr, ptr %36, align 8
   %.not66 = icmp eq ptr %37, null
-  br i1 %.not66, label %._crit_edge, label %.lr.ph88, !llvm.loop !53
+  br i1 %.not66, label %._crit_edge, label %.lr.ph88, !llvm.loop !54
 
 ._crit_edge:                                      ; preds = %.lr.ph88, %29
   tail call void @val64_string_ext_free(ptr noundef nonnull %2)
@@ -26505,7 +26505,7 @@ define void @proto_free_field_strings(i32 noundef %0, i32 noundef %1, ptr nounde
   %44 = getelementptr i8, ptr %.05490, i64 24
   %45 = load ptr, ptr %44, align 8
   %.not65 = icmp eq ptr %45, null
-  br i1 %.not65, label %.thread, label %.lr.ph91, !llvm.loop !54
+  br i1 %.not65, label %.thread, label %.lr.ph91, !llvm.loop !55
 
 46:                                               ; preds = %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5
   %47 = and i32 %1, 4096
@@ -26539,7 +26539,7 @@ define void @proto_free_field_strings(i32 noundef %0, i32 noundef %1, ptr nounde
   %58 = getelementptr i8, ptr %.05293, i64 40
   %59 = load ptr, ptr %58, align 8
   %.not73 = icmp eq ptr %59, null
-  br i1 %.not73, label %.thread, label %.lr.ph94, !llvm.loop !55
+  br i1 %.not73, label %.thread, label %.lr.ph94, !llvm.loop !56
 
 60:                                               ; preds = %52
   %61 = and i32 %1, 512
@@ -26562,7 +26562,7 @@ define void @proto_free_field_strings(i32 noundef %0, i32 noundef %1, ptr nounde
   %69 = getelementptr i8, ptr %.05096, i64 24
   %70 = load ptr, ptr %69, align 8
   %.not72 = icmp eq ptr %70, null
-  br i1 %.not72, label %._crit_edge99, label %.lr.ph98, !llvm.loop !56
+  br i1 %.not72, label %._crit_edge99, label %.lr.ph98, !llvm.loop !57
 
 ._crit_edge99:                                    ; preds = %.lr.ph98, %62
   tail call void @value_string_ext_free(ptr noundef nonnull %2)
@@ -26586,7 +26586,7 @@ define void @proto_free_field_strings(i32 noundef %0, i32 noundef %1, ptr nounde
   %77 = getelementptr i8, ptr %.0101, i64 24
   %78 = load ptr, ptr %77, align 8
   %.not71 = icmp eq ptr %78, null
-  br i1 %.not71, label %.thread, label %.lr.ph102, !llvm.loop !57
+  br i1 %.not71, label %.thread, label %.lr.ph102, !llvm.loop !58
 
 .thread:                                          ; preds = %.lr.ph, %.lr.ph91, %.lr.ph94, %.lr.ph102, %5, %._crit_edge, %._crit_edge99, %.preheader, %.preheader78, %.preheader80, %.preheader82, %6, %9, %15, %48, %38, %71
   %.05177 = phi ptr [ null, %71 ], [ null, %38 ], [ %2, %48 ], [ %2, %15 ], [ %2, %9 ], [ %2, %6 ], [ %2, %.preheader82 ], [ %2, %.preheader80 ], [ %2, %.preheader78 ], [ %2, %.preheader ], [ null, %._crit_edge99 ], [ null, %._crit_edge ], [ %2, %5 ], [ %2, %.lr.ph102 ], [ %2, %.lr.ph94 ], [ %2, %.lr.ph91 ], [ %2, %.lr.ph ]
@@ -26705,7 +26705,7 @@ define void @proto_register_subtree_array(ptr noundef readonly captures(none) %0
   %24 = load i32, ptr @num_tree_types, align 4
   %25 = add i32 %24, %1
   %26 = icmp slt i32 %23, %25
-  br i1 %26, label %.lr.ph, label %.loopexit, !llvm.loop !58
+  br i1 %26, label %.lr.ph, label %.loopexit, !llvm.loop !59
 
 .loopexit:                                        ; preds = %.lr.ph, %4, %2
   %27 = icmp sgt i32 %1, 0
@@ -26733,7 +26733,7 @@ define void @proto_register_subtree_array(ptr noundef readonly captures(none) %0
   %35 = add i32 %32, 1
   store i32 %35, ptr @num_tree_types, align 4
   %exitcond.not = icmp eq i32 %33, %1
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph21, !llvm.loop !59
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph21, !llvm.loop !60
 
 ._crit_edge:                                      ; preds = %31, %.loopexit
   ret void
@@ -28746,7 +28746,7 @@ define internal fastcc noundef zeroext i1 @proto_tree_traverse_pre_order(ptr nou
   %9 = getelementptr inbounds nuw i8, ptr %.012, i64 16
   %10 = load ptr, ptr %9, align 8
   %11 = tail call fastcc zeroext i1 @proto_tree_traverse_pre_order(ptr noundef nonnull %.012, ptr noundef %1, ptr noundef %2)
-  br i1 %11, label %.loopexit, label %7, !llvm.loop !60
+  br i1 %11, label %.loopexit, label %7, !llvm.loop !61
 
 .loopexit:                                        ; preds = %7, %8, %3
   %.0 = phi i1 [ true, %3 ], [ %.not.not.not, %8 ], [ %.not.not.not, %7 ]
@@ -29002,7 +29002,7 @@ define internal noundef zeroext i1 @check_for_undecoded(ptr noundef readonly cap
   %32 = load i32, ptr %12, align 4
   %33 = add i32 %32, %31
   %34 = icmp slt i32 %30, %33
-  br i1 %34, label %17, label %.critedge, !llvm.loop !61
+  br i1 %34, label %17, label %.critedge, !llvm.loop !62
 
 .critedge:                                        ; preds = %20, %17, %9, %5, %2
   ret i1 false
@@ -29313,7 +29313,7 @@ proto_get_next_protocol.exit:                     ; preds = %proto_can_toggle_pr
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 32
   %130 = load i32, ptr %129, align 8
   %.not = icmp eq i32 %130, -1
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !62
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !63
 
 ._crit_edge:                                      ; preds = %proto_can_toggle_protocol.exit, %proto_get_next_protocol.exit, %0, %proto_get_first_protocol.exit
   ret void
@@ -29559,7 +29559,7 @@ define void @proto_registrar_dump_values() local_unnamed_addr #0 {
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 8
   %106 = load ptr, ptr %105, align 8
   %.not169 = icmp eq ptr %106, null
-  br i1 %.not169, label %.thread243, label %69, !llvm.loop !63
+  br i1 %.not169, label %.thread243, label %69, !llvm.loop !64
 
 107:                                              ; preds = %45
   %108 = getelementptr inbounds nuw i8, ptr %31, i64 24
@@ -29591,7 +29591,7 @@ define void @proto_registrar_dump_values() local_unnamed_addr #0 {
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 8
   %123 = load ptr, ptr %122, align 8
   %.not166 = icmp eq ptr %123, null
-  br i1 %.not166, label %.thread243, label %113, !llvm.loop !64
+  br i1 %.not166, label %.thread243, label %113, !llvm.loop !65
 
 124:                                              ; preds = %.lr.ph, %124
   %125 = phi ptr [ %40, %.lr.ph ], [ %139, %124 ]
@@ -29612,7 +29612,7 @@ define void @proto_registrar_dump_values() local_unnamed_addr #0 {
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 16
   %139 = load ptr, ptr %138, align 8
   %.not165 = icmp eq ptr %139, null
-  br i1 %.not165, label %.thread243, label %124, !llvm.loop !65
+  br i1 %.not165, label %.thread243, label %124, !llvm.loop !66
 
 140:                                              ; preds = %36, %._crit_edge274
   %141 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -29637,7 +29637,7 @@ define void @proto_registrar_dump_values() local_unnamed_addr #0 {
 .thread243:                                       ; preds = %124, %113, %101, %36, %.preheader251, %.preheader, %.thread189.thread, %29, %._crit_edge274, %50, %107, %63, %147, %140, %26, %21, %4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %4, !llvm.loop !66
+  br i1 %exitcond.not, label %._crit_edge, label %4, !llvm.loop !67
 
 ._crit_edge:                                      ; preds = %.thread243, %0
   ret void
@@ -29721,7 +29721,7 @@ define zeroext i1 @proto_registrar_dump_fieldcount() local_unnamed_addr #0 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %24 = zext i32 %22 to i64
   %25 = icmp samesign ult i64 %indvars.iv.next, %24
-  br i1 %25, label %.lr.ph, label %._crit_edge, !llvm.loop !67
+  br i1 %25, label %.lr.ph, label %._crit_edge, !llvm.loop !68
 
 ._crit_edge:                                      ; preds = %21, %0
   %.020.lcssa = phi i32 [ 0, %0 ], [ %.121, %21 ]
@@ -29910,7 +29910,7 @@ define void @proto_registrar_dump_elastic(ptr noundef %0) local_unnamed_addr #0 
   %55 = getelementptr ptr, ptr %.060, i64 %54
   %.059 = load ptr, ptr %55, align 8
   %.not75.not = icmp eq ptr %.059, null
-  br i1 %.not75.not, label %.critedge, label %49, !llvm.loop !68
+  br i1 %.not75.not, label %.critedge, label %49, !llvm.loop !69
 
 .loopexit:                                        ; preds = %49, %47
   %.not77 = icmp eq ptr %.061118, null
@@ -29982,7 +29982,7 @@ switch.lookup:                                    ; preds = %66
   %82 = zext i32 %81 to i64
   %83 = call i64 @strlen(ptr noundef %74) #41
   %84 = icmp ugt i64 %83, %82
-  br i1 %84, label %.lr.ph.i, label %dot_to_underscore.exit, !llvm.loop !69
+  br i1 %84, label %.lr.ph.i, label %dot_to_underscore.exit, !llvm.loop !70
 
 dot_to_underscore.exit:                           ; preds = %80, %switch.lookup
   %85 = call i32 @g_strcmp0(ptr noundef %.054120, ptr noundef %74)
@@ -30009,7 +30009,7 @@ dot_to_underscore.exit:                           ; preds = %80, %switch.lookup
   %88 = load i32, ptr @gpa_hfinfo.0, align 8
   %89 = zext i32 %88 to i64
   %90 = icmp samesign ult i64 %indvars.iv.next, %89
-  br i1 %90, label %10, label %._crit_edge, !llvm.loop !70
+  br i1 %90, label %10, label %._crit_edge, !llvm.loop !71
 
 ._crit_edge:                                      ; preds = %.critedge
   %91 = icmp eq ptr %.162, null
@@ -30276,7 +30276,7 @@ define void @proto_registrar_dump_fields() local_unnamed_addr #0 {
 85:                                               ; preds = %28, %76, %33, %20, %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !71
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !72
 
 ._crit_edge:                                      ; preds = %85, %0
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
@@ -30380,7 +30380,7 @@ define zeroext i1 @proto_registrar_dump_field_completions(ptr noundef readonly c
   %.1 = phi i1 [ %.041, %.lr.ph ], [ %.041, %21 ], [ %.041, %29 ], [ %.041, %34 ], [ %.041, %37 ], [ true, %.sink.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !72
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !73
 
 ._crit_edge:                                      ; preds = %44, %1
   %.0.lcssa = phi i1 [ false, %1 ], [ %.1, %44 ]
@@ -30398,7 +30398,7 @@ define void @proto_registrar_dump_ftypes() local_unnamed_addr #0 {
   %4 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.168, ptr noundef %2, ptr noundef %3)
   %5 = add nuw nsw i32 %.04, 1
   %exitcond.not = icmp eq i32 %5, 46
-  br i1 %exitcond.not, label %6, label %1, !llvm.loop !73
+  br i1 %exitcond.not, label %6, label %1, !llvm.loop !74
 
 6:                                                ; preds = %1
   ret void
@@ -30589,7 +30589,7 @@ define internal fastcc noundef zeroext i1 @construct_match_selected_string(ptr n
   %.181 = getelementptr i8, ptr %.080110, i64 %.pn
   %92 = add nuw nsw i32 %.082109, 1
   %exitcond.not = icmp eq i32 %92, %spec.select
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !74
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !75
 
 93:                                               ; preds = %.critedge
   %.not101 = icmp eq ptr %2, null
@@ -31001,7 +31001,7 @@ proto_item_add_subtree.exit:                      ; preds = %38
   %74 = or i64 %69, %.0279470
   %.not313.not399 = icmp ult i64 %31, %69
   %.not313.not = select i1 %.not306, i1 %.not313.not399, i1 false
-  br i1 %.not313.not, label %393, label %75, !llvm.loop !75
+  br i1 %.not313.not, label %393, label %75, !llvm.loop !76
 
 75:                                               ; preds = %73
   %76 = getelementptr inbounds nuw i8, ptr %65, i64 16
@@ -31055,7 +31055,7 @@ proto_item_add_subtree.exit:                      ; preds = %38
   unreachable
 
 92:                                               ; preds = %86, %84, %82, %80, %78
-  br i1 %.not314, label %93, label %393, !llvm.loop !75
+  br i1 %.not314, label %93, label %393, !llvm.loop !76
 
 93:                                               ; preds = %92
   %94 = load i64, ptr %68, align 8
@@ -32964,7 +32964,7 @@ define noundef ptr @proto_tree_add_split_bits_item_ret_val(ptr noundef %0, i32 n
   %74 = zext nneg i8 %73 to i64
   %75 = shl i64 %44, %74
   %.not165 = icmp eq i8 %73, 0
-  br i1 %.not165, label %._crit_edge, label %.lr.ph, !llvm.loop !76
+  br i1 %.not165, label %._crit_edge, label %.lr.ph, !llvm.loop !77
 
 ._crit_edge:                                      ; preds = %68
   %76 = add nuw nsw i32 %.1151, 7
@@ -35563,7 +35563,7 @@ proto_item_set_generated.exit153:                 ; preds = %106, %103, %101, %.
   %129 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %123, i64 noundef %124, i32 noundef 2, i64 noundef %125, ptr noundef nonnull @.str.198, i32 noundef %128)
   %130 = add nuw i64 %.0158, 1
   %exitcond.not = icmp eq i64 %130, %8
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !77
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !78
 
 131:                                              ; preds = %._crit_edge
   %132 = tail call ptr @expert_get_summary(ptr noundef nonnull %5)
@@ -36110,3 +36110,4 @@ attributes #44 = { nounwind memory(none) }
 !75 = distinct !{!75, !7}
 !76 = distinct !{!76, !7}
 !77 = distinct !{!77, !7}
+!78 = distinct !{!78, !7}

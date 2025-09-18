@@ -2737,12 +2737,12 @@ define dso_local void @_ZN4enki13TaskScheduler11WaitforTaskEPKNS_12ICompletableE
   %13 = load atomic i32, ptr %12 monotonic, align 4
   store atomic i32 2, ptr %12 monotonic, align 4
   fence acquire
-  %cond = icmp eq ptr %1, null
-  br i1 %cond, label %.preheader, label %14
+  %.not = icmp eq ptr %1, null
+  br i1 %.not, label %.preheader, label %14
 
 .preheader:                                       ; preds = %3
-  %.not3045 = icmp slt i32 %2, 0
-  br i1 %.not3045, label %_ZN12_GLOBAL__N_112SafeCallbackEPFvjEj.exit32, label %.lr.ph47
+  %.not3046 = icmp slt i32 %2, 0
+  br i1 %.not3046, label %_ZN12_GLOBAL__N_112SafeCallbackEPFvjEj.exit32, label %.lr.ph48
 
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 12
@@ -2767,22 +2767,22 @@ _ZN12_GLOBAL__N_112SafeCallbackEPFvjEj.exit:      ; preds = %18, %21
   %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %2, i32 %.fr)
   %24 = load atomic i32, ptr %15 acquire, align 4
   %25 = icmp eq i32 %24, 0
-  br i1 %25, label %.critedge, label %.lr.ph43
+  br i1 %25, label %.critedge, label %.lr.ph44
 
-.lr.ph43:                                         ; preds = %_ZN12_GLOBAL__N_112SafeCallbackEPFvjEj.exit
+.lr.ph44:                                         ; preds = %_ZN12_GLOBAL__N_112SafeCallbackEPFvjEj.exit
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %.not2940 = icmp slt i32 %.sroa.speculated, 0
-  br i1 %.not2940, label %.lr.ph43.split.us, label %.lr.ph43.split
+  %.not2941 = icmp slt i32 %.sroa.speculated, 0
+  br i1 %.not2941, label %.lr.ph44.split.us, label %.lr.ph44.split
 
-.lr.ph43.split.us:                                ; preds = %.lr.ph43, %_ZN12_GLOBAL__N_18SpinWaitEj.exit.us
-  %.02642.us = phi i32 [ %.2.us, %_ZN12_GLOBAL__N_18SpinWaitEj.exit.us ], [ 0, %.lr.ph43 ]
+.lr.ph44.split.us:                                ; preds = %.lr.ph44, %_ZN12_GLOBAL__N_18SpinWaitEj.exit.us
+  %.02643.us = phi i32 [ %.2.us, %_ZN12_GLOBAL__N_18SpinWaitEj.exit.us ], [ 0, %.lr.ph44 ]
   %27 = load atomic i8, ptr %26 acquire, align 8
   %28 = trunc i8 %27 to i1
   br i1 %28, label %29, label %.critedge
 
-29:                                               ; preds = %.lr.ph43.split.us
-  %30 = add nuw nsw i32 %.02642.us, 1
-  %31 = icmp ugt i32 %.02642.us, 9
+29:                                               ; preds = %.lr.ph44.split.us
+  %30 = add nuw nsw i32 %.02643.us, 1
+  %31 = icmp ugt i32 %.02643.us, 9
   br i1 %31, label %40, label %.thread.us
 
 .thread.us:                                       ; preds = %29
@@ -2808,30 +2808,30 @@ _ZN12_GLOBAL__N_18SpinWaitEj.exit.us:             ; preds = %.lr.ph.i.us, %40, %
   %.2.us = phi i32 [ 0, %40 ], [ %30, %.thread.us ], [ %30, %.lr.ph.i.us ]
   %41 = load atomic i32, ptr %15 acquire, align 4
   %42 = icmp eq i32 %41, 0
-  br i1 %42, label %.critedge, label %.lr.ph43.split.us, !llvm.loop !128
+  br i1 %42, label %.critedge, label %.lr.ph44.split.us, !llvm.loop !128
 
-.lr.ph43.split:                                   ; preds = %.lr.ph43, %_ZN12_GLOBAL__N_18SpinWaitEj.exit
-  %.02642 = phi i32 [ %.2, %_ZN12_GLOBAL__N_18SpinWaitEj.exit ], [ 0, %.lr.ph43 ]
+.lr.ph44.split:                                   ; preds = %.lr.ph44, %_ZN12_GLOBAL__N_18SpinWaitEj.exit
+  %.02643 = phi i32 [ %.2, %_ZN12_GLOBAL__N_18SpinWaitEj.exit ], [ 0, %.lr.ph44 ]
   %43 = load atomic i8, ptr %26 acquire, align 8
   %44 = trunc i8 %43 to i1
   br i1 %44, label %.lr.ph, label %.critedge
 
-.lr.ph:                                           ; preds = %.lr.ph43.split
-  %45 = add nuw nsw i32 %.02642, 1
+.lr.ph:                                           ; preds = %.lr.ph44.split
+  %45 = add nuw nsw i32 %.02643, 1
   br label %48
 
 46:                                               ; preds = %48
-  %47 = add nuw i32 %.02741, 1
-  %exitcond.not = icmp eq i32 %.02741, %.sroa.speculated
+  %47 = add nuw i32 %.02742, 1
+  %exitcond.not = icmp eq i32 %.02742, %.sroa.speculated
   br i1 %exitcond.not, label %._crit_edge, label %48, !llvm.loop !129
 
 48:                                               ; preds = %.lr.ph, %46
-  %.02741 = phi i32 [ 0, %.lr.ph ], [ %47, %46 ]
-  %49 = call noundef zeroext i1 @_ZN4enki13TaskScheduler10TryRunTaskEjjRj(ptr noundef nonnull align 8 dereferenceable(220) %0, i32 noundef %6, i32 noundef %.02741, ptr noundef nonnull align 4 dereferenceable(4) %4)
+  %.02742 = phi i32 [ 0, %.lr.ph ], [ %47, %46 ]
+  %49 = call noundef zeroext i1 @_ZN4enki13TaskScheduler10TryRunTaskEjjRj(ptr noundef nonnull align 8 dereferenceable(220) %0, i32 noundef %6, i32 noundef %.02742, ptr noundef nonnull align 4 dereferenceable(4) %4)
   br i1 %49, label %.thread, label %46
 
 ._crit_edge:                                      ; preds = %46
-  %50 = icmp ugt i32 %.02642, 9
+  %50 = icmp ugt i32 %.02643, 9
   br i1 %50, label %51, label %.thread
 
 51:                                               ; preds = %._crit_edge
@@ -2858,9 +2858,9 @@ _ZN12_GLOBAL__N_18SpinWaitEj.exit:                ; preds = %.lr.ph.i, %.thread,
   %.2 = phi i32 [ 0, %51 ], [ %.139, %.thread ], [ %.139, %.lr.ph.i ]
   %60 = load atomic i32, ptr %15 acquire, align 4
   %61 = icmp eq i32 %60, 0
-  br i1 %61, label %.critedge, label %.lr.ph43.split, !llvm.loop !128
+  br i1 %61, label %.critedge, label %.lr.ph44.split, !llvm.loop !128
 
-.critedge:                                        ; preds = %.lr.ph43.split, %_ZN12_GLOBAL__N_18SpinWaitEj.exit, %.lr.ph43.split.us, %_ZN12_GLOBAL__N_18SpinWaitEj.exit.us, %_ZN12_GLOBAL__N_112SafeCallbackEPFvjEj.exit
+.critedge:                                        ; preds = %.lr.ph44.split, %_ZN12_GLOBAL__N_18SpinWaitEj.exit, %.lr.ph44.split.us, %_ZN12_GLOBAL__N_18SpinWaitEj.exit.us, %_ZN12_GLOBAL__N_112SafeCallbackEPFvjEj.exit
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %63 = load ptr, ptr %62, align 8, !tbaa !130
   %.not.i31 = icmp eq ptr %63, null
@@ -2870,15 +2870,15 @@ _ZN12_GLOBAL__N_18SpinWaitEj.exit:                ; preds = %.lr.ph.i, %.thread,
   tail call void %63(i32 noundef %6)
   br label %_ZN12_GLOBAL__N_112SafeCallbackEPFvjEj.exit32
 
-.lr.ph47:                                         ; preds = %.preheader, %.lr.ph47
-  %.046 = phi i32 [ %66, %.lr.ph47 ], [ 0, %.preheader ]
-  %65 = call noundef zeroext i1 @_ZN4enki13TaskScheduler10TryRunTaskEjjRj(ptr noundef nonnull align 8 dereferenceable(220) %0, i32 noundef %6, i32 noundef %.046, ptr noundef nonnull align 4 dereferenceable(4) %4)
-  %66 = add nuw i32 %.046, 1
-  %exitcond50.not = icmp eq i32 %.046, %2
-  %or.cond = or i1 %65, %exitcond50.not
-  br i1 %or.cond, label %_ZN12_GLOBAL__N_112SafeCallbackEPFvjEj.exit32, label %.lr.ph47, !llvm.loop !131
+.lr.ph48:                                         ; preds = %.preheader, %.lr.ph48
+  %.047 = phi i32 [ %66, %.lr.ph48 ], [ 0, %.preheader ]
+  %65 = call noundef zeroext i1 @_ZN4enki13TaskScheduler10TryRunTaskEjjRj(ptr noundef nonnull align 8 dereferenceable(220) %0, i32 noundef %6, i32 noundef %.047, ptr noundef nonnull align 4 dereferenceable(4) %4)
+  %66 = add nuw i32 %.047, 1
+  %exitcond51.not = icmp eq i32 %.047, %2
+  %or.cond = or i1 %65, %exitcond51.not
+  br i1 %or.cond, label %_ZN12_GLOBAL__N_112SafeCallbackEPFvjEj.exit32, label %.lr.ph48, !llvm.loop !131
 
-_ZN12_GLOBAL__N_112SafeCallbackEPFvjEj.exit32:    ; preds = %.lr.ph47, %.preheader, %14, %64, %.critedge
+_ZN12_GLOBAL__N_112SafeCallbackEPFvjEj.exit32:    ; preds = %.lr.ph48, %.preheader, %14, %64, %.critedge
   %67 = load ptr, ptr %8, align 8, !tbaa !4
   %68 = getelementptr inbounds nuw %"struct.enki::ThreadDataStore", ptr %67, i64 %10
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 8

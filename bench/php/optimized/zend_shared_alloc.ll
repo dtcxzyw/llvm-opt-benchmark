@@ -130,12 +130,12 @@ define hidden i32 @zend_shared_alloc_startup(i64 noundef %0, i64 noundef %1) loc
   call void @zend_shared_alloc_create_lock(ptr noundef %7)
   %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 88), align 8, !tbaa !29
   %.not = icmp eq ptr %8, null
-  br i1 %.not, label %zend_shared_alloc_try.exit.thread90, label %9
+  br i1 %.not, label %zend_shared_alloc_try.exit.thread92, label %9
 
 9:                                                ; preds = %2
   %10 = load i8, ptr %8, align 1, !tbaa !30
   %.not56 = icmp eq i8 %10, 0
-  br i1 %.not56, label %zend_shared_alloc_try.exit.thread90, label %11
+  br i1 %.not56, label %zend_shared_alloc_try.exit.thread92, label %11
 
 11:                                               ; preds = %9
   %12 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(4) @.str.4, i64 noundef 4) #23
@@ -145,7 +145,7 @@ define hidden i32 @zend_shared_alloc_startup(i64 noundef %0, i64 noundef %1) loc
 
 14:                                               ; preds = %11, %44
   %15 = phi ptr [ @.str.11, %11 ], [ %46, %44 ]
-  %.043100 = phi ptr [ @handler_table, %11 ], [ %45, %44 ]
+  %.043102 = phi ptr [ @handler_table, %11 ], [ %45, %44 ]
   %16 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.store.select, ptr noundef nonnull dereferenceable(1) %15) #23
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %18, label %44
@@ -153,7 +153,7 @@ define hidden i32 @zend_shared_alloc_startup(i64 noundef %0, i64 noundef %1) loc
 18:                                               ; preds = %14
   %19 = load ptr, ptr @smm_shared_globals, align 8, !tbaa !11
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %21 = getelementptr i8, ptr %.043100, i64 8
+  %21 = getelementptr i8, ptr %.043102, i64 8
   %.043.val68 = load ptr, ptr %21, align 8, !tbaa !31
   store ptr %.043.val68, ptr @g_shared_alloc_handler, align 8, !tbaa !33
   store ptr %15, ptr @g_shared_model, align 8, !tbaa !8
@@ -161,7 +161,7 @@ define hidden i32 @zend_shared_alloc_startup(i64 noundef %0, i64 noundef %1) loc
   store i32 0, ptr %20, align 8, !tbaa !35
   %22 = load ptr, ptr %.043.val68, align 8, !tbaa !36
   %23 = call i32 %22(i64 noundef %0, ptr noundef nonnull %19, ptr noundef nonnull %20, ptr noundef nonnull %4) #20
-  switch i32 %23, label %zend_shared_alloc_try.exit.thread90 [
+  switch i32 %23, label %zend_shared_alloc_try.exit.thread92 [
     i32 0, label %24
     i32 2, label %47
   ]
@@ -184,11 +184,10 @@ define hidden i32 @zend_shared_alloc_startup(i64 noundef %0, i64 noundef %1) loc
   %31 = load ptr, ptr %30, align 8, !tbaa !39
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 24
   %33 = load ptr, ptr %32, align 8, !tbaa !41
-  %magicptr.i = ptrtoint ptr %33 to i64
-  switch i64 %magicptr.i, label %34 [
-    i64 0, label %39
-    i64 -1, label %39
-  ]
+  %.not24.i = icmp eq ptr %33, null
+  %.not25.i = icmp eq ptr %33, inttoptr (i64 -1 to ptr)
+  %or.cond.i = or i1 %.not24.i, %.not25.i
+  br i1 %or.cond.i, label %39, label %34
 
 34:                                               ; preds = %.lr.ph.i
   %35 = load ptr, ptr @g_shared_alloc_handler, align 8, !tbaa !33
@@ -198,8 +197,8 @@ define hidden i32 @zend_shared_alloc_startup(i64 noundef %0, i64 noundef %1) loc
   %.pre.i = load i32, ptr %20, align 4, !tbaa !4
   br label %39
 
-39:                                               ; preds = %34, %.lr.ph.i, %.lr.ph.i
-  %40 = phi i32 [ %28, %.lr.ph.i ], [ %28, %.lr.ph.i ], [ %.pre.i, %34 ]
+39:                                               ; preds = %34, %.lr.ph.i
+  %40 = phi i32 [ %28, %.lr.ph.i ], [ %.pre.i, %34 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %41 = sext i32 %40 to i64
   %42 = icmp slt i64 %indvars.iv.next.i, %41
@@ -220,27 +219,27 @@ zend_shared_alloc_try.exit.thread:                ; preds = %24, %._crit_edge.i
   br label %44
 
 44:                                               ; preds = %zend_shared_alloc_try.exit.thread, %14
-  %45 = getelementptr inbounds nuw i8, ptr %.043100, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %.043102, i64 16
   %46 = load ptr, ptr %45, align 8, !tbaa !44
   %.not57 = icmp eq ptr %46, null
-  br i1 %.not57, label %zend_shared_alloc_try.exit.thread90, label %14
+  br i1 %.not57, label %zend_shared_alloc_try.exit.thread92, label %14
 
 47:                                               ; preds = %18
   store ptr null, ptr @smm_shared_globals, align 8, !tbaa !11
   br label %164
 
-zend_shared_alloc_try.exit.thread90:              ; preds = %18, %44, %2, %9
-  %.04292 = phi i32 [ 0, %9 ], [ 0, %2 ], [ %23, %18 ], [ 0, %44 ]
+zend_shared_alloc_try.exit.thread92:              ; preds = %18, %44, %2, %9
+  %.04294 = phi i32 [ 0, %9 ], [ 0, %2 ], [ %23, %18 ], [ 0, %44 ]
   %48 = load ptr, ptr @g_shared_alloc_handler, align 8, !tbaa !33
   %.not59 = icmp eq ptr %48, null
-  br i1 %.not59, label %.preheader99, label %zend_shared_alloc_try.exit82.thread95
+  br i1 %.not59, label %.preheader101, label %zend_shared_alloc_try.exit84.thread97
 
-.preheader99:                                     ; preds = %zend_shared_alloc_try.exit.thread90, %75
-  %49 = phi ptr [ %77, %75 ], [ @.str.11, %zend_shared_alloc_try.exit.thread90 ]
-  %.144101 = phi ptr [ %76, %75 ], [ @handler_table, %zend_shared_alloc_try.exit.thread90 ]
+.preheader101:                                    ; preds = %zend_shared_alloc_try.exit.thread92, %75
+  %49 = phi ptr [ %77, %75 ], [ @.str.11, %zend_shared_alloc_try.exit.thread92 ]
+  %.144103 = phi ptr [ %76, %75 ], [ @handler_table, %zend_shared_alloc_try.exit.thread92 ]
   %50 = load ptr, ptr @smm_shared_globals, align 8, !tbaa !11
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  %52 = getelementptr i8, ptr %.144101, i64 8
+  %52 = getelementptr i8, ptr %.144103, i64 8
   %.144.val69 = load ptr, ptr %52, align 8, !tbaa !31
   store ptr %.144.val69, ptr @g_shared_alloc_handler, align 8, !tbaa !33
   store ptr %49, ptr @g_shared_model, align 8, !tbaa !8
@@ -249,9 +248,9 @@ zend_shared_alloc_try.exit.thread90:              ; preds = %18, %44, %2, %9
   %53 = load ptr, ptr %.144.val69, align 8, !tbaa !36
   %54 = call i32 %53(i64 noundef %0, ptr noundef nonnull %50, ptr noundef nonnull %51, ptr noundef nonnull %4) #20
   %.not.i70 = icmp eq i32 %54, 0
-  br i1 %.not.i70, label %55, label %zend_shared_alloc_try.exit82
+  br i1 %.not.i70, label %55, label %zend_shared_alloc_try.exit84
 
-55:                                               ; preds = %.preheader99
+55:                                               ; preds = %.preheader101
   %56 = load ptr, ptr %50, align 8, !tbaa !38
   %.not23.i72 = icmp eq ptr %56, null
   br i1 %.not23.i72, label %75, label %.preheader.i73
@@ -263,59 +262,58 @@ zend_shared_alloc_try.exit.thread90:              ; preds = %18, %44, %2, %9
 
 .lr.ph.i75:                                       ; preds = %.preheader.i73, %70
   %59 = phi i32 [ %71, %70 ], [ %57, %.preheader.i73 ]
-  %indvars.iv.i76 = phi i64 [ %indvars.iv.next.i78, %70 ], [ 0, %.preheader.i73 ]
+  %indvars.iv.i76 = phi i64 [ %indvars.iv.next.i81, %70 ], [ 0, %.preheader.i73 ]
   %60 = load ptr, ptr %50, align 8, !tbaa !38
   %61 = getelementptr inbounds nuw ptr, ptr %60, i64 %indvars.iv.i76
   %62 = load ptr, ptr %61, align 8, !tbaa !39
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 24
   %64 = load ptr, ptr %63, align 8, !tbaa !41
-  %magicptr.i77 = ptrtoint ptr %64 to i64
-  switch i64 %magicptr.i77, label %65 [
-    i64 0, label %70
-    i64 -1, label %70
-  ]
+  %.not24.i77 = icmp eq ptr %64, null
+  %.not25.i78 = icmp eq ptr %64, inttoptr (i64 -1 to ptr)
+  %or.cond.i79 = or i1 %.not24.i77, %.not25.i78
+  br i1 %or.cond.i79, label %70, label %65
 
 65:                                               ; preds = %.lr.ph.i75
   %66 = load ptr, ptr @g_shared_alloc_handler, align 8, !tbaa !33
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %68 = load ptr, ptr %67, align 8, !tbaa !43
   %69 = call i32 %68(ptr noundef nonnull %62) #20
-  %.pre.i81 = load i32, ptr %51, align 4, !tbaa !4
+  %.pre.i80 = load i32, ptr %51, align 4, !tbaa !4
   br label %70
 
-70:                                               ; preds = %65, %.lr.ph.i75, %.lr.ph.i75
-  %71 = phi i32 [ %59, %.lr.ph.i75 ], [ %59, %.lr.ph.i75 ], [ %.pre.i81, %65 ]
-  %indvars.iv.next.i78 = add nuw nsw i64 %indvars.iv.i76, 1
+70:                                               ; preds = %65, %.lr.ph.i75
+  %71 = phi i32 [ %59, %.lr.ph.i75 ], [ %.pre.i80, %65 ]
+  %indvars.iv.next.i81 = add nuw nsw i64 %indvars.iv.i76, 1
   %72 = sext i32 %71 to i64
-  %73 = icmp slt i64 %indvars.iv.next.i78, %72
-  br i1 %73, label %.lr.ph.i75, label %._crit_edge.loopexit.i79
+  %73 = icmp slt i64 %indvars.iv.next.i81, %72
+  br i1 %73, label %.lr.ph.i75, label %._crit_edge.loopexit.i82
 
-._crit_edge.loopexit.i79:                         ; preds = %70
-  %.pre3.i80 = load ptr, ptr %50, align 8, !tbaa !38
+._crit_edge.loopexit.i82:                         ; preds = %70
+  %.pre3.i83 = load ptr, ptr %50, align 8, !tbaa !38
   br label %._crit_edge.i74
 
-._crit_edge.i74:                                  ; preds = %._crit_edge.loopexit.i79, %.preheader.i73
-  %74 = phi ptr [ %.pre3.i80, %._crit_edge.loopexit.i79 ], [ %56, %.preheader.i73 ]
+._crit_edge.i74:                                  ; preds = %._crit_edge.loopexit.i82, %.preheader.i73
+  %74 = phi ptr [ %.pre3.i83, %._crit_edge.loopexit.i82 ], [ %56, %.preheader.i73 ]
   call void @free(ptr noundef %74) #20
   store ptr null, ptr %50, align 8, !tbaa !38
   br label %75
 
 75:                                               ; preds = %55, %._crit_edge.i74
   store ptr null, ptr @g_shared_alloc_handler, align 8, !tbaa !33
-  %76 = getelementptr inbounds nuw i8, ptr %.144101, i64 16
+  %76 = getelementptr inbounds nuw i8, ptr %.144103, i64 16
   %77 = load ptr, ptr %76, align 8, !tbaa !44
   %.not60 = icmp eq ptr %77, null
-  br i1 %.not60, label %zend_shared_alloc_try.exit82.thread, label %.preheader99
+  br i1 %.not60, label %zend_shared_alloc_try.exit84.thread, label %.preheader101
 
-zend_shared_alloc_try.exit82:                     ; preds = %.preheader99
+zend_shared_alloc_try.exit84:                     ; preds = %.preheader101
   %.pr.pre = load ptr, ptr @g_shared_alloc_handler, align 8, !tbaa !33
   %.not62 = icmp eq ptr %.pr.pre, null
-  br i1 %.not62, label %zend_shared_alloc_try.exit82.thread, label %zend_shared_alloc_try.exit82.thread95
+  br i1 %.not62, label %zend_shared_alloc_try.exit84.thread, label %zend_shared_alloc_try.exit84.thread97
 
-zend_shared_alloc_try.exit82.thread:              ; preds = %75, %zend_shared_alloc_try.exit82
+zend_shared_alloc_try.exit84.thread:              ; preds = %75, %zend_shared_alloc_try.exit84
   %78 = load ptr, ptr %4, align 8, !tbaa !8
-  %.not.i83 = icmp eq ptr %78, null
-  %79 = select i1 %.not.i83, ptr @.str.14, ptr %78
+  %.not.i85 = icmp eq ptr %78, null
+  %79 = select i1 %.not.i85, ptr @.str.14, ptr %78
   %80 = tail call ptr @__errno_location() #21
   %81 = load i32, ptr %80, align 4, !tbaa !4
   %82 = call ptr @strerror(i32 noundef %81) #20
@@ -323,13 +321,13 @@ zend_shared_alloc_try.exit82.thread:              ; preds = %75, %zend_shared_al
   call void (i32, ptr, ...) @zend_accel_error_noreturn(i32 noundef 0, ptr noundef nonnull @.str.13, i64 noundef %0, ptr noundef nonnull %79, ptr noundef %82, i32 noundef %83) #22
   unreachable
 
-zend_shared_alloc_try.exit82.thread95:            ; preds = %zend_shared_alloc_try.exit.thread90, %zend_shared_alloc_try.exit82
-  %.498 = phi i32 [ %54, %zend_shared_alloc_try.exit82 ], [ %.04292, %zend_shared_alloc_try.exit.thread90 ]
-  %84 = phi ptr [ %.pr.pre, %zend_shared_alloc_try.exit82 ], [ %48, %zend_shared_alloc_try.exit.thread90 ]
-  %85 = icmp eq i32 %.498, 4
+zend_shared_alloc_try.exit84.thread97:            ; preds = %zend_shared_alloc_try.exit.thread92, %zend_shared_alloc_try.exit84
+  %.4100 = phi i32 [ %54, %zend_shared_alloc_try.exit84 ], [ %.04294, %zend_shared_alloc_try.exit.thread92 ]
+  %84 = phi ptr [ %.pr.pre, %zend_shared_alloc_try.exit84 ], [ %48, %zend_shared_alloc_try.exit.thread92 ]
+  %85 = icmp eq i32 %.4100, 4
   br i1 %85, label %164, label %.preheader
 
-.preheader:                                       ; preds = %zend_shared_alloc_try.exit82.thread95
+.preheader:                                       ; preds = %zend_shared_alloc_try.exit84.thread97
   %86 = load ptr, ptr @smm_shared_globals, align 8, !tbaa !11
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 8
   %88 = load i32, ptr %87, align 8, !tbaa !35
@@ -394,9 +392,9 @@ zend_shared_alloc_try.exit82.thread95:            ; preds = %zend_shared_alloc_t
   %120 = load ptr, ptr %119, align 8, !tbaa !47
   %121 = call i64 %120() #20
   %122 = icmp sgt i32 %117, 0
-  br i1 %122, label %.lr.ph.i85, label %copy_shared_segments.exit
+  br i1 %122, label %.lr.ph.i87, label %copy_shared_segments.exit
 
-.lr.ph.i85:                                       ; preds = %112
+.lr.ph.i87:                                       ; preds = %112
   %123 = zext nneg i32 %117 to i64
   %124 = shl nuw nsw i64 %123, 3
   %125 = getelementptr inbounds nuw i8, ptr %110, i64 %124
@@ -404,17 +402,17 @@ zend_shared_alloc_try.exit82.thread95:            ; preds = %zend_shared_alloc_t
   %126 = ashr exact i64 %sext, 32
   br label %127
 
-127:                                              ; preds = %127, %.lr.ph.i85
-  %indvars.iv.i86 = phi i64 [ 0, %.lr.ph.i85 ], [ %indvars.iv.next.i87, %127 ]
-  %.01619.i = phi ptr [ %115, %.lr.ph.i85 ], [ %130, %127 ]
-  %.01718.i = phi ptr [ %125, %.lr.ph.i85 ], [ %129, %127 ]
-  %128 = getelementptr inbounds nuw ptr, ptr %110, i64 %indvars.iv.i86
+127:                                              ; preds = %127, %.lr.ph.i87
+  %indvars.iv.i88 = phi i64 [ 0, %.lr.ph.i87 ], [ %indvars.iv.next.i89, %127 ]
+  %.01619.i = phi ptr [ %115, %.lr.ph.i87 ], [ %130, %127 ]
+  %.01718.i = phi ptr [ %125, %.lr.ph.i87 ], [ %129, %127 ]
+  %128 = getelementptr inbounds nuw ptr, ptr %110, i64 %indvars.iv.i88
   store ptr %.01718.i, ptr %128, align 8, !tbaa !39
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.01718.i, ptr align 1 %.01619.i, i64 %126, i1 false)
   %129 = getelementptr inbounds i8, ptr %.01718.i, i64 %126
   %130 = getelementptr inbounds i8, ptr %.01619.i, i64 %126
-  %indvars.iv.next.i87 = add nuw nsw i64 %indvars.iv.i86, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i87, %123
+  %indvars.iv.next.i89 = add nuw nsw i64 %indvars.iv.i88, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i89, %123
   br i1 %exitcond.not.i, label %copy_shared_segments.exit, label %127
 
 copy_shared_segments.exit:                        ; preds = %127, %112
@@ -479,8 +477,8 @@ copy_shared_segments.exit:                        ; preds = %127, %112
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 2), align 2, !tbaa !48
   br label %164
 
-164:                                              ; preds = %zend_shared_alloc_try.exit82.thread95, %163, %47
-  %.045 = phi i32 [ 2, %47 ], [ %.498, %163 ], [ 4, %zend_shared_alloc_try.exit82.thread95 ]
+164:                                              ; preds = %zend_shared_alloc_try.exit84.thread97, %163, %47
+  %.045 = phi i32 [ 2, %47 ], [ %.4100, %163 ], [ 4, %zend_shared_alloc_try.exit84.thread97 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.045

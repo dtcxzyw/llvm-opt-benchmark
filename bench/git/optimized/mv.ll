@@ -662,15 +662,17 @@ submodule_gitfile_path.exit:                      ; preds = %298
   %302 = load ptr, ptr %157, align 8, !tbaa !63
   %303 = call ptr @read_gitfile_gently(ptr noundef %302, ptr noundef null) #12
   call void @strbuf_release(ptr noundef nonnull %7) #12
+  %.not6.i = icmp eq ptr %303, null
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %switch = icmp ult ptr %303, inttoptr (i64 2 to ptr)
-  br i1 %switch, label %306, label %304
+  %.not312433 = icmp eq ptr %303, inttoptr (i64 1 to ptr)
+  %.not312 = or i1 %.not6.i, %.not312433
+  br i1 %.not312, label %306, label %304
 
 304:                                              ; preds = %submodule_gitfile_path.exit
   %305 = call ptr @strvec_push(ptr noundef nonnull %17, ptr noundef nonnull %303) #12
   br label %306
 
-306:                                              ; preds = %submodule_gitfile_path.exit, %304
+306:                                              ; preds = %304, %submodule_gitfile_path.exit
   %.0246 = phi ptr [ %305, %304 ], [ inttoptr (i64 1 to ptr), %submodule_gitfile_path.exit ]
   %307 = getelementptr inbounds ptr, ptr %.0222481, i64 %160
   store ptr %.0246, ptr %307, align 8, !tbaa !23

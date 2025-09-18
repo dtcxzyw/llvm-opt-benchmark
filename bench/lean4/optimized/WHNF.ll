@@ -27100,20 +27100,22 @@ lean_dec.exit131:                                 ; preds = %142, %141, %139, %l
   br i1 %.not259, label %lean_nat_eq.exit.thread, label %lean_nat_eq.exit, !prof !16
 
 lean_nat_eq.exit:                                 ; preds = %lean_dec.exit131
-  switch i64 %128, label %145 [
-    i64 1, label %lean_dec.exit128
-    i64 3, label %lean_dec.exit129
-  ]
+  %.not260 = icmp eq ptr %127, inttoptr (i64 1 to ptr)
+  br i1 %.not260, label %lean_dec.exit128, label %lean_nat_eq.exit180
 
 lean_nat_eq.exit.thread:                          ; preds = %lean_dec.exit131
   %143 = tail call zeroext i1 @lean_nat_big_eq(ptr noundef %127, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   br i1 %143, label %.thread237, label %lean_nat_eq.exit180.thread
 
+lean_nat_eq.exit180:                              ; preds = %lean_nat_eq.exit
+  %.not261 = icmp eq ptr %127, inttoptr (i64 3 to ptr)
+  br i1 %.not261, label %lean_dec.exit129, label %145
+
 lean_nat_eq.exit180.thread:                       ; preds = %lean_nat_eq.exit.thread
   %144 = tail call zeroext i1 @lean_nat_big_eq(ptr noundef %127, ptr noundef nonnull inttoptr (i64 3 to ptr)) #5
   br i1 %144, label %.thread236, label %.thread233
 
-145:                                              ; preds = %lean_nat_eq.exit
+145:                                              ; preds = %lean_nat_eq.exit180
   %146 = icmp ult ptr %127, inttoptr (i64 2 to ptr)
   br i1 %146, label %lean_dec.exit130, label %147
 
@@ -27168,7 +27170,7 @@ lean_dec.exit130:                                 ; preds = %147, %145, %156, %1
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %127) #5
   br label %lean_dec.exit129
 
-lean_dec.exit129:                                 ; preds = %lean_nat_eq.exit, %166, %165, %163
+lean_dec.exit129:                                 ; preds = %lean_nat_eq.exit180, %166, %165, %163
   %167 = tail call ptr @l_Lean_mkNatSucc(ptr noundef %117) #5
   store ptr %167, ptr %26, align 8, !tbaa !12
   br label %308
@@ -27319,20 +27321,22 @@ lean_dec.exit126:                                 ; preds = %218, %217, %215, %l
   br i1 %.not254, label %lean_nat_eq.exit183.thread, label %lean_nat_eq.exit183, !prof !16
 
 lean_nat_eq.exit183:                              ; preds = %lean_dec.exit126
-  switch i64 %204, label %221 [
-    i64 1, label %lean_dec.exit123
-    i64 3, label %lean_dec.exit124
-  ]
+  %.not255 = icmp eq ptr %203, inttoptr (i64 1 to ptr)
+  br i1 %.not255, label %lean_dec.exit123, label %lean_nat_eq.exit186
 
 lean_nat_eq.exit183.thread:                       ; preds = %lean_dec.exit126
   %219 = tail call zeroext i1 @lean_nat_big_eq(ptr noundef %203, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   br i1 %219, label %.thread245, label %lean_nat_eq.exit186.thread
 
+lean_nat_eq.exit186:                              ; preds = %lean_nat_eq.exit183
+  %.not256 = icmp eq ptr %203, inttoptr (i64 3 to ptr)
+  br i1 %.not256, label %lean_dec.exit124, label %221
+
 lean_nat_eq.exit186.thread:                       ; preds = %lean_nat_eq.exit183.thread
   %220 = tail call zeroext i1 @lean_nat_big_eq(ptr noundef %203, ptr noundef nonnull inttoptr (i64 3 to ptr)) #5
   br i1 %220, label %.thread244, label %.thread241
 
-221:                                              ; preds = %lean_nat_eq.exit183
+221:                                              ; preds = %lean_nat_eq.exit186
   %222 = icmp ult ptr %203, inttoptr (i64 2 to ptr)
   br i1 %222, label %lean_dec.exit125, label %223
 
@@ -27391,7 +27395,7 @@ lean_dec.exit125:                                 ; preds = %223, %221, %232, %2
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %203) #5
   br label %lean_dec.exit124
 
-lean_dec.exit124:                                 ; preds = %lean_nat_eq.exit183, %245, %244, %242
+lean_dec.exit124:                                 ; preds = %lean_nat_eq.exit186, %245, %244, %242
   %246 = tail call ptr @l_Lean_mkNatSucc(ptr noundef %193) #5
   tail call void @lean_inc_heartbeat() #5
   %247 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #5

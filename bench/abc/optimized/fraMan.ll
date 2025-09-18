@@ -197,8 +197,10 @@ define void @Fra_ManClean(ptr noundef captures(none) %0, i32 noundef %1) local_u
   %9 = load ptr, ptr %6, align 8, !tbaa !61
   %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8, !tbaa !62
-  %switch = icmp ult ptr %11, inttoptr (i64 2 to ptr)
-  br i1 %switch, label %16, label %12
+  %.not33 = icmp eq ptr %11, null
+  %.not34 = icmp eq ptr %11, inttoptr (i64 1 to ptr)
+  %or.cond = or i1 %.not33, %.not34
+  br i1 %or.cond, label %16, label %12
 
 12:                                               ; preds = %7
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 8

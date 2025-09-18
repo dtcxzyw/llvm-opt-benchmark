@@ -878,8 +878,8 @@ drange_node_tostr.exit:                           ; preds = %10, %12, %16, %20
   tail call void @g_free(ptr noundef %.0.i)
   %27 = getelementptr inbounds nuw i8, ptr %.013, i64 8
   %28 = load ptr, ptr %27, align 8
-  %cond = icmp eq ptr %28, null
-  br i1 %cond, label %._crit_edge, label %29
+  %.not11 = icmp eq ptr %28, null
+  br i1 %.not11, label %._crit_edge, label %29
 
 29:                                               ; preds = %drange_node_tostr.exit
   %30 = load i64, ptr %4, align 8
@@ -904,7 +904,7 @@ drange_node_tostr.exit:                           ; preds = %10, %12, %16, %20
   br label %g_string_append_c_inline.exit.backedge
 
 g_string_append_c_inline.exit.backedge:           ; preds = %40, %34
-  br label %g_string_append_c_inline.exit
+  br label %g_string_append_c_inline.exit, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %drange_node_tostr.exit, %1
   %42 = tail call ptr @g_string_free(ptr noundef %2, i32 noundef 0)
@@ -974,3 +974,4 @@ attributes #14 = { noreturn }
 !9 = !{i8 0, i8 2}
 !10 = !{}
 !11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}

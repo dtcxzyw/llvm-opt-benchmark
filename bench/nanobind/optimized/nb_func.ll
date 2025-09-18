@@ -2121,7 +2121,7 @@ define internal noundef ptr @_ZN8nanobind6detailL27nb_func_vectorcall_simple_0EP
   %6 = icmp eq ptr %3, null
   %7 = icmp eq i64 %5, 0
   %or.cond = and i1 %6, %7
-  br i1 %or.cond, label %8, label %.thread34
+  br i1 %or.cond, label %8, label %.thread36
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -2131,73 +2131,71 @@ define internal noundef ptr @_ZN8nanobind6detailL27nb_func_vectorcall_simple_0EP
   %13 = load i32, ptr %12, align 8
   %14 = and i32 %13, 7
   %15 = invoke noundef ptr %11(ptr noundef nonnull %9, ptr noundef %1, ptr noundef null, i32 noundef %14, ptr noundef null)
-          to label %16 unwind label %17
+          to label %16 unwind label %18
 
 16:                                               ; preds = %8
-  %magicptr = ptrtoint ptr %15 to i64
-  switch i64 %magicptr, label %.thread [
-    i64 1, label %.thread34
-    i64 0, label %33
-  ]
+  %17 = icmp eq ptr %15, inttoptr (i64 1 to ptr)
+  br i1 %17, label %.thread36, label %34
 
-17:                                               ; preds = %8
-  %18 = landingpad { ptr, i32 }
+18:                                               ; preds = %8
+  %19 = landingpad { ptr, i32 }
           catch ptr @_ZTIN8nanobind17builtin_exceptionE
           catch ptr @_ZTIN8nanobind12python_errorE
           catch ptr null
-  %19 = extractvalue { ptr, i32 } %18, 0
-  %20 = extractvalue { ptr, i32 } %18, 1
-  %21 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8nanobind17builtin_exceptionE) #26
-  %22 = icmp eq i32 %20, %21
-  br i1 %22, label %23, label %27
+  %20 = extractvalue { ptr, i32 } %19, 0
+  %21 = extractvalue { ptr, i32 } %19, 1
+  %22 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8nanobind17builtin_exceptionE) #26
+  %23 = icmp eq i32 %21, %22
+  br i1 %23, label %24, label %28
 
-23:                                               ; preds = %17
-  %24 = tail call ptr @__cxa_begin_catch(ptr %19) #26
-  %25 = invoke fastcc noundef zeroext i1 @_ZN8nanobind6detailL28set_builtin_exception_statusERNS_17builtin_exceptionE(ptr noundef nonnull align 8 dereferenceable(20) %24)
-          to label %26 unwind label %36
+24:                                               ; preds = %18
+  %25 = tail call ptr @__cxa_begin_catch(ptr %20) #26
+  %26 = invoke fastcc noundef zeroext i1 @_ZN8nanobind6detailL28set_builtin_exception_statusERNS_17builtin_exceptionE(ptr noundef nonnull align 8 dereferenceable(20) %25)
+          to label %27 unwind label %37
 
-26:                                               ; preds = %23
+27:                                               ; preds = %24
   invoke void @__cxa_end_catch()
-          to label %34 unwind label %36
+          to label %35 unwind label %37
 
-27:                                               ; preds = %17
-  %28 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8nanobind12python_errorE) #26
-  %29 = icmp eq i32 %20, %28
-  %30 = tail call ptr @__cxa_begin_catch(ptr %19) #26
-  br i1 %29, label %31, label %32
+28:                                               ; preds = %18
+  %29 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8nanobind12python_errorE) #26
+  %30 = icmp eq i32 %21, %29
+  %31 = tail call ptr @__cxa_begin_catch(ptr %20) #26
+  br i1 %30, label %32, label %33
 
-31:                                               ; preds = %27
-  tail call void @_ZN8nanobind12python_error7restoreEv(ptr noundef nonnull align 8 dereferenceable(40) %30) #26
+32:                                               ; preds = %28
+  tail call void @_ZN8nanobind12python_error7restoreEv(ptr noundef nonnull align 8 dereferenceable(40) %31) #26
   br label %.invoke
 
-32:                                               ; preds = %27
+33:                                               ; preds = %28
   tail call fastcc void @_ZN8nanobind6detailL29nb_func_convert_cpp_exceptionEv() #26
   br label %.invoke
 
-.invoke:                                          ; preds = %31, %32
+.invoke:                                          ; preds = %32, %33
   invoke void @__cxa_end_catch()
-          to label %.thread unwind label %36
+          to label %.thread unwind label %37
 
-33:                                               ; preds = %16
-  br label %.thread34
+34:                                               ; preds = %16
+  %.not = icmp eq ptr %15, null
+  br i1 %.not, label %.thread36, label %.thread
 
-34:                                               ; preds = %26
-  br i1 %25, label %.thread, label %.thread34, !prof !36
+35:                                               ; preds = %27
+  br i1 %26, label %.thread, label %.thread36, !prof !36
 
-.thread34:                                        ; preds = %4, %16, %33, %34
-  %.138 = phi ptr [ @_ZN8nanobind6detailL22nb_func_error_overloadEP7_objectPKS2_mS2_, %34 ], [ @_ZN8nanobind6detailL22nb_func_error_overloadEP7_objectPKS2_mS2_, %4 ], [ @_ZN8nanobind6detailL22nb_func_error_overloadEP7_objectPKS2_mS2_, %16 ], [ @_ZN8nanobind6detailL23nb_func_error_noconvertEP7_objectPKS2_mS2_, %33 ]
-  %35 = tail call noundef ptr %.138(ptr noundef %0, ptr noundef %1, i64 noundef %5, ptr noundef %3) #26, !callees !35
+.thread36:                                        ; preds = %34, %4, %16, %35
+  %.140 = phi ptr [ @_ZN8nanobind6detailL22nb_func_error_overloadEP7_objectPKS2_mS2_, %35 ], [ @_ZN8nanobind6detailL22nb_func_error_overloadEP7_objectPKS2_mS2_, %4 ], [ @_ZN8nanobind6detailL22nb_func_error_overloadEP7_objectPKS2_mS2_, %16 ], [ @_ZN8nanobind6detailL23nb_func_error_noconvertEP7_objectPKS2_mS2_, %34 ]
+  %36 = tail call noundef ptr %.140(ptr noundef %0, ptr noundef %1, i64 noundef %5, ptr noundef %3) #26, !callees !35
   br label %.thread
 
-.thread:                                          ; preds = %.invoke, %16, %.thread34, %34
-  %.124 = phi ptr [ %35, %.thread34 ], [ null, %34 ], [ %15, %16 ], [ null, %.invoke ]
+.thread:                                          ; preds = %.invoke, %34, %.thread36, %35
+  %.124 = phi ptr [ %36, %.thread36 ], [ null, %35 ], [ %15, %34 ], [ null, %.invoke ]
   ret ptr %.124
 
-36:                                               ; preds = %.invoke, %26, %23
-  %37 = landingpad { ptr, i32 }
+37:                                               ; preds = %.invoke, %27, %24
+  %38 = landingpad { ptr, i32 }
           catch ptr null
-  %38 = extractvalue { ptr, i32 } %37, 0
-  tail call void @__clang_call_terminate(ptr %38) #25
+  %39 = extractvalue { ptr, i32 } %38, 0
+  tail call void @__clang_call_terminate(ptr %39) #25
   unreachable
 }
 
@@ -2237,59 +2235,56 @@ define internal noundef ptr @_ZN8nanobind6detailL27nb_func_vectorcall_simple_1EP
   %22 = load ptr, ptr %21, align 8
   %23 = and i32 %10, 7
   %24 = invoke noundef ptr %22(ptr noundef nonnull %7, ptr noundef nonnull %1, ptr noundef nonnull %6, i32 noundef %23, ptr noundef nonnull %5)
-          to label %25 unwind label %26
+          to label %25 unwind label %27
 
 25:                                               ; preds = %16
-  %magicptr = ptrtoint ptr %24 to i64
-  switch i64 %magicptr, label %43 [
-    i64 1, label %65
-    i64 0, label %42
-  ]
+  %26 = icmp eq ptr %24, inttoptr (i64 1 to ptr)
+  br i1 %26, label %65, label %43
 
-26:                                               ; preds = %16
-  %27 = landingpad { ptr, i32 }
+27:                                               ; preds = %16
+  %28 = landingpad { ptr, i32 }
           catch ptr @_ZTIN8nanobind17builtin_exceptionE
           catch ptr @_ZTIN8nanobind12python_errorE
           catch ptr null
-  %28 = extractvalue { ptr, i32 } %27, 0
-  %29 = extractvalue { ptr, i32 } %27, 1
-  %30 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8nanobind17builtin_exceptionE) #26
-  %31 = icmp eq i32 %29, %30
-  br i1 %31, label %32, label %36
+  %29 = extractvalue { ptr, i32 } %28, 0
+  %30 = extractvalue { ptr, i32 } %28, 1
+  %31 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8nanobind17builtin_exceptionE) #26
+  %32 = icmp eq i32 %30, %31
+  br i1 %32, label %33, label %37
 
-32:                                               ; preds = %26
-  %33 = call ptr @__cxa_begin_catch(ptr %28) #26
-  %34 = invoke fastcc noundef zeroext i1 @_ZN8nanobind6detailL28set_builtin_exception_statusERNS_17builtin_exceptionE(ptr noundef nonnull align 8 dereferenceable(20) %33)
-          to label %35 unwind label %71
+33:                                               ; preds = %27
+  %34 = call ptr @__cxa_begin_catch(ptr %29) #26
+  %35 = invoke fastcc noundef zeroext i1 @_ZN8nanobind6detailL28set_builtin_exception_statusERNS_17builtin_exceptionE(ptr noundef nonnull align 8 dereferenceable(20) %34)
+          to label %36 unwind label %71
 
-35:                                               ; preds = %32
-  %spec.select = select i1 %34, ptr null, ptr @_ZN8nanobind6detailL22nb_func_error_overloadEP7_objectPKS2_mS2_
+36:                                               ; preds = %33
+  %spec.select = select i1 %35, ptr null, ptr @_ZN8nanobind6detailL22nb_func_error_overloadEP7_objectPKS2_mS2_
   invoke void @__cxa_end_catch()
           to label %65 unwind label %71
 
-36:                                               ; preds = %26
-  %37 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8nanobind12python_errorE) #26
-  %38 = icmp eq i32 %29, %37
-  %39 = call ptr @__cxa_begin_catch(ptr %28) #26
-  br i1 %38, label %40, label %41
+37:                                               ; preds = %27
+  %38 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8nanobind12python_errorE) #26
+  %39 = icmp eq i32 %30, %38
+  %40 = call ptr @__cxa_begin_catch(ptr %29) #26
+  br i1 %39, label %41, label %42
 
-40:                                               ; preds = %36
-  call void @_ZN8nanobind12python_error7restoreEv(ptr noundef nonnull align 8 dereferenceable(40) %39) #26
+41:                                               ; preds = %37
+  call void @_ZN8nanobind12python_error7restoreEv(ptr noundef nonnull align 8 dereferenceable(40) %40) #26
   br label %.invoke
 
-41:                                               ; preds = %36
+42:                                               ; preds = %37
   call fastcc void @_ZN8nanobind6detailL29nb_func_convert_cpp_exceptionEv() #26
   br label %.invoke
 
-.invoke:                                          ; preds = %40, %41
+.invoke:                                          ; preds = %41, %42
   invoke void @__cxa_end_catch()
           to label %65 unwind label %71
 
-42:                                               ; preds = %25
-  br label %65
-
 43:                                               ; preds = %25
-  br i1 %.not, label %65, label %44
+  %.not44 = icmp eq ptr %24, null
+  %brmerge = select i1 %.not44, i1 true, i1 %.not
+  %_ZN8nanobind6detailL23nb_func_error_noconvertEP7_objectPKS2_mS2_.mux = select i1 %.not44, ptr @_ZN8nanobind6detailL23nb_func_error_noconvertEP7_objectPKS2_mS2_, ptr null
+  br i1 %brmerge, label %65, label %44
 
 44:                                               ; preds = %43
   %45 = getelementptr inbounds nuw i8, ptr %15, i64 20
@@ -2325,9 +2320,9 @@ _ZN8nanobind6detail8inst_ptrEPNS0_7nb_instE.exit: ; preds = %50, %62
   call void %54(ptr noundef %64, ptr noundef %15) #26
   br label %65
 
-65:                                               ; preds = %.invoke, %35, %44, %_ZN8nanobind6detail8inst_ptrEPNS0_7nb_instE.exit, %25, %43, %42
-  %.036 = phi ptr [ %24, %43 ], [ null, %42 ], [ inttoptr (i64 1 to ptr), %25 ], [ %24, %_ZN8nanobind6detail8inst_ptrEPNS0_7nb_instE.exit ], [ %24, %44 ], [ null, %35 ], [ null, %.invoke ]
-  %.1 = phi ptr [ null, %43 ], [ @_ZN8nanobind6detailL23nb_func_error_noconvertEP7_objectPKS2_mS2_, %42 ], [ @_ZN8nanobind6detailL22nb_func_error_overloadEP7_objectPKS2_mS2_, %25 ], [ null, %_ZN8nanobind6detail8inst_ptrEPNS0_7nb_instE.exit ], [ null, %44 ], [ %spec.select, %35 ], [ null, %.invoke ]
+65:                                               ; preds = %.invoke, %36, %44, %_ZN8nanobind6detail8inst_ptrEPNS0_7nb_instE.exit, %43, %25
+  %.036 = phi ptr [ inttoptr (i64 1 to ptr), %25 ], [ %24, %43 ], [ %24, %_ZN8nanobind6detail8inst_ptrEPNS0_7nb_instE.exit ], [ %24, %44 ], [ null, %36 ], [ null, %.invoke ]
+  %.1 = phi ptr [ @_ZN8nanobind6detailL22nb_func_error_overloadEP7_objectPKS2_mS2_, %25 ], [ %_ZN8nanobind6detailL23nb_func_error_noconvertEP7_objectPKS2_mS2_.mux, %43 ], [ null, %_ZN8nanobind6detail8inst_ptrEPNS0_7nb_instE.exit ], [ null, %44 ], [ %spec.select, %36 ], [ null, %.invoke ]
   %66 = load i32, ptr %5, align 8
   %.not51 = icmp eq i32 %66, 1
   br i1 %.not51, label %68, label %67, !prof !8
@@ -2351,7 +2346,7 @@ _ZN8nanobind6detail8inst_ptrEPNS0_7nb_instE.exit: ; preds = %50, %62
   %.238 = phi ptr [ %69, %.thread ], [ %.036, %68 ]
   ret ptr %.238
 
-71:                                               ; preds = %.invoke, %35, %32
+71:                                               ; preds = %.invoke, %36, %33
   %72 = landingpad { ptr, i32 }
           catch ptr null
   %73 = extractvalue { ptr, i32 } %72, 0

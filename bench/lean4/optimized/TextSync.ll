@@ -491,20 +491,22 @@ lean_dec.exit25:                                  ; preds = %32, %31, %29, %lean
   br i1 %.not, label %lean_nat_eq.exit.thread, label %lean_nat_eq.exit, !prof !15
 
 lean_nat_eq.exit:                                 ; preds = %lean_dec.exit25
-  switch i64 %18, label %lean_nat_eq.exit40.thread [
-    i64 1, label %lean_dec.exit26
-    i64 3, label %lean_dec.exit26.fold.split
-  ]
+  %.not54 = icmp eq ptr %17, inttoptr (i64 1 to ptr)
+  br i1 %.not54, label %lean_dec.exit26, label %lean_nat_eq.exit37
 
 lean_nat_eq.exit.thread:                          ; preds = %lean_dec.exit25
   %33 = tail call zeroext i1 @lean_nat_big_eq(ptr noundef %17, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   br i1 %33, label %.thread52, label %lean_nat_eq.exit37.thread
 
+lean_nat_eq.exit37:                               ; preds = %lean_nat_eq.exit
+  %.not55 = icmp eq ptr %17, inttoptr (i64 3 to ptr)
+  br i1 %.not55, label %lean_dec.exit26, label %lean_nat_eq.exit40.thread
+
 lean_nat_eq.exit37.thread:                        ; preds = %lean_nat_eq.exit.thread
   %34 = tail call zeroext i1 @lean_nat_big_eq(ptr noundef %17, ptr noundef nonnull inttoptr (i64 3 to ptr)) #5
   br i1 %34, label %.thread51, label %.thread49
 
-lean_nat_eq.exit40.thread:                        ; preds = %lean_nat_eq.exit
+lean_nat_eq.exit40.thread:                        ; preds = %lean_nat_eq.exit37
   %35 = icmp eq ptr %17, inttoptr (i64 5 to ptr)
   br label %lean_dec.exit24
 
@@ -568,11 +570,8 @@ lean_dec.exit24:                                  ; preds = %42, %41, %39, %lean
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %17) #5
   br label %lean_dec.exit26
 
-lean_dec.exit26.fold.split:                       ; preds = %lean_nat_eq.exit
-  br label %lean_dec.exit26
-
-lean_dec.exit26:                                  ; preds = %lean_nat_eq.exit, %lean_dec.exit26.fold.split, %lean_obj_tag.exit, %51, %53, %54, %45, %47, %48, %11, %13, %14, %lean_dec.exit24
-  %.0.in = phi ptr [ %l_Lean_Lsp_instFromJsonTextDocumentSyncKind___closed__2.l_Lean_Lsp_instFromJsonTextDocumentSyncKind___closed__3, %lean_dec.exit24 ], [ @l_Lean_Lsp_instFromJsonTextDocumentSyncKind___closed__2, %14 ], [ @l_Lean_Lsp_instFromJsonTextDocumentSyncKind___closed__2, %13 ], [ @l_Lean_Lsp_instFromJsonTextDocumentSyncKind___closed__2, %11 ], [ @l_Lean_Lsp_instFromJsonTextDocumentSyncKind___closed__4, %48 ], [ @l_Lean_Lsp_instFromJsonTextDocumentSyncKind___closed__4, %47 ], [ @l_Lean_Lsp_instFromJsonTextDocumentSyncKind___closed__4, %45 ], [ @l_Lean_Lsp_instFromJsonTextDocumentSyncKind___closed__5, %54 ], [ @l_Lean_Lsp_instFromJsonTextDocumentSyncKind___closed__5, %53 ], [ @l_Lean_Lsp_instFromJsonTextDocumentSyncKind___closed__5, %51 ], [ @l_Lean_Lsp_instFromJsonTextDocumentSyncKind___closed__5, %lean_nat_eq.exit ], [ @l_Lean_Lsp_instFromJsonTextDocumentSyncKind___closed__2, %lean_obj_tag.exit ], [ @l_Lean_Lsp_instFromJsonTextDocumentSyncKind___closed__4, %lean_dec.exit26.fold.split ]
+lean_dec.exit26:                                  ; preds = %lean_obj_tag.exit, %lean_nat_eq.exit, %lean_nat_eq.exit37, %51, %53, %54, %45, %47, %48, %11, %13, %14, %lean_dec.exit24
+  %.0.in = phi ptr [ %l_Lean_Lsp_instFromJsonTextDocumentSyncKind___closed__2.l_Lean_Lsp_instFromJsonTextDocumentSyncKind___closed__3, %lean_dec.exit24 ], [ @l_Lean_Lsp_instFromJsonTextDocumentSyncKind___closed__2, %14 ], [ @l_Lean_Lsp_instFromJsonTextDocumentSyncKind___closed__2, %13 ], [ @l_Lean_Lsp_instFromJsonTextDocumentSyncKind___closed__2, %11 ], [ @l_Lean_Lsp_instFromJsonTextDocumentSyncKind___closed__4, %48 ], [ @l_Lean_Lsp_instFromJsonTextDocumentSyncKind___closed__4, %47 ], [ @l_Lean_Lsp_instFromJsonTextDocumentSyncKind___closed__4, %45 ], [ @l_Lean_Lsp_instFromJsonTextDocumentSyncKind___closed__5, %54 ], [ @l_Lean_Lsp_instFromJsonTextDocumentSyncKind___closed__5, %53 ], [ @l_Lean_Lsp_instFromJsonTextDocumentSyncKind___closed__5, %51 ], [ @l_Lean_Lsp_instFromJsonTextDocumentSyncKind___closed__4, %lean_nat_eq.exit37 ], [ @l_Lean_Lsp_instFromJsonTextDocumentSyncKind___closed__5, %lean_nat_eq.exit ], [ @l_Lean_Lsp_instFromJsonTextDocumentSyncKind___closed__2, %lean_obj_tag.exit ]
   %.0 = load ptr, ptr %.0.in, align 8, !tbaa !10
   ret ptr %.0
 }
@@ -1085,20 +1084,22 @@ lean_dec.exit27:                                  ; preds = %34, %33, %31, %lean
   br i1 %.not, label %lean_nat_eq.exit.thread, label %lean_nat_eq.exit, !prof !15
 
 lean_nat_eq.exit:                                 ; preds = %lean_dec.exit27
-  switch i64 %20, label %lean_nat_eq.exit42.thread [
-    i64 1, label %lean_dec.exit28
-    i64 3, label %lean_dec.exit28.fold.split
-  ]
+  %.not56 = icmp eq ptr %19, inttoptr (i64 1 to ptr)
+  br i1 %.not56, label %lean_dec.exit28, label %lean_nat_eq.exit39
 
 lean_nat_eq.exit.thread:                          ; preds = %lean_dec.exit27
   %35 = tail call zeroext i1 @lean_nat_big_eq(ptr noundef %19, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   br i1 %35, label %.thread54, label %lean_nat_eq.exit39.thread
 
+lean_nat_eq.exit39:                               ; preds = %lean_nat_eq.exit
+  %.not57 = icmp eq ptr %19, inttoptr (i64 3 to ptr)
+  br i1 %.not57, label %lean_dec.exit28, label %lean_nat_eq.exit42.thread
+
 lean_nat_eq.exit39.thread:                        ; preds = %lean_nat_eq.exit.thread
   %36 = tail call zeroext i1 @lean_nat_big_eq(ptr noundef %19, ptr noundef nonnull inttoptr (i64 3 to ptr)) #5
   br i1 %36, label %.thread53, label %.thread51
 
-lean_nat_eq.exit42.thread:                        ; preds = %lean_nat_eq.exit
+lean_nat_eq.exit42.thread:                        ; preds = %lean_nat_eq.exit39
   %37 = icmp eq ptr %19, inttoptr (i64 5 to ptr)
   br label %lean_dec.exit26
 
@@ -1162,11 +1163,8 @@ lean_dec.exit26:                                  ; preds = %44, %43, %41, %lean
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %19) #5
   br label %lean_dec.exit28
 
-lean_dec.exit28.fold.split:                       ; preds = %lean_nat_eq.exit
-  br label %lean_dec.exit28
-
-lean_dec.exit28:                                  ; preds = %lean_nat_eq.exit, %lean_dec.exit28.fold.split, %lean_obj_tag.exit, %53, %55, %56, %47, %49, %50, %13, %15, %16, %lean_dec.exit26
-  %.0.in = phi ptr [ %l_Lean_Lsp_instFromJsonTextDocumentSyncKind___closed__2.l_Lean_Lsp_instFromJsonTextDocumentSyncKind___closed__3, %lean_dec.exit26 ], [ @l_Lean_Lsp_instFromJsonTextDocumentSyncKind___closed__2, %16 ], [ @l_Lean_Lsp_instFromJsonTextDocumentSyncKind___closed__2, %15 ], [ @l_Lean_Lsp_instFromJsonTextDocumentSyncKind___closed__2, %13 ], [ @l_Lean_Lsp_instFromJsonTextDocumentSyncKind___closed__4, %50 ], [ @l_Lean_Lsp_instFromJsonTextDocumentSyncKind___closed__4, %49 ], [ @l_Lean_Lsp_instFromJsonTextDocumentSyncKind___closed__4, %47 ], [ @l_Lean_Lsp_instFromJsonTextDocumentSyncKind___closed__5, %56 ], [ @l_Lean_Lsp_instFromJsonTextDocumentSyncKind___closed__5, %55 ], [ @l_Lean_Lsp_instFromJsonTextDocumentSyncKind___closed__5, %53 ], [ @l_Lean_Lsp_instFromJsonTextDocumentSyncKind___closed__5, %lean_nat_eq.exit ], [ @l_Lean_Lsp_instFromJsonTextDocumentSyncKind___closed__2, %lean_obj_tag.exit ], [ @l_Lean_Lsp_instFromJsonTextDocumentSyncKind___closed__4, %lean_dec.exit28.fold.split ]
+lean_dec.exit28:                                  ; preds = %lean_obj_tag.exit, %lean_nat_eq.exit, %lean_nat_eq.exit39, %53, %55, %56, %47, %49, %50, %13, %15, %16, %lean_dec.exit26
+  %.0.in = phi ptr [ %l_Lean_Lsp_instFromJsonTextDocumentSyncKind___closed__2.l_Lean_Lsp_instFromJsonTextDocumentSyncKind___closed__3, %lean_dec.exit26 ], [ @l_Lean_Lsp_instFromJsonTextDocumentSyncKind___closed__2, %16 ], [ @l_Lean_Lsp_instFromJsonTextDocumentSyncKind___closed__2, %15 ], [ @l_Lean_Lsp_instFromJsonTextDocumentSyncKind___closed__2, %13 ], [ @l_Lean_Lsp_instFromJsonTextDocumentSyncKind___closed__4, %50 ], [ @l_Lean_Lsp_instFromJsonTextDocumentSyncKind___closed__4, %49 ], [ @l_Lean_Lsp_instFromJsonTextDocumentSyncKind___closed__4, %47 ], [ @l_Lean_Lsp_instFromJsonTextDocumentSyncKind___closed__5, %56 ], [ @l_Lean_Lsp_instFromJsonTextDocumentSyncKind___closed__5, %55 ], [ @l_Lean_Lsp_instFromJsonTextDocumentSyncKind___closed__5, %53 ], [ @l_Lean_Lsp_instFromJsonTextDocumentSyncKind___closed__4, %lean_nat_eq.exit39 ], [ @l_Lean_Lsp_instFromJsonTextDocumentSyncKind___closed__5, %lean_nat_eq.exit ], [ @l_Lean_Lsp_instFromJsonTextDocumentSyncKind___closed__2, %lean_obj_tag.exit ]
   %.0 = load ptr, ptr %.0.in, align 8, !tbaa !10
   ret ptr %.0
 }

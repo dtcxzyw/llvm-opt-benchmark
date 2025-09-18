@@ -545,56 +545,57 @@ define internal fastcc void @zend_signal_handler(i32 noundef %0, ptr noundef %1,
   %.sroa.0.0.copyload = load i32, ptr %10, align 8, !tbaa !17
   %.sroa.52.0..sroa_idx = getelementptr i8, ptr %9, i64 -8
   %.sroa.52.0.copyload = load ptr, ptr %.sroa.52.0..sroa_idx, align 8, !tbaa !18
-  %magicptr = ptrtoint ptr %.sroa.52.0.copyload to i64
-  switch i64 %magicptr, label %25 [
-    i64 0, label %11
-    i64 1, label %31
-  ]
+  %11 = icmp eq ptr %.sroa.52.0.copyload, null
+  br i1 %11, label %12, label %26
 
-11:                                               ; preds = %3
-  %12 = call i32 @sigaction(i32 noundef %0, ptr noundef null, ptr noundef nonnull %4) #8
-  %13 = icmp eq i32 %12, 0
-  br i1 %13, label %14, label %31
+12:                                               ; preds = %3
+  %13 = call i32 @sigaction(i32 noundef %0, ptr noundef null, ptr noundef nonnull %4) #8
+  %14 = icmp eq i32 %13, 0
+  br i1 %14, label %15, label %33
 
-14:                                               ; preds = %11
+15:                                               ; preds = %12
   store ptr null, ptr %4, align 8, !tbaa !34
-  %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %16 = call i32 @sigemptyset(ptr noundef nonnull %15) #8
-  %17 = call i32 @sigemptyset(ptr noundef nonnull %5) #8
-  %18 = call i32 @sigaddset(ptr noundef nonnull %5, i32 noundef %0) #8
-  %19 = call i32 @sigaction(i32 noundef %0, ptr noundef nonnull %4, ptr noundef null) #8
-  %20 = icmp eq i32 %19, 0
-  br i1 %20, label %21, label %31
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %17 = call i32 @sigemptyset(ptr noundef nonnull %16) #8
+  %18 = call i32 @sigemptyset(ptr noundef nonnull %5) #8
+  %19 = call i32 @sigaddset(ptr noundef nonnull %5, i32 noundef %0) #8
+  %20 = call i32 @sigaction(i32 noundef %0, ptr noundef nonnull %4, ptr noundef null) #8
+  %21 = icmp eq i32 %20, 0
+  br i1 %21, label %22, label %33
 
-21:                                               ; preds = %14
-  %22 = call i32 @sigprocmask(i32 noundef 1, ptr noundef nonnull %5, ptr noundef null) #8
-  %23 = call i32 @getpid() #8
-  %24 = call i32 @kill(i32 noundef %23, i32 noundef %0) #8
-  br label %31
+22:                                               ; preds = %15
+  %23 = call i32 @sigprocmask(i32 noundef 1, ptr noundef nonnull %5, ptr noundef null) #8
+  %24 = call i32 @getpid() #8
+  %25 = call i32 @kill(i32 noundef %24, i32 noundef %0) #8
+  br label %33
 
-25:                                               ; preds = %3
-  %26 = and i32 %.sroa.0.0.copyload, 4
-  %.not16 = icmp eq i32 %26, 0
-  br i1 %.not16, label %30, label %27
+26:                                               ; preds = %3
+  %.not = icmp eq ptr %.sroa.52.0.copyload, inttoptr (i64 1 to ptr)
+  br i1 %.not, label %33, label %27
 
-27:                                               ; preds = %25
+27:                                               ; preds = %26
+  %28 = and i32 %.sroa.0.0.copyload, 4
+  %.not16 = icmp eq i32 %28, 0
+  br i1 %.not16, label %32, label %29
+
+29:                                               ; preds = %27
   %.not17 = icmp sgt i32 %.sroa.0.0.copyload, -1
-  br i1 %.not17, label %29, label %28
+  br i1 %.not17, label %31, label %30
 
-28:                                               ; preds = %27
+30:                                               ; preds = %29
   store i32 0, ptr %10, align 8, !tbaa !28
   store ptr null, ptr %.sroa.52.0..sroa_idx, align 8, !tbaa !33
-  br label %29
+  br label %31
 
-29:                                               ; preds = %28, %27
+31:                                               ; preds = %30, %29
   tail call void %.sroa.52.0.copyload(i32 noundef %0, ptr noundef %1, ptr noundef %2) #8
-  br label %31
+  br label %33
 
-30:                                               ; preds = %25
+32:                                               ; preds = %27
   tail call void %.sroa.52.0.copyload(i32 noundef %0) #8
-  br label %31
+  br label %33
 
-31:                                               ; preds = %3, %30, %29, %11, %21, %14
+33:                                               ; preds = %26, %32, %31, %12, %22, %15
   store i32 %7, ptr %6, align 4, !tbaa !17
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
