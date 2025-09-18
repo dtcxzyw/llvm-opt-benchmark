@@ -392,7 +392,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang13CXXTypeidExpr13isMostDerivedERK
   %7 = load i16, ptr %6, align 8
   %8 = and i16 %7, 511
   %.not = icmp eq i16 %8, 73
-  br i1 %.not, label %9, label %22
+  br i1 %.not, label %9, label %24
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -409,15 +409,15 @@ define dso_local noundef zeroext i1 @_ZNK5clang13CXXTypeidExpr13isMostDerivedERK
   %19 = load ptr, ptr %18, align 16, !tbaa !32
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = load i8, ptr %20, align 16
-  %.off = add i8 %21, -41
-  %switch = icmp ult i8 %.off, 3
-  br i1 %switch, label %22, label %23
+  %22 = add i8 %21, -41
+  %23 = icmp ult i8 %22, 3
+  br i1 %23, label %24, label %25
 
-22:                                               ; preds = %9, %2
-  br label %23
+24:                                               ; preds = %9, %2
+  br label %25
 
-23:                                               ; preds = %9, %22
-  %.3 = phi i1 [ false, %22 ], [ true, %9 ]
+25:                                               ; preds = %9, %24
+  %.3 = phi i1 [ false, %24 ], [ true, %9 ]
   ret i1 %.3
 }
 

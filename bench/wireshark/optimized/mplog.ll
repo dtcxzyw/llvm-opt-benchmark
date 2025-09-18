@@ -135,8 +135,8 @@ define internal fastcc noundef zeroext i1 @mplog_read_packet(ptr noundef %0, ptr
   tail call void @ws_buffer_assure_space(ptr noundef nonnull %6, i64 noundef 4100)
   %.val = load ptr, ptr %6, align 8
   %7 = getelementptr i8, ptr %1, i64 296
-  %.val95 = load i64, ptr %7, align 8
-  %8 = getelementptr i8, ptr %.val, i64 %.val95
+  %.val93 = load i64, ptr %7, align 8
+  %8 = getelementptr i8, ptr %.val, i64 %.val93
   %9 = getelementptr i8, ptr %8, i64 4
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 2
@@ -181,10 +181,10 @@ define internal fastcc noundef zeroext i1 @mplog_read_packet(ptr noundef %0, ptr
   %33 = or disjoint i64 %30, %32
   %34 = icmp eq i8 %.077, -1
   %35 = and i8 %23, -4
-  %switch = icmp eq i8 %35, 112
-  %or.cond92 = and i1 %34, %switch
-  %.279 = select i1 %or.cond92, i8 %23, i8 %.077
-  %.2 = select i1 %or.cond92, i64 %33, i64 %.0
+  %or.cond8 = icmp eq i8 %35, 112
+  %or.cond = and i1 %34, %or.cond8
+  %.279 = select i1 %or.cond, i8 %23, i8 %.077
+  %.2 = select i1 %or.cond, i64 %33, i64 %.0
   %36 = icmp eq i8 %23, %.279
   br i1 %36, label %37, label %45
 
@@ -192,8 +192,8 @@ define internal fastcc noundef zeroext i1 @mplog_read_packet(ptr noundef %0, ptr
   %.not90 = icmp ne i64 %.086, 0
   %38 = sub nsw i64 %33, %.086
   %39 = icmp ugt i64 %38, 20000
-  %or.cond = select i1 %.not90, i1 %39, i1 false
-  br i1 %or.cond, label %40, label %42
+  %or.cond92 = select i1 %.not90, i1 %39, i1 false
+  br i1 %or.cond92, label %40, label %42
 
 40:                                               ; preds = %37
   %41 = call i64 @file_seek(ptr noundef %0, i64 noundef -8, i32 noundef 1, ptr noundef %2)
@@ -206,13 +206,13 @@ define internal fastcc noundef zeroext i1 @mplog_read_packet(ptr noundef %0, ptr
   br label %48
 
 45:                                               ; preds = %21
-  br i1 %switch, label %46, label %48
+  br i1 %or.cond8, label %46, label %48
 
 46:                                               ; preds = %45
   %47 = call i64 @file_seek(ptr noundef %0, i64 noundef -8, i32 noundef 1, ptr noundef %2)
   br label %.loopexit
 
-48:                                               ; preds = %45, %42
+48:                                               ; preds = %42, %45
   %.187 = phi i64 [ %33, %42 ], [ %.086, %45 ]
   %.185 = phi ptr [ %43, %42 ], [ %.084, %45 ]
   %.282 = phi i32 [ %44, %42 ], [ %.080, %45 ]

@@ -13314,283 +13314,283 @@ define internal void @dissect_dl_config_request_mpdpcch_pdu_rel13_value(ptr noun
   %96 = load i32, ptr @hf_nfapi_dl_dci_format, align 4
   %97 = call ptr @ptvcursor_add_ret_uint(ptr noundef %0, i32 noundef %96, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %3)
   %98 = load i32, ptr %3, align 4
-  %.off = add i32 %98, -10
-  %switch = icmp ult i32 %.off, 3
-  br i1 %switch, label %101, label %99
+  %99 = add i32 %98, -10
+  %or.cond21 = icmp ult i32 %99, 3
+  br i1 %or.cond21, label %102, label %100
 
-99:                                               ; preds = %95
-  %100 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %97, ptr noundef nonnull @ei_invalid_range, ptr noundef nonnull @.str.2249)
-  br label %101
+100:                                              ; preds = %95
+  %101 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %97, ptr noundef nonnull @ei_invalid_range, ptr noundef nonnull @.str.2249)
+  br label %102
 
-101:                                              ; preds = %95, %99
-  %102 = load i32, ptr @hf_nfapi_resource_block_coding, align 4
-  %103 = call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %102, i32 noundef 2, i32 noundef 0)
-  %104 = load i32, ptr @hf_nfapi_mcs, align 4
-  %105 = call ptr @ptvcursor_add_ret_uint(ptr noundef %0, i32 noundef %104, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %3)
-  %106 = load i32, ptr %3, align 4
-  %107 = icmp ugt i32 %106, 15
-  br i1 %107, label %108, label %110
+102:                                              ; preds = %100, %95
+  %103 = load i32, ptr @hf_nfapi_resource_block_coding, align 4
+  %104 = call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %103, i32 noundef 2, i32 noundef 0)
+  %105 = load i32, ptr @hf_nfapi_mcs, align 4
+  %106 = call ptr @ptvcursor_add_ret_uint(ptr noundef %0, i32 noundef %105, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %3)
+  %107 = load i32, ptr %3, align 4
+  %108 = icmp ugt i32 %107, 15
+  br i1 %108, label %109, label %111
 
-108:                                              ; preds = %101
-  %109 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %105, ptr noundef nonnull @ei_invalid_range, ptr noundef nonnull @.str.2250)
-  br label %110
+109:                                              ; preds = %102
+  %110 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %106, ptr noundef nonnull @ei_invalid_range, ptr noundef nonnull @.str.2250)
+  br label %111
 
-110:                                              ; preds = %108, %101
-  %111 = load i32, ptr @hf_nfapi_pdsch_reception_levels, align 4
-  %112 = call ptr @ptvcursor_add_ret_uint(ptr noundef %0, i32 noundef %111, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %3)
-  %113 = load i32, ptr %3, align 4
-  %114 = add i32 %113, -1
-  %or.cond23 = icmp ult i32 %114, 8
-  br i1 %or.cond23, label %117, label %115
+111:                                              ; preds = %109, %102
+  %112 = load i32, ptr @hf_nfapi_pdsch_reception_levels, align 4
+  %113 = call ptr @ptvcursor_add_ret_uint(ptr noundef %0, i32 noundef %112, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %3)
+  %114 = load i32, ptr %3, align 4
+  %115 = add i32 %114, -1
+  %or.cond23 = icmp ult i32 %115, 8
+  br i1 %or.cond23, label %118, label %116
 
-115:                                              ; preds = %110
-  %116 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %112, ptr noundef nonnull @ei_invalid_range, ptr noundef nonnull @.str.2251)
-  br label %117
+116:                                              ; preds = %111
+  %117 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %113, ptr noundef nonnull @ei_invalid_range, ptr noundef nonnull @.str.2251)
+  br label %118
 
-117:                                              ; preds = %110, %115
-  %118 = load i32, ptr @hf_nfapi_redundancy_version, align 4
-  %119 = call ptr @ptvcursor_add_ret_uint(ptr noundef %0, i32 noundef %118, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %3)
-  %120 = load i32, ptr %3, align 4
-  %121 = icmp ugt i32 %120, 3
-  br i1 %121, label %122, label %124
+118:                                              ; preds = %111, %116
+  %119 = load i32, ptr @hf_nfapi_redundancy_version, align 4
+  %120 = call ptr @ptvcursor_add_ret_uint(ptr noundef %0, i32 noundef %119, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %3)
+  %121 = load i32, ptr %3, align 4
+  %122 = icmp ugt i32 %121, 3
+  br i1 %122, label %123, label %125
 
-122:                                              ; preds = %117
-  %123 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %119, ptr noundef nonnull @ei_invalid_range, ptr noundef nonnull @.str.2054)
-  br label %124
+123:                                              ; preds = %118
+  %124 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %120, ptr noundef nonnull @ei_invalid_range, ptr noundef nonnull @.str.2054)
+  br label %125
 
-124:                                              ; preds = %122, %117
-  %125 = load i32, ptr @hf_nfapi_new_data_indicator, align 4
-  %126 = call ptr @ptvcursor_add_ret_uint(ptr noundef %0, i32 noundef %125, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %3)
-  %127 = load i32, ptr %3, align 4
-  %128 = icmp ugt i32 %127, 1
-  br i1 %128, label %129, label %131
+125:                                              ; preds = %123, %118
+  %126 = load i32, ptr @hf_nfapi_new_data_indicator, align 4
+  %127 = call ptr @ptvcursor_add_ret_uint(ptr noundef %0, i32 noundef %126, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %3)
+  %128 = load i32, ptr %3, align 4
+  %129 = icmp ugt i32 %128, 1
+  br i1 %129, label %130, label %132
 
-129:                                              ; preds = %124
-  %130 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %126, ptr noundef nonnull @ei_invalid_range, ptr noundef nonnull @.str.2053)
-  br label %131
+130:                                              ; preds = %125
+  %131 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %127, ptr noundef nonnull @ei_invalid_range, ptr noundef nonnull @.str.2053)
+  br label %132
 
-131:                                              ; preds = %129, %124
-  %132 = load i32, ptr @hf_nfapi_harq_process, align 4
-  %133 = call ptr @ptvcursor_add_ret_uint(ptr noundef %0, i32 noundef %132, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %3)
-  %134 = load i32, ptr %3, align 4
-  %135 = icmp ugt i32 %134, 15
-  br i1 %135, label %136, label %138
+132:                                              ; preds = %130, %125
+  %133 = load i32, ptr @hf_nfapi_harq_process, align 4
+  %134 = call ptr @ptvcursor_add_ret_uint(ptr noundef %0, i32 noundef %133, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %3)
+  %135 = load i32, ptr %3, align 4
+  %136 = icmp ugt i32 %135, 15
+  br i1 %136, label %137, label %139
 
-136:                                              ; preds = %131
-  %137 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %133, ptr noundef nonnull @ei_invalid_range, ptr noundef nonnull @.str.1992)
-  br label %138
+137:                                              ; preds = %132
+  %138 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %134, ptr noundef nonnull @ei_invalid_range, ptr noundef nonnull @.str.1992)
+  br label %139
 
-138:                                              ; preds = %136, %131
-  %139 = load i32, ptr @hf_nfapi_tpmi_length, align 4
-  %140 = call ptr @ptvcursor_add_ret_uint(ptr noundef %0, i32 noundef %139, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %3)
-  %141 = load i32, ptr %3, align 4
-  switch i32 %141, label %142 [
-    i32 4, label %144
-    i32 2, label %144
-    i32 0, label %144
+139:                                              ; preds = %137, %132
+  %140 = load i32, ptr @hf_nfapi_tpmi_length, align 4
+  %141 = call ptr @ptvcursor_add_ret_uint(ptr noundef %0, i32 noundef %140, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %3)
+  %142 = load i32, ptr %3, align 4
+  switch i32 %142, label %143 [
+    i32 4, label %145
+    i32 2, label %145
+    i32 0, label %145
   ]
 
-142:                                              ; preds = %138
-  %143 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %140, ptr noundef nonnull @ei_invalid_range, ptr noundef nonnull @.str.2252)
-  br label %144
+143:                                              ; preds = %139
+  %144 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %141, ptr noundef nonnull @ei_invalid_range, ptr noundef nonnull @.str.2252)
+  br label %145
 
-144:                                              ; preds = %138, %138, %138, %142
-  %145 = load i32, ptr @hf_nfapi_tpmi, align 4
-  %146 = call ptr @ptvcursor_add_ret_uint(ptr noundef %0, i32 noundef %145, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %3)
-  %147 = load i32, ptr %3, align 4
-  %148 = icmp ugt i32 %147, 15
-  br i1 %148, label %149, label %151
+145:                                              ; preds = %139, %139, %139, %143
+  %146 = load i32, ptr @hf_nfapi_tpmi, align 4
+  %147 = call ptr @ptvcursor_add_ret_uint(ptr noundef %0, i32 noundef %146, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %3)
+  %148 = load i32, ptr %3, align 4
+  %149 = icmp ugt i32 %148, 15
+  br i1 %149, label %150, label %152
 
-149:                                              ; preds = %144
-  %150 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %146, ptr noundef nonnull @ei_invalid_range, ptr noundef nonnull @.str.2253)
-  br label %151
+150:                                              ; preds = %145
+  %151 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %147, ptr noundef nonnull @ei_invalid_range, ptr noundef nonnull @.str.2253)
+  br label %152
 
-151:                                              ; preds = %149, %144
-  %152 = load i32, ptr @hf_nfapi_pmi_flag, align 4
-  %153 = call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %152, i32 noundef 1, i32 noundef 0)
-  %154 = load i32, ptr @hf_nfapi_pmi, align 4
-  %155 = call ptr @ptvcursor_add_ret_uint(ptr noundef %0, i32 noundef %154, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %3)
-  %156 = load i32, ptr %3, align 4
-  %157 = icmp ugt i32 %156, 1
-  br i1 %157, label %158, label %160
+152:                                              ; preds = %150, %145
+  %153 = load i32, ptr @hf_nfapi_pmi_flag, align 4
+  %154 = call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %153, i32 noundef 1, i32 noundef 0)
+  %155 = load i32, ptr @hf_nfapi_pmi, align 4
+  %156 = call ptr @ptvcursor_add_ret_uint(ptr noundef %0, i32 noundef %155, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %3)
+  %157 = load i32, ptr %3, align 4
+  %158 = icmp ugt i32 %157, 1
+  br i1 %158, label %159, label %161
 
-158:                                              ; preds = %151
-  %159 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %155, ptr noundef nonnull @ei_invalid_range, ptr noundef nonnull @.str.2254)
-  br label %160
+159:                                              ; preds = %152
+  %160 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %156, ptr noundef nonnull @ei_invalid_range, ptr noundef nonnull @.str.2254)
+  br label %161
 
-160:                                              ; preds = %158, %151
-  %161 = load i32, ptr @hf_nfapi_harq_resource_offset, align 4
-  %162 = call ptr @ptvcursor_add_ret_uint(ptr noundef %0, i32 noundef %161, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %3)
-  %163 = load i32, ptr %3, align 4
-  %164 = icmp ugt i32 %163, 3
-  br i1 %164, label %165, label %167
+161:                                              ; preds = %159, %152
+  %162 = load i32, ptr @hf_nfapi_harq_resource_offset, align 4
+  %163 = call ptr @ptvcursor_add_ret_uint(ptr noundef %0, i32 noundef %162, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %3)
+  %164 = load i32, ptr %3, align 4
+  %165 = icmp ugt i32 %164, 3
+  br i1 %165, label %166, label %168
 
-165:                                              ; preds = %160
-  %166 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %162, ptr noundef nonnull @ei_invalid_range, ptr noundef nonnull @.str.2255)
-  br label %167
+166:                                              ; preds = %161
+  %167 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %163, ptr noundef nonnull @ei_invalid_range, ptr noundef nonnull @.str.2255)
+  br label %168
 
-167:                                              ; preds = %165, %160
-  %168 = load i32, ptr @hf_nfapi_dci_subframe_repetition_number, align 4
-  %169 = call ptr @ptvcursor_add_ret_uint(ptr noundef %0, i32 noundef %168, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %3)
-  %170 = load i32, ptr %3, align 4
-  %171 = add i32 %170, -1
-  %or.cond29 = icmp ult i32 %171, 4
-  br i1 %or.cond29, label %174, label %172
+168:                                              ; preds = %166, %161
+  %169 = load i32, ptr @hf_nfapi_dci_subframe_repetition_number, align 4
+  %170 = call ptr @ptvcursor_add_ret_uint(ptr noundef %0, i32 noundef %169, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %3)
+  %171 = load i32, ptr %3, align 4
+  %172 = add i32 %171, -1
+  %or.cond29 = icmp ult i32 %172, 4
+  br i1 %or.cond29, label %175, label %173
 
-172:                                              ; preds = %167
-  %173 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %169, ptr noundef nonnull @ei_invalid_range, ptr noundef nonnull @.str.2231)
-  br label %174
+173:                                              ; preds = %168
+  %174 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %170, ptr noundef nonnull @ei_invalid_range, ptr noundef nonnull @.str.2231)
+  br label %175
 
-174:                                              ; preds = %167, %172
-  %175 = load i32, ptr @hf_nfapi_tpc, align 4
-  %176 = call ptr @ptvcursor_add_ret_uint(ptr noundef %0, i32 noundef %175, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %3)
-  %177 = load i32, ptr %3, align 4
-  %178 = icmp ugt i32 %177, 3
-  br i1 %178, label %179, label %181
+175:                                              ; preds = %168, %173
+  %176 = load i32, ptr @hf_nfapi_tpc, align 4
+  %177 = call ptr @ptvcursor_add_ret_uint(ptr noundef %0, i32 noundef %176, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %3)
+  %178 = load i32, ptr %3, align 4
+  %179 = icmp ugt i32 %178, 3
+  br i1 %179, label %180, label %182
 
-179:                                              ; preds = %174
-  %180 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %176, ptr noundef nonnull @ei_invalid_range, ptr noundef nonnull @.str.1996)
-  br label %181
+180:                                              ; preds = %175
+  %181 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %177, ptr noundef nonnull @ei_invalid_range, ptr noundef nonnull @.str.1996)
+  br label %182
 
-181:                                              ; preds = %179, %174
-  %182 = load i32, ptr @hf_nfapi_downlink_assignment_index_length, align 4
-  %183 = call ptr @ptvcursor_add_ret_uint(ptr noundef %0, i32 noundef %182, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %3)
-  %184 = load i32, ptr %3, align 4
-  switch i32 %184, label %185 [
-    i32 4, label %187
-    i32 2, label %187
-    i32 0, label %187
+182:                                              ; preds = %180, %175
+  %183 = load i32, ptr @hf_nfapi_downlink_assignment_index_length, align 4
+  %184 = call ptr @ptvcursor_add_ret_uint(ptr noundef %0, i32 noundef %183, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %3)
+  %185 = load i32, ptr %3, align 4
+  switch i32 %185, label %186 [
+    i32 4, label %188
+    i32 2, label %188
+    i32 0, label %188
   ]
 
-185:                                              ; preds = %181
-  %186 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %183, ptr noundef nonnull @ei_invalid_range, ptr noundef nonnull @.str.2256)
-  br label %187
+186:                                              ; preds = %182
+  %187 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %184, ptr noundef nonnull @ei_invalid_range, ptr noundef nonnull @.str.2256)
+  br label %188
 
-187:                                              ; preds = %181, %181, %181, %185
-  %188 = load i32, ptr @hf_nfapi_downlink_assignment_index, align 4
-  %189 = call ptr @ptvcursor_add_ret_uint(ptr noundef %0, i32 noundef %188, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %3)
-  %190 = load i32, ptr %3, align 4
-  %191 = icmp ugt i32 %190, 15
-  br i1 %191, label %192, label %194
+188:                                              ; preds = %182, %182, %182, %186
+  %189 = load i32, ptr @hf_nfapi_downlink_assignment_index, align 4
+  %190 = call ptr @ptvcursor_add_ret_uint(ptr noundef %0, i32 noundef %189, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %3)
+  %191 = load i32, ptr %3, align 4
+  %192 = icmp ugt i32 %191, 15
+  br i1 %192, label %193, label %195
 
-192:                                              ; preds = %187
-  %193 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %189, ptr noundef nonnull @ei_invalid_range, ptr noundef nonnull @.str.2257)
-  br label %194
+193:                                              ; preds = %188
+  %194 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %190, ptr noundef nonnull @ei_invalid_range, ptr noundef nonnull @.str.2257)
+  br label %195
 
-194:                                              ; preds = %192, %187
-  %195 = load i32, ptr @hf_nfapi_allocate_prach_flag, align 4
-  %196 = call ptr @ptvcursor_add_ret_uint(ptr noundef %0, i32 noundef %195, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %3)
-  %197 = load i32, ptr %3, align 4
-  %198 = icmp ugt i32 %197, 1
-  br i1 %198, label %199, label %201
+195:                                              ; preds = %193, %188
+  %196 = load i32, ptr @hf_nfapi_allocate_prach_flag, align 4
+  %197 = call ptr @ptvcursor_add_ret_uint(ptr noundef %0, i32 noundef %196, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %3)
+  %198 = load i32, ptr %3, align 4
+  %199 = icmp ugt i32 %198, 1
+  br i1 %199, label %200, label %202
 
-199:                                              ; preds = %194
-  %200 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %196, ptr noundef nonnull @ei_invalid_range, ptr noundef nonnull @.str.2001)
-  br label %201
+200:                                              ; preds = %195
+  %201 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %197, ptr noundef nonnull @ei_invalid_range, ptr noundef nonnull @.str.2001)
+  br label %202
 
-201:                                              ; preds = %199, %194
-  %202 = load i32, ptr @hf_nfapi_preamble_index, align 4
-  %203 = call ptr @ptvcursor_add_ret_uint(ptr noundef %0, i32 noundef %202, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %3)
-  %204 = load i32, ptr %3, align 4
-  %205 = icmp ugt i32 %204, 63
-  br i1 %205, label %206, label %208
+202:                                              ; preds = %200, %195
+  %203 = load i32, ptr @hf_nfapi_preamble_index, align 4
+  %204 = call ptr @ptvcursor_add_ret_uint(ptr noundef %0, i32 noundef %203, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %3)
+  %205 = load i32, ptr %3, align 4
+  %206 = icmp ugt i32 %205, 63
+  br i1 %206, label %207, label %209
 
-206:                                              ; preds = %201
-  %207 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %203, ptr noundef nonnull @ei_invalid_range, ptr noundef nonnull @.str.2002)
-  br label %208
+207:                                              ; preds = %202
+  %208 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %204, ptr noundef nonnull @ei_invalid_range, ptr noundef nonnull @.str.2002)
+  br label %209
 
-208:                                              ; preds = %206, %201
-  %209 = load i32, ptr @hf_nfapi_prach_mask_index, align 4
-  %210 = call ptr @ptvcursor_add_ret_uint(ptr noundef %0, i32 noundef %209, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %3)
-  %211 = load i32, ptr %3, align 4
-  %212 = icmp ugt i32 %211, 15
-  br i1 %212, label %213, label %215
+209:                                              ; preds = %207, %202
+  %210 = load i32, ptr @hf_nfapi_prach_mask_index, align 4
+  %211 = call ptr @ptvcursor_add_ret_uint(ptr noundef %0, i32 noundef %210, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %3)
+  %212 = load i32, ptr %3, align 4
+  %213 = icmp ugt i32 %212, 15
+  br i1 %213, label %214, label %216
 
-213:                                              ; preds = %208
-  %214 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %210, ptr noundef nonnull @ei_invalid_range, ptr noundef nonnull @.str.2003)
-  br label %215
+214:                                              ; preds = %209
+  %215 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %211, ptr noundef nonnull @ei_invalid_range, ptr noundef nonnull @.str.2003)
+  br label %216
 
-215:                                              ; preds = %213, %208
-  %216 = load i32, ptr @hf_nfapi_starting_ce_level, align 4
-  %217 = call ptr @ptvcursor_add_ret_uint(ptr noundef %0, i32 noundef %216, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %3)
-  %218 = load i32, ptr %3, align 4
-  %219 = icmp ugt i32 %218, 3
-  br i1 %219, label %220, label %222
+216:                                              ; preds = %214, %209
+  %217 = load i32, ptr @hf_nfapi_starting_ce_level, align 4
+  %218 = call ptr @ptvcursor_add_ret_uint(ptr noundef %0, i32 noundef %217, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %3)
+  %219 = load i32, ptr %3, align 4
+  %220 = icmp ugt i32 %219, 3
+  br i1 %220, label %221, label %223
 
-220:                                              ; preds = %215
-  %221 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %217, ptr noundef nonnull @ei_invalid_range, ptr noundef nonnull @.str.2258)
-  br label %222
+221:                                              ; preds = %216
+  %222 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %218, ptr noundef nonnull @ei_invalid_range, ptr noundef nonnull @.str.2258)
+  br label %223
 
-222:                                              ; preds = %220, %215
-  %223 = load i32, ptr @hf_nfapi_srs_request, align 4
-  %224 = call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %223, i32 noundef 1, i32 noundef 0)
-  %225 = load i32, ptr @hf_nfapi_antenna_ports_and_scrambling_identity_flag, align 4
-  %226 = call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %225, i32 noundef 1, i32 noundef 0)
-  %227 = load i32, ptr @hf_nfapi_antenna_ports_and_scrambling_identity, align 4
-  %228 = call ptr @ptvcursor_add_ret_uint(ptr noundef %0, i32 noundef %227, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %3)
-  %229 = load i32, ptr %3, align 4
-  %230 = icmp ugt i32 %229, 3
-  br i1 %230, label %231, label %233
+223:                                              ; preds = %221, %216
+  %224 = load i32, ptr @hf_nfapi_srs_request, align 4
+  %225 = call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %224, i32 noundef 1, i32 noundef 0)
+  %226 = load i32, ptr @hf_nfapi_antenna_ports_and_scrambling_identity_flag, align 4
+  %227 = call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %226, i32 noundef 1, i32 noundef 0)
+  %228 = load i32, ptr @hf_nfapi_antenna_ports_and_scrambling_identity, align 4
+  %229 = call ptr @ptvcursor_add_ret_uint(ptr noundef %0, i32 noundef %228, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %3)
+  %230 = load i32, ptr %3, align 4
+  %231 = icmp ugt i32 %230, 3
+  br i1 %231, label %232, label %234
 
-231:                                              ; preds = %222
-  %232 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %228, ptr noundef nonnull @ei_invalid_range, ptr noundef nonnull @.str.2259)
-  br label %233
+232:                                              ; preds = %223
+  %233 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %229, ptr noundef nonnull @ei_invalid_range, ptr noundef nonnull @.str.2259)
+  br label %234
 
-233:                                              ; preds = %231, %222
-  %234 = load i32, ptr @hf_nfapi_frequency_hopping_enabled_flag, align 4
-  %235 = call ptr @ptvcursor_add_ret_uint(ptr noundef %0, i32 noundef %234, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %3)
-  %236 = load i32, ptr %3, align 4
-  %237 = icmp ugt i32 %236, 1
-  br i1 %237, label %238, label %240
+234:                                              ; preds = %232, %223
+  %235 = load i32, ptr @hf_nfapi_frequency_hopping_enabled_flag, align 4
+  %236 = call ptr @ptvcursor_add_ret_uint(ptr noundef %0, i32 noundef %235, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %3)
+  %237 = load i32, ptr %3, align 4
+  %238 = icmp ugt i32 %237, 1
+  br i1 %238, label %239, label %241
 
-238:                                              ; preds = %233
-  %239 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %235, ptr noundef nonnull @ei_invalid_range, ptr noundef nonnull @.str.2051)
-  br label %240
+239:                                              ; preds = %234
+  %240 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %236, ptr noundef nonnull @ei_invalid_range, ptr noundef nonnull @.str.2051)
+  br label %241
 
-240:                                              ; preds = %238, %233
-  %241 = load i32, ptr @hf_nfapi_paging_direct_indication_differentiation_flag, align 4
-  %242 = call ptr @ptvcursor_add_ret_uint(ptr noundef %0, i32 noundef %241, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %3)
-  %243 = load i32, ptr %3, align 4
-  %244 = icmp ugt i32 %243, 1
-  br i1 %244, label %245, label %247
+241:                                              ; preds = %239, %234
+  %242 = load i32, ptr @hf_nfapi_paging_direct_indication_differentiation_flag, align 4
+  %243 = call ptr @ptvcursor_add_ret_uint(ptr noundef %0, i32 noundef %242, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %3)
+  %244 = load i32, ptr %3, align 4
+  %245 = icmp ugt i32 %244, 1
+  br i1 %245, label %246, label %248
 
-245:                                              ; preds = %240
-  %246 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %242, ptr noundef nonnull @ei_invalid_range, ptr noundef nonnull @.str.2260)
-  br label %247
+246:                                              ; preds = %241
+  %247 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %243, ptr noundef nonnull @ei_invalid_range, ptr noundef nonnull @.str.2260)
+  br label %248
 
-247:                                              ; preds = %245, %240
-  %248 = load i32, ptr @hf_nfapi_direct_indication, align 4
-  %249 = call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %248, i32 noundef 1, i32 noundef 0)
-  %250 = load i32, ptr @hf_nfapi_total_dci_length_including_padding, align 4
-  %251 = call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %250, i32 noundef 1, i32 noundef 0)
-  %252 = load i32, ptr @hf_nfapi_number_of_tx_antenna_ports, align 4
-  %253 = call ptr @ptvcursor_add_ret_uint(ptr noundef %0, i32 noundef %252, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %4)
-  %254 = load i32, ptr @ett_nfapi_precoding, align 4
-  %255 = load i32, ptr %4, align 4
-  %.not.i = icmp eq i32 %255, 0
-  br i1 %.not.i, label %dissect_array_value.exit, label %256
+248:                                              ; preds = %246, %241
+  %249 = load i32, ptr @hf_nfapi_direct_indication, align 4
+  %250 = call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %249, i32 noundef 1, i32 noundef 0)
+  %251 = load i32, ptr @hf_nfapi_total_dci_length_including_padding, align 4
+  %252 = call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %251, i32 noundef 1, i32 noundef 0)
+  %253 = load i32, ptr @hf_nfapi_number_of_tx_antenna_ports, align 4
+  %254 = call ptr @ptvcursor_add_ret_uint(ptr noundef %0, i32 noundef %253, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %4)
+  %255 = load i32, ptr @ett_nfapi_precoding, align 4
+  %256 = load i32, ptr %4, align 4
+  %.not.i = icmp eq i32 %256, 0
+  br i1 %.not.i, label %dissect_array_value.exit, label %257
 
-256:                                              ; preds = %247
-  %257 = call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %254, ptr noundef nonnull @.str.1815, ptr noundef nonnull @.str.2261)
-  br label %258
+257:                                              ; preds = %248
+  %258 = call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %255, ptr noundef nonnull @.str.1815, ptr noundef nonnull @.str.2261)
+  br label %259
 
-258:                                              ; preds = %258, %256
-  %259 = phi i32 [ 0, %256 ], [ %264, %258 ]
-  %.016.i = phi i16 [ 0, %256 ], [ %263, %258 ]
-  %260 = call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %254, ptr noundef nonnull @.str.1816, i32 noundef %259)
-  %261 = load i32, ptr @hf_nfapi_precoding_value, align 4
-  %262 = call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %261, i32 noundef 2, i32 noundef 0)
+259:                                              ; preds = %259, %257
+  %260 = phi i32 [ 0, %257 ], [ %265, %259 ]
+  %.016.i = phi i16 [ 0, %257 ], [ %264, %259 ]
+  %261 = call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %255, ptr noundef nonnull @.str.1816, i32 noundef %260)
+  %262 = load i32, ptr @hf_nfapi_precoding_value, align 4
+  %263 = call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %262, i32 noundef 2, i32 noundef 0)
   call void @ptvcursor_pop_subtree(ptr noundef %0)
-  %263 = add i16 %.016.i, 1
-  %264 = zext i16 %263 to i32
-  %265 = icmp ugt i32 %255, %264
-  br i1 %265, label %258, label %266, !llvm.loop !8
+  %264 = add i16 %.016.i, 1
+  %265 = zext i16 %264 to i32
+  %266 = icmp ugt i32 %256, %265
+  br i1 %266, label %259, label %267, !llvm.loop !8
 
-266:                                              ; preds = %258
+267:                                              ; preds = %259
   call void @ptvcursor_pop_subtree(ptr noundef %0)
   br label %dissect_array_value.exit
 
-dissect_array_value.exit:                         ; preds = %247, %266
+dissect_array_value.exit:                         ; preds = %248, %267
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void

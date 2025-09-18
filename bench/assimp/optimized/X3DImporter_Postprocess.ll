@@ -483,26 +483,21 @@ define hidden noundef zeroext i1 @_ZNK6Assimp11X3DImporter31PostprocessHelper_El
   %7 = add i32 %1, -19
   %8 = icmp ult i32 %7, 2
   %or.cond15 = or i1 %8, %or.cond11
-  %9 = and i32 %1, -4
-  %10 = icmp eq i32 %9, 24
-  %or.cond23 = or i1 %10, %or.cond15
-  %11 = and i32 %1, -3
-  %12 = icmp eq i32 %11, 28
-  %or.cond27 = or i1 %12, %or.cond23
-  %13 = icmp eq i32 %1, 29
-  %or.cond29 = or i1 %13, %or.cond27
-  %14 = add i32 %1, -11
-  %15 = icmp ult i32 %14, 3
-  %or.cond35 = or i1 %15, %or.cond29
-  %16 = icmp eq i32 %1, 18
-  %or.cond37 = or i1 %16, %or.cond35
-  %17 = add i32 %1, -31
-  %18 = icmp ult i32 %17, 2
-  %or.cond41 = or i1 %18, %or.cond37
-  %19 = icmp eq i32 %1, 14
-  %or.cond43 = or i1 %19, %or.cond41
-  %20 = icmp eq i32 %1, 33
-  %or.cond45 = or i1 %20, %or.cond43
+  %9 = add i32 %1, -24
+  %10 = icmp ult i32 %9, 7
+  %or.cond29 = or i1 %10, %or.cond15
+  %11 = add i32 %1, -11
+  %12 = icmp ult i32 %11, 3
+  %or.cond35 = or i1 %12, %or.cond29
+  %13 = icmp eq i32 %1, 18
+  %or.cond37 = or i1 %13, %or.cond35
+  %14 = add i32 %1, -31
+  %15 = icmp ult i32 %14, 2
+  %or.cond41 = or i1 %15, %or.cond37
+  %16 = icmp eq i32 %1, 14
+  %or.cond43 = or i1 %16, %or.cond41
+  %17 = icmp eq i32 %1, 33
+  %or.cond45 = or i1 %17, %or.cond43
   ret i1 %or.cond45
 }
 
@@ -5722,144 +5717,142 @@ define hidden void @_ZNK6Assimp11X3DImporter22Postprocess_BuildShapeERK19X3DNode
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 16
   br label %15
 
-._crit_edge:                                      ; preds = %49
-  %13 = icmp ne ptr %51, null
-  %14 = icmp ne ptr %50, null
+._crit_edge:                                      ; preds = %47
+  %13 = icmp ne ptr %49, null
+  %14 = icmp ne ptr %48, null
   %or.cond = select i1 %13, i1 %14, i1 false
-  br i1 %or.cond, label %52, label %._crit_edge.thread
+  br i1 %or.cond, label %50, label %._crit_edge.thread
 
-15:                                               ; preds = %.lr.ph, %49
-  %16 = phi ptr [ null, %.lr.ph ], [ %50, %49 ]
-  %17 = phi ptr [ null, %.lr.ph ], [ %51, %49 ]
-  %.sroa.016.028 = phi ptr [ %.sroa.016.024, %.lr.ph ], [ %.sroa.016.0, %49 ]
-  %.027 = phi i32 [ 0, %.lr.ph ], [ %.1, %49 ]
-  %.01026 = phi i32 [ 44, %.lr.ph ], [ %.111, %49 ]
+15:                                               ; preds = %.lr.ph, %47
+  %16 = phi ptr [ null, %.lr.ph ], [ %48, %47 ]
+  %17 = phi ptr [ null, %.lr.ph ], [ %49, %47 ]
+  %.sroa.016.028 = phi ptr [ %.sroa.016.024, %.lr.ph ], [ %.sroa.016.0, %47 ]
+  %.027 = phi i32 [ 0, %.lr.ph ], [ %.1, %47 ]
+  %.01026 = phi i32 [ 44, %.lr.ph ], [ %.111, %47 ]
   %18 = getelementptr inbounds nuw i8, ptr %.sroa.016.028, i64 16
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 72
   %21 = load i32, ptr %20, align 8
-  %.fr = freeze i32 %21
-  %22 = and i32 %.fr, -4
-  %23 = icmp eq i32 %22, 24
-  br i1 %23, label %24, label %switch.early.test
-
-switch.early.test:                                ; preds = %15
-  switch i32 %.fr, label %49 [
-    i32 33, label %24
-    i32 32, label %24
-    i32 31, label %24
-    i32 30, label %24
-    i32 29, label %24
-    i32 28, label %24
-    i32 20, label %24
-    i32 19, label %24
-    i32 18, label %24
-    i32 17, label %24
-    i32 16, label %24
-    i32 15, label %24
-    i32 14, label %24
-    i32 13, label %24
-    i32 12, label %24
-    i32 11, label %24
-    i32 10, label %24
-    i32 9, label %24
-    i32 8, label %24
-    i32 7, label %24
-    i32 37, label %40
+  switch i32 %21, label %47 [
+    i32 33, label %22
+    i32 32, label %22
+    i32 31, label %22
+    i32 30, label %22
+    i32 29, label %22
+    i32 28, label %22
+    i32 27, label %22
+    i32 26, label %22
+    i32 25, label %22
+    i32 24, label %22
+    i32 20, label %22
+    i32 19, label %22
+    i32 18, label %22
+    i32 17, label %22
+    i32 16, label %22
+    i32 15, label %22
+    i32 14, label %22
+    i32 13, label %22
+    i32 12, label %22
+    i32 11, label %22
+    i32 10, label %22
+    i32 9, label %22
+    i32 8, label %22
+    i32 7, label %22
+    i32 37, label %38
   ]
 
-24:                                               ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %15
+22:                                               ; preds = %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15
   call void @_ZNK6Assimp11X3DImporter21Postprocess_BuildMeshERK18X3DNodeElementBasePP6aiMesh(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(76) %19, ptr noundef nonnull %7)
-  %25 = load ptr, ptr %7, align 8
-  %.not14 = icmp eq ptr %25, null
-  br i1 %.not14, label %49, label %26
+  %23 = load ptr, ptr %7, align 8
+  %.not14 = icmp eq ptr %23, null
+  br i1 %.not14, label %47, label %24
 
-26:                                               ; preds = %24
-  %27 = load i64, ptr %11, align 8
-  %28 = trunc i64 %27 to i32
-  %29 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
-  store i32 %28, ptr %30, align 4
-  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(24) %2) #27
-  %31 = load i64, ptr %12, align 8
-  %32 = add i64 %31, 1
-  store i64 %32, ptr %12, align 8
-  %33 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  store ptr %25, ptr %34, align 8
-  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %33, ptr noundef nonnull align 8 dereferenceable(24) %3) #27
-  %35 = load i64, ptr %11, align 8
-  %36 = add i64 %35, 1
-  store i64 %36, ptr %11, align 8
-  %37 = load ptr, ptr %18, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 72
-  %39 = load i32, ptr %38, align 8
-  br label %49
+24:                                               ; preds = %22
+  %25 = load i64, ptr %11, align 8
+  %26 = trunc i64 %25 to i32
+  %27 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
+  store i32 %26, ptr %28, align 4
+  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull align 8 dereferenceable(24) %2) #27
+  %29 = load i64, ptr %12, align 8
+  %30 = add i64 %29, 1
+  store i64 %30, ptr %12, align 8
+  %31 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
+  store ptr %23, ptr %32, align 8
+  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %31, ptr noundef nonnull align 8 dereferenceable(24) %3) #27
+  %33 = load i64, ptr %11, align 8
+  %34 = add i64 %33, 1
+  store i64 %34, ptr %11, align 8
+  %35 = load ptr, ptr %18, align 8
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 72
+  %37 = load i32, ptr %36, align 8
+  br label %47
 
-40:                                               ; preds = %switch.early.test
+38:                                               ; preds = %15
   call void @_ZNK6Assimp11X3DImporter25Postprocess_BuildMaterialERK18X3DNodeElementBasePP10aiMaterial(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(76) %19, ptr noundef nonnull %6)
-  %41 = load ptr, ptr %6, align 8
-  %.not13 = icmp eq ptr %41, null
-  br i1 %.not13, label %49, label %42
+  %39 = load ptr, ptr %6, align 8
+  %.not13 = icmp eq ptr %39, null
+  br i1 %.not13, label %47, label %40
 
-42:                                               ; preds = %40
-  %43 = load i64, ptr %10, align 8
-  %44 = trunc i64 %43 to i32
-  %45 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
-  store ptr %41, ptr %46, align 8
-  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %45, ptr noundef nonnull align 8 dereferenceable(24) %4) #27
-  %47 = load i64, ptr %10, align 8
-  %48 = add i64 %47, 1
-  store i64 %48, ptr %10, align 8
-  br label %49
+40:                                               ; preds = %38
+  %41 = load i64, ptr %10, align 8
+  %42 = trunc i64 %41 to i32
+  %43 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
+  store ptr %39, ptr %44, align 8
+  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %43, ptr noundef nonnull align 8 dereferenceable(24) %4) #27
+  %45 = load i64, ptr %10, align 8
+  %46 = add i64 %45, 1
+  store i64 %46, ptr %10, align 8
+  br label %47
 
-49:                                               ; preds = %switch.early.test, %26, %24, %40, %42
-  %50 = phi ptr [ %16, %26 ], [ %16, %24 ], [ %41, %42 ], [ null, %40 ], [ %16, %switch.early.test ]
-  %51 = phi ptr [ %25, %26 ], [ null, %24 ], [ %17, %42 ], [ %17, %40 ], [ %17, %switch.early.test ]
-  %.111 = phi i32 [ %39, %26 ], [ %.01026, %24 ], [ %.01026, %42 ], [ %.01026, %40 ], [ %.01026, %switch.early.test ]
-  %.1 = phi i32 [ %.027, %26 ], [ %.027, %24 ], [ %44, %42 ], [ %.027, %40 ], [ %.027, %switch.early.test ]
+47:                                               ; preds = %15, %24, %22, %38, %40
+  %48 = phi ptr [ %16, %24 ], [ %16, %22 ], [ %39, %40 ], [ null, %38 ], [ %16, %15 ]
+  %49 = phi ptr [ %23, %24 ], [ null, %22 ], [ %17, %40 ], [ %17, %38 ], [ %17, %15 ]
+  %.111 = phi i32 [ %37, %24 ], [ %.01026, %22 ], [ %.01026, %40 ], [ %.01026, %38 ], [ %.01026, %15 ]
+  %.1 = phi i32 [ %.027, %24 ], [ %.027, %22 ], [ %42, %40 ], [ %.027, %38 ], [ %.027, %15 ]
   %.sroa.016.0 = load ptr, ptr %.sroa.016.028, align 8
   %.not23 = icmp eq ptr %.sroa.016.0, %9
   br i1 %.not23, label %._crit_edge, label %15, !llvm.loop !70
 
-52:                                               ; preds = %._crit_edge
-  %53 = getelementptr inbounds nuw i8, ptr %51, i64 232
-  store i32 %.1, ptr %53, align 8
-  %54 = call noundef i32 @aiGetMaterialTextureCount(ptr noundef nonnull align 8 dereferenceable(16) %50, i32 noundef 1)
-  %.not = icmp eq i32 %54, 0
-  br i1 %.not, label %._crit_edge.thread, label %55
+50:                                               ; preds = %._crit_edge
+  %51 = getelementptr inbounds nuw i8, ptr %49, i64 232
+  store i32 %.1, ptr %51, align 8
+  %52 = call noundef i32 @aiGetMaterialTextureCount(ptr noundef nonnull align 8 dereferenceable(16) %48, i32 noundef 1)
+  %.not = icmp eq i32 %52, 0
+  br i1 %.not, label %._crit_edge.thread, label %53
 
-55:                                               ; preds = %52
-  %56 = getelementptr inbounds nuw i8, ptr %51, i64 112
-  %57 = load ptr, ptr %56, align 8
-  %.not.i = icmp ne ptr %57, null
-  %58 = getelementptr inbounds nuw i8, ptr %51, i64 4
-  %59 = load i32, ptr %58, align 4
-  %60 = icmp ne i32 %59, 0
-  %61 = select i1 %.not.i, i1 %60, i1 false
-  br i1 %61, label %._crit_edge.thread, label %62
+53:                                               ; preds = %50
+  %54 = getelementptr inbounds nuw i8, ptr %49, i64 112
+  %55 = load ptr, ptr %54, align 8
+  %.not.i = icmp ne ptr %55, null
+  %56 = getelementptr inbounds nuw i8, ptr %49, i64 4
+  %57 = load i32, ptr %56, align 4
+  %58 = icmp ne i32 %57, 0
+  %59 = select i1 %.not.i, i1 %58, i1 false
+  br i1 %59, label %._crit_edge.thread, label %60
 
-62:                                               ; preds = %55
+60:                                               ; preds = %53
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %switch.tableidx = add i32 %.111, -15
-  %63 = icmp ult i32 %switch.tableidx, 4
-  br i1 %63, label %switch.lookup, label %65
+  %61 = icmp ult i32 %switch.tableidx, 4
+  br i1 %61, label %switch.lookup, label %63
 
-switch.lookup:                                    ; preds = %62
-  %64 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK6Assimp11X3DImporter22Postprocess_BuildShapeERK19X3DNodeElementShapeRNSt7__cxx114listIjSaIjEEERNS5_IP6aiMeshSaISA_EEERNS5_IP10aiMaterialSaISF_EEE, i64 %64
+switch.lookup:                                    ; preds = %60
+  %62 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK6Assimp11X3DImporter22Postprocess_BuildShapeERK19X3DNodeElementShapeRNSt7__cxx114listIjSaIjEEERNS5_IP6aiMeshSaISA_EEERNS5_IP10aiMaterialSaISF_EEE, i64 %62
   %switch.load = load i32, ptr %switch.gep, align 4
-  br label %65
+  br label %63
 
-65:                                               ; preds = %62, %switch.lookup
-  %.sink = phi i32 [ %switch.load, %switch.lookup ], [ 4, %62 ]
+63:                                               ; preds = %60, %switch.lookup
+  %.sink = phi i32 [ %switch.load, %switch.lookup ], [ 4, %60 ]
   store i32 %.sink, ptr %8, align 4
-  %66 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %50, ptr noundef nonnull %8, i32 noundef 4, ptr noundef nonnull @.str.29, i32 noundef 1, i32 noundef 0, i32 noundef 4)
+  %64 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %48, ptr noundef nonnull %8, i32 noundef 4, ptr noundef nonnull @.str.29, i32 noundef 1, i32 noundef 0, i32 noundef 4)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %5, %52, %55, %65, %._crit_edge
+._crit_edge.thread:                               ; preds = %5, %50, %53, %63, %._crit_edge
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void

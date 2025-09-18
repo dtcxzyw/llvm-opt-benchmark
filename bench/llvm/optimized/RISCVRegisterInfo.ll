@@ -3430,7 +3430,7 @@ _ZN4llvm8DebugLocC2ERKS0_.exit:                   ; preds = %5, %17
 38:                                               ; preds = %_ZN4llvm8DebugLocC2ERKS0_.exit
   %39 = add i64 %35, 2147483648
   %40 = icmp ult i64 %39, 4294967296
-  br i1 %40, label %67, label %50
+  br i1 %40, label %70, label %50
 
 .thread:                                          ; preds = %_ZN4llvm8DebugLocC2ERKS0_.exit
   %41 = add i32 %3, 1
@@ -3453,158 +3453,157 @@ _ZN4llvm8DebugLocC2ERKS0_.exit:                   ; preds = %5, %17
   %53 = ashr exact i64 %52, 52
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %55 = load i16, ptr %54, align 4, !tbaa !470
-  switch i16 %55, label %62 [
-    i16 11754, label %56
-    i16 12752, label %60
-    i16 12751, label %60
-    i16 12750, label %60
-  ]
+  %56 = icmp eq i16 %55, 11754
+  br i1 %56, label %57, label %61
 
-56:                                               ; preds = %51
-  %57 = add nsw i64 %47, 2048
-  %58 = icmp ult i64 %57, 4096
-  br i1 %58, label %.thread91, label %59
+57:                                               ; preds = %51
+  %58 = add nsw i64 %47, 2048
+  %59 = icmp ult i64 %58, 4096
+  br i1 %59, label %.thread95, label %60
 
-59:                                               ; preds = %56
+60:                                               ; preds = %57
   call void @_ZN4llvm14MachineOperand17ChangeToImmediateElj(ptr noundef nonnull align 8 dereferenceable(32) %44, i64 noundef 0, i32 noundef 0) #22
-  br label %67
+  br label %70
 
-60:                                               ; preds = %51, %51, %51
-  %.old = and i64 %47, 31
-  %.not.old = icmp eq i64 %.old, 0
-  br i1 %.not.old, label %62, label %61
+61:                                               ; preds = %51
+  %62 = add i16 %55, -12753
+  %or.cond3 = icmp ult i16 %62, -3
+  %63 = and i64 %47, 31
+  %.not = icmp eq i64 %63, 0
+  %or.cond = or i1 %.not, %or.cond3
+  br i1 %or.cond, label %65, label %64
 
-61:                                               ; preds = %60
+64:                                               ; preds = %61
   call void @_ZN4llvm14MachineOperand17ChangeToImmediateElj(ptr noundef nonnull align 8 dereferenceable(32) %44, i64 noundef 0, i32 noundef 0) #22
-  br label %67
+  br label %70
 
-62:                                               ; preds = %51, %60
-  %63 = and i16 %55, -2
-  %or.cond5 = icmp eq i16 %63, 442
-  %64 = icmp sgt i64 %53, 2043
-  %or.cond7 = and i1 %64, %or.cond5
-  br i1 %or.cond7, label %65, label %.thread91
+65:                                               ; preds = %61
+  %66 = and i16 %55, -2
+  %or.cond5 = icmp eq i16 %66, 442
+  %67 = icmp sgt i64 %53, 2043
+  %or.cond7 = and i1 %67, %or.cond5
+  br i1 %or.cond7, label %68, label %.thread95
 
-65:                                               ; preds = %62
+68:                                               ; preds = %65
   call void @_ZN4llvm14MachineOperand17ChangeToImmediateElj(ptr noundef nonnull align 8 dereferenceable(32) %44, i64 noundef 0, i32 noundef 0) #22
-  br label %67
+  br label %70
 
-.thread91:                                        ; preds = %56, %62
+.thread95:                                        ; preds = %57, %65
   call void @_ZN4llvm14MachineOperand17ChangeToImmediateElj(ptr noundef nonnull align 8 dereferenceable(32) %44, i64 noundef %53, i32 noundef 0) #22
-  %66 = sub nsw i64 %47, %53
-  br label %67
+  %69 = sub nsw i64 %47, %53
+  br label %70
 
-67:                                               ; preds = %38, %59, %65, %.thread91, %61
-  %.sroa.076.1 = phi i64 [ %47, %65 ], [ %66, %.thread91 ], [ %47, %61 ], [ %47, %59 ], [ %35, %38 ]
+70:                                               ; preds = %38, %60, %68, %.thread95, %64
+  %.sroa.076.1 = phi i64 [ %47, %68 ], [ %69, %.thread95 ], [ %47, %64 ], [ %47, %60 ], [ %35, %38 ]
   %.not65 = icmp eq i64 %36, 0
   %.not66 = icmp eq i64 %.sroa.076.1, 0
-  %or.cond = select i1 %.not65, i1 %.not66, i1 false
-  br i1 %or.cond, label %82, label %68
+  %or.cond98 = select i1 %.not65, i1 %.not66, i1 false
+  br i1 %or.cond98, label %85, label %71
 
-68:                                               ; preds = %67
-  %69 = getelementptr inbounds nuw i8, ptr %1, i64 68
-  %70 = load i16, ptr %69, align 4, !tbaa !470
-  %71 = icmp eq i16 %70, 11754
-  br i1 %71, label %72, label %76
+71:                                               ; preds = %70
+  %72 = getelementptr inbounds nuw i8, ptr %1, i64 68
+  %73 = load i16, ptr %72, align 4, !tbaa !470
+  %74 = icmp eq i16 %73, 11754
+  br i1 %74, label %75, label %79
 
-72:                                               ; preds = %68
-  %73 = load ptr, ptr %19, align 8, !tbaa !477
-  %74 = getelementptr inbounds nuw i8, ptr %73, i64 4
-  %75 = load i32, ptr %74, align 4, !tbaa !3
-  br label %78
+75:                                               ; preds = %71
+  %76 = load ptr, ptr %19, align 8, !tbaa !477
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 4
+  %78 = load i32, ptr %77, align 4, !tbaa !3
+  br label %81
 
-76:                                               ; preds = %68
-  %77 = call i32 @_ZN4llvm19MachineRegisterInfo21createVirtualRegisterEPKNS_19TargetRegisterClassENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(504) %14, ptr noundef nonnull @_ZN4llvm5RISCV11GPRRegClassE, ptr nonnull @.str.36, i64 0) #22
-  br label %78
+79:                                               ; preds = %71
+  %80 = call i32 @_ZN4llvm19MachineRegisterInfo21createVirtualRegisterEPKNS_19TargetRegisterClassENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(504) %14, ptr noundef nonnull @_ZN4llvm5RISCV11GPRRegClassE, ptr nonnull @.str.36, i64 0) #22
+  br label %81
 
-78:                                               ; preds = %76, %72
-  %storemerge = phi i32 [ %77, %76 ], [ %75, %72 ]
-  %79 = load ptr, ptr %9, align 8, !tbaa !463
+81:                                               ; preds = %79, %75
+  %storemerge = phi i32 [ %80, %79 ], [ %78, %75 ]
+  %82 = load ptr, ptr %9, align 8, !tbaa !463
   %.sroa.011.0.copyload = load i32, ptr %7, align 4, !tbaa !54
   store i64 %.sroa.076.1, ptr %8, align 8, !tbaa !37
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 %36, ptr %.sroa.10.0..sroa_idx, align 8, !tbaa !37
-  call void @_ZNK4llvm17RISCVRegisterInfo9adjustRegERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERKNS_8DebugLocENS_8RegisterES9_NS_11StackOffsetENS4_6MIFlagENS_10MaybeAlignE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(288) %79, ptr nonnull %1, ptr noundef nonnull align 8 dereferenceable(8) %6, i32 %storemerge, i32 %.sroa.011.0.copyload, ptr noundef nonnull byval(%"class.llvm::StackOffset") align 8 %8, i32 noundef 0, i16 0)
-  %80 = load ptr, ptr %19, align 8, !tbaa !477
-  %81 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %80, i64 %21
-  call void @_ZN4llvm14MachineOperand16ChangeToRegisterENS_8RegisterEbbbbbb(ptr noundef nonnull align 8 dereferenceable(32) %81, i32 %storemerge, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false) #22
-  br label %85
-
-82:                                               ; preds = %67
+  call void @_ZNK4llvm17RISCVRegisterInfo9adjustRegERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERKNS_8DebugLocENS_8RegisterES9_NS_11StackOffsetENS4_6MIFlagENS_10MaybeAlignE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(288) %82, ptr nonnull %1, ptr noundef nonnull align 8 dereferenceable(8) %6, i32 %storemerge, i32 %.sroa.011.0.copyload, ptr noundef nonnull byval(%"class.llvm::StackOffset") align 8 %8, i32 noundef 0, i16 0)
   %83 = load ptr, ptr %19, align 8, !tbaa !477
   %84 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %83, i64 %21
-  %.sroa.09.0.copyload = load i32, ptr %7, align 4, !tbaa !54
-  call void @_ZN4llvm14MachineOperand16ChangeToRegisterENS_8RegisterEbbbbbb(ptr noundef nonnull align 8 dereferenceable(32) %84, i32 %.sroa.09.0.copyload, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false) #22
-  br label %85
+  call void @_ZN4llvm14MachineOperand16ChangeToRegisterENS_8RegisterEbbbbbb(ptr noundef nonnull align 8 dereferenceable(32) %84, i32 %storemerge, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false) #22
+  br label %88
 
-85:                                               ; preds = %82, %78
-  %86 = getelementptr inbounds nuw i8, ptr %1, i64 68
-  %87 = load i16, ptr %86, align 4, !tbaa !470
-  switch i16 %87, label %.critedge.thread [
-    i16 11754, label %88
-    i16 9653, label %100
-    i16 9654, label %100
-    i16 9655, label %100
-    i16 9659, label %100
-    i16 9660, label %100
-    i16 9664, label %100
-    i16 9665, label %100
-    i16 9669, label %100
-    i16 9673, label %100
-    i16 9677, label %100
-    i16 9681, label %100
-    i16 7870, label %101
-    i16 7871, label %101
-    i16 7872, label %101
-    i16 7876, label %101
-    i16 7877, label %101
-    i16 7881, label %101
-    i16 7882, label %101
-    i16 7886, label %101
-    i16 7890, label %101
-    i16 7894, label %101
-    i16 7898, label %101
+85:                                               ; preds = %70
+  %86 = load ptr, ptr %19, align 8, !tbaa !477
+  %87 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %86, i64 %21
+  %.sroa.09.0.copyload = load i32, ptr %7, align 4, !tbaa !54
+  call void @_ZN4llvm14MachineOperand16ChangeToRegisterENS_8RegisterEbbbbbb(ptr noundef nonnull align 8 dereferenceable(32) %87, i32 %.sroa.09.0.copyload, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false) #22
+  br label %88
+
+88:                                               ; preds = %85, %81
+  %89 = getelementptr inbounds nuw i8, ptr %1, i64 68
+  %90 = load i16, ptr %89, align 4, !tbaa !470
+  switch i16 %90, label %.critedge.thread [
+    i16 11754, label %91
+    i16 9653, label %103
+    i16 9654, label %103
+    i16 9655, label %103
+    i16 9659, label %103
+    i16 9660, label %103
+    i16 9664, label %103
+    i16 9665, label %103
+    i16 9669, label %103
+    i16 9673, label %103
+    i16 9677, label %103
+    i16 9681, label %103
+    i16 7870, label %104
+    i16 7871, label %104
+    i16 7872, label %104
+    i16 7876, label %104
+    i16 7877, label %104
+    i16 7881, label %104
+    i16 7882, label %104
+    i16 7886, label %104
+    i16 7890, label %104
+    i16 7894, label %104
+    i16 7898, label %104
   ]
 
-88:                                               ; preds = %85
-  %89 = load ptr, ptr %19, align 8, !tbaa !477
-  %90 = getelementptr inbounds nuw i8, ptr %89, i64 4
-  %91 = load i32, ptr %90, align 4, !tbaa !3
-  %92 = getelementptr inbounds nuw i8, ptr %89, i64 36
-  %93 = load i32, ptr %92, align 4, !tbaa !3
-  %94 = icmp eq i32 %91, %93
-  br i1 %94, label %95, label %.critedge.thread
+91:                                               ; preds = %88
+  %92 = load ptr, ptr %19, align 8, !tbaa !477
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 4
+  %94 = load i32, ptr %93, align 4, !tbaa !3
+  %95 = getelementptr inbounds nuw i8, ptr %92, i64 36
+  %96 = load i32, ptr %95, align 4, !tbaa !3
+  %97 = icmp eq i32 %94, %96
+  br i1 %97, label %98, label %.critedge.thread
 
-95:                                               ; preds = %88
-  %96 = getelementptr inbounds nuw i8, ptr %89, i64 80
-  %97 = load i64, ptr %96, align 8, !tbaa !3
-  %98 = icmp eq i64 %97, 0
-  br i1 %98, label %99, label %.critedge.thread
+98:                                               ; preds = %91
+  %99 = getelementptr inbounds nuw i8, ptr %92, i64 80
+  %100 = load i64, ptr %99, align 8, !tbaa !3
+  %101 = icmp eq i64 %100, 0
+  br i1 %101, label %102, label %.critedge.thread
 
-99:                                               ; preds = %95
+102:                                              ; preds = %98
   call void @_ZN4llvm12MachineInstr15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(70) %1) #22
   br label %.critedge.thread
 
-100:                                              ; preds = %85, %85, %85, %85, %85, %85, %85, %85, %85, %85, %85
+103:                                              ; preds = %88, %88, %88, %88, %88, %88, %88, %88, %88, %88, %88
   call void @_ZNK4llvm17RISCVRegisterInfo11lowerVSPILLENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEE(ptr nonnull align 8 poison, ptr nonnull %1)
   br label %.critedge.thread
 
-101:                                              ; preds = %85, %85, %85, %85, %85, %85, %85, %85, %85, %85, %85
+104:                                              ; preds = %88, %88, %88, %88, %88, %88, %88, %88, %88, %88, %88
   call void @_ZNK4llvm17RISCVRegisterInfo12lowerVRELOADENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEE(ptr nonnull align 8 poison, ptr nonnull %1)
   br label %.critedge.thread
 
-.critedge.thread:                                 ; preds = %85, %95, %88, %101, %100, %99
-  %.0 = phi i1 [ true, %99 ], [ true, %100 ], [ true, %101 ], [ false, %88 ], [ false, %95 ], [ false, %85 ]
+.critedge.thread:                                 ; preds = %88, %98, %91, %104, %103, %102
+  %.0 = phi i1 [ true, %102 ], [ true, %103 ], [ true, %104 ], [ false, %91 ], [ false, %98 ], [ false, %88 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %102 = load ptr, ptr %6, align 8, !tbaa !403
-  %.not.i.i.i.i69 = icmp eq ptr %102, null
-  br i1 %.not.i.i.i.i69, label %_ZN4llvm8DebugLocD2Ev.exit, label %103
+  %105 = load ptr, ptr %6, align 8, !tbaa !403
+  %.not.i.i.i.i69 = icmp eq ptr %105, null
+  br i1 %.not.i.i.i.i69, label %_ZN4llvm8DebugLocD2Ev.exit, label %106
 
-103:                                              ; preds = %.critedge.thread
-  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 4 dereferenceable(8) %102) #22
+106:                                              ; preds = %.critedge.thread
+  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 4 dereferenceable(8) %105) #22
   br label %_ZN4llvm8DebugLocD2Ev.exit
 
-_ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %.critedge.thread, %103
+_ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %.critedge.thread, %106
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.0
 }

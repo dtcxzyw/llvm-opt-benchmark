@@ -1630,8 +1630,8 @@ define internal i32 @dissect_afs(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %120
 
 118:                                              ; preds = %112
-  %or.cond9 = icmp ult i32 %.0232, 66001
-  br i1 %or.cond9, label %119, label %134
+  %or.cond250 = icmp ult i32 %.0232, 66001
+  br i1 %or.cond250, label %119, label %134
 
 119:                                              ; preds = %118
   %.pre = load i32, ptr @hf_afs_ubik, align 4

@@ -6209,10 +6209,10 @@ _ZNSt7__cxx1115wstring_convertISt12codecvt_utf8IDiLm1114111ELSt12codecvt_mode0EE
   %.sroa.095.0101 = phi ptr [ %127, %.critedge ], [ %118, %117 ]
   %121 = load i32, ptr %.sroa.095.0101, align 4, !tbaa !275
   %.fr = freeze i32 %121
-  %122 = icmp ult i32 %.fr, 32
-  %123 = add i32 %.fr, -127
-  %124 = icmp ult i32 %123, 33
-  %or.cond99 = or i1 %122, %124
+  %122 = icmp eq i32 %.fr, 127
+  %123 = and i32 %.fr, -160
+  %124 = icmp eq i32 %123, 0
+  %or.cond99 = or i1 %124, %122
   br i1 %or.cond99, label %.loopexit, label %switch.early.test
 
 switch.early.test:                                ; preds = %.lr.ph

@@ -45339,9 +45339,9 @@ define linkonce_odr dso_local void @_ZZN4crow4json20load_nocopy_internalEPcmEN6P
   br label %4
 
 4:                                                ; preds = %2, %.critedge
-  %.027 = phi i32 [ 0, %2 ], [ %.1, %.critedge ]
-  %.promoted2226 = phi ptr [ %3, %2 ], [ %46, %.critedge ]
-  %5 = load i8, ptr %.promoted2226, align 1, !tbaa !14
+  %.024 = phi i32 [ 0, %2 ], [ %.1, %.critedge ]
+  %.promoted1923 = phi ptr [ %3, %2 ], [ %47, %.critedge ]
+  %5 = load i8, ptr %.promoted1923, align 1, !tbaa !14
   switch i8 %5, label %21 [
     i8 48, label %.critedge.sink.split
     i8 49, label %6
@@ -45361,14 +45361,14 @@ define linkonce_odr dso_local void @_ZZN4crow4json20load_nocopy_internalEPcmEN6P
   ]
 
 6:                                                ; preds = %4, %4, %4, %4, %4, %4, %4, %4, %4
-  %7 = zext i32 %.027 to i64
+  %7 = zext i32 %.024 to i64
   %8 = getelementptr inbounds nuw i8, ptr @.str.399, i64 %7
   %9 = load i8, ptr %8, align 1, !tbaa !14
-  %10 = getelementptr inbounds nuw i8, ptr %.promoted2226, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %.promoted1923, i64 1
   %11 = load i8, ptr %10, align 1, !tbaa !14
   %12 = add i8 %11, -48
-  %or.cond1620 = icmp ult i8 %12, 10
-  br i1 %or.cond1620, label %.lr.ph, label %.critedge
+  %or.cond17 = icmp ult i8 %12, 10
+  br i1 %or.cond17, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %6, %.lr.ph
   %13 = phi ptr [ %14, %.lr.ph ], [ %10, %6 ]
@@ -45376,8 +45376,8 @@ define linkonce_odr dso_local void @_ZZN4crow4json20load_nocopy_internalEPcmEN6P
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 1
   %15 = load i8, ptr %14, align 1, !tbaa !14
   %16 = add i8 %15, -48
-  %or.cond16 = icmp ult i8 %16, 10
-  br i1 %or.cond16, label %.lr.ph, label %.critedge, !llvm.loop !896
+  %or.cond = icmp ult i8 %16, 10
+  br i1 %or.cond, label %.lr.ph, label %.critedge, !llvm.loop !896
 
 17:                                               ; preds = %4
   br label %.critedge.sink.split
@@ -45392,89 +45392,89 @@ define linkonce_odr dso_local void @_ZZN4crow4json20load_nocopy_internalEPcmEN6P
   br label %.critedge.sink.split
 
 21:                                               ; preds = %4
-  switch i32 %.027, label %22 [
-    i32 4, label %.critedge18
-    i32 3, label %.critedge18
-    i32 2, label %.critedge18
-    i32 6, label %.critedge18
+  switch i32 %.024, label %39 [
+    i32 6, label %22
+    i32 4, label %22
+    i32 3, label %22
+    i32 2, label %22
   ]
 
-22:                                               ; preds = %21
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i8 0, ptr %23, align 8, !tbaa !872
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr null, ptr %24, align 8, !tbaa !885
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 55
-  store i8 3, ptr %25, align 1, !tbaa !888
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i8 4, ptr %26, align 8, !tbaa !858
-  br label %52
-
-.critedge18:                                      ; preds = %21, %21, %21, %21
+22:                                               ; preds = %21, %21, %21, %21
   store ptr %3, ptr %0, align 8, !tbaa !883
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.promoted2226, ptr %27, align 8, !tbaa !884
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i8 0, ptr %28, align 8, !tbaa !872
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr null, ptr %29, align 8, !tbaa !885
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 54
-  store i8 3, ptr %30, align 2, !tbaa !882
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 55
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i8 0, ptr %32, align 8, !tbaa !858
-  %33 = ptrtoint ptr %.promoted2226 to i64
-  %34 = ptrtoint ptr %3 to i64
-  %35 = sub i64 %33, %34
-  %36 = tail call noundef ptr @memchr(ptr noundef %3, i32 noundef 101, i64 noundef %35) #42
-  %.not9.i.i = icmp eq ptr %36, null
-  br i1 %.not9.i.i, label %37, label %_ZN4crow4json6rvalueC2ENS0_4typeEPcS3_.exit
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.promoted1923, ptr %23, align 8, !tbaa !884
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i8 0, ptr %24, align 8, !tbaa !872
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store ptr null, ptr %25, align 8, !tbaa !885
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 54
+  store i8 3, ptr %26, align 2, !tbaa !882
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 55
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i8 0, ptr %28, align 8, !tbaa !858
+  %29 = ptrtoint ptr %.promoted1923 to i64
+  %30 = ptrtoint ptr %3 to i64
+  %31 = sub i64 %29, %30
+  %32 = tail call noundef ptr @memchr(ptr noundef %3, i32 noundef 101, i64 noundef %31) #42
+  %.not9.i.i = icmp eq ptr %32, null
+  br i1 %.not9.i.i, label %33, label %_ZN4crow4json6rvalueC2ENS0_4typeEPcS3_.exit
 
-37:                                               ; preds = %.critedge18
-  %38 = tail call noundef ptr @memchr(ptr noundef %3, i32 noundef 45, i64 noundef %35) #42
-  %.not8.i.i = icmp eq ptr %38, null
-  %39 = tail call noundef ptr @memchr(ptr noundef %3, i32 noundef 69, i64 noundef %35) #42
-  %40 = icmp ne ptr %39, null
-  %41 = tail call noundef ptr @memchr(ptr noundef %3, i32 noundef 46, i64 noundef %35) #42
-  %42 = icmp ne ptr %41, null
-  %or.cond.i.i = or i1 %40, %42
+33:                                               ; preds = %22
+  %34 = tail call noundef ptr @memchr(ptr noundef %3, i32 noundef 45, i64 noundef %31) #42
+  %.not8.i.i = icmp eq ptr %34, null
+  %35 = tail call noundef ptr @memchr(ptr noundef %3, i32 noundef 69, i64 noundef %31) #42
+  %36 = icmp ne ptr %35, null
+  %37 = tail call noundef ptr @memchr(ptr noundef %3, i32 noundef 46, i64 noundef %31) #42
+  %38 = icmp ne ptr %37, null
+  %or.cond.i.i = or i1 %36, %38
   %..i = zext i1 %.not8.i.i to i8
   %spec.select.i = select i1 %or.cond.i.i, i8 2, i8 %..i
   br label %_ZN4crow4json6rvalueC2ENS0_4typeEPcS3_.exit
 
-_ZN4crow4json6rvalueC2ENS0_4typeEPcS3_.exit:      ; preds = %.critedge18, %37
-  %.sink.i = phi i8 [ 2, %.critedge18 ], [ %spec.select.i, %37 ]
-  store i8 %.sink.i, ptr %31, align 1, !tbaa !888
-  br label %52
+_ZN4crow4json6rvalueC2ENS0_4typeEPcS3_.exit:      ; preds = %22, %33
+  %.sink.i = phi i8 [ 2, %22 ], [ %spec.select.i, %33 ]
+  store i8 %.sink.i, ptr %27, align 1, !tbaa !888
+  br label %53
+
+39:                                               ; preds = %21
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i8 0, ptr %40, align 8, !tbaa !872
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store ptr null, ptr %41, align 8, !tbaa !885
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 55
+  store i8 3, ptr %42, align 1, !tbaa !888
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i8 4, ptr %43, align 8, !tbaa !858
+  br label %53
 
 .critedge.sink.split:                             ; preds = %4, %17, %18, %19, %20
   %.str.403.sink = phi ptr [ @.str.403, %20 ], [ @.str.402, %19 ], [ @.str.401, %18 ], [ @.str.400, %17 ], [ @.str.398, %4 ]
-  %43 = zext i32 %.027 to i64
-  %44 = getelementptr inbounds nuw i8, ptr %.str.403.sink, i64 %43
-  %45 = load i8, ptr %44, align 1, !tbaa !14
+  %44 = zext i32 %.024 to i64
+  %45 = getelementptr inbounds nuw i8, ptr %.str.403.sink, i64 %44
+  %46 = load i8, ptr %45, align 1, !tbaa !14
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph, %.critedge.sink.split, %6
-  %.promoted24 = phi ptr [ %.promoted2226, %6 ], [ %.promoted2226, %.critedge.sink.split ], [ %13, %.lr.ph ]
-  %.1.in = phi i8 [ %9, %6 ], [ %45, %.critedge.sink.split ], [ %9, %.lr.ph ]
+  %.promoted21 = phi ptr [ %.promoted1923, %6 ], [ %.promoted1923, %.critedge.sink.split ], [ %13, %.lr.ph ]
+  %.1.in = phi i8 [ %9, %6 ], [ %46, %.critedge.sink.split ], [ %9, %.lr.ph ]
   %.1 = sext i8 %.1.in to i32
-  %46 = getelementptr inbounds nuw i8, ptr %.promoted24, i64 1
-  store ptr %46, ptr %1, align 8, !tbaa !856
+  %47 = getelementptr inbounds nuw i8, ptr %.promoted21, i64 1
+  store ptr %47, ptr %1, align 8, !tbaa !856
   %.not = icmp eq i8 %.1.in, 7
-  br i1 %.not, label %47, label %4, !prof !897, !llvm.loop !898
+  br i1 %.not, label %48, label %4, !prof !897, !llvm.loop !898
 
-47:                                               ; preds = %.critedge
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i8 0, ptr %48, align 8, !tbaa !872
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr null, ptr %49, align 8, !tbaa !885
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 55
-  store i8 3, ptr %50, align 1, !tbaa !888
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i8 4, ptr %51, align 8, !tbaa !858
-  br label %52
+48:                                               ; preds = %.critedge
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i8 0, ptr %49, align 8, !tbaa !872
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store ptr null, ptr %50, align 8, !tbaa !885
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 55
+  store i8 3, ptr %51, align 1, !tbaa !888
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i8 4, ptr %52, align 8, !tbaa !858
+  br label %53
 
-52:                                               ; preds = %47, %22, %_ZN4crow4json6rvalueC2ENS0_4typeEPcS3_.exit
+53:                                               ; preds = %48, %39, %_ZN4crow4json6rvalueC2ENS0_4typeEPcS3_.exit
   ret void
 }
 

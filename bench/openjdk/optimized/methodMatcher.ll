@@ -765,26 +765,26 @@ define hidden noundef zeroext i1 @_ZNK13MethodMatcher7matchesERK12methodHandle(p
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN13MethodMatcher12print_symbolEP12outputStreamP6SymbolNS_4ModeE(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 align 2 {
-  %.off = add i32 %2, -2
-  %switch = icmp ult i32 %.off, 3
-  br i1 %switch, label %4, label %5
+  %4 = add i32 %2, -2
+  %or.cond3 = icmp ult i32 %4, 3
+  br i1 %or.cond3, label %5, label %.thread
 
-4:                                                ; preds = %3
+5:                                                ; preds = %3
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.16) #14
   %.not = icmp eq i32 %2, 4
-  br i1 %.not, label %.thread, label %5
+  br i1 %.not, label %.thread15, label %.thread
 
-5:                                                ; preds = %4, %3
+.thread:                                          ; preds = %3, %5
   tail call void @_ZNK6Symbol13print_utf8_onEP12outputStream(ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef %0) #14
   %6 = and i32 %2, -3
   %or.cond5 = icmp eq i32 %6, 1
-  br i1 %or.cond5, label %7, label %.thread
+  br i1 %or.cond5, label %7, label %.thread15
 
-7:                                                ; preds = %5
+7:                                                ; preds = %.thread
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.16) #14
-  br label %.thread
+  br label %.thread15
 
-.thread:                                          ; preds = %4, %5, %7
+.thread15:                                        ; preds = %5, %.thread, %7
   ret void
 }
 
@@ -809,51 +809,51 @@ define hidden void @_ZN13MethodMatcher10print_baseEP12outputStream(ptr noundef n
   %15 = load ptr, ptr %0, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %17 = load i32, ptr %16, align 8
-  %.off.i = add i32 %17, -2
-  %switch.i = icmp ult i32 %.off.i, 3
-  br i1 %switch.i, label %18, label %19
+  %18 = add i32 %17, -2
+  %or.cond3.i = icmp ult i32 %18, 3
+  br i1 %or.cond3.i, label %19, label %.thread.i
 
-18:                                               ; preds = %2
+19:                                               ; preds = %2
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.16) #14
   %.not.i = icmp eq i32 %17, 4
-  br i1 %.not.i, label %_ZN13MethodMatcher12print_symbolEP12outputStreamP6SymbolNS_4ModeE.exit, label %19
+  br i1 %.not.i, label %_ZN13MethodMatcher12print_symbolEP12outputStreamP6SymbolNS_4ModeE.exit, label %.thread.i
 
-19:                                               ; preds = %18, %2
+.thread.i:                                        ; preds = %19, %2
   tail call void @_ZNK6Symbol13print_utf8_onEP12outputStream(ptr noundef nonnull align 4 dereferenceable(8) %15, ptr noundef %1) #14
   %20 = and i32 %17, -3
   %or.cond5.i = icmp eq i32 %20, 1
   br i1 %or.cond5.i, label %21, label %_ZN13MethodMatcher12print_symbolEP12outputStreamP6SymbolNS_4ModeE.exit
 
-21:                                               ; preds = %19
+21:                                               ; preds = %.thread.i
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.16) #14
   br label %_ZN13MethodMatcher12print_symbolEP12outputStreamP6SymbolNS_4ModeE.exit
 
-_ZN13MethodMatcher12print_symbolEP12outputStreamP6SymbolNS_4ModeE.exit: ; preds = %18, %19, %21
+_ZN13MethodMatcher12print_symbolEP12outputStreamP6SymbolNS_4ModeE.exit: ; preds = %19, %.thread.i, %21
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.17) #14
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %25 = load i32, ptr %24, align 4
-  %.off.i5 = add i32 %25, -2
-  %switch.i6 = icmp ult i32 %.off.i5, 3
-  br i1 %switch.i6, label %26, label %27
+  %26 = add i32 %25, -2
+  %or.cond3.i5 = icmp ult i32 %26, 3
+  br i1 %or.cond3.i5, label %27, label %.thread.i6
 
-26:                                               ; preds = %_ZN13MethodMatcher12print_symbolEP12outputStreamP6SymbolNS_4ModeE.exit
+27:                                               ; preds = %_ZN13MethodMatcher12print_symbolEP12outputStreamP6SymbolNS_4ModeE.exit
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.16) #14
   %.not.i8 = icmp eq i32 %25, 4
-  br i1 %.not.i8, label %_ZN13MethodMatcher12print_symbolEP12outputStreamP6SymbolNS_4ModeE.exit9, label %27
+  br i1 %.not.i8, label %_ZN13MethodMatcher12print_symbolEP12outputStreamP6SymbolNS_4ModeE.exit9, label %.thread.i6
 
-27:                                               ; preds = %26, %_ZN13MethodMatcher12print_symbolEP12outputStreamP6SymbolNS_4ModeE.exit
+.thread.i6:                                       ; preds = %27, %_ZN13MethodMatcher12print_symbolEP12outputStreamP6SymbolNS_4ModeE.exit
   tail call void @_ZNK6Symbol13print_utf8_onEP12outputStream(ptr noundef nonnull align 4 dereferenceable(8) %23, ptr noundef nonnull %1) #14
   %28 = and i32 %25, -3
   %or.cond5.i7 = icmp eq i32 %28, 1
   br i1 %or.cond5.i7, label %29, label %_ZN13MethodMatcher12print_symbolEP12outputStreamP6SymbolNS_4ModeE.exit9
 
-29:                                               ; preds = %27
+29:                                               ; preds = %.thread.i6
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.16) #14
   br label %_ZN13MethodMatcher12print_symbolEP12outputStreamP6SymbolNS_4ModeE.exit9
 
-_ZN13MethodMatcher12print_symbolEP12outputStreamP6SymbolNS_4ModeE.exit9: ; preds = %26, %27, %29
+_ZN13MethodMatcher12print_symbolEP12outputStreamP6SymbolNS_4ModeE.exit9: ; preds = %27, %.thread.i6, %29
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %31 = load ptr, ptr %30, align 8
   %.not = icmp eq ptr %31, null

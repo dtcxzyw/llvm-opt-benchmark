@@ -2761,13 +2761,13 @@ declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noun
 define internal noundef zeroext i1 @dissect_gquic_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0)
   %6 = icmp eq i32 %5, 0
-  br i1 %6, label %29, label %7
+  br i1 %6, label %30, label %7
 
 7:                                                ; preds = %4
   %8 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
   %9 = zext i8 %8 to i32
   %10 = icmp ult i8 %8, 64
-  br i1 %10, label %11, label %18
+  br i1 %10, label %11, label %19
 
 11:                                               ; preds = %7
   %12 = tail call i32 @tvb_captured_length(ptr noundef %0)
@@ -2775,40 +2775,40 @@ define internal noundef zeroext i1 @dissect_gquic_heur(ptr noundef %0, ptr nound
   %14 = and i32 %9, 9
   %15 = icmp ne i32 %14, 9
   %or.cond42 = or i1 %15, %13
-  br i1 %or.cond42, label %29, label %16
+  br i1 %or.cond42, label %30, label %16
 
 16:                                               ; preds = %11
   %17 = tail call i32 @tvb_get_ntoh24(ptr noundef %0, i32 noundef 9)
-  %.off = add i32 %17, -5320754
-  %switch = icmp ult i32 %.off, 3
-  br i1 %switch, label %.sink.split, label %29
+  %18 = add i32 %17, -5320754
+  %or.cond3 = icmp ult i32 %18, 3
+  br i1 %or.cond3, label %.sink.split, label %30
 
-18:                                               ; preds = %7
-  %19 = icmp sgt i8 %8, -1
-  %20 = and i32 %9, 64
-  %.not = icmp eq i32 %20, 0
-  %or.cond = or i1 %19, %.not
-  br i1 %or.cond, label %29, label %21
+19:                                               ; preds = %7
+  %20 = icmp sgt i8 %8, -1
+  %21 = and i32 %9, 64
+  %.not = icmp eq i32 %21, 0
+  %or.cond38 = or i1 %20, %.not
+  br i1 %or.cond38, label %30, label %22
 
-21:                                               ; preds = %18
-  %22 = tail call i32 @tvb_captured_length(ptr noundef %0)
-  %23 = icmp ult i32 %22, 14
-  br i1 %23, label %29, label %24
+22:                                               ; preds = %19
+  %23 = tail call i32 @tvb_captured_length(ptr noundef %0)
+  %24 = icmp ult i32 %23, 14
+  br i1 %24, label %30, label %25
 
-24:                                               ; preds = %21
-  %25 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 1)
-  %.not37 = icmp eq i32 %25, 1362113590
-  br i1 %.not37, label %.sink.split, label %29
+25:                                               ; preds = %22
+  %26 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 1)
+  %.not37 = icmp eq i32 %26, 1362113590
+  br i1 %.not37, label %.sink.split, label %30
 
-.sink.split:                                      ; preds = %24, %16
-  %26 = tail call ptr @find_or_create_conversation(ptr noundef %1)
-  %27 = load ptr, ptr @gquic_handle, align 8
-  tail call void @conversation_set_dissector(ptr noundef %26, ptr noundef %27)
-  %28 = tail call i32 @dissect_gquic(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr poison)
-  br label %29
+.sink.split:                                      ; preds = %25, %16
+  %27 = tail call ptr @find_or_create_conversation(ptr noundef %1)
+  %28 = load ptr, ptr @gquic_handle, align 8
+  tail call void @conversation_set_dissector(ptr noundef %27, ptr noundef %28)
+  %29 = tail call i32 @dissect_gquic(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr poison)
+  br label %30
 
-29:                                               ; preds = %.sink.split, %16, %18, %24, %21, %11, %4
-  %.0 = phi i1 [ false, %4 ], [ false, %11 ], [ false, %21 ], [ false, %24 ], [ false, %16 ], [ false, %18 ], [ true, %.sink.split ]
+30:                                               ; preds = %.sink.split, %16, %19, %25, %22, %11, %4
+  %.0 = phi i1 [ false, %4 ], [ false, %11 ], [ false, %22 ], [ false, %25 ], [ false, %19 ], [ false, %16 ], [ true, %.sink.split ]
   ret i1 %.0
 }
 

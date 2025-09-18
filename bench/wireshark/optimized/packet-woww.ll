@@ -8456,63 +8456,63 @@ define internal fastcc void @add_body_fields(i32 noundef %0, ptr noundef %1, ptr
     i32 336, label %8681
     i32 815, label %8688
     i32 588, label %8693
-    i32 587, label %8742
-    i32 592, label %8761
-    i32 611, label %8782
-    i32 308, label %8791
-    i32 482, label %8804
-    i32 678, label %8809
-    i32 307, label %8814
-    i32 306, label %8821
-    i32 305, label %8898
-    i32 816, label %8957
-    i32 546, label %8970
-    i32 773, label %8973
-    i32 778, label %8974
-    i32 774, label %8975
-    i32 794, label %8976
-    i32 775, label %8979
-    i32 781, label %8980
-    i32 782, label %8981
-    i32 779, label %8982
-    i32 780, label %8983
-    i32 772, label %8984
-    i32 776, label %8985
-    i32 777, label %8986
-    i32 767, label %8987
-    i32 766, label %8990
-    i32 770, label %8993
-    i32 768, label %8996
-    i32 771, label %8999
-    i32 769, label %9002
-    i32 627, label %9005
-    i32 669, label %9008
-    i32 473, label %9011
-    i32 475, label %9024
-    i32 683, label %9027
-    i32 300, label %9034
-    i32 427, label %9039
-    i32 261, label %9044
-    i32 288, label %9051
-    i32 289, label %9070
-    i32 436, label %9113
-    i32 435, label %9120
-    i32 433, label %9125
-    i32 64, label %9159
-    i32 63, label %9166
-    i32 250, label %9175
-    i32 453, label %9178
+    i32 587, label %8744
+    i32 592, label %8763
+    i32 611, label %8784
+    i32 308, label %8793
+    i32 482, label %8806
+    i32 678, label %8811
+    i32 307, label %8816
+    i32 306, label %8823
+    i32 305, label %8900
+    i32 816, label %8959
+    i32 546, label %8972
+    i32 773, label %8975
+    i32 778, label %8976
+    i32 774, label %8977
+    i32 794, label %8978
+    i32 775, label %8981
+    i32 781, label %8982
+    i32 782, label %8983
+    i32 779, label %8984
+    i32 780, label %8985
+    i32 772, label %8986
+    i32 776, label %8987
+    i32 777, label %8988
+    i32 767, label %8989
+    i32 766, label %8992
+    i32 770, label %8995
+    i32 768, label %8998
+    i32 771, label %9001
+    i32 769, label %9004
+    i32 627, label %9007
+    i32 669, label %9010
+    i32 473, label %9013
+    i32 475, label %9026
+    i32 683, label %9029
+    i32 300, label %9036
+    i32 427, label %9041
+    i32 261, label %9046
+    i32 288, label %9053
+    i32 289, label %9072
+    i32 436, label %9115
+    i32 435, label %9122
+    i32 433, label %9127
+    i32 64, label %9161
+    i32 63, label %9168
+    i32 250, label %9177
+    i32 453, label %9180
     i32 253, label %.preheader5425
-    i32 311, label %9184
-    i32 811, label %9189
-    i32 800, label %9192
-    i32 169, label %9195
-    i32 707, label %9551
-    i32 742, label %9558
-    i32 756, label %9563
-    i32 99, label %9572
-    i32 101, label %9611
-    i32 596, label %9612
+    i32 311, label %9186
+    i32 811, label %9191
+    i32 800, label %9194
+    i32 169, label %9197
+    i32 707, label %9553
+    i32 742, label %9560
+    i32 756, label %9565
+    i32 99, label %9574
+    i32 101, label %9613
+    i32 596, label %9614
   ]
 
 .preheader5381:                                   ; preds = %6
@@ -21674,8 +21674,8 @@ add_cstring.exit5357:                             ; preds = %8484, %8485
   %.not5692 = icmp eq i32 %8698, 0
   br i1 %.not5692, label %.loopexit, label %.lr.ph5468
 
-.lr.ph5468:                                       ; preds = %8693, %8738
-  %.047595466 = phi i32 [ %8739, %8738 ], [ 0, %8693 ]
+.lr.ph5468:                                       ; preds = %8693, %8740
+  %.047595466 = phi i32 [ %8741, %8740 ], [ 0, %8693 ]
   %8699 = load i32, ptr @ett_message, align 4
   %8700 = call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %82, i32 noundef -1, i32 noundef %8699, ptr noundef nonnull @.str.6410, i32 noundef %.047595466)
   %8701 = load i32, ptr @hf_woww_spell_effect, align 4
@@ -21683,7 +21683,7 @@ add_cstring.exit5357:                             ; preds = %8484, %8485
   %8703 = load i32, ptr @hf_woww_amount_of_logs, align 4
   %8704 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8703, i32 noundef 4, i32 noundef -2147483648)
   %8705 = load i32, ptr %54, align 4
-  switch i32 %8705, label %8738 [
+  switch i32 %8705, label %8735 [
     i32 8, label %8706
     i32 67, label %8713
     i32 10, label %8713
@@ -21693,40 +21693,6 @@ add_cstring.exit5357:                             ; preds = %8484, %8485
     i32 68, label %8726
     i32 111, label %8729
     i32 101, label %8734
-    i32 126, label %8735
-    i32 125, label %8735
-    i32 116, label %8735
-    i32 114, label %8735
-    i32 113, label %8735
-    i32 112, label %8735
-    i32 108, label %8735
-    i32 107, label %8735
-    i32 106, label %8735
-    i32 105, label %8735
-    i32 104, label %8735
-    i32 102, label %8735
-    i32 97, label %8735
-    i32 91, label %8735
-    i32 90, label %8735
-    i32 89, label %8735
-    i32 88, label %8735
-    i32 87, label %8735
-    i32 79, label %8735
-    i32 76, label %8735
-    i32 74, label %8735
-    i32 73, label %8735
-    i32 69, label %8735
-    i32 63, label %8735
-    i32 59, label %8735
-    i32 56, label %8735
-    i32 50, label %8735
-    i32 42, label %8735
-    i32 41, label %8735
-    i32 38, label %8735
-    i32 33, label %8735
-    i32 28, label %8735
-    i32 18, label %8735
-    i32 1, label %8735
   ]
 
 8706:                                             ; preds = %.lr.ph5468
@@ -21772,426 +21738,454 @@ add_cstring.exit5357:                             ; preds = %8484, %8485
 8734:                                             ; preds = %.lr.ph5468
   br label %.sink.split6105
 
-8735:                                             ; preds = %.lr.ph5468, %.lr.ph5468, %.lr.ph5468, %.lr.ph5468, %.lr.ph5468, %.lr.ph5468, %.lr.ph5468, %.lr.ph5468, %.lr.ph5468, %.lr.ph5468, %.lr.ph5468, %.lr.ph5468, %.lr.ph5468, %.lr.ph5468, %.lr.ph5468, %.lr.ph5468, %.lr.ph5468, %.lr.ph5468, %.lr.ph5468, %.lr.ph5468, %.lr.ph5468, %.lr.ph5468, %.lr.ph5468, %.lr.ph5468, %.lr.ph5468, %.lr.ph5468, %.lr.ph5468, %.lr.ph5468, %.lr.ph5468, %.lr.ph5468, %.lr.ph5468, %.lr.ph5468, %.lr.ph5468, %.lr.ph5468
-  br label %.sink.split6105
+8735:                                             ; preds = %.lr.ph5468
+  %8736 = and i32 %8705, -4
+  %8737 = icmp eq i32 %8736, 104
+  br i1 %8737, label %.sink.split6105, label %switch.early.test
 
-.sink.split6105:                                  ; preds = %.lr.ph5468, %8706, %8718, %8729, %8735, %8734, %8726, %8723, %8713
-  %hf_woww_heal_critical.sink = phi ptr [ @hf_woww_heal_critical, %8713 ], [ @hf_woww_extra_attacks, %8723 ], [ @hf_woww_interrupted_spell, %8726 ], [ @hf_woww_feed_pet_item, %8734 ], [ @hf_woww_target, %8735 ], [ @hf_woww_unknown_int, %8729 ], [ @hf_woww_energize_power, %8718 ], [ @hf_woww_multiplier, %8706 ], [ @hf_woww_item, %.lr.ph5468 ]
-  %.sink6106 = phi i32 [ 4, %8713 ], [ 4, %8723 ], [ 4, %8726 ], [ 4, %8734 ], [ 8, %8735 ], [ 4, %8729 ], [ 4, %8718 ], [ 4, %8706 ], [ 4, %.lr.ph5468 ]
-  %8736 = load i32, ptr %hf_woww_heal_critical.sink, align 4
-  %8737 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8736, i32 noundef %.sink6106, i32 noundef -2147483648)
-  br label %8738
+switch.early.test:                                ; preds = %8735
+  switch i32 %8705, label %8740 [
+    i32 126, label %.sink.split6105
+    i32 125, label %.sink.split6105
+    i32 116, label %.sink.split6105
+    i32 114, label %.sink.split6105
+    i32 113, label %.sink.split6105
+    i32 112, label %.sink.split6105
+    i32 108, label %.sink.split6105
+    i32 102, label %.sink.split6105
+    i32 97, label %.sink.split6105
+    i32 91, label %.sink.split6105
+    i32 90, label %.sink.split6105
+    i32 89, label %.sink.split6105
+    i32 88, label %.sink.split6105
+    i32 87, label %.sink.split6105
+    i32 79, label %.sink.split6105
+    i32 76, label %.sink.split6105
+    i32 74, label %.sink.split6105
+    i32 73, label %.sink.split6105
+    i32 69, label %.sink.split6105
+    i32 63, label %.sink.split6105
+    i32 59, label %.sink.split6105
+    i32 56, label %.sink.split6105
+    i32 50, label %.sink.split6105
+    i32 42, label %.sink.split6105
+    i32 41, label %.sink.split6105
+    i32 38, label %.sink.split6105
+    i32 33, label %.sink.split6105
+    i32 28, label %.sink.split6105
+    i32 18, label %.sink.split6105
+    i32 1, label %.sink.split6105
+  ]
 
-8738:                                             ; preds = %.sink.split6105, %.lr.ph5468
+.sink.split6105:                                  ; preds = %8735, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %.lr.ph5468, %8706, %8718, %8729, %8734, %8726, %8723, %8713
+  %hf_woww_heal_critical.sink = phi ptr [ @hf_woww_heal_critical, %8713 ], [ @hf_woww_extra_attacks, %8723 ], [ @hf_woww_interrupted_spell, %8726 ], [ @hf_woww_feed_pet_item, %8734 ], [ @hf_woww_unknown_int, %8729 ], [ @hf_woww_energize_power, %8718 ], [ @hf_woww_multiplier, %8706 ], [ @hf_woww_item, %.lr.ph5468 ], [ @hf_woww_target, %switch.early.test ], [ @hf_woww_target, %switch.early.test ], [ @hf_woww_target, %switch.early.test ], [ @hf_woww_target, %switch.early.test ], [ @hf_woww_target, %switch.early.test ], [ @hf_woww_target, %switch.early.test ], [ @hf_woww_target, %switch.early.test ], [ @hf_woww_target, %switch.early.test ], [ @hf_woww_target, %switch.early.test ], [ @hf_woww_target, %switch.early.test ], [ @hf_woww_target, %switch.early.test ], [ @hf_woww_target, %switch.early.test ], [ @hf_woww_target, %switch.early.test ], [ @hf_woww_target, %switch.early.test ], [ @hf_woww_target, %switch.early.test ], [ @hf_woww_target, %switch.early.test ], [ @hf_woww_target, %switch.early.test ], [ @hf_woww_target, %switch.early.test ], [ @hf_woww_target, %switch.early.test ], [ @hf_woww_target, %switch.early.test ], [ @hf_woww_target, %switch.early.test ], [ @hf_woww_target, %switch.early.test ], [ @hf_woww_target, %switch.early.test ], [ @hf_woww_target, %switch.early.test ], [ @hf_woww_target, %switch.early.test ], [ @hf_woww_target, %switch.early.test ], [ @hf_woww_target, %switch.early.test ], [ @hf_woww_target, %switch.early.test ], [ @hf_woww_target, %switch.early.test ], [ @hf_woww_target, %switch.early.test ], [ @hf_woww_target, %8735 ]
+  %.sink6106 = phi i32 [ 4, %8713 ], [ 4, %8723 ], [ 4, %8726 ], [ 4, %8734 ], [ 4, %8729 ], [ 4, %8718 ], [ 4, %8706 ], [ 4, %.lr.ph5468 ], [ 8, %switch.early.test ], [ 8, %switch.early.test ], [ 8, %switch.early.test ], [ 8, %switch.early.test ], [ 8, %switch.early.test ], [ 8, %switch.early.test ], [ 8, %switch.early.test ], [ 8, %switch.early.test ], [ 8, %switch.early.test ], [ 8, %switch.early.test ], [ 8, %switch.early.test ], [ 8, %switch.early.test ], [ 8, %switch.early.test ], [ 8, %switch.early.test ], [ 8, %switch.early.test ], [ 8, %switch.early.test ], [ 8, %switch.early.test ], [ 8, %switch.early.test ], [ 8, %switch.early.test ], [ 8, %switch.early.test ], [ 8, %switch.early.test ], [ 8, %switch.early.test ], [ 8, %switch.early.test ], [ 8, %switch.early.test ], [ 8, %switch.early.test ], [ 8, %switch.early.test ], [ 8, %switch.early.test ], [ 8, %switch.early.test ], [ 8, %switch.early.test ], [ 8, %switch.early.test ], [ 8, %8735 ]
+  %8738 = load i32, ptr %hf_woww_heal_critical.sink, align 4
+  %8739 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8738, i32 noundef %.sink6106, i32 noundef -2147483648)
+  br label %8740
+
+8740:                                             ; preds = %.sink.split6105, %switch.early.test
   call void @ptvcursor_pop_subtree(ptr noundef %82)
-  %8739 = add nuw i32 %.047595466, 1
-  %8740 = load i32, ptr %14, align 4
-  %8741 = icmp ult i32 %8739, %8740
-  br i1 %8741, label %.lr.ph5468, label %.loopexit, !llvm.loop !96
+  %8741 = add nuw i32 %.047595466, 1
+  %8742 = load i32, ptr %14, align 4
+  %8743 = icmp ult i32 %8741, %8742
+  br i1 %8743, label %.lr.ph5468, label %.loopexit, !llvm.loop !96
 
-8742:                                             ; preds = %6
-  %8743 = load i32, ptr @hf_woww_id, align 4
-  %8744 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8743, i32 noundef 4, i32 noundef -2147483648)
-  %8745 = load i32, ptr @hf_woww_caster, align 4
-  %8746 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8745, i32 noundef 8, i32 noundef -2147483648)
-  %8747 = load i32, ptr @hf_woww_unknown_int, align 4
-  %8748 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8747, i32 noundef 1, i32 noundef -2147483648)
-  %8749 = load i32, ptr @hf_woww_amount_of_targets, align 4
-  %8750 = call ptr @ptvcursor_add_ret_uint(ptr noundef %82, i32 noundef %8749, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %46)
-  %8751 = load i32, ptr %46, align 4
-  %.not5691 = icmp eq i32 %8751, 0
+8744:                                             ; preds = %6
+  %8745 = load i32, ptr @hf_woww_id, align 4
+  %8746 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8745, i32 noundef 4, i32 noundef -2147483648)
+  %8747 = load i32, ptr @hf_woww_caster, align 4
+  %8748 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8747, i32 noundef 8, i32 noundef -2147483648)
+  %8749 = load i32, ptr @hf_woww_unknown_int, align 4
+  %8750 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8749, i32 noundef 1, i32 noundef -2147483648)
+  %8751 = load i32, ptr @hf_woww_amount_of_targets, align 4
+  %8752 = call ptr @ptvcursor_add_ret_uint(ptr noundef %82, i32 noundef %8751, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %46)
+  %8753 = load i32, ptr %46, align 4
+  %.not5691 = icmp eq i32 %8753, 0
   br i1 %.not5691, label %.loopexit, label %.lr.ph5465
 
-.lr.ph5465:                                       ; preds = %8742, %.lr.ph5465
-  %.047585463 = phi i32 [ %8758, %.lr.ph5465 ], [ 0, %8742 ]
-  %8752 = load i32, ptr @ett_message, align 4
-  %8753 = call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %82, i32 noundef -1, i32 noundef %8752, ptr noundef nonnull @.str.6411, i32 noundef %.047585463)
-  %8754 = load i32, ptr @hf_woww_target, align 4
-  %8755 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8754, i32 noundef 8, i32 noundef -2147483648)
-  %8756 = load i32, ptr @hf_woww_spell_miss_info, align 4
-  %8757 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8756, i32 noundef 1, i32 noundef -2147483648)
+.lr.ph5465:                                       ; preds = %8744, %.lr.ph5465
+  %.047585463 = phi i32 [ %8760, %.lr.ph5465 ], [ 0, %8744 ]
+  %8754 = load i32, ptr @ett_message, align 4
+  %8755 = call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %82, i32 noundef -1, i32 noundef %8754, ptr noundef nonnull @.str.6411, i32 noundef %.047585463)
+  %8756 = load i32, ptr @hf_woww_target, align 4
+  %8757 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8756, i32 noundef 8, i32 noundef -2147483648)
+  %8758 = load i32, ptr @hf_woww_spell_miss_info, align 4
+  %8759 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8758, i32 noundef 1, i32 noundef -2147483648)
   call void @ptvcursor_pop_subtree(ptr noundef %82)
-  %8758 = add nuw i32 %.047585463, 1
-  %8759 = load i32, ptr %46, align 4
-  %8760 = icmp ult i32 %8758, %8759
-  br i1 %8760, label %.lr.ph5465, label %.loopexit, !llvm.loop !97
+  %8760 = add nuw i32 %.047585463, 1
+  %8761 = load i32, ptr %46, align 4
+  %8762 = icmp ult i32 %8760, %8761
+  br i1 %8762, label %.lr.ph5465, label %.loopexit, !llvm.loop !97
 
-8761:                                             ; preds = %6
+8763:                                             ; preds = %6
   tail call fastcc void @add_packed_guid(ptr noundef %82, ptr noundef %5)
   tail call fastcc void @add_packed_guid(ptr noundef %82, ptr noundef %5)
-  %8762 = load i32, ptr @hf_woww_spell, align 4
-  %8763 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8762, i32 noundef 4, i32 noundef -2147483648)
-  %8764 = load i32, ptr @hf_woww_damage, align 4
+  %8764 = load i32, ptr @hf_woww_spell, align 4
   %8765 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8764, i32 noundef 4, i32 noundef -2147483648)
-  %8766 = load i32, ptr @hf_woww_spell_school, align 4
-  %8767 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8766, i32 noundef 1, i32 noundef -2147483648)
-  %8768 = load i32, ptr @hf_woww_absorbed_damage, align 4
-  %8769 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8768, i32 noundef 4, i32 noundef -2147483648)
-  %8770 = load i32, ptr @hf_woww_resisted, align 4
+  %8766 = load i32, ptr @hf_woww_damage, align 4
+  %8767 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8766, i32 noundef 4, i32 noundef -2147483648)
+  %8768 = load i32, ptr @hf_woww_spell_school, align 4
+  %8769 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8768, i32 noundef 1, i32 noundef -2147483648)
+  %8770 = load i32, ptr @hf_woww_absorbed_damage, align 4
   %8771 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8770, i32 noundef 4, i32 noundef -2147483648)
-  %8772 = load i32, ptr @hf_woww_periodic_log, align 4
-  %8773 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8772, i32 noundef 1, i32 noundef 0)
-  %8774 = load i32, ptr @hf_woww_unused, align 4
-  %8775 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8774, i32 noundef 1, i32 noundef -2147483648)
-  %8776 = load i32, ptr @hf_woww_blocked, align 4
-  %8777 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8776, i32 noundef 4, i32 noundef -2147483648)
-  %8778 = load i32, ptr @hf_woww_hit_info, align 4
+  %8772 = load i32, ptr @hf_woww_resisted, align 4
+  %8773 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8772, i32 noundef 4, i32 noundef -2147483648)
+  %8774 = load i32, ptr @hf_woww_periodic_log, align 4
+  %8775 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8774, i32 noundef 1, i32 noundef 0)
+  %8776 = load i32, ptr @hf_woww_unused, align 4
+  %8777 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8776, i32 noundef 1, i32 noundef -2147483648)
+  %8778 = load i32, ptr @hf_woww_blocked, align 4
   %8779 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8778, i32 noundef 4, i32 noundef -2147483648)
-  %8780 = load i32, ptr @hf_woww_extend_flag, align 4
-  %8781 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8780, i32 noundef 1, i32 noundef -2147483648)
+  %8780 = load i32, ptr @hf_woww_hit_info, align 4
+  %8781 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8780, i32 noundef 4, i32 noundef -2147483648)
+  %8782 = load i32, ptr @hf_woww_extend_flag, align 4
+  %8783 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8782, i32 noundef 1, i32 noundef -2147483648)
   br label %.loopexit
 
-8782:                                             ; preds = %6
-  %8783 = load i32, ptr @hf_woww_caster, align 4
-  %8784 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8783, i32 noundef 8, i32 noundef -2147483648)
-  %8785 = load i32, ptr @hf_woww_target, align 4
+8784:                                             ; preds = %6
+  %8785 = load i32, ptr @hf_woww_caster, align 4
   %8786 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8785, i32 noundef 8, i32 noundef -2147483648)
-  %8787 = load i32, ptr @hf_woww_id, align 4
-  %8788 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8787, i32 noundef 4, i32 noundef -2147483648)
-  %8789 = load i32, ptr @hf_woww_debug_log_format, align 4
-  %8790 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8789, i32 noundef 1, i32 noundef 0)
+  %8787 = load i32, ptr @hf_woww_target, align 4
+  %8788 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8787, i32 noundef 8, i32 noundef -2147483648)
+  %8789 = load i32, ptr @hf_woww_id, align 4
+  %8790 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8789, i32 noundef 4, i32 noundef -2147483648)
+  %8791 = load i32, ptr @hf_woww_debug_log_format, align 4
+  %8792 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8791, i32 noundef 1, i32 noundef 0)
   br label %.loopexit
 
-8791:                                             ; preds = %6
-  %8792 = load i32, ptr @hf_woww_guid, align 4
-  %8793 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8792, i32 noundef 8, i32 noundef -2147483648)
-  %8794 = tail call i32 @ptvcursor_current_offset(ptr noundef %82)
-  %8795 = icmp slt i32 %8794, %4
-  br i1 %8795, label %.lr.ph5462, label %.loopexit
+8793:                                             ; preds = %6
+  %8794 = load i32, ptr @hf_woww_guid, align 4
+  %8795 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8794, i32 noundef 8, i32 noundef -2147483648)
+  %8796 = tail call i32 @ptvcursor_current_offset(ptr noundef %82)
+  %8797 = icmp slt i32 %8796, %4
+  br i1 %8797, label %.lr.ph5462, label %.loopexit
 
-.lr.ph5462:                                       ; preds = %8791, %.lr.ph5462
-  %8796 = load i32, ptr @ett_message, align 4
-  %8797 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %82, i32 noundef -1, i32 noundef %8796, ptr noundef nonnull @.str.6412)
-  %8798 = load i32, ptr @hf_woww_id, align 4
-  %8799 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8798, i32 noundef 4, i32 noundef -2147483648)
-  %8800 = load i32, ptr @hf_woww_cooldown_time, align 4
+.lr.ph5462:                                       ; preds = %8793, %.lr.ph5462
+  %8798 = load i32, ptr @ett_message, align 4
+  %8799 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %82, i32 noundef -1, i32 noundef %8798, ptr noundef nonnull @.str.6412)
+  %8800 = load i32, ptr @hf_woww_id, align 4
   %8801 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8800, i32 noundef 4, i32 noundef -2147483648)
+  %8802 = load i32, ptr @hf_woww_cooldown_time, align 4
+  %8803 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8802, i32 noundef 4, i32 noundef -2147483648)
   tail call void @ptvcursor_pop_subtree(ptr noundef %82)
-  %8802 = tail call i32 @ptvcursor_current_offset(ptr noundef %82)
-  %8803 = icmp slt i32 %8802, %4
-  br i1 %8803, label %.lr.ph5462, label %.loopexit, !llvm.loop !98
+  %8804 = tail call i32 @ptvcursor_current_offset(ptr noundef %82)
+  %8805 = icmp slt i32 %8804, %4
+  br i1 %8805, label %.lr.ph5462, label %.loopexit, !llvm.loop !98
 
-8804:                                             ; preds = %6
-  %8805 = load i32, ptr @hf_woww_guid, align 4
-  %8806 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8805, i32 noundef 8, i32 noundef -2147483648)
-  %8807 = load i32, ptr @hf_woww_delay_time, align 4
-  %8808 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8807, i32 noundef 4, i32 noundef -2147483648)
+8806:                                             ; preds = %6
+  %8807 = load i32, ptr @hf_woww_guid, align 4
+  %8808 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8807, i32 noundef 8, i32 noundef -2147483648)
+  %8809 = load i32, ptr @hf_woww_delay_time, align 4
+  %8810 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8809, i32 noundef 4, i32 noundef -2147483648)
   br label %.loopexit
 
-8809:                                             ; preds = %6
-  %8810 = load i32, ptr @hf_woww_caster, align 4
-  %8811 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8810, i32 noundef 8, i32 noundef -2147483648)
-  %8812 = load i32, ptr @hf_woww_id, align 4
-  %8813 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8812, i32 noundef 4, i32 noundef -2147483648)
+8811:                                             ; preds = %6
+  %8812 = load i32, ptr @hf_woww_caster, align 4
+  %8813 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8812, i32 noundef 8, i32 noundef -2147483648)
+  %8814 = load i32, ptr @hf_woww_id, align 4
+  %8815 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8814, i32 noundef 4, i32 noundef -2147483648)
   br label %.loopexit
 
-8814:                                             ; preds = %6
-  %8815 = load i32, ptr @hf_woww_guid, align 4
-  %8816 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8815, i32 noundef 8, i32 noundef -2147483648)
-  %8817 = load i32, ptr @hf_woww_spell, align 4
-  %8818 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8817, i32 noundef 4, i32 noundef -2147483648)
-  %8819 = load i32, ptr @hf_woww_spell_cast_result, align 4
-  %8820 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8819, i32 noundef 1, i32 noundef -2147483648)
+8816:                                             ; preds = %6
+  %8817 = load i32, ptr @hf_woww_guid, align 4
+  %8818 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8817, i32 noundef 8, i32 noundef -2147483648)
+  %8819 = load i32, ptr @hf_woww_spell, align 4
+  %8820 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8819, i32 noundef 4, i32 noundef -2147483648)
+  %8821 = load i32, ptr @hf_woww_spell_cast_result, align 4
+  %8822 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8821, i32 noundef 1, i32 noundef -2147483648)
   br label %.loopexit
 
-8821:                                             ; preds = %6
+8823:                                             ; preds = %6
   tail call fastcc void @add_packed_guid(ptr noundef %82, ptr noundef %5)
   tail call fastcc void @add_packed_guid(ptr noundef %82, ptr noundef %5)
-  %8822 = load i32, ptr @hf_woww_spell, align 4
-  %8823 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8822, i32 noundef 4, i32 noundef -2147483648)
-  %8824 = load i32, ptr @hf_woww_cast_flags, align 4
-  %8825 = call ptr @ptvcursor_add_ret_uint(ptr noundef %82, i32 noundef %8824, i32 noundef 2, i32 noundef -2147483648, ptr noundef nonnull %56)
-  %8826 = load i32, ptr @hf_woww_amount_of_hits, align 4
-  %8827 = call ptr @ptvcursor_add_ret_uint(ptr noundef %82, i32 noundef %8826, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %23)
-  %8828 = load i32, ptr %23, align 4
-  %.not5689 = icmp eq i32 %8828, 0
+  %8824 = load i32, ptr @hf_woww_spell, align 4
+  %8825 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8824, i32 noundef 4, i32 noundef -2147483648)
+  %8826 = load i32, ptr @hf_woww_cast_flags, align 4
+  %8827 = call ptr @ptvcursor_add_ret_uint(ptr noundef %82, i32 noundef %8826, i32 noundef 2, i32 noundef -2147483648, ptr noundef nonnull %56)
+  %8828 = load i32, ptr @hf_woww_amount_of_hits, align 4
+  %8829 = call ptr @ptvcursor_add_ret_uint(ptr noundef %82, i32 noundef %8828, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %23)
+  %8830 = load i32, ptr %23, align 4
+  %.not5689 = icmp eq i32 %8830, 0
   br i1 %.not5689, label %._crit_edge5456, label %.lr.ph5455
 
-._crit_edge5456:                                  ; preds = %.lr.ph5455, %8821
-  %8829 = load i32, ptr @hf_woww_amount_of_misses, align 4
-  %8830 = call ptr @ptvcursor_add_ret_uint(ptr noundef %82, i32 noundef %8829, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %29)
-  %8831 = load i32, ptr %29, align 4
-  %.not5690 = icmp eq i32 %8831, 0
+._crit_edge5456:                                  ; preds = %.lr.ph5455, %8823
+  %8831 = load i32, ptr @hf_woww_amount_of_misses, align 4
+  %8832 = call ptr @ptvcursor_add_ret_uint(ptr noundef %82, i32 noundef %8831, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %29)
+  %8833 = load i32, ptr %29, align 4
+  %.not5690 = icmp eq i32 %8833, 0
   br i1 %.not5690, label %._crit_edge5460, label %.lr.ph5459
 
-.lr.ph5455:                                       ; preds = %8821, %.lr.ph5455
-  %.047575453 = phi i32 [ %8834, %.lr.ph5455 ], [ 0, %8821 ]
-  %8832 = load i32, ptr @hf_woww_hits, align 4
-  %8833 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8832, i32 noundef 8, i32 noundef -2147483648)
-  %8834 = add nuw i32 %.047575453, 1
-  %8835 = load i32, ptr %23, align 4
-  %8836 = icmp ult i32 %8834, %8835
-  br i1 %8836, label %.lr.ph5455, label %._crit_edge5456, !llvm.loop !99
+.lr.ph5455:                                       ; preds = %8823, %.lr.ph5455
+  %.047575453 = phi i32 [ %8836, %.lr.ph5455 ], [ 0, %8823 ]
+  %8834 = load i32, ptr @hf_woww_hits, align 4
+  %8835 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8834, i32 noundef 8, i32 noundef -2147483648)
+  %8836 = add nuw i32 %.047575453, 1
+  %8837 = load i32, ptr %23, align 4
+  %8838 = icmp ult i32 %8836, %8837
+  br i1 %8838, label %.lr.ph5455, label %._crit_edge5456, !llvm.loop !99
 
 ._crit_edge5460:                                  ; preds = %.lr.ph5459, %._crit_edge5456
-  %8837 = load i32, ptr @ett_message, align 4
-  %8838 = call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %82, i32 noundef -1, i32 noundef %8837, ptr noundef nonnull @.str.6361)
-  %8839 = load i32, ptr @hf_woww_spell_cast_target_flags, align 4
-  %8840 = call ptr @ptvcursor_add_ret_uint(ptr noundef %82, i32 noundef %8839, i32 noundef 2, i32 noundef -2147483648, ptr noundef nonnull %76)
-  %8841 = load i32, ptr %76, align 4
-  %8842 = and i32 %8841, 2
-  %.not4897 = icmp eq i32 %8842, 0
-  br i1 %.not4897, label %8853, label %8852
+  %8839 = load i32, ptr @ett_message, align 4
+  %8840 = call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %82, i32 noundef -1, i32 noundef %8839, ptr noundef nonnull @.str.6361)
+  %8841 = load i32, ptr @hf_woww_spell_cast_target_flags, align 4
+  %8842 = call ptr @ptvcursor_add_ret_uint(ptr noundef %82, i32 noundef %8841, i32 noundef 2, i32 noundef -2147483648, ptr noundef nonnull %76)
+  %8843 = load i32, ptr %76, align 4
+  %8844 = and i32 %8843, 2
+  %.not4897 = icmp eq i32 %8844, 0
+  br i1 %.not4897, label %8855, label %8854
 
 .lr.ph5459:                                       ; preds = %._crit_edge5456, %.lr.ph5459
-  %.047565457 = phi i32 [ %8849, %.lr.ph5459 ], [ 0, %._crit_edge5456 ]
-  %8843 = load i32, ptr @ett_message, align 4
-  %8844 = call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %82, i32 noundef -1, i32 noundef %8843, ptr noundef nonnull @.str.6413, i32 noundef %.047565457)
-  %8845 = load i32, ptr @hf_woww_target, align 4
-  %8846 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8845, i32 noundef 8, i32 noundef -2147483648)
-  %8847 = load i32, ptr @hf_woww_spell_miss_info, align 4
-  %8848 = call ptr @ptvcursor_add_ret_uint(ptr noundef %82, i32 noundef %8847, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %64)
+  %.047565457 = phi i32 [ %8851, %.lr.ph5459 ], [ 0, %._crit_edge5456 ]
+  %8845 = load i32, ptr @ett_message, align 4
+  %8846 = call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %82, i32 noundef -1, i32 noundef %8845, ptr noundef nonnull @.str.6413, i32 noundef %.047565457)
+  %8847 = load i32, ptr @hf_woww_target, align 4
+  %8848 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8847, i32 noundef 8, i32 noundef -2147483648)
+  %8849 = load i32, ptr @hf_woww_spell_miss_info, align 4
+  %8850 = call ptr @ptvcursor_add_ret_uint(ptr noundef %82, i32 noundef %8849, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %64)
   call void @ptvcursor_pop_subtree(ptr noundef %82)
-  %8849 = add nuw i32 %.047565457, 1
-  %8850 = load i32, ptr %29, align 4
-  %8851 = icmp ult i32 %8849, %8850
-  br i1 %8851, label %.lr.ph5459, label %._crit_edge5460, !llvm.loop !100
+  %8851 = add nuw i32 %.047565457, 1
+  %8852 = load i32, ptr %29, align 4
+  %8853 = icmp ult i32 %8851, %8852
+  br i1 %8853, label %.lr.ph5459, label %._crit_edge5460, !llvm.loop !100
 
-8852:                                             ; preds = %._crit_edge5460
+8854:                                             ; preds = %._crit_edge5460
   call fastcc void @add_packed_guid(ptr noundef %82, ptr noundef %5)
   %.pre5829 = load i32, ptr %76, align 4
-  br label %8853
+  br label %8855
 
-8853:                                             ; preds = %8852, %._crit_edge5460
-  %8854 = phi i32 [ %.pre5829, %8852 ], [ %8841, %._crit_edge5460 ]
-  %8855 = and i32 %8854, 2176
-  %or.cond6122 = icmp eq i32 %8855, 0
-  br i1 %or.cond6122, label %8856, label %.sink.split6107
+8855:                                             ; preds = %8854, %._crit_edge5460
+  %8856 = phi i32 [ %.pre5829, %8854 ], [ %8843, %._crit_edge5460 ]
+  %8857 = and i32 %8856, 2176
+  %or.cond6122 = icmp eq i32 %8857, 0
+  br i1 %or.cond6122, label %8858, label %.sink.split6107
 
-.sink.split6107:                                  ; preds = %8853
+.sink.split6107:                                  ; preds = %8855
   call fastcc void @add_packed_guid(ptr noundef %82, ptr noundef %5)
-  br label %8856
+  br label %8858
 
-8856:                                             ; preds = %8853, %.sink.split6107
-  %8857 = load i32, ptr %76, align 4
-  %8858 = and i32 %8857, 4112
-  %or.cond6123 = icmp eq i32 %8858, 0
-  br i1 %or.cond6123, label %8859, label %.sink.split6108
+8858:                                             ; preds = %8855, %.sink.split6107
+  %8859 = load i32, ptr %76, align 4
+  %8860 = and i32 %8859, 4112
+  %or.cond6123 = icmp eq i32 %8860, 0
+  br i1 %or.cond6123, label %8861, label %.sink.split6108
 
-.sink.split6108:                                  ; preds = %8856
+.sink.split6108:                                  ; preds = %8858
   call fastcc void @add_packed_guid(ptr noundef %82, ptr noundef %5)
-  br label %8859
+  br label %8861
 
-8859:                                             ; preds = %8856, %.sink.split6108
-  %8860 = load i32, ptr %76, align 4
-  %8861 = and i32 %8860, 32
-  %.not4902 = icmp eq i32 %8861, 0
-  br i1 %.not4902, label %8871, label %8862
+8861:                                             ; preds = %8858, %.sink.split6108
+  %8862 = load i32, ptr %76, align 4
+  %8863 = and i32 %8862, 32
+  %.not4902 = icmp eq i32 %8863, 0
+  br i1 %.not4902, label %8873, label %8864
 
-8862:                                             ; preds = %8859
-  %8863 = load i32, ptr @ett_message, align 4
-  %8864 = call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %82, i32 noundef -1, i32 noundef %8863, ptr noundef nonnull @.str.6362)
-  %8865 = load i32, ptr @hf_woww_x, align 4
-  %8866 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8865, i32 noundef 4, i32 noundef -2147483648)
-  %8867 = load i32, ptr @hf_woww_y, align 4
+8864:                                             ; preds = %8861
+  %8865 = load i32, ptr @ett_message, align 4
+  %8866 = call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %82, i32 noundef -1, i32 noundef %8865, ptr noundef nonnull @.str.6362)
+  %8867 = load i32, ptr @hf_woww_x, align 4
   %8868 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8867, i32 noundef 4, i32 noundef -2147483648)
-  %8869 = load i32, ptr @hf_woww_z, align 4
+  %8869 = load i32, ptr @hf_woww_y, align 4
   %8870 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8869, i32 noundef 4, i32 noundef -2147483648)
+  %8871 = load i32, ptr @hf_woww_z, align 4
+  %8872 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8871, i32 noundef 4, i32 noundef -2147483648)
   call void @ptvcursor_pop_subtree(ptr noundef %82)
   %.pre5830 = load i32, ptr %76, align 4
-  br label %8871
+  br label %8873
 
-8871:                                             ; preds = %8862, %8859
-  %8872 = phi i32 [ %.pre5830, %8862 ], [ %8860, %8859 ]
-  %8873 = and i32 %8872, 64
-  %.not4903 = icmp eq i32 %8873, 0
-  br i1 %.not4903, label %8883, label %8874
+8873:                                             ; preds = %8864, %8861
+  %8874 = phi i32 [ %.pre5830, %8864 ], [ %8862, %8861 ]
+  %8875 = and i32 %8874, 64
+  %.not4903 = icmp eq i32 %8875, 0
+  br i1 %.not4903, label %8885, label %8876
 
-8874:                                             ; preds = %8871
-  %8875 = load i32, ptr @ett_message, align 4
-  %8876 = call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %82, i32 noundef -1, i32 noundef %8875, ptr noundef nonnull @.str.6362)
-  %8877 = load i32, ptr @hf_woww_x, align 4
-  %8878 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8877, i32 noundef 4, i32 noundef -2147483648)
-  %8879 = load i32, ptr @hf_woww_y, align 4
+8876:                                             ; preds = %8873
+  %8877 = load i32, ptr @ett_message, align 4
+  %8878 = call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %82, i32 noundef -1, i32 noundef %8877, ptr noundef nonnull @.str.6362)
+  %8879 = load i32, ptr @hf_woww_x, align 4
   %8880 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8879, i32 noundef 4, i32 noundef -2147483648)
-  %8881 = load i32, ptr @hf_woww_z, align 4
+  %8881 = load i32, ptr @hf_woww_y, align 4
   %8882 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8881, i32 noundef 4, i32 noundef -2147483648)
+  %8883 = load i32, ptr @hf_woww_z, align 4
+  %8884 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8883, i32 noundef 4, i32 noundef -2147483648)
   call void @ptvcursor_pop_subtree(ptr noundef %82)
   %.pre5831 = load i32, ptr %76, align 4
-  br label %8883
+  br label %8885
 
-8883:                                             ; preds = %8874, %8871
-  %8884 = phi i32 [ %.pre5831, %8874 ], [ %8872, %8871 ]
-  %8885 = and i32 %8884, 8192
-  %.not4904 = icmp eq i32 %8885, 0
-  br i1 %.not4904, label %8887, label %8886
+8885:                                             ; preds = %8876, %8873
+  %8886 = phi i32 [ %.pre5831, %8876 ], [ %8874, %8873 ]
+  %8887 = and i32 %8886, 8192
+  %.not4904 = icmp eq i32 %8887, 0
+  br i1 %.not4904, label %8889, label %8888
 
-8886:                                             ; preds = %8883
+8888:                                             ; preds = %8885
   call fastcc void @add_cstring(ptr noundef %82, ptr noundef nonnull @hf_woww_target_string)
   %.pre5832 = load i32, ptr %76, align 4
-  br label %8887
+  br label %8889
 
-8887:                                             ; preds = %8886, %8883
-  %8888 = phi i32 [ %.pre5832, %8886 ], [ %8884, %8883 ]
-  %8889 = and i32 %8888, 33280
-  %or.cond6124 = icmp eq i32 %8889, 0
-  br i1 %or.cond6124, label %8890, label %.sink.split6109
+8889:                                             ; preds = %8888, %8885
+  %8890 = phi i32 [ %.pre5832, %8888 ], [ %8886, %8885 ]
+  %8891 = and i32 %8890, 33280
+  %or.cond6124 = icmp eq i32 %8891, 0
+  br i1 %or.cond6124, label %8892, label %.sink.split6109
 
-.sink.split6109:                                  ; preds = %8887
+.sink.split6109:                                  ; preds = %8889
   call fastcc void @add_packed_guid(ptr noundef %82, ptr noundef %5)
-  br label %8890
+  br label %8892
 
-8890:                                             ; preds = %8887, %.sink.split6109
+8892:                                             ; preds = %8889, %.sink.split6109
   call void @ptvcursor_pop_subtree(ptr noundef %82)
-  %8891 = load i32, ptr %56, align 4
-  %8892 = and i32 %8891, 32
-  %.not4907 = icmp eq i32 %8892, 0
-  br i1 %.not4907, label %.loopexit, label %8893
+  %8893 = load i32, ptr %56, align 4
+  %8894 = and i32 %8893, 32
+  %.not4907 = icmp eq i32 %8894, 0
+  br i1 %.not4907, label %.loopexit, label %8895
 
-8893:                                             ; preds = %8890
-  %8894 = load i32, ptr @hf_woww_ammo_display_id, align 4
-  %8895 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8894, i32 noundef 4, i32 noundef -2147483648)
-  %8896 = load i32, ptr @hf_woww_ammo_inventory_type, align 4
+8895:                                             ; preds = %8892
+  %8896 = load i32, ptr @hf_woww_ammo_display_id, align 4
   %8897 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8896, i32 noundef 4, i32 noundef -2147483648)
+  %8898 = load i32, ptr @hf_woww_ammo_inventory_type, align 4
+  %8899 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8898, i32 noundef 4, i32 noundef -2147483648)
   br label %.loopexit
 
-8898:                                             ; preds = %6
+8900:                                             ; preds = %6
   tail call fastcc void @add_packed_guid(ptr noundef %82, ptr noundef %5)
   tail call fastcc void @add_packed_guid(ptr noundef %82, ptr noundef %5)
-  %8899 = load i32, ptr @hf_woww_spell, align 4
-  %8900 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8899, i32 noundef 4, i32 noundef -2147483648)
-  %8901 = load i32, ptr @hf_woww_cast_flags, align 4
-  %8902 = call ptr @ptvcursor_add_ret_uint(ptr noundef %82, i32 noundef %8901, i32 noundef 2, i32 noundef -2147483648, ptr noundef nonnull %56)
-  %8903 = load i32, ptr @hf_woww_timer, align 4
-  %8904 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8903, i32 noundef 4, i32 noundef -2147483648)
-  %8905 = load i32, ptr @ett_message, align 4
-  %8906 = call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %82, i32 noundef -1, i32 noundef %8905, ptr noundef nonnull @.str.6361)
-  %8907 = load i32, ptr @hf_woww_spell_cast_target_flags, align 4
-  %8908 = call ptr @ptvcursor_add_ret_uint(ptr noundef %82, i32 noundef %8907, i32 noundef 2, i32 noundef -2147483648, ptr noundef nonnull %76)
-  %8909 = load i32, ptr %76, align 4
-  %8910 = and i32 %8909, 2
-  %.not4886 = icmp eq i32 %8910, 0
-  br i1 %.not4886, label %8912, label %8911
+  %8901 = load i32, ptr @hf_woww_spell, align 4
+  %8902 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8901, i32 noundef 4, i32 noundef -2147483648)
+  %8903 = load i32, ptr @hf_woww_cast_flags, align 4
+  %8904 = call ptr @ptvcursor_add_ret_uint(ptr noundef %82, i32 noundef %8903, i32 noundef 2, i32 noundef -2147483648, ptr noundef nonnull %56)
+  %8905 = load i32, ptr @hf_woww_timer, align 4
+  %8906 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8905, i32 noundef 4, i32 noundef -2147483648)
+  %8907 = load i32, ptr @ett_message, align 4
+  %8908 = call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %82, i32 noundef -1, i32 noundef %8907, ptr noundef nonnull @.str.6361)
+  %8909 = load i32, ptr @hf_woww_spell_cast_target_flags, align 4
+  %8910 = call ptr @ptvcursor_add_ret_uint(ptr noundef %82, i32 noundef %8909, i32 noundef 2, i32 noundef -2147483648, ptr noundef nonnull %76)
+  %8911 = load i32, ptr %76, align 4
+  %8912 = and i32 %8911, 2
+  %.not4886 = icmp eq i32 %8912, 0
+  br i1 %.not4886, label %8914, label %8913
 
-8911:                                             ; preds = %8898
+8913:                                             ; preds = %8900
   call fastcc void @add_packed_guid(ptr noundef %82, ptr noundef %5)
   %.pre5825 = load i32, ptr %76, align 4
-  br label %8912
+  br label %8914
 
-8912:                                             ; preds = %8911, %8898
-  %8913 = phi i32 [ %.pre5825, %8911 ], [ %8909, %8898 ]
-  %8914 = and i32 %8913, 2176
-  %or.cond6125 = icmp eq i32 %8914, 0
-  br i1 %or.cond6125, label %8915, label %.sink.split6110
+8914:                                             ; preds = %8913, %8900
+  %8915 = phi i32 [ %.pre5825, %8913 ], [ %8911, %8900 ]
+  %8916 = and i32 %8915, 2176
+  %or.cond6125 = icmp eq i32 %8916, 0
+  br i1 %or.cond6125, label %8917, label %.sink.split6110
 
-.sink.split6110:                                  ; preds = %8912
+.sink.split6110:                                  ; preds = %8914
   call fastcc void @add_packed_guid(ptr noundef %82, ptr noundef %5)
-  br label %8915
+  br label %8917
 
-8915:                                             ; preds = %8912, %.sink.split6110
-  %8916 = load i32, ptr %76, align 4
-  %8917 = and i32 %8916, 4112
-  %or.cond6126 = icmp eq i32 %8917, 0
-  br i1 %or.cond6126, label %8918, label %.sink.split6111
+8917:                                             ; preds = %8914, %.sink.split6110
+  %8918 = load i32, ptr %76, align 4
+  %8919 = and i32 %8918, 4112
+  %or.cond6126 = icmp eq i32 %8919, 0
+  br i1 %or.cond6126, label %8920, label %.sink.split6111
 
-.sink.split6111:                                  ; preds = %8915
+.sink.split6111:                                  ; preds = %8917
   call fastcc void @add_packed_guid(ptr noundef %82, ptr noundef %5)
-  br label %8918
+  br label %8920
 
-8918:                                             ; preds = %8915, %.sink.split6111
-  %8919 = load i32, ptr %76, align 4
-  %8920 = and i32 %8919, 32
-  %.not4891 = icmp eq i32 %8920, 0
-  br i1 %.not4891, label %8930, label %8921
+8920:                                             ; preds = %8917, %.sink.split6111
+  %8921 = load i32, ptr %76, align 4
+  %8922 = and i32 %8921, 32
+  %.not4891 = icmp eq i32 %8922, 0
+  br i1 %.not4891, label %8932, label %8923
 
-8921:                                             ; preds = %8918
-  %8922 = load i32, ptr @ett_message, align 4
-  %8923 = call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %82, i32 noundef -1, i32 noundef %8922, ptr noundef nonnull @.str.6362)
-  %8924 = load i32, ptr @hf_woww_x, align 4
-  %8925 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8924, i32 noundef 4, i32 noundef -2147483648)
-  %8926 = load i32, ptr @hf_woww_y, align 4
+8923:                                             ; preds = %8920
+  %8924 = load i32, ptr @ett_message, align 4
+  %8925 = call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %82, i32 noundef -1, i32 noundef %8924, ptr noundef nonnull @.str.6362)
+  %8926 = load i32, ptr @hf_woww_x, align 4
   %8927 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8926, i32 noundef 4, i32 noundef -2147483648)
-  %8928 = load i32, ptr @hf_woww_z, align 4
+  %8928 = load i32, ptr @hf_woww_y, align 4
   %8929 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8928, i32 noundef 4, i32 noundef -2147483648)
+  %8930 = load i32, ptr @hf_woww_z, align 4
+  %8931 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8930, i32 noundef 4, i32 noundef -2147483648)
   call void @ptvcursor_pop_subtree(ptr noundef %82)
   %.pre5826 = load i32, ptr %76, align 4
-  br label %8930
+  br label %8932
 
-8930:                                             ; preds = %8921, %8918
-  %8931 = phi i32 [ %.pre5826, %8921 ], [ %8919, %8918 ]
-  %8932 = and i32 %8931, 64
-  %.not4892 = icmp eq i32 %8932, 0
-  br i1 %.not4892, label %8942, label %8933
+8932:                                             ; preds = %8923, %8920
+  %8933 = phi i32 [ %.pre5826, %8923 ], [ %8921, %8920 ]
+  %8934 = and i32 %8933, 64
+  %.not4892 = icmp eq i32 %8934, 0
+  br i1 %.not4892, label %8944, label %8935
 
-8933:                                             ; preds = %8930
-  %8934 = load i32, ptr @ett_message, align 4
-  %8935 = call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %82, i32 noundef -1, i32 noundef %8934, ptr noundef nonnull @.str.6362)
-  %8936 = load i32, ptr @hf_woww_x, align 4
-  %8937 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8936, i32 noundef 4, i32 noundef -2147483648)
-  %8938 = load i32, ptr @hf_woww_y, align 4
+8935:                                             ; preds = %8932
+  %8936 = load i32, ptr @ett_message, align 4
+  %8937 = call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %82, i32 noundef -1, i32 noundef %8936, ptr noundef nonnull @.str.6362)
+  %8938 = load i32, ptr @hf_woww_x, align 4
   %8939 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8938, i32 noundef 4, i32 noundef -2147483648)
-  %8940 = load i32, ptr @hf_woww_z, align 4
+  %8940 = load i32, ptr @hf_woww_y, align 4
   %8941 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8940, i32 noundef 4, i32 noundef -2147483648)
+  %8942 = load i32, ptr @hf_woww_z, align 4
+  %8943 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8942, i32 noundef 4, i32 noundef -2147483648)
   call void @ptvcursor_pop_subtree(ptr noundef %82)
   %.pre5827 = load i32, ptr %76, align 4
-  br label %8942
+  br label %8944
 
-8942:                                             ; preds = %8933, %8930
-  %8943 = phi i32 [ %.pre5827, %8933 ], [ %8931, %8930 ]
-  %8944 = and i32 %8943, 8192
-  %.not4893 = icmp eq i32 %8944, 0
-  br i1 %.not4893, label %8946, label %8945
+8944:                                             ; preds = %8935, %8932
+  %8945 = phi i32 [ %.pre5827, %8935 ], [ %8933, %8932 ]
+  %8946 = and i32 %8945, 8192
+  %.not4893 = icmp eq i32 %8946, 0
+  br i1 %.not4893, label %8948, label %8947
 
-8945:                                             ; preds = %8942
+8947:                                             ; preds = %8944
   call fastcc void @add_cstring(ptr noundef %82, ptr noundef nonnull @hf_woww_target_string)
   %.pre5828 = load i32, ptr %76, align 4
-  br label %8946
+  br label %8948
 
-8946:                                             ; preds = %8945, %8942
-  %8947 = phi i32 [ %.pre5828, %8945 ], [ %8943, %8942 ]
-  %8948 = and i32 %8947, 33280
-  %or.cond6127 = icmp eq i32 %8948, 0
-  br i1 %or.cond6127, label %8949, label %.sink.split6112
+8948:                                             ; preds = %8947, %8944
+  %8949 = phi i32 [ %.pre5828, %8947 ], [ %8945, %8944 ]
+  %8950 = and i32 %8949, 33280
+  %or.cond6127 = icmp eq i32 %8950, 0
+  br i1 %or.cond6127, label %8951, label %.sink.split6112
 
-.sink.split6112:                                  ; preds = %8946
+.sink.split6112:                                  ; preds = %8948
   call fastcc void @add_packed_guid(ptr noundef %82, ptr noundef %5)
-  br label %8949
+  br label %8951
 
-8949:                                             ; preds = %8946, %.sink.split6112
+8951:                                             ; preds = %8948, %.sink.split6112
   call void @ptvcursor_pop_subtree(ptr noundef %82)
-  %8950 = load i32, ptr %56, align 4
-  %8951 = and i32 %8950, 32
-  %.not4896 = icmp eq i32 %8951, 0
-  br i1 %.not4896, label %.loopexit, label %8952
+  %8952 = load i32, ptr %56, align 4
+  %8953 = and i32 %8952, 32
+  %.not4896 = icmp eq i32 %8953, 0
+  br i1 %.not4896, label %.loopexit, label %8954
 
-8952:                                             ; preds = %8949
-  %8953 = load i32, ptr @hf_woww_ammo_display_id, align 4
-  %8954 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8953, i32 noundef 4, i32 noundef -2147483648)
-  %8955 = load i32, ptr @hf_woww_ammo_inventory_type, align 4
+8954:                                             ; preds = %8951
+  %8955 = load i32, ptr @hf_woww_ammo_display_id, align 4
   %8956 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8955, i32 noundef 4, i32 noundef -2147483648)
+  %8957 = load i32, ptr @hf_woww_ammo_inventory_type, align 4
+  %8958 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8957, i32 noundef 4, i32 noundef -2147483648)
   br label %.loopexit
 
-8957:                                             ; preds = %6
-  %8958 = load i32, ptr @hf_woww_caster, align 4
-  %8959 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8958, i32 noundef 8, i32 noundef -2147483648)
-  %8960 = load i32, ptr @hf_woww_spell, align 4
-  %8961 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8960, i32 noundef 4, i32 noundef -2147483648)
-  %8962 = load i32, ptr @hf_woww_amount_of_targets, align 4
-  %8963 = call ptr @ptvcursor_add_ret_uint(ptr noundef %82, i32 noundef %8962, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %46)
-  %8964 = load i32, ptr %46, align 4
-  %.not5688 = icmp eq i32 %8964, 0
+8959:                                             ; preds = %6
+  %8960 = load i32, ptr @hf_woww_caster, align 4
+  %8961 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8960, i32 noundef 8, i32 noundef -2147483648)
+  %8962 = load i32, ptr @hf_woww_spell, align 4
+  %8963 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8962, i32 noundef 4, i32 noundef -2147483648)
+  %8964 = load i32, ptr @hf_woww_amount_of_targets, align 4
+  %8965 = call ptr @ptvcursor_add_ret_uint(ptr noundef %82, i32 noundef %8964, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %46)
+  %8966 = load i32, ptr %46, align 4
+  %.not5688 = icmp eq i32 %8966, 0
   br i1 %.not5688, label %.loopexit, label %.lr.ph5452
 
-.lr.ph5452:                                       ; preds = %8957, %.lr.ph5452
-  %.047555450 = phi i32 [ %8967, %.lr.ph5452 ], [ 0, %8957 ]
-  %8965 = load i32, ptr @hf_woww_targets, align 4
-  %8966 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8965, i32 noundef 8, i32 noundef -2147483648)
-  %8967 = add nuw i32 %.047555450, 1
-  %8968 = load i32, ptr %46, align 4
-  %8969 = icmp ult i32 %8967, %8968
-  br i1 %8969, label %.lr.ph5452, label %.loopexit, !llvm.loop !101
+.lr.ph5452:                                       ; preds = %8959, %.lr.ph5452
+  %.047555450 = phi i32 [ %8969, %.lr.ph5452 ], [ 0, %8959 ]
+  %8967 = load i32, ptr @hf_woww_targets, align 4
+  %8968 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8967, i32 noundef 8, i32 noundef -2147483648)
+  %8969 = add nuw i32 %.047555450, 1
+  %8970 = load i32, ptr %46, align 4
+  %8971 = icmp ult i32 %8969, %8970
+  br i1 %8971, label %.lr.ph5452, label %.loopexit, !llvm.loop !101
 
-8970:                                             ; preds = %6
-  %8971 = load i32, ptr @hf_woww_guid, align 4
-  %8972 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8971, i32 noundef 8, i32 noundef -2147483648)
-  br label %.loopexit
-
-8973:                                             ; preds = %6
-  tail call fastcc void @add_packed_guid(ptr noundef %82, ptr noundef %5)
-  br label %.loopexit
-
-8974:                                             ; preds = %6
-  tail call fastcc void @add_packed_guid(ptr noundef %82, ptr noundef %5)
+8972:                                             ; preds = %6
+  %8973 = load i32, ptr @hf_woww_guid, align 4
+  %8974 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8973, i32 noundef 8, i32 noundef -2147483648)
   br label %.loopexit
 
 8975:                                             ; preds = %6
@@ -22199,16 +22193,16 @@ add_cstring.exit5357:                             ; preds = %8484, %8485
   br label %.loopexit
 
 8976:                                             ; preds = %6
-  %8977 = load i32, ptr @hf_woww_guid, align 4
-  %8978 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8977, i32 noundef 8, i32 noundef -2147483648)
-  br label %.loopexit
-
-8979:                                             ; preds = %6
   tail call fastcc void @add_packed_guid(ptr noundef %82, ptr noundef %5)
   br label %.loopexit
 
-8980:                                             ; preds = %6
+8977:                                             ; preds = %6
   tail call fastcc void @add_packed_guid(ptr noundef %82, ptr noundef %5)
+  br label %.loopexit
+
+8978:                                             ; preds = %6
+  %8979 = load i32, ptr @hf_woww_guid, align 4
+  %8980 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8979, i32 noundef 8, i32 noundef -2147483648)
   br label %.loopexit
 
 8981:                                             ; preds = %6
@@ -22237,993 +22231,1001 @@ add_cstring.exit5357:                             ; preds = %8484, %8485
 
 8987:                                             ; preds = %6
   tail call fastcc void @add_packed_guid(ptr noundef %82, ptr noundef %5)
-  %8988 = load i32, ptr @hf_woww_speed, align 4
-  %8989 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8988, i32 noundef 4, i32 noundef -2147483648)
   br label %.loopexit
 
-8990:                                             ; preds = %6
+8988:                                             ; preds = %6
   tail call fastcc void @add_packed_guid(ptr noundef %82, ptr noundef %5)
-  %8991 = load i32, ptr @hf_woww_speed, align 4
-  %8992 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8991, i32 noundef 4, i32 noundef -2147483648)
   br label %.loopexit
 
-8993:                                             ; preds = %6
+8989:                                             ; preds = %6
   tail call fastcc void @add_packed_guid(ptr noundef %82, ptr noundef %5)
-  %8994 = load i32, ptr @hf_woww_speed, align 4
-  %8995 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8994, i32 noundef 4, i32 noundef -2147483648)
+  %8990 = load i32, ptr @hf_woww_speed, align 4
+  %8991 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8990, i32 noundef 4, i32 noundef -2147483648)
   br label %.loopexit
 
-8996:                                             ; preds = %6
+8992:                                             ; preds = %6
   tail call fastcc void @add_packed_guid(ptr noundef %82, ptr noundef %5)
-  %8997 = load i32, ptr @hf_woww_speed, align 4
-  %8998 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8997, i32 noundef 4, i32 noundef -2147483648)
+  %8993 = load i32, ptr @hf_woww_speed, align 4
+  %8994 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8993, i32 noundef 4, i32 noundef -2147483648)
   br label %.loopexit
 
-8999:                                             ; preds = %6
+8995:                                             ; preds = %6
   tail call fastcc void @add_packed_guid(ptr noundef %82, ptr noundef %5)
-  %9000 = load i32, ptr @hf_woww_speed, align 4
-  %9001 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9000, i32 noundef 4, i32 noundef -2147483648)
+  %8996 = load i32, ptr @hf_woww_speed, align 4
+  %8997 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8996, i32 noundef 4, i32 noundef -2147483648)
   br label %.loopexit
 
-9002:                                             ; preds = %6
+8998:                                             ; preds = %6
   tail call fastcc void @add_packed_guid(ptr noundef %82, ptr noundef %5)
-  %9003 = load i32, ptr @hf_woww_speed, align 4
-  %9004 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9003, i32 noundef 4, i32 noundef -2147483648)
+  %8999 = load i32, ptr @hf_woww_speed, align 4
+  %9000 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8999, i32 noundef 4, i32 noundef -2147483648)
   br label %.loopexit
 
-9005:                                             ; preds = %6
-  %9006 = load i32, ptr @hf_woww_stable_result, align 4
-  %9007 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9006, i32 noundef 1, i32 noundef -2147483648)
+9001:                                             ; preds = %6
+  tail call fastcc void @add_packed_guid(ptr noundef %82, ptr noundef %5)
+  %9002 = load i32, ptr @hf_woww_speed, align 4
+  %9003 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9002, i32 noundef 4, i32 noundef -2147483648)
   br label %.loopexit
 
-9008:                                             ; preds = %6
-  %9009 = load i32, ptr @hf_woww_unit_stand_state, align 4
-  %9010 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9009, i32 noundef 1, i32 noundef -2147483648)
+9004:                                             ; preds = %6
+  tail call fastcc void @add_packed_guid(ptr noundef %82, ptr noundef %5)
+  %9005 = load i32, ptr @hf_woww_speed, align 4
+  %9006 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9005, i32 noundef 4, i32 noundef -2147483648)
   br label %.loopexit
 
-9011:                                             ; preds = %6
-  %9012 = load i32, ptr @hf_woww_timer_type, align 4
-  %9013 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9012, i32 noundef 4, i32 noundef -2147483648)
-  %9014 = load i32, ptr @hf_woww_time_remaining, align 4
+9007:                                             ; preds = %6
+  %9008 = load i32, ptr @hf_woww_stable_result, align 4
+  %9009 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9008, i32 noundef 1, i32 noundef -2147483648)
+  br label %.loopexit
+
+9010:                                             ; preds = %6
+  %9011 = load i32, ptr @hf_woww_unit_stand_state, align 4
+  %9012 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9011, i32 noundef 1, i32 noundef -2147483648)
+  br label %.loopexit
+
+9013:                                             ; preds = %6
+  %9014 = load i32, ptr @hf_woww_timer_type, align 4
   %9015 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9014, i32 noundef 4, i32 noundef -2147483648)
-  %9016 = load i32, ptr @hf_woww_duration, align 4
+  %9016 = load i32, ptr @hf_woww_time_remaining, align 4
   %9017 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9016, i32 noundef 4, i32 noundef -2147483648)
-  %9018 = load i32, ptr @hf_woww_scale, align 4
+  %9018 = load i32, ptr @hf_woww_duration, align 4
   %9019 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9018, i32 noundef 4, i32 noundef -2147483648)
-  %9020 = load i32, ptr @hf_woww_is_frozen, align 4
-  %9021 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9020, i32 noundef 1, i32 noundef 0)
-  %9022 = load i32, ptr @hf_woww_id, align 4
-  %9023 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9022, i32 noundef 4, i32 noundef -2147483648)
+  %9020 = load i32, ptr @hf_woww_scale, align 4
+  %9021 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9020, i32 noundef 4, i32 noundef -2147483648)
+  %9022 = load i32, ptr @hf_woww_is_frozen, align 4
+  %9023 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9022, i32 noundef 1, i32 noundef 0)
+  %9024 = load i32, ptr @hf_woww_id, align 4
+  %9025 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9024, i32 noundef 4, i32 noundef -2147483648)
   br label %.loopexit
 
-9024:                                             ; preds = %6
-  %9025 = load i32, ptr @hf_woww_timer_type, align 4
-  %9026 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9025, i32 noundef 4, i32 noundef -2147483648)
+9026:                                             ; preds = %6
+  %9027 = load i32, ptr @hf_woww_timer_type, align 4
+  %9028 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9027, i32 noundef 4, i32 noundef -2147483648)
   br label %.loopexit
 
-9027:                                             ; preds = %6
-  %9028 = load i32, ptr @hf_woww_summoner, align 4
-  %9029 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9028, i32 noundef 8, i32 noundef -2147483648)
-  %9030 = load i32, ptr @hf_woww_area, align 4
-  %9031 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9030, i32 noundef 4, i32 noundef -2147483648)
-  %9032 = load i32, ptr @hf_woww_auto_decline_time, align 4
+9029:                                             ; preds = %6
+  %9030 = load i32, ptr @hf_woww_summoner, align 4
+  %9031 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9030, i32 noundef 8, i32 noundef -2147483648)
+  %9032 = load i32, ptr @hf_woww_area, align 4
   %9033 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9032, i32 noundef 4, i32 noundef -2147483648)
+  %9034 = load i32, ptr @hf_woww_auto_decline_time, align 4
+  %9035 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9034, i32 noundef 4, i32 noundef -2147483648)
   br label %.loopexit
 
-9034:                                             ; preds = %6
-  %9035 = load i32, ptr @hf_woww_new_spell_id, align 4
-  %9036 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9035, i32 noundef 2, i32 noundef -2147483648)
-  %9037 = load i32, ptr @hf_woww_old_spell_id, align 4
+9036:                                             ; preds = %6
+  %9037 = load i32, ptr @hf_woww_new_spell_id, align 4
   %9038 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9037, i32 noundef 2, i32 noundef -2147483648)
+  %9039 = load i32, ptr @hf_woww_old_spell_id, align 4
+  %9040 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9039, i32 noundef 2, i32 noundef -2147483648)
   br label %.loopexit
 
-9039:                                             ; preds = %6
-  %9040 = load i32, ptr @hf_woww_guid, align 4
-  %9041 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9040, i32 noundef 8, i32 noundef -2147483648)
-  %9042 = load i32, ptr @hf_woww_taxi_mask_node_known, align 4
-  %9043 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9042, i32 noundef 1, i32 noundef 0)
+9041:                                             ; preds = %6
+  %9042 = load i32, ptr @hf_woww_guid, align 4
+  %9043 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9042, i32 noundef 8, i32 noundef -2147483648)
+  %9044 = load i32, ptr @hf_woww_taxi_mask_node_known, align 4
+  %9045 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9044, i32 noundef 1, i32 noundef 0)
   br label %.loopexit
 
-9044:                                             ; preds = %6
-  %9045 = load i32, ptr @hf_woww_guid, align 4
-  %9046 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9045, i32 noundef 8, i32 noundef -2147483648)
-  %9047 = load i32, ptr @hf_woww_text_emote, align 4
-  %9048 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9047, i32 noundef 4, i32 noundef -2147483648)
-  %9049 = load i32, ptr @hf_woww_emote_int, align 4
+9046:                                             ; preds = %6
+  %9047 = load i32, ptr @hf_woww_guid, align 4
+  %9048 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9047, i32 noundef 8, i32 noundef -2147483648)
+  %9049 = load i32, ptr @hf_woww_text_emote, align 4
   %9050 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9049, i32 noundef 4, i32 noundef -2147483648)
+  %9051 = load i32, ptr @hf_woww_emote_int, align 4
+  %9052 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9051, i32 noundef 4, i32 noundef -2147483648)
   tail call fastcc void @add_sized_cstring(ptr noundef %82, ptr noundef nonnull @hf_woww_name)
   br label %.loopexit
 
-9051:                                             ; preds = %6
-  %9052 = load i32, ptr @hf_woww_trade_status, align 4
-  %9053 = call ptr @ptvcursor_add_ret_uint(ptr noundef %82, i32 noundef %9052, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %74)
-  %9054 = load i32, ptr %74, align 4
-  switch i32 %9054, label %9065 [
-    i32 1, label %9055
-    i32 12, label %9058
+9053:                                             ; preds = %6
+  %9054 = load i32, ptr @hf_woww_trade_status, align 4
+  %9055 = call ptr @ptvcursor_add_ret_uint(ptr noundef %82, i32 noundef %9054, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %74)
+  %9056 = load i32, ptr %74, align 4
+  switch i32 %9056, label %9067 [
+    i32 1, label %9057
+    i32 12, label %9060
   ]
 
-9055:                                             ; preds = %9051
-  %9056 = load i32, ptr @hf_woww_unknown_guid, align 4
-  %9057 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9056, i32 noundef 8, i32 noundef -2147483648)
+9057:                                             ; preds = %9053
+  %9058 = load i32, ptr @hf_woww_unknown_guid, align 4
+  %9059 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9058, i32 noundef 8, i32 noundef -2147483648)
   br label %.loopexit
 
-9058:                                             ; preds = %9051
-  %9059 = load i32, ptr @hf_woww_inventory_result, align 4
-  %9060 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9059, i32 noundef 4, i32 noundef -2147483648)
-  %9061 = load i32, ptr @hf_woww_target_error, align 4
-  %9062 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9061, i32 noundef 1, i32 noundef 0)
-  %9063 = load i32, ptr @hf_woww_item_limit_category_id, align 4
-  %9064 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9063, i32 noundef 4, i32 noundef -2147483648)
+9060:                                             ; preds = %9053
+  %9061 = load i32, ptr @hf_woww_inventory_result, align 4
+  %9062 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9061, i32 noundef 4, i32 noundef -2147483648)
+  %9063 = load i32, ptr @hf_woww_target_error, align 4
+  %9064 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9063, i32 noundef 1, i32 noundef 0)
+  %9065 = load i32, ptr @hf_woww_item_limit_category_id, align 4
+  %9066 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9065, i32 noundef 4, i32 noundef -2147483648)
   br label %.loopexit
 
-9065:                                             ; preds = %9051
-  %9066 = and i32 %9054, -2
-  %or.cond91 = icmp eq i32 %9066, 22
-  br i1 %or.cond91, label %9067, label %.loopexit
+9067:                                             ; preds = %9053
+  %9068 = and i32 %9056, -2
+  %or.cond91 = icmp eq i32 %9068, 22
+  br i1 %or.cond91, label %9069, label %.loopexit
 
-9067:                                             ; preds = %9065
-  %9068 = load i32, ptr @hf_woww_slot, align 4
-  %9069 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9068, i32 noundef 1, i32 noundef -2147483648)
+9069:                                             ; preds = %9067
+  %9070 = load i32, ptr @hf_woww_slot, align 4
+  %9071 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9070, i32 noundef 1, i32 noundef -2147483648)
   br label %.loopexit
 
-9070:                                             ; preds = %6
-  %9071 = load i32, ptr @hf_woww_self_player, align 4
-  %9072 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9071, i32 noundef 1, i32 noundef 0)
-  %9073 = load i32, ptr @hf_woww_trade_slot_count, align 4
-  %9074 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9073, i32 noundef 4, i32 noundef -2147483648)
+9072:                                             ; preds = %6
+  %9073 = load i32, ptr @hf_woww_self_player, align 4
+  %9074 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9073, i32 noundef 1, i32 noundef 0)
   %9075 = load i32, ptr @hf_woww_trade_slot_count, align 4
   %9076 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9075, i32 noundef 4, i32 noundef -2147483648)
-  %9077 = load i32, ptr @hf_woww_money_in_trade, align 4
+  %9077 = load i32, ptr @hf_woww_trade_slot_count, align 4
   %9078 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9077, i32 noundef 4, i32 noundef -2147483648)
-  %9079 = load i32, ptr @hf_woww_spell_on_lowest_slot, align 4
+  %9079 = load i32, ptr @hf_woww_money_in_trade, align 4
   %9080 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9079, i32 noundef 4, i32 noundef -2147483648)
-  br label %9081
+  %9081 = load i32, ptr @hf_woww_spell_on_lowest_slot, align 4
+  %9082 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9081, i32 noundef 4, i32 noundef -2147483648)
+  br label %9083
 
-9081:                                             ; preds = %9070, %9081
-  %.047545449 = phi i32 [ 0, %9070 ], [ %9112, %9081 ]
-  %9082 = load i32, ptr @ett_message, align 4
-  %9083 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %82, i32 noundef -1, i32 noundef %9082, ptr noundef nonnull @.str.6414, i32 noundef %.047545449)
-  %9084 = load i32, ptr @hf_woww_trade_slot_number, align 4
-  %9085 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9084, i32 noundef 1, i32 noundef -2147483648)
-  %9086 = load i32, ptr @hf_woww_item, align 4
-  %9087 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9086, i32 noundef 4, i32 noundef -2147483648)
-  %9088 = load i32, ptr @hf_woww_display_id, align 4
+9083:                                             ; preds = %9072, %9083
+  %.047545449 = phi i32 [ 0, %9072 ], [ %9114, %9083 ]
+  %9084 = load i32, ptr @ett_message, align 4
+  %9085 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %82, i32 noundef -1, i32 noundef %9084, ptr noundef nonnull @.str.6414, i32 noundef %.047545449)
+  %9086 = load i32, ptr @hf_woww_trade_slot_number, align 4
+  %9087 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9086, i32 noundef 1, i32 noundef -2147483648)
+  %9088 = load i32, ptr @hf_woww_item, align 4
   %9089 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9088, i32 noundef 4, i32 noundef -2147483648)
-  %9090 = load i32, ptr @hf_woww_stack_count, align 4
+  %9090 = load i32, ptr @hf_woww_display_id, align 4
   %9091 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9090, i32 noundef 4, i32 noundef -2147483648)
-  %9092 = load i32, ptr @hf_woww_wrapped, align 4
+  %9092 = load i32, ptr @hf_woww_stack_count, align 4
   %9093 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9092, i32 noundef 4, i32 noundef -2147483648)
-  %9094 = load i32, ptr @hf_woww_gift_wrapper, align 4
-  %9095 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9094, i32 noundef 8, i32 noundef -2147483648)
-  %9096 = load i32, ptr @hf_woww_enchantment, align 4
-  %9097 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9096, i32 noundef 4, i32 noundef -2147483648)
-  %9098 = load i32, ptr @hf_woww_item_creator, align 4
-  %9099 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9098, i32 noundef 8, i32 noundef -2147483648)
-  %9100 = load i32, ptr @hf_woww_spell_charges, align 4
-  %9101 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9100, i32 noundef 4, i32 noundef -2147483648)
-  %9102 = load i32, ptr @hf_woww_item_suffix_factor, align 4
+  %9094 = load i32, ptr @hf_woww_wrapped, align 4
+  %9095 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9094, i32 noundef 4, i32 noundef -2147483648)
+  %9096 = load i32, ptr @hf_woww_gift_wrapper, align 4
+  %9097 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9096, i32 noundef 8, i32 noundef -2147483648)
+  %9098 = load i32, ptr @hf_woww_enchantment, align 4
+  %9099 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9098, i32 noundef 4, i32 noundef -2147483648)
+  %9100 = load i32, ptr @hf_woww_item_creator, align 4
+  %9101 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9100, i32 noundef 8, i32 noundef -2147483648)
+  %9102 = load i32, ptr @hf_woww_spell_charges, align 4
   %9103 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9102, i32 noundef 4, i32 noundef -2147483648)
-  %9104 = load i32, ptr @hf_woww_item_random_properties_id, align 4
+  %9104 = load i32, ptr @hf_woww_item_suffix_factor, align 4
   %9105 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9104, i32 noundef 4, i32 noundef -2147483648)
-  %9106 = load i32, ptr @hf_woww_lock_id, align 4
+  %9106 = load i32, ptr @hf_woww_item_random_properties_id, align 4
   %9107 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9106, i32 noundef 4, i32 noundef -2147483648)
-  %9108 = load i32, ptr @hf_woww_max_durability, align 4
+  %9108 = load i32, ptr @hf_woww_lock_id, align 4
   %9109 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9108, i32 noundef 4, i32 noundef -2147483648)
-  %9110 = load i32, ptr @hf_woww_durability, align 4
+  %9110 = load i32, ptr @hf_woww_max_durability, align 4
   %9111 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9110, i32 noundef 4, i32 noundef -2147483648)
+  %9112 = load i32, ptr @hf_woww_durability, align 4
+  %9113 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9112, i32 noundef 4, i32 noundef -2147483648)
   tail call void @ptvcursor_pop_subtree(ptr noundef %82)
-  %9112 = add nuw nsw i32 %.047545449, 1
-  %exitcond5798.not = icmp eq i32 %9112, 7
-  br i1 %exitcond5798.not, label %.loopexit, label %9081, !llvm.loop !102
+  %9114 = add nuw nsw i32 %.047545449, 1
+  %exitcond5798.not = icmp eq i32 %9114, 7
+  br i1 %exitcond5798.not, label %.loopexit, label %9083, !llvm.loop !102
 
-9113:                                             ; preds = %6
-  %9114 = load i32, ptr @hf_woww_guid, align 4
-  %9115 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9114, i32 noundef 8, i32 noundef -2147483648)
-  %9116 = load i32, ptr @hf_woww_id, align 4
-  %9117 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9116, i32 noundef 4, i32 noundef -2147483648)
-  %9118 = load i32, ptr @hf_woww_training_failure_reason, align 4
+9115:                                             ; preds = %6
+  %9116 = load i32, ptr @hf_woww_guid, align 4
+  %9117 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9116, i32 noundef 8, i32 noundef -2147483648)
+  %9118 = load i32, ptr @hf_woww_id, align 4
   %9119 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9118, i32 noundef 4, i32 noundef -2147483648)
+  %9120 = load i32, ptr @hf_woww_training_failure_reason, align 4
+  %9121 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9120, i32 noundef 4, i32 noundef -2147483648)
   br label %.loopexit
 
-9120:                                             ; preds = %6
-  %9121 = load i32, ptr @hf_woww_guid, align 4
-  %9122 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9121, i32 noundef 8, i32 noundef -2147483648)
-  %9123 = load i32, ptr @hf_woww_id, align 4
-  %9124 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9123, i32 noundef 4, i32 noundef -2147483648)
+9122:                                             ; preds = %6
+  %9123 = load i32, ptr @hf_woww_guid, align 4
+  %9124 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9123, i32 noundef 8, i32 noundef -2147483648)
+  %9125 = load i32, ptr @hf_woww_id, align 4
+  %9126 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9125, i32 noundef 4, i32 noundef -2147483648)
   br label %.loopexit
 
-9125:                                             ; preds = %6
-  %9126 = load i32, ptr @hf_woww_guid, align 4
-  %9127 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9126, i32 noundef 8, i32 noundef -2147483648)
-  %9128 = load i32, ptr @hf_woww_trainer_type, align 4
-  %9129 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9128, i32 noundef 4, i32 noundef -2147483648)
-  %9130 = load i32, ptr @hf_woww_amount_of_spells, align 4
-  %9131 = call ptr @ptvcursor_add_ret_uint(ptr noundef %82, i32 noundef %9130, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %43)
-  %9132 = load i32, ptr %43, align 4
-  %.not5687 = icmp eq i32 %9132, 0
+9127:                                             ; preds = %6
+  %9128 = load i32, ptr @hf_woww_guid, align 4
+  %9129 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9128, i32 noundef 8, i32 noundef -2147483648)
+  %9130 = load i32, ptr @hf_woww_trainer_type, align 4
+  %9131 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9130, i32 noundef 4, i32 noundef -2147483648)
+  %9132 = load i32, ptr @hf_woww_amount_of_spells, align 4
+  %9133 = call ptr @ptvcursor_add_ret_uint(ptr noundef %82, i32 noundef %9132, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %43)
+  %9134 = load i32, ptr %43, align 4
+  %.not5687 = icmp eq i32 %9134, 0
   br i1 %.not5687, label %._crit_edge5448, label %.lr.ph5447
 
-._crit_edge5448:                                  ; preds = %9151, %9125
+._crit_edge5448:                                  ; preds = %9153, %9127
   call fastcc void @add_cstring(ptr noundef %82, ptr noundef nonnull @hf_woww_greeting)
   br label %.loopexit
 
-.lr.ph5447:                                       ; preds = %9125, %9151
-  %.047535445 = phi i32 [ %9152, %9151 ], [ 0, %9125 ]
-  %9133 = load i32, ptr @ett_message, align 4
-  %9134 = call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %82, i32 noundef -1, i32 noundef %9133, ptr noundef nonnull @.str.6415, i32 noundef %.047535445)
-  %9135 = load i32, ptr @hf_woww_spell, align 4
-  %9136 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9135, i32 noundef 4, i32 noundef -2147483648)
-  %9137 = load i32, ptr @hf_woww_trainer_spell_state, align 4
-  %9138 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9137, i32 noundef 1, i32 noundef -2147483648)
-  %9139 = load i32, ptr @hf_woww_spell_cost, align 4
-  %9140 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9139, i32 noundef 4, i32 noundef -2147483648)
-  %9141 = load i32, ptr @hf_woww_talent_point_cost, align 4
+.lr.ph5447:                                       ; preds = %9127, %9153
+  %.047535445 = phi i32 [ %9154, %9153 ], [ 0, %9127 ]
+  %9135 = load i32, ptr @ett_message, align 4
+  %9136 = call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %82, i32 noundef -1, i32 noundef %9135, ptr noundef nonnull @.str.6415, i32 noundef %.047535445)
+  %9137 = load i32, ptr @hf_woww_spell, align 4
+  %9138 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9137, i32 noundef 4, i32 noundef -2147483648)
+  %9139 = load i32, ptr @hf_woww_trainer_spell_state, align 4
+  %9140 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9139, i32 noundef 1, i32 noundef -2147483648)
+  %9141 = load i32, ptr @hf_woww_spell_cost, align 4
   %9142 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9141, i32 noundef 4, i32 noundef -2147483648)
-  %9143 = load i32, ptr @hf_woww_first_rank, align 4
+  %9143 = load i32, ptr @hf_woww_talent_point_cost, align 4
   %9144 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9143, i32 noundef 4, i32 noundef -2147483648)
-  %9145 = load i32, ptr @hf_woww_required_level, align 4
-  %9146 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9145, i32 noundef 1, i32 noundef -2147483648)
-  %9147 = load i32, ptr @hf_woww_skill, align 4
-  %9148 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9147, i32 noundef 4, i32 noundef -2147483648)
-  %9149 = load i32, ptr @hf_woww_required_skill_value, align 4
+  %9145 = load i32, ptr @hf_woww_first_rank, align 4
+  %9146 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9145, i32 noundef 4, i32 noundef -2147483648)
+  %9147 = load i32, ptr @hf_woww_required_level, align 4
+  %9148 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9147, i32 noundef 1, i32 noundef -2147483648)
+  %9149 = load i32, ptr @hf_woww_skill, align 4
   %9150 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9149, i32 noundef 4, i32 noundef -2147483648)
-  br label %9155
+  %9151 = load i32, ptr @hf_woww_required_skill_value, align 4
+  %9152 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9151, i32 noundef 4, i32 noundef -2147483648)
+  br label %9157
 
-9151:                                             ; preds = %9155
+9153:                                             ; preds = %9157
   call void @ptvcursor_pop_subtree(ptr noundef %82)
-  %9152 = add nuw i32 %.047535445, 1
-  %9153 = load i32, ptr %43, align 4
-  %9154 = icmp ult i32 %9152, %9153
-  br i1 %9154, label %.lr.ph5447, label %._crit_edge5448, !llvm.loop !103
+  %9154 = add nuw i32 %.047535445, 1
+  %9155 = load i32, ptr %43, align 4
+  %9156 = icmp ult i32 %9154, %9155
+  br i1 %9156, label %.lr.ph5447, label %._crit_edge5448, !llvm.loop !103
 
-9155:                                             ; preds = %.lr.ph5447, %9155
-  %.047525444 = phi i32 [ 0, %.lr.ph5447 ], [ %9158, %9155 ]
-  %9156 = load i32, ptr @hf_woww_required_spells, align 4
-  %9157 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9156, i32 noundef 4, i32 noundef -2147483648)
-  %9158 = add nuw nsw i32 %.047525444, 1
-  %exitcond5797.not = icmp eq i32 %9158, 3
-  br i1 %exitcond5797.not, label %9151, label %9155, !llvm.loop !104
+9157:                                             ; preds = %.lr.ph5447, %9157
+  %.047525444 = phi i32 [ 0, %.lr.ph5447 ], [ %9160, %9157 ]
+  %9158 = load i32, ptr @hf_woww_required_spells, align 4
+  %9159 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9158, i32 noundef 4, i32 noundef -2147483648)
+  %9160 = add nuw nsw i32 %.047525444, 1
+  %exitcond5797.not = icmp eq i32 %9160, 3
+  br i1 %exitcond5797.not, label %9153, label %9157, !llvm.loop !104
 
-9159:                                             ; preds = %6
-  %9160 = load i32, ptr @hf_woww_map, align 4
-  %9161 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9160, i32 noundef 4, i32 noundef -2147483648)
-  %9162 = load i32, ptr @hf_woww_transfer_abort_reason, align 4
-  %9163 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9162, i32 noundef 1, i32 noundef -2147483648)
-  %9164 = load i32, ptr @hf_woww_argument, align 4
+9161:                                             ; preds = %6
+  %9162 = load i32, ptr @hf_woww_map, align 4
+  %9163 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9162, i32 noundef 4, i32 noundef -2147483648)
+  %9164 = load i32, ptr @hf_woww_transfer_abort_reason, align 4
   %9165 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9164, i32 noundef 1, i32 noundef -2147483648)
+  %9166 = load i32, ptr @hf_woww_argument, align 4
+  %9167 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9166, i32 noundef 1, i32 noundef -2147483648)
   br label %.loopexit
 
-9166:                                             ; preds = %6
-  %9167 = load i32, ptr @hf_woww_map, align 4
-  %9168 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9167, i32 noundef 4, i32 noundef -2147483648)
-  %9169 = tail call i32 @ptvcursor_current_offset(ptr noundef %82)
-  %.not4885 = icmp eq i32 %4, %9169
-  br i1 %.not4885, label %.loopexit, label %9170
+9168:                                             ; preds = %6
+  %9169 = load i32, ptr @hf_woww_map, align 4
+  %9170 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9169, i32 noundef 4, i32 noundef -2147483648)
+  %9171 = tail call i32 @ptvcursor_current_offset(ptr noundef %82)
+  %.not4885 = icmp eq i32 %4, %9171
+  br i1 %.not4885, label %.loopexit, label %9172
 
-9170:                                             ; preds = %9166
-  %9171 = load i32, ptr @hf_woww_transport, align 4
-  %9172 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9171, i32 noundef 4, i32 noundef -2147483648)
-  %9173 = load i32, ptr @hf_woww_map, align 4
+9172:                                             ; preds = %9168
+  %9173 = load i32, ptr @hf_woww_transport, align 4
   %9174 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9173, i32 noundef 4, i32 noundef -2147483648)
+  %9175 = load i32, ptr @hf_woww_map, align 4
+  %9176 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9175, i32 noundef 4, i32 noundef -2147483648)
   br label %.loopexit
 
-9175:                                             ; preds = %6
-  %9176 = load i32, ptr @hf_woww_cinematic_sequence_id, align 4
-  %9177 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9176, i32 noundef 4, i32 noundef -2147483648)
+9177:                                             ; preds = %6
+  %9178 = load i32, ptr @hf_woww_cinematic_sequence_id, align 4
+  %9179 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9178, i32 noundef 4, i32 noundef -2147483648)
   br label %.loopexit
 
-9178:                                             ; preds = %6
-  %9179 = load i32, ptr @hf_woww_petition_result, align 4
-  %9180 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9179, i32 noundef 4, i32 noundef -2147483648)
+9180:                                             ; preds = %6
+  %9181 = load i32, ptr @hf_woww_petition_result, align 4
+  %9182 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9181, i32 noundef 4, i32 noundef -2147483648)
   br label %.loopexit
 
 .preheader5425:                                   ; preds = %6, %.preheader5425
-  %.047515443 = phi i32 [ %9183, %.preheader5425 ], [ 0, %6 ]
-  %9181 = load i32, ptr @hf_woww_tutorial_data, align 4
-  %9182 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9181, i32 noundef 4, i32 noundef -2147483648)
-  %9183 = add nuw nsw i32 %.047515443, 1
-  %exitcond.not = icmp eq i32 %9183, 8
+  %.047515443 = phi i32 [ %9185, %.preheader5425 ], [ 0, %6 ]
+  %9183 = load i32, ptr @hf_woww_tutorial_data, align 4
+  %9184 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9183, i32 noundef 4, i32 noundef -2147483648)
+  %9185 = add nuw nsw i32 %.047515443, 1
+  %exitcond.not = icmp eq i32 %9185, 8
   br i1 %exitcond.not, label %.loopexit, label %.preheader5425, !llvm.loop !105
 
-9184:                                             ; preds = %6
-  %9185 = load i32, ptr @hf_woww_aura_slot, align 4
-  %9186 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9185, i32 noundef 1, i32 noundef -2147483648)
-  %9187 = load i32, ptr @hf_woww_aura_duration, align 4
-  %9188 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9187, i32 noundef 4, i32 noundef -2147483648)
+9186:                                             ; preds = %6
+  %9187 = load i32, ptr @hf_woww_aura_slot, align 4
+  %9188 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9187, i32 noundef 1, i32 noundef -2147483648)
+  %9189 = load i32, ptr @hf_woww_aura_duration, align 4
+  %9190 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9189, i32 noundef 4, i32 noundef -2147483648)
   br label %.loopexit
 
-9189:                                             ; preds = %6
-  %9190 = load i32, ptr @hf_woww_player_is_saved_to_a_raid, align 4
-  %9191 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9190, i32 noundef 4, i32 noundef -2147483648)
+9191:                                             ; preds = %6
+  %9192 = load i32, ptr @hf_woww_player_is_saved_to_a_raid, align 4
+  %9193 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9192, i32 noundef 4, i32 noundef -2147483648)
   br label %.loopexit
 
-9192:                                             ; preds = %6
-  %9193 = load i32, ptr @hf_woww_map, align 4
-  %9194 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9193, i32 noundef 4, i32 noundef -2147483648)
+9194:                                             ; preds = %6
+  %9195 = load i32, ptr @hf_woww_map, align 4
+  %9196 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9195, i32 noundef 4, i32 noundef -2147483648)
   br label %.loopexit
 
-9195:                                             ; preds = %6
-  %9196 = load i32, ptr @hf_woww_amount_of_objects, align 4
-  %9197 = call ptr @ptvcursor_add_ret_uint(ptr noundef %82, i32 noundef %9196, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %31)
-  %9198 = load i32, ptr @hf_woww_has_transport, align 4
-  %9199 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9198, i32 noundef 1, i32 noundef -2147483648)
-  %9200 = load i32, ptr %31, align 4
-  %.not5683 = icmp eq i32 %9200, 0
+9197:                                             ; preds = %6
+  %9198 = load i32, ptr @hf_woww_amount_of_objects, align 4
+  %9199 = call ptr @ptvcursor_add_ret_uint(ptr noundef %82, i32 noundef %9198, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %31)
+  %9200 = load i32, ptr @hf_woww_has_transport, align 4
+  %9201 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9200, i32 noundef 1, i32 noundef -2147483648)
+  %9202 = load i32, ptr %31, align 4
+  %.not5683 = icmp eq i32 %9202, 0
   br i1 %.not5683, label %.loopexit, label %.lr.ph5442
 
-.lr.ph5442:                                       ; preds = %9195, %.loopexit5427
-  %.047505440 = phi i32 [ %9548, %.loopexit5427 ], [ 0, %9195 ]
-  %9201 = load i32, ptr @ett_message, align 4
-  %9202 = call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %82, i32 noundef -1, i32 noundef %9201, ptr noundef nonnull @.str.6378, i32 noundef %.047505440)
-  %9203 = load i32, ptr @hf_woww_update_type, align 4
-  %9204 = call ptr @ptvcursor_add_ret_uint(ptr noundef %82, i32 noundef %9203, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %79)
-  %9205 = load i32, ptr %79, align 4
-  switch i32 %9205, label %9372 [
-    i32 0, label %9206
-    i32 1, label %9207
+.lr.ph5442:                                       ; preds = %9197, %.loopexit5427
+  %.047505440 = phi i32 [ %9550, %.loopexit5427 ], [ 0, %9197 ]
+  %9203 = load i32, ptr @ett_message, align 4
+  %9204 = call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %82, i32 noundef -1, i32 noundef %9203, ptr noundef nonnull @.str.6378, i32 noundef %.047505440)
+  %9205 = load i32, ptr @hf_woww_update_type, align 4
+  %9206 = call ptr @ptvcursor_add_ret_uint(ptr noundef %82, i32 noundef %9205, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %79)
+  %9207 = load i32, ptr %79, align 4
+  switch i32 %9207, label %9374 [
+    i32 0, label %9208
+    i32 1, label %9209
   ]
 
-9206:                                             ; preds = %.lr.ph5442
+9208:                                             ; preds = %.lr.ph5442
   call fastcc void @add_packed_guid(ptr noundef %82, ptr noundef %5)
   call fastcc void @add_update_mask(ptr noundef %82, ptr noundef %5)
   br label %.loopexit5427
 
-9207:                                             ; preds = %.lr.ph5442
+9209:                                             ; preds = %.lr.ph5442
   call fastcc void @add_packed_guid(ptr noundef %82, ptr noundef %5)
-  %9208 = load i32, ptr @ett_message, align 4
-  %9209 = call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %82, i32 noundef -1, i32 noundef %9208, ptr noundef nonnull @.str.6379)
-  %9210 = load i32, ptr @hf_woww_update_flag, align 4
-  %9211 = call ptr @ptvcursor_add_ret_uint(ptr noundef %82, i32 noundef %9210, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %78)
-  %9212 = load i32, ptr %78, align 4
-  %9213 = and i32 %9212, 32
-  %.not4871 = icmp eq i32 %9213, 0
-  br i1 %.not4871, label %9336, label %9214
+  %9210 = load i32, ptr @ett_message, align 4
+  %9211 = call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %82, i32 noundef -1, i32 noundef %9210, ptr noundef nonnull @.str.6379)
+  %9212 = load i32, ptr @hf_woww_update_flag, align 4
+  %9213 = call ptr @ptvcursor_add_ret_uint(ptr noundef %82, i32 noundef %9212, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %78)
+  %9214 = load i32, ptr %78, align 4
+  %9215 = and i32 %9214, 32
+  %.not4871 = icmp eq i32 %9215, 0
+  br i1 %.not4871, label %9338, label %9216
 
-9214:                                             ; preds = %9207
-  %9215 = load i32, ptr @hf_woww_movement_flags, align 4
-  %9216 = call ptr @ptvcursor_add_ret_uint(ptr noundef %82, i32 noundef %9215, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %56)
-  %9217 = load i32, ptr @hf_woww_timestamp, align 4
-  %9218 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9217, i32 noundef 4, i32 noundef -2147483648)
-  %9219 = load i32, ptr @ett_message, align 4
-  %9220 = call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %82, i32 noundef -1, i32 noundef %9219, ptr noundef nonnull @.str.6362)
-  %9221 = load i32, ptr @hf_woww_x, align 4
-  %9222 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9221, i32 noundef 4, i32 noundef -2147483648)
-  %9223 = load i32, ptr @hf_woww_y, align 4
+9216:                                             ; preds = %9209
+  %9217 = load i32, ptr @hf_woww_movement_flags, align 4
+  %9218 = call ptr @ptvcursor_add_ret_uint(ptr noundef %82, i32 noundef %9217, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %56)
+  %9219 = load i32, ptr @hf_woww_timestamp, align 4
+  %9220 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9219, i32 noundef 4, i32 noundef -2147483648)
+  %9221 = load i32, ptr @ett_message, align 4
+  %9222 = call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %82, i32 noundef -1, i32 noundef %9221, ptr noundef nonnull @.str.6362)
+  %9223 = load i32, ptr @hf_woww_x, align 4
   %9224 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9223, i32 noundef 4, i32 noundef -2147483648)
-  %9225 = load i32, ptr @hf_woww_z, align 4
+  %9225 = load i32, ptr @hf_woww_y, align 4
   %9226 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9225, i32 noundef 4, i32 noundef -2147483648)
-  call void @ptvcursor_pop_subtree(ptr noundef %82)
-  %9227 = load i32, ptr @hf_woww_living_orientation, align 4
+  %9227 = load i32, ptr @hf_woww_z, align 4
   %9228 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9227, i32 noundef 4, i32 noundef -2147483648)
-  %9229 = load i32, ptr %56, align 4
-  %9230 = and i32 %9229, 512
-  %.not4873 = icmp eq i32 %9230, 0
-  br i1 %.not4873, label %9242, label %9231
+  call void @ptvcursor_pop_subtree(ptr noundef %82)
+  %9229 = load i32, ptr @hf_woww_living_orientation, align 4
+  %9230 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9229, i32 noundef 4, i32 noundef -2147483648)
+  %9231 = load i32, ptr %56, align 4
+  %9232 = and i32 %9231, 512
+  %.not4873 = icmp eq i32 %9232, 0
+  br i1 %.not4873, label %9244, label %9233
 
-9231:                                             ; preds = %9214
+9233:                                             ; preds = %9216
   call fastcc void @add_packed_guid(ptr noundef %82, ptr noundef %5)
-  %9232 = load i32, ptr @ett_message, align 4
-  %9233 = call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %82, i32 noundef -1, i32 noundef %9232, ptr noundef nonnull @.str.6362)
-  %9234 = load i32, ptr @hf_woww_x, align 4
-  %9235 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9234, i32 noundef 4, i32 noundef -2147483648)
-  %9236 = load i32, ptr @hf_woww_y, align 4
+  %9234 = load i32, ptr @ett_message, align 4
+  %9235 = call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %82, i32 noundef -1, i32 noundef %9234, ptr noundef nonnull @.str.6362)
+  %9236 = load i32, ptr @hf_woww_x, align 4
   %9237 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9236, i32 noundef 4, i32 noundef -2147483648)
-  %9238 = load i32, ptr @hf_woww_z, align 4
+  %9238 = load i32, ptr @hf_woww_y, align 4
   %9239 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9238, i32 noundef 4, i32 noundef -2147483648)
-  call void @ptvcursor_pop_subtree(ptr noundef %82)
-  %9240 = load i32, ptr @hf_woww_transport_orientation, align 4
+  %9240 = load i32, ptr @hf_woww_z, align 4
   %9241 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9240, i32 noundef 4, i32 noundef -2147483648)
-  %.pre = load i32, ptr %56, align 4
-  br label %9242
-
-9242:                                             ; preds = %9231, %9214
-  %9243 = phi i32 [ %.pre, %9231 ], [ %9229, %9214 ]
-  %9244 = and i32 %9243, 2097152
-  %.not4874 = icmp eq i32 %9244, 0
-  br i1 %.not4874, label %9248, label %9245
-
-9245:                                             ; preds = %9242
-  %9246 = load i32, ptr @hf_woww_pitch, align 4
-  %9247 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9246, i32 noundef 4, i32 noundef -2147483648)
-  br label %9248
-
-9248:                                             ; preds = %9245, %9242
-  %9249 = load i32, ptr @hf_woww_fall_time, align 4
-  %9250 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9249, i32 noundef 4, i32 noundef -2147483648)
-  %9251 = load i32, ptr %56, align 4
-  %9252 = and i32 %9251, 8192
-  %.not4875 = icmp eq i32 %9252, 0
-  br i1 %.not4875, label %9262, label %9253
-
-9253:                                             ; preds = %9248
-  %9254 = load i32, ptr @hf_woww_z_speed, align 4
-  %9255 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9254, i32 noundef 4, i32 noundef -2147483648)
-  %9256 = load i32, ptr @hf_woww_cos_angle, align 4
-  %9257 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9256, i32 noundef 4, i32 noundef -2147483648)
-  %9258 = load i32, ptr @hf_woww_sin_angle, align 4
-  %9259 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9258, i32 noundef 4, i32 noundef -2147483648)
-  %9260 = load i32, ptr @hf_woww_xy_speed, align 4
-  %9261 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9260, i32 noundef 4, i32 noundef -2147483648)
-  %.pre5816 = load i32, ptr %56, align 4
-  br label %9262
-
-9262:                                             ; preds = %9253, %9248
-  %9263 = phi i32 [ %.pre5816, %9253 ], [ %9251, %9248 ]
-  %9264 = and i32 %9263, 67108864
-  %.not4876 = icmp eq i32 %9264, 0
-  br i1 %.not4876, label %9268, label %9265
-
-9265:                                             ; preds = %9262
-  %9266 = load i32, ptr @hf_woww_spline_elevation, align 4
-  %9267 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9266, i32 noundef 4, i32 noundef -2147483648)
-  br label %9268
-
-9268:                                             ; preds = %9265, %9262
-  %9269 = load i32, ptr @hf_woww_walking_speed, align 4
-  %9270 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9269, i32 noundef 4, i32 noundef -2147483648)
-  %9271 = load i32, ptr @hf_woww_running_speed, align 4
-  %9272 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9271, i32 noundef 4, i32 noundef -2147483648)
-  %9273 = load i32, ptr @hf_woww_backwards_running_speed, align 4
-  %9274 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9273, i32 noundef 4, i32 noundef -2147483648)
-  %9275 = load i32, ptr @hf_woww_swimming_speed, align 4
-  %9276 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9275, i32 noundef 4, i32 noundef -2147483648)
-  %9277 = load i32, ptr @hf_woww_backwards_swimming_speed, align 4
-  %9278 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9277, i32 noundef 4, i32 noundef -2147483648)
-  %9279 = load i32, ptr @hf_woww_turn_rate, align 4
-  %9280 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9279, i32 noundef 4, i32 noundef -2147483648)
-  %9281 = load i32, ptr %56, align 4
-  %9282 = and i32 %9281, 4194304
-  %.not4877 = icmp eq i32 %9282, 0
-  br i1 %.not4877, label %9349, label %9283
-
-9283:                                             ; preds = %9268
-  %9284 = load i32, ptr @hf_woww_spline_flag, align 4
-  %9285 = call ptr @ptvcursor_add_ret_uint(ptr noundef %82, i32 noundef %9284, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %73)
-  %9286 = load i32, ptr %73, align 4
-  %9287 = and i32 %9286, 262144
-  %.not4878 = icmp eq i32 %9287, 0
-  br i1 %.not4878, label %9291, label %9288
-
-9288:                                             ; preds = %9283
-  %9289 = load i32, ptr @hf_woww_angle, align 4
-  %9290 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9289, i32 noundef 4, i32 noundef -2147483648)
-  br label %9307
-
-9291:                                             ; preds = %9283
-  %9292 = and i32 %9286, 131072
-  %.not4879 = icmp eq i32 %9292, 0
-  br i1 %.not4879, label %9296, label %9293
-
-9293:                                             ; preds = %9291
-  %9294 = load i32, ptr @hf_woww_target, align 4
-  %9295 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9294, i32 noundef 8, i32 noundef -2147483648)
-  br label %9307
-
-9296:                                             ; preds = %9291
-  %9297 = and i32 %9286, 65536
-  %.not4880 = icmp eq i32 %9297, 0
-  br i1 %.not4880, label %9307, label %9298
-
-9298:                                             ; preds = %9296
-  %9299 = load i32, ptr @ett_message, align 4
-  %9300 = call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %82, i32 noundef -1, i32 noundef %9299, ptr noundef nonnull @.str.6362)
-  %9301 = load i32, ptr @hf_woww_x, align 4
-  %9302 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9301, i32 noundef 4, i32 noundef -2147483648)
-  %9303 = load i32, ptr @hf_woww_y, align 4
-  %9304 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9303, i32 noundef 4, i32 noundef -2147483648)
-  %9305 = load i32, ptr @hf_woww_z, align 4
-  %9306 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9305, i32 noundef 4, i32 noundef -2147483648)
   call void @ptvcursor_pop_subtree(ptr noundef %82)
-  br label %9307
+  %9242 = load i32, ptr @hf_woww_transport_orientation, align 4
+  %9243 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9242, i32 noundef 4, i32 noundef -2147483648)
+  %.pre = load i32, ptr %56, align 4
+  br label %9244
 
-9307:                                             ; preds = %9293, %9298, %9296, %9288
-  %9308 = load i32, ptr @hf_woww_time_passed, align 4
-  %9309 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9308, i32 noundef 4, i32 noundef -2147483648)
-  %9310 = load i32, ptr @hf_woww_duration, align 4
+9244:                                             ; preds = %9233, %9216
+  %9245 = phi i32 [ %.pre, %9233 ], [ %9231, %9216 ]
+  %9246 = and i32 %9245, 2097152
+  %.not4874 = icmp eq i32 %9246, 0
+  br i1 %.not4874, label %9250, label %9247
+
+9247:                                             ; preds = %9244
+  %9248 = load i32, ptr @hf_woww_pitch, align 4
+  %9249 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9248, i32 noundef 4, i32 noundef -2147483648)
+  br label %9250
+
+9250:                                             ; preds = %9247, %9244
+  %9251 = load i32, ptr @hf_woww_fall_time, align 4
+  %9252 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9251, i32 noundef 4, i32 noundef -2147483648)
+  %9253 = load i32, ptr %56, align 4
+  %9254 = and i32 %9253, 8192
+  %.not4875 = icmp eq i32 %9254, 0
+  br i1 %.not4875, label %9264, label %9255
+
+9255:                                             ; preds = %9250
+  %9256 = load i32, ptr @hf_woww_z_speed, align 4
+  %9257 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9256, i32 noundef 4, i32 noundef -2147483648)
+  %9258 = load i32, ptr @hf_woww_cos_angle, align 4
+  %9259 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9258, i32 noundef 4, i32 noundef -2147483648)
+  %9260 = load i32, ptr @hf_woww_sin_angle, align 4
+  %9261 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9260, i32 noundef 4, i32 noundef -2147483648)
+  %9262 = load i32, ptr @hf_woww_xy_speed, align 4
+  %9263 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9262, i32 noundef 4, i32 noundef -2147483648)
+  %.pre5816 = load i32, ptr %56, align 4
+  br label %9264
+
+9264:                                             ; preds = %9255, %9250
+  %9265 = phi i32 [ %.pre5816, %9255 ], [ %9253, %9250 ]
+  %9266 = and i32 %9265, 67108864
+  %.not4876 = icmp eq i32 %9266, 0
+  br i1 %.not4876, label %9270, label %9267
+
+9267:                                             ; preds = %9264
+  %9268 = load i32, ptr @hf_woww_spline_elevation, align 4
+  %9269 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9268, i32 noundef 4, i32 noundef -2147483648)
+  br label %9270
+
+9270:                                             ; preds = %9267, %9264
+  %9271 = load i32, ptr @hf_woww_walking_speed, align 4
+  %9272 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9271, i32 noundef 4, i32 noundef -2147483648)
+  %9273 = load i32, ptr @hf_woww_running_speed, align 4
+  %9274 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9273, i32 noundef 4, i32 noundef -2147483648)
+  %9275 = load i32, ptr @hf_woww_backwards_running_speed, align 4
+  %9276 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9275, i32 noundef 4, i32 noundef -2147483648)
+  %9277 = load i32, ptr @hf_woww_swimming_speed, align 4
+  %9278 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9277, i32 noundef 4, i32 noundef -2147483648)
+  %9279 = load i32, ptr @hf_woww_backwards_swimming_speed, align 4
+  %9280 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9279, i32 noundef 4, i32 noundef -2147483648)
+  %9281 = load i32, ptr @hf_woww_turn_rate, align 4
+  %9282 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9281, i32 noundef 4, i32 noundef -2147483648)
+  %9283 = load i32, ptr %56, align 4
+  %9284 = and i32 %9283, 4194304
+  %.not4877 = icmp eq i32 %9284, 0
+  br i1 %.not4877, label %9351, label %9285
+
+9285:                                             ; preds = %9270
+  %9286 = load i32, ptr @hf_woww_spline_flag, align 4
+  %9287 = call ptr @ptvcursor_add_ret_uint(ptr noundef %82, i32 noundef %9286, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %73)
+  %9288 = load i32, ptr %73, align 4
+  %9289 = and i32 %9288, 262144
+  %.not4878 = icmp eq i32 %9289, 0
+  br i1 %.not4878, label %9293, label %9290
+
+9290:                                             ; preds = %9285
+  %9291 = load i32, ptr @hf_woww_angle, align 4
+  %9292 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9291, i32 noundef 4, i32 noundef -2147483648)
+  br label %9309
+
+9293:                                             ; preds = %9285
+  %9294 = and i32 %9288, 131072
+  %.not4879 = icmp eq i32 %9294, 0
+  br i1 %.not4879, label %9298, label %9295
+
+9295:                                             ; preds = %9293
+  %9296 = load i32, ptr @hf_woww_target, align 4
+  %9297 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9296, i32 noundef 8, i32 noundef -2147483648)
+  br label %9309
+
+9298:                                             ; preds = %9293
+  %9299 = and i32 %9288, 65536
+  %.not4880 = icmp eq i32 %9299, 0
+  br i1 %.not4880, label %9309, label %9300
+
+9300:                                             ; preds = %9298
+  %9301 = load i32, ptr @ett_message, align 4
+  %9302 = call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %82, i32 noundef -1, i32 noundef %9301, ptr noundef nonnull @.str.6362)
+  %9303 = load i32, ptr @hf_woww_x, align 4
+  %9304 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9303, i32 noundef 4, i32 noundef -2147483648)
+  %9305 = load i32, ptr @hf_woww_y, align 4
+  %9306 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9305, i32 noundef 4, i32 noundef -2147483648)
+  %9307 = load i32, ptr @hf_woww_z, align 4
+  %9308 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9307, i32 noundef 4, i32 noundef -2147483648)
+  call void @ptvcursor_pop_subtree(ptr noundef %82)
+  br label %9309
+
+9309:                                             ; preds = %9295, %9300, %9298, %9290
+  %9310 = load i32, ptr @hf_woww_time_passed, align 4
   %9311 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9310, i32 noundef 4, i32 noundef -2147483648)
-  %9312 = load i32, ptr @hf_woww_id, align 4
+  %9312 = load i32, ptr @hf_woww_duration, align 4
   %9313 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9312, i32 noundef 4, i32 noundef -2147483648)
-  %9314 = load i32, ptr @hf_woww_amount_of_nodes, align 4
-  %9315 = call ptr @ptvcursor_add_ret_uint(ptr noundef %82, i32 noundef %9314, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %30)
-  %9316 = load i32, ptr %30, align 4
-  %.not5684 = icmp eq i32 %9316, 0
+  %9314 = load i32, ptr @hf_woww_id, align 4
+  %9315 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9314, i32 noundef 4, i32 noundef -2147483648)
+  %9316 = load i32, ptr @hf_woww_amount_of_nodes, align 4
+  %9317 = call ptr @ptvcursor_add_ret_uint(ptr noundef %82, i32 noundef %9316, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %30)
+  %9318 = load i32, ptr %30, align 4
+  %.not5684 = icmp eq i32 %9318, 0
   br i1 %.not5684, label %._crit_edge, label %.lr.ph5432
 
-._crit_edge:                                      ; preds = %.lr.ph5432, %9307
-  %9317 = load i32, ptr @ett_message, align 4
-  %9318 = call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %82, i32 noundef -1, i32 noundef %9317, ptr noundef nonnull @.str.6362)
-  %9319 = load i32, ptr @hf_woww_x, align 4
-  %9320 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9319, i32 noundef 4, i32 noundef -2147483648)
-  %9321 = load i32, ptr @hf_woww_y, align 4
+._crit_edge:                                      ; preds = %.lr.ph5432, %9309
+  %9319 = load i32, ptr @ett_message, align 4
+  %9320 = call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %82, i32 noundef -1, i32 noundef %9319, ptr noundef nonnull @.str.6362)
+  %9321 = load i32, ptr @hf_woww_x, align 4
   %9322 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9321, i32 noundef 4, i32 noundef -2147483648)
-  %9323 = load i32, ptr @hf_woww_z, align 4
+  %9323 = load i32, ptr @hf_woww_y, align 4
   %9324 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9323, i32 noundef 4, i32 noundef -2147483648)
+  %9325 = load i32, ptr @hf_woww_z, align 4
+  %9326 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9325, i32 noundef 4, i32 noundef -2147483648)
   call void @ptvcursor_pop_subtree(ptr noundef %82)
-  br label %9349
+  br label %9351
 
-.lr.ph5432:                                       ; preds = %9307, %.lr.ph5432
-  %.047495431 = phi i32 [ %9333, %.lr.ph5432 ], [ 0, %9307 ]
-  %9325 = load i32, ptr @ett_message, align 4
-  %9326 = call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %82, i32 noundef -1, i32 noundef %9325, ptr noundef nonnull @.str.6380, i32 noundef %.047495431)
-  %9327 = load i32, ptr @hf_woww_x, align 4
-  %9328 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9327, i32 noundef 4, i32 noundef -2147483648)
-  %9329 = load i32, ptr @hf_woww_y, align 4
+.lr.ph5432:                                       ; preds = %9309, %.lr.ph5432
+  %.047495431 = phi i32 [ %9335, %.lr.ph5432 ], [ 0, %9309 ]
+  %9327 = load i32, ptr @ett_message, align 4
+  %9328 = call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %82, i32 noundef -1, i32 noundef %9327, ptr noundef nonnull @.str.6380, i32 noundef %.047495431)
+  %9329 = load i32, ptr @hf_woww_x, align 4
   %9330 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9329, i32 noundef 4, i32 noundef -2147483648)
-  %9331 = load i32, ptr @hf_woww_z, align 4
+  %9331 = load i32, ptr @hf_woww_y, align 4
   %9332 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9331, i32 noundef 4, i32 noundef -2147483648)
+  %9333 = load i32, ptr @hf_woww_z, align 4
+  %9334 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9333, i32 noundef 4, i32 noundef -2147483648)
   call void @ptvcursor_pop_subtree(ptr noundef %82)
-  %9333 = add nuw i32 %.047495431, 1
-  %9334 = load i32, ptr %30, align 4
-  %9335 = icmp ult i32 %9333, %9334
-  br i1 %9335, label %.lr.ph5432, label %._crit_edge, !llvm.loop !106
+  %9335 = add nuw i32 %.047495431, 1
+  %9336 = load i32, ptr %30, align 4
+  %9337 = icmp ult i32 %9335, %9336
+  br i1 %9337, label %.lr.ph5432, label %._crit_edge, !llvm.loop !106
 
-9336:                                             ; preds = %9207
-  %9337 = and i32 %9212, 64
-  %.not4872 = icmp eq i32 %9337, 0
-  br i1 %.not4872, label %9349, label %9338
+9338:                                             ; preds = %9209
+  %9339 = and i32 %9214, 64
+  %.not4872 = icmp eq i32 %9339, 0
+  br i1 %.not4872, label %9351, label %9340
 
-9338:                                             ; preds = %9336
-  %9339 = load i32, ptr @ett_message, align 4
-  %9340 = call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %82, i32 noundef -1, i32 noundef %9339, ptr noundef nonnull @.str.6362)
-  %9341 = load i32, ptr @hf_woww_x, align 4
-  %9342 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9341, i32 noundef 4, i32 noundef -2147483648)
-  %9343 = load i32, ptr @hf_woww_y, align 4
+9340:                                             ; preds = %9338
+  %9341 = load i32, ptr @ett_message, align 4
+  %9342 = call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %82, i32 noundef -1, i32 noundef %9341, ptr noundef nonnull @.str.6362)
+  %9343 = load i32, ptr @hf_woww_x, align 4
   %9344 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9343, i32 noundef 4, i32 noundef -2147483648)
-  %9345 = load i32, ptr @hf_woww_z, align 4
+  %9345 = load i32, ptr @hf_woww_y, align 4
   %9346 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9345, i32 noundef 4, i32 noundef -2147483648)
-  call void @ptvcursor_pop_subtree(ptr noundef %82)
-  %9347 = load i32, ptr @hf_woww_orientation, align 4
+  %9347 = load i32, ptr @hf_woww_z, align 4
   %9348 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9347, i32 noundef 4, i32 noundef -2147483648)
-  br label %9349
+  call void @ptvcursor_pop_subtree(ptr noundef %82)
+  %9349 = load i32, ptr @hf_woww_orientation, align 4
+  %9350 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9349, i32 noundef 4, i32 noundef -2147483648)
+  br label %9351
 
-9349:                                             ; preds = %9336, %9338, %9268, %._crit_edge
-  %9350 = load i32, ptr %78, align 4
-  %9351 = and i32 %9350, 8
-  %.not4881 = icmp eq i32 %9351, 0
-  br i1 %.not4881, label %9355, label %9352
+9351:                                             ; preds = %9338, %9340, %9270, %._crit_edge
+  %9352 = load i32, ptr %78, align 4
+  %9353 = and i32 %9352, 8
+  %.not4881 = icmp eq i32 %9353, 0
+  br i1 %.not4881, label %9357, label %9354
 
-9352:                                             ; preds = %9349
-  %9353 = load i32, ptr @hf_woww_unknown_int, align 4
-  %9354 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9353, i32 noundef 4, i32 noundef -2147483648)
+9354:                                             ; preds = %9351
+  %9355 = load i32, ptr @hf_woww_unknown_int, align 4
+  %9356 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9355, i32 noundef 4, i32 noundef -2147483648)
   %.pre5817 = load i32, ptr %78, align 4
-  br label %9355
+  br label %9357
 
-9355:                                             ; preds = %9352, %9349
-  %9356 = phi i32 [ %.pre5817, %9352 ], [ %9350, %9349 ]
-  %9357 = and i32 %9356, 16
-  %.not4882 = icmp eq i32 %9357, 0
-  br i1 %.not4882, label %9361, label %9358
+9357:                                             ; preds = %9354, %9351
+  %9358 = phi i32 [ %.pre5817, %9354 ], [ %9352, %9351 ]
+  %9359 = and i32 %9358, 16
+  %.not4882 = icmp eq i32 %9359, 0
+  br i1 %.not4882, label %9363, label %9360
 
-9358:                                             ; preds = %9355
-  %9359 = load i32, ptr @hf_woww_unknown_int, align 4
-  %9360 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9359, i32 noundef 4, i32 noundef -2147483648)
+9360:                                             ; preds = %9357
+  %9361 = load i32, ptr @hf_woww_unknown_int, align 4
+  %9362 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9361, i32 noundef 4, i32 noundef -2147483648)
   %.pre5818 = load i32, ptr %78, align 4
-  br label %9361
+  br label %9363
 
-9361:                                             ; preds = %9358, %9355
-  %9362 = phi i32 [ %.pre5818, %9358 ], [ %9356, %9355 ]
-  %9363 = and i32 %9362, 4
-  %.not4883 = icmp eq i32 %9363, 0
-  br i1 %.not4883, label %9365, label %9364
+9363:                                             ; preds = %9360, %9357
+  %9364 = phi i32 [ %.pre5818, %9360 ], [ %9358, %9357 ]
+  %9365 = and i32 %9364, 4
+  %.not4883 = icmp eq i32 %9365, 0
+  br i1 %.not4883, label %9367, label %9366
 
-9364:                                             ; preds = %9361
+9366:                                             ; preds = %9363
   call fastcc void @add_packed_guid(ptr noundef %82, ptr noundef %5)
   %.pre5819 = load i32, ptr %78, align 4
-  br label %9365
+  br label %9367
 
-9365:                                             ; preds = %9364, %9361
-  %9366 = phi i32 [ %.pre5819, %9364 ], [ %9362, %9361 ]
-  %9367 = and i32 %9366, 2
-  %.not4884 = icmp eq i32 %9367, 0
-  br i1 %.not4884, label %9371, label %9368
+9367:                                             ; preds = %9366, %9363
+  %9368 = phi i32 [ %.pre5819, %9366 ], [ %9364, %9363 ]
+  %9369 = and i32 %9368, 2
+  %.not4884 = icmp eq i32 %9369, 0
+  br i1 %.not4884, label %9373, label %9370
 
-9368:                                             ; preds = %9365
-  %9369 = load i32, ptr @hf_woww_transport_progress_in_ms, align 4
-  %9370 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9369, i32 noundef 4, i32 noundef -2147483648)
-  br label %9371
+9370:                                             ; preds = %9367
+  %9371 = load i32, ptr @hf_woww_transport_progress_in_ms, align 4
+  %9372 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9371, i32 noundef 4, i32 noundef -2147483648)
+  br label %9373
 
-9371:                                             ; preds = %9368, %9365
+9373:                                             ; preds = %9370, %9367
   call void @ptvcursor_pop_subtree(ptr noundef %82)
   br label %.loopexit5427
 
-9372:                                             ; preds = %.lr.ph5442
-  %9373 = and i32 %9205, -2
-  switch i32 %9373, label %.loopexit5427 [
-    i32 2, label %9374
-    i32 4, label %9541
+9374:                                             ; preds = %.lr.ph5442
+  %9375 = and i32 %9207, -2
+  switch i32 %9375, label %.loopexit5427 [
+    i32 2, label %9376
+    i32 4, label %9543
   ]
 
-9374:                                             ; preds = %9372
+9376:                                             ; preds = %9374
   call fastcc void @add_packed_guid(ptr noundef %82, ptr noundef %5)
-  %9375 = load i32, ptr @hf_woww_object_type, align 4
-  %9376 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9375, i32 noundef 1, i32 noundef -2147483648)
-  %9377 = load i32, ptr @ett_message, align 4
-  %9378 = call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %82, i32 noundef -1, i32 noundef %9377, ptr noundef nonnull @.str.6379)
-  %9379 = load i32, ptr @hf_woww_update_flag, align 4
-  %9380 = call ptr @ptvcursor_add_ret_uint(ptr noundef %82, i32 noundef %9379, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %78)
-  %9381 = load i32, ptr %78, align 4
-  %9382 = and i32 %9381, 32
-  %.not = icmp eq i32 %9382, 0
-  br i1 %.not, label %9505, label %9383
+  %9377 = load i32, ptr @hf_woww_object_type, align 4
+  %9378 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9377, i32 noundef 1, i32 noundef -2147483648)
+  %9379 = load i32, ptr @ett_message, align 4
+  %9380 = call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %82, i32 noundef -1, i32 noundef %9379, ptr noundef nonnull @.str.6379)
+  %9381 = load i32, ptr @hf_woww_update_flag, align 4
+  %9382 = call ptr @ptvcursor_add_ret_uint(ptr noundef %82, i32 noundef %9381, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %78)
+  %9383 = load i32, ptr %78, align 4
+  %9384 = and i32 %9383, 32
+  %.not = icmp eq i32 %9384, 0
+  br i1 %.not, label %9507, label %9385
 
-9383:                                             ; preds = %9374
-  %9384 = load i32, ptr @hf_woww_movement_flags, align 4
-  %9385 = call ptr @ptvcursor_add_ret_uint(ptr noundef %82, i32 noundef %9384, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %56)
-  %9386 = load i32, ptr @hf_woww_timestamp, align 4
-  %9387 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9386, i32 noundef 4, i32 noundef -2147483648)
-  %9388 = load i32, ptr @ett_message, align 4
-  %9389 = call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %82, i32 noundef -1, i32 noundef %9388, ptr noundef nonnull @.str.6362)
-  %9390 = load i32, ptr @hf_woww_x, align 4
-  %9391 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9390, i32 noundef 4, i32 noundef -2147483648)
-  %9392 = load i32, ptr @hf_woww_y, align 4
+9385:                                             ; preds = %9376
+  %9386 = load i32, ptr @hf_woww_movement_flags, align 4
+  %9387 = call ptr @ptvcursor_add_ret_uint(ptr noundef %82, i32 noundef %9386, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %56)
+  %9388 = load i32, ptr @hf_woww_timestamp, align 4
+  %9389 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9388, i32 noundef 4, i32 noundef -2147483648)
+  %9390 = load i32, ptr @ett_message, align 4
+  %9391 = call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %82, i32 noundef -1, i32 noundef %9390, ptr noundef nonnull @.str.6362)
+  %9392 = load i32, ptr @hf_woww_x, align 4
   %9393 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9392, i32 noundef 4, i32 noundef -2147483648)
-  %9394 = load i32, ptr @hf_woww_z, align 4
+  %9394 = load i32, ptr @hf_woww_y, align 4
   %9395 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9394, i32 noundef 4, i32 noundef -2147483648)
-  call void @ptvcursor_pop_subtree(ptr noundef %82)
-  %9396 = load i32, ptr @hf_woww_living_orientation, align 4
+  %9396 = load i32, ptr @hf_woww_z, align 4
   %9397 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9396, i32 noundef 4, i32 noundef -2147483648)
-  %9398 = load i32, ptr %56, align 4
-  %9399 = and i32 %9398, 512
-  %.not4859 = icmp eq i32 %9399, 0
-  br i1 %.not4859, label %9411, label %9400
+  call void @ptvcursor_pop_subtree(ptr noundef %82)
+  %9398 = load i32, ptr @hf_woww_living_orientation, align 4
+  %9399 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9398, i32 noundef 4, i32 noundef -2147483648)
+  %9400 = load i32, ptr %56, align 4
+  %9401 = and i32 %9400, 512
+  %.not4859 = icmp eq i32 %9401, 0
+  br i1 %.not4859, label %9413, label %9402
 
-9400:                                             ; preds = %9383
+9402:                                             ; preds = %9385
   call fastcc void @add_packed_guid(ptr noundef %82, ptr noundef %5)
-  %9401 = load i32, ptr @ett_message, align 4
-  %9402 = call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %82, i32 noundef -1, i32 noundef %9401, ptr noundef nonnull @.str.6362)
-  %9403 = load i32, ptr @hf_woww_x, align 4
-  %9404 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9403, i32 noundef 4, i32 noundef -2147483648)
-  %9405 = load i32, ptr @hf_woww_y, align 4
+  %9403 = load i32, ptr @ett_message, align 4
+  %9404 = call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %82, i32 noundef -1, i32 noundef %9403, ptr noundef nonnull @.str.6362)
+  %9405 = load i32, ptr @hf_woww_x, align 4
   %9406 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9405, i32 noundef 4, i32 noundef -2147483648)
-  %9407 = load i32, ptr @hf_woww_z, align 4
+  %9407 = load i32, ptr @hf_woww_y, align 4
   %9408 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9407, i32 noundef 4, i32 noundef -2147483648)
-  call void @ptvcursor_pop_subtree(ptr noundef %82)
-  %9409 = load i32, ptr @hf_woww_transport_orientation, align 4
+  %9409 = load i32, ptr @hf_woww_z, align 4
   %9410 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9409, i32 noundef 4, i32 noundef -2147483648)
-  %.pre5820 = load i32, ptr %56, align 4
-  br label %9411
-
-9411:                                             ; preds = %9400, %9383
-  %9412 = phi i32 [ %.pre5820, %9400 ], [ %9398, %9383 ]
-  %9413 = and i32 %9412, 2097152
-  %.not4860 = icmp eq i32 %9413, 0
-  br i1 %.not4860, label %9417, label %9414
-
-9414:                                             ; preds = %9411
-  %9415 = load i32, ptr @hf_woww_pitch, align 4
-  %9416 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9415, i32 noundef 4, i32 noundef -2147483648)
-  br label %9417
-
-9417:                                             ; preds = %9414, %9411
-  %9418 = load i32, ptr @hf_woww_fall_time, align 4
-  %9419 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9418, i32 noundef 4, i32 noundef -2147483648)
-  %9420 = load i32, ptr %56, align 4
-  %9421 = and i32 %9420, 8192
-  %.not4861 = icmp eq i32 %9421, 0
-  br i1 %.not4861, label %9431, label %9422
-
-9422:                                             ; preds = %9417
-  %9423 = load i32, ptr @hf_woww_z_speed, align 4
-  %9424 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9423, i32 noundef 4, i32 noundef -2147483648)
-  %9425 = load i32, ptr @hf_woww_cos_angle, align 4
-  %9426 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9425, i32 noundef 4, i32 noundef -2147483648)
-  %9427 = load i32, ptr @hf_woww_sin_angle, align 4
-  %9428 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9427, i32 noundef 4, i32 noundef -2147483648)
-  %9429 = load i32, ptr @hf_woww_xy_speed, align 4
-  %9430 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9429, i32 noundef 4, i32 noundef -2147483648)
-  %.pre5821 = load i32, ptr %56, align 4
-  br label %9431
-
-9431:                                             ; preds = %9422, %9417
-  %9432 = phi i32 [ %.pre5821, %9422 ], [ %9420, %9417 ]
-  %9433 = and i32 %9432, 67108864
-  %.not4862 = icmp eq i32 %9433, 0
-  br i1 %.not4862, label %9437, label %9434
-
-9434:                                             ; preds = %9431
-  %9435 = load i32, ptr @hf_woww_spline_elevation, align 4
-  %9436 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9435, i32 noundef 4, i32 noundef -2147483648)
-  br label %9437
-
-9437:                                             ; preds = %9434, %9431
-  %9438 = load i32, ptr @hf_woww_walking_speed, align 4
-  %9439 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9438, i32 noundef 4, i32 noundef -2147483648)
-  %9440 = load i32, ptr @hf_woww_running_speed, align 4
-  %9441 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9440, i32 noundef 4, i32 noundef -2147483648)
-  %9442 = load i32, ptr @hf_woww_backwards_running_speed, align 4
-  %9443 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9442, i32 noundef 4, i32 noundef -2147483648)
-  %9444 = load i32, ptr @hf_woww_swimming_speed, align 4
-  %9445 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9444, i32 noundef 4, i32 noundef -2147483648)
-  %9446 = load i32, ptr @hf_woww_backwards_swimming_speed, align 4
-  %9447 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9446, i32 noundef 4, i32 noundef -2147483648)
-  %9448 = load i32, ptr @hf_woww_turn_rate, align 4
-  %9449 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9448, i32 noundef 4, i32 noundef -2147483648)
-  %9450 = load i32, ptr %56, align 4
-  %9451 = and i32 %9450, 4194304
-  %.not4863 = icmp eq i32 %9451, 0
-  br i1 %.not4863, label %9518, label %9452
-
-9452:                                             ; preds = %9437
-  %9453 = load i32, ptr @hf_woww_spline_flag, align 4
-  %9454 = call ptr @ptvcursor_add_ret_uint(ptr noundef %82, i32 noundef %9453, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %73)
-  %9455 = load i32, ptr %73, align 4
-  %9456 = and i32 %9455, 262144
-  %.not4864 = icmp eq i32 %9456, 0
-  br i1 %.not4864, label %9460, label %9457
-
-9457:                                             ; preds = %9452
-  %9458 = load i32, ptr @hf_woww_angle, align 4
-  %9459 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9458, i32 noundef 4, i32 noundef -2147483648)
-  br label %9476
-
-9460:                                             ; preds = %9452
-  %9461 = and i32 %9455, 131072
-  %.not4865 = icmp eq i32 %9461, 0
-  br i1 %.not4865, label %9465, label %9462
-
-9462:                                             ; preds = %9460
-  %9463 = load i32, ptr @hf_woww_target, align 4
-  %9464 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9463, i32 noundef 8, i32 noundef -2147483648)
-  br label %9476
-
-9465:                                             ; preds = %9460
-  %9466 = and i32 %9455, 65536
-  %.not4866 = icmp eq i32 %9466, 0
-  br i1 %.not4866, label %9476, label %9467
-
-9467:                                             ; preds = %9465
-  %9468 = load i32, ptr @ett_message, align 4
-  %9469 = call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %82, i32 noundef -1, i32 noundef %9468, ptr noundef nonnull @.str.6362)
-  %9470 = load i32, ptr @hf_woww_x, align 4
-  %9471 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9470, i32 noundef 4, i32 noundef -2147483648)
-  %9472 = load i32, ptr @hf_woww_y, align 4
-  %9473 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9472, i32 noundef 4, i32 noundef -2147483648)
-  %9474 = load i32, ptr @hf_woww_z, align 4
-  %9475 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9474, i32 noundef 4, i32 noundef -2147483648)
   call void @ptvcursor_pop_subtree(ptr noundef %82)
-  br label %9476
+  %9411 = load i32, ptr @hf_woww_transport_orientation, align 4
+  %9412 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9411, i32 noundef 4, i32 noundef -2147483648)
+  %.pre5820 = load i32, ptr %56, align 4
+  br label %9413
 
-9476:                                             ; preds = %9462, %9467, %9465, %9457
-  %9477 = load i32, ptr @hf_woww_time_passed, align 4
-  %9478 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9477, i32 noundef 4, i32 noundef -2147483648)
-  %9479 = load i32, ptr @hf_woww_duration, align 4
+9413:                                             ; preds = %9402, %9385
+  %9414 = phi i32 [ %.pre5820, %9402 ], [ %9400, %9385 ]
+  %9415 = and i32 %9414, 2097152
+  %.not4860 = icmp eq i32 %9415, 0
+  br i1 %.not4860, label %9419, label %9416
+
+9416:                                             ; preds = %9413
+  %9417 = load i32, ptr @hf_woww_pitch, align 4
+  %9418 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9417, i32 noundef 4, i32 noundef -2147483648)
+  br label %9419
+
+9419:                                             ; preds = %9416, %9413
+  %9420 = load i32, ptr @hf_woww_fall_time, align 4
+  %9421 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9420, i32 noundef 4, i32 noundef -2147483648)
+  %9422 = load i32, ptr %56, align 4
+  %9423 = and i32 %9422, 8192
+  %.not4861 = icmp eq i32 %9423, 0
+  br i1 %.not4861, label %9433, label %9424
+
+9424:                                             ; preds = %9419
+  %9425 = load i32, ptr @hf_woww_z_speed, align 4
+  %9426 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9425, i32 noundef 4, i32 noundef -2147483648)
+  %9427 = load i32, ptr @hf_woww_cos_angle, align 4
+  %9428 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9427, i32 noundef 4, i32 noundef -2147483648)
+  %9429 = load i32, ptr @hf_woww_sin_angle, align 4
+  %9430 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9429, i32 noundef 4, i32 noundef -2147483648)
+  %9431 = load i32, ptr @hf_woww_xy_speed, align 4
+  %9432 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9431, i32 noundef 4, i32 noundef -2147483648)
+  %.pre5821 = load i32, ptr %56, align 4
+  br label %9433
+
+9433:                                             ; preds = %9424, %9419
+  %9434 = phi i32 [ %.pre5821, %9424 ], [ %9422, %9419 ]
+  %9435 = and i32 %9434, 67108864
+  %.not4862 = icmp eq i32 %9435, 0
+  br i1 %.not4862, label %9439, label %9436
+
+9436:                                             ; preds = %9433
+  %9437 = load i32, ptr @hf_woww_spline_elevation, align 4
+  %9438 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9437, i32 noundef 4, i32 noundef -2147483648)
+  br label %9439
+
+9439:                                             ; preds = %9436, %9433
+  %9440 = load i32, ptr @hf_woww_walking_speed, align 4
+  %9441 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9440, i32 noundef 4, i32 noundef -2147483648)
+  %9442 = load i32, ptr @hf_woww_running_speed, align 4
+  %9443 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9442, i32 noundef 4, i32 noundef -2147483648)
+  %9444 = load i32, ptr @hf_woww_backwards_running_speed, align 4
+  %9445 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9444, i32 noundef 4, i32 noundef -2147483648)
+  %9446 = load i32, ptr @hf_woww_swimming_speed, align 4
+  %9447 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9446, i32 noundef 4, i32 noundef -2147483648)
+  %9448 = load i32, ptr @hf_woww_backwards_swimming_speed, align 4
+  %9449 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9448, i32 noundef 4, i32 noundef -2147483648)
+  %9450 = load i32, ptr @hf_woww_turn_rate, align 4
+  %9451 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9450, i32 noundef 4, i32 noundef -2147483648)
+  %9452 = load i32, ptr %56, align 4
+  %9453 = and i32 %9452, 4194304
+  %.not4863 = icmp eq i32 %9453, 0
+  br i1 %.not4863, label %9520, label %9454
+
+9454:                                             ; preds = %9439
+  %9455 = load i32, ptr @hf_woww_spline_flag, align 4
+  %9456 = call ptr @ptvcursor_add_ret_uint(ptr noundef %82, i32 noundef %9455, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %73)
+  %9457 = load i32, ptr %73, align 4
+  %9458 = and i32 %9457, 262144
+  %.not4864 = icmp eq i32 %9458, 0
+  br i1 %.not4864, label %9462, label %9459
+
+9459:                                             ; preds = %9454
+  %9460 = load i32, ptr @hf_woww_angle, align 4
+  %9461 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9460, i32 noundef 4, i32 noundef -2147483648)
+  br label %9478
+
+9462:                                             ; preds = %9454
+  %9463 = and i32 %9457, 131072
+  %.not4865 = icmp eq i32 %9463, 0
+  br i1 %.not4865, label %9467, label %9464
+
+9464:                                             ; preds = %9462
+  %9465 = load i32, ptr @hf_woww_target, align 4
+  %9466 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9465, i32 noundef 8, i32 noundef -2147483648)
+  br label %9478
+
+9467:                                             ; preds = %9462
+  %9468 = and i32 %9457, 65536
+  %.not4866 = icmp eq i32 %9468, 0
+  br i1 %.not4866, label %9478, label %9469
+
+9469:                                             ; preds = %9467
+  %9470 = load i32, ptr @ett_message, align 4
+  %9471 = call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %82, i32 noundef -1, i32 noundef %9470, ptr noundef nonnull @.str.6362)
+  %9472 = load i32, ptr @hf_woww_x, align 4
+  %9473 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9472, i32 noundef 4, i32 noundef -2147483648)
+  %9474 = load i32, ptr @hf_woww_y, align 4
+  %9475 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9474, i32 noundef 4, i32 noundef -2147483648)
+  %9476 = load i32, ptr @hf_woww_z, align 4
+  %9477 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9476, i32 noundef 4, i32 noundef -2147483648)
+  call void @ptvcursor_pop_subtree(ptr noundef %82)
+  br label %9478
+
+9478:                                             ; preds = %9464, %9469, %9467, %9459
+  %9479 = load i32, ptr @hf_woww_time_passed, align 4
   %9480 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9479, i32 noundef 4, i32 noundef -2147483648)
-  %9481 = load i32, ptr @hf_woww_id, align 4
+  %9481 = load i32, ptr @hf_woww_duration, align 4
   %9482 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9481, i32 noundef 4, i32 noundef -2147483648)
-  %9483 = load i32, ptr @hf_woww_amount_of_nodes, align 4
-  %9484 = call ptr @ptvcursor_add_ret_uint(ptr noundef %82, i32 noundef %9483, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %30)
-  %9485 = load i32, ptr %30, align 4
-  %.not5686 = icmp eq i32 %9485, 0
+  %9483 = load i32, ptr @hf_woww_id, align 4
+  %9484 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9483, i32 noundef 4, i32 noundef -2147483648)
+  %9485 = load i32, ptr @hf_woww_amount_of_nodes, align 4
+  %9486 = call ptr @ptvcursor_add_ret_uint(ptr noundef %82, i32 noundef %9485, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %30)
+  %9487 = load i32, ptr %30, align 4
+  %.not5686 = icmp eq i32 %9487, 0
   br i1 %.not5686, label %._crit_edge5439, label %.lr.ph5438
 
-._crit_edge5439:                                  ; preds = %.lr.ph5438, %9476
-  %9486 = load i32, ptr @ett_message, align 4
-  %9487 = call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %82, i32 noundef -1, i32 noundef %9486, ptr noundef nonnull @.str.6362)
-  %9488 = load i32, ptr @hf_woww_x, align 4
-  %9489 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9488, i32 noundef 4, i32 noundef -2147483648)
-  %9490 = load i32, ptr @hf_woww_y, align 4
+._crit_edge5439:                                  ; preds = %.lr.ph5438, %9478
+  %9488 = load i32, ptr @ett_message, align 4
+  %9489 = call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %82, i32 noundef -1, i32 noundef %9488, ptr noundef nonnull @.str.6362)
+  %9490 = load i32, ptr @hf_woww_x, align 4
   %9491 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9490, i32 noundef 4, i32 noundef -2147483648)
-  %9492 = load i32, ptr @hf_woww_z, align 4
+  %9492 = load i32, ptr @hf_woww_y, align 4
   %9493 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9492, i32 noundef 4, i32 noundef -2147483648)
+  %9494 = load i32, ptr @hf_woww_z, align 4
+  %9495 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9494, i32 noundef 4, i32 noundef -2147483648)
   call void @ptvcursor_pop_subtree(ptr noundef %82)
-  br label %9518
+  br label %9520
 
-.lr.ph5438:                                       ; preds = %9476, %.lr.ph5438
-  %.047485436 = phi i32 [ %9502, %.lr.ph5438 ], [ 0, %9476 ]
-  %9494 = load i32, ptr @ett_message, align 4
-  %9495 = call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %82, i32 noundef -1, i32 noundef %9494, ptr noundef nonnull @.str.6380, i32 noundef %.047485436)
-  %9496 = load i32, ptr @hf_woww_x, align 4
-  %9497 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9496, i32 noundef 4, i32 noundef -2147483648)
-  %9498 = load i32, ptr @hf_woww_y, align 4
+.lr.ph5438:                                       ; preds = %9478, %.lr.ph5438
+  %.047485436 = phi i32 [ %9504, %.lr.ph5438 ], [ 0, %9478 ]
+  %9496 = load i32, ptr @ett_message, align 4
+  %9497 = call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %82, i32 noundef -1, i32 noundef %9496, ptr noundef nonnull @.str.6380, i32 noundef %.047485436)
+  %9498 = load i32, ptr @hf_woww_x, align 4
   %9499 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9498, i32 noundef 4, i32 noundef -2147483648)
-  %9500 = load i32, ptr @hf_woww_z, align 4
+  %9500 = load i32, ptr @hf_woww_y, align 4
   %9501 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9500, i32 noundef 4, i32 noundef -2147483648)
+  %9502 = load i32, ptr @hf_woww_z, align 4
+  %9503 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9502, i32 noundef 4, i32 noundef -2147483648)
   call void @ptvcursor_pop_subtree(ptr noundef %82)
-  %9502 = add nuw i32 %.047485436, 1
-  %9503 = load i32, ptr %30, align 4
-  %9504 = icmp ult i32 %9502, %9503
-  br i1 %9504, label %.lr.ph5438, label %._crit_edge5439, !llvm.loop !107
+  %9504 = add nuw i32 %.047485436, 1
+  %9505 = load i32, ptr %30, align 4
+  %9506 = icmp ult i32 %9504, %9505
+  br i1 %9506, label %.lr.ph5438, label %._crit_edge5439, !llvm.loop !107
 
-9505:                                             ; preds = %9374
-  %9506 = and i32 %9381, 64
-  %.not4858 = icmp eq i32 %9506, 0
-  br i1 %.not4858, label %9518, label %9507
+9507:                                             ; preds = %9376
+  %9508 = and i32 %9383, 64
+  %.not4858 = icmp eq i32 %9508, 0
+  br i1 %.not4858, label %9520, label %9509
 
-9507:                                             ; preds = %9505
-  %9508 = load i32, ptr @ett_message, align 4
-  %9509 = call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %82, i32 noundef -1, i32 noundef %9508, ptr noundef nonnull @.str.6362)
-  %9510 = load i32, ptr @hf_woww_x, align 4
-  %9511 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9510, i32 noundef 4, i32 noundef -2147483648)
-  %9512 = load i32, ptr @hf_woww_y, align 4
+9509:                                             ; preds = %9507
+  %9510 = load i32, ptr @ett_message, align 4
+  %9511 = call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %82, i32 noundef -1, i32 noundef %9510, ptr noundef nonnull @.str.6362)
+  %9512 = load i32, ptr @hf_woww_x, align 4
   %9513 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9512, i32 noundef 4, i32 noundef -2147483648)
-  %9514 = load i32, ptr @hf_woww_z, align 4
+  %9514 = load i32, ptr @hf_woww_y, align 4
   %9515 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9514, i32 noundef 4, i32 noundef -2147483648)
-  call void @ptvcursor_pop_subtree(ptr noundef %82)
-  %9516 = load i32, ptr @hf_woww_orientation, align 4
+  %9516 = load i32, ptr @hf_woww_z, align 4
   %9517 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9516, i32 noundef 4, i32 noundef -2147483648)
-  br label %9518
+  call void @ptvcursor_pop_subtree(ptr noundef %82)
+  %9518 = load i32, ptr @hf_woww_orientation, align 4
+  %9519 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9518, i32 noundef 4, i32 noundef -2147483648)
+  br label %9520
 
-9518:                                             ; preds = %9505, %9507, %9437, %._crit_edge5439
-  %9519 = load i32, ptr %78, align 4
-  %9520 = and i32 %9519, 8
-  %.not4867 = icmp eq i32 %9520, 0
-  br i1 %.not4867, label %9524, label %9521
+9520:                                             ; preds = %9507, %9509, %9439, %._crit_edge5439
+  %9521 = load i32, ptr %78, align 4
+  %9522 = and i32 %9521, 8
+  %.not4867 = icmp eq i32 %9522, 0
+  br i1 %.not4867, label %9526, label %9523
 
-9521:                                             ; preds = %9518
-  %9522 = load i32, ptr @hf_woww_unknown_int, align 4
-  %9523 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9522, i32 noundef 4, i32 noundef -2147483648)
+9523:                                             ; preds = %9520
+  %9524 = load i32, ptr @hf_woww_unknown_int, align 4
+  %9525 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9524, i32 noundef 4, i32 noundef -2147483648)
   %.pre5822 = load i32, ptr %78, align 4
-  br label %9524
+  br label %9526
 
-9524:                                             ; preds = %9521, %9518
-  %9525 = phi i32 [ %.pre5822, %9521 ], [ %9519, %9518 ]
-  %9526 = and i32 %9525, 16
-  %.not4868 = icmp eq i32 %9526, 0
-  br i1 %.not4868, label %9530, label %9527
+9526:                                             ; preds = %9523, %9520
+  %9527 = phi i32 [ %.pre5822, %9523 ], [ %9521, %9520 ]
+  %9528 = and i32 %9527, 16
+  %.not4868 = icmp eq i32 %9528, 0
+  br i1 %.not4868, label %9532, label %9529
 
-9527:                                             ; preds = %9524
-  %9528 = load i32, ptr @hf_woww_unknown_int, align 4
-  %9529 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9528, i32 noundef 4, i32 noundef -2147483648)
+9529:                                             ; preds = %9526
+  %9530 = load i32, ptr @hf_woww_unknown_int, align 4
+  %9531 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9530, i32 noundef 4, i32 noundef -2147483648)
   %.pre5823 = load i32, ptr %78, align 4
-  br label %9530
+  br label %9532
 
-9530:                                             ; preds = %9527, %9524
-  %9531 = phi i32 [ %.pre5823, %9527 ], [ %9525, %9524 ]
-  %9532 = and i32 %9531, 4
-  %.not4869 = icmp eq i32 %9532, 0
-  br i1 %.not4869, label %9534, label %9533
+9532:                                             ; preds = %9529, %9526
+  %9533 = phi i32 [ %.pre5823, %9529 ], [ %9527, %9526 ]
+  %9534 = and i32 %9533, 4
+  %.not4869 = icmp eq i32 %9534, 0
+  br i1 %.not4869, label %9536, label %9535
 
-9533:                                             ; preds = %9530
+9535:                                             ; preds = %9532
   call fastcc void @add_packed_guid(ptr noundef %82, ptr noundef %5)
   %.pre5824 = load i32, ptr %78, align 4
-  br label %9534
+  br label %9536
 
-9534:                                             ; preds = %9533, %9530
-  %9535 = phi i32 [ %.pre5824, %9533 ], [ %9531, %9530 ]
-  %9536 = and i32 %9535, 2
-  %.not4870 = icmp eq i32 %9536, 0
-  br i1 %.not4870, label %9540, label %9537
+9536:                                             ; preds = %9535, %9532
+  %9537 = phi i32 [ %.pre5824, %9535 ], [ %9533, %9532 ]
+  %9538 = and i32 %9537, 2
+  %.not4870 = icmp eq i32 %9538, 0
+  br i1 %.not4870, label %9542, label %9539
 
-9537:                                             ; preds = %9534
-  %9538 = load i32, ptr @hf_woww_transport_progress_in_ms, align 4
-  %9539 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9538, i32 noundef 4, i32 noundef -2147483648)
-  br label %9540
+9539:                                             ; preds = %9536
+  %9540 = load i32, ptr @hf_woww_transport_progress_in_ms, align 4
+  %9541 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9540, i32 noundef 4, i32 noundef -2147483648)
+  br label %9542
 
-9540:                                             ; preds = %9537, %9534
+9542:                                             ; preds = %9539, %9536
   call void @ptvcursor_pop_subtree(ptr noundef %82)
   call fastcc void @add_update_mask(ptr noundef %82, ptr noundef %5)
   br label %.loopexit5427
 
-9541:                                             ; preds = %9372
-  %9542 = load i32, ptr @hf_woww_count, align 4
-  %9543 = call ptr @ptvcursor_add_ret_uint(ptr noundef %82, i32 noundef %9542, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %53)
-  %9544 = load i32, ptr %53, align 4
-  %.not5685 = icmp eq i32 %9544, 0
+9543:                                             ; preds = %9374
+  %9544 = load i32, ptr @hf_woww_count, align 4
+  %9545 = call ptr @ptvcursor_add_ret_uint(ptr noundef %82, i32 noundef %9544, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %53)
+  %9546 = load i32, ptr %53, align 4
+  %.not5685 = icmp eq i32 %9546, 0
   br i1 %.not5685, label %.loopexit5427, label %.lr.ph5435
 
-.lr.ph5435:                                       ; preds = %9541, %.lr.ph5435
-  %.047475433 = phi i32 [ %9545, %.lr.ph5435 ], [ 0, %9541 ]
+.lr.ph5435:                                       ; preds = %9543, %.lr.ph5435
+  %.047475433 = phi i32 [ %9547, %.lr.ph5435 ], [ 0, %9543 ]
   call fastcc void @add_packed_guid(ptr noundef %82, ptr noundef %5)
-  %9545 = add nuw i32 %.047475433, 1
-  %9546 = load i32, ptr %53, align 4
-  %9547 = icmp ult i32 %9545, %9546
-  br i1 %9547, label %.lr.ph5435, label %.loopexit5427, !llvm.loop !108
+  %9547 = add nuw i32 %.047475433, 1
+  %9548 = load i32, ptr %53, align 4
+  %9549 = icmp ult i32 %9547, %9548
+  br i1 %9549, label %.lr.ph5435, label %.loopexit5427, !llvm.loop !108
 
-.loopexit5427:                                    ; preds = %.lr.ph5435, %9541, %9372, %9371, %9540, %9206
+.loopexit5427:                                    ; preds = %.lr.ph5435, %9543, %9374, %9373, %9542, %9208
   call void @ptvcursor_pop_subtree(ptr noundef %82)
-  %9548 = add nuw i32 %.047505440, 1
-  %9549 = load i32, ptr %31, align 4
-  %9550 = icmp ult i32 %9548, %9549
-  br i1 %9550, label %.lr.ph5442, label %.loopexit, !llvm.loop !109
+  %9550 = add nuw i32 %.047505440, 1
+  %9551 = load i32, ptr %31, align 4
+  %9552 = icmp ult i32 %9550, %9551
+  br i1 %9552, label %.lr.ph5442, label %.loopexit, !llvm.loop !109
 
-9551:                                             ; preds = %6
-  %9552 = load i32, ptr @ett_message, align 4
-  %9553 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %82, i32 noundef -1, i32 noundef %9552, ptr noundef nonnull @.str.6416)
-  %9554 = load i32, ptr @hf_woww_state, align 4
-  %9555 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9554, i32 noundef 4, i32 noundef -2147483648)
-  %9556 = load i32, ptr @hf_woww_value, align 4
+9553:                                             ; preds = %6
+  %9554 = load i32, ptr @ett_message, align 4
+  %9555 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %82, i32 noundef -1, i32 noundef %9554, ptr noundef nonnull @.str.6416)
+  %9556 = load i32, ptr @hf_woww_state, align 4
   %9557 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9556, i32 noundef 4, i32 noundef -2147483648)
+  %9558 = load i32, ptr @hf_woww_value, align 4
+  %9559 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9558, i32 noundef 4, i32 noundef -2147483648)
   tail call void @ptvcursor_pop_subtree(ptr noundef %82)
   br label %.loopexit
 
-9558:                                             ; preds = %6
-  %9559 = tail call i32 @ptvcursor_current_offset(ptr noundef %82)
-  %9560 = sub i32 %4, %9559
-  %9561 = load i32, ptr @hf_woww_encrypted_data, align 4
-  %9562 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9561, i32 noundef %9560, i32 noundef 0)
+9560:                                             ; preds = %6
+  %9561 = tail call i32 @ptvcursor_current_offset(ptr noundef %82)
+  %9562 = sub i32 %4, %9561
+  %9563 = load i32, ptr @hf_woww_encrypted_data, align 4
+  %9564 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9563, i32 noundef %9562, i32 noundef 0)
   br label %.loopexit
 
-9563:                                             ; preds = %6
-  %9564 = load i32, ptr @hf_woww_weather_type, align 4
-  %9565 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9564, i32 noundef 4, i32 noundef -2147483648)
-  %9566 = load i32, ptr @hf_woww_grade, align 4
+9565:                                             ; preds = %6
+  %9566 = load i32, ptr @hf_woww_weather_type, align 4
   %9567 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9566, i32 noundef 4, i32 noundef -2147483648)
-  %9568 = load i32, ptr @hf_woww_sound_id, align 4
+  %9568 = load i32, ptr @hf_woww_grade, align 4
   %9569 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9568, i32 noundef 4, i32 noundef -2147483648)
-  %9570 = load i32, ptr @hf_woww_weather_change_type, align 4
-  %9571 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9570, i32 noundef 1, i32 noundef -2147483648)
+  %9570 = load i32, ptr @hf_woww_sound_id, align 4
+  %9571 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9570, i32 noundef 4, i32 noundef -2147483648)
+  %9572 = load i32, ptr @hf_woww_weather_change_type, align 4
+  %9573 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9572, i32 noundef 1, i32 noundef -2147483648)
   br label %.loopexit
 
-9572:                                             ; preds = %6
-  %9573 = load i32, ptr @hf_woww_listed_players, align 4
-  %9574 = call ptr @ptvcursor_add_ret_uint(ptr noundef %82, i32 noundef %9573, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %59)
-  %9575 = load i32, ptr @hf_woww_online_players, align 4
-  %9576 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9575, i32 noundef 4, i32 noundef -2147483648)
-  %9577 = load i32, ptr %59, align 4
-  %.not5682 = icmp eq i32 %9577, 0
+9574:                                             ; preds = %6
+  %9575 = load i32, ptr @hf_woww_listed_players, align 4
+  %9576 = call ptr @ptvcursor_add_ret_uint(ptr noundef %82, i32 noundef %9575, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %59)
+  %9577 = load i32, ptr @hf_woww_online_players, align 4
+  %9578 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9577, i32 noundef 4, i32 noundef -2147483648)
+  %9579 = load i32, ptr %59, align 4
+  %.not5682 = icmp eq i32 %9579, 0
   br i1 %.not5682, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %9572, %add_cstring.exit5367
-  %.05430 = phi i32 [ %9608, %add_cstring.exit5367 ], [ 0, %9572 ]
-  %9578 = load i32, ptr @ett_message, align 4
-  %9579 = call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %82, i32 noundef -1, i32 noundef %9578, ptr noundef nonnull @.str.6417, i32 noundef %.05430)
-  %9580 = call ptr @ptvcursor_tvbuff(ptr noundef %82)
-  %9581 = call i32 @ptvcursor_current_offset(ptr noundef %82)
-  br label %9582
+.lr.ph:                                           ; preds = %9574, %add_cstring.exit5367
+  %.05430 = phi i32 [ %9610, %add_cstring.exit5367 ], [ 0, %9574 ]
+  %9580 = load i32, ptr @ett_message, align 4
+  %9581 = call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %82, i32 noundef -1, i32 noundef %9580, ptr noundef nonnull @.str.6417, i32 noundef %.05430)
+  %9582 = call ptr @ptvcursor_tvbuff(ptr noundef %82)
+  %9583 = call i32 @ptvcursor_current_offset(ptr noundef %82)
+  br label %9584
 
-9582:                                             ; preds = %9583, %.lr.ph
-  %.012.i.i5358 = phi i32 [ 0, %.lr.ph ], [ %9586, %9583 ]
+9584:                                             ; preds = %9585, %.lr.ph
+  %.012.i.i5358 = phi i32 [ 0, %.lr.ph ], [ %9588, %9585 ]
   %exitcond.i.i5359 = icmp eq i32 %.012.i.i5358, 32767
-  br i1 %exitcond.i.i5359, label %add_cstring.exit5362, label %9583
+  br i1 %exitcond.i.i5359, label %add_cstring.exit5362, label %9585
 
-9583:                                             ; preds = %9582
-  %9584 = add i32 %.012.i.i5358, %9581
-  %9585 = call zeroext i8 @tvb_get_uint8(ptr noundef %9580, i32 noundef %9584)
-  %.not.i.i5360 = icmp eq i8 %9585, 0
-  %9586 = add nuw nsw i32 %.012.i.i5358, 1
-  br i1 %.not.i.i5360, label %add_cstring.exit5362, label %9582, !llvm.loop !19
+9585:                                             ; preds = %9584
+  %9586 = add i32 %.012.i.i5358, %9583
+  %9587 = call zeroext i8 @tvb_get_uint8(ptr noundef %9582, i32 noundef %9586)
+  %.not.i.i5360 = icmp eq i8 %9587, 0
+  %9588 = add nuw nsw i32 %.012.i.i5358, 1
+  br i1 %.not.i.i5360, label %add_cstring.exit5362, label %9584, !llvm.loop !19
 
-add_cstring.exit5362:                             ; preds = %9582, %9583
-  %spec.select.i.i5361 = phi i32 [ %9586, %9583 ], [ 0, %9582 ]
-  %9587 = load i32, ptr @hf_woww_name, align 4
-  %9588 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9587, i32 noundef %spec.select.i.i5361, i32 noundef 2)
-  %9589 = call ptr @ptvcursor_tvbuff(ptr noundef %82)
-  %9590 = call i32 @ptvcursor_current_offset(ptr noundef %82)
-  br label %9591
+add_cstring.exit5362:                             ; preds = %9584, %9585
+  %spec.select.i.i5361 = phi i32 [ %9588, %9585 ], [ 0, %9584 ]
+  %9589 = load i32, ptr @hf_woww_name, align 4
+  %9590 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9589, i32 noundef %spec.select.i.i5361, i32 noundef 2)
+  %9591 = call ptr @ptvcursor_tvbuff(ptr noundef %82)
+  %9592 = call i32 @ptvcursor_current_offset(ptr noundef %82)
+  br label %9593
 
-9591:                                             ; preds = %9592, %add_cstring.exit5362
-  %.012.i.i5363 = phi i32 [ 0, %add_cstring.exit5362 ], [ %9595, %9592 ]
+9593:                                             ; preds = %9594, %add_cstring.exit5362
+  %.012.i.i5363 = phi i32 [ 0, %add_cstring.exit5362 ], [ %9597, %9594 ]
   %exitcond.i.i5364 = icmp eq i32 %.012.i.i5363, 32767
-  br i1 %exitcond.i.i5364, label %add_cstring.exit5367, label %9592
+  br i1 %exitcond.i.i5364, label %add_cstring.exit5367, label %9594
 
-9592:                                             ; preds = %9591
-  %9593 = add i32 %.012.i.i5363, %9590
-  %9594 = call zeroext i8 @tvb_get_uint8(ptr noundef %9589, i32 noundef %9593)
-  %.not.i.i5365 = icmp eq i8 %9594, 0
-  %9595 = add nuw nsw i32 %.012.i.i5363, 1
-  br i1 %.not.i.i5365, label %add_cstring.exit5367, label %9591, !llvm.loop !19
+9594:                                             ; preds = %9593
+  %9595 = add i32 %.012.i.i5363, %9592
+  %9596 = call zeroext i8 @tvb_get_uint8(ptr noundef %9591, i32 noundef %9595)
+  %.not.i.i5365 = icmp eq i8 %9596, 0
+  %9597 = add nuw nsw i32 %.012.i.i5363, 1
+  br i1 %.not.i.i5365, label %add_cstring.exit5367, label %9593, !llvm.loop !19
 
-add_cstring.exit5367:                             ; preds = %9591, %9592
-  %spec.select.i.i5366 = phi i32 [ %9595, %9592 ], [ 0, %9591 ]
-  %9596 = load i32, ptr @hf_woww_guild, align 4
-  %9597 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9596, i32 noundef %spec.select.i.i5366, i32 noundef 2)
-  %9598 = load i32, ptr @hf_woww_level, align 4
-  %9599 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9598, i32 noundef 4, i32 noundef -2147483648)
-  %9600 = load i32, ptr @hf_woww_class, align 4
-  %9601 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9600, i32 noundef 1, i32 noundef -2147483648)
-  %9602 = load i32, ptr @hf_woww_race, align 4
+add_cstring.exit5367:                             ; preds = %9593, %9594
+  %spec.select.i.i5366 = phi i32 [ %9597, %9594 ], [ 0, %9593 ]
+  %9598 = load i32, ptr @hf_woww_guild, align 4
+  %9599 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9598, i32 noundef %spec.select.i.i5366, i32 noundef 2)
+  %9600 = load i32, ptr @hf_woww_level, align 4
+  %9601 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9600, i32 noundef 4, i32 noundef -2147483648)
+  %9602 = load i32, ptr @hf_woww_class, align 4
   %9603 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9602, i32 noundef 1, i32 noundef -2147483648)
-  %9604 = load i32, ptr @hf_woww_area, align 4
-  %9605 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9604, i32 noundef 4, i32 noundef -2147483648)
-  %9606 = load i32, ptr @hf_woww_party_status, align 4
+  %9604 = load i32, ptr @hf_woww_race, align 4
+  %9605 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9604, i32 noundef 1, i32 noundef -2147483648)
+  %9606 = load i32, ptr @hf_woww_area, align 4
   %9607 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9606, i32 noundef 4, i32 noundef -2147483648)
+  %9608 = load i32, ptr @hf_woww_party_status, align 4
+  %9609 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9608, i32 noundef 4, i32 noundef -2147483648)
   call void @ptvcursor_pop_subtree(ptr noundef %82)
-  %9608 = add nuw i32 %.05430, 1
-  %9609 = load i32, ptr %59, align 4
-  %9610 = icmp ult i32 %9608, %9609
-  br i1 %9610, label %.lr.ph, label %.loopexit, !llvm.loop !110
+  %9610 = add nuw i32 %.05430, 1
+  %9611 = load i32, ptr %59, align 4
+  %9612 = icmp ult i32 %9610, %9611
+  br i1 %9612, label %.lr.ph, label %.loopexit, !llvm.loop !110
 
-9611:                                             ; preds = %6
+9613:                                             ; preds = %6
   tail call fastcc void @add_cstring(ptr noundef %82, ptr noundef nonnull @hf_woww_message)
   br label %.loopexit
 
-9612:                                             ; preds = %6
-  %9613 = load i32, ptr @hf_woww_area, align 4
-  %9614 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9613, i32 noundef 4, i32 noundef -2147483648)
+9614:                                             ; preds = %6
+  %9615 = load i32, ptr @hf_woww_area, align 4
+  %9616 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9615, i32 noundef 4, i32 noundef -2147483648)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %add_cstring.exit5367, %.loopexit5427, %.preheader5425, %9081, %.lr.ph5452, %.lr.ph5462, %.lr.ph5465, %8738, %.lr.ph5471, %.lr.ph5473, %.lr.ph5476, %.lr.ph5479, %.lr.ph5482, %add_cstring.exit5357, %add_cstring.exit5352, %.lr.ph5504, %.lr.ph5507, %.lr.ph5527, %.lr.ph5530, %.lr.ph5533, %7952, %7671, %add_cstring.exit5342, %.lr.ph5545, %.lr.ph5548, %.lr.ph5551, %.lr.ph5557, %.lr.ph5564, %.lr.ph5567, %.lr.ph5570, %add_cstring.exit5337, %add_cstring.exit5317, %add_cstring.exit5307, %6672, %6643, %add_cstring.exit5297, %.lr.ph5599, %5968, %.lr.ph5624, %.lr.ph5627, %5516, %.preheader5379, %.preheader5377, %.preheader, %._crit_edge5651, %add_cstring.exit5282, %.lr.ph5664, %add_cstring.exit5277, %.lr.ph5678, %.lr.ph5681, %5463, %5423, %2350, %2311, %2221, %9572, %9195, %8957, %8791, %8742, %8693, %8665, %8640, %8612, %8589, %8497, %8313, %._crit_edge5501, %8237, %._crit_edge5524, %8008, %7987, %7932, %7424, %7360, %7330, %7257, %7000, %._crit_edge5561, %6954, %6945, %.preheader5393, %6828, %._crit_edge5587, %6625, %6564, %6512, %5909, %5882, %5776, %.preheader5381, %5332, %2358, %._crit_edge5661, %._crit_edge5668, %122, %95, %5865, %5797, %5762, %5647, %5630, %5398, %6, %9166, %9170, %9055, %9067, %9065, %9058, %8949, %8952, %8890, %8893, %8573, %8570, %8583, %8578, %8076, %7923, %7926, %7811, %7814, %7305, %7314, %7089, %7174, %7042, %7044, %._crit_edge5583, %6815, %6688, %6693, %6663, %6480, %6484, %6106, %._crit_edge5614, %6001, %._crit_edge5617, %5984, %5989, %5859, %5872, %5875, %5869, %5791, %5810, %5813, %5805, %5766, %5773, %5637, %5640, %5634, %5654, %5651, %5471, %5444, %5447, %5433, %5409, %5420, %5416, %5383, %5382, %5389, %5388, %5367, %5361, %5318, %5242, %5248, %5238, %5239, %5108, %5169, %4980, %5041, %4852, %4913, %4724, %4785, %4596, %4657, %4468, %4529, %4340, %4401, %4212, %4273, %4084, %4145, %3956, %4017, %3828, %3889, %3700, %3761, %3572, %3633, %3444, %3505, %3316, %3377, %3188, %3249, %3060, %3121, %2932, %2993, %2804, %2865, %2676, %2737, %2543, %2609, %2481, %2542, %2403, %2410, %2394, %2388, %2319, %2298, %2293, %2287, %2278, %2284, %2267, %2273, %2232, %2229, %2087, %2097, %2060, %2062, %1822, %1830, %1057, %1063, %1019, %1044, %1034, %182, %._crit_edge5675, %9612, %9611, %9563, %9558, %9551, %9192, %9189, %9184, %9178, %9175, %9159, %._crit_edge5448, %9120, %9113, %9044, %9039, %9034, %9027, %9024, %9011, %9008, %9005, %9002, %8999, %8996, %8993, %8990, %8987, %8986, %8985, %8984, %8983, %8982, %8981, %8980, %8979, %8976, %8975, %8974, %8973, %8970, %8814, %8809, %8804, %8782, %8761, %8688, %8681, %8674, %8656, %8653, %8637, %8632, %8625, %8605, %8602, %8586, %8551, %8546, %8531, %8528, %8525, %8522, %8519, %8512, %8492, %8408, %8405, %8402, %8399, %8388, %8383, %8378, %._crit_edge5490, %8310, %8305, %._crit_edge5519, %8181, %8174, %8165, %8162, %8157, %8152, %8149, %8144, %8141, %8138, %8133, %8128, %8123, %8120, %8071, %8060, %8049, %8042, %8037, %8034, %8027, %7956, %7927, %7694, %7689, %7684, %7681, %7648, %7635, %7626, %7623, %7620, %7617, %7614, %7611, %7600, %7597, %7594, %7591, %7586, %7552, %7518, %7493, %7490, %7487, %7411, %7394, %7377, %7347, %7342, %7339, %7319, %7300, %7287, %7282, %7232, %7229, %7224, %7221, %7068, %7065, %7056, %7051, %7031, %7028, %7023, %7020, %7017, %6861, %6857, %6846, %6823, %6822, %6781, %6780, %6779, %6766, %6712, %6709, %6706, %6685, %6682, %6679, %6676, %6660, %6657, %6652, %6647, %6620, %6615, %6610, %6605, %6600, %6595, %6590, %6585, %6580, %6553, %6542, %6537, %6534, %6529, %6526, %6523, %6509, %6506, %6503, %6477, %6472, %5998, %5993, %5992, %5906, %5903, %5900, %5897, %5850, %5843, %5840, %5827, %5824, %5821, %5818, %5759, %5752, %5739, %._crit_edge5631, %._crit_edge5635, %5608, %._crit_edge5639, %5566, %5561, %._crit_edge5643, %5529, %5524, %5519, %5480, %5460, %5370, %5315, %5312, %5311, %2218, %2209, %2194, %2193, %2156, %2155, %2082, %2079, %2076, %2073, %2070, %2065, %2053, %2052, %2049, %2046, %2037, %2032, %2029, %2026, %2021, %2018, %2007, %2004, %2001, %1994, %1991, %1988, %1985, %1980, %1975, %1972, %1969, %1960, %1957, %1954, %1937, %1930, %1925, %1922, %1919, %1914, %1911, %1906, %1903, %1900, %1895, %1892, %1889, %1884, %1879, %1876, %1871, %1864, %1859, %1856, %1853, %1848, %1845, %1842, %1835, %1819, %1814, %1813, %1759, %1752, %1749, %1744, %1741, %1738, %1733, %1698, %1695, %1690, %1685, %1680, %1677, %1674, %1605, %1600, %1529, %1528, %1465, %1398, %1331, %1266, %1205, %1195, %1190, %1185, %1180, %1175, %1170, %1163, %1156, %1153, %1146, %1139, %1136, %1133, %1132, %1129, %1124, %1123, %1116, %1111, %1106, %1103, %1100, %1099, %1098, %1097, %1092, %1089, %1088, %1087, %1086, %1085, %1084, %1083, %1082, %1081, %1078, %1077, %1076, %1073, %1072, %1069, %1064, %1054, %1051, %1001, %995, %992, %987, %984, %917, %850, %783, %716, %649, %584, %519, %452, %449, %446, %443, %430, %427, %424, %423, %418, %415, %412, %409, %406, %387, %386, %385, %384, %383, %382, %381, %380, %379, %378, %377, %376, %375, %374, %373, %372, %322, %319, %316, %313, %302, %293, %290, %285, %282, %279, %270, %267, %262, %259, %256, %253, %250, %245, %238, %233, %228, %223, %171, %166, %159, %154, %135, %119, %116, %113, %110, %109, %108, %88, %85
+.loopexit:                                        ; preds = %add_cstring.exit5367, %.loopexit5427, %.preheader5425, %9083, %.lr.ph5452, %.lr.ph5462, %.lr.ph5465, %8740, %.lr.ph5471, %.lr.ph5473, %.lr.ph5476, %.lr.ph5479, %.lr.ph5482, %add_cstring.exit5357, %add_cstring.exit5352, %.lr.ph5504, %.lr.ph5507, %.lr.ph5527, %.lr.ph5530, %.lr.ph5533, %7952, %7671, %add_cstring.exit5342, %.lr.ph5545, %.lr.ph5548, %.lr.ph5551, %.lr.ph5557, %.lr.ph5564, %.lr.ph5567, %.lr.ph5570, %add_cstring.exit5337, %add_cstring.exit5317, %add_cstring.exit5307, %6672, %6643, %add_cstring.exit5297, %.lr.ph5599, %5968, %.lr.ph5624, %.lr.ph5627, %5516, %.preheader5379, %.preheader5377, %.preheader, %._crit_edge5651, %add_cstring.exit5282, %.lr.ph5664, %add_cstring.exit5277, %.lr.ph5678, %.lr.ph5681, %5463, %5423, %2350, %2311, %2221, %9574, %9197, %8959, %8793, %8744, %8693, %8665, %8640, %8612, %8589, %8497, %8313, %._crit_edge5501, %8237, %._crit_edge5524, %8008, %7987, %7932, %7424, %7360, %7330, %7257, %7000, %._crit_edge5561, %6954, %6945, %.preheader5393, %6828, %._crit_edge5587, %6625, %6564, %6512, %5909, %5882, %5776, %.preheader5381, %5332, %2358, %._crit_edge5661, %._crit_edge5668, %122, %95, %5865, %5797, %5762, %5647, %5630, %5398, %6, %9168, %9172, %9057, %9069, %9067, %9060, %8951, %8954, %8892, %8895, %8573, %8570, %8583, %8578, %8076, %7923, %7926, %7811, %7814, %7305, %7314, %7089, %7174, %7042, %7044, %._crit_edge5583, %6815, %6688, %6693, %6663, %6480, %6484, %6106, %._crit_edge5614, %6001, %._crit_edge5617, %5984, %5989, %5859, %5872, %5875, %5869, %5791, %5810, %5813, %5805, %5766, %5773, %5637, %5640, %5634, %5654, %5651, %5471, %5444, %5447, %5433, %5409, %5420, %5416, %5383, %5382, %5389, %5388, %5367, %5361, %5318, %5242, %5248, %5238, %5239, %5108, %5169, %4980, %5041, %4852, %4913, %4724, %4785, %4596, %4657, %4468, %4529, %4340, %4401, %4212, %4273, %4084, %4145, %3956, %4017, %3828, %3889, %3700, %3761, %3572, %3633, %3444, %3505, %3316, %3377, %3188, %3249, %3060, %3121, %2932, %2993, %2804, %2865, %2676, %2737, %2543, %2609, %2481, %2542, %2403, %2410, %2394, %2388, %2319, %2298, %2293, %2287, %2278, %2284, %2267, %2273, %2232, %2229, %2087, %2097, %2060, %2062, %1822, %1830, %1057, %1063, %1019, %1044, %1034, %182, %._crit_edge5675, %9614, %9613, %9565, %9560, %9553, %9194, %9191, %9186, %9180, %9177, %9161, %._crit_edge5448, %9122, %9115, %9046, %9041, %9036, %9029, %9026, %9013, %9010, %9007, %9004, %9001, %8998, %8995, %8992, %8989, %8988, %8987, %8986, %8985, %8984, %8983, %8982, %8981, %8978, %8977, %8976, %8975, %8972, %8816, %8811, %8806, %8784, %8763, %8688, %8681, %8674, %8656, %8653, %8637, %8632, %8625, %8605, %8602, %8586, %8551, %8546, %8531, %8528, %8525, %8522, %8519, %8512, %8492, %8408, %8405, %8402, %8399, %8388, %8383, %8378, %._crit_edge5490, %8310, %8305, %._crit_edge5519, %8181, %8174, %8165, %8162, %8157, %8152, %8149, %8144, %8141, %8138, %8133, %8128, %8123, %8120, %8071, %8060, %8049, %8042, %8037, %8034, %8027, %7956, %7927, %7694, %7689, %7684, %7681, %7648, %7635, %7626, %7623, %7620, %7617, %7614, %7611, %7600, %7597, %7594, %7591, %7586, %7552, %7518, %7493, %7490, %7487, %7411, %7394, %7377, %7347, %7342, %7339, %7319, %7300, %7287, %7282, %7232, %7229, %7224, %7221, %7068, %7065, %7056, %7051, %7031, %7028, %7023, %7020, %7017, %6861, %6857, %6846, %6823, %6822, %6781, %6780, %6779, %6766, %6712, %6709, %6706, %6685, %6682, %6679, %6676, %6660, %6657, %6652, %6647, %6620, %6615, %6610, %6605, %6600, %6595, %6590, %6585, %6580, %6553, %6542, %6537, %6534, %6529, %6526, %6523, %6509, %6506, %6503, %6477, %6472, %5998, %5993, %5992, %5906, %5903, %5900, %5897, %5850, %5843, %5840, %5827, %5824, %5821, %5818, %5759, %5752, %5739, %._crit_edge5631, %._crit_edge5635, %5608, %._crit_edge5639, %5566, %5561, %._crit_edge5643, %5529, %5524, %5519, %5480, %5460, %5370, %5315, %5312, %5311, %2218, %2209, %2194, %2193, %2156, %2155, %2082, %2079, %2076, %2073, %2070, %2065, %2053, %2052, %2049, %2046, %2037, %2032, %2029, %2026, %2021, %2018, %2007, %2004, %2001, %1994, %1991, %1988, %1985, %1980, %1975, %1972, %1969, %1960, %1957, %1954, %1937, %1930, %1925, %1922, %1919, %1914, %1911, %1906, %1903, %1900, %1895, %1892, %1889, %1884, %1879, %1876, %1871, %1864, %1859, %1856, %1853, %1848, %1845, %1842, %1835, %1819, %1814, %1813, %1759, %1752, %1749, %1744, %1741, %1738, %1733, %1698, %1695, %1690, %1685, %1680, %1677, %1674, %1605, %1600, %1529, %1528, %1465, %1398, %1331, %1266, %1205, %1195, %1190, %1185, %1180, %1175, %1170, %1163, %1156, %1153, %1146, %1139, %1136, %1133, %1132, %1129, %1124, %1123, %1116, %1111, %1106, %1103, %1100, %1099, %1098, %1097, %1092, %1089, %1088, %1087, %1086, %1085, %1084, %1083, %1082, %1081, %1078, %1077, %1076, %1073, %1072, %1069, %1064, %1054, %1051, %1001, %995, %992, %987, %984, %917, %850, %783, %716, %649, %584, %519, %452, %449, %446, %443, %430, %427, %424, %423, %418, %415, %412, %409, %406, %387, %386, %385, %384, %383, %382, %381, %380, %379, %378, %377, %376, %375, %374, %373, %372, %322, %319, %316, %313, %302, %293, %290, %285, %282, %279, %270, %267, %262, %259, %256, %253, %250, %245, %238, %233, %228, %223, %171, %166, %159, %154, %135, %119, %116, %113, %110, %109, %108, %88, %85
   call void @ptvcursor_free(ptr noundef %82)
   call void @llvm.lifetime.end.p0(ptr nonnull %80)
   call void @llvm.lifetime.end.p0(ptr nonnull %79)

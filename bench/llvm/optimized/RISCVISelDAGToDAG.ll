@@ -17507,11 +17507,11 @@ _ZL13getMaskSetterN4llvm7SDValueES0_.exit.thread18: ; preds = %_ZL13getMaskSette
 
 31:                                               ; preds = %_ZL13getMaskSetterN4llvm7SDValueES0_.exit.thread18
   %32 = add nsw i32 %29, 6819
-  %switch.i = icmp ult i32 %32, 7
+  %spec.select.i = icmp ult i32 %32, 7
   br label %_ZL13getMaskSetterN4llvm7SDValueES0_.exit.thread
 
 _ZL13getMaskSetterN4llvm7SDValueES0_.exit.thread: ; preds = %20, %12, %9, %6, %2, %_ZL13getMaskSetterN4llvm7SDValueES0_.exit.thread18, %31, %_ZL13getMaskSetterN4llvm7SDValueES0_.exit
-  %.0 = phi i1 [ false, %_ZL13getMaskSetterN4llvm7SDValueES0_.exit ], [ false, %_ZL13getMaskSetterN4llvm7SDValueES0_.exit.thread18 ], [ %switch.i, %31 ], [ false, %2 ], [ false, %6 ], [ false, %9 ], [ false, %12 ], [ false, %20 ]
+  %.0 = phi i1 [ false, %_ZL13getMaskSetterN4llvm7SDValueES0_.exit ], [ false, %_ZL13getMaskSetterN4llvm7SDValueES0_.exit.thread18 ], [ %spec.select.i, %31 ], [ false, %2 ], [ false, %6 ], [ false, %9 ], [ false, %12 ], [ false, %20 ]
   ret i1 %.0
 }
 

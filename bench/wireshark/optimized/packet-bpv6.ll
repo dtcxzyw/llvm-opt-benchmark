@@ -3177,53 +3177,53 @@ define internal i32 @dissect_bundle(ptr noundef %0, ptr noundef %1, ptr noundef 
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4
   %6 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
-  %.off = add i8 %6, -4
-  %switch = icmp ult i8 %.off, 3
-  br i1 %switch, label %.thread, label %9
+  %7 = add i8 %6, -7
+  %or.cond8 = icmp ult i8 %7, -3
+  br i1 %or.cond8, label %11, label %8
 
-.thread:                                          ; preds = %4
-  %7 = load ptr, ptr @bpv6_handle, align 8
-  %8 = tail call i32 @call_dissector(ptr noundef %7, ptr noundef %0, ptr noundef %1, ptr noundef %2)
-  br label %.thread44
+8:                                                ; preds = %4
+  %9 = load ptr, ptr @bpv6_handle, align 8
+  %10 = tail call i32 @call_dissector(ptr noundef %9, ptr noundef %0, ptr noundef %1, ptr noundef %2)
+  br label %.thread43
 
-9:                                                ; preds = %4
-  %10 = getelementptr inbounds nuw i8, ptr %1, i64 408
-  %11 = load ptr, ptr %10, align 8
-  %12 = call ptr @wscbor_chunk_read(ptr noundef %11, ptr noundef %0, ptr noundef nonnull %5)
-  %13 = getelementptr inbounds nuw i8, ptr %12, i64 40
-  %14 = load i32, ptr %13, align 8
-  %15 = icmp eq i32 %14, 4
-  br i1 %15, label %16, label %.thread44
+11:                                               ; preds = %4
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 408
+  %13 = load ptr, ptr %12, align 8
+  %14 = call ptr @wscbor_chunk_read(ptr noundef %13, ptr noundef %0, ptr noundef nonnull %5)
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 40
+  %16 = load i32, ptr %15, align 8
+  %17 = icmp eq i32 %16, 4
+  br i1 %17, label %18, label %.thread43
 
-16:                                               ; preds = %9
-  %17 = load ptr, ptr %10, align 8
-  %18 = call ptr @wscbor_chunk_read(ptr noundef %17, ptr noundef %0, ptr noundef nonnull %5)
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 40
-  %20 = load i32, ptr %19, align 8
-  %21 = icmp eq i32 %20, 4
-  br i1 %21, label %22, label %.thread44
+18:                                               ; preds = %11
+  %19 = load ptr, ptr %12, align 8
+  %20 = call ptr @wscbor_chunk_read(ptr noundef %19, ptr noundef %0, ptr noundef nonnull %5)
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 40
+  %22 = load i32, ptr %21, align 8
+  %23 = icmp eq i32 %22, 4
+  br i1 %23, label %24, label %.thread43
 
-22:                                               ; preds = %16
-  %23 = load ptr, ptr %10, align 8
-  %24 = call ptr @wscbor_chunk_read(ptr noundef %23, ptr noundef %0, ptr noundef nonnull %5)
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 40
-  %26 = load i32, ptr %25, align 8
-  %27 = icmp eq i32 %26, 0
-  br i1 %27, label %28, label %.thread44
+24:                                               ; preds = %18
+  %25 = load ptr, ptr %12, align 8
+  %26 = call ptr @wscbor_chunk_read(ptr noundef %25, ptr noundef %0, ptr noundef nonnull %5)
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 40
+  %28 = load i32, ptr %27, align 8
+  %29 = icmp eq i32 %28, 0
+  br i1 %29, label %30, label %.thread43
 
-28:                                               ; preds = %22
-  %29 = getelementptr inbounds nuw i8, ptr %24, i64 48
-  %30 = load i64, ptr %29, align 8
-  %.not = icmp eq i64 %30, 7
-  br i1 %.not, label %31, label %.thread44
+30:                                               ; preds = %24
+  %31 = getelementptr inbounds nuw i8, ptr %26, i64 48
+  %32 = load i64, ptr %31, align 8
+  %.not = icmp eq i64 %32, 7
+  br i1 %.not, label %33, label %.thread43
 
-31:                                               ; preds = %28
-  %32 = load ptr, ptr @bpv7_handle, align 8
-  %33 = call i32 @call_dissector(ptr noundef %32, ptr noundef %0, ptr noundef %1, ptr noundef %2)
-  br label %.thread44
+33:                                               ; preds = %30
+  %34 = load ptr, ptr @bpv7_handle, align 8
+  %35 = call i32 @call_dissector(ptr noundef %34, ptr noundef %0, ptr noundef %1, ptr noundef %2)
+  br label %.thread43
 
-.thread44:                                        ; preds = %22, %16, %28, %9, %31, %.thread
-  %.1 = phi i32 [ %33, %31 ], [ %8, %.thread ], [ 0, %9 ], [ 0, %28 ], [ 0, %16 ], [ 0, %22 ]
+.thread43:                                        ; preds = %24, %18, %30, %11, %33, %8
+  %.1 = phi i32 [ %10, %8 ], [ %35, %33 ], [ 0, %11 ], [ 0, %30 ], [ 0, %18 ], [ 0, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.1
 }

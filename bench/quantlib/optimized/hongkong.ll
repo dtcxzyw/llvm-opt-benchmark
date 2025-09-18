@@ -758,10 +758,8 @@ if.end:                                           ; preds = %lor.lhs.false41, %l
 
 if.then50:                                        ; preds = %if.end
   %cmp51 = icmp eq i32 %sub.i, 22
-  %7 = and i32 %sub.i, -2
-  %or.cond19 = icmp eq i32 %7, 22
-  %cmp55 = icmp eq i32 %sub.i, 24
-  %or.cond21 = or i1 %cmp55, %or.cond19
+  %7 = add i32 %sub.i, -22
+  %or.cond21 = icmp ult i32 %7, 3
   %cmp57 = icmp eq i32 %call4, 1
   %or.cond23 = and i1 %or.cond21, %cmp57
   br i1 %or.cond23, label %cleanup, label %lor.lhs.false58

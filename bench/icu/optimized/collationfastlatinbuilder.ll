@@ -1912,7 +1912,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7725CollationFastLatinBuilder2
   %6 = alloca %"class.icu_77::ConstChar16Ptr", align 8
   %7 = load i32, ptr %3, align 4, !tbaa !20
   %8 = icmp slt i32 %7, 1
-  br i1 %8, label %9, label %99
+  br i1 %8, label %9, label %98
 
 9:                                                ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -1950,7 +1950,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7725CollationFastLatinBuilder2
   %32 = getelementptr inbounds nuw i8, ptr %14, i64 4
   store ptr %32, ptr %6, align 8, !tbaa !65
   invoke void @_ZN6icu_7710UCharsTrie8IteratorC1ENS_14ConstChar16PtrEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(120) %5, ptr noundef nonnull %6, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %3)
-          to label %33 unwind label %61
+          to label %33 unwind label %60
 
 33:                                               ; preds = %31
   %34 = load ptr, ptr %6, align 8, !tbaa !65
@@ -1965,7 +1965,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7725CollationFastLatinBuilder2
   br label %.thread.outer
 
 .thread.outer:                                    ; preds = %.thread.outer.backedge, %33
-  %.043.ph = phi i32 [ -1, %33 ], [ %67, %.thread.outer.backedge ]
+  %.043.ph = phi i32 [ -1, %33 ], [ %66, %.thread.outer.backedge ]
   %.041.ph = phi i8 [ 0, %33 ], [ %.041.ph.be, %.thread.outer.backedge ]
   %42 = icmp eq i8 %.041.ph, 0
   br label %.thread.outer85
@@ -1980,7 +1980,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7725CollationFastLatinBuilder2
 
 44:                                               ; preds = %.thread
   %.not47 = icmp eq i8 %43, 0
-  br i1 %.not47, label %86, label %45
+  br i1 %.not47, label %85, label %45
 
 45:                                               ; preds = %44
   %46 = load i16, ptr %35, align 8, !tbaa !18
@@ -2006,144 +2006,142 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %45
   br i1 %56, label %.thread59.split.loop.exit, label %57
 
 57:                                               ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit
-  %58 = and i16 %.fr, -64
-  %or.cond.i = icmp ne i16 %58, 8192
-  %59 = icmp ult i16 %.fr, 7808
-  %60 = or i1 %or.cond.i, %59
-  br i1 %60, label %.thread.backedge, label %.thread59.split.loop.exit114
+  %58 = add i16 %.fr, -8256
+  %59 = icmp ult i16 %58, -64
+  br i1 %59, label %.thread.backedge, label %.thread59.split.loop.exit114
 
-61:                                               ; preds = %31
-  %62 = landingpad { ptr, i32 }
+60:                                               ; preds = %31
+  %61 = landingpad { ptr, i32 }
           cleanup
-  %63 = load ptr, ptr %6, align 8, !tbaa !65
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %63) #13, !srcloc !67
-  br label %98
+  %62 = load ptr, ptr %6, align 8, !tbaa !65
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %62) #13, !srcloc !67
+  br label %97
 
 .loopexit:                                        ; preds = %.thread
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %97
+  br label %96
 
-.loopexit.split-lp:                               ; preds = %87
+.loopexit.split-lp:                               ; preds = %86
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %97
+  br label %96
 
-.loopexit81:                                      ; preds = %70
+.loopexit81:                                      ; preds = %69
   %lpad.loopexit83 = landingpad { ptr, i32 }
           cleanup
-  br label %97
+  br label %96
 
-.loopexit.split-lp82:                             ; preds = %72, %81, %85
+.loopexit.split-lp82:                             ; preds = %71, %80, %84
   %lpad.loopexit.split-lp84 = landingpad { ptr, i32 }
           cleanup
-  br label %97
+  br label %96
 
 .thread59.split.loop.exit:                        ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit
-  %64 = zext i16 %.fr to i32
+  %63 = zext i16 %.fr to i32
   br label %.thread59
 
 .thread59.split.loop.exit114:                     ; preds = %57
-  %65 = zext i16 %.fr to i32
-  %66 = add nsw i32 %65, -7808
+  %64 = zext i16 %.fr to i32
+  %65 = add nsw i32 %64, -7808
   br label %.thread59
 
 .thread59:                                        ; preds = %.thread59.split.loop.exit114, %.thread59.split.loop.exit
-  %67 = phi i32 [ %64, %.thread59.split.loop.exit ], [ %66, %.thread59.split.loop.exit114 ]
-  %68 = icmp eq i32 %67, %.043.ph
-  br i1 %68, label %69, label %71
+  %66 = phi i32 [ %63, %.thread59.split.loop.exit ], [ %65, %.thread59.split.loop.exit114 ]
+  %67 = icmp eq i32 %66, %.043.ph
+  br i1 %67, label %68, label %70
 
-69:                                               ; preds = %.thread59
-  br i1 %.041.ph86, label %.thread.outer85.backedge, label %70
+68:                                               ; preds = %.thread59
+  br i1 %.041.ph86, label %.thread.outer85.backedge, label %69
 
-70:                                               ; preds = %69
+69:                                               ; preds = %68
   invoke void @_ZN6icu_7725CollationFastLatinBuilder19addContractionEntryEillR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(7372) %0, i32 noundef %.043.ph, i64 noundef 4311744768, i64 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %3)
           to label %.thread.outer85.backedge unwind label %.loopexit81
 
-.thread.outer85.backedge:                         ; preds = %70, %69
+.thread.outer85.backedge:                         ; preds = %69, %68
   br label %.thread.outer85, !llvm.loop !68
 
-71:                                               ; preds = %.thread59
-  br i1 %.041.ph86, label %75, label %72
+70:                                               ; preds = %.thread59
+  br i1 %.041.ph86, label %74, label %71
 
-72:                                               ; preds = %71
-  %73 = load i64, ptr %39, align 8, !tbaa !51
-  %74 = load i64, ptr %40, align 8, !tbaa !52
-  invoke void @_ZN6icu_7725CollationFastLatinBuilder19addContractionEntryEillR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(7372) %0, i32 noundef %.043.ph, i64 noundef %73, i64 noundef %74, ptr noundef nonnull align 4 dereferenceable(4) %3)
+71:                                               ; preds = %70
+  %72 = load i64, ptr %39, align 8, !tbaa !51
+  %73 = load i64, ptr %40, align 8, !tbaa !52
+  invoke void @_ZN6icu_7725CollationFastLatinBuilder19addContractionEntryEillR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(7372) %0, i32 noundef %.043.ph, i64 noundef %72, i64 noundef %73, ptr noundef nonnull align 4 dereferenceable(4) %3)
           to label %._crit_edge unwind label %.loopexit.split-lp82
 
-._crit_edge:                                      ; preds = %72
+._crit_edge:                                      ; preds = %71
   %.pre = load i16, ptr %35, align 8, !tbaa !18
   %.pre68 = load i32, ptr %36, align 4
   %.pre69 = ashr i16 %.pre, 5
   %.pre70 = sext i16 %.pre69 to i32
-  br label %75
+  br label %74
 
-75:                                               ; preds = %._crit_edge, %71
-  %.pre-phi71 = phi i32 [ %.pre70, %._crit_edge ], [ %49, %71 ]
-  %76 = phi i32 [ %.pre68, %._crit_edge ], [ %50, %71 ]
-  %77 = phi i16 [ %.pre, %._crit_edge ], [ %46, %71 ]
-  %78 = icmp slt i16 %77, 0
-  %79 = select i1 %78, i32 %76, i32 %.pre-phi71
-  %80 = icmp eq i32 %79, 1
-  br i1 %80, label %81, label %85
+74:                                               ; preds = %._crit_edge, %70
+  %.pre-phi71 = phi i32 [ %.pre70, %._crit_edge ], [ %49, %70 ]
+  %75 = phi i32 [ %.pre68, %._crit_edge ], [ %50, %70 ]
+  %76 = phi i16 [ %.pre, %._crit_edge ], [ %46, %70 ]
+  %77 = icmp slt i16 %76, 0
+  %78 = select i1 %77, i32 %75, i32 %.pre-phi71
+  %79 = icmp eq i32 %78, 1
+  br i1 %79, label %80, label %84
 
-81:                                               ; preds = %75
-  %82 = load i32, ptr %41, align 4, !tbaa !69
-  %83 = invoke noundef signext i8 @_ZN6icu_7725CollationFastLatinBuilder14getCEsFromCE32ERKNS_13CollationDataEijR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(7372) %0, ptr noundef nonnull align 8 dereferenceable(140) %1, i32 noundef -1, i32 noundef %82, ptr noundef nonnull align 4 dereferenceable(4) %3)
-          to label %84 unwind label %.loopexit.split-lp82
+80:                                               ; preds = %74
+  %81 = load i32, ptr %41, align 4, !tbaa !69
+  %82 = invoke noundef signext i8 @_ZN6icu_7725CollationFastLatinBuilder14getCEsFromCE32ERKNS_13CollationDataEijR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(7372) %0, ptr noundef nonnull align 8 dereferenceable(140) %1, i32 noundef -1, i32 noundef %81, ptr noundef nonnull align 4 dereferenceable(4) %3)
+          to label %83 unwind label %.loopexit.split-lp82
 
-84:                                               ; preds = %81
-  %.not51 = icmp eq i8 %83, 0
-  br i1 %.not51, label %85, label %.thread.outer.backedge
+83:                                               ; preds = %80
+  %.not51 = icmp eq i8 %82, 0
+  br i1 %.not51, label %84, label %.thread.outer.backedge
 
-85:                                               ; preds = %84, %75
-  invoke void @_ZN6icu_7725CollationFastLatinBuilder19addContractionEntryEillR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(7372) %0, i32 noundef %67, i64 noundef 4311744768, i64 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %3)
+84:                                               ; preds = %83, %74
+  invoke void @_ZN6icu_7725CollationFastLatinBuilder19addContractionEntryEillR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(7372) %0, i32 noundef %66, i64 noundef 4311744768, i64 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %3)
           to label %.thread.outer.backedge unwind label %.loopexit.split-lp82
 
-.thread.outer.backedge:                           ; preds = %85, %84
-  %.041.ph.be = phi i8 [ 1, %84 ], [ 0, %85 ]
+.thread.outer.backedge:                           ; preds = %84, %83
+  %.041.ph.be = phi i8 [ 1, %83 ], [ 0, %84 ]
   br label %.thread.outer
 
-86:                                               ; preds = %44
-  br i1 %.041.ph86, label %90, label %87
+85:                                               ; preds = %44
+  br i1 %.041.ph86, label %89, label %86
 
-87:                                               ; preds = %86
-  %88 = load i64, ptr %39, align 8, !tbaa !51
-  %89 = load i64, ptr %40, align 8, !tbaa !52
-  invoke void @_ZN6icu_7725CollationFastLatinBuilder19addContractionEntryEillR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(7372) %0, i32 noundef %.043.ph, i64 noundef %88, i64 noundef %89, ptr noundef nonnull align 4 dereferenceable(4) %3)
-          to label %90 unwind label %.loopexit.split-lp
+86:                                               ; preds = %85
+  %87 = load i64, ptr %39, align 8, !tbaa !51
+  %88 = load i64, ptr %40, align 8, !tbaa !52
+  invoke void @_ZN6icu_7725CollationFastLatinBuilder19addContractionEntryEillR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(7372) %0, i32 noundef %.043.ph, i64 noundef %87, i64 noundef %88, ptr noundef nonnull align 4 dereferenceable(4) %3)
+          to label %89 unwind label %.loopexit.split-lp
 
-90:                                               ; preds = %87, %86
-  %91 = load i32, ptr %3, align 4, !tbaa !20
-  %92 = icmp slt i32 %91, 1
-  br i1 %92, label %93, label %96
+89:                                               ; preds = %86, %85
+  %90 = load i32, ptr %3, align 4, !tbaa !20
+  %91 = icmp slt i32 %90, 1
+  br i1 %91, label %92, label %95
 
-93:                                               ; preds = %90
-  %94 = sext i32 %23 to i64
-  %95 = or i64 %94, 6442450944
-  store i64 %95, ptr %39, align 8, !tbaa !51
+92:                                               ; preds = %89
+  %93 = sext i32 %23 to i64
+  %94 = or i64 %93, 6442450944
+  store i64 %94, ptr %39, align 8, !tbaa !51
   store i64 0, ptr %40, align 8, !tbaa !52
-  br label %96
+  br label %95
 
-96:                                               ; preds = %90, %93
-  %.1 = phi i8 [ 1, %93 ], [ 0, %90 ]
+95:                                               ; preds = %89, %92
+  %.1 = phi i8 [ 1, %92 ], [ 0, %89 ]
   call void @_ZN6icu_7710UCharsTrie8IteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(120) %5) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %99
-
-97:                                               ; preds = %.loopexit81, %.loopexit.split-lp82, %.loopexit, %.loopexit.split-lp
-  %.pn = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit83, %.loopexit81 ], [ %lpad.loopexit.split-lp84, %.loopexit.split-lp82 ]
-  call void @_ZN6icu_7710UCharsTrie8IteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(120) %5) #13
   br label %98
 
-98:                                               ; preds = %97, %61
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %97 ], [ %62, %61 ]
+96:                                               ; preds = %.loopexit81, %.loopexit.split-lp82, %.loopexit, %.loopexit.split-lp
+  %.pn = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit83, %.loopexit81 ], [ %lpad.loopexit.split-lp84, %.loopexit.split-lp82 ]
+  call void @_ZN6icu_7710UCharsTrie8IteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(120) %5) #13
+  br label %97
+
+97:                                               ; preds = %96, %60
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %96 ], [ %61, %60 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn.pn
 
-99:                                               ; preds = %4, %96
-  %.0 = phi i8 [ %.1, %96 ], [ 0, %4 ]
+98:                                               ; preds = %4, %95
+  %.0 = phi i8 [ %.1, %95 ], [ 0, %4 ]
   ret i8 %.0
 }
 

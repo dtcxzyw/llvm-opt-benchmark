@@ -16,10 +16,9 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef zeroext i1 @_ZN7RegMask9is_vectorEj(i32 noundef %0) local_unnamed_addr #0 align 2 {
-switch.edge:
-  %.off = add i32 %0, -8
-  %switch = icmp ult i32 %.off, 6
-  ret i1 %switch
+  %2 = add i32 %0, -8
+  %spec.select = icmp ult i32 %2, 6
+  ret i1 %spec.select
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -348,208 +347,208 @@ define hidden noundef zeroext i1 @_ZNK7RegMask13is_bound_pairEv(ptr noundef nonn
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZNK7RegMask8is_boundEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
-  %.off.i = add i32 %1, -8
-  %switch.i = icmp ult i32 %.off.i, 6
-  br i1 %switch.i, label %3, label %51
+  %3 = add i32 %1, -8
+  %spec.select.i = icmp ult i32 %3, 6
+  br i1 %spec.select.i, label %4, label %52
 
-3:                                                ; preds = %2
+4:                                                ; preds = %2
   %switch.tableidx = add nsw i32 %1, -8
-  %4 = icmp ult i32 %switch.tableidx, 6
-  br i1 %4, label %switch.lookup, label %_ZN7RegMask13num_registersEj.exit
+  %5 = icmp ult i32 %switch.tableidx, 6
+  br i1 %5, label %switch.lookup, label %_ZN7RegMask13num_registersEj.exit
 
-switch.lookup:                                    ; preds = %3
-  %5 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK7RegMask8is_boundEj, i64 %5
+switch.lookup:                                    ; preds = %4
+  %6 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK7RegMask8is_boundEj, i64 %6
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN7RegMask13num_registersEj.exit
 
-_ZN7RegMask13num_registersEj.exit:                ; preds = %3, %switch.lookup
-  %.0.i = phi i32 [ %switch.load, %switch.lookup ], [ 1, %3 ]
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %7 = load i64, ptr %6, align 8
-  %8 = icmp slt i64 %7, 0
-  br i1 %8, label %_ZNK7RegMask12is_bound_setEj.exit, label %9
+_ZN7RegMask13num_registersEj.exit:                ; preds = %4, %switch.lookup
+  %.0.i = phi i32 [ %switch.load, %switch.lookup ], [ 1, %4 ]
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %8 = load i64, ptr %7, align 8
+  %9 = icmp slt i64 %8, 0
+  br i1 %9, label %_ZNK7RegMask12is_bound_setEj.exit, label %10
 
-9:                                                ; preds = %_ZN7RegMask13num_registersEj.exit
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %11 = load i32, ptr %10, align 8
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 92
-  %13 = load i32, ptr %12, align 4
-  %.not40.i = icmp ugt i32 %11, %13
+10:                                               ; preds = %_ZN7RegMask13num_registersEj.exit
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %12 = load i32, ptr %11, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 92
+  %14 = load i32, ptr %13, align 4
+  %.not40.i = icmp ugt i32 %12, %14
   br i1 %.not40.i, label %_ZNK7RegMask12is_bound_setEj.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %9, %49
-  %.02741.i = phi i32 [ %50, %49 ], [ %11, %9 ]
-  %14 = zext i32 %.02741.i to i64
-  %15 = getelementptr inbounds nuw i64, ptr %0, i64 %14
-  %16 = load i64, ptr %15, align 8
-  %.not30.i = icmp eq i64 %16, 0
-  br i1 %.not30.i, label %49, label %17
+.lr.ph.i:                                         ; preds = %10, %50
+  %.02741.i = phi i32 [ %51, %50 ], [ %12, %10 ]
+  %15 = zext i32 %.02741.i to i64
+  %16 = getelementptr inbounds nuw i64, ptr %0, i64 %15
+  %17 = load i64, ptr %16, align 8
+  %.not30.i = icmp eq i64 %17, 0
+  br i1 %.not30.i, label %50, label %18
 
-17:                                               ; preds = %.lr.ph.i
-  %18 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %16, i1 true)
-  %19 = trunc nuw nsw i64 %18 to i32
-  %20 = shl nuw i64 1, %18
-  %21 = add nuw nsw i32 %.0.i, %19
-  %22 = icmp samesign ult i32 %21, 65
-  br i1 %22, label %23, label %31
+18:                                               ; preds = %.lr.ph.i
+  %19 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %17, i1 true)
+  %20 = trunc nuw nsw i64 %19 to i32
+  %21 = shl nuw i64 1, %19
+  %22 = add nuw nsw i32 %.0.i, %20
+  %23 = icmp samesign ult i32 %22, 65
+  br i1 %23, label %24, label %32
 
-23:                                               ; preds = %17
-  %24 = add nsw i32 %.0.i, -1
-  %25 = zext nneg i32 %24 to i64
-  %26 = shl i64 %20, %25
-  %27 = add i64 %26, -1
-  %28 = sub i64 0, %20
-  %29 = and i64 %27, %28
-  %30 = add i64 %29, %26
-  %.not33.i = icmp eq i64 %30, %16
+24:                                               ; preds = %18
+  %25 = add nsw i32 %.0.i, -1
+  %26 = zext nneg i32 %25 to i64
+  %27 = shl i64 %21, %26
+  %28 = add i64 %27, -1
+  %29 = sub i64 0, %21
+  %30 = and i64 %28, %29
+  %31 = add i64 %30, %27
+  %.not33.i = icmp eq i64 %31, %17
   br i1 %.not33.i, label %.preheader, label %_ZNK7RegMask12is_bound_setEj.exit
 
-31:                                               ; preds = %17
-  %32 = sub i64 0, %20
-  %.not31.i = icmp eq i64 %16, %32
-  br i1 %.not31.i, label %33, label %_ZNK7RegMask12is_bound_setEj.exit
+32:                                               ; preds = %18
+  %33 = sub i64 0, %21
+  %.not31.i = icmp eq i64 %17, %33
+  br i1 %.not31.i, label %34, label %_ZNK7RegMask12is_bound_setEj.exit
 
-33:                                               ; preds = %31
-  %34 = add i32 %.02741.i, 1
-  %35 = icmp ugt i32 %34, %13
-  br i1 %35, label %_ZNK7RegMask12is_bound_setEj.exit, label %36
+34:                                               ; preds = %32
+  %35 = add i32 %.02741.i, 1
+  %36 = icmp ugt i32 %35, %14
+  br i1 %36, label %_ZNK7RegMask12is_bound_setEj.exit, label %37
 
-36:                                               ; preds = %33
-  %37 = sub nuw nsw i32 64, %.0.i
-  %38 = zext nneg i32 %37 to i64
-  %39 = lshr i64 %20, %38
-  %40 = add nsw i64 %39, -1
-  %41 = zext i32 %34 to i64
-  %42 = getelementptr inbounds nuw i64, ptr %0, i64 %41
-  %43 = load i64, ptr %42, align 8
-  %.not32.i = icmp eq i64 %43, %40
+37:                                               ; preds = %34
+  %38 = sub nuw nsw i32 64, %.0.i
+  %39 = zext nneg i32 %38 to i64
+  %40 = lshr i64 %21, %39
+  %41 = add nsw i64 %40, -1
+  %42 = zext i32 %35 to i64
+  %43 = getelementptr inbounds nuw i64, ptr %0, i64 %42
+  %44 = load i64, ptr %43, align 8
+  %.not32.i = icmp eq i64 %44, %41
   br i1 %.not32.i, label %.preheader, label %_ZNK7RegMask12is_bound_setEj.exit
 
-.preheader:                                       ; preds = %36, %23
-  %.2.in.i.ph = phi i32 [ %34, %36 ], [ %.02741.i, %23 ]
-  br label %44
+.preheader:                                       ; preds = %37, %24
+  %.2.in.i.ph = phi i32 [ %35, %37 ], [ %.02741.i, %24 ]
+  br label %45
 
-44:                                               ; preds = %.preheader, %45
-  %.2.in.i = phi i32 [ %.2.i, %45 ], [ %.2.in.i.ph, %.preheader ]
+45:                                               ; preds = %.preheader, %46
+  %.2.in.i = phi i32 [ %.2.i, %46 ], [ %.2.in.i.ph, %.preheader ]
   %.2.i = add i32 %.2.in.i, 1
-  %.not34.i = icmp ugt i32 %.2.i, %13
-  br i1 %.not34.i, label %_ZNK7RegMask12is_bound_setEj.exit, label %45
+  %.not34.i = icmp ugt i32 %.2.i, %14
+  br i1 %.not34.i, label %_ZNK7RegMask12is_bound_setEj.exit, label %46
 
-45:                                               ; preds = %44
-  %46 = zext i32 %.2.i to i64
-  %47 = getelementptr inbounds nuw i64, ptr %0, i64 %46
-  %48 = load i64, ptr %47, align 8
-  %.not35.i = icmp eq i64 %48, 0
-  br i1 %.not35.i, label %44, label %_ZNK7RegMask12is_bound_setEj.exit, !llvm.loop !15
+46:                                               ; preds = %45
+  %47 = zext i32 %.2.i to i64
+  %48 = getelementptr inbounds nuw i64, ptr %0, i64 %47
+  %49 = load i64, ptr %48, align 8
+  %.not35.i = icmp eq i64 %49, 0
+  br i1 %.not35.i, label %45, label %_ZNK7RegMask12is_bound_setEj.exit, !llvm.loop !15
 
-49:                                               ; preds = %.lr.ph.i
-  %50 = add i32 %.02741.i, 1
-  %.not.i = icmp ugt i32 %50, %13
+50:                                               ; preds = %.lr.ph.i
+  %51 = add i32 %.02741.i, 1
+  %.not.i = icmp ugt i32 %51, %14
   br i1 %.not.i, label %_ZNK7RegMask12is_bound_setEj.exit, label %.lr.ph.i, !llvm.loop !16
 
-51:                                               ; preds = %2
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %53 = load i64, ptr %52, align 8
-  %54 = icmp slt i64 %53, 0
-  br i1 %54, label %_ZNK7RegMask12is_bound_setEj.exit, label %55
+52:                                               ; preds = %2
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %54 = load i64, ptr %53, align 8
+  %55 = icmp slt i64 %54, 0
+  br i1 %55, label %_ZNK7RegMask12is_bound_setEj.exit, label %56
 
-55:                                               ; preds = %51
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %57 = load i32, ptr %56, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 92
-  %59 = load i32, ptr %58, align 4
-  %.not19.i = icmp ugt i32 %57, %59
+56:                                               ; preds = %52
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %58 = load i32, ptr %57, align 8
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 92
+  %60 = load i32, ptr %59, align 4
+  %.not19.i = icmp ugt i32 %58, %60
   br i1 %.not19.i, label %_ZNK7RegMask12is_bound_setEj.exit, label %.lr.ph.i4
 
-.lr.ph.i4:                                        ; preds = %55, %69
-  %.01020.i = phi i32 [ %70, %69 ], [ %57, %55 ]
-  %60 = zext i32 %.01020.i to i64
-  %61 = getelementptr inbounds nuw i64, ptr %0, i64 %60
-  %62 = load i64, ptr %61, align 8
-  %.not12.i = icmp eq i64 %62, 0
-  br i1 %.not12.i, label %69, label %_Z13is_power_of_2ImTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit.i
+.lr.ph.i4:                                        ; preds = %56, %70
+  %.01020.i = phi i32 [ %71, %70 ], [ %58, %56 ]
+  %61 = zext i32 %.01020.i to i64
+  %62 = getelementptr inbounds nuw i64, ptr %0, i64 %61
+  %63 = load i64, ptr %62, align 8
+  %.not12.i = icmp eq i64 %63, 0
+  br i1 %.not12.i, label %70, label %_Z13is_power_of_2ImTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit.i
 
 _Z13is_power_of_2ImTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit.i: ; preds = %.lr.ph.i4
-  %63 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %62)
-  %64 = icmp samesign ult i64 %63, 2
-  br i1 %64, label %.preheader.i, label %.lr.ph.i9.preheader
+  %64 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %63)
+  %65 = icmp samesign ult i64 %64, 2
+  br i1 %65, label %.preheader.i, label %.lr.ph.i9.preheader
 
-.preheader.i:                                     ; preds = %_Z13is_power_of_2ImTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit.i, %65
-  %.1.in.i = phi i32 [ %.1.i6, %65 ], [ %.01020.i, %_Z13is_power_of_2ImTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit.i ]
+.preheader.i:                                     ; preds = %_Z13is_power_of_2ImTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit.i, %66
+  %.1.in.i = phi i32 [ %.1.i6, %66 ], [ %.01020.i, %_Z13is_power_of_2ImTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit.i ]
   %.1.i6 = add i32 %.1.in.i, 1
-  %.not13.i = icmp ugt i32 %.1.i6, %59
-  br i1 %.not13.i, label %_ZNK7RegMask12is_bound_setEj.exit, label %65
+  %.not13.i = icmp ugt i32 %.1.i6, %60
+  br i1 %.not13.i, label %_ZNK7RegMask12is_bound_setEj.exit, label %66
 
-65:                                               ; preds = %.preheader.i
-  %66 = zext i32 %.1.i6 to i64
-  %67 = getelementptr inbounds nuw i64, ptr %0, i64 %66
-  %68 = load i64, ptr %67, align 8
-  %.not14.i = icmp eq i64 %68, 0
+66:                                               ; preds = %.preheader.i
+  %67 = zext i32 %.1.i6 to i64
+  %68 = getelementptr inbounds nuw i64, ptr %0, i64 %67
+  %69 = load i64, ptr %68, align 8
+  %.not14.i = icmp eq i64 %69, 0
   br i1 %.not14.i, label %.preheader.i, label %.lr.ph.i9.preheader, !llvm.loop !11
 
-69:                                               ; preds = %.lr.ph.i4
-  %70 = add i32 %.01020.i, 1
-  %.not.i7 = icmp ugt i32 %70, %59
+70:                                               ; preds = %.lr.ph.i4
+  %71 = add i32 %.01020.i, 1
+  %.not.i7 = icmp ugt i32 %71, %60
   br i1 %.not.i7, label %.lr.ph.i9.preheader, label %.lr.ph.i4, !llvm.loop !12
 
-.lr.ph.i9.preheader:                              ; preds = %69, %65, %_Z13is_power_of_2ImTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit.i
+.lr.ph.i9.preheader:                              ; preds = %70, %66, %_Z13is_power_of_2ImTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit.i
   br label %.lr.ph.i9
 
-.lr.ph.i9:                                        ; preds = %.lr.ph.i9.preheader, %90
-  %.01732.i = phi i32 [ %91, %90 ], [ %57, %.lr.ph.i9.preheader ]
-  %71 = zext i32 %.01732.i to i64
-  %72 = getelementptr inbounds nuw i64, ptr %0, i64 %71
-  %73 = load i64, ptr %72, align 8
-  %.not21.i = icmp eq i64 %73, 0
-  br i1 %.not21.i, label %90, label %74
+.lr.ph.i9:                                        ; preds = %.lr.ph.i9.preheader, %91
+  %.01732.i = phi i32 [ %92, %91 ], [ %58, %.lr.ph.i9.preheader ]
+  %72 = zext i32 %.01732.i to i64
+  %73 = getelementptr inbounds nuw i64, ptr %0, i64 %72
+  %74 = load i64, ptr %73, align 8
+  %.not21.i = icmp eq i64 %74, 0
+  br i1 %.not21.i, label %91, label %75
 
-74:                                               ; preds = %.lr.ph.i9
-  %75 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %73, i1 true)
-  %.not22.i = icmp eq i64 %75, 63
-  br i1 %.not22.i, label %78, label %76
+75:                                               ; preds = %.lr.ph.i9
+  %76 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %74, i1 true)
+  %.not22.i = icmp eq i64 %76, 63
+  br i1 %.not22.i, label %79, label %77
 
-76:                                               ; preds = %74
-  %77 = shl nuw i64 3, %75
-  %.not24.i = icmp eq i64 %77, %73
+77:                                               ; preds = %75
+  %78 = shl nuw i64 3, %76
+  %.not24.i = icmp eq i64 %78, %74
   br i1 %.not24.i, label %.preheader92, label %_ZNK7RegMask12is_bound_setEj.exit
 
-78:                                               ; preds = %74
-  %79 = add i32 %.01732.i, 1
-  %80 = icmp ugt i32 %79, %59
-  br i1 %80, label %_ZNK7RegMask12is_bound_setEj.exit, label %81
+79:                                               ; preds = %75
+  %80 = add i32 %.01732.i, 1
+  %81 = icmp ugt i32 %80, %60
+  br i1 %81, label %_ZNK7RegMask12is_bound_setEj.exit, label %82
 
-81:                                               ; preds = %78
-  %82 = zext i32 %79 to i64
-  %83 = getelementptr inbounds nuw i64, ptr %0, i64 %82
-  %84 = load i64, ptr %83, align 8
-  %.not23.i = icmp eq i64 %84, 1
+82:                                               ; preds = %79
+  %83 = zext i32 %80 to i64
+  %84 = getelementptr inbounds nuw i64, ptr %0, i64 %83
+  %85 = load i64, ptr %84, align 8
+  %.not23.i = icmp eq i64 %85, 1
   br i1 %.not23.i, label %.preheader92, label %_ZNK7RegMask12is_bound_setEj.exit
 
-.preheader92:                                     ; preds = %81, %76
-  %.2.in.i12.ph = phi i32 [ %79, %81 ], [ %.01732.i, %76 ]
-  br label %85
+.preheader92:                                     ; preds = %82, %77
+  %.2.in.i12.ph = phi i32 [ %80, %82 ], [ %.01732.i, %77 ]
+  br label %86
 
-85:                                               ; preds = %.preheader92, %86
-  %.2.in.i12 = phi i32 [ %.2.i13, %86 ], [ %.2.in.i12.ph, %.preheader92 ]
+86:                                               ; preds = %.preheader92, %87
+  %.2.in.i12 = phi i32 [ %.2.i13, %87 ], [ %.2.in.i12.ph, %.preheader92 ]
   %.2.i13 = add i32 %.2.in.i12, 1
-  %.not25.i = icmp ugt i32 %.2.i13, %59
-  br i1 %.not25.i, label %_ZNK7RegMask12is_bound_setEj.exit, label %86
+  %.not25.i = icmp ugt i32 %.2.i13, %60
+  br i1 %.not25.i, label %_ZNK7RegMask12is_bound_setEj.exit, label %87
 
-86:                                               ; preds = %85
-  %87 = zext i32 %.2.i13 to i64
-  %88 = getelementptr inbounds nuw i64, ptr %0, i64 %87
-  %89 = load i64, ptr %88, align 8
-  %.not26.i = icmp eq i64 %89, 0
-  br i1 %.not26.i, label %85, label %_ZNK7RegMask12is_bound_setEj.exit, !llvm.loop !13
+87:                                               ; preds = %86
+  %88 = zext i32 %.2.i13 to i64
+  %89 = getelementptr inbounds nuw i64, ptr %0, i64 %88
+  %90 = load i64, ptr %89, align 8
+  %.not26.i = icmp eq i64 %90, 0
+  br i1 %.not26.i, label %86, label %_ZNK7RegMask12is_bound_setEj.exit, !llvm.loop !13
 
-90:                                               ; preds = %.lr.ph.i9
-  %91 = add i32 %.01732.i, 1
-  %.not.i14 = icmp ugt i32 %91, %59
+91:                                               ; preds = %.lr.ph.i9
+  %92 = add i32 %.01732.i, 1
+  %.not.i14 = icmp ugt i32 %92, %60
   br i1 %.not.i14, label %_ZNK7RegMask12is_bound_setEj.exit, label %.lr.ph.i9, !llvm.loop !14
 
-_ZNK7RegMask12is_bound_setEj.exit:                ; preds = %.preheader.i, %90, %86, %85, %49, %45, %44, %55, %51, %78, %81, %76, %33, %36, %31, %23, %_ZN7RegMask13num_registersEj.exit, %9
-  %.0 = phi i1 [ true, %9 ], [ false, %_ZN7RegMask13num_registersEj.exit ], [ false, %23 ], [ false, %31 ], [ false, %36 ], [ false, %33 ], [ false, %76 ], [ false, %81 ], [ false, %78 ], [ false, %51 ], [ true, %55 ], [ %.not34.i, %44 ], [ %.not34.i, %45 ], [ true, %49 ], [ %.not25.i, %85 ], [ %.not25.i, %86 ], [ true, %90 ], [ true, %.preheader.i ]
+_ZNK7RegMask12is_bound_setEj.exit:                ; preds = %.preheader.i, %91, %87, %86, %50, %46, %45, %56, %52, %79, %82, %77, %34, %37, %32, %24, %_ZN7RegMask13num_registersEj.exit, %10
+  %.0 = phi i1 [ true, %10 ], [ false, %_ZN7RegMask13num_registersEj.exit ], [ false, %24 ], [ false, %32 ], [ false, %37 ], [ false, %34 ], [ false, %77 ], [ false, %82 ], [ false, %79 ], [ false, %52 ], [ true, %56 ], [ %.not34.i, %45 ], [ %.not34.i, %46 ], [ true, %50 ], [ %.not25.i, %86 ], [ %.not25.i, %87 ], [ true, %91 ], [ true, %.preheader.i ]
   ret i1 %.0
 }
 

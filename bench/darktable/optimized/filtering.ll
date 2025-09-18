@@ -4589,8 +4589,8 @@ define internal fastcc range(i32 0, 2) i32 @_widget_init(ptr noundef initializes
   %107 = load ptr, ptr %106, align 8, !tbaa !210
   %108 = icmp ne i32 %5, 0
   %109 = add i32 %1, -15
-  %switch.i = icmp ult i32 %109, -6
-  %narrow = or i1 %switch.i, %108
+  %or.cond9.i = icmp ult i32 %109, -6
+  %narrow = or i1 %or.cond9.i, %108
   %110 = zext i1 %narrow to i32
   tail call void @gtk_widget_set_visible(ptr noundef %107, i32 noundef %110) #20
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 48

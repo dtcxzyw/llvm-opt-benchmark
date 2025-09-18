@@ -4443,7 +4443,7 @@ s7comm_syntaxid_s7any.exit:                       ; preds = %50, %83, %97
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  br label %223
+  br label %224
 
 101:                                              ; preds = %4
   %102 = icmp ugt i8 %22, 6
@@ -4501,7 +4501,7 @@ s7comm_syntaxid_dbread.exit:                      ; preds = %.lr.ph.i, %104
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br label %223
+  br label %224
 
 129:                                              ; preds = %101
   %130 = icmp ugt i8 %22, 13
@@ -4582,17 +4582,17 @@ s7comm_syntaxid_dbread.exit:                      ; preds = %.lr.ph.i, %104
 
 s7comm_syntaxid_1200sym.exit:                     ; preds = %.lr.ph.i94
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %223
+  br label %224
 
 173:                                              ; preds = %129
   %174 = icmp eq i8 %22, 8
   %or.cond20 = select i1 %40, i1 %174, i1 false
-  %.off = add i8 %24, 126
-  %switch = icmp ult i8 %.off, 3
-  %or.cond93 = select i1 %or.cond20, i1 %switch, i1 false
-  br i1 %or.cond93, label %175, label %201
+  %175 = add i8 %24, 126
+  %or.cond26 = icmp ult i8 %175, 3
+  %or.cond93 = select i1 %or.cond20, i1 %or.cond26, i1 false
+  br i1 %or.cond93, label %176, label %202
 
-175:                                              ; preds = %173
+176:                                              ; preds = %173
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -4601,77 +4601,77 @@ s7comm_syntaxid_1200sym.exit:                     ; preds = %.lr.ph.i94
   store i32 0, ptr %9, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 0, ptr %10, align 4
-  %176 = load i32, ptr @hf_s7comm_item_nck_areaunit, align 4
-  %177 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %30, i32 noundef %176, ptr noundef %0, i32 noundef %39, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %7)
-  %178 = load i32, ptr %7, align 4
-  %179 = lshr i32 %178, 5
-  %180 = and i32 %178, 31
-  %181 = load i32, ptr @hf_s7comm_item_nck_area, align 4
-  %182 = call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %181, ptr noundef %0, i32 noundef %39, i32 noundef 1, i32 noundef 0)
-  %183 = load i32, ptr @hf_s7comm_item_nck_unit, align 4
-  %184 = call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %183, ptr noundef %0, i32 noundef %39, i32 noundef 1, i32 noundef 0)
-  %185 = add i32 %1, 4
-  %186 = load i32, ptr @hf_s7comm_item_nck_column, align 4
-  %187 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %30, i32 noundef %186, ptr noundef %0, i32 noundef %185, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %8)
-  %188 = add i32 %1, 6
-  %189 = load i32, ptr @hf_s7comm_item_nck_line, align 4
-  %190 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %30, i32 noundef %189, ptr noundef %0, i32 noundef %188, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %9)
-  %191 = add i32 %1, 8
-  %192 = load i32, ptr @hf_s7comm_item_nck_module, align 4
-  %193 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %30, i32 noundef %192, ptr noundef %0, i32 noundef %191, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %10)
-  %194 = add i32 %1, 9
-  %195 = load i32, ptr @hf_s7comm_item_nck_linecount, align 4
-  %196 = call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %195, ptr noundef %0, i32 noundef %194, i32 noundef 1, i32 noundef 0)
-  %197 = add i32 %1, 10
-  %198 = load i32, ptr %8, align 4
-  %199 = load i32, ptr %9, align 4
-  %200 = load i32, ptr %10, align 4
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %30, ptr noundef nonnull @.str.2168, i32 noundef %179, i32 noundef %180, i32 noundef %198, i32 noundef %199, i32 noundef %200)
+  %177 = load i32, ptr @hf_s7comm_item_nck_areaunit, align 4
+  %178 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %30, i32 noundef %177, ptr noundef %0, i32 noundef %39, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %7)
+  %179 = load i32, ptr %7, align 4
+  %180 = lshr i32 %179, 5
+  %181 = and i32 %179, 31
+  %182 = load i32, ptr @hf_s7comm_item_nck_area, align 4
+  %183 = call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %182, ptr noundef %0, i32 noundef %39, i32 noundef 1, i32 noundef 0)
+  %184 = load i32, ptr @hf_s7comm_item_nck_unit, align 4
+  %185 = call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %184, ptr noundef %0, i32 noundef %39, i32 noundef 1, i32 noundef 0)
+  %186 = add i32 %1, 4
+  %187 = load i32, ptr @hf_s7comm_item_nck_column, align 4
+  %188 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %30, i32 noundef %187, ptr noundef %0, i32 noundef %186, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %8)
+  %189 = add i32 %1, 6
+  %190 = load i32, ptr @hf_s7comm_item_nck_line, align 4
+  %191 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %30, i32 noundef %190, ptr noundef %0, i32 noundef %189, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %9)
+  %192 = add i32 %1, 8
+  %193 = load i32, ptr @hf_s7comm_item_nck_module, align 4
+  %194 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %30, i32 noundef %193, ptr noundef %0, i32 noundef %192, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %10)
+  %195 = add i32 %1, 9
+  %196 = load i32, ptr @hf_s7comm_item_nck_linecount, align 4
+  %197 = call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %196, ptr noundef %0, i32 noundef %195, i32 noundef 1, i32 noundef 0)
+  %198 = add i32 %1, 10
+  %199 = load i32, ptr %8, align 4
+  %200 = load i32, ptr %9, align 4
+  %201 = load i32, ptr %10, align 4
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %30, ptr noundef nonnull @.str.2168, i32 noundef %180, i32 noundef %181, i32 noundef %199, i32 noundef %200, i32 noundef %201)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %223
+  br label %224
 
-201:                                              ; preds = %173
-  %202 = icmp eq i8 %24, -94
-  %or.cond32 = select i1 %or.cond, i1 %202, i1 false
-  br i1 %or.cond32, label %203, label %221
+202:                                              ; preds = %173
+  %203 = icmp eq i8 %24, -94
+  %or.cond32 = select i1 %or.cond, i1 %203, i1 false
+  br i1 %or.cond32, label %204, label %222
 
-203:                                              ; preds = %201
+204:                                              ; preds = %202
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4
-  %204 = load i32, ptr @hf_s7comm_item_driveesany_unknown1, align 4
-  %205 = tail call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %204, ptr noundef %0, i32 noundef %39, i32 noundef 1, i32 noundef 0)
-  %206 = add i32 %1, 4
-  %207 = load i32, ptr @hf_s7comm_item_driveesany_unknown2, align 4
-  %208 = tail call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %207, ptr noundef %0, i32 noundef %206, i32 noundef 2, i32 noundef 0)
-  %209 = add i32 %1, 6
-  %210 = load i32, ptr @hf_s7comm_item_driveesany_unknown3, align 4
-  %211 = tail call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %210, ptr noundef %0, i32 noundef %209, i32 noundef 2, i32 noundef 0)
-  %212 = add i32 %1, 8
-  %213 = load i32, ptr @hf_s7comm_item_driveesany_parameter_nr, align 4
-  %214 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %30, i32 noundef %213, ptr noundef %0, i32 noundef %212, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %5)
-  %215 = add i32 %1, 10
-  %216 = load i32, ptr @hf_s7comm_item_driveesany_parameter_idx, align 4
-  %217 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %30, i32 noundef %216, ptr noundef %0, i32 noundef %215, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %6)
-  %218 = add i32 %1, 12
-  %219 = load i32, ptr %5, align 4
-  %220 = load i32, ptr %6, align 4
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %30, ptr noundef nonnull @.str.2169, i32 noundef %219, i32 noundef %220)
+  %205 = load i32, ptr @hf_s7comm_item_driveesany_unknown1, align 4
+  %206 = tail call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %205, ptr noundef %0, i32 noundef %39, i32 noundef 1, i32 noundef 0)
+  %207 = add i32 %1, 4
+  %208 = load i32, ptr @hf_s7comm_item_driveesany_unknown2, align 4
+  %209 = tail call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %208, ptr noundef %0, i32 noundef %207, i32 noundef 2, i32 noundef 0)
+  %210 = add i32 %1, 6
+  %211 = load i32, ptr @hf_s7comm_item_driveesany_unknown3, align 4
+  %212 = tail call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %211, ptr noundef %0, i32 noundef %210, i32 noundef 2, i32 noundef 0)
+  %213 = add i32 %1, 8
+  %214 = load i32, ptr @hf_s7comm_item_driveesany_parameter_nr, align 4
+  %215 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %30, i32 noundef %214, ptr noundef %0, i32 noundef %213, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %5)
+  %216 = add i32 %1, 10
+  %217 = load i32, ptr @hf_s7comm_item_driveesany_parameter_idx, align 4
+  %218 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %30, i32 noundef %217, ptr noundef %0, i32 noundef %216, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %6)
+  %219 = add i32 %1, 12
+  %220 = load i32, ptr %5, align 4
+  %221 = load i32, ptr %6, align 4
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %30, ptr noundef nonnull @.str.2169, i32 noundef %220, i32 noundef %221)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %223
+  br label %224
 
-221:                                              ; preds = %201
-  %222 = add i32 %23, %26
+222:                                              ; preds = %202
+  %223 = add i32 %23, %26
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %30, ptr noundef nonnull @.str.2133)
-  br label %223
+  br label %224
 
-223:                                              ; preds = %s7comm_syntaxid_dbread.exit, %175, %221, %203, %s7comm_syntaxid_1200sym.exit, %s7comm_syntaxid_s7any.exit
-  %.0 = phi i32 [ %.0.i, %s7comm_syntaxid_s7any.exit ], [ %.025.lcssa.i, %s7comm_syntaxid_dbread.exit ], [ %172, %s7comm_syntaxid_1200sym.exit ], [ %197, %175 ], [ %218, %203 ], [ %222, %221 ]
+224:                                              ; preds = %s7comm_syntaxid_dbread.exit, %176, %222, %204, %s7comm_syntaxid_1200sym.exit, %s7comm_syntaxid_s7any.exit
+  %.0 = phi i32 [ %.0.i, %s7comm_syntaxid_s7any.exit ], [ %.025.lcssa.i, %s7comm_syntaxid_dbread.exit ], [ %172, %s7comm_syntaxid_1200sym.exit ], [ %198, %176 ], [ %219, %204 ], [ %223, %222 ]
   ret i32 %.0
 }
 

@@ -1012,10 +1012,8 @@ ssl_cipher_get_evp_md_mac.exit:                   ; preds = %.ssl_cipher_get_evp
 
 96:                                               ; preds = %95
   %97 = load i32, ptr %1, align 8, !tbaa !79
-  %.mask = and i32 %97, -256
-  %.not85 = icmp ne i32 %.mask, 768
-  %98 = icmp slt i32 %97, 769
-  %or.cond = or i1 %98, %.not85
+  %98 = add i32 %97, -1024
+  %or.cond = icmp ult i32 %98, -255
   br i1 %or.cond, label %ssl_cipher_get_evp_cipher.exit.thread, label %99
 
 99:                                               ; preds = %96

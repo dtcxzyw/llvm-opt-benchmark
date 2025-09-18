@@ -6147,10 +6147,10 @@ _ZNK17arith_recognizers7is_bandEPK4expr.exit:     ; preds = %1275
   br label %.body
 
 _ZNK17arith_recognizers7is_div0EPK4expr.exit:     ; preds = %_ZNK17arith_recognizers7is_bandEPK4expr.exit
-  %1294 = and i32 %1282, -2
-  %1295 = icmp eq i32 %1282, 17
-  %1296 = icmp eq i32 %1294, 12
-  %1297 = or i1 %1295, %1296
+  %1294 = icmp eq i32 %1282, 17
+  %1295 = and i32 %1282, -2
+  %1296 = icmp eq i32 %1295, 12
+  %1297 = or i1 %1294, %1296
   %1298 = icmp eq i32 %1282, 23
   %1299 = or i1 %1298, %1297
   %or.cond752 = select i1 %1280, i1 %1299, i1 false

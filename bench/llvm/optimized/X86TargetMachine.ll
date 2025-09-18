@@ -6446,16 +6446,13 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm19TargetTransformInfo5Mo
   %15 = zext i32 %1 to i64
   %16 = getelementptr inbounds nuw i16, ptr %14, i64 %15
   %17 = load i16, ptr %16, align 2, !tbaa !732
-  %18 = trunc i16 %17 to i8
-  %19 = icmp ult i8 %18, 16
-  %.mask.i.i = and i8 %18, -16
-  %20 = icmp eq i8 %.mask.i.i, 64
-  %spec.select.i.i = or i1 %19, %20
+  %18 = and i16 %17, 176
+  %spec.select.i.i = icmp eq i16 %18, 0
   br label %_ZNK4llvm16BasicTTIImplBaseINS_10X86TTIImplEE18isIndexedLoadLegalENS_19TargetTransformInfo14MemIndexedModeEPNS_4TypeERKNS_10DataLayoutE.exit
 
 _ZNK4llvm16BasicTTIImplBaseINS_10X86TTIImplEE18isIndexedLoadLegalENS_19TargetTransformInfo14MemIndexedModeEPNS_4TypeERKNS_10DataLayoutE.exit: ; preds = %3, %10
-  %21 = phi i1 [ false, %3 ], [ %spec.select.i.i, %10 ]
-  ret i1 %21
+  %19 = phi i1 [ false, %3 ], [ %spec.select.i.i, %10 ]
+  ret i1 %19
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

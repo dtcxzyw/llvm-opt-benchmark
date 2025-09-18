@@ -5866,14 +5866,14 @@ define linkonce_odr dso_local ptr @_ZNSt3__111basic_regexIcNS_12regex_traitsIcEE
   %7 = ptrtoint ptr %1 to i64
   %8 = ptrtoint ptr %2 to i64
   %.not143 = icmp eq ptr %1, %2
-  br i1 %.not143, label %162, label %9
+  br i1 %.not143, label %150, label %9
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load i32, ptr %10, align 8
   %12 = and i32 %11, 496
   %13 = load i8, ptr %1, align 1
-  switch i8 %13, label %162 [
+  switch i8 %13, label %150 [
     i8 42, label %14
     i8 43, label %28
     i8 63, label %42
@@ -5897,13 +5897,13 @@ define linkonce_odr dso_local ptr @_ZNSt3__111basic_regexIcNS_12regex_traitsIcEE
   %23 = zext i32 %4 to i64
   %24 = zext i32 %5 to i64
   tail call void @_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE11__push_loopEmmPNS_16__owns_one_stateIcEEmmb(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 noundef 0, i64 noundef -1, ptr noundef %3, i64 noundef %23, i64 noundef %24, i1 noundef zeroext false)
-  br label %162
+  br label %150
 
 25:                                               ; preds = %18, %14
   %26 = zext i32 %4 to i64
   %27 = zext i32 %5 to i64
   tail call void @_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE11__push_loopEmmPNS_16__owns_one_stateIcEEmmb(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 noundef 0, i64 noundef -1, ptr noundef %3, i64 noundef %26, i64 noundef %27, i1 noundef zeroext true)
-  br label %162
+  br label %150
 
 28:                                               ; preds = %9
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 1
@@ -5922,13 +5922,13 @@ define linkonce_odr dso_local ptr @_ZNSt3__111basic_regexIcNS_12regex_traitsIcEE
   %37 = zext i32 %4 to i64
   %38 = zext i32 %5 to i64
   tail call void @_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE11__push_loopEmmPNS_16__owns_one_stateIcEEmmb(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 noundef 1, i64 noundef -1, ptr noundef %3, i64 noundef %37, i64 noundef %38, i1 noundef zeroext false)
-  br label %162
+  br label %150
 
 39:                                               ; preds = %32, %28
   %40 = zext i32 %4 to i64
   %41 = zext i32 %5 to i64
   tail call void @_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE11__push_loopEmmPNS_16__owns_one_stateIcEEmmb(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 noundef 1, i64 noundef -1, ptr noundef %3, i64 noundef %40, i64 noundef %41, i1 noundef zeroext true)
-  br label %162
+  br label %150
 
 42:                                               ; preds = %9
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 1
@@ -5947,13 +5947,13 @@ define linkonce_odr dso_local ptr @_ZNSt3__111basic_regexIcNS_12regex_traitsIcEE
   %51 = zext i32 %4 to i64
   %52 = zext i32 %5 to i64
   tail call void @_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE11__push_loopEmmPNS_16__owns_one_stateIcEEmmb(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 noundef 0, i64 noundef 1, ptr noundef %3, i64 noundef %51, i64 noundef %52, i1 noundef zeroext false)
-  br label %162
+  br label %150
 
 53:                                               ; preds = %46, %42
   %54 = zext i32 %4 to i64
   %55 = zext i32 %5 to i64
   tail call void @_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE11__push_loopEmmPNS_16__owns_one_stateIcEEmmb(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 noundef 0, i64 noundef 1, ptr noundef %3, i64 noundef %54, i64 noundef %55, i1 noundef zeroext true)
-  br label %162
+  br label %150
 
 56:                                               ; preds = %9
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 1
@@ -5962,49 +5962,43 @@ define linkonce_odr dso_local ptr @_ZNSt3__111basic_regexIcNS_12regex_traitsIcEE
 
 58:                                               ; preds = %56
   %59 = load i8, ptr %57, align 1
-  %60 = and i8 %59, -8
-  %61 = icmp eq i8 %60, 48
-  %62 = and i8 %59, -2
-  %63 = icmp eq i8 %62, 56
-  %or.cond.i = or i1 %61, %63
-  br i1 %or.cond.i, label %64, label %_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE17__parse_DUP_COUNTINS_11__wrap_iterIPKcEEEET_S9_S9_Ri.exit.thread
+  %60 = add i8 %59, -48
+  %or.cond.i = icmp ult i8 %60, 10
+  br i1 %or.cond.i, label %61, label %_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE17__parse_DUP_COUNTINS_11__wrap_iterIPKcEEEET_S9_S9_Ri.exit.thread
 
-64:                                               ; preds = %58
+61:                                               ; preds = %58
   %.0.i.i.i.ph.in.i = zext nneg i8 %59 to i32
   %.0.i.i.i.ph.i = add nsw i32 %.0.i.i.i.ph.in.i, -48
   %.sroa.013.130.i = getelementptr inbounds nuw i8, ptr %1, i64 2
   %.not2531.i = icmp eq ptr %.sroa.013.130.i, %2
   br i1 %.not2531.i, label %_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE17__parse_DUP_COUNTINS_11__wrap_iterIPKcEEEET_S9_S9_Ri.exit.thread126, label %.lr.ph.i.preheader
 
-.lr.ph.i.preheader:                               ; preds = %64
-  %65 = sub i64 %8, %7
-  %scevgep = getelementptr i8, ptr %1, i64 %65
+.lr.ph.i.preheader:                               ; preds = %61
+  %62 = sub i64 %8, %7
+  %scevgep = getelementptr i8, ptr %1, i64 %62
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %73
-  %.0121 = phi i32 [ %75, %73 ], [ %.0.i.i.i.ph.i, %.lr.ph.i.preheader ]
-  %.sroa.013.133.i = phi ptr [ %.sroa.013.1.i, %73 ], [ %.sroa.013.130.i, %.lr.ph.i.preheader ]
-  %66 = load i8, ptr %.sroa.013.133.i, align 1
-  %67 = and i8 %66, -8
-  %68 = icmp eq i8 %67, 48
-  %69 = and i8 %66, -2
-  %70 = icmp eq i8 %69, 56
-  %or.cond28.i = or i1 %68, %70
-  br i1 %or.cond28.i, label %71, label %_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE17__parse_DUP_COUNTINS_11__wrap_iterIPKcEEEET_S9_S9_Ri.exit.thread126
+.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %67
+  %.0121 = phi i32 [ %69, %67 ], [ %.0.i.i.i.ph.i, %.lr.ph.i.preheader ]
+  %.sroa.013.133.i = phi ptr [ %.sroa.013.1.i, %67 ], [ %.sroa.013.130.i, %.lr.ph.i.preheader ]
+  %63 = load i8, ptr %.sroa.013.133.i, align 1
+  %64 = add i8 %63, -48
+  %or.cond28.i = icmp ult i8 %64, 10
+  br i1 %or.cond28.i, label %65, label %_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE17__parse_DUP_COUNTINS_11__wrap_iterIPKcEEEET_S9_S9_Ri.exit.thread126
 
-71:                                               ; preds = %.lr.ph.i
+65:                                               ; preds = %.lr.ph.i
   %.not9.i = icmp slt i32 %.0121, 214748364
-  br i1 %.not9.i, label %73, label %72
+  br i1 %.not9.i, label %67, label %66
 
-72:                                               ; preds = %71
+66:                                               ; preds = %65
   tail call void @_ZNSt3__119__throw_regex_errorB8ne190000ILNS_15regex_constants10error_typeE8EEEvv() #31
   unreachable
 
-73:                                               ; preds = %71
-  %.0.i.i.i10.ph.in.i = zext nneg i8 %66 to i32
-  %74 = mul nsw i32 %.0121, 10
-  %.0.i.i.i10.ph.i = add i32 %74, -48
-  %75 = add i32 %.0.i.i.i10.ph.i, %.0.i.i.i10.ph.in.i
+67:                                               ; preds = %65
+  %.0.i.i.i10.ph.in.i = zext nneg i8 %63 to i32
+  %68 = mul nsw i32 %.0121, 10
+  %.0.i.i.i10.ph.i = add i32 %68, -48
+  %69 = add i32 %.0.i.i.i10.ph.i, %.0.i.i.i10.ph.in.i
   %.sroa.013.1.i = getelementptr inbounds nuw i8, ptr %.sroa.013.133.i, i64 1
   %.not25.i = icmp eq ptr %.sroa.013.1.i, %2
   br i1 %.not25.i, label %_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE17__parse_DUP_COUNTINS_11__wrap_iterIPKcEEEET_S9_S9_Ri.exit.thread126, label %.lr.ph.i, !llvm.loop !66
@@ -6013,202 +6007,196 @@ _ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE17__parse_DUP_COUNTINS_11__wrap_it
   tail call void @_ZNSt3__119__throw_regex_errorB8ne190000ILNS_15regex_constants10error_typeE8EEEvv() #31
   unreachable
 
-_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE17__parse_DUP_COUNTINS_11__wrap_iterIPKcEEEET_S9_S9_Ri.exit.thread126: ; preds = %.lr.ph.i, %73, %64
-  %.sroa.013.0.i130 = phi ptr [ %.sroa.013.130.i, %64 ], [ %.sroa.013.133.i, %.lr.ph.i ], [ %scevgep, %73 ]
-  %.1122129 = phi i32 [ %.0.i.i.i.ph.i, %64 ], [ %.0121, %.lr.ph.i ], [ %75, %73 ]
+_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE17__parse_DUP_COUNTINS_11__wrap_iterIPKcEEEET_S9_S9_Ri.exit.thread126: ; preds = %.lr.ph.i, %67, %61
+  %.sroa.013.0.i130 = phi ptr [ %.sroa.013.130.i, %61 ], [ %.sroa.013.133.i, %.lr.ph.i ], [ %scevgep, %67 ]
+  %.1122129 = phi i32 [ %.0.i.i.i.ph.i, %61 ], [ %.0121, %.lr.ph.i ], [ %69, %67 ]
   %.sroa.013.0.i130144 = ptrtoint ptr %.sroa.013.0.i130 to i64
-  %76 = icmp eq ptr %.sroa.013.0.i130, %2
-  br i1 %76, label %77, label %78
+  %70 = icmp eq ptr %.sroa.013.0.i130, %2
+  br i1 %70, label %71, label %72
 
-77:                                               ; preds = %_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE17__parse_DUP_COUNTINS_11__wrap_iterIPKcEEEET_S9_S9_Ri.exit.thread126
+71:                                               ; preds = %_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE17__parse_DUP_COUNTINS_11__wrap_iterIPKcEEEET_S9_S9_Ri.exit.thread126
   tail call void @_ZNSt3__119__throw_regex_errorB8ne190000ILNS_15regex_constants10error_typeE7EEEvv() #31
   unreachable
 
-78:                                               ; preds = %_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE17__parse_DUP_COUNTINS_11__wrap_iterIPKcEEEET_S9_S9_Ri.exit.thread126
-  %79 = load i8, ptr %.sroa.013.0.i130, align 1
-  switch i8 %79, label %161 [
-    i8 125, label %80
-    i8 44, label %96
+72:                                               ; preds = %_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE17__parse_DUP_COUNTINS_11__wrap_iterIPKcEEEET_S9_S9_Ri.exit.thread126
+  %73 = load i8, ptr %.sroa.013.0.i130, align 1
+  switch i8 %73, label %149 [
+    i8 125, label %74
+    i8 44, label %90
   ]
 
-80:                                               ; preds = %78
-  %81 = getelementptr inbounds nuw i8, ptr %.sroa.013.0.i130, i64 1
-  %82 = icmp eq i32 %12, 0
-  %83 = icmp ne ptr %81, %2
-  %or.cond140 = select i1 %82, i1 %83, i1 false
-  br i1 %or.cond140, label %84, label %92
+74:                                               ; preds = %72
+  %75 = getelementptr inbounds nuw i8, ptr %.sroa.013.0.i130, i64 1
+  %76 = icmp eq i32 %12, 0
+  %77 = icmp ne ptr %75, %2
+  %or.cond140 = select i1 %76, i1 %77, i1 false
+  br i1 %or.cond140, label %78, label %86
 
-84:                                               ; preds = %80
-  %85 = load i8, ptr %81, align 1
-  %86 = icmp eq i8 %85, 63
-  br i1 %86, label %87, label %92
+78:                                               ; preds = %74
+  %79 = load i8, ptr %75, align 1
+  %80 = icmp eq i8 %79, 63
+  br i1 %80, label %81, label %86
 
-87:                                               ; preds = %84
-  %88 = getelementptr inbounds nuw i8, ptr %.sroa.013.0.i130, i64 2
-  %89 = sext i32 %.1122129 to i64
-  %90 = zext i32 %4 to i64
-  %91 = zext i32 %5 to i64
-  tail call void @_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE11__push_loopEmmPNS_16__owns_one_stateIcEEmmb(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 noundef %89, i64 noundef %89, ptr noundef %3, i64 noundef %90, i64 noundef %91, i1 noundef zeroext false)
-  br label %162
+81:                                               ; preds = %78
+  %82 = getelementptr inbounds nuw i8, ptr %.sroa.013.0.i130, i64 2
+  %83 = sext i32 %.1122129 to i64
+  %84 = zext i32 %4 to i64
+  %85 = zext i32 %5 to i64
+  tail call void @_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE11__push_loopEmmPNS_16__owns_one_stateIcEEmmb(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 noundef %83, i64 noundef %83, ptr noundef %3, i64 noundef %84, i64 noundef %85, i1 noundef zeroext false)
+  br label %150
 
-92:                                               ; preds = %84, %80
-  %93 = sext i32 %.1122129 to i64
-  %94 = zext i32 %4 to i64
-  %95 = zext i32 %5 to i64
-  tail call void @_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE11__push_loopEmmPNS_16__owns_one_stateIcEEmmb(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 noundef %93, i64 noundef %93, ptr noundef %3, i64 noundef %94, i64 noundef %95, i1 noundef zeroext true)
-  br label %162
+86:                                               ; preds = %78, %74
+  %87 = sext i32 %.1122129 to i64
+  %88 = zext i32 %4 to i64
+  %89 = zext i32 %5 to i64
+  tail call void @_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE11__push_loopEmmPNS_16__owns_one_stateIcEEmmb(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 noundef %87, i64 noundef %87, ptr noundef %3, i64 noundef %88, i64 noundef %89, i1 noundef zeroext true)
+  br label %150
 
-96:                                               ; preds = %78
-  %97 = getelementptr inbounds nuw i8, ptr %.sroa.013.0.i130, i64 1
-  %98 = icmp eq ptr %97, %2
-  br i1 %98, label %99, label %100
+90:                                               ; preds = %72
+  %91 = getelementptr inbounds nuw i8, ptr %.sroa.013.0.i130, i64 1
+  %92 = icmp eq ptr %91, %2
+  br i1 %92, label %93, label %94
 
-99:                                               ; preds = %96
+93:                                               ; preds = %90
   tail call void @_ZNSt3__119__throw_regex_errorB8ne190000ILNS_15regex_constants10error_typeE8EEEvv() #31
   unreachable
 
-100:                                              ; preds = %96
-  %101 = load i8, ptr %97, align 1
-  %102 = icmp eq i8 %101, 125
-  br i1 %102, label %103, label %119
+94:                                               ; preds = %90
+  %95 = load i8, ptr %91, align 1
+  %96 = icmp eq i8 %95, 125
+  br i1 %96, label %97, label %113
 
-103:                                              ; preds = %100
-  %104 = getelementptr inbounds nuw i8, ptr %.sroa.013.0.i130, i64 2
-  %105 = icmp eq i32 %12, 0
-  %106 = icmp ne ptr %104, %2
-  %or.cond141 = select i1 %105, i1 %106, i1 false
-  br i1 %or.cond141, label %107, label %115
+97:                                               ; preds = %94
+  %98 = getelementptr inbounds nuw i8, ptr %.sroa.013.0.i130, i64 2
+  %99 = icmp eq i32 %12, 0
+  %100 = icmp ne ptr %98, %2
+  %or.cond141 = select i1 %99, i1 %100, i1 false
+  br i1 %or.cond141, label %101, label %109
 
-107:                                              ; preds = %103
-  %108 = load i8, ptr %104, align 1
-  %109 = icmp eq i8 %108, 63
-  br i1 %109, label %110, label %115
+101:                                              ; preds = %97
+  %102 = load i8, ptr %98, align 1
+  %103 = icmp eq i8 %102, 63
+  br i1 %103, label %104, label %109
 
-110:                                              ; preds = %107
-  %111 = getelementptr inbounds nuw i8, ptr %.sroa.013.0.i130, i64 3
-  %112 = sext i32 %.1122129 to i64
-  %113 = zext i32 %4 to i64
-  %114 = zext i32 %5 to i64
-  tail call void @_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE11__push_loopEmmPNS_16__owns_one_stateIcEEmmb(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 noundef %112, i64 noundef -1, ptr noundef %3, i64 noundef %113, i64 noundef %114, i1 noundef zeroext false)
-  br label %162
+104:                                              ; preds = %101
+  %105 = getelementptr inbounds nuw i8, ptr %.sroa.013.0.i130, i64 3
+  %106 = sext i32 %.1122129 to i64
+  %107 = zext i32 %4 to i64
+  %108 = zext i32 %5 to i64
+  tail call void @_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE11__push_loopEmmPNS_16__owns_one_stateIcEEmmb(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 noundef %106, i64 noundef -1, ptr noundef %3, i64 noundef %107, i64 noundef %108, i1 noundef zeroext false)
+  br label %150
 
-115:                                              ; preds = %107, %103
-  %116 = sext i32 %.1122129 to i64
-  %117 = zext i32 %4 to i64
-  %118 = zext i32 %5 to i64
-  tail call void @_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE11__push_loopEmmPNS_16__owns_one_stateIcEEmmb(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 noundef %116, i64 noundef -1, ptr noundef %3, i64 noundef %117, i64 noundef %118, i1 noundef zeroext true)
-  br label %162
+109:                                              ; preds = %101, %97
+  %110 = sext i32 %.1122129 to i64
+  %111 = zext i32 %4 to i64
+  %112 = zext i32 %5 to i64
+  tail call void @_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE11__push_loopEmmPNS_16__owns_one_stateIcEEmmb(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 noundef %110, i64 noundef -1, ptr noundef %3, i64 noundef %111, i64 noundef %112, i1 noundef zeroext true)
+  br label %150
 
-119:                                              ; preds = %100
-  %120 = and i8 %101, -8
-  %121 = icmp eq i8 %120, 48
-  %122 = and i8 %101, -2
-  %123 = icmp eq i8 %122, 56
-  %or.cond.i48 = or i1 %121, %123
-  br i1 %or.cond.i48, label %124, label %_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE17__parse_DUP_COUNTINS_11__wrap_iterIPKcEEEET_S9_S9_Ri.exit63.thread135
+113:                                              ; preds = %94
+  %114 = add i8 %95, -48
+  %or.cond.i48 = icmp ult i8 %114, 10
+  br i1 %or.cond.i48, label %115, label %_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE17__parse_DUP_COUNTINS_11__wrap_iterIPKcEEEET_S9_S9_Ri.exit63.thread135
 
-124:                                              ; preds = %119
-  %.0.i.i.i.ph.in.i50 = zext nneg i8 %101 to i32
+115:                                              ; preds = %113
+  %.0.i.i.i.ph.in.i50 = zext nneg i8 %95 to i32
   %.0.i.i.i.ph.i51 = add nsw i32 %.0.i.i.i.ph.in.i50, -48
   %.sroa.013.130.i52 = getelementptr inbounds nuw i8, ptr %.sroa.013.0.i130, i64 2
   %.not2531.i53 = icmp eq ptr %.sroa.013.130.i52, %2
   br i1 %.not2531.i53, label %_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE17__parse_DUP_COUNTINS_11__wrap_iterIPKcEEEET_S9_S9_Ri.exit63.thread, label %.lr.ph.i54.preheader
 
-.lr.ph.i54.preheader:                             ; preds = %124
-  %125 = sub i64 %8, %.sroa.013.0.i130144
-  %scevgep145 = getelementptr i8, ptr %.sroa.013.0.i130, i64 %125
+.lr.ph.i54.preheader:                             ; preds = %115
+  %116 = sub i64 %8, %.sroa.013.0.i130144
+  %scevgep145 = getelementptr i8, ptr %.sroa.013.0.i130, i64 %116
   br label %.lr.ph.i54
 
-.lr.ph.i54:                                       ; preds = %.lr.ph.i54.preheader, %133
-  %.0 = phi i32 [ %135, %133 ], [ %.0.i.i.i.ph.i51, %.lr.ph.i54.preheader ]
-  %.sroa.013.133.i55 = phi ptr [ %.sroa.013.1.i61, %133 ], [ %.sroa.013.130.i52, %.lr.ph.i54.preheader ]
-  %126 = load i8, ptr %.sroa.013.133.i55, align 1
-  %127 = and i8 %126, -8
-  %128 = icmp eq i8 %127, 48
-  %129 = and i8 %126, -2
-  %130 = icmp eq i8 %129, 56
-  %or.cond28.i57 = or i1 %128, %130
-  br i1 %or.cond28.i57, label %131, label %_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE17__parse_DUP_COUNTINS_11__wrap_iterIPKcEEEET_S9_S9_Ri.exit63.thread
+.lr.ph.i54:                                       ; preds = %.lr.ph.i54.preheader, %121
+  %.0 = phi i32 [ %123, %121 ], [ %.0.i.i.i.ph.i51, %.lr.ph.i54.preheader ]
+  %.sroa.013.133.i55 = phi ptr [ %.sroa.013.1.i61, %121 ], [ %.sroa.013.130.i52, %.lr.ph.i54.preheader ]
+  %117 = load i8, ptr %.sroa.013.133.i55, align 1
+  %118 = add i8 %117, -48
+  %or.cond28.i57 = icmp ult i8 %118, 10
+  br i1 %or.cond28.i57, label %119, label %_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE17__parse_DUP_COUNTINS_11__wrap_iterIPKcEEEET_S9_S9_Ri.exit63.thread
 
-131:                                              ; preds = %.lr.ph.i54
+119:                                              ; preds = %.lr.ph.i54
   %.not9.i58 = icmp slt i32 %.0, 214748364
-  br i1 %.not9.i58, label %133, label %132
+  br i1 %.not9.i58, label %121, label %120
 
-132:                                              ; preds = %131
+120:                                              ; preds = %119
   tail call void @_ZNSt3__119__throw_regex_errorB8ne190000ILNS_15regex_constants10error_typeE8EEEvv() #31
   unreachable
 
-133:                                              ; preds = %131
-  %.0.i.i.i10.ph.in.i59 = zext nneg i8 %126 to i32
-  %134 = mul nsw i32 %.0, 10
-  %.0.i.i.i10.ph.i60 = add i32 %134, -48
-  %135 = add i32 %.0.i.i.i10.ph.i60, %.0.i.i.i10.ph.in.i59
+121:                                              ; preds = %119
+  %.0.i.i.i10.ph.in.i59 = zext nneg i8 %117 to i32
+  %122 = mul nsw i32 %.0, 10
+  %.0.i.i.i10.ph.i60 = add i32 %122, -48
+  %123 = add i32 %.0.i.i.i10.ph.i60, %.0.i.i.i10.ph.in.i59
   %.sroa.013.1.i61 = getelementptr inbounds nuw i8, ptr %.sroa.013.133.i55, i64 1
   %.not25.i62 = icmp eq ptr %.sroa.013.1.i61, %2
   br i1 %.not25.i62, label %_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE17__parse_DUP_COUNTINS_11__wrap_iterIPKcEEEET_S9_S9_Ri.exit63.thread, label %.lr.ph.i54, !llvm.loop !66
 
-_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE17__parse_DUP_COUNTINS_11__wrap_iterIPKcEEEET_S9_S9_Ri.exit63.thread135: ; preds = %119
+_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE17__parse_DUP_COUNTINS_11__wrap_iterIPKcEEEET_S9_S9_Ri.exit63.thread135: ; preds = %113
   tail call void @_ZNSt3__119__throw_regex_errorB8ne190000ILNS_15regex_constants10error_typeE7EEEvv() #31
   unreachable
 
-_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE17__parse_DUP_COUNTINS_11__wrap_iterIPKcEEEET_S9_S9_Ri.exit63.thread: ; preds = %.lr.ph.i54, %133, %124
-  %.sroa.013.0.i49134 = phi ptr [ %.sroa.013.130.i52, %124 ], [ %.sroa.013.133.i55, %.lr.ph.i54 ], [ %scevgep145, %133 ]
-  %.1133 = phi i32 [ %.0.i.i.i.ph.i51, %124 ], [ %.0, %.lr.ph.i54 ], [ %135, %133 ]
-  %136 = icmp eq ptr %.sroa.013.0.i49134, %2
-  br i1 %136, label %139, label %137
+_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE17__parse_DUP_COUNTINS_11__wrap_iterIPKcEEEET_S9_S9_Ri.exit63.thread: ; preds = %.lr.ph.i54, %121, %115
+  %.sroa.013.0.i49134 = phi ptr [ %.sroa.013.130.i52, %115 ], [ %.sroa.013.133.i55, %.lr.ph.i54 ], [ %scevgep145, %121 ]
+  %.1133 = phi i32 [ %.0.i.i.i.ph.i51, %115 ], [ %.0, %.lr.ph.i54 ], [ %123, %121 ]
+  %124 = icmp eq ptr %.sroa.013.0.i49134, %2
+  br i1 %124, label %127, label %125
 
-137:                                              ; preds = %_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE17__parse_DUP_COUNTINS_11__wrap_iterIPKcEEEET_S9_S9_Ri.exit63.thread
-  %138 = load i8, ptr %.sroa.013.0.i49134, align 1
-  %.not = icmp eq i8 %138, 125
-  br i1 %.not, label %140, label %139
+125:                                              ; preds = %_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE17__parse_DUP_COUNTINS_11__wrap_iterIPKcEEEET_S9_S9_Ri.exit63.thread
+  %126 = load i8, ptr %.sroa.013.0.i49134, align 1
+  %.not = icmp eq i8 %126, 125
+  br i1 %.not, label %128, label %127
 
-139:                                              ; preds = %137, %_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE17__parse_DUP_COUNTINS_11__wrap_iterIPKcEEEET_S9_S9_Ri.exit63.thread
+127:                                              ; preds = %125, %_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE17__parse_DUP_COUNTINS_11__wrap_iterIPKcEEEET_S9_S9_Ri.exit63.thread
   tail call void @_ZNSt3__119__throw_regex_errorB8ne190000ILNS_15regex_constants10error_typeE7EEEvv() #31
   unreachable
 
-140:                                              ; preds = %137
-  %141 = getelementptr inbounds nuw i8, ptr %.sroa.013.0.i49134, i64 1
-  %142 = icmp slt i32 %.1133, %.1122129
-  br i1 %142, label %143, label %144
+128:                                              ; preds = %125
+  %129 = getelementptr inbounds nuw i8, ptr %.sroa.013.0.i49134, i64 1
+  %130 = icmp slt i32 %.1133, %.1122129
+  br i1 %130, label %131, label %132
 
-143:                                              ; preds = %140
+131:                                              ; preds = %128
   tail call void @_ZNSt3__119__throw_regex_errorB8ne190000ILNS_15regex_constants10error_typeE8EEEvv() #31
   unreachable
 
-144:                                              ; preds = %140
-  %145 = icmp eq i32 %12, 0
-  %146 = icmp ne ptr %141, %2
-  %or.cond142 = select i1 %145, i1 %146, i1 false
-  br i1 %or.cond142, label %147, label %156
+132:                                              ; preds = %128
+  %133 = icmp eq i32 %12, 0
+  %134 = icmp ne ptr %129, %2
+  %or.cond142 = select i1 %133, i1 %134, i1 false
+  br i1 %or.cond142, label %135, label %144
 
-147:                                              ; preds = %144
-  %148 = load i8, ptr %141, align 1
-  %149 = icmp eq i8 %148, 63
-  br i1 %149, label %150, label %156
+135:                                              ; preds = %132
+  %136 = load i8, ptr %129, align 1
+  %137 = icmp eq i8 %136, 63
+  br i1 %137, label %138, label %144
 
-150:                                              ; preds = %147
-  %151 = getelementptr inbounds nuw i8, ptr %.sroa.013.0.i49134, i64 2
-  %152 = sext i32 %.1122129 to i64
-  %153 = sext i32 %.1133 to i64
-  %154 = zext i32 %4 to i64
-  %155 = zext i32 %5 to i64
-  tail call void @_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE11__push_loopEmmPNS_16__owns_one_stateIcEEmmb(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 noundef %152, i64 noundef %153, ptr noundef %3, i64 noundef %154, i64 noundef %155, i1 noundef zeroext false)
-  br label %162
+138:                                              ; preds = %135
+  %139 = getelementptr inbounds nuw i8, ptr %.sroa.013.0.i49134, i64 2
+  %140 = sext i32 %.1122129 to i64
+  %141 = sext i32 %.1133 to i64
+  %142 = zext i32 %4 to i64
+  %143 = zext i32 %5 to i64
+  tail call void @_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE11__push_loopEmmPNS_16__owns_one_stateIcEEmmb(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 noundef %140, i64 noundef %141, ptr noundef %3, i64 noundef %142, i64 noundef %143, i1 noundef zeroext false)
+  br label %150
 
-156:                                              ; preds = %147, %144
-  %157 = sext i32 %.1122129 to i64
-  %158 = sext i32 %.1133 to i64
-  %159 = zext i32 %4 to i64
-  %160 = zext i32 %5 to i64
-  tail call void @_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE11__push_loopEmmPNS_16__owns_one_stateIcEEmmb(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 noundef %157, i64 noundef %158, ptr noundef %3, i64 noundef %159, i64 noundef %160, i1 noundef zeroext true)
-  br label %162
+144:                                              ; preds = %135, %132
+  %145 = sext i32 %.1122129 to i64
+  %146 = sext i32 %.1133 to i64
+  %147 = zext i32 %4 to i64
+  %148 = zext i32 %5 to i64
+  tail call void @_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE11__push_loopEmmPNS_16__owns_one_stateIcEEmmb(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 noundef %145, i64 noundef %146, ptr noundef %3, i64 noundef %147, i64 noundef %148, i1 noundef zeroext true)
+  br label %150
 
-161:                                              ; preds = %78
+149:                                              ; preds = %72
   tail call void @_ZNSt3__119__throw_regex_errorB8ne190000ILNS_15regex_constants10error_typeE8EEEvv() #31
   unreachable
 
-162:                                              ; preds = %9, %25, %21, %39, %35, %53, %49, %115, %110, %156, %150, %87, %92, %6
-  %.sroa.085.0 = phi ptr [ %1, %9 ], [ %22, %21 ], [ %15, %25 ], [ %36, %35 ], [ %29, %39 ], [ %50, %49 ], [ %43, %53 ], [ %88, %87 ], [ %81, %92 ], [ %111, %110 ], [ %104, %115 ], [ %151, %150 ], [ %141, %156 ], [ %1, %6 ]
+150:                                              ; preds = %9, %25, %21, %39, %35, %53, %49, %109, %104, %144, %138, %81, %86, %6
+  %.sroa.085.0 = phi ptr [ %1, %9 ], [ %22, %21 ], [ %15, %25 ], [ %36, %35 ], [ %29, %39 ], [ %50, %49 ], [ %43, %53 ], [ %82, %81 ], [ %75, %86 ], [ %105, %104 ], [ %98, %109 ], [ %139, %138 ], [ %129, %144 ], [ %1, %6 ]
   ret ptr %.sroa.085.0
 }
 
@@ -8979,11 +8967,11 @@ _ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE21__start_matching_listEb.exit13: 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local ptr @_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE24__parse_character_escapeINS_11__wrap_iterIPKcEEEET_S9_S9_PNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %1, ptr %2, ptr noundef %3) local_unnamed_addr #3 comdat align 2 {
   %.not107 = icmp eq ptr %1, %2
-  br i1 %.not107, label %148, label %5
+  br i1 %.not107, label %136, label %5
 
 5:                                                ; preds = %4
   %6 = load i8, ptr %1, align 1
-  switch i8 %6, label %133 [
+  switch i8 %6, label %121 [
     i8 102, label %7
     i8 110, label %13
     i8 114, label %19
@@ -8991,8 +8979,8 @@ define linkonce_odr dso_local ptr @_ZNSt3__111basic_regexIcNS_12regex_traitsIcEE
     i8 118, label %31
     i8 99, label %37
     i8 117, label %53
-    i8 120, label %87
-    i8 48, label %127
+    i8 120, label %81
+    i8 48, label %115
     i8 95, label %_ZNKSt3__112regex_traitsIcE7isctypeEct.exit.thread
   ]
 
@@ -9010,7 +8998,7 @@ define linkonce_odr dso_local ptr @_ZNSt3__111basic_regexIcNS_12regex_traitsIcEE
 
 11:                                               ; preds = %10, %8
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  br label %148
+  br label %136
 
 13:                                               ; preds = %5
   %.not44 = icmp eq ptr %3, null
@@ -9026,7 +9014,7 @@ define linkonce_odr dso_local ptr @_ZNSt3__111basic_regexIcNS_12regex_traitsIcEE
 
 17:                                               ; preds = %16, %14
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  br label %148
+  br label %136
 
 19:                                               ; preds = %5
   %.not43 = icmp eq ptr %3, null
@@ -9042,7 +9030,7 @@ define linkonce_odr dso_local ptr @_ZNSt3__111basic_regexIcNS_12regex_traitsIcEE
 
 23:                                               ; preds = %22, %20
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  br label %148
+  br label %136
 
 25:                                               ; preds = %5
   %.not42 = icmp eq ptr %3, null
@@ -9058,7 +9046,7 @@ define linkonce_odr dso_local ptr @_ZNSt3__111basic_regexIcNS_12regex_traitsIcEE
 
 29:                                               ; preds = %28, %26
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  br label %148
+  br label %136
 
 31:                                               ; preds = %5
   %.not41 = icmp eq ptr %3, null
@@ -9074,7 +9062,7 @@ define linkonce_odr dso_local ptr @_ZNSt3__111basic_regexIcNS_12regex_traitsIcEE
 
 35:                                               ; preds = %34, %32
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  br label %148
+  br label %136
 
 37:                                               ; preds = %5
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 1
@@ -9108,7 +9096,7 @@ define linkonce_odr dso_local ptr @_ZNSt3__111basic_regexIcNS_12regex_traitsIcEE
 
 50:                                               ; preds = %49, %47
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  br label %148
+  br label %136
 
 .thread:                                          ; preds = %42, %39
   tail call void @_ZNSt3__119__throw_regex_errorB8ne190000ILNS_15regex_constants10error_typeE3EEEvv() #31
@@ -9129,205 +9117,193 @@ define linkonce_odr dso_local ptr @_ZNSt3__111basic_regexIcNS_12regex_traitsIcEE
 
 57:                                               ; preds = %53
   %58 = load i8, ptr %54, align 1
-  %59 = and i8 %58, -8
-  %60 = icmp eq i8 %59, 48
-  %61 = and i8 %58, -2
-  %62 = icmp eq i8 %61, 56
-  %or.cond130 = or i1 %60, %62
-  br i1 %or.cond130, label %66, label %63
+  %59 = add i8 %58, -48
+  %or.cond130 = icmp ult i8 %59, 10
+  br i1 %or.cond130, label %63, label %60
 
-63:                                               ; preds = %57
-  %64 = or i8 %58, 32
-  %65 = add i8 %64, -97
-  %or.cond.i.i.i = icmp ult i8 %65, 6
-  br i1 %or.cond.i.i.i, label %66, label %_ZNKSt3__112regex_traitsIcE5valueB8ne190000Eci.exit
+60:                                               ; preds = %57
+  %61 = or i8 %58, 32
+  %62 = add i8 %61, -97
+  %or.cond.i.i.i = icmp ult i8 %62, 6
+  br i1 %or.cond.i.i.i, label %63, label %_ZNKSt3__112regex_traitsIcE5valueB8ne190000Eci.exit
 
-_ZNKSt3__112regex_traitsIcE5valueB8ne190000Eci.exit: ; preds = %63
+_ZNKSt3__112regex_traitsIcE5valueB8ne190000Eci.exit: ; preds = %60
   tail call void @_ZNSt3__119__throw_regex_errorB8ne190000ILNS_15regex_constants10error_typeE3EEEvv() #31
   unreachable
 
-66:                                               ; preds = %63, %57
-  %.sink122 = phi i8 [ %58, %57 ], [ %64, %63 ]
-  %.sink121 = phi i16 [ -48, %57 ], [ -87, %63 ]
-  %67 = zext i8 %.sink122 to i16
-  %68 = add nsw i16 %.sink121, %67
-  %69 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %70 = icmp eq ptr %69, %2
-  br i1 %70, label %71, label %72
+63:                                               ; preds = %60, %57
+  %.sink122 = phi i8 [ %58, %57 ], [ %61, %60 ]
+  %.sink121 = phi i16 [ -48, %57 ], [ -87, %60 ]
+  %64 = zext i8 %.sink122 to i16
+  %65 = add nsw i16 %.sink121, %64
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  %67 = icmp eq ptr %66, %2
+  br i1 %67, label %68, label %69
 
-71:                                               ; preds = %66
+68:                                               ; preds = %63
   tail call void @_ZNSt3__119__throw_regex_errorB8ne190000ILNS_15regex_constants10error_typeE3EEEvv() #31
   unreachable
 
-72:                                               ; preds = %66
-  %73 = load i8, ptr %69, align 1
-  %74 = and i8 %73, -8
-  %75 = icmp eq i8 %74, 48
-  %76 = and i8 %73, -2
-  %77 = icmp eq i8 %76, 56
-  %or.cond132 = or i1 %75, %77
-  br i1 %or.cond132, label %81, label %78
+69:                                               ; preds = %63
+  %70 = load i8, ptr %66, align 1
+  %71 = add i8 %70, -48
+  %or.cond132 = icmp ult i8 %71, 10
+  br i1 %or.cond132, label %75, label %72
 
-78:                                               ; preds = %72
-  %79 = or i8 %73, 32
-  %80 = add i8 %79, -97
-  %or.cond.i.i.i48 = icmp ult i8 %80, 6
-  br i1 %or.cond.i.i.i48, label %81, label %_ZNKSt3__112regex_traitsIcE5valueB8ne190000Eci.exit50
+72:                                               ; preds = %69
+  %73 = or i8 %70, 32
+  %74 = add i8 %73, -97
+  %or.cond.i.i.i48 = icmp ult i8 %74, 6
+  br i1 %or.cond.i.i.i48, label %75, label %_ZNKSt3__112regex_traitsIcE5valueB8ne190000Eci.exit50
 
-_ZNKSt3__112regex_traitsIcE5valueB8ne190000Eci.exit50: ; preds = %78
+_ZNKSt3__112regex_traitsIcE5valueB8ne190000Eci.exit50: ; preds = %72
   tail call void @_ZNSt3__119__throw_regex_errorB8ne190000ILNS_15regex_constants10error_typeE3EEEvv() #31
   unreachable
 
-81:                                               ; preds = %78, %72
-  %.sink124 = phi i8 [ %73, %72 ], [ %79, %78 ]
-  %.sink123 = phi i16 [ -48, %72 ], [ -87, %78 ]
-  %82 = zext i8 %.sink124 to i16
-  %83 = add nsw i16 %.sink123, %82
-  %84 = shl i16 %68, 8
-  %85 = shl nsw i16 %83, 4
-  %86 = add i16 %85, %84
-  br label %87
+75:                                               ; preds = %72, %69
+  %.sink124 = phi i8 [ %70, %69 ], [ %73, %72 ]
+  %.sink123 = phi i16 [ -48, %69 ], [ -87, %72 ]
+  %76 = zext i8 %.sink124 to i16
+  %77 = add nsw i16 %.sink123, %76
+  %78 = shl i16 %65, 8
+  %79 = shl nsw i16 %77, 4
+  %80 = add i16 %79, %78
+  br label %81
 
-87:                                               ; preds = %5, %81
-  %.sroa.070.1 = phi ptr [ %69, %81 ], [ %1, %5 ]
-  %.0 = phi i16 [ %86, %81 ], [ 0, %5 ]
-  %88 = getelementptr inbounds nuw i8, ptr %.sroa.070.1, i64 1
-  %89 = icmp eq ptr %88, %2
-  br i1 %89, label %90, label %91
+81:                                               ; preds = %5, %75
+  %.sroa.070.1 = phi ptr [ %66, %75 ], [ %1, %5 ]
+  %.0 = phi i16 [ %80, %75 ], [ 0, %5 ]
+  %82 = getelementptr inbounds nuw i8, ptr %.sroa.070.1, i64 1
+  %83 = icmp eq ptr %82, %2
+  br i1 %83, label %84, label %85
 
-90:                                               ; preds = %87
+84:                                               ; preds = %81
   tail call void @_ZNSt3__119__throw_regex_errorB8ne190000ILNS_15regex_constants10error_typeE3EEEvv() #31
   unreachable
 
-91:                                               ; preds = %87
-  %92 = load i8, ptr %88, align 1
-  %93 = and i8 %92, -8
-  %94 = icmp eq i8 %93, 48
-  %95 = and i8 %92, -2
-  %96 = icmp eq i8 %95, 56
-  %or.cond134 = or i1 %94, %96
-  br i1 %or.cond134, label %100, label %97
+85:                                               ; preds = %81
+  %86 = load i8, ptr %82, align 1
+  %87 = add i8 %86, -48
+  %or.cond134 = icmp ult i8 %87, 10
+  br i1 %or.cond134, label %91, label %88
+
+88:                                               ; preds = %85
+  %89 = or i8 %86, 32
+  %90 = add i8 %89, -97
+  %or.cond.i.i.i51 = icmp ult i8 %90, 6
+  br i1 %or.cond.i.i.i51, label %91, label %_ZNKSt3__112regex_traitsIcE5valueB8ne190000Eci.exit53
+
+_ZNKSt3__112regex_traitsIcE5valueB8ne190000Eci.exit53: ; preds = %88
+  tail call void @_ZNSt3__119__throw_regex_errorB8ne190000ILNS_15regex_constants10error_typeE3EEEvv() #31
+  unreachable
+
+91:                                               ; preds = %88, %85
+  %.sink126 = phi i8 [ %86, %85 ], [ %89, %88 ]
+  %.sink125 = phi i16 [ -48, %85 ], [ -87, %88 ]
+  %92 = zext i8 %.sink126 to i16
+  %93 = add nsw i16 %.sink125, %92
+  %94 = add i16 %93, %.0
+  %95 = getelementptr inbounds nuw i8, ptr %.sroa.070.1, i64 2
+  %96 = icmp eq ptr %95, %2
+  br i1 %96, label %97, label %98
 
 97:                                               ; preds = %91
-  %98 = or i8 %92, 32
-  %99 = add i8 %98, -97
-  %or.cond.i.i.i51 = icmp ult i8 %99, 6
-  br i1 %or.cond.i.i.i51, label %100, label %_ZNKSt3__112regex_traitsIcE5valueB8ne190000Eci.exit53
-
-_ZNKSt3__112regex_traitsIcE5valueB8ne190000Eci.exit53: ; preds = %97
   tail call void @_ZNSt3__119__throw_regex_errorB8ne190000ILNS_15regex_constants10error_typeE3EEEvv() #31
   unreachable
 
-100:                                              ; preds = %97, %91
-  %.sink126 = phi i8 [ %92, %91 ], [ %98, %97 ]
-  %.sink125 = phi i16 [ -48, %91 ], [ -87, %97 ]
-  %101 = zext i8 %.sink126 to i16
-  %102 = add nsw i16 %.sink125, %101
-  %103 = add i16 %102, %.0
-  %104 = getelementptr inbounds nuw i8, ptr %.sroa.070.1, i64 2
-  %105 = icmp eq ptr %104, %2
-  br i1 %105, label %106, label %107
+98:                                               ; preds = %91
+  %99 = load i8, ptr %95, align 1
+  %100 = add i8 %99, -48
+  %or.cond136 = icmp ult i8 %100, 10
+  br i1 %or.cond136, label %104, label %101
 
-106:                                              ; preds = %100
+101:                                              ; preds = %98
+  %102 = or i8 %99, 32
+  %103 = add i8 %102, -97
+  %or.cond.i.i.i54 = icmp ult i8 %103, 6
+  br i1 %or.cond.i.i.i54, label %104, label %_ZNKSt3__112regex_traitsIcE5valueB8ne190000Eci.exit56
+
+_ZNKSt3__112regex_traitsIcE5valueB8ne190000Eci.exit56: ; preds = %101
   tail call void @_ZNSt3__119__throw_regex_errorB8ne190000ILNS_15regex_constants10error_typeE3EEEvv() #31
   unreachable
 
-107:                                              ; preds = %100
-  %108 = load i8, ptr %104, align 1
-  %109 = and i8 %108, -8
-  %110 = icmp eq i8 %109, 48
-  %111 = and i8 %108, -2
-  %112 = icmp eq i8 %111, 56
-  %or.cond136 = or i1 %110, %112
-  br i1 %or.cond136, label %116, label %113
-
-113:                                              ; preds = %107
-  %114 = or i8 %108, 32
-  %115 = add i8 %114, -97
-  %or.cond.i.i.i54 = icmp ult i8 %115, 6
-  br i1 %or.cond.i.i.i54, label %116, label %_ZNKSt3__112regex_traitsIcE5valueB8ne190000Eci.exit56
-
-_ZNKSt3__112regex_traitsIcE5valueB8ne190000Eci.exit56: ; preds = %113
-  tail call void @_ZNSt3__119__throw_regex_errorB8ne190000ILNS_15regex_constants10error_typeE3EEEvv() #31
-  unreachable
-
-116:                                              ; preds = %113, %107
-  %.sink128 = phi i8 [ %108, %107 ], [ %114, %113 ]
-  %.sink127 = phi i16 [ -48, %107 ], [ -87, %113 ]
-  %117 = zext i8 %.sink128 to i16
-  %118 = add nsw i16 %.sink127, %117
-  %119 = shl i16 %103, 4
-  %120 = add i16 %118, %119
+104:                                              ; preds = %101, %98
+  %.sink128 = phi i8 [ %99, %98 ], [ %102, %101 ]
+  %.sink127 = phi i16 [ -48, %98 ], [ -87, %101 ]
+  %105 = zext i8 %.sink128 to i16
+  %106 = add nsw i16 %.sink127, %105
+  %107 = shl i16 %94, 4
+  %108 = add i16 %106, %107
   %.not39 = icmp eq ptr %3, null
-  %121 = trunc i16 %120 to i8
-  br i1 %.not39, label %124, label %122
+  %109 = trunc i16 %108 to i8
+  br i1 %.not39, label %112, label %110
 
-122:                                              ; preds = %116
-  %123 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEaSEc(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 noundef signext %121)
-  br label %125
+110:                                              ; preds = %104
+  %111 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEaSEc(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 noundef signext %109)
+  br label %113
 
-124:                                              ; preds = %116
-  tail call void @_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE11__push_charEc(ptr noundef nonnull align 8 dereferenceable(64) %0, i8 noundef signext %121)
-  br label %125
+112:                                              ; preds = %104
+  tail call void @_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE11__push_charEc(ptr noundef nonnull align 8 dereferenceable(64) %0, i8 noundef signext %109)
+  br label %113
 
-125:                                              ; preds = %124, %122
-  %126 = getelementptr inbounds nuw i8, ptr %.sroa.070.1, i64 3
-  br label %148
+113:                                              ; preds = %112, %110
+  %114 = getelementptr inbounds nuw i8, ptr %.sroa.070.1, i64 3
+  br label %136
 
-127:                                              ; preds = %5
+115:                                              ; preds = %5
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %130, label %128
+  br i1 %.not, label %118, label %116
 
-128:                                              ; preds = %127
-  %129 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEaSEc(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 noundef signext 0)
-  br label %131
+116:                                              ; preds = %115
+  %117 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEaSEc(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 noundef signext 0)
+  br label %119
 
-130:                                              ; preds = %127
+118:                                              ; preds = %115
   tail call void @_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE11__push_charEc(ptr noundef nonnull align 8 dereferenceable(64) %0, i8 noundef signext 0)
-  br label %131
+  br label %119
 
-131:                                              ; preds = %130, %128
-  %132 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  br label %148
+119:                                              ; preds = %118, %116
+  %120 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  br label %136
 
-133:                                              ; preds = %5
-  %134 = icmp sgt i8 %6, -1
-  br i1 %134, label %_ZNKSt3__15ctypeIcE2isB8ne190000Etc.exit.i, label %_ZNKSt3__112regex_traitsIcE7isctypeEct.exit
+121:                                              ; preds = %5
+  %122 = icmp sgt i8 %6, -1
+  br i1 %122, label %_ZNKSt3__15ctypeIcE2isB8ne190000Etc.exit.i, label %_ZNKSt3__112regex_traitsIcE7isctypeEct.exit
 
-_ZNKSt3__15ctypeIcE2isB8ne190000Etc.exit.i:       ; preds = %133
-  %135 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %136 = load ptr, ptr %135, align 8
-  %137 = getelementptr inbounds nuw i8, ptr %136, i64 16
-  %138 = load ptr, ptr %137, align 8
-  %139 = zext nneg i8 %6 to i64
-  %140 = getelementptr inbounds nuw i16, ptr %138, i64 %139
-  %141 = load i16, ptr %140, align 2
-  %142 = and i16 %141, 3072
-  %.not.i = icmp eq i16 %142, 0
+_ZNKSt3__15ctypeIcE2isB8ne190000Etc.exit.i:       ; preds = %121
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %124 = load ptr, ptr %123, align 8
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 16
+  %126 = load ptr, ptr %125, align 8
+  %127 = zext nneg i8 %6 to i64
+  %128 = getelementptr inbounds nuw i16, ptr %126, i64 %127
+  %129 = load i16, ptr %128, align 2
+  %130 = and i16 %129, 3072
+  %.not.i = icmp eq i16 %130, 0
   br i1 %.not.i, label %_ZNKSt3__112regex_traitsIcE7isctypeEct.exit, label %_ZNKSt3__112regex_traitsIcE7isctypeEct.exit.thread
 
-_ZNKSt3__112regex_traitsIcE7isctypeEct.exit:      ; preds = %_ZNKSt3__15ctypeIcE2isB8ne190000Etc.exit.i, %133
+_ZNKSt3__112regex_traitsIcE7isctypeEct.exit:      ; preds = %_ZNKSt3__15ctypeIcE2isB8ne190000Etc.exit.i, %121
   %.not47 = icmp eq ptr %3, null
-  br i1 %.not47, label %145, label %143
+  br i1 %.not47, label %133, label %131
 
-143:                                              ; preds = %_ZNKSt3__112regex_traitsIcE7isctypeEct.exit
-  %144 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEaSEc(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 noundef signext %6)
-  br label %146
+131:                                              ; preds = %_ZNKSt3__112regex_traitsIcE7isctypeEct.exit
+  %132 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEaSEc(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 noundef signext %6)
+  br label %134
 
-145:                                              ; preds = %_ZNKSt3__112regex_traitsIcE7isctypeEct.exit
+133:                                              ; preds = %_ZNKSt3__112regex_traitsIcE7isctypeEct.exit
   tail call void @_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE11__push_charEc(ptr noundef nonnull align 8 dereferenceable(64) %0, i8 noundef signext %6)
-  br label %146
+  br label %134
 
-146:                                              ; preds = %145, %143
-  %147 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  br label %148
+134:                                              ; preds = %133, %131
+  %135 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  br label %136
 
 _ZNKSt3__112regex_traitsIcE7isctypeEct.exit.thread: ; preds = %5, %_ZNKSt3__15ctypeIcE2isB8ne190000Etc.exit.i
   tail call void @_ZNSt3__119__throw_regex_errorB8ne190000ILNS_15regex_constants10error_typeE3EEEvv() #31
   unreachable
 
-148:                                              ; preds = %11, %17, %23, %29, %35, %50, %125, %131, %146, %4
-  %.sroa.070.0 = phi ptr [ %147, %146 ], [ %12, %11 ], [ %18, %17 ], [ %24, %23 ], [ %30, %29 ], [ %36, %35 ], [ %51, %50 ], [ %126, %125 ], [ %132, %131 ], [ %1, %4 ]
+136:                                              ; preds = %11, %17, %23, %29, %35, %50, %113, %119, %134, %4
+  %.sroa.070.0 = phi ptr [ %135, %134 ], [ %12, %11 ], [ %18, %17 ], [ %24, %23 ], [ %30, %29 ], [ %36, %35 ], [ %51, %50 ], [ %114, %113 ], [ %120, %119 ], [ %1, %4 ]
   ret ptr %.sroa.070.0
 }
 
@@ -15273,37 +15249,34 @@ _ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE24__parse_Back_close_parenINS_11__
   br label %_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE15__parse_BACKREFINS_11__wrap_iterIPKcEEEET_S9_S9_.exit
 
 62:                                               ; preds = %_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE23__parse_Back_open_parenINS_11__wrap_iterIPKcEEEET_S9_S9_.exit
-  %63 = and i8 %11, -8
-  %64 = icmp eq i8 %63, 48
-  %65 = and i8 %11, -2
-  %66 = icmp eq i8 %65, 56
-  %or.cond12.i.i = or i1 %64, %66
+  %63 = add i8 %11, -48
+  %or.cond12.i.i = icmp ult i8 %63, 10
   br i1 %or.cond12.i.i, label %_ZNKSt3__112regex_traitsIcE5valueB8ne190000Eci.exit.i.i, label %_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE15__parse_BACKREFINS_11__wrap_iterIPKcEEEET_S9_S9_.exit
 
 _ZNKSt3__112regex_traitsIcE5valueB8ne190000Eci.exit.i.i: ; preds = %62
   %.0.i.i.i.in.i.i = zext nneg i8 %11 to i32
   %.0.i.i.i.i.i = add nsw i32 %.0.i.i.i.in.i.i, -48
-  %67 = add nsw i8 %11, -49
-  %or.cond.i.i = icmp ult i8 %67, 9
-  br i1 %or.cond.i.i, label %68, label %_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE15__parse_BACKREFINS_11__wrap_iterIPKcEEEET_S9_S9_.exit
+  %64 = add nsw i8 %11, -49
+  %or.cond.i.i = icmp ult i8 %64, 9
+  br i1 %or.cond.i.i, label %65, label %_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE15__parse_BACKREFINS_11__wrap_iterIPKcEEEET_S9_S9_.exit
 
-68:                                               ; preds = %_ZNKSt3__112regex_traitsIcE5valueB8ne190000Eci.exit.i.i
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %70 = load i32, ptr %69, align 4
-  %71 = icmp ugt i32 %.0.i.i.i.i.i, %70
-  br i1 %71, label %72, label %73
+65:                                               ; preds = %_ZNKSt3__112regex_traitsIcE5valueB8ne190000Eci.exit.i.i
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %67 = load i32, ptr %66, align 4
+  %68 = icmp ugt i32 %.0.i.i.i.i.i, %67
+  br i1 %68, label %69, label %70
 
-72:                                               ; preds = %68
+69:                                               ; preds = %65
   tail call void @_ZNSt3__119__throw_regex_errorB8ne190000ILNS_15regex_constants10error_typeE4EEEvv() #31
   unreachable
 
-73:                                               ; preds = %68
+70:                                               ; preds = %65
   tail call void @_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE15__push_back_refEi(ptr noundef nonnull align 8 dereferenceable(64) %0, i32 noundef %.0.i.i.i.i.i)
-  %74 = getelementptr inbounds nuw i8, ptr %4, i64 2
+  %71 = getelementptr inbounds nuw i8, ptr %4, i64 2
   br label %_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE15__parse_BACKREFINS_11__wrap_iterIPKcEEEET_S9_S9_.exit
 
-_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE15__parse_BACKREFINS_11__wrap_iterIPKcEEEET_S9_S9_.exit: ; preds = %8, %6, %52, %49, %73, %_ZNKSt3__112regex_traitsIcE5valueB8ne190000Eci.exit.i.i, %62, %3
-  %.sroa.028.0 = phi ptr [ %4, %3 ], [ %74, %73 ], [ %4, %_ZNKSt3__112regex_traitsIcE5valueB8ne190000Eci.exit.i.i ], [ %4, %62 ], [ %spec.select.i22, %49 ], [ %spec.select.i22, %52 ], [ %4, %6 ], [ %4, %8 ]
+_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE15__parse_BACKREFINS_11__wrap_iterIPKcEEEET_S9_S9_.exit: ; preds = %8, %6, %52, %49, %70, %_ZNKSt3__112regex_traitsIcE5valueB8ne190000Eci.exit.i.i, %62, %3
+  %.sroa.028.0 = phi ptr [ %4, %3 ], [ %71, %70 ], [ %4, %_ZNKSt3__112regex_traitsIcE5valueB8ne190000Eci.exit.i.i ], [ %4, %62 ], [ %spec.select.i22, %49 ], [ %spec.select.i22, %52 ], [ %4, %6 ], [ %4, %8 ]
   ret ptr %.sroa.028.0
 }
 
@@ -15346,49 +15319,43 @@ _ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE23__parse_Back_open_braceINS_11__w
 
 21:                                               ; preds = %20
   %22 = load i8, ptr %spec.select.i, align 1
-  %23 = and i8 %22, -8
-  %24 = icmp eq i8 %23, 48
-  %25 = and i8 %22, -2
-  %26 = icmp eq i8 %25, 56
-  %or.cond.i = or i1 %24, %26
-  br i1 %or.cond.i, label %27, label %_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE17__parse_DUP_COUNTINS_11__wrap_iterIPKcEEEET_S9_S9_Ri.exit.thread
+  %23 = add i8 %22, -48
+  %or.cond.i = icmp ult i8 %23, 10
+  br i1 %or.cond.i, label %24, label %_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE17__parse_DUP_COUNTINS_11__wrap_iterIPKcEEEET_S9_S9_Ri.exit.thread
 
-27:                                               ; preds = %21
+24:                                               ; preds = %21
   %.0.i.i.i.ph.in.i = zext nneg i8 %22 to i32
   %.0.i.i.i.ph.i = add nsw i32 %.0.i.i.i.ph.in.i, -48
   %.sroa.013.130.i = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 1
   %.not2531.i = icmp eq ptr %.sroa.013.130.i, %2
   br i1 %.not2531.i, label %_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE17__parse_DUP_COUNTINS_11__wrap_iterIPKcEEEET_S9_S9_Ri.exit.thread83, label %.lr.ph.i.preheader
 
-.lr.ph.i.preheader:                               ; preds = %27
-  %28 = sub i64 %8, %7
-  %scevgep = getelementptr i8, ptr %1, i64 %28
+.lr.ph.i.preheader:                               ; preds = %24
+  %25 = sub i64 %8, %7
+  %scevgep = getelementptr i8, ptr %1, i64 %25
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %36
-  %.077 = phi i32 [ %38, %36 ], [ %.0.i.i.i.ph.i, %.lr.ph.i.preheader ]
-  %.sroa.013.133.i = phi ptr [ %.sroa.013.1.i, %36 ], [ %.sroa.013.130.i, %.lr.ph.i.preheader ]
-  %29 = load i8, ptr %.sroa.013.133.i, align 1
-  %30 = and i8 %29, -8
-  %31 = icmp eq i8 %30, 48
-  %32 = and i8 %29, -2
-  %33 = icmp eq i8 %32, 56
-  %or.cond28.i = or i1 %31, %33
-  br i1 %or.cond28.i, label %34, label %_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE17__parse_DUP_COUNTINS_11__wrap_iterIPKcEEEET_S9_S9_Ri.exit.thread83
+.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %30
+  %.077 = phi i32 [ %32, %30 ], [ %.0.i.i.i.ph.i, %.lr.ph.i.preheader ]
+  %.sroa.013.133.i = phi ptr [ %.sroa.013.1.i, %30 ], [ %.sroa.013.130.i, %.lr.ph.i.preheader ]
+  %26 = load i8, ptr %.sroa.013.133.i, align 1
+  %27 = add i8 %26, -48
+  %or.cond28.i = icmp ult i8 %27, 10
+  br i1 %or.cond28.i, label %28, label %_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE17__parse_DUP_COUNTINS_11__wrap_iterIPKcEEEET_S9_S9_Ri.exit.thread83
 
-34:                                               ; preds = %.lr.ph.i
+28:                                               ; preds = %.lr.ph.i
   %.not9.i = icmp slt i32 %.077, 214748364
-  br i1 %.not9.i, label %36, label %35
+  br i1 %.not9.i, label %30, label %29
 
-35:                                               ; preds = %34
+29:                                               ; preds = %28
   tail call void @_ZNSt3__119__throw_regex_errorB8ne190000ILNS_15regex_constants10error_typeE8EEEvv() #31
   unreachable
 
-36:                                               ; preds = %34
-  %.0.i.i.i10.ph.in.i = zext nneg i8 %29 to i32
-  %37 = mul nsw i32 %.077, 10
-  %.0.i.i.i10.ph.i = add i32 %37, -48
-  %38 = add i32 %.0.i.i.i10.ph.i, %.0.i.i.i10.ph.in.i
+30:                                               ; preds = %28
+  %.0.i.i.i10.ph.in.i = zext nneg i8 %26 to i32
+  %31 = mul nsw i32 %.077, 10
+  %.0.i.i.i10.ph.i = add i32 %31, -48
+  %32 = add i32 %.0.i.i.i10.ph.i, %.0.i.i.i10.ph.in.i
   %.sroa.013.1.i = getelementptr inbounds nuw i8, ptr %.sroa.013.133.i, i64 1
   %.not25.i = icmp eq ptr %.sroa.013.1.i, %2
   br i1 %.not25.i, label %_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE17__parse_DUP_COUNTINS_11__wrap_iterIPKcEEEET_S9_S9_Ri.exit.thread83, label %.lr.ph.i, !llvm.loop !66
@@ -15397,155 +15364,149 @@ _ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE17__parse_DUP_COUNTINS_11__wrap_it
   tail call void @_ZNSt3__119__throw_regex_errorB8ne190000ILNS_15regex_constants10error_typeE8EEEvv() #31
   unreachable
 
-_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE17__parse_DUP_COUNTINS_11__wrap_iterIPKcEEEET_S9_S9_Ri.exit.thread83: ; preds = %.lr.ph.i, %36, %27
-  %.sroa.013.0.i87 = phi ptr [ %.sroa.013.130.i, %27 ], [ %.sroa.013.133.i, %.lr.ph.i ], [ %scevgep, %36 ]
-  %.17886 = phi i32 [ %.0.i.i.i.ph.i, %27 ], [ %.077, %.lr.ph.i ], [ %38, %36 ]
+_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE17__parse_DUP_COUNTINS_11__wrap_iterIPKcEEEET_S9_S9_Ri.exit.thread83: ; preds = %.lr.ph.i, %30, %24
+  %.sroa.013.0.i87 = phi ptr [ %.sroa.013.130.i, %24 ], [ %.sroa.013.133.i, %.lr.ph.i ], [ %scevgep, %30 ]
+  %.17886 = phi i32 [ %.0.i.i.i.ph.i, %24 ], [ %.077, %.lr.ph.i ], [ %32, %30 ]
   %.sroa.013.0.i8796 = ptrtoint ptr %.sroa.013.0.i87 to i64
-  %39 = icmp eq ptr %.sroa.013.0.i87, %2
-  br i1 %39, label %40, label %41
+  %33 = icmp eq ptr %.sroa.013.0.i87, %2
+  br i1 %33, label %34, label %35
 
-40:                                               ; preds = %_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE17__parse_DUP_COUNTINS_11__wrap_iterIPKcEEEET_S9_S9_Ri.exit.thread83
+34:                                               ; preds = %_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE17__parse_DUP_COUNTINS_11__wrap_iterIPKcEEEET_S9_S9_Ri.exit.thread83
   tail call void @_ZNSt3__119__throw_regex_errorB8ne190000ILNS_15regex_constants10error_typeE7EEEvv() #31
   unreachable
 
-41:                                               ; preds = %_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE17__parse_DUP_COUNTINS_11__wrap_iterIPKcEEEET_S9_S9_Ri.exit.thread83
-  %42 = load i8, ptr %.sroa.013.0.i87, align 1
-  %.not = icmp eq i8 %42, 44
-  %43 = getelementptr inbounds nuw i8, ptr %.sroa.013.0.i87, i64 1
-  br i1 %.not, label %51, label %44
+35:                                               ; preds = %_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE17__parse_DUP_COUNTINS_11__wrap_iterIPKcEEEET_S9_S9_Ri.exit.thread83
+  %36 = load i8, ptr %.sroa.013.0.i87, align 1
+  %.not = icmp eq i8 %36, 44
+  %37 = getelementptr inbounds nuw i8, ptr %.sroa.013.0.i87, i64 1
+  br i1 %.not, label %45, label %38
 
-44:                                               ; preds = %41
-  %.not8.i29 = icmp ne ptr %43, %2
-  %45 = icmp eq i8 %42, 92
-  %or.cond90 = and i1 %.not8.i29, %45
+38:                                               ; preds = %35
+  %.not8.i29 = icmp ne ptr %37, %2
+  %39 = icmp eq i8 %36, 92
+  %or.cond90 = and i1 %.not8.i29, %39
   br i1 %or.cond90, label %_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE24__parse_Back_close_braceINS_11__wrap_iterIPKcEEEET_S9_S9_.exit, label %_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE24__parse_Back_close_braceINS_11__wrap_iterIPKcEEEET_S9_S9_.exit.thread
 
-_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE24__parse_Back_close_braceINS_11__wrap_iterIPKcEEEET_S9_S9_.exit: ; preds = %44
-  %46 = load i8, ptr %43, align 1
-  %.not94 = icmp eq i8 %46, 125
-  br i1 %.not94, label %47, label %_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE24__parse_Back_close_braceINS_11__wrap_iterIPKcEEEET_S9_S9_.exit.thread
+_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE24__parse_Back_close_braceINS_11__wrap_iterIPKcEEEET_S9_S9_.exit: ; preds = %38
+  %40 = load i8, ptr %37, align 1
+  %.not94 = icmp eq i8 %40, 125
+  br i1 %.not94, label %41, label %_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE24__parse_Back_close_braceINS_11__wrap_iterIPKcEEEET_S9_S9_.exit.thread
 
-_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE24__parse_Back_close_braceINS_11__wrap_iterIPKcEEEET_S9_S9_.exit.thread: ; preds = %44, %_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE24__parse_Back_close_braceINS_11__wrap_iterIPKcEEEET_S9_S9_.exit
+_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE24__parse_Back_close_braceINS_11__wrap_iterIPKcEEEET_S9_S9_.exit.thread: ; preds = %38, %_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE24__parse_Back_close_braceINS_11__wrap_iterIPKcEEEET_S9_S9_.exit
   tail call void @_ZNSt3__119__throw_regex_errorB8ne190000ILNS_15regex_constants10error_typeE7EEEvv() #31
   unreachable
 
-47:                                               ; preds = %_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE24__parse_Back_close_braceINS_11__wrap_iterIPKcEEEET_S9_S9_.exit
+41:                                               ; preds = %_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE24__parse_Back_close_braceINS_11__wrap_iterIPKcEEEET_S9_S9_.exit
   %spec.select.i32 = getelementptr inbounds nuw i8, ptr %.sroa.013.0.i87, i64 2
-  %48 = sext i32 %.17886 to i64
-  %49 = zext i32 %4 to i64
-  %50 = zext i32 %5 to i64
-  tail call void @_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE11__push_loopEmmPNS_16__owns_one_stateIcEEmmb(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 noundef %48, i64 noundef %48, ptr noundef %3, i64 noundef %49, i64 noundef %50, i1 noundef zeroext true)
+  %42 = sext i32 %.17886 to i64
+  %43 = zext i32 %4 to i64
+  %44 = zext i32 %5 to i64
+  tail call void @_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE11__push_loopEmmPNS_16__owns_one_stateIcEEmmb(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 noundef %42, i64 noundef %42, ptr noundef %3, i64 noundef %43, i64 noundef %44, i1 noundef zeroext true)
   br label %_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE23__parse_Back_open_braceINS_11__wrap_iterIPKcEEEET_S9_S9_.exit.thread
 
-51:                                               ; preds = %41
-  %.not.i33 = icmp eq ptr %43, %2
-  br i1 %.not.i33, label %_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE17__parse_DUP_COUNTINS_11__wrap_iterIPKcEEEET_S9_S9_Ri.exit49, label %52
+45:                                               ; preds = %35
+  %.not.i33 = icmp eq ptr %37, %2
+  br i1 %.not.i33, label %_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE17__parse_DUP_COUNTINS_11__wrap_iterIPKcEEEET_S9_S9_Ri.exit49, label %46
 
-52:                                               ; preds = %51
-  %53 = load i8, ptr %43, align 1
-  %54 = and i8 %53, -8
-  %55 = icmp eq i8 %54, 48
-  %56 = and i8 %53, -2
-  %57 = icmp eq i8 %56, 56
-  %or.cond.i34 = or i1 %55, %57
-  br i1 %or.cond.i34, label %58, label %_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE17__parse_DUP_COUNTINS_11__wrap_iterIPKcEEEET_S9_S9_Ri.exit49
+46:                                               ; preds = %45
+  %47 = load i8, ptr %37, align 1
+  %48 = add i8 %47, -48
+  %or.cond.i34 = icmp ult i8 %48, 10
+  br i1 %or.cond.i34, label %49, label %_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE17__parse_DUP_COUNTINS_11__wrap_iterIPKcEEEET_S9_S9_Ri.exit49
 
-58:                                               ; preds = %52
-  %.0.i.i.i.ph.in.i36 = zext nneg i8 %53 to i32
+49:                                               ; preds = %46
+  %.0.i.i.i.ph.in.i36 = zext nneg i8 %47 to i32
   %.0.i.i.i.ph.i37 = add nsw i32 %.0.i.i.i.ph.in.i36, -48
   %.sroa.013.130.i38 = getelementptr inbounds nuw i8, ptr %.sroa.013.0.i87, i64 2
   %.not2531.i39 = icmp eq ptr %.sroa.013.130.i38, %2
   br i1 %.not2531.i39, label %_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE17__parse_DUP_COUNTINS_11__wrap_iterIPKcEEEET_S9_S9_Ri.exit49, label %.lr.ph.i40.preheader
 
-.lr.ph.i40.preheader:                             ; preds = %58
-  %59 = sub i64 %8, %.sroa.013.0.i8796
-  %scevgep97 = getelementptr i8, ptr %.sroa.013.0.i87, i64 %59
+.lr.ph.i40.preheader:                             ; preds = %49
+  %50 = sub i64 %8, %.sroa.013.0.i8796
+  %scevgep97 = getelementptr i8, ptr %.sroa.013.0.i87, i64 %50
   br label %.lr.ph.i40
 
-.lr.ph.i40:                                       ; preds = %.lr.ph.i40.preheader, %67
-  %.0 = phi i32 [ %69, %67 ], [ %.0.i.i.i.ph.i37, %.lr.ph.i40.preheader ]
-  %.sroa.013.133.i41 = phi ptr [ %.sroa.013.1.i47, %67 ], [ %.sroa.013.130.i38, %.lr.ph.i40.preheader ]
-  %60 = load i8, ptr %.sroa.013.133.i41, align 1
-  %61 = and i8 %60, -8
-  %62 = icmp eq i8 %61, 48
-  %63 = and i8 %60, -2
-  %64 = icmp eq i8 %63, 56
-  %or.cond28.i43 = or i1 %62, %64
-  br i1 %or.cond28.i43, label %65, label %_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE17__parse_DUP_COUNTINS_11__wrap_iterIPKcEEEET_S9_S9_Ri.exit49
+.lr.ph.i40:                                       ; preds = %.lr.ph.i40.preheader, %55
+  %.0 = phi i32 [ %57, %55 ], [ %.0.i.i.i.ph.i37, %.lr.ph.i40.preheader ]
+  %.sroa.013.133.i41 = phi ptr [ %.sroa.013.1.i47, %55 ], [ %.sroa.013.130.i38, %.lr.ph.i40.preheader ]
+  %51 = load i8, ptr %.sroa.013.133.i41, align 1
+  %52 = add i8 %51, -48
+  %or.cond28.i43 = icmp ult i8 %52, 10
+  br i1 %or.cond28.i43, label %53, label %_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE17__parse_DUP_COUNTINS_11__wrap_iterIPKcEEEET_S9_S9_Ri.exit49
 
-65:                                               ; preds = %.lr.ph.i40
+53:                                               ; preds = %.lr.ph.i40
   %.not9.i44 = icmp slt i32 %.0, 214748364
-  br i1 %.not9.i44, label %67, label %66
+  br i1 %.not9.i44, label %55, label %54
 
-66:                                               ; preds = %65
+54:                                               ; preds = %53
   tail call void @_ZNSt3__119__throw_regex_errorB8ne190000ILNS_15regex_constants10error_typeE8EEEvv() #31
   unreachable
 
-67:                                               ; preds = %65
-  %.0.i.i.i10.ph.in.i45 = zext nneg i8 %60 to i32
-  %68 = mul nsw i32 %.0, 10
-  %.0.i.i.i10.ph.i46 = add i32 %68, -48
-  %69 = add i32 %.0.i.i.i10.ph.i46, %.0.i.i.i10.ph.in.i45
+55:                                               ; preds = %53
+  %.0.i.i.i10.ph.in.i45 = zext nneg i8 %51 to i32
+  %56 = mul nsw i32 %.0, 10
+  %.0.i.i.i10.ph.i46 = add i32 %56, -48
+  %57 = add i32 %.0.i.i.i10.ph.i46, %.0.i.i.i10.ph.in.i45
   %.sroa.013.1.i47 = getelementptr inbounds nuw i8, ptr %.sroa.013.133.i41, i64 1
   %.not25.i48 = icmp eq ptr %.sroa.013.1.i47, %2
   br i1 %.not25.i48, label %_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE17__parse_DUP_COUNTINS_11__wrap_iterIPKcEEEET_S9_S9_Ri.exit49, label %.lr.ph.i40, !llvm.loop !66
 
-_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE17__parse_DUP_COUNTINS_11__wrap_iterIPKcEEEET_S9_S9_Ri.exit49: ; preds = %.lr.ph.i40, %67, %51, %52, %58
-  %.1 = phi i32 [ -1, %51 ], [ %.0.i.i.i.ph.i37, %58 ], [ -1, %52 ], [ %.0, %.lr.ph.i40 ], [ %69, %67 ]
-  %.sroa.013.0.i35 = phi ptr [ %43, %51 ], [ %.sroa.013.130.i38, %58 ], [ %43, %52 ], [ %.sroa.013.133.i41, %.lr.ph.i40 ], [ %scevgep97, %67 ]
+_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE17__parse_DUP_COUNTINS_11__wrap_iterIPKcEEEET_S9_S9_Ri.exit49: ; preds = %.lr.ph.i40, %55, %45, %46, %49
+  %.1 = phi i32 [ -1, %45 ], [ %.0.i.i.i.ph.i37, %49 ], [ -1, %46 ], [ %.0, %.lr.ph.i40 ], [ %57, %55 ]
+  %.sroa.013.0.i35 = phi ptr [ %37, %45 ], [ %.sroa.013.130.i38, %49 ], [ %37, %46 ], [ %.sroa.013.133.i41, %.lr.ph.i40 ], [ %scevgep97, %55 ]
   %.not.i50 = icmp eq ptr %.sroa.013.0.i35, %2
-  br i1 %.not.i50, label %_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE24__parse_Back_close_braceINS_11__wrap_iterIPKcEEEET_S9_S9_.exit55.thread, label %70
+  br i1 %.not.i50, label %_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE24__parse_Back_close_braceINS_11__wrap_iterIPKcEEEET_S9_S9_.exit55.thread, label %58
 
-70:                                               ; preds = %_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE17__parse_DUP_COUNTINS_11__wrap_iterIPKcEEEET_S9_S9_Ri.exit49
-  %71 = getelementptr inbounds nuw i8, ptr %.sroa.013.0.i35, i64 1
-  %.not8.i51 = icmp eq ptr %71, %2
-  br i1 %.not8.i51, label %_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE24__parse_Back_close_braceINS_11__wrap_iterIPKcEEEET_S9_S9_.exit55.thread, label %72
+58:                                               ; preds = %_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE17__parse_DUP_COUNTINS_11__wrap_iterIPKcEEEET_S9_S9_Ri.exit49
+  %59 = getelementptr inbounds nuw i8, ptr %.sroa.013.0.i35, i64 1
+  %.not8.i51 = icmp eq ptr %59, %2
+  br i1 %.not8.i51, label %_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE24__parse_Back_close_braceINS_11__wrap_iterIPKcEEEET_S9_S9_.exit55.thread, label %60
 
-72:                                               ; preds = %70
-  %73 = load i8, ptr %.sroa.013.0.i35, align 1
-  %74 = icmp eq i8 %73, 92
-  br i1 %74, label %_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE24__parse_Back_close_braceINS_11__wrap_iterIPKcEEEET_S9_S9_.exit55, label %_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE24__parse_Back_close_braceINS_11__wrap_iterIPKcEEEET_S9_S9_.exit55.thread
+60:                                               ; preds = %58
+  %61 = load i8, ptr %.sroa.013.0.i35, align 1
+  %62 = icmp eq i8 %61, 92
+  br i1 %62, label %_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE24__parse_Back_close_braceINS_11__wrap_iterIPKcEEEET_S9_S9_.exit55, label %_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE24__parse_Back_close_braceINS_11__wrap_iterIPKcEEEET_S9_S9_.exit55.thread
 
-_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE24__parse_Back_close_braceINS_11__wrap_iterIPKcEEEET_S9_S9_.exit55: ; preds = %72
-  %75 = load i8, ptr %71, align 1
-  %.not95 = icmp eq i8 %75, 125
+_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE24__parse_Back_close_braceINS_11__wrap_iterIPKcEEEET_S9_S9_.exit55: ; preds = %60
+  %63 = load i8, ptr %59, align 1
+  %.not95 = icmp eq i8 %63, 125
   %spec.select.idx.i53 = select i1 %.not95, i64 2, i64 0
   %spec.select.i54 = getelementptr inbounds nuw i8, ptr %.sroa.013.0.i35, i64 %spec.select.idx.i53
-  br i1 %.not95, label %76, label %_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE24__parse_Back_close_braceINS_11__wrap_iterIPKcEEEET_S9_S9_.exit55.thread
+  br i1 %.not95, label %64, label %_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE24__parse_Back_close_braceINS_11__wrap_iterIPKcEEEET_S9_S9_.exit55.thread
 
-_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE24__parse_Back_close_braceINS_11__wrap_iterIPKcEEEET_S9_S9_.exit55.thread: ; preds = %_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE17__parse_DUP_COUNTINS_11__wrap_iterIPKcEEEET_S9_S9_Ri.exit49, %70, %72, %_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE24__parse_Back_close_braceINS_11__wrap_iterIPKcEEEET_S9_S9_.exit55
+_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE24__parse_Back_close_braceINS_11__wrap_iterIPKcEEEET_S9_S9_.exit55.thread: ; preds = %_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE17__parse_DUP_COUNTINS_11__wrap_iterIPKcEEEET_S9_S9_Ri.exit49, %58, %60, %_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE24__parse_Back_close_braceINS_11__wrap_iterIPKcEEEET_S9_S9_.exit55
   tail call void @_ZNSt3__119__throw_regex_errorB8ne190000ILNS_15regex_constants10error_typeE7EEEvv() #31
   unreachable
 
-76:                                               ; preds = %_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE24__parse_Back_close_braceINS_11__wrap_iterIPKcEEEET_S9_S9_.exit55
-  %77 = icmp eq i32 %.1, -1
-  br i1 %77, label %78, label %82
+64:                                               ; preds = %_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE24__parse_Back_close_braceINS_11__wrap_iterIPKcEEEET_S9_S9_.exit55
+  %65 = icmp eq i32 %.1, -1
+  br i1 %65, label %66, label %70
 
-78:                                               ; preds = %76
-  %79 = sext i32 %.17886 to i64
-  %80 = zext i32 %4 to i64
-  %81 = zext i32 %5 to i64
-  tail call void @_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE11__push_loopEmmPNS_16__owns_one_stateIcEEmmb(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 noundef %79, i64 noundef -1, ptr noundef %3, i64 noundef %80, i64 noundef %81, i1 noundef zeroext true)
+66:                                               ; preds = %64
+  %67 = sext i32 %.17886 to i64
+  %68 = zext i32 %4 to i64
+  %69 = zext i32 %5 to i64
+  tail call void @_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE11__push_loopEmmPNS_16__owns_one_stateIcEEmmb(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 noundef %67, i64 noundef -1, ptr noundef %3, i64 noundef %68, i64 noundef %69, i1 noundef zeroext true)
   br label %_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE23__parse_Back_open_braceINS_11__wrap_iterIPKcEEEET_S9_S9_.exit.thread
 
-82:                                               ; preds = %76
-  %83 = icmp slt i32 %.1, %.17886
-  br i1 %83, label %84, label %85
+70:                                               ; preds = %64
+  %71 = icmp slt i32 %.1, %.17886
+  br i1 %71, label %72, label %73
 
-84:                                               ; preds = %82
+72:                                               ; preds = %70
   tail call void @_ZNSt3__119__throw_regex_errorB8ne190000ILNS_15regex_constants10error_typeE8EEEvv() #31
   unreachable
 
-85:                                               ; preds = %82
-  %86 = sext i32 %.17886 to i64
-  %87 = sext i32 %.1 to i64
-  %88 = zext i32 %4 to i64
-  %89 = zext i32 %5 to i64
-  tail call void @_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE11__push_loopEmmPNS_16__owns_one_stateIcEEmmb(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 noundef %86, i64 noundef %87, ptr noundef %3, i64 noundef %88, i64 noundef %89, i1 noundef zeroext true)
+73:                                               ; preds = %70
+  %74 = sext i32 %.17886 to i64
+  %75 = sext i32 %.1 to i64
+  %76 = zext i32 %4 to i64
+  %77 = zext i32 %5 to i64
+  tail call void @_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE11__push_loopEmmPNS_16__owns_one_stateIcEEmmb(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 noundef %74, i64 noundef %75, ptr noundef %3, i64 noundef %76, i64 noundef %77, i1 noundef zeroext true)
   br label %_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE23__parse_Back_open_braceINS_11__wrap_iterIPKcEEEET_S9_S9_.exit.thread
 
-_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE23__parse_Back_open_braceINS_11__wrap_iterIPKcEEEET_S9_S9_.exit.thread: ; preds = %78, %85, %16, %12, %47, %_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE23__parse_Back_open_braceINS_11__wrap_iterIPKcEEEET_S9_S9_.exit, %6
-  %.sroa.067.0 = phi ptr [ %15, %12 ], [ %spec.select.i32, %47 ], [ %1, %_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE23__parse_Back_open_braceINS_11__wrap_iterIPKcEEEET_S9_S9_.exit ], [ %1, %6 ], [ %1, %16 ], [ %spec.select.i54, %85 ], [ %spec.select.i54, %78 ]
+_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE23__parse_Back_open_braceINS_11__wrap_iterIPKcEEEET_S9_S9_.exit.thread: ; preds = %66, %73, %16, %12, %41, %_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE23__parse_Back_open_braceINS_11__wrap_iterIPKcEEEET_S9_S9_.exit, %6
+  %.sroa.067.0 = phi ptr [ %15, %12 ], [ %spec.select.i32, %41 ], [ %1, %_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE23__parse_Back_open_braceINS_11__wrap_iterIPKcEEEET_S9_S9_.exit ], [ %1, %6 ], [ %1, %16 ], [ %spec.select.i54, %73 ], [ %spec.select.i54, %66 ]
   ret ptr %.sroa.067.0
 }
 
@@ -15699,36 +15660,33 @@ define linkonce_odr hidden void @_ZNKSt3__111__match_anyIcE6__execERNS_7__stateI
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE15__test_back_refEc(ptr noundef nonnull align 8 dereferenceable(64) %0, i8 noundef signext %1) local_unnamed_addr #3 comdat align 2 {
-  %3 = and i8 %1, -8
-  %4 = icmp eq i8 %3, 48
-  %5 = and i8 %1, -2
-  %6 = icmp eq i8 %5, 56
-  %or.cond12 = or i1 %4, %6
+  %3 = add i8 %1, -48
+  %or.cond12 = icmp ult i8 %3, 10
   br i1 %or.cond12, label %_ZNKSt3__112regex_traitsIcE5valueB8ne190000Eci.exit, label %_ZNKSt3__112regex_traitsIcE5valueB8ne190000Eci.exit.thread
 
 _ZNKSt3__112regex_traitsIcE5valueB8ne190000Eci.exit: ; preds = %2
   %.0.i.i.i.in = zext nneg i8 %1 to i32
   %.0.i.i.i = add nsw i32 %.0.i.i.i.in, -48
-  %7 = add nsw i8 %1, -49
-  %or.cond = icmp ult i8 %7, 9
-  br i1 %or.cond, label %8, label %_ZNKSt3__112regex_traitsIcE5valueB8ne190000Eci.exit.thread
+  %4 = add nsw i8 %1, -49
+  %or.cond = icmp ult i8 %4, 9
+  br i1 %or.cond, label %5, label %_ZNKSt3__112regex_traitsIcE5valueB8ne190000Eci.exit.thread
 
-8:                                                ; preds = %_ZNKSt3__112regex_traitsIcE5valueB8ne190000Eci.exit
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %10 = load i32, ptr %9, align 4
-  %11 = icmp ugt i32 %.0.i.i.i, %10
-  br i1 %11, label %12, label %13
+5:                                                ; preds = %_ZNKSt3__112regex_traitsIcE5valueB8ne190000Eci.exit
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %7 = load i32, ptr %6, align 4
+  %8 = icmp ugt i32 %.0.i.i.i, %7
+  br i1 %8, label %9, label %10
 
-12:                                               ; preds = %8
+9:                                                ; preds = %5
   tail call void @_ZNSt3__119__throw_regex_errorB8ne190000ILNS_15regex_constants10error_typeE4EEEvv() #31
   unreachable
 
-13:                                               ; preds = %8
+10:                                               ; preds = %5
   tail call void @_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEE15__push_back_refEi(ptr noundef nonnull align 8 dereferenceable(64) %0, i32 noundef %.0.i.i.i)
   br label %_ZNKSt3__112regex_traitsIcE5valueB8ne190000Eci.exit.thread
 
-_ZNKSt3__112regex_traitsIcE5valueB8ne190000Eci.exit.thread: ; preds = %2, %_ZNKSt3__112regex_traitsIcE5valueB8ne190000Eci.exit, %13
-  %or.cond10 = phi i1 [ false, %_ZNKSt3__112regex_traitsIcE5valueB8ne190000Eci.exit ], [ true, %13 ], [ false, %2 ]
+_ZNKSt3__112regex_traitsIcE5valueB8ne190000Eci.exit.thread: ; preds = %2, %_ZNKSt3__112regex_traitsIcE5valueB8ne190000Eci.exit, %10
+  %or.cond10 = phi i1 [ false, %_ZNKSt3__112regex_traitsIcE5valueB8ne190000Eci.exit ], [ true, %10 ], [ false, %2 ]
   ret i1 %or.cond10
 }
 

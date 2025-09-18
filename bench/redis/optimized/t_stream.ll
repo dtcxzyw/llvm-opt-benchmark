@@ -11266,8 +11266,8 @@ define dso_local void @xinfoReplyWithStreamInfo(ptr noundef %0, ptr noundef %1) 
   br i1 %16, label %44, label %17
 
 17:                                               ; preds = %2
-  %18 = and i32 %15, -3
-  %or.cond.not = icmp eq i32 %18, 1
+  %18 = and i32 %14, -3
+  %or.cond.not = icmp eq i32 %18, 4
   br i1 %or.cond.not, label %20, label %19
 
 19:                                               ; preds = %17

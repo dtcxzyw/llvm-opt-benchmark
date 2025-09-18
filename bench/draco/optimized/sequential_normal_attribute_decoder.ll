@@ -858,148 +858,148 @@ define linkonce_odr void @_ZN5draco26CreateMeshPredictionSchemeINS_11MeshDecoder
   %16 = load ptr, ptr %15, align 8
   %17 = tail call noundef i32 %16(ptr noundef nonnull align 8 dereferenceable(96) %1)
   %18 = icmp eq i32 %17, 1
-  %.off = add i32 %2, -1
-  %switch = icmp ult i32 %.off, 6
-  %or.cond = and i1 %switch, %18
-  br i1 %or.cond, label %19, label %.critedge58
+  %19 = add i32 %2, -1
+  %or.cond11 = icmp ult i32 %19, 6
+  %or.cond = and i1 %or.cond11, %18
+  br i1 %or.cond, label %20, label %.critedge58
 
-19:                                               ; preds = %6
-  %20 = load ptr, ptr %1, align 8, !tbaa !3
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 72
-  %22 = load ptr, ptr %21, align 8
-  %23 = tail call noundef ptr %22(ptr noundef nonnull align 8 dereferenceable(96) %1)
-  %24 = load ptr, ptr %1, align 8, !tbaa !3
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 88
-  %26 = load ptr, ptr %25, align 8
-  %27 = tail call noundef ptr %26(ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef %3)
-  %28 = icmp eq ptr %23, null
-  %29 = icmp eq ptr %27, null
-  %or.cond13 = or i1 %28, %29
-  br i1 %or.cond13, label %.critedge58, label %30
+20:                                               ; preds = %6
+  %21 = load ptr, ptr %1, align 8, !tbaa !3
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 72
+  %23 = load ptr, ptr %22, align 8
+  %24 = tail call noundef ptr %23(ptr noundef nonnull align 8 dereferenceable(96) %1)
+  %25 = load ptr, ptr %1, align 8, !tbaa !3
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 88
+  %27 = load ptr, ptr %26, align 8
+  %28 = tail call noundef ptr %27(ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef %3)
+  %29 = icmp eq ptr %24, null
+  %30 = icmp eq ptr %28, null
+  %or.cond13 = or i1 %29, %30
+  br i1 %or.cond13, label %.critedge58, label %31
 
-30:                                               ; preds = %19
-  %31 = load ptr, ptr %1, align 8, !tbaa !3
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 80
-  %33 = load ptr, ptr %32, align 8
-  %34 = tail call noundef ptr %33(ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef %3)
-  %.not = icmp eq ptr %34, null
-  %35 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %36 = load ptr, ptr %35, align 8, !tbaa !105
-  %37 = icmp eq i32 %2, 6
-  br i1 %.not, label %57, label %38
+31:                                               ; preds = %20
+  %32 = load ptr, ptr %1, align 8, !tbaa !3
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 80
+  %34 = load ptr, ptr %33, align 8
+  %35 = tail call noundef ptr %34(ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef %3)
+  %.not = icmp eq ptr %35, null
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %37 = load ptr, ptr %36, align 8, !tbaa !105
+  %38 = icmp eq i32 %2, 6
+  br i1 %.not, label %58, label %39
 
-38:                                               ; preds = %30
-  br i1 %37, label %39, label %.critedge58
+39:                                               ; preds = %31
+  br i1 %38, label %40, label %.critedge58
 
-39:                                               ; preds = %38
-  %40 = getelementptr inbounds nuw i8, ptr %27, i64 24
-  %41 = tail call noalias noundef nonnull dereferenceable(184) ptr @_Znwm(i64 noundef 184) #18, !noalias !108
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  store ptr %13, ptr %42, align 8, !tbaa !72, !noalias !108
-  %43 = getelementptr inbounds nuw i8, ptr %41, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %43, ptr noundef nonnull align 4 dereferenceable(20) %4, i64 20, i1 false), !noalias !108
-  %44 = getelementptr inbounds nuw i8, ptr %41, i64 40
-  store ptr %36, ptr %44, align 8, !tbaa !113, !noalias !108
-  %.sroa.774.0..sroa_idx = getelementptr inbounds nuw i8, ptr %41, i64 48
-  store ptr %34, ptr %.sroa.774.0..sroa_idx, align 8, !tbaa !114, !noalias !108
-  %.sroa.877.0..sroa_idx = getelementptr inbounds nuw i8, ptr %41, i64 56
-  store ptr %40, ptr %.sroa.877.0..sroa_idx, align 8, !tbaa !116, !noalias !108
-  %.sroa.980.0..sroa_idx = getelementptr inbounds nuw i8, ptr %41, i64 64
-  store ptr %27, ptr %.sroa.980.0..sroa_idx, align 8, !tbaa !118, !noalias !108
-  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN5draco42MeshPredictionSchemeGeometricNormalDecoderIiNS_49PredictionSchemeNormalOctahedronDecodingTransformIiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEEE, i64 16), ptr %41, align 8, !tbaa !3, !noalias !108
-  %45 = getelementptr inbounds nuw i8, ptr %41, i64 72
-  %46 = getelementptr inbounds nuw i8, ptr %41, i64 80
-  %47 = getelementptr inbounds nuw i8, ptr %41, i64 96
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %46, i8 0, i64 16, i1 false), !noalias !108
-  store ptr %36, ptr %47, align 8, !tbaa !113, !noalias !108
-  %.sroa.774.0..sroa_idx75 = getelementptr inbounds nuw i8, ptr %41, i64 104
-  store ptr %34, ptr %.sroa.774.0..sroa_idx75, align 8, !tbaa !114, !noalias !108
-  %.sroa.877.0..sroa_idx78 = getelementptr inbounds nuw i8, ptr %41, i64 112
-  store ptr %40, ptr %.sroa.877.0..sroa_idx78, align 8, !tbaa !116, !noalias !108
-  %.sroa.980.0..sroa_idx81 = getelementptr inbounds nuw i8, ptr %41, i64 120
-  store ptr %27, ptr %.sroa.980.0..sroa_idx81, align 8, !tbaa !118, !noalias !108
-  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5draco48MeshPredictionSchemeGeometricNormalPredictorAreaIiNS_49PredictionSchemeNormalOctahedronDecodingTransformIiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEEE, i64 16), ptr %45, align 8, !tbaa !3, !noalias !108
-  %48 = getelementptr inbounds nuw i8, ptr %41, i64 128
-  store i32 1, ptr %48, align 8, !tbaa !120, !noalias !108
-  %49 = getelementptr inbounds nuw i8, ptr %41, i64 136
-  store i32 -1, ptr %49, align 8, !tbaa !54, !noalias !108
-  %50 = getelementptr inbounds nuw i8, ptr %41, i64 140
-  store i32 -1, ptr %50, align 4, !tbaa !57, !noalias !108
-  %51 = getelementptr inbounds nuw i8, ptr %41, i64 144
-  store i32 -1, ptr %51, align 8, !tbaa !58, !noalias !108
-  %52 = getelementptr inbounds nuw i8, ptr %41, i64 148
-  store float 1.000000e+00, ptr %52, align 4, !tbaa !59, !noalias !108
-  %53 = getelementptr inbounds nuw i8, ptr %41, i64 152
-  store i32 -1, ptr %53, align 8, !tbaa !60, !noalias !108
-  %54 = getelementptr inbounds nuw i8, ptr %41, i64 160
-  invoke void @_ZN5draco14RAnsBitDecoderC1Ev(ptr noundef nonnull align 8 dereferenceable(17) %54)
-          to label %.critedge58 unwind label %55, !noalias !108
+40:                                               ; preds = %39
+  %41 = getelementptr inbounds nuw i8, ptr %28, i64 24
+  %42 = tail call noalias noundef nonnull dereferenceable(184) ptr @_Znwm(i64 noundef 184) #18, !noalias !108
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
+  store ptr %13, ptr %43, align 8, !tbaa !72, !noalias !108
+  %44 = getelementptr inbounds nuw i8, ptr %42, i64 16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %44, ptr noundef nonnull align 4 dereferenceable(20) %4, i64 20, i1 false), !noalias !108
+  %45 = getelementptr inbounds nuw i8, ptr %42, i64 40
+  store ptr %37, ptr %45, align 8, !tbaa !113, !noalias !108
+  %.sroa.774.0..sroa_idx = getelementptr inbounds nuw i8, ptr %42, i64 48
+  store ptr %35, ptr %.sroa.774.0..sroa_idx, align 8, !tbaa !114, !noalias !108
+  %.sroa.877.0..sroa_idx = getelementptr inbounds nuw i8, ptr %42, i64 56
+  store ptr %41, ptr %.sroa.877.0..sroa_idx, align 8, !tbaa !116, !noalias !108
+  %.sroa.980.0..sroa_idx = getelementptr inbounds nuw i8, ptr %42, i64 64
+  store ptr %28, ptr %.sroa.980.0..sroa_idx, align 8, !tbaa !118, !noalias !108
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN5draco42MeshPredictionSchemeGeometricNormalDecoderIiNS_49PredictionSchemeNormalOctahedronDecodingTransformIiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEEE, i64 16), ptr %42, align 8, !tbaa !3, !noalias !108
+  %46 = getelementptr inbounds nuw i8, ptr %42, i64 72
+  %47 = getelementptr inbounds nuw i8, ptr %42, i64 80
+  %48 = getelementptr inbounds nuw i8, ptr %42, i64 96
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %47, i8 0, i64 16, i1 false), !noalias !108
+  store ptr %37, ptr %48, align 8, !tbaa !113, !noalias !108
+  %.sroa.774.0..sroa_idx75 = getelementptr inbounds nuw i8, ptr %42, i64 104
+  store ptr %35, ptr %.sroa.774.0..sroa_idx75, align 8, !tbaa !114, !noalias !108
+  %.sroa.877.0..sroa_idx78 = getelementptr inbounds nuw i8, ptr %42, i64 112
+  store ptr %41, ptr %.sroa.877.0..sroa_idx78, align 8, !tbaa !116, !noalias !108
+  %.sroa.980.0..sroa_idx81 = getelementptr inbounds nuw i8, ptr %42, i64 120
+  store ptr %28, ptr %.sroa.980.0..sroa_idx81, align 8, !tbaa !118, !noalias !108
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5draco48MeshPredictionSchemeGeometricNormalPredictorAreaIiNS_49PredictionSchemeNormalOctahedronDecodingTransformIiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEEE, i64 16), ptr %46, align 8, !tbaa !3, !noalias !108
+  %49 = getelementptr inbounds nuw i8, ptr %42, i64 128
+  store i32 1, ptr %49, align 8, !tbaa !120, !noalias !108
+  %50 = getelementptr inbounds nuw i8, ptr %42, i64 136
+  store i32 -1, ptr %50, align 8, !tbaa !54, !noalias !108
+  %51 = getelementptr inbounds nuw i8, ptr %42, i64 140
+  store i32 -1, ptr %51, align 4, !tbaa !57, !noalias !108
+  %52 = getelementptr inbounds nuw i8, ptr %42, i64 144
+  store i32 -1, ptr %52, align 8, !tbaa !58, !noalias !108
+  %53 = getelementptr inbounds nuw i8, ptr %42, i64 148
+  store float 1.000000e+00, ptr %53, align 4, !tbaa !59, !noalias !108
+  %54 = getelementptr inbounds nuw i8, ptr %42, i64 152
+  store i32 -1, ptr %54, align 8, !tbaa !60, !noalias !108
+  %55 = getelementptr inbounds nuw i8, ptr %42, i64 160
+  invoke void @_ZN5draco14RAnsBitDecoderC1Ev(ptr noundef nonnull align 8 dereferenceable(17) %55)
+          to label %.critedge58 unwind label %56, !noalias !108
 
-common.resume:                                    ; preds = %74, %55
-  %.sink = phi ptr [ %60, %74 ], [ %41, %55 ]
-  %common.resume.op = phi { ptr, i32 } [ %75, %74 ], [ %56, %55 ]
+common.resume:                                    ; preds = %75, %56
+  %.sink = phi ptr [ %61, %75 ], [ %42, %56 ]
+  %common.resume.op = phi { ptr, i32 } [ %76, %75 ], [ %57, %56 ]
   tail call void @_ZdlPvm(ptr noundef nonnull %.sink, i64 noundef 184) #17, !noalias !125
   resume { ptr, i32 } %common.resume.op
 
-55:                                               ; preds = %39
-  %56 = landingpad { ptr, i32 }
+56:                                               ; preds = %40
+  %57 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-57:                                               ; preds = %30
-  br i1 %37, label %58, label %.critedge58
+58:                                               ; preds = %31
+  br i1 %38, label %59, label %.critedge58
 
-58:                                               ; preds = %57
-  %59 = getelementptr inbounds nuw i8, ptr %27, i64 24
-  %60 = tail call noalias noundef nonnull dereferenceable(184) ptr @_Znwm(i64 noundef 184) #18, !noalias !126
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
-  store ptr %13, ptr %61, align 8, !tbaa !72, !noalias !126
-  %62 = getelementptr inbounds nuw i8, ptr %60, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %62, ptr noundef nonnull align 4 dereferenceable(20) %4, i64 20, i1 false), !noalias !126
-  %63 = getelementptr inbounds nuw i8, ptr %60, i64 40
-  store ptr %36, ptr %63, align 8, !tbaa !113, !noalias !126
-  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %60, i64 48
-  store ptr %23, ptr %.sroa.7.0..sroa_idx, align 8, !tbaa !131, !noalias !126
-  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %60, i64 56
-  store ptr %59, ptr %.sroa.8.0..sroa_idx, align 8, !tbaa !116, !noalias !126
-  %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %60, i64 64
-  store ptr %27, ptr %.sroa.9.0..sroa_idx, align 8, !tbaa !118, !noalias !126
-  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN5draco42MeshPredictionSchemeGeometricNormalDecoderIiNS_49PredictionSchemeNormalOctahedronDecodingTransformIiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEEEE, i64 16), ptr %60, align 8, !tbaa !3, !noalias !126
-  %64 = getelementptr inbounds nuw i8, ptr %60, i64 72
-  %65 = getelementptr inbounds nuw i8, ptr %60, i64 80
-  %66 = getelementptr inbounds nuw i8, ptr %60, i64 96
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %65, i8 0, i64 16, i1 false), !noalias !126
-  store ptr %36, ptr %66, align 8, !tbaa !113, !noalias !126
-  %.sroa.7.0..sroa_idx65 = getelementptr inbounds nuw i8, ptr %60, i64 104
-  store ptr %23, ptr %.sroa.7.0..sroa_idx65, align 8, !tbaa !131, !noalias !126
-  %.sroa.8.0..sroa_idx67 = getelementptr inbounds nuw i8, ptr %60, i64 112
-  store ptr %59, ptr %.sroa.8.0..sroa_idx67, align 8, !tbaa !116, !noalias !126
-  %.sroa.9.0..sroa_idx69 = getelementptr inbounds nuw i8, ptr %60, i64 120
-  store ptr %27, ptr %.sroa.9.0..sroa_idx69, align 8, !tbaa !118, !noalias !126
-  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5draco48MeshPredictionSchemeGeometricNormalPredictorAreaIiNS_49PredictionSchemeNormalOctahedronDecodingTransformIiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEEEE, i64 16), ptr %64, align 8, !tbaa !3, !noalias !126
-  %67 = getelementptr inbounds nuw i8, ptr %60, i64 128
-  store i32 1, ptr %67, align 8, !tbaa !133, !noalias !126
-  %68 = getelementptr inbounds nuw i8, ptr %60, i64 136
-  store i32 -1, ptr %68, align 8, !tbaa !54, !noalias !126
-  %69 = getelementptr inbounds nuw i8, ptr %60, i64 140
-  store i32 -1, ptr %69, align 4, !tbaa !57, !noalias !126
-  %70 = getelementptr inbounds nuw i8, ptr %60, i64 144
-  store i32 -1, ptr %70, align 8, !tbaa !58, !noalias !126
-  %71 = getelementptr inbounds nuw i8, ptr %60, i64 148
-  store float 1.000000e+00, ptr %71, align 4, !tbaa !59, !noalias !126
-  %72 = getelementptr inbounds nuw i8, ptr %60, i64 152
-  store i32 -1, ptr %72, align 8, !tbaa !60, !noalias !126
-  %73 = getelementptr inbounds nuw i8, ptr %60, i64 160
-  invoke void @_ZN5draco14RAnsBitDecoderC1Ev(ptr noundef nonnull align 8 dereferenceable(17) %73)
-          to label %.critedge58 unwind label %74, !noalias !126
+59:                                               ; preds = %58
+  %60 = getelementptr inbounds nuw i8, ptr %28, i64 24
+  %61 = tail call noalias noundef nonnull dereferenceable(184) ptr @_Znwm(i64 noundef 184) #18, !noalias !126
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
+  store ptr %13, ptr %62, align 8, !tbaa !72, !noalias !126
+  %63 = getelementptr inbounds nuw i8, ptr %61, i64 16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %63, ptr noundef nonnull align 4 dereferenceable(20) %4, i64 20, i1 false), !noalias !126
+  %64 = getelementptr inbounds nuw i8, ptr %61, i64 40
+  store ptr %37, ptr %64, align 8, !tbaa !113, !noalias !126
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %61, i64 48
+  store ptr %24, ptr %.sroa.7.0..sroa_idx, align 8, !tbaa !131, !noalias !126
+  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %61, i64 56
+  store ptr %60, ptr %.sroa.8.0..sroa_idx, align 8, !tbaa !116, !noalias !126
+  %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %61, i64 64
+  store ptr %28, ptr %.sroa.9.0..sroa_idx, align 8, !tbaa !118, !noalias !126
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN5draco42MeshPredictionSchemeGeometricNormalDecoderIiNS_49PredictionSchemeNormalOctahedronDecodingTransformIiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEEEE, i64 16), ptr %61, align 8, !tbaa !3, !noalias !126
+  %65 = getelementptr inbounds nuw i8, ptr %61, i64 72
+  %66 = getelementptr inbounds nuw i8, ptr %61, i64 80
+  %67 = getelementptr inbounds nuw i8, ptr %61, i64 96
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %66, i8 0, i64 16, i1 false), !noalias !126
+  store ptr %37, ptr %67, align 8, !tbaa !113, !noalias !126
+  %.sroa.7.0..sroa_idx65 = getelementptr inbounds nuw i8, ptr %61, i64 104
+  store ptr %24, ptr %.sroa.7.0..sroa_idx65, align 8, !tbaa !131, !noalias !126
+  %.sroa.8.0..sroa_idx67 = getelementptr inbounds nuw i8, ptr %61, i64 112
+  store ptr %60, ptr %.sroa.8.0..sroa_idx67, align 8, !tbaa !116, !noalias !126
+  %.sroa.9.0..sroa_idx69 = getelementptr inbounds nuw i8, ptr %61, i64 120
+  store ptr %28, ptr %.sroa.9.0..sroa_idx69, align 8, !tbaa !118, !noalias !126
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5draco48MeshPredictionSchemeGeometricNormalPredictorAreaIiNS_49PredictionSchemeNormalOctahedronDecodingTransformIiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEEEE, i64 16), ptr %65, align 8, !tbaa !3, !noalias !126
+  %68 = getelementptr inbounds nuw i8, ptr %61, i64 128
+  store i32 1, ptr %68, align 8, !tbaa !133, !noalias !126
+  %69 = getelementptr inbounds nuw i8, ptr %61, i64 136
+  store i32 -1, ptr %69, align 8, !tbaa !54, !noalias !126
+  %70 = getelementptr inbounds nuw i8, ptr %61, i64 140
+  store i32 -1, ptr %70, align 4, !tbaa !57, !noalias !126
+  %71 = getelementptr inbounds nuw i8, ptr %61, i64 144
+  store i32 -1, ptr %71, align 8, !tbaa !58, !noalias !126
+  %72 = getelementptr inbounds nuw i8, ptr %61, i64 148
+  store float 1.000000e+00, ptr %72, align 4, !tbaa !59, !noalias !126
+  %73 = getelementptr inbounds nuw i8, ptr %61, i64 152
+  store i32 -1, ptr %73, align 8, !tbaa !60, !noalias !126
+  %74 = getelementptr inbounds nuw i8, ptr %61, i64 160
+  invoke void @_ZN5draco14RAnsBitDecoderC1Ev(ptr noundef nonnull align 8 dereferenceable(17) %74)
+          to label %.critedge58 unwind label %75, !noalias !126
 
-74:                                               ; preds = %58
-  %75 = landingpad { ptr, i32 }
+75:                                               ; preds = %59
+  %76 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-.critedge58:                                      ; preds = %6, %38, %57, %58, %39, %19
-  %.sink87 = phi ptr [ null, %19 ], [ %41, %39 ], [ %60, %58 ], [ null, %57 ], [ null, %38 ], [ null, %6 ]
+.critedge58:                                      ; preds = %6, %39, %58, %59, %40, %20
+  %.sink87 = phi ptr [ null, %20 ], [ %42, %40 ], [ %61, %59 ], [ null, %58 ], [ null, %39 ], [ null, %6 ]
   store ptr %.sink87, ptr %0, align 8, !tbaa !70
   ret void
 }
@@ -4316,148 +4316,148 @@ define linkonce_odr void @_ZN5draco26CreateMeshPredictionSchemeINS_11MeshDecoder
   %16 = load ptr, ptr %15, align 8
   %17 = tail call noundef i32 %16(ptr noundef nonnull align 8 dereferenceable(96) %1)
   %18 = icmp eq i32 %17, 1
-  %.off = add i32 %2, -1
-  %switch = icmp ult i32 %.off, 6
-  %or.cond = and i1 %switch, %18
-  br i1 %or.cond, label %19, label %.critedge58
+  %19 = add i32 %2, -1
+  %or.cond11 = icmp ult i32 %19, 6
+  %or.cond = and i1 %or.cond11, %18
+  br i1 %or.cond, label %20, label %.critedge58
 
-19:                                               ; preds = %6
-  %20 = load ptr, ptr %1, align 8, !tbaa !3
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 72
-  %22 = load ptr, ptr %21, align 8
-  %23 = tail call noundef ptr %22(ptr noundef nonnull align 8 dereferenceable(96) %1)
-  %24 = load ptr, ptr %1, align 8, !tbaa !3
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 88
-  %26 = load ptr, ptr %25, align 8
-  %27 = tail call noundef ptr %26(ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef %3)
-  %28 = icmp eq ptr %23, null
-  %29 = icmp eq ptr %27, null
-  %or.cond13 = or i1 %28, %29
-  br i1 %or.cond13, label %.critedge58, label %30
+20:                                               ; preds = %6
+  %21 = load ptr, ptr %1, align 8, !tbaa !3
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 72
+  %23 = load ptr, ptr %22, align 8
+  %24 = tail call noundef ptr %23(ptr noundef nonnull align 8 dereferenceable(96) %1)
+  %25 = load ptr, ptr %1, align 8, !tbaa !3
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 88
+  %27 = load ptr, ptr %26, align 8
+  %28 = tail call noundef ptr %27(ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef %3)
+  %29 = icmp eq ptr %24, null
+  %30 = icmp eq ptr %28, null
+  %or.cond13 = or i1 %29, %30
+  br i1 %or.cond13, label %.critedge58, label %31
 
-30:                                               ; preds = %19
-  %31 = load ptr, ptr %1, align 8, !tbaa !3
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 80
-  %33 = load ptr, ptr %32, align 8
-  %34 = tail call noundef ptr %33(ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef %3)
-  %.not = icmp eq ptr %34, null
-  %35 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %36 = load ptr, ptr %35, align 8, !tbaa !105
-  %37 = icmp eq i32 %2, 6
-  br i1 %.not, label %57, label %38
+31:                                               ; preds = %20
+  %32 = load ptr, ptr %1, align 8, !tbaa !3
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 80
+  %34 = load ptr, ptr %33, align 8
+  %35 = tail call noundef ptr %34(ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef %3)
+  %.not = icmp eq ptr %35, null
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %37 = load ptr, ptr %36, align 8, !tbaa !105
+  %38 = icmp eq i32 %2, 6
+  br i1 %.not, label %58, label %39
 
-38:                                               ; preds = %30
-  br i1 %37, label %39, label %.critedge58
+39:                                               ; preds = %31
+  br i1 %38, label %40, label %.critedge58
 
-39:                                               ; preds = %38
-  %40 = getelementptr inbounds nuw i8, ptr %27, i64 24
-  %41 = tail call noalias noundef nonnull dereferenceable(184) ptr @_Znwm(i64 noundef 184) #18, !noalias !328
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  store ptr %13, ptr %42, align 8, !tbaa !90, !noalias !328
-  %43 = getelementptr inbounds nuw i8, ptr %41, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %43, ptr noundef nonnull align 4 dereferenceable(20) %4, i64 20, i1 false), !noalias !328
-  %44 = getelementptr inbounds nuw i8, ptr %41, i64 40
-  store ptr %36, ptr %44, align 8, !tbaa !113, !noalias !328
-  %.sroa.774.0..sroa_idx = getelementptr inbounds nuw i8, ptr %41, i64 48
-  store ptr %34, ptr %.sroa.774.0..sroa_idx, align 8, !tbaa !114, !noalias !328
-  %.sroa.877.0..sroa_idx = getelementptr inbounds nuw i8, ptr %41, i64 56
-  store ptr %40, ptr %.sroa.877.0..sroa_idx, align 8, !tbaa !116, !noalias !328
-  %.sroa.980.0..sroa_idx = getelementptr inbounds nuw i8, ptr %41, i64 64
-  store ptr %27, ptr %.sroa.980.0..sroa_idx, align 8, !tbaa !118, !noalias !328
-  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN5draco42MeshPredictionSchemeGeometricNormalDecoderIiNS_62PredictionSchemeNormalOctahedronCanonicalizedDecodingTransformIiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEEE, i64 16), ptr %41, align 8, !tbaa !3, !noalias !328
-  %45 = getelementptr inbounds nuw i8, ptr %41, i64 72
-  %46 = getelementptr inbounds nuw i8, ptr %41, i64 80
-  %47 = getelementptr inbounds nuw i8, ptr %41, i64 96
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %46, i8 0, i64 16, i1 false), !noalias !328
-  store ptr %36, ptr %47, align 8, !tbaa !113, !noalias !328
-  %.sroa.774.0..sroa_idx75 = getelementptr inbounds nuw i8, ptr %41, i64 104
-  store ptr %34, ptr %.sroa.774.0..sroa_idx75, align 8, !tbaa !114, !noalias !328
-  %.sroa.877.0..sroa_idx78 = getelementptr inbounds nuw i8, ptr %41, i64 112
-  store ptr %40, ptr %.sroa.877.0..sroa_idx78, align 8, !tbaa !116, !noalias !328
-  %.sroa.980.0..sroa_idx81 = getelementptr inbounds nuw i8, ptr %41, i64 120
-  store ptr %27, ptr %.sroa.980.0..sroa_idx81, align 8, !tbaa !118, !noalias !328
-  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5draco48MeshPredictionSchemeGeometricNormalPredictorAreaIiNS_62PredictionSchemeNormalOctahedronCanonicalizedDecodingTransformIiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEEE, i64 16), ptr %45, align 8, !tbaa !3, !noalias !328
-  %48 = getelementptr inbounds nuw i8, ptr %41, i64 128
-  store i32 1, ptr %48, align 8, !tbaa !333, !noalias !328
-  %49 = getelementptr inbounds nuw i8, ptr %41, i64 136
-  store i32 -1, ptr %49, align 8, !tbaa !54, !noalias !328
-  %50 = getelementptr inbounds nuw i8, ptr %41, i64 140
-  store i32 -1, ptr %50, align 4, !tbaa !57, !noalias !328
-  %51 = getelementptr inbounds nuw i8, ptr %41, i64 144
-  store i32 -1, ptr %51, align 8, !tbaa !58, !noalias !328
-  %52 = getelementptr inbounds nuw i8, ptr %41, i64 148
-  store float 1.000000e+00, ptr %52, align 4, !tbaa !59, !noalias !328
-  %53 = getelementptr inbounds nuw i8, ptr %41, i64 152
-  store i32 -1, ptr %53, align 8, !tbaa !60, !noalias !328
-  %54 = getelementptr inbounds nuw i8, ptr %41, i64 160
-  invoke void @_ZN5draco14RAnsBitDecoderC1Ev(ptr noundef nonnull align 8 dereferenceable(17) %54)
-          to label %.critedge58 unwind label %55, !noalias !328
+40:                                               ; preds = %39
+  %41 = getelementptr inbounds nuw i8, ptr %28, i64 24
+  %42 = tail call noalias noundef nonnull dereferenceable(184) ptr @_Znwm(i64 noundef 184) #18, !noalias !328
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
+  store ptr %13, ptr %43, align 8, !tbaa !90, !noalias !328
+  %44 = getelementptr inbounds nuw i8, ptr %42, i64 16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %44, ptr noundef nonnull align 4 dereferenceable(20) %4, i64 20, i1 false), !noalias !328
+  %45 = getelementptr inbounds nuw i8, ptr %42, i64 40
+  store ptr %37, ptr %45, align 8, !tbaa !113, !noalias !328
+  %.sroa.774.0..sroa_idx = getelementptr inbounds nuw i8, ptr %42, i64 48
+  store ptr %35, ptr %.sroa.774.0..sroa_idx, align 8, !tbaa !114, !noalias !328
+  %.sroa.877.0..sroa_idx = getelementptr inbounds nuw i8, ptr %42, i64 56
+  store ptr %41, ptr %.sroa.877.0..sroa_idx, align 8, !tbaa !116, !noalias !328
+  %.sroa.980.0..sroa_idx = getelementptr inbounds nuw i8, ptr %42, i64 64
+  store ptr %28, ptr %.sroa.980.0..sroa_idx, align 8, !tbaa !118, !noalias !328
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN5draco42MeshPredictionSchemeGeometricNormalDecoderIiNS_62PredictionSchemeNormalOctahedronCanonicalizedDecodingTransformIiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEEE, i64 16), ptr %42, align 8, !tbaa !3, !noalias !328
+  %46 = getelementptr inbounds nuw i8, ptr %42, i64 72
+  %47 = getelementptr inbounds nuw i8, ptr %42, i64 80
+  %48 = getelementptr inbounds nuw i8, ptr %42, i64 96
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %47, i8 0, i64 16, i1 false), !noalias !328
+  store ptr %37, ptr %48, align 8, !tbaa !113, !noalias !328
+  %.sroa.774.0..sroa_idx75 = getelementptr inbounds nuw i8, ptr %42, i64 104
+  store ptr %35, ptr %.sroa.774.0..sroa_idx75, align 8, !tbaa !114, !noalias !328
+  %.sroa.877.0..sroa_idx78 = getelementptr inbounds nuw i8, ptr %42, i64 112
+  store ptr %41, ptr %.sroa.877.0..sroa_idx78, align 8, !tbaa !116, !noalias !328
+  %.sroa.980.0..sroa_idx81 = getelementptr inbounds nuw i8, ptr %42, i64 120
+  store ptr %28, ptr %.sroa.980.0..sroa_idx81, align 8, !tbaa !118, !noalias !328
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5draco48MeshPredictionSchemeGeometricNormalPredictorAreaIiNS_62PredictionSchemeNormalOctahedronCanonicalizedDecodingTransformIiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEEE, i64 16), ptr %46, align 8, !tbaa !3, !noalias !328
+  %49 = getelementptr inbounds nuw i8, ptr %42, i64 128
+  store i32 1, ptr %49, align 8, !tbaa !333, !noalias !328
+  %50 = getelementptr inbounds nuw i8, ptr %42, i64 136
+  store i32 -1, ptr %50, align 8, !tbaa !54, !noalias !328
+  %51 = getelementptr inbounds nuw i8, ptr %42, i64 140
+  store i32 -1, ptr %51, align 4, !tbaa !57, !noalias !328
+  %52 = getelementptr inbounds nuw i8, ptr %42, i64 144
+  store i32 -1, ptr %52, align 8, !tbaa !58, !noalias !328
+  %53 = getelementptr inbounds nuw i8, ptr %42, i64 148
+  store float 1.000000e+00, ptr %53, align 4, !tbaa !59, !noalias !328
+  %54 = getelementptr inbounds nuw i8, ptr %42, i64 152
+  store i32 -1, ptr %54, align 8, !tbaa !60, !noalias !328
+  %55 = getelementptr inbounds nuw i8, ptr %42, i64 160
+  invoke void @_ZN5draco14RAnsBitDecoderC1Ev(ptr noundef nonnull align 8 dereferenceable(17) %55)
+          to label %.critedge58 unwind label %56, !noalias !328
 
-common.resume:                                    ; preds = %74, %55
-  %.sink = phi ptr [ %60, %74 ], [ %41, %55 ]
-  %common.resume.op = phi { ptr, i32 } [ %75, %74 ], [ %56, %55 ]
+common.resume:                                    ; preds = %75, %56
+  %.sink = phi ptr [ %61, %75 ], [ %42, %56 ]
+  %common.resume.op = phi { ptr, i32 } [ %76, %75 ], [ %57, %56 ]
   tail call void @_ZdlPvm(ptr noundef nonnull %.sink, i64 noundef 184) #17, !noalias !125
   resume { ptr, i32 } %common.resume.op
 
-55:                                               ; preds = %39
-  %56 = landingpad { ptr, i32 }
+56:                                               ; preds = %40
+  %57 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-57:                                               ; preds = %30
-  br i1 %37, label %58, label %.critedge58
+58:                                               ; preds = %31
+  br i1 %38, label %59, label %.critedge58
 
-58:                                               ; preds = %57
-  %59 = getelementptr inbounds nuw i8, ptr %27, i64 24
-  %60 = tail call noalias noundef nonnull dereferenceable(184) ptr @_Znwm(i64 noundef 184) #18, !noalias !335
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
-  store ptr %13, ptr %61, align 8, !tbaa !90, !noalias !335
-  %62 = getelementptr inbounds nuw i8, ptr %60, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %62, ptr noundef nonnull align 4 dereferenceable(20) %4, i64 20, i1 false), !noalias !335
-  %63 = getelementptr inbounds nuw i8, ptr %60, i64 40
-  store ptr %36, ptr %63, align 8, !tbaa !113, !noalias !335
-  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %60, i64 48
-  store ptr %23, ptr %.sroa.7.0..sroa_idx, align 8, !tbaa !131, !noalias !335
-  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %60, i64 56
-  store ptr %59, ptr %.sroa.8.0..sroa_idx, align 8, !tbaa !116, !noalias !335
-  %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %60, i64 64
-  store ptr %27, ptr %.sroa.9.0..sroa_idx, align 8, !tbaa !118, !noalias !335
-  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN5draco42MeshPredictionSchemeGeometricNormalDecoderIiNS_62PredictionSchemeNormalOctahedronCanonicalizedDecodingTransformIiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEEEE, i64 16), ptr %60, align 8, !tbaa !3, !noalias !335
-  %64 = getelementptr inbounds nuw i8, ptr %60, i64 72
-  %65 = getelementptr inbounds nuw i8, ptr %60, i64 80
-  %66 = getelementptr inbounds nuw i8, ptr %60, i64 96
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %65, i8 0, i64 16, i1 false), !noalias !335
-  store ptr %36, ptr %66, align 8, !tbaa !113, !noalias !335
-  %.sroa.7.0..sroa_idx65 = getelementptr inbounds nuw i8, ptr %60, i64 104
-  store ptr %23, ptr %.sroa.7.0..sroa_idx65, align 8, !tbaa !131, !noalias !335
-  %.sroa.8.0..sroa_idx67 = getelementptr inbounds nuw i8, ptr %60, i64 112
-  store ptr %59, ptr %.sroa.8.0..sroa_idx67, align 8, !tbaa !116, !noalias !335
-  %.sroa.9.0..sroa_idx69 = getelementptr inbounds nuw i8, ptr %60, i64 120
-  store ptr %27, ptr %.sroa.9.0..sroa_idx69, align 8, !tbaa !118, !noalias !335
-  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5draco48MeshPredictionSchemeGeometricNormalPredictorAreaIiNS_62PredictionSchemeNormalOctahedronCanonicalizedDecodingTransformIiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEEEE, i64 16), ptr %64, align 8, !tbaa !3, !noalias !335
-  %67 = getelementptr inbounds nuw i8, ptr %60, i64 128
-  store i32 1, ptr %67, align 8, !tbaa !340, !noalias !335
-  %68 = getelementptr inbounds nuw i8, ptr %60, i64 136
-  store i32 -1, ptr %68, align 8, !tbaa !54, !noalias !335
-  %69 = getelementptr inbounds nuw i8, ptr %60, i64 140
-  store i32 -1, ptr %69, align 4, !tbaa !57, !noalias !335
-  %70 = getelementptr inbounds nuw i8, ptr %60, i64 144
-  store i32 -1, ptr %70, align 8, !tbaa !58, !noalias !335
-  %71 = getelementptr inbounds nuw i8, ptr %60, i64 148
-  store float 1.000000e+00, ptr %71, align 4, !tbaa !59, !noalias !335
-  %72 = getelementptr inbounds nuw i8, ptr %60, i64 152
-  store i32 -1, ptr %72, align 8, !tbaa !60, !noalias !335
-  %73 = getelementptr inbounds nuw i8, ptr %60, i64 160
-  invoke void @_ZN5draco14RAnsBitDecoderC1Ev(ptr noundef nonnull align 8 dereferenceable(17) %73)
-          to label %.critedge58 unwind label %74, !noalias !335
+59:                                               ; preds = %58
+  %60 = getelementptr inbounds nuw i8, ptr %28, i64 24
+  %61 = tail call noalias noundef nonnull dereferenceable(184) ptr @_Znwm(i64 noundef 184) #18, !noalias !335
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
+  store ptr %13, ptr %62, align 8, !tbaa !90, !noalias !335
+  %63 = getelementptr inbounds nuw i8, ptr %61, i64 16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %63, ptr noundef nonnull align 4 dereferenceable(20) %4, i64 20, i1 false), !noalias !335
+  %64 = getelementptr inbounds nuw i8, ptr %61, i64 40
+  store ptr %37, ptr %64, align 8, !tbaa !113, !noalias !335
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %61, i64 48
+  store ptr %24, ptr %.sroa.7.0..sroa_idx, align 8, !tbaa !131, !noalias !335
+  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %61, i64 56
+  store ptr %60, ptr %.sroa.8.0..sroa_idx, align 8, !tbaa !116, !noalias !335
+  %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %61, i64 64
+  store ptr %28, ptr %.sroa.9.0..sroa_idx, align 8, !tbaa !118, !noalias !335
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN5draco42MeshPredictionSchemeGeometricNormalDecoderIiNS_62PredictionSchemeNormalOctahedronCanonicalizedDecodingTransformIiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEEEE, i64 16), ptr %61, align 8, !tbaa !3, !noalias !335
+  %65 = getelementptr inbounds nuw i8, ptr %61, i64 72
+  %66 = getelementptr inbounds nuw i8, ptr %61, i64 80
+  %67 = getelementptr inbounds nuw i8, ptr %61, i64 96
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %66, i8 0, i64 16, i1 false), !noalias !335
+  store ptr %37, ptr %67, align 8, !tbaa !113, !noalias !335
+  %.sroa.7.0..sroa_idx65 = getelementptr inbounds nuw i8, ptr %61, i64 104
+  store ptr %24, ptr %.sroa.7.0..sroa_idx65, align 8, !tbaa !131, !noalias !335
+  %.sroa.8.0..sroa_idx67 = getelementptr inbounds nuw i8, ptr %61, i64 112
+  store ptr %60, ptr %.sroa.8.0..sroa_idx67, align 8, !tbaa !116, !noalias !335
+  %.sroa.9.0..sroa_idx69 = getelementptr inbounds nuw i8, ptr %61, i64 120
+  store ptr %28, ptr %.sroa.9.0..sroa_idx69, align 8, !tbaa !118, !noalias !335
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5draco48MeshPredictionSchemeGeometricNormalPredictorAreaIiNS_62PredictionSchemeNormalOctahedronCanonicalizedDecodingTransformIiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEEEE, i64 16), ptr %65, align 8, !tbaa !3, !noalias !335
+  %68 = getelementptr inbounds nuw i8, ptr %61, i64 128
+  store i32 1, ptr %68, align 8, !tbaa !340, !noalias !335
+  %69 = getelementptr inbounds nuw i8, ptr %61, i64 136
+  store i32 -1, ptr %69, align 8, !tbaa !54, !noalias !335
+  %70 = getelementptr inbounds nuw i8, ptr %61, i64 140
+  store i32 -1, ptr %70, align 4, !tbaa !57, !noalias !335
+  %71 = getelementptr inbounds nuw i8, ptr %61, i64 144
+  store i32 -1, ptr %71, align 8, !tbaa !58, !noalias !335
+  %72 = getelementptr inbounds nuw i8, ptr %61, i64 148
+  store float 1.000000e+00, ptr %72, align 4, !tbaa !59, !noalias !335
+  %73 = getelementptr inbounds nuw i8, ptr %61, i64 152
+  store i32 -1, ptr %73, align 8, !tbaa !60, !noalias !335
+  %74 = getelementptr inbounds nuw i8, ptr %61, i64 160
+  invoke void @_ZN5draco14RAnsBitDecoderC1Ev(ptr noundef nonnull align 8 dereferenceable(17) %74)
+          to label %.critedge58 unwind label %75, !noalias !335
 
-74:                                               ; preds = %58
-  %75 = landingpad { ptr, i32 }
+75:                                               ; preds = %59
+  %76 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-.critedge58:                                      ; preds = %6, %38, %57, %58, %39, %19
-  %.sink87 = phi ptr [ null, %19 ], [ %41, %39 ], [ %60, %58 ], [ null, %57 ], [ null, %38 ], [ null, %6 ]
+.critedge58:                                      ; preds = %6, %39, %58, %59, %40, %20
+  %.sink87 = phi ptr [ null, %20 ], [ %42, %40 ], [ %61, %59 ], [ null, %58 ], [ null, %39 ], [ null, %6 ]
   store ptr %.sink87, ptr %0, align 8, !tbaa !88
   ret void
 }

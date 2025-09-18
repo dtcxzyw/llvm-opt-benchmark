@@ -7832,8 +7832,8 @@ define noundef ptr @_ZN7glslang16HlslParseContext16makeIntegerIndexEPNS_12TInter
   %18 = load ptr, ptr %17, align 8
   %19 = tail call noundef i32 %18(ptr noundef nonnull align 8 dereferenceable(152) %15) #25
   %20 = and i32 %11, -4
-  %switch = icmp eq i32 %20, 8
-  br i1 %switch, label %47, label %21
+  %or.cond5 = icmp eq i32 %20, 8
+  br i1 %or.cond5, label %47, label %21
 
 21:                                               ; preds = %2
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -7916,8 +7916,8 @@ define noundef ptr @_ZN7glslang16HlslParseContext24handleBracketDereferenceERKNS
   %24 = load ptr, ptr %23, align 8
   %25 = tail call noundef i32 %24(ptr noundef nonnull align 8 dereferenceable(152) %21) #25
   %26 = and i32 %17, -4
-  %switch.i = icmp eq i32 %26, 8
-  br i1 %switch.i, label %_ZN7glslang16HlslParseContext16makeIntegerIndexEPNS_12TIntermTypedE.exit.thread, label %_ZN7glslang16HlslParseContext16makeIntegerIndexEPNS_12TIntermTypedE.exit
+  %or.cond5.i = icmp eq i32 %26, 8
+  br i1 %or.cond5.i, label %_ZN7glslang16HlslParseContext16makeIntegerIndexEPNS_12TIntermTypedE.exit.thread, label %_ZN7glslang16HlslParseContext16makeIntegerIndexEPNS_12TIntermTypedE.exit
 
 _ZN7glslang16HlslParseContext16makeIntegerIndexEPNS_12TIntermTypedE.exit.thread: ; preds = %4
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -36257,8 +36257,8 @@ default.unreachable218:                           ; preds = %376
   %680 = load ptr, ptr %679, align 8
   %681 = call noundef i32 %680(ptr noundef nonnull align 8 dereferenceable(152) %677) #25
   %682 = and i32 %673, -4
-  %switch.i = icmp eq i32 %682, 8
-  br i1 %switch.i, label %709, label %683
+  %or.cond5.i = icmp eq i32 %682, 8
+  br i1 %or.cond5.i, label %709, label %683
 
 683:                                              ; preds = %653
   %684 = getelementptr inbounds nuw i8, ptr %0, i64 56

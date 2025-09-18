@@ -1952,82 +1952,78 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_117ControlConditions1
   %8 = and i64 %.0.val1, -8
   %9 = inttoptr i64 %8 to ptr
   %10 = load i8, ptr %7, align 8, !tbaa !57
-  %11 = icmp ult i8 %10, 29
-  %12 = and i8 %10, -2
-  %spec.select.i.i.i.i.i.i.i.i.i.i = icmp ne i8 %12, 82
-  %.not26.i = or i1 %11, %spec.select.i.i.i.i.i.i.i.i.i.i
-  br i1 %.not26.i, label %_ZN12_GLOBAL__N_117ControlConditions9isInverseERKN4llvm5ValueES4_.exit, label %13
+  %11 = and i8 %10, -2
+  %.not.i = icmp eq i8 %11, 82
+  br i1 %.not.i, label %12, label %_ZN12_GLOBAL__N_117ControlConditions9isInverseERKN4llvm5ValueES4_.exit
 
-13:                                               ; preds = %5
-  %14 = load i8, ptr %9, align 8, !tbaa !57
-  %15 = icmp ult i8 %14, 29
-  %16 = and i8 %14, -2
-  %spec.select.i.i.i.i.i.i.i.i.i23.i = icmp ne i8 %16, 82
-  %.not27.i = or i1 %15, %spec.select.i.i.i.i.i.i.i.i.i23.i
-  br i1 %.not27.i, label %_ZN12_GLOBAL__N_117ControlConditions9isInverseERKN4llvm5ValueES4_.exit, label %17
+12:                                               ; preds = %5
+  %13 = load i8, ptr %9, align 8, !tbaa !57
+  %14 = and i8 %13, -2
+  %.not24.i = icmp eq i8 %14, 82
+  br i1 %.not24.i, label %15, label %_ZN12_GLOBAL__N_117ControlConditions9isInverseERKN4llvm5ValueES4_.exit
 
-17:                                               ; preds = %13
-  %18 = getelementptr inbounds nuw i8, ptr %7, i64 2
-  %19 = load i16, ptr %18, align 2, !tbaa !113
-  %20 = and i16 %19, 63
-  %21 = zext nneg i16 %20 to i32
-  %22 = getelementptr inbounds nuw i8, ptr %9, i64 2
-  %23 = load i16, ptr %22, align 2, !tbaa !113
-  %24 = and i16 %23, 63
-  %25 = zext nneg i16 %24 to i32
-  %26 = tail call noundef i32 @_ZN4llvm7CmpInst19getInversePredicateENS0_9PredicateE(i32 noundef %25) #8
-  %27 = icmp eq i32 %26, %21
-  br i1 %27, label %28, label %40
+15:                                               ; preds = %12
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 2
+  %17 = load i16, ptr %16, align 2, !tbaa !113
+  %18 = and i16 %17, 63
+  %19 = zext nneg i16 %18 to i32
+  %20 = getelementptr inbounds nuw i8, ptr %9, i64 2
+  %21 = load i16, ptr %20, align 2, !tbaa !113
+  %22 = and i16 %21, 63
+  %23 = zext nneg i16 %22 to i32
+  %24 = tail call noundef i32 @_ZN4llvm7CmpInst19getInversePredicateENS0_9PredicateE(i32 noundef %23) #8
+  %25 = icmp eq i32 %24, %19
+  br i1 %25, label %26, label %38
 
-28:                                               ; preds = %17
-  %29 = getelementptr inbounds i8, ptr %7, i64 -64
+26:                                               ; preds = %15
+  %27 = getelementptr inbounds i8, ptr %7, i64 -64
+  %28 = load ptr, ptr %27, align 8, !tbaa !58
+  %29 = getelementptr inbounds i8, ptr %9, i64 -64
   %30 = load ptr, ptr %29, align 8, !tbaa !58
-  %31 = getelementptr inbounds i8, ptr %9, i64 -64
-  %32 = load ptr, ptr %31, align 8, !tbaa !58
-  %33 = icmp eq ptr %30, %32
-  br i1 %33, label %34, label %40
+  %31 = icmp eq ptr %28, %30
+  br i1 %31, label %32, label %38
 
-34:                                               ; preds = %28
-  %35 = getelementptr inbounds i8, ptr %7, i64 -32
+32:                                               ; preds = %26
+  %33 = getelementptr inbounds i8, ptr %7, i64 -32
+  %34 = load ptr, ptr %33, align 8, !tbaa !58
+  %35 = getelementptr inbounds i8, ptr %9, i64 -32
   %36 = load ptr, ptr %35, align 8, !tbaa !58
-  %37 = getelementptr inbounds i8, ptr %9, i64 -32
-  %38 = load ptr, ptr %37, align 8, !tbaa !58
-  %39 = icmp eq ptr %36, %38
-  br i1 %39, label %_ZN12_GLOBAL__N_117ControlConditions9isInverseERKN4llvm5ValueES4_.exit.thread, label %40
+  %37 = icmp eq ptr %34, %36
+  br i1 %37, label %_ZN12_GLOBAL__N_117ControlConditions9isInverseERKN4llvm5ValueES4_.exit.thread, label %38
 
-40:                                               ; preds = %34, %28, %17
-  %41 = load i16, ptr %18, align 2, !tbaa !113
-  %42 = and i16 %41, 63
-  %43 = zext nneg i16 %42 to i32
-  %44 = load i16, ptr %22, align 2, !tbaa !113
-  %45 = and i16 %44, 63
-  %46 = zext nneg i16 %45 to i32
-  %47 = tail call noundef i32 @_ZN4llvm7CmpInst19getInversePredicateENS0_9PredicateE(i32 noundef %46) #8
-  %48 = tail call noundef i32 @_ZN4llvm7CmpInst19getSwappedPredicateENS0_9PredicateE(i32 noundef %47) #8
-  %49 = icmp eq i32 %48, %43
-  br i1 %49, label %50, label %_ZN12_GLOBAL__N_117ControlConditions9isInverseERKN4llvm5ValueES4_.exit
+38:                                               ; preds = %32, %26, %15
+  %39 = load i16, ptr %16, align 2, !tbaa !113
+  %40 = and i16 %39, 63
+  %41 = zext nneg i16 %40 to i32
+  %42 = load i16, ptr %20, align 2, !tbaa !113
+  %43 = and i16 %42, 63
+  %44 = zext nneg i16 %43 to i32
+  %45 = tail call noundef i32 @_ZN4llvm7CmpInst19getInversePredicateENS0_9PredicateE(i32 noundef %44) #8
+  %46 = tail call noundef i32 @_ZN4llvm7CmpInst19getSwappedPredicateENS0_9PredicateE(i32 noundef %45) #8
+  %47 = icmp eq i32 %46, %41
+  br i1 %47, label %48, label %_ZN12_GLOBAL__N_117ControlConditions9isInverseERKN4llvm5ValueES4_.exit
 
-50:                                               ; preds = %40
-  %51 = getelementptr inbounds i8, ptr %7, i64 -64
+48:                                               ; preds = %38
+  %49 = getelementptr inbounds i8, ptr %7, i64 -64
+  %50 = load ptr, ptr %49, align 8, !tbaa !58
+  %51 = getelementptr inbounds i8, ptr %9, i64 -32
   %52 = load ptr, ptr %51, align 8, !tbaa !58
-  %53 = getelementptr inbounds i8, ptr %9, i64 -32
-  %54 = load ptr, ptr %53, align 8, !tbaa !58
-  %55 = icmp eq ptr %52, %54
-  br i1 %55, label %56, label %_ZN12_GLOBAL__N_117ControlConditions9isInverseERKN4llvm5ValueES4_.exit
+  %53 = icmp eq ptr %50, %52
+  br i1 %53, label %54, label %_ZN12_GLOBAL__N_117ControlConditions9isInverseERKN4llvm5ValueES4_.exit
 
-56:                                               ; preds = %50
-  %57 = getelementptr inbounds i8, ptr %9, i64 -64
-  %58 = getelementptr inbounds i8, ptr %7, i64 -32
-  %59 = load ptr, ptr %58, align 8, !tbaa !58
-  %60 = load ptr, ptr %57, align 8, !tbaa !58
-  %61 = icmp eq ptr %59, %60
-  br i1 %61, label %_ZN12_GLOBAL__N_117ControlConditions9isInverseERKN4llvm5ValueES4_.exit.thread, label %_ZN12_GLOBAL__N_117ControlConditions9isInverseERKN4llvm5ValueES4_.exit
+54:                                               ; preds = %48
+  %55 = getelementptr inbounds i8, ptr %9, i64 -64
+  %56 = getelementptr inbounds i8, ptr %7, i64 -32
+  %57 = load ptr, ptr %56, align 8, !tbaa !58
+  %58 = load ptr, ptr %55, align 8, !tbaa !58
+  %59 = icmp eq ptr %57, %58
+  br i1 %59, label %_ZN12_GLOBAL__N_117ControlConditions9isInverseERKN4llvm5ValueES4_.exit.thread, label %_ZN12_GLOBAL__N_117ControlConditions9isInverseERKN4llvm5ValueES4_.exit
 
-_ZN12_GLOBAL__N_117ControlConditions9isInverseERKN4llvm5ValueES4_.exit: ; preds = %13, %40, %50, %56, %5, %3
+_ZN12_GLOBAL__N_117ControlConditions9isInverseERKN4llvm5ValueES4_.exit: ; preds = %12, %38, %48, %54, %5, %3
   br label %_ZN12_GLOBAL__N_117ControlConditions9isInverseERKN4llvm5ValueES4_.exit.thread
 
-_ZN12_GLOBAL__N_117ControlConditions9isInverseERKN4llvm5ValueES4_.exit.thread: ; preds = %34, %56, %3, %_ZN12_GLOBAL__N_117ControlConditions9isInverseERKN4llvm5ValueES4_.exit
-  %.0 = phi i1 [ false, %_ZN12_GLOBAL__N_117ControlConditions9isInverseERKN4llvm5ValueES4_.exit ], [ true, %3 ], [ true, %56 ], [ true, %34 ]
+_ZN12_GLOBAL__N_117ControlConditions9isInverseERKN4llvm5ValueES4_.exit.thread: ; preds = %32, %54, %3, %_ZN12_GLOBAL__N_117ControlConditions9isInverseERKN4llvm5ValueES4_.exit
+  %.0 = phi i1 [ false, %_ZN12_GLOBAL__N_117ControlConditions9isInverseERKN4llvm5ValueES4_.exit ], [ true, %3 ], [ true, %54 ], [ true, %32 ]
   ret i1 %.0
 }
 

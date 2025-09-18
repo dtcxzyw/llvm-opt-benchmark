@@ -346,61 +346,58 @@ define dso_local void @usb_hcd_giveback_urb(ptr noundef %0, ptr noundef %1, i32 
 
 21:                                               ; preds = %15
   tail call fastcc void @__usb_hcd_giveback_urb(ptr noundef %1)
-  br label %53
+  br label %50
 
 22:                                               ; preds = %15, %8
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %24 = load i32, ptr %23, align 8
-  %25 = icmp ult i32 %24, 1073741824
-  %26 = and i32 %24, -1073741824
-  %27 = icmp eq i32 %26, 1073741824
-  %28 = or i1 %25, %27
-  %29 = select i1 %28, i64 384, i64 456
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 %29
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 4
-  tail call void @_raw_spin_lock(ptr noundef nonnull %31) #18
-  %32 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %33 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  %34 = getelementptr inbounds nuw i8, ptr %30, i64 16
-  %35 = load ptr, ptr %34, align 8
-  store ptr %32, ptr %34, align 8
-  store ptr %33, ptr %32, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store ptr %35, ptr %36, align 8
-  store volatile ptr %32, ptr %35, align 8
-  %37 = load i8, ptr %30, align 8, !range !10, !noundef !11
-  %38 = icmp eq i8 %37, 0
-  tail call void @_raw_spin_unlock(ptr noundef nonnull %31) #18
-  br i1 %38, label %39, label %53
+  %25 = icmp sgt i32 %24, -1
+  %26 = select i1 %25, i64 384, i64 456
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 %26
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 4
+  tail call void @_raw_spin_lock(ptr noundef nonnull %28) #18
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %27, i64 16
+  %32 = load ptr, ptr %31, align 8
+  store ptr %29, ptr %31, align 8
+  store ptr %30, ptr %29, align 8
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  store ptr %32, ptr %33, align 8
+  store volatile ptr %29, ptr %32, align 8
+  %34 = load i8, ptr %27, align 8, !range !10, !noundef !11
+  %35 = icmp eq i8 %34, 0
+  tail call void @_raw_spin_unlock(ptr noundef nonnull %28) #18
+  br i1 %35, label %36, label %50
 
-39:                                               ; preds = %22
-  %40 = getelementptr inbounds nuw i8, ptr %30, i64 1
-  %41 = load i8, ptr %40, align 1, !range !10, !noundef !11
-  %42 = icmp eq i8 %41, 0
-  %43 = getelementptr inbounds nuw i8, ptr %30, i64 32
-  %44 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %43, i64 0, ptr nonnull elementtype(i64) %43) #18
-  %45 = icmp ult i8 %44, 2
-  tail call void @llvm.assume(i1 %45)
-  %46 = icmp eq i8 %44, 0
-  br i1 %42, label %50, label %47
+36:                                               ; preds = %22
+  %37 = getelementptr inbounds nuw i8, ptr %27, i64 1
+  %38 = load i8, ptr %37, align 1, !range !10, !noundef !11
+  %39 = icmp eq i8 %38, 0
+  %40 = getelementptr inbounds nuw i8, ptr %27, i64 32
+  %41 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %40, i64 0, ptr nonnull elementtype(i64) %40) #18
+  %42 = icmp ult i8 %41, 2
+  tail call void @llvm.assume(i1 %42)
+  %43 = icmp eq i8 %41, 0
+  br i1 %39, label %47, label %44
 
-47:                                               ; preds = %39
-  br i1 %46, label %48, label %53
+44:                                               ; preds = %36
+  br i1 %43, label %45, label %50
+
+45:                                               ; preds = %44
+  %46 = getelementptr inbounds nuw i8, ptr %27, i64 24
+  tail call void @__tasklet_hi_schedule(ptr noundef nonnull %46) #18
+  br label %50
+
+47:                                               ; preds = %36
+  br i1 %43, label %48, label %50
 
 48:                                               ; preds = %47
-  %49 = getelementptr inbounds nuw i8, ptr %30, i64 24
-  tail call void @__tasklet_hi_schedule(ptr noundef nonnull %49) #18
-  br label %53
+  %49 = getelementptr inbounds nuw i8, ptr %27, i64 24
+  tail call void @__tasklet_schedule(ptr noundef nonnull %49) #18
+  br label %50
 
-50:                                               ; preds = %39
-  br i1 %46, label %51, label %53
-
-51:                                               ; preds = %50
-  %52 = getelementptr inbounds nuw i8, ptr %30, i64 24
-  tail call void @__tasklet_schedule(ptr noundef nonnull %52) #18
-  br label %53
-
-53:                                               ; preds = %51, %50, %48, %47, %22, %21
+50:                                               ; preds = %48, %47, %45, %44, %22, %21
   ret void
 }
 

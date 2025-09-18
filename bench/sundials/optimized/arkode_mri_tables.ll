@@ -2638,10 +2638,10 @@ define noundef ptr @MRIStepCoupling_Alloc(i32 noundef %0, i32 noundef %1, i32 no
     i32 3, label %23
     i32 2, label %23
     i32 0, label %23
-    i32 1, label %._crit_edge214
+    i32 1, label %._crit_edge217
   ]
 
-._crit_edge214:                                   ; preds = %22
+._crit_edge217:                                   ; preds = %22
   %.pre = zext nneg i32 %0 to i64
   br label %39
 
@@ -2649,8 +2649,8 @@ define noundef ptr @MRIStepCoupling_Alloc(i32 noundef %0, i32 noundef %1, i32 no
   %24 = zext nneg i32 %0 to i64
   %25 = tail call noalias ptr @calloc(i64 noundef %24, i64 noundef 8) #16
   store ptr %25, ptr %14, align 8, !tbaa !20
-  %.not140 = icmp eq ptr %25, null
-  br i1 %.not140, label %.loopexit.sink.split, label %.lr.ph
+  %.not142 = icmp eq ptr %25, null
+  br i1 %.not142, label %.loopexit.sink.split, label %.lr.ph
 
 .lr.ph:                                           ; preds = %23
   %26 = add nuw nsw i32 %1, 1
@@ -2660,46 +2660,46 @@ define noundef ptr @MRIStepCoupling_Alloc(i32 noundef %0, i32 noundef %1, i32 no
 28:                                               ; preds = %30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %24
-  br i1 %exitcond.not, label %.preheader155.preheader, label %30
+  br i1 %exitcond.not, label %.preheader158.preheader, label %30
 
-.preheader155.preheader:                          ; preds = %28
+.preheader158.preheader:                          ; preds = %28
   %29 = add nuw i32 %1, 1
-  %wide.trip.count183 = zext i32 %29 to i64
-  br label %.preheader155
+  %wide.trip.count186 = zext i32 %29 to i64
+  br label %.preheader158
 
 30:                                               ; preds = %.lr.ph, %28
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %28 ]
   %31 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv
   %32 = tail call noalias ptr @calloc(i64 noundef %27, i64 noundef 8) #16
   store ptr %32, ptr %31, align 8, !tbaa !21
-  %.not150 = icmp eq ptr %32, null
-  br i1 %.not150, label %.loopexit.sink.split, label %28
+  %.not153 = icmp eq ptr %32, null
+  br i1 %.not153, label %.loopexit.sink.split, label %28
 
-.preheader155:                                    ; preds = %.preheader155.preheader, %._crit_edge
-  %indvars.iv185 = phi i64 [ 0, %.preheader155.preheader ], [ %indvars.iv.next186, %._crit_edge ]
-  %33 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv185
+.preheader158:                                    ; preds = %.preheader158.preheader, %._crit_edge
+  %indvars.iv188 = phi i64 [ 0, %.preheader158.preheader ], [ %indvars.iv.next189, %._crit_edge ]
+  %33 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv188
   %34 = load ptr, ptr %33, align 8, !tbaa !21
   br label %36
 
 35:                                               ; preds = %36
-  %indvars.iv.next181 = add nuw nsw i64 %indvars.iv180, 1
-  %exitcond184.not = icmp eq i64 %indvars.iv.next181, %wide.trip.count183
-  br i1 %exitcond184.not, label %._crit_edge, label %36
+  %indvars.iv.next184 = add nuw nsw i64 %indvars.iv183, 1
+  %exitcond187.not = icmp eq i64 %indvars.iv.next184, %wide.trip.count186
+  br i1 %exitcond187.not, label %._crit_edge, label %36
 
-36:                                               ; preds = %.preheader155, %35
-  %indvars.iv180 = phi i64 [ 0, %.preheader155 ], [ %indvars.iv.next181, %35 ]
-  %37 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv180
+36:                                               ; preds = %.preheader158, %35
+  %indvars.iv183 = phi i64 [ 0, %.preheader158 ], [ %indvars.iv.next184, %35 ]
+  %37 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv183
   %38 = tail call noalias ptr @calloc(i64 noundef %19, i64 noundef 8) #16
   store ptr %38, ptr %37, align 8, !tbaa !22
-  %.not149 = icmp eq ptr %38, null
-  br i1 %.not149, label %.loopexit.sink.split, label %35
+  %.not152 = icmp eq ptr %38, null
+  br i1 %.not152, label %.loopexit.sink.split, label %35
 
 ._crit_edge:                                      ; preds = %35
-  %indvars.iv.next186 = add nuw nsw i64 %indvars.iv185, 1
-  %exitcond189.not = icmp eq i64 %indvars.iv.next186, %24
-  br i1 %exitcond189.not, label %._crit_edge163, label %.preheader155
+  %indvars.iv.next189 = add nuw nsw i64 %indvars.iv188, 1
+  %exitcond192.not = icmp eq i64 %indvars.iv.next189, %24
+  br i1 %exitcond192.not, label %._crit_edge166, label %.preheader158
 
-._crit_edge163:                                   ; preds = %._crit_edge
+._crit_edge166:                                   ; preds = %._crit_edge
   switch i32 %2, label %.loopexit [
     i32 4, label %39
     i32 2, label %39
@@ -2707,95 +2707,95 @@ define noundef ptr @MRIStepCoupling_Alloc(i32 noundef %0, i32 noundef %1, i32 no
     i32 3, label %54
   ]
 
-39:                                               ; preds = %._crit_edge214, %._crit_edge163, %._crit_edge163, %._crit_edge163
-  %.pre-phi = phi i64 [ %.pre, %._crit_edge214 ], [ %24, %._crit_edge163 ], [ %24, %._crit_edge163 ], [ %24, %._crit_edge163 ]
+39:                                               ; preds = %._crit_edge217, %._crit_edge166, %._crit_edge166, %._crit_edge166
+  %.pre-phi = phi i64 [ %.pre, %._crit_edge217 ], [ %24, %._crit_edge166 ], [ %24, %._crit_edge166 ], [ %24, %._crit_edge166 ]
   %40 = tail call noalias ptr @calloc(i64 noundef %.pre-phi, i64 noundef 8) #16
   store ptr %40, ptr %15, align 8, !tbaa !23
-  %.not142 = icmp eq ptr %40, null
-  br i1 %.not142, label %.loopexit.sink.split, label %.lr.ph165
+  %.not145 = icmp eq ptr %40, null
+  br i1 %.not145, label %.loopexit.sink.split, label %.lr.ph168
 
-.lr.ph165:                                        ; preds = %39
+.lr.ph168:                                        ; preds = %39
   %41 = add nuw nsw i32 %1, 1
   %42 = zext nneg i32 %41 to i64
   br label %45
 
 43:                                               ; preds = %45
-  %indvars.iv.next191 = add nuw nsw i64 %indvars.iv190, 1
-  %exitcond194.not = icmp eq i64 %indvars.iv.next191, %.pre-phi
-  br i1 %exitcond194.not, label %.preheader152.preheader, label %45
+  %indvars.iv.next194 = add nuw nsw i64 %indvars.iv193, 1
+  %exitcond197.not = icmp eq i64 %indvars.iv.next194, %.pre-phi
+  br i1 %exitcond197.not, label %.preheader155.preheader, label %45
 
-.preheader152.preheader:                          ; preds = %43
+.preheader155.preheader:                          ; preds = %43
   %44 = add nuw i32 %1, 1
-  %wide.trip.count199 = zext i32 %44 to i64
-  br label %.preheader152
+  %wide.trip.count202 = zext i32 %44 to i64
+  br label %.preheader155
 
-45:                                               ; preds = %.lr.ph165, %43
-  %indvars.iv190 = phi i64 [ 0, %.lr.ph165 ], [ %indvars.iv.next191, %43 ]
-  %46 = getelementptr inbounds nuw ptr, ptr %40, i64 %indvars.iv190
+45:                                               ; preds = %.lr.ph168, %43
+  %indvars.iv193 = phi i64 [ 0, %.lr.ph168 ], [ %indvars.iv.next194, %43 ]
+  %46 = getelementptr inbounds nuw ptr, ptr %40, i64 %indvars.iv193
   %47 = tail call noalias ptr @calloc(i64 noundef %42, i64 noundef 8) #16
   store ptr %47, ptr %46, align 8, !tbaa !21
-  %.not147 = icmp eq ptr %47, null
-  br i1 %.not147, label %.loopexit.sink.split, label %43
+  %.not150 = icmp eq ptr %47, null
+  br i1 %.not150, label %.loopexit.sink.split, label %43
 
-.preheader152:                                    ; preds = %.preheader152.preheader, %._crit_edge169
-  %indvars.iv201 = phi i64 [ 0, %.preheader152.preheader ], [ %indvars.iv.next202, %._crit_edge169 ]
-  %48 = getelementptr inbounds nuw ptr, ptr %40, i64 %indvars.iv201
+.preheader155:                                    ; preds = %.preheader155.preheader, %._crit_edge172
+  %indvars.iv204 = phi i64 [ 0, %.preheader155.preheader ], [ %indvars.iv.next205, %._crit_edge172 ]
+  %48 = getelementptr inbounds nuw ptr, ptr %40, i64 %indvars.iv204
   %49 = load ptr, ptr %48, align 8, !tbaa !21
   br label %51
 
 50:                                               ; preds = %51
-  %indvars.iv.next196 = add nuw nsw i64 %indvars.iv195, 1
-  %exitcond200.not = icmp eq i64 %indvars.iv.next196, %wide.trip.count199
-  br i1 %exitcond200.not, label %._crit_edge169, label %51
+  %indvars.iv.next199 = add nuw nsw i64 %indvars.iv198, 1
+  %exitcond203.not = icmp eq i64 %indvars.iv.next199, %wide.trip.count202
+  br i1 %exitcond203.not, label %._crit_edge172, label %51
 
-51:                                               ; preds = %.preheader152, %50
-  %indvars.iv195 = phi i64 [ 0, %.preheader152 ], [ %indvars.iv.next196, %50 ]
-  %52 = getelementptr inbounds nuw ptr, ptr %49, i64 %indvars.iv195
+51:                                               ; preds = %.preheader155, %50
+  %indvars.iv198 = phi i64 [ 0, %.preheader155 ], [ %indvars.iv.next199, %50 ]
+  %52 = getelementptr inbounds nuw ptr, ptr %49, i64 %indvars.iv198
   %53 = tail call noalias ptr @calloc(i64 noundef %19, i64 noundef 8) #16
   store ptr %53, ptr %52, align 8, !tbaa !22
-  %.not146 = icmp eq ptr %53, null
-  br i1 %.not146, label %.loopexit.sink.split, label %50
+  %.not149 = icmp eq ptr %53, null
+  br i1 %.not149, label %.loopexit.sink.split, label %50
 
-._crit_edge169:                                   ; preds = %50
-  %indvars.iv.next202 = add nuw nsw i64 %indvars.iv201, 1
-  %exitcond205.not = icmp eq i64 %indvars.iv.next202, %.pre-phi
-  br i1 %exitcond205.not, label %._crit_edge171, label %.preheader152
+._crit_edge172:                                   ; preds = %50
+  %indvars.iv.next205 = add nuw nsw i64 %indvars.iv204, 1
+  %exitcond208.not = icmp eq i64 %indvars.iv.next205, %.pre-phi
+  br i1 %exitcond208.not, label %._crit_edge174, label %.preheader155
 
-._crit_edge171:                                   ; preds = %._crit_edge169
+._crit_edge174:                                   ; preds = %._crit_edge172
   br i1 %18, label %54, label %.loopexit
 
-54:                                               ; preds = %._crit_edge163, %._crit_edge171
+54:                                               ; preds = %._crit_edge166, %._crit_edge174
   store i32 %1, ptr %16, align 8, !tbaa !28
   %55 = shl nuw nsw i64 %19, 3
   %56 = tail call noalias ptr @malloc(i64 noundef %55) #15
   store ptr %56, ptr %17, align 8, !tbaa !29
-  %.not143 = icmp eq ptr %56, null
-  br i1 %.not143, label %.loopexit.sink.split, label %.lr.ph176
+  %.not146 = icmp eq ptr %56, null
+  br i1 %.not146, label %.loopexit.sink.split, label %.lr.ph179
 
-.lr.ph176:                                        ; preds = %54
+.lr.ph179:                                        ; preds = %54
   %57 = shl nuw nsw i64 %19, 2
   br label %58
 
-58:                                               ; preds = %.preheader.us.preheader, %.lr.ph176
-  %indvars.iv209 = phi i64 [ %indvars.iv.next210, %.preheader.us.preheader ], [ 0, %.lr.ph176 ]
-  %59 = getelementptr inbounds nuw ptr, ptr %56, i64 %indvars.iv209
+58:                                               ; preds = %.preheader.us.preheader, %.lr.ph179
+  %indvars.iv212 = phi i64 [ %indvars.iv.next213, %.preheader.us.preheader ], [ 0, %.lr.ph179 ]
+  %59 = getelementptr inbounds nuw ptr, ptr %56, i64 %indvars.iv212
   %60 = tail call noalias ptr @malloc(i64 noundef %57) #15
   store ptr %60, ptr %59, align 8, !tbaa !30
-  %.not144.us = icmp eq ptr %60, null
-  br i1 %.not144.us, label %.loopexit.sink.split, label %.preheader.us.preheader
+  %.not147.us = icmp eq ptr %60, null
+  br i1 %.not147.us, label %.loopexit.sink.split, label %.preheader.us.preheader
 
 .preheader.us.preheader:                          ; preds = %58
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %60, i8 -1, i64 %57, i1 false), !tbaa !32
-  %indvars.iv.next210 = add nuw nsw i64 %indvars.iv209, 1
-  %exitcond213.not = icmp eq i64 %indvars.iv.next210, %19
-  br i1 %exitcond213.not, label %.loopexit, label %58
+  %indvars.iv.next213 = add nuw nsw i64 %indvars.iv212, 1
+  %exitcond216.not = icmp eq i64 %indvars.iv.next213, %19
+  br i1 %exitcond216.not, label %.loopexit, label %58
 
 .loopexit.sink.split:                             ; preds = %30, %36, %45, %51, %58, %54, %39, %23, %8
   tail call void @MRIStepCoupling_Free(ptr noundef nonnull %7)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.preheader.us.preheader, %.loopexit.sink.split, %22, %._crit_edge171, %._crit_edge163, %6, %3
-  %.0134 = phi ptr [ null, %3 ], [ null, %6 ], [ %7, %._crit_edge163 ], [ %7, %._crit_edge171 ], [ %7, %22 ], [ null, %.loopexit.sink.split ], [ %7, %.preheader.us.preheader ]
+.loopexit:                                        ; preds = %.preheader.us.preheader, %.loopexit.sink.split, %22, %._crit_edge174, %._crit_edge166, %6, %3
+  %.0134 = phi ptr [ null, %3 ], [ null, %6 ], [ %7, %._crit_edge166 ], [ %7, %._crit_edge174 ], [ %7, %22 ], [ null, %.loopexit.sink.split ], [ %7, %.preheader.us.preheader ]
   ret ptr %.0134
 }
 

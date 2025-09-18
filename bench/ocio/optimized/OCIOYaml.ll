@@ -86216,8 +86216,8 @@ _ZN4YAML6detail13iterator_baseIKNS0_14iterator_valueEE5proxyD2Ev.exit150: ; pred
 
 547:                                              ; preds = %541
   %548 = and i32 %546, -4
-  %switch = icmp eq i32 %548, 16
-  br i1 %switch, label %549, label %612
+  %or.cond5 = icmp eq i32 %548, 16
+  br i1 %or.cond5, label %549, label %612
 
 549:                                              ; preds = %547
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
@@ -134375,8 +134375,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %78 = load ptr, ptr %77, align 8
   %79 = call noundef i32 %78(ptr noundef nonnull align 8 dereferenceable(8) %75)
   %80 = and i32 %79, -4
-  %switch = icmp eq i32 %80, 16
-  br i1 %switch, label %81, label %172
+  %or.cond5 = icmp eq i32 %80, 16
+  br i1 %or.cond5, label %81, label %172
 
 81:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %6)

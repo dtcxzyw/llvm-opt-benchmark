@@ -884,14 +884,14 @@ define internal i32 @dissect_edonkey_tcp(ptr noundef %0, ptr noundef %1, ptr nou
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_edonkey_udp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call zeroext i1 @tvb_bytes_exist(ptr noundef %0, i32 noundef 0, i32 noundef 2)
-  br i1 %5, label %6, label %62
+  br i1 %5, label %6, label %61
 
 6:                                                ; preds = %4
   %7 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
   %8 = zext i8 %7 to i32
   %9 = tail call ptr @try_val_to_str(i32 noundef %8, ptr noundef nonnull @edonkey_protocols)
   %10 = icmp eq ptr %9, null
-  br i1 %10, label %62, label %11
+  br i1 %10, label %61, label %11
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -911,87 +911,86 @@ define internal i32 @dissect_edonkey_udp(ptr noundef %0, ptr noundef %1, ptr nou
   %.084 = phi ptr [ %18, %14 ], [ null, %11 ]
   %20 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
   %21 = tail call ptr @val_to_str_const(i32 noundef %8, ptr noundef nonnull @edonkey_protocols, ptr noundef nonnull @.str.363)
-  %22 = add i8 %7, 92
-  %switch.and = and i8 %22, -66
-  %switch.selectcmp = icmp eq i8 %switch.and, 0
-  %23 = select i1 %switch.selectcmp, ptr @kademlia_msgs, ptr @edonkey_udp_msgs
-  %24 = zext i8 %20 to i32
-  %25 = tail call ptr @val_to_str_const(i32 noundef %24, ptr noundef nonnull %23, ptr noundef nonnull @.str.363)
-  %26 = load ptr, ptr %12, align 8
-  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %26, i32 noundef 25, ptr noundef nonnull @.str.491, ptr noundef %21, ptr noundef %25)
+  %22 = and i8 %7, -66
+  %or.cond8 = icmp eq i8 %22, -92
+  %23 = zext i8 %20 to i32
+  %kademlia_msgs.edonkey_udp_msgs = select i1 %or.cond8, ptr @kademlia_msgs, ptr @edonkey_udp_msgs
+  %24 = tail call ptr @val_to_str_const(i32 noundef %23, ptr noundef nonnull %kademlia_msgs.edonkey_udp_msgs, ptr noundef nonnull @.str.363)
+  %25 = load ptr, ptr %12, align 8
+  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %25, i32 noundef 25, ptr noundef nonnull @.str.491, ptr noundef %21, ptr noundef %24)
   %.not89 = icmp eq ptr %.084, null
-  br i1 %.not89, label %60, label %27
+  br i1 %.not89, label %59, label %26
 
-27:                                               ; preds = %19
-  %28 = load i32, ptr @hf_edonkey_message, align 4
-  %29 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %.084, i32 noundef %28, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
-  %30 = load i32, ptr @ett_edonkey_message, align 4
-  %31 = tail call ptr @proto_item_add_subtree(ptr noundef %29, i32 noundef %30)
-  %32 = load i32, ptr @hf_edonkey_protocol, align 4
-  %33 = tail call ptr @proto_tree_add_uint(ptr noundef %31, i32 noundef %32, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %8)
-  %34 = load i32, ptr @hf_edonkey_message_type, align 4
-  %35 = zext i8 %20 to i32
-  %36 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %31, i32 noundef %34, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef %35, ptr noundef nonnull @.str.367, ptr noundef %25, i32 noundef %35)
-  %37 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 2)
-  %38 = icmp sgt i32 %37, 0
-  br i1 %38, label %39, label %dissect_kademlia_udp_compressed_message.exit
+26:                                               ; preds = %19
+  %27 = load i32, ptr @hf_edonkey_message, align 4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %.084, i32 noundef %27, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
+  %29 = load i32, ptr @ett_edonkey_message, align 4
+  %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29)
+  %31 = load i32, ptr @hf_edonkey_protocol, align 4
+  %32 = tail call ptr @proto_tree_add_uint(ptr noundef %30, i32 noundef %31, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %8)
+  %33 = load i32, ptr @hf_edonkey_message_type, align 4
+  %34 = zext i8 %20 to i32
+  %35 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %30, i32 noundef %33, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef %34, ptr noundef nonnull @.str.367, ptr noundef %24, i32 noundef %34)
+  %36 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 2)
+  %37 = icmp sgt i32 %36, 0
+  br i1 %37, label %38, label %dissect_kademlia_udp_compressed_message.exit
 
-39:                                               ; preds = %27
+38:                                               ; preds = %26
   switch i8 %7, label %dissect_kademlia_udp_compressed_message.exit [
-    i8 -29, label %40
-    i8 -59, label %42
-    i8 -92, label %44
-    i8 -28, label %44
-    i8 -91, label %46
-    i8 -27, label %46
+    i8 -29, label %39
+    i8 -59, label %41
+    i8 -92, label %43
+    i8 -28, label %43
+    i8 -91, label %45
+    i8 -27, label %45
   ]
 
-40:                                               ; preds = %39
-  %41 = tail call fastcc i32 @dissect_edonkey_udp_message(i8 noundef zeroext %20, ptr noundef %0, ptr noundef %1, i32 noundef %37, ptr noundef %31)
+39:                                               ; preds = %38
+  %40 = tail call fastcc i32 @dissect_edonkey_udp_message(i8 noundef zeroext %20, ptr noundef %0, ptr noundef %1, i32 noundef %36, ptr noundef %30)
   br label %dissect_kademlia_udp_compressed_message.exit
 
-42:                                               ; preds = %39
-  %43 = tail call fastcc i32 @dissect_emule_udp_message(i8 noundef zeroext %20, ptr noundef %0, ptr noundef %1, i32 noundef %37, ptr noundef %31)
+41:                                               ; preds = %38
+  %42 = tail call fastcc i32 @dissect_emule_udp_message(i8 noundef zeroext %20, ptr noundef %0, ptr noundef %1, i32 noundef %36, ptr noundef %30)
   br label %dissect_kademlia_udp_compressed_message.exit
 
-44:                                               ; preds = %39, %39
-  %45 = tail call fastcc i32 @dissect_kademlia_udp_message(i8 noundef zeroext %20, ptr noundef %0, ptr noundef %1, i32 noundef 2, i32 noundef %37, ptr noundef %31)
+43:                                               ; preds = %38, %38
+  %44 = tail call fastcc i32 @dissect_kademlia_udp_message(i8 noundef zeroext %20, ptr noundef %0, ptr noundef %1, i32 noundef 2, i32 noundef %36, ptr noundef %30)
   br label %dissect_kademlia_udp_compressed_message.exit
 
-46:                                               ; preds = %39, %39
-  %47 = tail call ptr @tvb_child_uncompress_zlib(ptr noundef %0, ptr noundef %0, i32 noundef 2, i32 noundef range(i32 1, -2147483648) %37)
-  %.not.i = icmp eq ptr %47, null
-  br i1 %.not.i, label %52, label %48
+45:                                               ; preds = %38, %38
+  %46 = tail call ptr @tvb_child_uncompress_zlib(ptr noundef %0, ptr noundef %0, i32 noundef 2, i32 noundef range(i32 1, -2147483648) %36)
+  %.not.i = icmp eq ptr %46, null
+  br i1 %.not.i, label %51, label %47
 
-48:                                               ; preds = %46
-  %49 = tail call i32 @tvb_captured_length(ptr noundef nonnull %47)
-  tail call void @add_new_data_source(ptr noundef %1, ptr noundef nonnull %47, ptr noundef nonnull @.str.368)
-  %50 = tail call fastcc i32 @dissect_kademlia_udp_message(i8 noundef zeroext %20, ptr noundef nonnull %47, ptr noundef %1, i32 noundef 0, i32 noundef %49, ptr noundef %31)
-  %51 = add nuw i32 %37, 2
+47:                                               ; preds = %45
+  %48 = tail call i32 @tvb_captured_length(ptr noundef nonnull %46)
+  tail call void @add_new_data_source(ptr noundef %1, ptr noundef nonnull %46, ptr noundef nonnull @.str.368)
+  %49 = tail call fastcc i32 @dissect_kademlia_udp_message(i8 noundef zeroext %20, ptr noundef nonnull %46, ptr noundef %1, i32 noundef 0, i32 noundef %48, ptr noundef %30)
+  %50 = add nuw i32 %36, 2
   br label %dissect_kademlia_udp_compressed_message.exit
 
-52:                                               ; preds = %46
-  %53 = load i32, ptr @hf_edonkey_broken_compressed_data, align 4
-  %54 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %53, ptr noundef %0, i32 noundef 2, i32 noundef range(i32 1, -2147483648) %37, i32 noundef 0)
+51:                                               ; preds = %45
+  %52 = load i32, ptr @hf_edonkey_broken_compressed_data, align 4
+  %53 = tail call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %52, ptr noundef %0, i32 noundef 2, i32 noundef range(i32 1, -2147483648) %36, i32 noundef 0)
   br label %dissect_kademlia_udp_compressed_message.exit
 
-dissect_kademlia_udp_compressed_message.exit:     ; preds = %52, %48, %40, %42, %44, %39, %27
-  %.085 = phi i32 [ 2, %39 ], [ %41, %40 ], [ %43, %42 ], [ %45, %44 ], [ 2, %27 ], [ %51, %48 ], [ 2, %52 ]
-  %55 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.085)
-  %56 = icmp sgt i32 %55, 0
-  br i1 %56, label %57, label %60
+dissect_kademlia_udp_compressed_message.exit:     ; preds = %51, %47, %39, %41, %43, %38, %26
+  %.085 = phi i32 [ 2, %38 ], [ %40, %39 ], [ %42, %41 ], [ %44, %43 ], [ 2, %26 ], [ %50, %47 ], [ 2, %51 ]
+  %54 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.085)
+  %55 = icmp sgt i32 %54, 0
+  br i1 %55, label %56, label %59
 
-57:                                               ; preds = %dissect_kademlia_udp_compressed_message.exit
-  %58 = load i32, ptr @hf_edonkey_unparsed_data_length, align 4
-  %59 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %2, i32 noundef %58, ptr noundef %0, i32 noundef %.085, i32 noundef %55, i32 noundef %55, ptr noundef nonnull @.str.416, i32 noundef %55)
-  br label %60
+56:                                               ; preds = %dissect_kademlia_udp_compressed_message.exit
+  %57 = load i32, ptr @hf_edonkey_unparsed_data_length, align 4
+  %58 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %2, i32 noundef %57, ptr noundef %0, i32 noundef %.085, i32 noundef %54, i32 noundef %54, ptr noundef nonnull @.str.416, i32 noundef %54)
+  br label %59
 
-60:                                               ; preds = %dissect_kademlia_udp_compressed_message.exit, %57, %19
-  %61 = tail call i32 @tvb_reported_length(ptr noundef %0)
-  br label %62
+59:                                               ; preds = %dissect_kademlia_udp_compressed_message.exit, %56, %19
+  %60 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  br label %61
 
-62:                                               ; preds = %6, %4, %60
-  %.0 = phi i32 [ %61, %60 ], [ 0, %4 ], [ 0, %6 ]
+61:                                               ; preds = %6, %4, %59
+  %.0 = phi i32 [ %60, %59 ], [ 0, %4 ], [ 0, %6 ]
   ret i32 %.0
 }
 

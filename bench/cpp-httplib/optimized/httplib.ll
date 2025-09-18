@@ -458,8 +458,6 @@ $_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_Ident
 
 $_ZN7httplib6detail20get_header_value_u64ERKSt18unordered_multimapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_NS0_11case_ignore4hashENS8_8equal_toESaISt4pairIKS7_S7_EEERSC_mmRb = comdat any
 
-$_ZN7httplib6detail6fields13is_token_charEc = comdat any
-
 $_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E = comdat any
 
 $_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stEN7httplib6detail11case_ignore8equal_toENSE_4hashENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb0EEEED2Ev = comdat any
@@ -27675,94 +27673,113 @@ define void @_ZN7httplib7Request10set_headerERKNSt7__cxx1112basic_stringIcSt11ch
 .lr.ph.i.i:                                       ; preds = %9, %.lr.ph.preheader.i.i
   %.sroa.09.013.i.i = phi ptr [ %10, %9 ], [ %7, %.lr.ph.preheader.i.i ]
   %11 = load i8, ptr %.sroa.09.013.i.i, align 1, !tbaa !14
-  %12 = tail call noundef zeroext i1 @_ZN7httplib6detail6fields13is_token_charEc(i8 noundef signext %11)
-  br i1 %12, label %9, label %_ZN7httplib6detail6fields13is_field_nameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread
+  %12 = sext i8 %11 to i32
+  %13 = tail call i32 @isalnum(i32 noundef %12) #50
+  %14 = icmp ne i32 %13, 0
+  %15 = and i8 %11, -3
+  %16 = icmp eq i8 %15, 33
+  %or.cond5.i.i.i = or i1 %16, %14
+  %17 = and i8 %11, -4
+  %18 = icmp eq i8 %17, 36
+  %or.cond17.i.i.i = or i1 %18, %or.cond5.i.i.i
+  %19 = and i8 %11, -2
+  %20 = icmp eq i8 %19, 42
+  %or.cond23.i.i.i = or i1 %20, %or.cond17.i.i.i
+  %21 = add i8 %11, -45
+  %22 = icmp ult i8 %21, 2
+  %or.cond29.i.i.i = or i1 %22, %or.cond23.i.i.i
+  %23 = add i8 %11, -94
+  %24 = icmp ult i8 %23, 3
+  %or.cond38.i.i.i = or i1 %24, %or.cond29.i.i.i
+  %25 = icmp eq i8 %15, 124
+  %spec.select.i.i.i = or i1 %25, %or.cond38.i.i.i
+  br i1 %spec.select.i.i.i, label %9, label %_ZN7httplib6detail6fields13is_field_nameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread
 
 _ZN7httplib6detail6fields13is_field_nameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %9
-  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %14 = load i64, ptr %13, align 8, !tbaa !7
-  switch i64 %14, label %33 [
-    i64 0, label %_ZN7httplib6detail6fields14is_field_valueERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread10
-    i64 1, label %15
-    i64 2, label %21
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %27 = load i64, ptr %26, align 8, !tbaa !7
+  switch i64 %27, label %46 [
+    i64 0, label %_ZN7httplib6detail6fields14is_field_valueERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread11
+    i64 1, label %28
+    i64 2, label %34
   ]
 
-15:                                               ; preds = %_ZN7httplib6detail6fields13is_field_nameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  %16 = load ptr, ptr %2, align 8, !tbaa !13
-  %17 = load i8, ptr %16, align 1, !tbaa !14
-  %18 = add i8 %17, -33
-  %19 = icmp ult i8 %18, 94
-  %20 = icmp slt i8 %17, 0
-  %spec.select.i.i.i = or i1 %20, %19
-  br i1 %spec.select.i.i.i, label %_ZN7httplib6detail6fields14is_field_valueERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread10, label %_ZN7httplib6detail6fields13is_field_nameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread
+28:                                               ; preds = %_ZN7httplib6detail6fields13is_field_nameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
+  %29 = load ptr, ptr %2, align 8, !tbaa !13
+  %30 = load i8, ptr %29, align 1, !tbaa !14
+  %31 = add i8 %30, -33
+  %32 = icmp ult i8 %31, 94
+  %33 = icmp slt i8 %30, 0
+  %spec.select.i.i.i6 = or i1 %33, %32
+  br i1 %spec.select.i.i.i6, label %_ZN7httplib6detail6fields14is_field_valueERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread11, label %_ZN7httplib6detail6fields13is_field_nameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread
 
-21:                                               ; preds = %_ZN7httplib6detail6fields13is_field_nameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  %22 = load ptr, ptr %2, align 8, !tbaa !13
-  %23 = load i8, ptr %22, align 1, !tbaa !14
-  %24 = add i8 %23, -33
-  %25 = icmp ult i8 %24, 94
-  %26 = icmp slt i8 %23, 0
-  %spec.select.i23.i.i = or i1 %26, %25
-  br i1 %spec.select.i23.i.i, label %27, label %_ZN7httplib6detail6fields13is_field_nameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread
+34:                                               ; preds = %_ZN7httplib6detail6fields13is_field_nameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
+  %35 = load ptr, ptr %2, align 8, !tbaa !13
+  %36 = load i8, ptr %35, align 1, !tbaa !14
+  %37 = add i8 %36, -33
+  %38 = icmp ult i8 %37, 94
+  %39 = icmp slt i8 %36, 0
+  %spec.select.i23.i.i = or i1 %39, %38
+  br i1 %spec.select.i23.i.i, label %40, label %_ZN7httplib6detail6fields13is_field_nameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread
 
-27:                                               ; preds = %21
-  %28 = getelementptr inbounds nuw i8, ptr %22, i64 1
-  %29 = load i8, ptr %28, align 1, !tbaa !14
-  %30 = add i8 %29, -33
-  %31 = icmp ult i8 %30, 94
-  %32 = icmp slt i8 %29, 0
-  %spec.select.i24.i.i = or i1 %32, %31
-  br i1 %spec.select.i24.i.i, label %_ZN7httplib6detail6fields14is_field_valueERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread10, label %_ZN7httplib6detail6fields13is_field_nameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread
-
-33:                                               ; preds = %_ZN7httplib6detail6fields13is_field_nameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  %34 = load ptr, ptr %2, align 8, !tbaa !13
-  %35 = load i8, ptr %34, align 1, !tbaa !14
-  %36 = add i8 %35, -33
-  %37 = icmp ult i8 %36, 94
-  %38 = icmp slt i8 %35, 0
-  %spec.select.i25.i.i = or i1 %38, %37
-  br i1 %spec.select.i25.i.i, label %.lr.ph.preheader.i.i6, label %_ZN7httplib6detail6fields13is_field_nameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread
-
-.lr.ph.preheader.i.i6:                            ; preds = %33
-  %39 = add i64 %14, -1
-  br label %.lr.ph.i.i7
-
-.lr.ph.i.i7:                                      ; preds = %.critedge.i.i, %.lr.ph.preheader.i.i6
-  %.02229.i.i = phi i64 [ %40, %.critedge.i.i ], [ 1, %.lr.ph.preheader.i.i6 ]
-  %40 = add nuw i64 %.02229.i.i, 1
-  %41 = getelementptr inbounds nuw i8, ptr %34, i64 %.02229.i.i
+40:                                               ; preds = %34
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 1
   %42 = load i8, ptr %41, align 1, !tbaa !14
-  switch i8 %42, label %43 [
-    i8 32, label %.critedge.i.i
-    i8 9, label %.critedge.i.i
-  ]
+  %43 = add i8 %42, -33
+  %44 = icmp ult i8 %43, 94
+  %45 = icmp slt i8 %42, 0
+  %spec.select.i24.i.i = or i1 %45, %44
+  br i1 %spec.select.i24.i.i, label %_ZN7httplib6detail6fields14is_field_valueERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread11, label %_ZN7httplib6detail6fields13is_field_nameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread
 
-43:                                               ; preds = %.lr.ph.i.i7
-  %44 = add i8 %42, -33
-  %45 = icmp ult i8 %44, 94
-  %46 = icmp slt i8 %42, 0
-  %spec.select.i26.i.i = or i1 %46, %45
-  br i1 %spec.select.i26.i.i, label %.critedge.i.i, label %_ZN7httplib6detail6fields13is_field_nameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread, !llvm.loop !240
-
-.critedge.i.i:                                    ; preds = %43, %.lr.ph.i.i7, %.lr.ph.i.i7
-  %exitcond.not.i.i = icmp eq i64 %40, %39
-  br i1 %exitcond.not.i.i, label %_ZN7httplib6detail6fields14is_field_valueERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %.lr.ph.i.i7
-
-_ZN7httplib6detail6fields14is_field_valueERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %.critedge.i.i
-  %47 = getelementptr inbounds nuw i8, ptr %34, i64 %39
+46:                                               ; preds = %_ZN7httplib6detail6fields13is_field_nameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
+  %47 = load ptr, ptr %2, align 8, !tbaa !13
   %48 = load i8, ptr %47, align 1, !tbaa !14
   %49 = add i8 %48, -33
   %50 = icmp ult i8 %49, 94
   %51 = icmp slt i8 %48, 0
-  %spec.select.i27.i.i = or i1 %51, %50
-  br i1 %spec.select.i27.i.i, label %_ZN7httplib6detail6fields14is_field_valueERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread10, label %_ZN7httplib6detail6fields13is_field_nameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread
+  %spec.select.i25.i.i = or i1 %51, %50
+  br i1 %spec.select.i25.i.i, label %.lr.ph.preheader.i.i7, label %_ZN7httplib6detail6fields13is_field_nameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread
 
-_ZN7httplib6detail6fields14is_field_valueERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread10: ; preds = %_ZN7httplib6detail6fields13is_field_nameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %27, %15, %_ZN7httplib6detail6fields14is_field_valueERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %53 = tail call ptr @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stEN7httplib6detail11case_ignore8equal_toENSE_4hashENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb0EEEE10_M_emplaceIJRS7_SO_EEENSA_14_Node_iteratorIS8_Lb0ELb1EEENSA_20_Node_const_iteratorIS8_Lb0ELb1EEESt17integral_constantIbLb0EEDpOT_(ptr noundef nonnull align 8 dereferenceable(56) %52, ptr null, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2)
+.lr.ph.preheader.i.i7:                            ; preds = %46
+  %52 = add i64 %27, -1
+  br label %.lr.ph.i.i8
+
+.lr.ph.i.i8:                                      ; preds = %.critedge.i.i, %.lr.ph.preheader.i.i7
+  %.02229.i.i = phi i64 [ %53, %.critedge.i.i ], [ 1, %.lr.ph.preheader.i.i7 ]
+  %53 = add nuw i64 %.02229.i.i, 1
+  %54 = getelementptr inbounds nuw i8, ptr %47, i64 %.02229.i.i
+  %55 = load i8, ptr %54, align 1, !tbaa !14
+  switch i8 %55, label %56 [
+    i8 32, label %.critedge.i.i
+    i8 9, label %.critedge.i.i
+  ]
+
+56:                                               ; preds = %.lr.ph.i.i8
+  %57 = add i8 %55, -33
+  %58 = icmp ult i8 %57, 94
+  %59 = icmp slt i8 %55, 0
+  %spec.select.i26.i.i = or i1 %59, %58
+  br i1 %spec.select.i26.i.i, label %.critedge.i.i, label %_ZN7httplib6detail6fields13is_field_nameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread, !llvm.loop !240
+
+.critedge.i.i:                                    ; preds = %56, %.lr.ph.i.i8, %.lr.ph.i.i8
+  %exitcond.not.i.i = icmp eq i64 %53, %52
+  br i1 %exitcond.not.i.i, label %_ZN7httplib6detail6fields14is_field_valueERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %.lr.ph.i.i8
+
+_ZN7httplib6detail6fields14is_field_valueERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %.critedge.i.i
+  %60 = getelementptr inbounds nuw i8, ptr %47, i64 %52
+  %61 = load i8, ptr %60, align 1, !tbaa !14
+  %62 = add i8 %61, -33
+  %63 = icmp ult i8 %62, 94
+  %64 = icmp slt i8 %61, 0
+  %spec.select.i27.i.i = or i1 %64, %63
+  br i1 %spec.select.i27.i.i, label %_ZN7httplib6detail6fields14is_field_valueERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread11, label %_ZN7httplib6detail6fields13is_field_nameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread
+
+_ZN7httplib6detail6fields14is_field_valueERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread11: ; preds = %_ZN7httplib6detail6fields13is_field_nameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %40, %28, %_ZN7httplib6detail6fields14is_field_valueERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %66 = tail call ptr @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stEN7httplib6detail11case_ignore8equal_toENSE_4hashENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb0EEEE10_M_emplaceIJRS7_SO_EEENSA_14_Node_iteratorIS8_Lb0ELb1EEENSA_20_Node_const_iteratorIS8_Lb0ELb1EEESt17integral_constantIbLb0EEDpOT_(ptr noundef nonnull align 8 dereferenceable(56) %65, ptr null, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2)
   br label %_ZN7httplib6detail6fields13is_field_nameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread
 
-_ZN7httplib6detail6fields13is_field_nameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread: ; preds = %.lr.ph.i.i, %43, %33, %21, %3, %27, %15, %_ZN7httplib6detail6fields14is_field_valueERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread10, %_ZN7httplib6detail6fields14is_field_valueERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
+_ZN7httplib6detail6fields13is_field_nameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread: ; preds = %.lr.ph.i.i, %56, %46, %34, %3, %40, %28, %_ZN7httplib6detail6fields14is_field_valueERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread11, %_ZN7httplib6detail6fields14is_field_valueERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
   ret void
 }
 
@@ -28781,94 +28798,113 @@ define void @_ZN7httplib8Response10set_headerERKNSt7__cxx1112basic_stringIcSt11c
 .lr.ph.i.i:                                       ; preds = %9, %.lr.ph.preheader.i.i
   %.sroa.09.013.i.i = phi ptr [ %10, %9 ], [ %7, %.lr.ph.preheader.i.i ]
   %11 = load i8, ptr %.sroa.09.013.i.i, align 1, !tbaa !14
-  %12 = tail call noundef zeroext i1 @_ZN7httplib6detail6fields13is_token_charEc(i8 noundef signext %11)
-  br i1 %12, label %9, label %_ZN7httplib6detail6fields13is_field_nameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread
+  %12 = sext i8 %11 to i32
+  %13 = tail call i32 @isalnum(i32 noundef %12) #50
+  %14 = icmp ne i32 %13, 0
+  %15 = and i8 %11, -3
+  %16 = icmp eq i8 %15, 33
+  %or.cond5.i.i.i = or i1 %16, %14
+  %17 = and i8 %11, -4
+  %18 = icmp eq i8 %17, 36
+  %or.cond17.i.i.i = or i1 %18, %or.cond5.i.i.i
+  %19 = and i8 %11, -2
+  %20 = icmp eq i8 %19, 42
+  %or.cond23.i.i.i = or i1 %20, %or.cond17.i.i.i
+  %21 = add i8 %11, -45
+  %22 = icmp ult i8 %21, 2
+  %or.cond29.i.i.i = or i1 %22, %or.cond23.i.i.i
+  %23 = add i8 %11, -94
+  %24 = icmp ult i8 %23, 3
+  %or.cond38.i.i.i = or i1 %24, %or.cond29.i.i.i
+  %25 = icmp eq i8 %15, 124
+  %spec.select.i.i.i = or i1 %25, %or.cond38.i.i.i
+  br i1 %spec.select.i.i.i, label %9, label %_ZN7httplib6detail6fields13is_field_nameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread
 
 _ZN7httplib6detail6fields13is_field_nameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %9
-  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %14 = load i64, ptr %13, align 8, !tbaa !7
-  switch i64 %14, label %33 [
-    i64 0, label %_ZN7httplib6detail6fields14is_field_valueERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread10
-    i64 1, label %15
-    i64 2, label %21
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %27 = load i64, ptr %26, align 8, !tbaa !7
+  switch i64 %27, label %46 [
+    i64 0, label %_ZN7httplib6detail6fields14is_field_valueERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread11
+    i64 1, label %28
+    i64 2, label %34
   ]
 
-15:                                               ; preds = %_ZN7httplib6detail6fields13is_field_nameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  %16 = load ptr, ptr %2, align 8, !tbaa !13
-  %17 = load i8, ptr %16, align 1, !tbaa !14
-  %18 = add i8 %17, -33
-  %19 = icmp ult i8 %18, 94
-  %20 = icmp slt i8 %17, 0
-  %spec.select.i.i.i = or i1 %20, %19
-  br i1 %spec.select.i.i.i, label %_ZN7httplib6detail6fields14is_field_valueERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread10, label %_ZN7httplib6detail6fields13is_field_nameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread
+28:                                               ; preds = %_ZN7httplib6detail6fields13is_field_nameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
+  %29 = load ptr, ptr %2, align 8, !tbaa !13
+  %30 = load i8, ptr %29, align 1, !tbaa !14
+  %31 = add i8 %30, -33
+  %32 = icmp ult i8 %31, 94
+  %33 = icmp slt i8 %30, 0
+  %spec.select.i.i.i6 = or i1 %33, %32
+  br i1 %spec.select.i.i.i6, label %_ZN7httplib6detail6fields14is_field_valueERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread11, label %_ZN7httplib6detail6fields13is_field_nameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread
 
-21:                                               ; preds = %_ZN7httplib6detail6fields13is_field_nameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  %22 = load ptr, ptr %2, align 8, !tbaa !13
-  %23 = load i8, ptr %22, align 1, !tbaa !14
-  %24 = add i8 %23, -33
-  %25 = icmp ult i8 %24, 94
-  %26 = icmp slt i8 %23, 0
-  %spec.select.i23.i.i = or i1 %26, %25
-  br i1 %spec.select.i23.i.i, label %27, label %_ZN7httplib6detail6fields13is_field_nameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread
+34:                                               ; preds = %_ZN7httplib6detail6fields13is_field_nameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
+  %35 = load ptr, ptr %2, align 8, !tbaa !13
+  %36 = load i8, ptr %35, align 1, !tbaa !14
+  %37 = add i8 %36, -33
+  %38 = icmp ult i8 %37, 94
+  %39 = icmp slt i8 %36, 0
+  %spec.select.i23.i.i = or i1 %39, %38
+  br i1 %spec.select.i23.i.i, label %40, label %_ZN7httplib6detail6fields13is_field_nameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread
 
-27:                                               ; preds = %21
-  %28 = getelementptr inbounds nuw i8, ptr %22, i64 1
-  %29 = load i8, ptr %28, align 1, !tbaa !14
-  %30 = add i8 %29, -33
-  %31 = icmp ult i8 %30, 94
-  %32 = icmp slt i8 %29, 0
-  %spec.select.i24.i.i = or i1 %32, %31
-  br i1 %spec.select.i24.i.i, label %_ZN7httplib6detail6fields14is_field_valueERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread10, label %_ZN7httplib6detail6fields13is_field_nameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread
-
-33:                                               ; preds = %_ZN7httplib6detail6fields13is_field_nameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  %34 = load ptr, ptr %2, align 8, !tbaa !13
-  %35 = load i8, ptr %34, align 1, !tbaa !14
-  %36 = add i8 %35, -33
-  %37 = icmp ult i8 %36, 94
-  %38 = icmp slt i8 %35, 0
-  %spec.select.i25.i.i = or i1 %38, %37
-  br i1 %spec.select.i25.i.i, label %.lr.ph.preheader.i.i6, label %_ZN7httplib6detail6fields13is_field_nameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread
-
-.lr.ph.preheader.i.i6:                            ; preds = %33
-  %39 = add i64 %14, -1
-  br label %.lr.ph.i.i7
-
-.lr.ph.i.i7:                                      ; preds = %.critedge.i.i, %.lr.ph.preheader.i.i6
-  %.02229.i.i = phi i64 [ %40, %.critedge.i.i ], [ 1, %.lr.ph.preheader.i.i6 ]
-  %40 = add nuw i64 %.02229.i.i, 1
-  %41 = getelementptr inbounds nuw i8, ptr %34, i64 %.02229.i.i
+40:                                               ; preds = %34
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 1
   %42 = load i8, ptr %41, align 1, !tbaa !14
-  switch i8 %42, label %43 [
-    i8 32, label %.critedge.i.i
-    i8 9, label %.critedge.i.i
-  ]
+  %43 = add i8 %42, -33
+  %44 = icmp ult i8 %43, 94
+  %45 = icmp slt i8 %42, 0
+  %spec.select.i24.i.i = or i1 %45, %44
+  br i1 %spec.select.i24.i.i, label %_ZN7httplib6detail6fields14is_field_valueERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread11, label %_ZN7httplib6detail6fields13is_field_nameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread
 
-43:                                               ; preds = %.lr.ph.i.i7
-  %44 = add i8 %42, -33
-  %45 = icmp ult i8 %44, 94
-  %46 = icmp slt i8 %42, 0
-  %spec.select.i26.i.i = or i1 %46, %45
-  br i1 %spec.select.i26.i.i, label %.critedge.i.i, label %_ZN7httplib6detail6fields13is_field_nameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread, !llvm.loop !240
-
-.critedge.i.i:                                    ; preds = %43, %.lr.ph.i.i7, %.lr.ph.i.i7
-  %exitcond.not.i.i = icmp eq i64 %40, %39
-  br i1 %exitcond.not.i.i, label %_ZN7httplib6detail6fields14is_field_valueERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %.lr.ph.i.i7
-
-_ZN7httplib6detail6fields14is_field_valueERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %.critedge.i.i
-  %47 = getelementptr inbounds nuw i8, ptr %34, i64 %39
+46:                                               ; preds = %_ZN7httplib6detail6fields13is_field_nameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
+  %47 = load ptr, ptr %2, align 8, !tbaa !13
   %48 = load i8, ptr %47, align 1, !tbaa !14
   %49 = add i8 %48, -33
   %50 = icmp ult i8 %49, 94
   %51 = icmp slt i8 %48, 0
-  %spec.select.i27.i.i = or i1 %51, %50
-  br i1 %spec.select.i27.i.i, label %_ZN7httplib6detail6fields14is_field_valueERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread10, label %_ZN7httplib6detail6fields13is_field_nameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread
+  %spec.select.i25.i.i = or i1 %51, %50
+  br i1 %spec.select.i25.i.i, label %.lr.ph.preheader.i.i7, label %_ZN7httplib6detail6fields13is_field_nameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread
 
-_ZN7httplib6detail6fields14is_field_valueERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread10: ; preds = %_ZN7httplib6detail6fields13is_field_nameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %27, %15, %_ZN7httplib6detail6fields14is_field_valueERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %53 = tail call ptr @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stEN7httplib6detail11case_ignore8equal_toENSE_4hashENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb0EEEE10_M_emplaceIJRS7_SO_EEENSA_14_Node_iteratorIS8_Lb0ELb1EEENSA_20_Node_const_iteratorIS8_Lb0ELb1EEESt17integral_constantIbLb0EEDpOT_(ptr noundef nonnull align 8 dereferenceable(56) %52, ptr null, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2)
+.lr.ph.preheader.i.i7:                            ; preds = %46
+  %52 = add i64 %27, -1
+  br label %.lr.ph.i.i8
+
+.lr.ph.i.i8:                                      ; preds = %.critedge.i.i, %.lr.ph.preheader.i.i7
+  %.02229.i.i = phi i64 [ %53, %.critedge.i.i ], [ 1, %.lr.ph.preheader.i.i7 ]
+  %53 = add nuw i64 %.02229.i.i, 1
+  %54 = getelementptr inbounds nuw i8, ptr %47, i64 %.02229.i.i
+  %55 = load i8, ptr %54, align 1, !tbaa !14
+  switch i8 %55, label %56 [
+    i8 32, label %.critedge.i.i
+    i8 9, label %.critedge.i.i
+  ]
+
+56:                                               ; preds = %.lr.ph.i.i8
+  %57 = add i8 %55, -33
+  %58 = icmp ult i8 %57, 94
+  %59 = icmp slt i8 %55, 0
+  %spec.select.i26.i.i = or i1 %59, %58
+  br i1 %spec.select.i26.i.i, label %.critedge.i.i, label %_ZN7httplib6detail6fields13is_field_nameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread, !llvm.loop !240
+
+.critedge.i.i:                                    ; preds = %56, %.lr.ph.i.i8, %.lr.ph.i.i8
+  %exitcond.not.i.i = icmp eq i64 %53, %52
+  br i1 %exitcond.not.i.i, label %_ZN7httplib6detail6fields14is_field_valueERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %.lr.ph.i.i8
+
+_ZN7httplib6detail6fields14is_field_valueERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %.critedge.i.i
+  %60 = getelementptr inbounds nuw i8, ptr %47, i64 %52
+  %61 = load i8, ptr %60, align 1, !tbaa !14
+  %62 = add i8 %61, -33
+  %63 = icmp ult i8 %62, 94
+  %64 = icmp slt i8 %61, 0
+  %spec.select.i27.i.i = or i1 %64, %63
+  br i1 %spec.select.i27.i.i, label %_ZN7httplib6detail6fields14is_field_valueERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread11, label %_ZN7httplib6detail6fields13is_field_nameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread
+
+_ZN7httplib6detail6fields14is_field_valueERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread11: ; preds = %_ZN7httplib6detail6fields13is_field_nameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %40, %28, %_ZN7httplib6detail6fields14is_field_valueERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %66 = tail call ptr @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stEN7httplib6detail11case_ignore8equal_toENSE_4hashENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb0EEEE10_M_emplaceIJRS7_SO_EEENSA_14_Node_iteratorIS8_Lb0ELb1EEENSA_20_Node_const_iteratorIS8_Lb0ELb1EEESt17integral_constantIbLb0EEDpOT_(ptr noundef nonnull align 8 dereferenceable(56) %65, ptr null, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2)
   br label %_ZN7httplib6detail6fields13is_field_nameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread
 
-_ZN7httplib6detail6fields13is_field_nameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread: ; preds = %.lr.ph.i.i, %43, %33, %21, %3, %27, %15, %_ZN7httplib6detail6fields14is_field_valueERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread10, %_ZN7httplib6detail6fields14is_field_valueERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
+_ZN7httplib6detail6fields13is_field_nameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread: ; preds = %.lr.ph.i.i, %56, %46, %34, %3, %40, %28, %_ZN7httplib6detail6fields14is_field_valueERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread11, %_ZN7httplib6detail6fields14is_field_valueERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
   ret void
 }
 
@@ -90919,41 +90955,6 @@ declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #32
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #34
 
 declare void @__cxa_rethrow() local_unnamed_addr
-
-; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr noundef zeroext i1 @_ZN7httplib6detail6fields13is_token_charEc(i8 noundef signext %0) local_unnamed_addr #21 comdat {
-  %2 = sext i8 %0 to i32
-  %3 = tail call i32 @isalnum(i32 noundef %2) #50
-  %.fr = freeze i32 %3
-  %.not = icmp eq i32 %.fr, 0
-  br i1 %.not, label %switch.early.test, label %switch.edge
-
-switch.early.test:                                ; preds = %1
-  switch i8 %0, label %4 [
-    i8 124, label %switch.edge
-    i8 96, label %switch.edge
-    i8 95, label %switch.edge
-    i8 94, label %switch.edge
-    i8 46, label %switch.edge
-    i8 45, label %switch.edge
-    i8 43, label %switch.edge
-    i8 42, label %switch.edge
-    i8 39, label %switch.edge
-    i8 38, label %switch.edge
-    i8 37, label %switch.edge
-    i8 36, label %switch.edge
-    i8 35, label %switch.edge
-    i8 33, label %switch.edge
-    i8 126, label %switch.edge
-  ]
-
-4:                                                ; preds = %switch.early.test
-  br label %switch.edge
-
-switch.edge:                                      ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %1, %4
-  %5 = phi i1 [ true, %switch.early.test ], [ false, %4 ], [ true, %1 ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ]
-  ret i1 %5
-}
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare noundef ptr @_ZSt18_Rb_tree_decrementPKSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #10

@@ -279,334 +279,330 @@ define internal i32 @dissect_optommp(ptr noundef %0, ptr noundef readonly captur
   tail call void @col_clear(ptr noundef %9, i32 noundef 25)
   %10 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %11 = icmp ugt i32 %10, 11
-  br i1 %11, label %12, label %29
+  br i1 %11, label %12, label %28
 
 12:                                               ; preds = %4
   %13 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 3)
   %14 = lshr i8 %13, 4
-  %or.cond.i = icmp ugt i8 %13, 31
-  %15 = and i8 %13, -32
-  %16 = icmp ne i8 %15, 64
-  %or.cond8.i.not = and i1 %or.cond.i, %16
-  br i1 %or.cond8.i.not, label %25, label %17
+  %15 = and i8 %13, -96
+  %or.cond8.i.not = icmp eq i8 %15, 0
+  br i1 %or.cond8.i.not, label %16, label %24
 
-17:                                               ; preds = %12
-  %18 = tail call i32 @tvb_reported_length(ptr noundef %0)
-  %19 = icmp ugt i32 %18, 11
-  br i1 %19, label %20, label %25
+16:                                               ; preds = %12
+  %17 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %18 = icmp ugt i32 %17, 11
+  br i1 %18, label %19, label %24
 
-20:                                               ; preds = %17
-  %21 = tail call i64 @tvb_get_ntoh48(ptr noundef %0, i32 noundef 6)
-  %22 = load ptr, ptr %7, align 8
-  %23 = zext nneg i8 %14 to i32
-  %24 = tail call ptr @val_to_str(i32 noundef %23, ptr noundef nonnull @optommp_tcode_names, ptr noundef nonnull @.str.131)
-  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %22, i32 noundef 25, ptr noundef nonnull @.str.130, ptr noundef %24, i64 noundef %21)
-  br label %29
+19:                                               ; preds = %16
+  %20 = tail call i64 @tvb_get_ntoh48(ptr noundef %0, i32 noundef 6)
+  %21 = load ptr, ptr %7, align 8
+  %22 = zext nneg i8 %14 to i32
+  %23 = tail call ptr @val_to_str(i32 noundef %22, ptr noundef nonnull @optommp_tcode_names, ptr noundef nonnull @.str.131)
+  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %21, i32 noundef 25, ptr noundef nonnull @.str.130, ptr noundef %23, i64 noundef %20)
+  br label %28
 
-25:                                               ; preds = %17, %12
-  %26 = load ptr, ptr %7, align 8
-  %27 = zext nneg i8 %14 to i32
-  %28 = tail call ptr @val_to_str(i32 noundef %27, ptr noundef nonnull @optommp_tcode_names, ptr noundef nonnull @.str.131)
-  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %26, i32 noundef 25, ptr noundef nonnull @.str.132, ptr noundef %28)
-  br label %29
+24:                                               ; preds = %16, %12
+  %25 = load ptr, ptr %7, align 8
+  %26 = zext nneg i8 %14 to i32
+  %27 = tail call ptr @val_to_str(i32 noundef %26, ptr noundef nonnull @optommp_tcode_names, ptr noundef nonnull @.str.131)
+  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %25, i32 noundef 25, ptr noundef nonnull @.str.132, ptr noundef %27)
+  br label %28
 
-29:                                               ; preds = %20, %25, %4
+28:                                               ; preds = %19, %24, %4
   %.not46 = icmp eq ptr %2, null
-  br i1 %.not46, label %154, label %30
+  br i1 %.not46, label %152, label %29
 
-30:                                               ; preds = %29
+29:                                               ; preds = %28
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %31 = load i32, ptr @proto_optommp, align 4
-  %32 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %31, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
-  %33 = tail call i32 @tvb_reported_length(ptr noundef %0)
-  %34 = icmp ugt i32 %33, 11
-  br i1 %34, label %35, label %dissect_optommp_write_quadlet_request.exit
+  %30 = load i32, ptr @proto_optommp, align 4
+  %31 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %30, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
+  %32 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %33 = icmp ugt i32 %32, 11
+  br i1 %33, label %34, label %dissect_optommp_write_quadlet_request.exit
 
-35:                                               ; preds = %30
-  %36 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 3)
-  %37 = lshr i8 %36, 4
-  %38 = zext nneg i8 %37 to i32
-  %39 = tail call ptr @val_to_str(i32 noundef %38, ptr noundef nonnull @optommp_tcode_names, ptr noundef nonnull @.str.131)
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %32, ptr noundef nonnull @.str.133, ptr noundef %39)
-  %or.cond.i48 = icmp ugt i8 %36, 31
-  %40 = and i8 %36, -32
-  %41 = icmp ne i8 %40, 64
-  %or.cond8.i49.not = and i1 %or.cond.i48, %41
-  br i1 %or.cond8.i49.not, label %44, label %42
+34:                                               ; preds = %29
+  %35 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 3)
+  %36 = lshr i8 %35, 4
+  %37 = zext nneg i8 %36 to i32
+  %38 = tail call ptr @val_to_str(i32 noundef %37, ptr noundef nonnull @optommp_tcode_names, ptr noundef nonnull @.str.131)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %31, ptr noundef nonnull @.str.133, ptr noundef %38)
+  %39 = and i8 %35, -96
+  %or.cond8.i49.not = icmp eq i8 %39, 0
+  br i1 %or.cond8.i49.not, label %40, label %42
 
-42:                                               ; preds = %35
-  %43 = tail call i64 @tvb_get_ntoh48(ptr noundef %0, i32 noundef 6)
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %32, ptr noundef nonnull @.str.134, i64 noundef %43)
-  br label %44
+40:                                               ; preds = %34
+  %41 = tail call i64 @tvb_get_ntoh48(ptr noundef %0, i32 noundef 6)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %31, ptr noundef nonnull @.str.134, i64 noundef %41)
+  br label %42
 
-44:                                               ; preds = %42, %35
-  %45 = load i32, ptr @ett_optommp, align 4
-  %46 = tail call ptr @proto_item_add_subtree(ptr noundef %32, i32 noundef %45)
-  %47 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 0)
-  %.not.i = icmp sgt i16 %47, -1
-  br i1 %.not.i, label %dissect_optommp_dest_id.exit, label %48
+42:                                               ; preds = %40, %34
+  %43 = load i32, ptr @ett_optommp, align 4
+  %44 = tail call ptr @proto_item_add_subtree(ptr noundef %31, i32 noundef %43)
+  %45 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 0)
+  %.not.i = icmp sgt i16 %45, -1
+  br i1 %.not.i, label %dissect_optommp_dest_id.exit, label %46
 
-48:                                               ; preds = %44
-  %49 = load i32, ptr @ett_dest_id, align 4
-  %50 = tail call ptr @proto_tree_add_subtree(ptr noundef %46, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef %49, ptr noundef null, ptr noundef nonnull @.str)
-  %51 = load i32, ptr @hf_optommp_dest_id, align 4
-  %52 = tail call ptr @proto_tree_add_item(ptr noundef %50, i32 noundef %51, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0)
+46:                                               ; preds = %42
+  %47 = load i32, ptr @ett_dest_id, align 4
+  %48 = tail call ptr @proto_tree_add_subtree(ptr noundef %44, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef %47, ptr noundef null, ptr noundef nonnull @.str)
+  %49 = load i32, ptr @hf_optommp_dest_id, align 4
+  %50 = tail call ptr @proto_tree_add_item(ptr noundef %48, i32 noundef %49, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0)
   br label %dissect_optommp_dest_id.exit
 
-dissect_optommp_dest_id.exit:                     ; preds = %44, %48
-  %hf_optommp_nodest_id.sink.i = phi ptr [ @hf_optommp_boot_id, %48 ], [ @hf_optommp_nodest_id, %44 ]
-  %.sink.i = phi ptr [ %50, %48 ], [ %46, %44 ]
-  %53 = load i32, ptr %hf_optommp_nodest_id.sink.i, align 4
-  %54 = tail call ptr @proto_tree_add_item(ptr noundef %.sink.i, i32 noundef %53, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0)
-  %55 = load i32, ptr @hf_optommp_tl, align 4
-  %56 = tail call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %55, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
-  store ptr %56, ptr %5, align 8
-  %57 = load i32, ptr @hf_optommp_tcode, align 4
-  %58 = tail call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %57, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0)
-  %59 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 3)
-  %60 = lshr i8 %59, 4
-  switch i8 %60, label %dissect_optommp_write_quadlet_request.exit [
-    i8 0, label %61
-    i8 1, label %76
-    i8 2, label %93
-    i8 4, label %102
-    i8 5, label %111
-    i8 6, label %127
-    i8 7, label %140
+dissect_optommp_dest_id.exit:                     ; preds = %42, %46
+  %hf_optommp_nodest_id.sink.i = phi ptr [ @hf_optommp_boot_id, %46 ], [ @hf_optommp_nodest_id, %42 ]
+  %.sink.i = phi ptr [ %48, %46 ], [ %44, %42 ]
+  %51 = load i32, ptr %hf_optommp_nodest_id.sink.i, align 4
+  %52 = tail call ptr @proto_tree_add_item(ptr noundef %.sink.i, i32 noundef %51, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0)
+  %53 = load i32, ptr @hf_optommp_tl, align 4
+  %54 = tail call ptr @proto_tree_add_item(ptr noundef %44, i32 noundef %53, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
+  store ptr %54, ptr %5, align 8
+  %55 = load i32, ptr @hf_optommp_tcode, align 4
+  %56 = tail call ptr @proto_tree_add_item(ptr noundef %44, i32 noundef %55, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0)
+  %57 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 3)
+  %58 = lshr i8 %57, 4
+  switch i8 %58, label %dissect_optommp_write_quadlet_request.exit [
+    i8 0, label %59
+    i8 1, label %74
+    i8 2, label %91
+    i8 4, label %100
+    i8 5, label %109
+    i8 6, label %125
+    i8 7, label %138
   ]
 
-61:                                               ; preds = %dissect_optommp_dest_id.exit
-  %62 = tail call i32 @tvb_reported_length(ptr noundef %0)
-  %.not.i.i = icmp ult i32 %62, 6
-  br i1 %.not.i.i, label %dissect_optommp_source_ID.exit.i, label %63
+59:                                               ; preds = %dissect_optommp_dest_id.exit
+  %60 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %.not.i.i = icmp ult i32 %60, 6
+  br i1 %.not.i.i, label %dissect_optommp_source_ID.exit.i, label %61
 
-63:                                               ; preds = %61
-  %64 = load i32, ptr @hf_optommp_source_ID, align 4
-  %65 = tail call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %64, ptr noundef %0, i32 noundef 4, i32 noundef 2, i32 noundef 0)
+61:                                               ; preds = %59
+  %62 = load i32, ptr @hf_optommp_source_ID, align 4
+  %63 = tail call ptr @proto_tree_add_item(ptr noundef %44, i32 noundef %62, ptr noundef %0, i32 noundef 4, i32 noundef 2, i32 noundef 0)
   br label %dissect_optommp_source_ID.exit.i
 
-dissect_optommp_source_ID.exit.i:                 ; preds = %63, %61
-  %66 = tail call i32 @tvb_reported_length(ptr noundef %0)
-  %.not.i12.i = icmp ult i32 %66, 12
-  br i1 %.not.i12.i, label %dissect_optommp_destination_offset_6.exit.i, label %67
+dissect_optommp_source_ID.exit.i:                 ; preds = %61, %59
+  %64 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %.not.i12.i = icmp ult i32 %64, 12
+  br i1 %.not.i12.i, label %dissect_optommp_destination_offset_6.exit.i, label %65
 
-67:                                               ; preds = %dissect_optommp_source_ID.exit.i
-  %68 = load i32, ptr @hf_optommp_dest_offset, align 4
-  %69 = tail call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %68, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef 0)
+65:                                               ; preds = %dissect_optommp_source_ID.exit.i
+  %66 = load i32, ptr @hf_optommp_dest_offset, align 4
+  %67 = tail call ptr @proto_tree_add_item(ptr noundef %44, i32 noundef %66, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef 0)
   br label %dissect_optommp_destination_offset_6.exit.i
 
-dissect_optommp_destination_offset_6.exit.i:      ; preds = %67, %dissect_optommp_source_ID.exit.i
-  %70 = phi i32 [ 12, %67 ], [ 10, %dissect_optommp_source_ID.exit.i ]
-  %71 = tail call i32 @tvb_reported_length(ptr noundef %0)
-  %72 = add nuw nsw i32 %70, 4
-  %.not.i14.i = icmp ult i32 %71, %72
-  br i1 %.not.i14.i, label %dissect_optommp_write_quadlet_request.exit, label %73
+dissect_optommp_destination_offset_6.exit.i:      ; preds = %65, %dissect_optommp_source_ID.exit.i
+  %68 = phi i32 [ 12, %65 ], [ 10, %dissect_optommp_source_ID.exit.i ]
+  %69 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %70 = add nuw nsw i32 %68, 4
+  %.not.i14.i = icmp ult i32 %69, %70
+  br i1 %.not.i14.i, label %dissect_optommp_write_quadlet_request.exit, label %71
 
-73:                                               ; preds = %dissect_optommp_destination_offset_6.exit.i
-  %74 = load i32, ptr @hf_optommp_quadlet_data, align 4
-  %75 = tail call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %74, ptr noundef %0, i32 noundef %70, i32 noundef 4, i32 noundef 0)
-  store ptr %75, ptr %5, align 8
+71:                                               ; preds = %dissect_optommp_destination_offset_6.exit.i
+  %72 = load i32, ptr @hf_optommp_quadlet_data, align 4
+  %73 = tail call ptr @proto_tree_add_item(ptr noundef %44, i32 noundef %72, ptr noundef %0, i32 noundef %68, i32 noundef 4, i32 noundef 0)
+  store ptr %73, ptr %5, align 8
   br label %dissect_optommp_write_quadlet_request.exit
 
-76:                                               ; preds = %dissect_optommp_dest_id.exit
-  %77 = tail call i32 @tvb_reported_length(ptr noundef %0)
-  %.not.i.i51 = icmp ult i32 %77, 6
-  br i1 %.not.i.i51, label %dissect_optommp_source_ID.exit.i54, label %78
+74:                                               ; preds = %dissect_optommp_dest_id.exit
+  %75 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %.not.i.i51 = icmp ult i32 %75, 6
+  br i1 %.not.i.i51, label %dissect_optommp_source_ID.exit.i54, label %76
 
-78:                                               ; preds = %76
-  %79 = load i32, ptr @hf_optommp_source_ID, align 4
-  %80 = tail call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %79, ptr noundef %0, i32 noundef 4, i32 noundef 2, i32 noundef 0)
-  store ptr %80, ptr %5, align 8
+76:                                               ; preds = %74
+  %77 = load i32, ptr @hf_optommp_source_ID, align 4
+  %78 = tail call ptr @proto_tree_add_item(ptr noundef %44, i32 noundef %77, ptr noundef %0, i32 noundef 4, i32 noundef 2, i32 noundef 0)
+  store ptr %78, ptr %5, align 8
   br label %dissect_optommp_source_ID.exit.i54
 
-dissect_optommp_source_ID.exit.i54:               ; preds = %78, %76
-  %81 = tail call i32 @tvb_reported_length(ptr noundef %0)
-  %.not.i17.i = icmp ult i32 %81, 12
-  br i1 %.not.i17.i, label %dissect_optommp_destination_offset_6.exit.i56, label %82
+dissect_optommp_source_ID.exit.i54:               ; preds = %76, %74
+  %79 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %.not.i17.i = icmp ult i32 %79, 12
+  br i1 %.not.i17.i, label %dissect_optommp_destination_offset_6.exit.i56, label %80
 
-82:                                               ; preds = %dissect_optommp_source_ID.exit.i54
-  %83 = load i32, ptr @hf_optommp_dest_offset, align 4
-  %84 = tail call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %83, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef 0)
-  store ptr %84, ptr %5, align 8
+80:                                               ; preds = %dissect_optommp_source_ID.exit.i54
+  %81 = load i32, ptr @hf_optommp_dest_offset, align 4
+  %82 = tail call ptr @proto_tree_add_item(ptr noundef %44, i32 noundef %81, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef 0)
+  store ptr %82, ptr %5, align 8
   br label %dissect_optommp_destination_offset_6.exit.i56
 
-dissect_optommp_destination_offset_6.exit.i56:    ; preds = %82, %dissect_optommp_source_ID.exit.i54
-  %85 = phi i32 [ 12, %82 ], [ 10, %dissect_optommp_source_ID.exit.i54 ]
-  %86 = tail call i32 @tvb_reported_length(ptr noundef %0)
-  %87 = add nuw nsw i32 %85, 2
-  %.not.i19.i = icmp ult i32 %86, %87
-  br i1 %.not.i19.i, label %dissect_optommp_write_block_request.exit, label %88
+dissect_optommp_destination_offset_6.exit.i56:    ; preds = %80, %dissect_optommp_source_ID.exit.i54
+  %83 = phi i32 [ 12, %80 ], [ 10, %dissect_optommp_source_ID.exit.i54 ]
+  %84 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %85 = add nuw nsw i32 %83, 2
+  %.not.i19.i = icmp ult i32 %84, %85
+  br i1 %.not.i19.i, label %dissect_optommp_write_block_request.exit, label %86
 
-88:                                               ; preds = %dissect_optommp_destination_offset_6.exit.i56
-  %89 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %85)
-  %90 = load i32, ptr @hf_optommp_data_length, align 4
-  %91 = tail call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %90, ptr noundef %0, i32 noundef %85, i32 noundef 2, i32 noundef 0)
-  store ptr %91, ptr %5, align 8
+86:                                               ; preds = %dissect_optommp_destination_offset_6.exit.i56
+  %87 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %83)
+  %88 = load i32, ptr @hf_optommp_data_length, align 4
+  %89 = tail call ptr @proto_tree_add_item(ptr noundef %44, i32 noundef %88, ptr noundef %0, i32 noundef %83, i32 noundef 2, i32 noundef 0)
+  store ptr %89, ptr %5, align 8
   br label %dissect_optommp_write_block_request.exit
 
-dissect_optommp_write_block_request.exit:         ; preds = %dissect_optommp_destination_offset_6.exit.i56, %88
-  %.0.i.i = phi i16 [ %89, %88 ], [ 0, %dissect_optommp_destination_offset_6.exit.i56 ]
-  %92 = add nuw nsw i32 %85, 4
-  store i32 %92, ptr %6, align 4
-  call fastcc void @dissect_optommp_data_block(ptr noundef nonnull %5, ptr noundef %46, ptr noundef %0, ptr noundef nonnull %6, i16 noundef zeroext %.0.i.i)
+dissect_optommp_write_block_request.exit:         ; preds = %dissect_optommp_destination_offset_6.exit.i56, %86
+  %.0.i.i = phi i16 [ %87, %86 ], [ 0, %dissect_optommp_destination_offset_6.exit.i56 ]
+  %90 = add nuw nsw i32 %83, 4
+  store i32 %90, ptr %6, align 4
+  call fastcc void @dissect_optommp_data_block(ptr noundef nonnull %5, ptr noundef %44, ptr noundef %0, ptr noundef nonnull %6, i16 noundef zeroext %.0.i.i)
   br label %dissect_optommp_write_quadlet_request.exit
 
-93:                                               ; preds = %dissect_optommp_dest_id.exit
-  %94 = tail call i32 @tvb_reported_length(ptr noundef %0)
-  %.not.i.i57 = icmp ult i32 %94, 6
-  br i1 %.not.i.i57, label %dissect_optommp_source_ID.exit.i60, label %95
+91:                                               ; preds = %dissect_optommp_dest_id.exit
+  %92 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %.not.i.i57 = icmp ult i32 %92, 6
+  br i1 %.not.i.i57, label %dissect_optommp_source_ID.exit.i60, label %93
 
-95:                                               ; preds = %93
-  %96 = load i32, ptr @hf_optommp_source_ID, align 4
-  %97 = tail call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %96, ptr noundef %0, i32 noundef 4, i32 noundef 2, i32 noundef 0)
+93:                                               ; preds = %91
+  %94 = load i32, ptr @hf_optommp_source_ID, align 4
+  %95 = tail call ptr @proto_tree_add_item(ptr noundef %44, i32 noundef %94, ptr noundef %0, i32 noundef 4, i32 noundef 2, i32 noundef 0)
   br label %dissect_optommp_source_ID.exit.i60
 
-dissect_optommp_source_ID.exit.i60:               ; preds = %95, %93
-  %98 = tail call i32 @tvb_reported_length(ptr noundef %0)
-  %.not.i8.i = icmp ult i32 %98, 7
-  br i1 %.not.i8.i, label %dissect_optommp_write_quadlet_request.exit, label %99
+dissect_optommp_source_ID.exit.i60:               ; preds = %93, %91
+  %96 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %.not.i8.i = icmp ult i32 %96, 7
+  br i1 %.not.i8.i, label %dissect_optommp_write_quadlet_request.exit, label %97
 
-99:                                               ; preds = %dissect_optommp_source_ID.exit.i60
-  %100 = load i32, ptr @hf_optommp_rcode, align 4
-  %101 = tail call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %100, ptr noundef %0, i32 noundef 6, i32 noundef 1, i32 noundef 0)
-  store ptr %101, ptr %5, align 8
+97:                                               ; preds = %dissect_optommp_source_ID.exit.i60
+  %98 = load i32, ptr @hf_optommp_rcode, align 4
+  %99 = tail call ptr @proto_tree_add_item(ptr noundef %44, i32 noundef %98, ptr noundef %0, i32 noundef 6, i32 noundef 1, i32 noundef 0)
+  store ptr %99, ptr %5, align 8
   br label %dissect_optommp_write_quadlet_request.exit
 
-102:                                              ; preds = %dissect_optommp_dest_id.exit
-  %103 = tail call i32 @tvb_reported_length(ptr noundef %0)
-  %.not.i.i62 = icmp ult i32 %103, 6
-  br i1 %.not.i.i62, label %dissect_optommp_source_ID.exit.i65, label %104
+100:                                              ; preds = %dissect_optommp_dest_id.exit
+  %101 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %.not.i.i62 = icmp ult i32 %101, 6
+  br i1 %.not.i.i62, label %dissect_optommp_source_ID.exit.i65, label %102
 
-104:                                              ; preds = %102
-  %105 = load i32, ptr @hf_optommp_source_ID, align 4
-  %106 = tail call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %105, ptr noundef %0, i32 noundef 4, i32 noundef 2, i32 noundef 0)
+102:                                              ; preds = %100
+  %103 = load i32, ptr @hf_optommp_source_ID, align 4
+  %104 = tail call ptr @proto_tree_add_item(ptr noundef %44, i32 noundef %103, ptr noundef %0, i32 noundef 4, i32 noundef 2, i32 noundef 0)
   br label %dissect_optommp_source_ID.exit.i65
 
-dissect_optommp_source_ID.exit.i65:               ; preds = %104, %102
-  %107 = tail call i32 @tvb_reported_length(ptr noundef %0)
-  %.not.i8.i67 = icmp ult i32 %107, 12
-  br i1 %.not.i8.i67, label %dissect_optommp_write_quadlet_request.exit, label %108
+dissect_optommp_source_ID.exit.i65:               ; preds = %102, %100
+  %105 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %.not.i8.i67 = icmp ult i32 %105, 12
+  br i1 %.not.i8.i67, label %dissect_optommp_write_quadlet_request.exit, label %106
 
-108:                                              ; preds = %dissect_optommp_source_ID.exit.i65
-  %109 = load i32, ptr @hf_optommp_dest_offset, align 4
-  %110 = tail call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %109, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef 0)
-  store ptr %110, ptr %5, align 8
+106:                                              ; preds = %dissect_optommp_source_ID.exit.i65
+  %107 = load i32, ptr @hf_optommp_dest_offset, align 4
+  %108 = tail call ptr @proto_tree_add_item(ptr noundef %44, i32 noundef %107, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef 0)
+  store ptr %108, ptr %5, align 8
   br label %dissect_optommp_write_quadlet_request.exit
 
-111:                                              ; preds = %dissect_optommp_dest_id.exit
-  %112 = tail call i32 @tvb_reported_length(ptr noundef %0)
-  %.not.i.i70 = icmp ult i32 %112, 6
-  br i1 %.not.i.i70, label %dissect_optommp_source_ID.exit.i73, label %113
+109:                                              ; preds = %dissect_optommp_dest_id.exit
+  %110 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %.not.i.i70 = icmp ult i32 %110, 6
+  br i1 %.not.i.i70, label %dissect_optommp_source_ID.exit.i73, label %111
 
-113:                                              ; preds = %111
-  %114 = load i32, ptr @hf_optommp_source_ID, align 4
-  %115 = tail call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %114, ptr noundef %0, i32 noundef 4, i32 noundef 2, i32 noundef 0)
+111:                                              ; preds = %109
+  %112 = load i32, ptr @hf_optommp_source_ID, align 4
+  %113 = tail call ptr @proto_tree_add_item(ptr noundef %44, i32 noundef %112, ptr noundef %0, i32 noundef 4, i32 noundef 2, i32 noundef 0)
   br label %dissect_optommp_source_ID.exit.i73
 
-dissect_optommp_source_ID.exit.i73:               ; preds = %113, %111
-  %116 = tail call i32 @tvb_reported_length(ptr noundef %0)
-  %.not.i12.i75 = icmp ult i32 %116, 12
-  br i1 %.not.i12.i75, label %dissect_optommp_destination_offset_6.exit.i77, label %117
+dissect_optommp_source_ID.exit.i73:               ; preds = %111, %109
+  %114 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %.not.i12.i75 = icmp ult i32 %114, 12
+  br i1 %.not.i12.i75, label %dissect_optommp_destination_offset_6.exit.i77, label %115
 
-117:                                              ; preds = %dissect_optommp_source_ID.exit.i73
-  %118 = load i32, ptr @hf_optommp_dest_offset, align 4
-  %119 = tail call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %118, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef 0)
+115:                                              ; preds = %dissect_optommp_source_ID.exit.i73
+  %116 = load i32, ptr @hf_optommp_dest_offset, align 4
+  %117 = tail call ptr @proto_tree_add_item(ptr noundef %44, i32 noundef %116, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef 0)
   br label %dissect_optommp_destination_offset_6.exit.i77
 
-dissect_optommp_destination_offset_6.exit.i77:    ; preds = %117, %dissect_optommp_source_ID.exit.i73
-  %120 = phi i32 [ 12, %117 ], [ 10, %dissect_optommp_source_ID.exit.i73 ]
-  %121 = tail call i32 @tvb_reported_length(ptr noundef %0)
-  %122 = add nuw nsw i32 %120, 2
-  %.not.i14.i78 = icmp ult i32 %121, %122
-  br i1 %.not.i14.i78, label %dissect_optommp_write_quadlet_request.exit, label %123
+dissect_optommp_destination_offset_6.exit.i77:    ; preds = %115, %dissect_optommp_source_ID.exit.i73
+  %118 = phi i32 [ 12, %115 ], [ 10, %dissect_optommp_source_ID.exit.i73 ]
+  %119 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %120 = add nuw nsw i32 %118, 2
+  %.not.i14.i78 = icmp ult i32 %119, %120
+  br i1 %.not.i14.i78, label %dissect_optommp_write_quadlet_request.exit, label %121
 
-123:                                              ; preds = %dissect_optommp_destination_offset_6.exit.i77
-  %124 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %120)
-  %125 = load i32, ptr @hf_optommp_data_length, align 4
-  %126 = tail call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %125, ptr noundef %0, i32 noundef %120, i32 noundef 2, i32 noundef 0)
-  store ptr %126, ptr %5, align 8
+121:                                              ; preds = %dissect_optommp_destination_offset_6.exit.i77
+  %122 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %118)
+  %123 = load i32, ptr @hf_optommp_data_length, align 4
+  %124 = tail call ptr @proto_tree_add_item(ptr noundef %44, i32 noundef %123, ptr noundef %0, i32 noundef %118, i32 noundef 2, i32 noundef 0)
+  store ptr %124, ptr %5, align 8
   br label %dissect_optommp_write_quadlet_request.exit
 
-127:                                              ; preds = %dissect_optommp_dest_id.exit
-  %128 = tail call i32 @tvb_reported_length(ptr noundef %0)
-  %.not.i.i81 = icmp ult i32 %128, 6
-  br i1 %.not.i.i81, label %dissect_optommp_source_ID.exit.i84, label %129
+125:                                              ; preds = %dissect_optommp_dest_id.exit
+  %126 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %.not.i.i81 = icmp ult i32 %126, 6
+  br i1 %.not.i.i81, label %dissect_optommp_source_ID.exit.i84, label %127
 
-129:                                              ; preds = %127
-  %130 = load i32, ptr @hf_optommp_source_ID, align 4
-  %131 = tail call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %130, ptr noundef %0, i32 noundef 4, i32 noundef 2, i32 noundef 0)
+127:                                              ; preds = %125
+  %128 = load i32, ptr @hf_optommp_source_ID, align 4
+  %129 = tail call ptr @proto_tree_add_item(ptr noundef %44, i32 noundef %128, ptr noundef %0, i32 noundef 4, i32 noundef 2, i32 noundef 0)
   br label %dissect_optommp_source_ID.exit.i84
 
-dissect_optommp_source_ID.exit.i84:               ; preds = %129, %127
-  %132 = tail call i32 @tvb_reported_length(ptr noundef %0)
-  %.not.i13.i = icmp ult i32 %132, 7
-  br i1 %.not.i13.i, label %dissect_optommp_rcode.exit.i, label %133
+dissect_optommp_source_ID.exit.i84:               ; preds = %127, %125
+  %130 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %.not.i13.i = icmp ult i32 %130, 7
+  br i1 %.not.i13.i, label %dissect_optommp_rcode.exit.i, label %131
 
-133:                                              ; preds = %dissect_optommp_source_ID.exit.i84
-  %134 = load i32, ptr @hf_optommp_rcode, align 4
-  %135 = tail call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %134, ptr noundef %0, i32 noundef 6, i32 noundef 1, i32 noundef 0)
+131:                                              ; preds = %dissect_optommp_source_ID.exit.i84
+  %132 = load i32, ptr @hf_optommp_rcode, align 4
+  %133 = tail call ptr @proto_tree_add_item(ptr noundef %44, i32 noundef %132, ptr noundef %0, i32 noundef 6, i32 noundef 1, i32 noundef 0)
   br label %dissect_optommp_rcode.exit.i
 
-dissect_optommp_rcode.exit.i:                     ; preds = %133, %dissect_optommp_source_ID.exit.i84
-  %136 = tail call i32 @tvb_reported_length(ptr noundef %0)
-  %.not.i17.i87 = icmp ult i32 %136, 16
-  br i1 %.not.i17.i87, label %dissect_optommp_write_quadlet_request.exit, label %137
+dissect_optommp_rcode.exit.i:                     ; preds = %131, %dissect_optommp_source_ID.exit.i84
+  %134 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %.not.i17.i87 = icmp ult i32 %134, 16
+  br i1 %.not.i17.i87, label %dissect_optommp_write_quadlet_request.exit, label %135
 
-137:                                              ; preds = %dissect_optommp_rcode.exit.i
-  %138 = load i32, ptr @hf_optommp_quadlet_data, align 4
-  %139 = tail call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %138, ptr noundef %0, i32 noundef 12, i32 noundef 4, i32 noundef 0)
-  store ptr %139, ptr %5, align 8
+135:                                              ; preds = %dissect_optommp_rcode.exit.i
+  %136 = load i32, ptr @hf_optommp_quadlet_data, align 4
+  %137 = tail call ptr @proto_tree_add_item(ptr noundef %44, i32 noundef %136, ptr noundef %0, i32 noundef 12, i32 noundef 4, i32 noundef 0)
+  store ptr %137, ptr %5, align 8
   br label %dissect_optommp_write_quadlet_request.exit
 
-140:                                              ; preds = %dissect_optommp_dest_id.exit
-  %141 = tail call i32 @tvb_reported_length(ptr noundef %0)
-  %.not.i.i89 = icmp ult i32 %141, 6
-  br i1 %.not.i.i89, label %dissect_optommp_source_ID.exit.i92, label %142
+138:                                              ; preds = %dissect_optommp_dest_id.exit
+  %139 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %.not.i.i89 = icmp ult i32 %139, 6
+  br i1 %.not.i.i89, label %dissect_optommp_source_ID.exit.i92, label %140
 
-142:                                              ; preds = %140
-  %143 = load i32, ptr @hf_optommp_source_ID, align 4
-  %144 = tail call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %143, ptr noundef %0, i32 noundef 4, i32 noundef 2, i32 noundef 0)
-  store ptr %144, ptr %5, align 8
+140:                                              ; preds = %138
+  %141 = load i32, ptr @hf_optommp_source_ID, align 4
+  %142 = tail call ptr @proto_tree_add_item(ptr noundef %44, i32 noundef %141, ptr noundef %0, i32 noundef 4, i32 noundef 2, i32 noundef 0)
+  store ptr %142, ptr %5, align 8
   br label %dissect_optommp_source_ID.exit.i92
 
-dissect_optommp_source_ID.exit.i92:               ; preds = %142, %140
-  %145 = tail call i32 @tvb_reported_length(ptr noundef %0)
-  %.not.i18.i = icmp ult i32 %145, 7
-  br i1 %.not.i18.i, label %dissect_optommp_rcode.exit.i94, label %146
+dissect_optommp_source_ID.exit.i92:               ; preds = %140, %138
+  %143 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %.not.i18.i = icmp ult i32 %143, 7
+  br i1 %.not.i18.i, label %dissect_optommp_rcode.exit.i94, label %144
 
-146:                                              ; preds = %dissect_optommp_source_ID.exit.i92
-  %147 = load i32, ptr @hf_optommp_rcode, align 4
-  %148 = tail call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %147, ptr noundef %0, i32 noundef 6, i32 noundef 1, i32 noundef 0)
-  store ptr %148, ptr %5, align 8
+144:                                              ; preds = %dissect_optommp_source_ID.exit.i92
+  %145 = load i32, ptr @hf_optommp_rcode, align 4
+  %146 = tail call ptr @proto_tree_add_item(ptr noundef %44, i32 noundef %145, ptr noundef %0, i32 noundef 6, i32 noundef 1, i32 noundef 0)
+  store ptr %146, ptr %5, align 8
   br label %dissect_optommp_rcode.exit.i94
 
-dissect_optommp_rcode.exit.i94:                   ; preds = %146, %dissect_optommp_source_ID.exit.i92
-  %149 = tail call i32 @tvb_reported_length(ptr noundef %0)
-  %.not.i22.i = icmp ult i32 %149, 14
-  br i1 %.not.i22.i, label %dissect_optommp_read_block_response.exit, label %150
+dissect_optommp_rcode.exit.i94:                   ; preds = %144, %dissect_optommp_source_ID.exit.i92
+  %147 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %.not.i22.i = icmp ult i32 %147, 14
+  br i1 %.not.i22.i, label %dissect_optommp_read_block_response.exit, label %148
 
-150:                                              ; preds = %dissect_optommp_rcode.exit.i94
-  %151 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 12)
-  %152 = load i32, ptr @hf_optommp_data_length, align 4
-  %153 = tail call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %152, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
-  store ptr %153, ptr %5, align 8
+148:                                              ; preds = %dissect_optommp_rcode.exit.i94
+  %149 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 12)
+  %150 = load i32, ptr @hf_optommp_data_length, align 4
+  %151 = tail call ptr @proto_tree_add_item(ptr noundef %44, i32 noundef %150, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
+  store ptr %151, ptr %5, align 8
   br label %dissect_optommp_read_block_response.exit
 
-dissect_optommp_read_block_response.exit:         ; preds = %dissect_optommp_rcode.exit.i94, %150
-  %.0.i.i97 = phi i16 [ %151, %150 ], [ 0, %dissect_optommp_rcode.exit.i94 ]
+dissect_optommp_read_block_response.exit:         ; preds = %dissect_optommp_rcode.exit.i94, %148
+  %.0.i.i97 = phi i16 [ %149, %148 ], [ 0, %dissect_optommp_rcode.exit.i94 ]
   store i32 16, ptr %6, align 4
-  call fastcc void @dissect_optommp_data_block(ptr noundef nonnull %5, ptr noundef %46, ptr noundef %0, ptr noundef nonnull %6, i16 noundef zeroext %.0.i.i97)
+  call fastcc void @dissect_optommp_data_block(ptr noundef nonnull %5, ptr noundef %44, ptr noundef %0, ptr noundef nonnull %6, i16 noundef zeroext %.0.i.i97)
   br label %dissect_optommp_write_quadlet_request.exit
 
-dissect_optommp_write_quadlet_request.exit:       ; preds = %137, %dissect_optommp_rcode.exit.i, %123, %dissect_optommp_destination_offset_6.exit.i77, %108, %dissect_optommp_source_ID.exit.i65, %99, %dissect_optommp_source_ID.exit.i60, %73, %dissect_optommp_destination_offset_6.exit.i, %dissect_optommp_dest_id.exit, %dissect_optommp_write_block_request.exit, %dissect_optommp_read_block_response.exit, %30
+dissect_optommp_write_quadlet_request.exit:       ; preds = %135, %dissect_optommp_rcode.exit.i, %121, %dissect_optommp_destination_offset_6.exit.i77, %106, %dissect_optommp_source_ID.exit.i65, %97, %dissect_optommp_source_ID.exit.i60, %71, %dissect_optommp_destination_offset_6.exit.i, %dissect_optommp_dest_id.exit, %dissect_optommp_write_block_request.exit, %dissect_optommp_read_block_response.exit, %29
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %154
+  br label %152
 
-154:                                              ; preds = %dissect_optommp_write_quadlet_request.exit, %29
-  %155 = call i32 @tvb_captured_length(ptr noundef %0)
-  ret i32 %155
+152:                                              ; preds = %dissect_optommp_write_quadlet_request.exit, %28
+  %153 = call i32 @tvb_captured_length(ptr noundef %0)
+  ret i32 %153
 }
 
 ; Function Attrs: null_pointer_is_valid

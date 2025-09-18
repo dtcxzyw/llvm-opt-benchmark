@@ -1489,329 +1489,329 @@ define internal fastcc void @zebra_route(ptr noundef %0, i1 noundef zeroext %1, 
   %42 = icmp ugt i8 %7, 4
   %43 = add i8 %7, -2
   %or.cond = icmp ult i8 %43, 3
-  br i1 %or.cond, label %44, label %51
+  br i1 %or.cond, label %44, label %52
 
 44:                                               ; preds = %33
   %45 = and i8 %7, 6
   %or.cond5 = icmp eq i8 %45, 2
   %or.cond7 = and i1 %1, %or.cond5
-  br i1 %or.cond7, label %47, label %46
+  br i1 %or.cond7, label %48, label %46
 
 46:                                               ; preds = %44
-  %.off = add i16 %6, -6
-  %switch = icmp ult i16 %.off, 4
-  %or.cond288 = and i1 %38, %switch
-  br i1 %or.cond288, label %47, label %69
+  %47 = add i16 %6, -6
+  %or.cond16 = icmp ult i16 %47, 4
+  %or.cond260 = and i1 %38, %or.cond16
+  br i1 %or.cond260, label %48, label %70
 
-47:                                               ; preds = %46, %44
-  %48 = load i32, ptr @hf_zebra_route_safi, align 4
-  %49 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %48, ptr noundef %2, i32 noundef %41, i32 noundef 2, i32 noundef 0)
-  %50 = add i32 %34, 3
-  br label %69
+48:                                               ; preds = %46, %44
+  %49 = load i32, ptr @hf_zebra_route_safi, align 4
+  %50 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %49, ptr noundef %2, i32 noundef %41, i32 noundef 2, i32 noundef 0)
+  %51 = add i32 %34, 3
+  br label %70
 
-51:                                               ; preds = %33
-  br i1 %42, label %52, label %69
+52:                                               ; preds = %33
+  br i1 %42, label %53, label %70
 
-52:                                               ; preds = %51
-  %53 = load i32, ptr @hf_zebra_route_safi_u8, align 4
-  %54 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %53, ptr noundef %2, i32 noundef %41, i32 noundef 1, i32 noundef 0)
-  %55 = add i32 %34, 2
-  %56 = icmp ne i8 %7, 5
-  %57 = and i32 %.0233, 1024
-  %.not = icmp eq i32 %57, 0
-  %or.cond260 = select i1 %56, i1 true, i1 %.not
-  br i1 %or.cond260, label %58, label %60
+53:                                               ; preds = %52
+  %54 = load i32, ptr @hf_zebra_route_safi_u8, align 4
+  %55 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %54, ptr noundef %2, i32 noundef %41, i32 noundef 1, i32 noundef 0)
+  %56 = add i32 %34, 2
+  %57 = icmp ne i8 %7, 5
+  %58 = and i32 %.0233, 1024
+  %.not = icmp eq i32 %58, 0
+  %or.cond261 = select i1 %57, i1 true, i1 %.not
+  br i1 %or.cond261, label %59, label %61
 
-58:                                               ; preds = %52
+59:                                               ; preds = %53
   %.not243 = icmp eq i8 %7, 5
-  %59 = and i32 %.0233, 32
-  %.not244 = icmp eq i32 %59, 0
-  %or.cond261 = select i1 %.not243, i1 true, i1 %.not244
-  br i1 %or.cond261, label %64, label %60
+  %60 = and i32 %.0233, 32
+  %.not244 = icmp eq i32 %60, 0
+  %or.cond262 = select i1 %.not243, i1 true, i1 %.not244
+  br i1 %or.cond262, label %65, label %61
 
-60:                                               ; preds = %58, %52
-  %61 = load i32, ptr @hf_zebra_rmac, align 4
-  %62 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %61, ptr noundef %2, i32 noundef %55, i32 noundef 6, i32 noundef 0)
-  %63 = add i32 %34, 8
-  br label %64
+61:                                               ; preds = %59, %53
+  %62 = load i32, ptr @hf_zebra_rmac, align 4
+  %63 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %62, ptr noundef %2, i32 noundef %56, i32 noundef 6, i32 noundef 0)
+  %64 = add i32 %34, 8
+  br label %65
 
-64:                                               ; preds = %60, %58
-  %.2 = phi i32 [ %63, %60 ], [ %55, %58 ]
-  %65 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %2, i32 noundef %.2)
-  %66 = load i32, ptr @hf_zebra_family, align 4
-  %67 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %66, ptr noundef %2, i32 noundef %.2, i32 noundef 1, i32 noundef 0)
-  %68 = add i32 %.2, 1
-  br label %69
+65:                                               ; preds = %61, %59
+  %.2 = phi i32 [ %64, %61 ], [ %56, %59 ]
+  %66 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %2, i32 noundef %.2)
+  %67 = load i32, ptr @hf_zebra_family, align 4
+  %68 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %67, ptr noundef %2, i32 noundef %.2, i32 noundef 1, i32 noundef 0)
+  %69 = add i32 %.2, 1
+  br label %70
 
-69:                                               ; preds = %51, %64, %46, %47
-  %.0232 = phi i8 [ %5, %47 ], [ %5, %46 ], [ %65, %64 ], [ %5, %51 ]
-  %.1 = phi i32 [ %50, %47 ], [ %41, %46 ], [ %68, %64 ], [ %41, %51 ]
-  %70 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %2, i32 noundef %.1)
-  %71 = load i32, ptr @hf_zebra_prefixlen, align 4
-  %72 = zext i8 %70 to i32
-  %73 = tail call ptr @proto_tree_add_uint(ptr noundef %0, i32 noundef %71, ptr noundef %2, i32 noundef %.1, i32 noundef 1, i32 noundef %72)
-  %74 = add i32 %.1, 1
-  %75 = icmp eq i8 %.0232, 10
-  br i1 %75, label %88, label %76
+70:                                               ; preds = %52, %65, %46, %48
+  %.0232 = phi i8 [ %5, %48 ], [ %5, %46 ], [ %66, %65 ], [ %5, %52 ]
+  %.1 = phi i32 [ %51, %48 ], [ %41, %46 ], [ %69, %65 ], [ %41, %52 ]
+  %71 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %2, i32 noundef %.1)
+  %72 = load i32, ptr @hf_zebra_prefixlen, align 4
+  %73 = zext i8 %71 to i32
+  %74 = tail call ptr @proto_tree_add_uint(ptr noundef %0, i32 noundef %72, ptr noundef %2, i32 noundef %.1, i32 noundef 1, i32 noundef %73)
+  %75 = add i32 %.1, 1
+  %76 = icmp eq i8 %.0232, 10
+  br i1 %76, label %89, label %77
 
-76:                                               ; preds = %69
-  %77 = icmp eq i8 %.0232, 2
-  br i1 %77, label %78, label %._crit_edge296
+77:                                               ; preds = %70
+  %78 = icmp eq i8 %.0232, 2
+  br i1 %78, label %79, label %._crit_edge296
 
-._crit_edge296:                                   ; preds = %76
-  %.pre297 = add nuw nsw i32 %72, 7
+._crit_edge296:                                   ; preds = %77
+  %.pre297 = add nuw nsw i32 %73, 7
   %.pre299 = lshr i32 %.pre297, 3
   br label %.thread
 
-78:                                               ; preds = %76
+79:                                               ; preds = %77
   store i32 0, ptr %9, align 4
-  %79 = add nuw nsw i32 %72, 7
-  %80 = lshr i32 %79, 3
-  %81 = icmp ult i8 %70, 25
-  %82 = zext nneg i32 %80 to i64
-  %spec.select262 = select i1 %81, i64 %82, i64 4
-  %83 = call ptr @tvb_memcpy(ptr noundef %2, ptr noundef nonnull %9, i32 noundef %74, i64 noundef %spec.select262)
-  %84 = load i32, ptr @hf_zebra_prefix4, align 4
-  %85 = load i32, ptr %9, align 4
-  %86 = call ptr @proto_tree_add_ipv4(ptr noundef %0, i32 noundef %84, ptr noundef %2, i32 noundef %74, i32 noundef %80, i32 noundef %85)
+  %80 = add nuw nsw i32 %73, 7
+  %81 = lshr i32 %80, 3
+  %82 = icmp ult i8 %71, 25
+  %83 = zext nneg i32 %81 to i64
+  %spec.select263 = select i1 %82, i64 %83, i64 4
+  %84 = call ptr @tvb_memcpy(ptr noundef %2, ptr noundef nonnull %9, i32 noundef %75, i64 noundef %spec.select263)
+  %85 = load i32, ptr @hf_zebra_prefix4, align 4
+  %86 = load i32, ptr %9, align 4
+  %87 = call ptr @proto_tree_add_ipv4(ptr noundef %0, i32 noundef %85, ptr noundef %2, i32 noundef %75, i32 noundef %81, i32 noundef %86)
   br label %.thread
 
-.thread:                                          ; preds = %._crit_edge296, %78
-  %.pre-phi300.ph = phi i32 [ %80, %78 ], [ %.pre299, %._crit_edge296 ]
-  %87 = add i32 %.pre-phi300.ph, %74
-  br label %98
+.thread:                                          ; preds = %._crit_edge296, %79
+  %.pre-phi300.ph = phi i32 [ %81, %79 ], [ %.pre299, %._crit_edge296 ]
+  %88 = add i32 %.pre-phi300.ph, %75
+  br label %99
 
-88:                                               ; preds = %69
+89:                                               ; preds = %70
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %11, i8 noundef 0, i64 noundef 16, i1 noundef false) #4
-  %89 = add nuw nsw i32 %72, 7
-  %90 = lshr i32 %89, 3
-  %91 = icmp ult i8 %70, 121
-  %92 = zext nneg i32 %90 to i64
-  %spec.select = select i1 %91, i64 %92, i64 16
-  %93 = call ptr @tvb_memcpy(ptr noundef %2, ptr noundef nonnull %11, i32 noundef %74, i64 noundef %spec.select)
-  %94 = load i32, ptr @hf_zebra_prefix6, align 4
-  %95 = call ptr @proto_tree_add_ipv6(ptr noundef %0, i32 noundef %94, ptr noundef %2, i32 noundef %74, i32 noundef %90, ptr noundef nonnull %11)
-  %96 = add i32 %90, %74
-  %97 = and i8 %35, 64
-  %.not245 = icmp ne i8 %97, 0
-  %or.cond263.not = select i1 %38, i1 %.not245, i1 false
-  br i1 %or.cond263.not, label %102, label %98
+  %90 = add nuw nsw i32 %73, 7
+  %91 = lshr i32 %90, 3
+  %92 = icmp ult i8 %71, 121
+  %93 = zext nneg i32 %91 to i64
+  %spec.select = select i1 %92, i64 %93, i64 16
+  %94 = call ptr @tvb_memcpy(ptr noundef %2, ptr noundef nonnull %11, i32 noundef %75, i64 noundef %spec.select)
+  %95 = load i32, ptr @hf_zebra_prefix6, align 4
+  %96 = call ptr @proto_tree_add_ipv6(ptr noundef %0, i32 noundef %95, ptr noundef %2, i32 noundef %75, i32 noundef %91, ptr noundef nonnull %11)
+  %97 = add i32 %91, %75
+  %98 = and i8 %35, 64
+  %.not245 = icmp ne i8 %98, 0
+  %or.cond264.not = select i1 %38, i1 %.not245, i1 false
+  br i1 %or.cond264.not, label %103, label %99
 
-98:                                               ; preds = %.thread, %88
-  %99 = phi i32 [ %87, %.thread ], [ %96, %88 ]
-  %100 = icmp ult i8 %7, 5
-  %101 = and i8 %35, 32
-  %.not246 = icmp eq i8 %101, 0
-  %or.cond264 = select i1 %100, i1 true, i1 %.not246
-  br i1 %or.cond264, label %130, label %102
+99:                                               ; preds = %.thread, %89
+  %100 = phi i32 [ %88, %.thread ], [ %97, %89 ]
+  %101 = icmp ult i8 %7, 5
+  %102 = and i8 %35, 32
+  %.not246 = icmp eq i8 %102, 0
+  %or.cond265 = select i1 %101, i1 true, i1 %.not246
+  br i1 %or.cond265, label %131, label %103
 
-102:                                              ; preds = %98, %88
-  %103 = phi i32 [ %99, %98 ], [ %96, %88 ]
-  %104 = call zeroext i8 @tvb_get_uint8(ptr noundef %2, i32 noundef %103)
-  %105 = load i32, ptr @hf_zebra_srcprefixlen, align 4
-  %106 = zext i8 %104 to i32
-  %107 = call ptr @proto_tree_add_uint(ptr noundef %0, i32 noundef %105, ptr noundef %2, i32 noundef %103, i32 noundef 1, i32 noundef %106)
-  %108 = add i32 %103, 1
-  br i1 %75, label %109, label %117
+103:                                              ; preds = %99, %89
+  %104 = phi i32 [ %100, %99 ], [ %97, %89 ]
+  %105 = call zeroext i8 @tvb_get_uint8(ptr noundef %2, i32 noundef %104)
+  %106 = load i32, ptr @hf_zebra_srcprefixlen, align 4
+  %107 = zext i8 %105 to i32
+  %108 = call ptr @proto_tree_add_uint(ptr noundef %0, i32 noundef %106, ptr noundef %2, i32 noundef %104, i32 noundef 1, i32 noundef %107)
+  %109 = add i32 %104, 1
+  br i1 %76, label %110, label %118
 
-109:                                              ; preds = %102
+110:                                              ; preds = %103
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %12, i8 noundef 0, i64 noundef 16, i1 noundef false) #4
-  %110 = add nuw nsw i32 %106, 7
-  %111 = lshr i32 %110, 3
-  %112 = icmp ult i8 %104, 121
-  %113 = zext nneg i32 %111 to i64
-  %spec.select265 = select i1 %112, i64 %113, i64 16
-  %114 = call ptr @tvb_memcpy(ptr noundef %2, ptr noundef nonnull %12, i32 noundef %108, i64 noundef %spec.select265)
-  %115 = load i32, ptr @hf_zebra_srcprefix6, align 4
-  %116 = call ptr @proto_tree_add_ipv6(ptr noundef %0, i32 noundef %115, ptr noundef %2, i32 noundef %108, i32 noundef %111, ptr noundef nonnull %12)
-  br label %128
+  %111 = add nuw nsw i32 %107, 7
+  %112 = lshr i32 %111, 3
+  %113 = icmp ult i8 %105, 121
+  %114 = zext nneg i32 %112 to i64
+  %spec.select266 = select i1 %113, i64 %114, i64 16
+  %115 = call ptr @tvb_memcpy(ptr noundef %2, ptr noundef nonnull %12, i32 noundef %109, i64 noundef %spec.select266)
+  %116 = load i32, ptr @hf_zebra_srcprefix6, align 4
+  %117 = call ptr @proto_tree_add_ipv6(ptr noundef %0, i32 noundef %116, ptr noundef %2, i32 noundef %109, i32 noundef %112, ptr noundef nonnull %12)
+  br label %129
 
-117:                                              ; preds = %102
-  %118 = icmp eq i8 %.0232, 2
-  br i1 %118, label %119, label %._crit_edge295
+118:                                              ; preds = %103
+  %119 = icmp eq i8 %.0232, 2
+  br i1 %119, label %120, label %._crit_edge295
 
-._crit_edge295:                                   ; preds = %117
-  %.pre301 = add nuw nsw i32 %106, 7
+._crit_edge295:                                   ; preds = %118
+  %.pre301 = add nuw nsw i32 %107, 7
   %.pre303 = lshr i32 %.pre301, 3
-  br label %128
+  br label %129
 
-119:                                              ; preds = %117
+120:                                              ; preds = %118
   store i32 0, ptr %9, align 4
-  %120 = add nuw nsw i32 %106, 7
-  %121 = lshr i32 %120, 3
-  %122 = icmp ult i8 %104, 25
-  %123 = zext nneg i32 %121 to i64
-  %spec.select266 = select i1 %122, i64 %123, i64 4
-  %124 = call ptr @tvb_memcpy(ptr noundef %2, ptr noundef nonnull %10, i32 noundef %108, i64 noundef %spec.select266)
-  %125 = load i32, ptr @hf_zebra_srcprefix4, align 4
-  %126 = load i32, ptr %10, align 4
-  %127 = call ptr @proto_tree_add_ipv4(ptr noundef %0, i32 noundef %125, ptr noundef %2, i32 noundef %108, i32 noundef %121, i32 noundef %126)
-  br label %128
+  %121 = add nuw nsw i32 %107, 7
+  %122 = lshr i32 %121, 3
+  %123 = icmp ult i8 %105, 25
+  %124 = zext nneg i32 %122 to i64
+  %spec.select267 = select i1 %123, i64 %124, i64 4
+  %125 = call ptr @tvb_memcpy(ptr noundef %2, ptr noundef nonnull %10, i32 noundef %109, i64 noundef %spec.select267)
+  %126 = load i32, ptr @hf_zebra_srcprefix4, align 4
+  %127 = load i32, ptr %10, align 4
+  %128 = call ptr @proto_tree_add_ipv4(ptr noundef %0, i32 noundef %126, ptr noundef %2, i32 noundef %109, i32 noundef %122, i32 noundef %127)
+  br label %129
 
-128:                                              ; preds = %._crit_edge295, %119, %109
-  %.pre-phi304 = phi i32 [ %.pre303, %._crit_edge295 ], [ %121, %119 ], [ %111, %109 ]
-  %129 = add i32 %.pre-phi304, %108
-  br label %130
+129:                                              ; preds = %._crit_edge295, %120, %110
+  %.pre-phi304 = phi i32 [ %.pre303, %._crit_edge295 ], [ %122, %120 ], [ %112, %110 ]
+  %130 = add i32 %.pre-phi304, %109
+  br label %131
 
-130:                                              ; preds = %128, %98
-  %.3 = phi i32 [ %129, %128 ], [ %99, %98 ]
-  %131 = zext i8 %35 to i32
-  %132 = and i32 %131, 1
-  %.not247 = icmp eq i32 %132, 0
-  br i1 %.not247, label %152, label %133
+131:                                              ; preds = %129, %99
+  %.3 = phi i32 [ %130, %129 ], [ %100, %99 ]
+  %132 = zext i8 %35 to i32
+  %133 = and i32 %132, 1
+  %.not247 = icmp eq i32 %133, 0
+  br i1 %.not247, label %153, label %134
 
-133:                                              ; preds = %130
-  %134 = and i16 %6, -2
-  %or.cond22 = icmp eq i16 %134, 32
-  %or.cond267 = and i1 %38, %or.cond22
-  br i1 %or.cond267, label %135, label %142
+134:                                              ; preds = %131
+  %135 = and i16 %6, -2
+  %or.cond22 = icmp eq i16 %135, 32
+  %or.cond268 = and i1 %38, %or.cond22
+  br i1 %or.cond268, label %136, label %143
 
-135:                                              ; preds = %133
-  %136 = load i32, ptr @hf_zebra_nexthopnum, align 4
-  %137 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %136, ptr noundef %2, i32 noundef %.3, i32 noundef 1, i32 noundef 0)
-  %138 = add i32 %.3, 1
-  %139 = load i32, ptr @hf_zebra_nexthop4, align 4
-  %140 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %139, ptr noundef %2, i32 noundef %138, i32 noundef 4, i32 noundef 0)
-  %141 = add i32 %.3, 5
-  br label %152
+136:                                              ; preds = %134
+  %137 = load i32, ptr @hf_zebra_nexthopnum, align 4
+  %138 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %137, ptr noundef %2, i32 noundef %.3, i32 noundef 1, i32 noundef 0)
+  %139 = add i32 %.3, 1
+  %140 = load i32, ptr @hf_zebra_nexthop4, align 4
+  %141 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %140, ptr noundef %2, i32 noundef %139, i32 noundef 4, i32 noundef 0)
+  %142 = add i32 %.3, 5
+  br label %153
 
-142:                                              ; preds = %133
-  %or.cond25 = icmp eq i16 %134, 34
-  %or.cond268 = and i1 %38, %or.cond25
-  br i1 %or.cond268, label %143, label %150
+143:                                              ; preds = %134
+  %or.cond25 = icmp eq i16 %135, 34
+  %or.cond269 = and i1 %38, %or.cond25
+  br i1 %or.cond269, label %144, label %151
 
-143:                                              ; preds = %142
-  %144 = load i32, ptr @hf_zebra_nexthopnum, align 4
-  %145 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %144, ptr noundef %2, i32 noundef %.3, i32 noundef 1, i32 noundef 0)
-  %146 = add i32 %.3, 1
-  %147 = load i32, ptr @hf_zebra_nexthop6, align 4
-  %148 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %147, ptr noundef %2, i32 noundef %146, i32 noundef 16, i32 noundef 0)
-  %149 = add i32 %.3, 17
-  br label %152
+144:                                              ; preds = %143
+  %145 = load i32, ptr @hf_zebra_nexthopnum, align 4
+  %146 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %145, ptr noundef %2, i32 noundef %.3, i32 noundef 1, i32 noundef 0)
+  %147 = add i32 %.3, 1
+  %148 = load i32, ptr @hf_zebra_nexthop6, align 4
+  %149 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %148, ptr noundef %2, i32 noundef %147, i32 noundef 16, i32 noundef 0)
+  %150 = add i32 %.3, 17
+  br label %153
 
-150:                                              ; preds = %142
-  %151 = call fastcc i32 @zebra_route_nexthop(ptr noundef %0, i1 noundef zeroext %1, ptr noundef %2, i32 noundef %.3, i16 noundef zeroext %4, i8 noundef zeroext %.0232, i8 noundef zeroext %7)
-  br label %152
+151:                                              ; preds = %143
+  %152 = call fastcc i32 @zebra_route_nexthop(ptr noundef %0, i1 noundef zeroext %1, ptr noundef %2, i32 noundef %.3, i16 noundef zeroext %4, i8 noundef zeroext %.0232, i8 noundef zeroext %7)
+  br label %153
 
-152:                                              ; preds = %135, %150, %143, %130
-  %.4 = phi i32 [ %141, %135 ], [ %149, %143 ], [ %151, %150 ], [ %.3, %130 ]
-  %153 = and i32 %131, 2
-  %.not248 = icmp eq i32 %153, 0
-  %or.cond270 = or i1 %42, %.not248
-  br i1 %or.cond270, label %zebra_route_ifindex.exit, label %154
+153:                                              ; preds = %136, %151, %144, %131
+  %.4 = phi i32 [ %142, %136 ], [ %150, %144 ], [ %152, %151 ], [ %.3, %131 ]
+  %154 = and i32 %132, 2
+  %.not248 = icmp eq i32 %154, 0
+  %or.cond271 = or i1 %42, %.not248
+  br i1 %or.cond271, label %zebra_route_ifindex.exit, label %155
 
-154:                                              ; preds = %152
-  %155 = call zeroext i8 @tvb_get_uint8(ptr noundef %2, i32 noundef %.4)
-  %156 = zext i8 %155 to i16
-  %157 = load i32, ptr @hf_zebra_indexnum, align 4
-  %158 = zext i8 %155 to i32
-  %159 = call ptr @proto_tree_add_uint(ptr noundef %0, i32 noundef %157, ptr noundef %2, i32 noundef %.4, i32 noundef 1, i32 noundef %158)
-  %160 = add i32 %.4, 1
-  %161 = icmp ult i16 %4, %156
-  %.not18.i = icmp eq i8 %155, 0
-  %or.cond.i = or i1 %.not18.i, %161
+155:                                              ; preds = %153
+  %156 = call zeroext i8 @tvb_get_uint8(ptr noundef %2, i32 noundef %.4)
+  %157 = zext i8 %156 to i16
+  %158 = load i32, ptr @hf_zebra_indexnum, align 4
+  %159 = zext i8 %156 to i32
+  %160 = call ptr @proto_tree_add_uint(ptr noundef %0, i32 noundef %158, ptr noundef %2, i32 noundef %.4, i32 noundef 1, i32 noundef %159)
+  %161 = add i32 %.4, 1
+  %162 = icmp ult i16 %4, %157
+  %.not18.i = icmp eq i8 %156, 0
+  %or.cond.i = or i1 %.not18.i, %162
   br i1 %or.cond.i, label %zebra_route_ifindex.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %154, %.lr.ph.i
-  %.020.i = phi i16 [ %162, %.lr.ph.i ], [ %156, %154 ]
-  %.01719.i = phi i32 [ %165, %.lr.ph.i ], [ %160, %154 ]
-  %162 = add nsw i16 %.020.i, -1
-  %163 = load i32, ptr @hf_zebra_index, align 4
-  %164 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %163, ptr noundef %2, i32 noundef %.01719.i, i32 noundef 4, i32 noundef 0)
-  %165 = add i32 %.01719.i, 4
-  %.not.i = icmp eq i16 %162, 0
+.lr.ph.i:                                         ; preds = %155, %.lr.ph.i
+  %.020.i = phi i16 [ %163, %.lr.ph.i ], [ %157, %155 ]
+  %.01719.i = phi i32 [ %166, %.lr.ph.i ], [ %161, %155 ]
+  %163 = add nsw i16 %.020.i, -1
+  %164 = load i32, ptr @hf_zebra_index, align 4
+  %165 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %164, ptr noundef %2, i32 noundef %.01719.i, i32 noundef 4, i32 noundef 0)
+  %166 = add i32 %.01719.i, 4
+  %.not.i = icmp eq i16 %163, 0
   br i1 %.not.i, label %zebra_route_ifindex.exit, label %.lr.ph.i, !llvm.loop !6
 
-zebra_route_ifindex.exit:                         ; preds = %.lr.ph.i, %154, %152
-  %.5 = phi i32 [ %.4, %152 ], [ %160, %154 ], [ %165, %.lr.ph.i ]
-  %166 = and i32 %131, 4
-  %.not249 = icmp eq i32 %166, 0
-  %or.cond272 = or i1 %42, %.not249
-  %167 = icmp ult i8 %7, 5
-  %or.cond273 = or i1 %167, %.not248
-  %or.cond289 = and i1 %or.cond272, %or.cond273
-  br i1 %or.cond289, label %172, label %168
+zebra_route_ifindex.exit:                         ; preds = %.lr.ph.i, %155, %153
+  %.5 = phi i32 [ %.4, %153 ], [ %161, %155 ], [ %166, %.lr.ph.i ]
+  %167 = and i32 %132, 4
+  %.not249 = icmp eq i32 %167, 0
+  %or.cond273 = or i1 %42, %.not249
+  %168 = icmp ult i8 %7, 5
+  %or.cond274 = or i1 %168, %.not248
+  %or.cond289 = and i1 %or.cond273, %or.cond274
+  br i1 %or.cond289, label %173, label %169
 
-168:                                              ; preds = %zebra_route_ifindex.exit
-  %169 = load i32, ptr @hf_zebra_distance, align 4
-  %170 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %169, ptr noundef %2, i32 noundef %.5, i32 noundef 1, i32 noundef 0)
-  %171 = add i32 %.5, 1
-  br label %172
+169:                                              ; preds = %zebra_route_ifindex.exit
+  %170 = load i32, ptr @hf_zebra_distance, align 4
+  %171 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %170, ptr noundef %2, i32 noundef %.5, i32 noundef 1, i32 noundef 0)
+  %172 = add i32 %.5, 1
+  br label %173
 
-172:                                              ; preds = %zebra_route_ifindex.exit, %168
-  %.6 = phi i32 [ %171, %168 ], [ %.5, %zebra_route_ifindex.exit ]
-  %173 = and i32 %131, 8
-  %.not251 = icmp eq i32 %173, 0
-  %or.cond275 = or i1 %42, %.not251
-  %or.cond276 = or i1 %167, %.not249
-  %or.cond290 = and i1 %or.cond275, %or.cond276
-  br i1 %or.cond290, label %178, label %174
+173:                                              ; preds = %zebra_route_ifindex.exit, %169
+  %.6 = phi i32 [ %172, %169 ], [ %.5, %zebra_route_ifindex.exit ]
+  %174 = and i32 %132, 8
+  %.not251 = icmp eq i32 %174, 0
+  %or.cond276 = or i1 %42, %.not251
+  %or.cond277 = or i1 %168, %.not249
+  %or.cond290 = and i1 %or.cond276, %or.cond277
+  br i1 %or.cond290, label %179, label %175
 
-174:                                              ; preds = %172
-  %175 = load i32, ptr @hf_zebra_metric, align 4
-  %176 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %175, ptr noundef %2, i32 noundef %.6, i32 noundef 4, i32 noundef 0)
-  %177 = add i32 %.6, 4
-  br label %178
+175:                                              ; preds = %173
+  %176 = load i32, ptr @hf_zebra_metric, align 4
+  %177 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %176, ptr noundef %2, i32 noundef %.6, i32 noundef 4, i32 noundef 0)
+  %178 = add i32 %.6, 4
+  br label %179
 
-178:                                              ; preds = %172, %174
-  %.7 = phi i32 [ %177, %174 ], [ %.6, %172 ]
-  %179 = and i32 %131, 16
-  %.not253 = icmp eq i32 %179, 0
-  %or.cond278 = or i1 %36, %.not253
-  br i1 %or.cond278, label %180, label %._crit_edge
+179:                                              ; preds = %173, %175
+  %.7 = phi i32 [ %178, %175 ], [ %.6, %173 ]
+  %180 = and i32 %132, 16
+  %.not253 = icmp eq i32 %180, 0
+  %or.cond279 = or i1 %36, %.not253
+  br i1 %or.cond279, label %181, label %._crit_edge
 
-._crit_edge:                                      ; preds = %178
-  %.pre305 = and i32 %131, 32
+._crit_edge:                                      ; preds = %179
+  %.pre305 = and i32 %132, 32
   %.pre = xor i1 %38, true
-  br label %182
+  br label %183
 
-180:                                              ; preds = %178
-  %.not279 = xor i1 %38, true
-  %181 = and i32 %131, 32
-  %.not254 = icmp eq i32 %181, 0
-  %or.cond280 = or i1 %.not254, %.not279
-  %or.cond281 = or i1 %167, %.not253
-  %or.cond291 = and i1 %or.cond280, %or.cond281
-  br i1 %or.cond291, label %186, label %182
+181:                                              ; preds = %179
+  %.not280 = xor i1 %38, true
+  %182 = and i32 %132, 32
+  %.not254 = icmp eq i32 %182, 0
+  %or.cond281 = or i1 %.not254, %.not280
+  %or.cond282 = or i1 %168, %.not253
+  %or.cond291 = and i1 %or.cond281, %or.cond282
+  br i1 %or.cond291, label %187, label %183
 
-182:                                              ; preds = %._crit_edge, %180
-  %.pre294.pre-phi = phi i1 [ %.pre, %._crit_edge ], [ %.not279, %180 ]
-  %.pre.pre-phi = phi i32 [ %.pre305, %._crit_edge ], [ %181, %180 ]
-  %183 = load i32, ptr @hf_zebra_mtu, align 4
-  %184 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %183, ptr noundef %2, i32 noundef %.7, i32 noundef 4, i32 noundef 0)
-  %185 = add i32 %.7, 4
-  br label %186
+183:                                              ; preds = %._crit_edge, %181
+  %.pre294.pre-phi = phi i1 [ %.pre, %._crit_edge ], [ %.not280, %181 ]
+  %.pre.pre-phi = phi i32 [ %.pre305, %._crit_edge ], [ %182, %181 ]
+  %184 = load i32, ptr @hf_zebra_mtu, align 4
+  %185 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %184, ptr noundef %2, i32 noundef %.7, i32 noundef 4, i32 noundef 0)
+  %186 = add i32 %.7, 4
+  br label %187
 
-186:                                              ; preds = %180, %182
-  %.not284.pre-phi = phi i1 [ %.not279, %180 ], [ %.pre294.pre-phi, %182 ]
-  %.pre-phi = phi i32 [ %181, %180 ], [ %.pre.pre-phi, %182 ]
-  %.8 = phi i32 [ %.7, %180 ], [ %185, %182 ]
+187:                                              ; preds = %181, %183
+  %.not285.pre-phi = phi i1 [ %.not280, %181 ], [ %.pre294.pre-phi, %183 ]
+  %.pre-phi = phi i32 [ %182, %181 ], [ %.pre.pre-phi, %183 ]
+  %.8 = phi i32 [ %.7, %181 ], [ %186, %183 ]
   %.not256 = icmp eq i32 %.pre-phi, 0
-  %or.cond283 = or i1 %36, %.not256
-  %or.cond285 = or i1 %.not253, %.not284.pre-phi
-  %or.cond292 = and i1 %or.cond283, %or.cond285
-  %or.cond286 = or i1 %167, %.not251
-  %or.cond293 = and i1 %or.cond286, %or.cond292
-  br i1 %or.cond293, label %191, label %187
+  %or.cond284 = or i1 %36, %.not256
+  %or.cond286 = or i1 %.not253, %.not285.pre-phi
+  %or.cond292 = and i1 %or.cond284, %or.cond286
+  %or.cond287 = or i1 %168, %.not251
+  %or.cond293 = and i1 %or.cond287, %or.cond292
+  br i1 %or.cond293, label %192, label %188
 
-187:                                              ; preds = %186
-  %188 = load i32, ptr @hf_zebra_tag, align 4
-  %189 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %188, ptr noundef %2, i32 noundef %.8, i32 noundef 4, i32 noundef 0)
-  %190 = add i32 %.8, 4
-  br label %191
+188:                                              ; preds = %187
+  %189 = load i32, ptr @hf_zebra_tag, align 4
+  %190 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %189, ptr noundef %2, i32 noundef %.8, i32 noundef 4, i32 noundef 0)
+  %191 = add i32 %.8, 4
+  br label %192
 
-191:                                              ; preds = %186, %187
-  %.9 = phi i32 [ %190, %187 ], [ %.8, %186 ]
+192:                                              ; preds = %187, %188
+  %.9 = phi i32 [ %191, %188 ], [ %.8, %187 ]
   %.not259 = icmp sgt i8 %35, -1
-  %or.cond287 = select i1 %167, i1 true, i1 %.not259
-  br i1 %or.cond287, label %195, label %192
+  %or.cond288 = select i1 %168, i1 true, i1 %.not259
+  br i1 %or.cond288, label %196, label %193
 
-192:                                              ; preds = %191
-  %193 = load i32, ptr @hf_zebra_tableid, align 4
-  %194 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %193, ptr noundef %2, i32 noundef %.9, i32 noundef 4, i32 noundef 0)
-  br label %195
+193:                                              ; preds = %192
+  %194 = load i32, ptr @hf_zebra_tableid, align 4
+  %195 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %194, ptr noundef %2, i32 noundef %.9, i32 noundef 4, i32 noundef 0)
+  br label %196
 
-195:                                              ; preds = %192, %191
+196:                                              ; preds = %193, %192
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -1956,19 +1956,19 @@ define internal fastcc void @zebra_nexthop_update(ptr noundef %0, ptr noundef %1
 
 .sink.split:                                      ; preds = %4, %14
   %hf_zebra_prefix4.sink = phi ptr [ @hf_zebra_prefix4, %14 ], [ @hf_zebra_prefix6, %4 ]
-  %.sink181 = phi i32 [ 4, %14 ], [ 16, %4 ]
+  %.sink179 = phi i32 [ 4, %14 ], [ 16, %4 ]
   %.sink = phi i32 [ 7, %14 ], [ 19, %4 ]
   %15 = load i32, ptr %hf_zebra_prefix4.sink, align 4
-  %16 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %15, ptr noundef %1, i32 noundef %13, i32 noundef %.sink181, i32 noundef 0)
+  %16 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %15, ptr noundef %1, i32 noundef %13, i32 noundef %.sink179, i32 noundef 0)
   %17 = add i32 %2, %.sink
   br label %18
 
 18:                                               ; preds = %.sink.split, %4
   %.0149 = phi i32 [ %13, %4 ], [ %17, %.sink.split ]
   %19 = icmp ugt i8 %3, 4
-  br i1 %19, label %.thread162, label %26
+  br i1 %19, label %.thread160, label %26
 
-.thread162:                                       ; preds = %18
+.thread160:                                       ; preds = %18
   %20 = load i32, ptr @hf_zebra_type_v5, align 4
   %21 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %20, ptr noundef %1, i32 noundef %.0149, i32 noundef 1, i32 noundef 0)
   %22 = add i32 %.0149, 1
@@ -1981,11 +1981,11 @@ define internal fastcc void @zebra_nexthop_update(ptr noundef %0, ptr noundef %1
   %27 = icmp eq i8 %3, 4
   br i1 %27, label %28, label %32
 
-28:                                               ; preds = %.thread162, %26
-  %.2164 = phi i32 [ %25, %.thread162 ], [ %.0149, %26 ]
+28:                                               ; preds = %.thread160, %26
+  %.2162 = phi i32 [ %25, %.thread160 ], [ %.0149, %26 ]
   %29 = load i32, ptr @hf_zebra_distance, align 4
-  %30 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %29, ptr noundef %1, i32 noundef %.2164, i32 noundef 1, i32 noundef 0)
-  %31 = add i32 %.2164, 1
+  %30 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %29, ptr noundef %1, i32 noundef %.2162, i32 noundef 1, i32 noundef 0)
+  %31 = add i32 %.2162, 1
   br label %32
 
 32:                                               ; preds = %28, %26
@@ -1998,115 +1998,115 @@ define internal fastcc void @zebra_nexthop_update(ptr noundef %0, ptr noundef %1
   %38 = load i32, ptr @hf_zebra_nexthopnum, align 4
   %39 = zext i8 %37 to i32
   %40 = tail call ptr @proto_tree_add_uint(ptr noundef %0, i32 noundef %38, ptr noundef %1, i32 noundef %36, i32 noundef 1, i32 noundef %39)
-  %.not173 = icmp eq i8 %37, 0
-  br i1 %.not173, label %._crit_edge, label %.lr.ph175
+  %.not171 = icmp eq i8 %37, 0
+  br i1 %.not171, label %._crit_edge, label %.lr.ph173
 
-.lr.ph175:                                        ; preds = %32
+.lr.ph173:                                        ; preds = %32
   %41 = add i32 %.3, 5
   %42 = icmp ult i8 %3, 4
   br label %43
 
-43:                                               ; preds = %.lr.ph175, %.loopexit
-  %.in = phi i8 [ %37, %.lr.ph175 ], [ %44, %.loopexit ]
-  %.4174 = phi i32 [ %41, %.lr.ph175 ], [ %.8, %.loopexit ]
+43:                                               ; preds = %.lr.ph173, %.loopexit
+  %.in = phi i8 [ %37, %.lr.ph173 ], [ %44, %.loopexit ]
+  %.4172 = phi i32 [ %41, %.lr.ph173 ], [ %.8, %.loopexit ]
   %44 = add i8 %.in, -1
-  %45 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %.4174)
+  %45 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %.4172)
   %hf_zebra_nexthoptype_frr.val = load i32, ptr @hf_zebra_nexthoptype_frr, align 4
   %hf_zebra_nexthoptype.val = load i32, ptr @hf_zebra_nexthoptype, align 4
   %46 = select i1 %33, i32 %hf_zebra_nexthoptype_frr.val, i32 %hf_zebra_nexthoptype.val
-  %47 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %46, ptr noundef %1, i32 noundef %.4174, i32 noundef 1, i32 noundef 0)
-  %48 = add i32 %.4174, 1
-  %.off = add i8 %45, -6
-  %switch = icmp ult i8 %.off, 3
-  %or.cond156 = select i1 %42, i1 %switch, i1 false
-  br i1 %or.cond156, label %51, label %49
+  %47 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %46, ptr noundef %1, i32 noundef %.4172, i32 noundef 1, i32 noundef 0)
+  %48 = add i32 %.4172, 1
+  %49 = add i8 %45, -6
+  %or.cond5 = icmp ult i8 %49, 3
+  %or.cond = select i1 %42, i1 %or.cond5, i1 false
+  br i1 %or.cond, label %52, label %50
 
-49:                                               ; preds = %43
-  %50 = and i8 %45, -2
-  %or.cond8 = icmp eq i8 %50, 4
-  %or.cond = select i1 %33, i1 %or.cond8, i1 false
-  br i1 %or.cond, label %51, label %55
+50:                                               ; preds = %43
+  %51 = and i8 %45, -2
+  %or.cond8 = icmp eq i8 %51, 4
+  %or.cond154 = select i1 %33, i1 %or.cond8, i1 false
+  br i1 %or.cond154, label %52, label %56
 
-51:                                               ; preds = %43, %49
-  %52 = load i32, ptr @hf_zebra_nexthop6, align 4
-  %53 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %52, ptr noundef %1, i32 noundef %48, i32 noundef 16, i32 noundef 0)
-  %54 = add i32 %.4174, 17
-  br label %55
+52:                                               ; preds = %50, %43
+  %53 = load i32, ptr @hf_zebra_nexthop6, align 4
+  %54 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %53, ptr noundef %1, i32 noundef %48, i32 noundef 16, i32 noundef 0)
+  %55 = add i32 %.4172, 17
+  br label %56
 
-55:                                               ; preds = %51, %49
-  %.5 = phi i32 [ %54, %51 ], [ %48, %49 ]
-  %56 = add i8 %45, -3
-  %or.cond14 = icmp ult i8 %56, 3
-  %or.cond154 = select i1 %42, i1 %or.cond14, i1 false
-  br i1 %or.cond154, label %.thread165, label %57
+56:                                               ; preds = %52, %50
+  %.5 = phi i32 [ %55, %52 ], [ %48, %50 ]
+  %57 = add i8 %45, -3
+  %or.cond14 = icmp ult i8 %57, 3
+  %or.cond155 = select i1 %42, i1 %or.cond14, i1 false
+  br i1 %or.cond155, label %.thread163, label %58
 
-57:                                               ; preds = %55
-  %58 = and i8 %45, -2
-  %or.cond17 = icmp eq i8 %58, 2
-  %or.cond155 = select i1 %33, i1 %or.cond17, i1 false
-  br i1 %or.cond155, label %.thread165, label %62
+58:                                               ; preds = %56
+  %59 = and i8 %45, -2
+  %or.cond17 = icmp eq i8 %59, 2
+  %or.cond156 = select i1 %33, i1 %or.cond17, i1 false
+  br i1 %or.cond156, label %.thread163, label %63
 
-.thread165:                                       ; preds = %55, %57
-  %59 = load i32, ptr @hf_zebra_nexthop4, align 4
-  %60 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %59, ptr noundef %1, i32 noundef %.5, i32 noundef 4, i32 noundef 0)
-  %61 = add i32 %.5, 4
-  br label %64
+.thread163:                                       ; preds = %56, %58
+  %60 = load i32, ptr @hf_zebra_nexthop4, align 4
+  %61 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %60, ptr noundef %1, i32 noundef %.5, i32 noundef 4, i32 noundef 0)
+  %62 = add i32 %.5, 4
+  br label %65
 
-62:                                               ; preds = %57
-  %63 = icmp eq i8 %45, 1
-  br i1 %63, label %67, label %64
+63:                                               ; preds = %58
+  %64 = icmp eq i8 %45, 1
+  br i1 %64, label %69, label %65
 
-64:                                               ; preds = %.thread165, %62
-  %.6167 = phi i32 [ %61, %.thread165 ], [ %.5, %62 ]
-  br i1 %42, label %65, label %66
+65:                                               ; preds = %.thread163, %63
+  %.6165 = phi i32 [ %62, %.thread163 ], [ %.5, %63 ]
+  br i1 %42, label %66, label %67
 
-65:                                               ; preds = %64
-  switch i8 %45, label %66 [
-    i8 8, label %67
-    i8 7, label %67
-    i8 5, label %67
-    i8 4, label %67
-    i8 2, label %67
+66:                                               ; preds = %65
+  switch i8 %45, label %67 [
+    i8 8, label %69
+    i8 7, label %69
+    i8 5, label %69
+    i8 4, label %69
+    i8 2, label %69
   ]
 
-66:                                               ; preds = %65, %64
-  %.off157 = add i8 %45, -2
-  %switch158 = icmp ult i8 %.off157, 4
-  %or.cond159 = select i1 %33, i1 %switch158, i1 false
-  br i1 %or.cond159, label %67, label %71
+67:                                               ; preds = %66, %65
+  %68 = add i8 %45, -2
+  %or.cond38 = icmp ult i8 %68, 4
+  %or.cond157 = select i1 %33, i1 %or.cond38, i1 false
+  br i1 %or.cond157, label %69, label %73
 
-67:                                               ; preds = %66, %65, %65, %65, %65, %65, %62
-  %.6169 = phi i32 [ %.6167, %66 ], [ %.6167, %65 ], [ %.6167, %65 ], [ %.6167, %65 ], [ %.6167, %65 ], [ %.6167, %65 ], [ %.5, %62 ]
-  %68 = load i32, ptr @hf_zebra_index, align 4
-  %69 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %68, ptr noundef %1, i32 noundef %.6169, i32 noundef 4, i32 noundef 0)
-  %70 = add i32 %.6169, 4
-  br label %71
+69:                                               ; preds = %67, %66, %66, %66, %66, %66, %63
+  %.6167 = phi i32 [ %.6165, %67 ], [ %.6165, %66 ], [ %.6165, %66 ], [ %.6165, %66 ], [ %.6165, %66 ], [ %.6165, %66 ], [ %.5, %63 ]
+  %70 = load i32, ptr @hf_zebra_index, align 4
+  %71 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %70, ptr noundef %1, i32 noundef %.6167, i32 noundef 4, i32 noundef 0)
+  %72 = add i32 %.6167, 4
+  br label %73
 
-71:                                               ; preds = %67, %66
-  %.7 = phi i32 [ %70, %67 ], [ %.6167, %66 ]
-  br i1 %19, label %72, label %.loopexit
+73:                                               ; preds = %69, %67
+  %.7 = phi i32 [ %72, %69 ], [ %.6165, %67 ]
+  br i1 %19, label %74, label %.loopexit
 
-72:                                               ; preds = %71
-  %73 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %.7)
-  %74 = load i32, ptr @hf_zebra_labelnum, align 4
-  %75 = zext i8 %73 to i32
-  %76 = tail call ptr @proto_tree_add_uint(ptr noundef %0, i32 noundef %74, ptr noundef %1, i32 noundef %.7, i32 noundef 1, i32 noundef %75)
-  %77 = add i32 %.7, 1
-  %.not153170 = icmp eq i8 %73, 0
-  br i1 %.not153170, label %.loopexit, label %.lr.ph
+74:                                               ; preds = %73
+  %75 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %.7)
+  %76 = load i32, ptr @hf_zebra_labelnum, align 4
+  %77 = zext i8 %75 to i32
+  %78 = tail call ptr @proto_tree_add_uint(ptr noundef %0, i32 noundef %76, ptr noundef %1, i32 noundef %.7, i32 noundef 1, i32 noundef %77)
+  %79 = add i32 %.7, 1
+  %.not153168 = icmp eq i8 %75, 0
+  br i1 %.not153168, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %72, %.lr.ph
-  %.0172 = phi i8 [ %78, %.lr.ph ], [ %73, %72 ]
-  %.9171 = phi i32 [ %81, %.lr.ph ], [ %77, %72 ]
-  %78 = add i8 %.0172, -1
-  %79 = load i32, ptr @hf_zebra_label, align 4
-  %80 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %79, ptr noundef %1, i32 noundef %.9171, i32 noundef 4, i32 noundef 0)
-  %81 = add i32 %.9171, 4
-  %.not153 = icmp eq i8 %78, 0
+.lr.ph:                                           ; preds = %74, %.lr.ph
+  %.0170 = phi i8 [ %80, %.lr.ph ], [ %75, %74 ]
+  %.9169 = phi i32 [ %83, %.lr.ph ], [ %79, %74 ]
+  %80 = add i8 %.0170, -1
+  %81 = load i32, ptr @hf_zebra_label, align 4
+  %82 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %81, ptr noundef %1, i32 noundef %.9169, i32 noundef 4, i32 noundef 0)
+  %83 = add i32 %.9169, 4
+  %.not153 = icmp eq i8 %80, 0
   br i1 %.not153, label %.loopexit, label %.lr.ph, !llvm.loop !9
 
-.loopexit:                                        ; preds = %.lr.ph, %72, %71
-  %.8 = phi i32 [ %.7, %71 ], [ %77, %72 ], [ %81, %.lr.ph ]
+.loopexit:                                        ; preds = %.lr.ph, %74, %73
+  %.8 = phi i32 [ %.7, %73 ], [ %79, %74 ], [ %83, %.lr.ph ]
   %.not = icmp eq i8 %44, 0
   br i1 %.not, label %._crit_edge, label %43, !llvm.loop !10
 
@@ -2279,10 +2279,10 @@ define internal fastcc i32 @zebra_route_nexthop(ptr noundef %0, i1 noundef zeroe
 .thread203:                                       ; preds = %41, %.thread187
   %.4180 = phi i32 [ %45, %.thread187 ], [ %.3161, %41 ]
   %55 = add i8 %.1141165, -9
-  %switch = icmp ult i8 %55, -3
-  %or.cond151 = select i1 %not., i1 true, i1 %switch
-  %or.cond152 = and i1 %or.cond23.not, %or.cond151
-  br i1 %or.cond152, label %.thread181, label %56
+  %or.cond19 = icmp ult i8 %55, -3
+  %or.cond150 = select i1 %not., i1 true, i1 %or.cond19
+  %or.cond151 = and i1 %or.cond23.not, %or.cond150
+  br i1 %or.cond151, label %.thread181, label %56
 
 56:                                               ; preds = %46, %.thread203
   %.4177 = phi i32 [ %.4180, %.thread203 ], [ %50, %46 ]

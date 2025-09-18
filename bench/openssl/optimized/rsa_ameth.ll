@@ -1022,7 +1022,7 @@ define internal range(i32 0, 2) i32 @rsa_sig_info_set(ptr noundef %0, ptr nounde
   %8 = load ptr, ptr %1, align 8, !tbaa !16
   %9 = tail call i32 @OBJ_obj2nid(ptr noundef %8) #7
   %.not = icmp eq i32 %9, 912
-  br i1 %.not, label %10, label %37
+  br i1 %.not, label %10, label %38
 
 10:                                               ; preds = %3
   %11 = tail call ptr @ossl_rsa_pss_decode(ptr noundef nonnull %1) #7
@@ -1052,64 +1052,64 @@ define internal range(i32 0, 2) i32 @rsa_sig_info_set(ptr noundef %0, ptr nounde
 
 ossl_rsa_pss_get_param.exit.thread:               ; preds = %10, %.sink.split.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %36
+  br label %37
 
 17:                                               ; preds = %16
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %18 = load ptr, ptr %7, align 8, !tbaa !10
   %19 = call i32 @EVP_MD_get_size(ptr noundef %18) #7
   %20 = icmp slt i32 %19, 1
-  br i1 %20, label %36, label %21
+  br i1 %20, label %37, label %21
 
 21:                                               ; preds = %17
   %22 = load ptr, ptr %7, align 8, !tbaa !10
   %23 = call i32 @EVP_MD_get_type(ptr noundef %22) #7
-  %.off = add i32 %23, -672
-  %switch = icmp ult i32 %.off, 3
-  br i1 %switch, label %24, label %30
+  %24 = add i32 %23, -672
+  %or.cond3 = icmp ult i32 %24, 3
+  br i1 %or.cond3, label %25, label %31
 
-24:                                               ; preds = %21
-  %25 = load ptr, ptr %6, align 8, !tbaa !10
-  %26 = call i32 @EVP_MD_get_type(ptr noundef %25) #7
-  %27 = icmp eq i32 %23, %26
-  %28 = load i32, ptr %5, align 4
-  %29 = icmp eq i32 %28, %19
-  %or.cond = select i1 %27, i1 %29, i1 false
-  br i1 %or.cond, label %31, label %30
+25:                                               ; preds = %21
+  %26 = load ptr, ptr %6, align 8, !tbaa !10
+  %27 = call i32 @EVP_MD_get_type(ptr noundef %26) #7
+  %28 = icmp eq i32 %23, %27
+  %29 = load i32, ptr %5, align 4
+  %30 = icmp eq i32 %29, %19
+  %or.cond = select i1 %28, i1 %30, i1 false
+  br i1 %or.cond, label %32, label %31
 
-30:                                               ; preds = %21, %24
-  br label %31
+31:                                               ; preds = %21, %25
+  br label %32
 
-31:                                               ; preds = %24, %30
-  %.023 = phi i32 [ 0, %30 ], [ 2, %24 ]
+32:                                               ; preds = %25, %31
+  %.023 = phi i32 [ 0, %31 ], [ 2, %25 ]
   switch i32 %23, label %.fold.split [
-    i32 64, label %35
-    i32 114, label %32
-    i32 4, label %33
+    i32 64, label %36
+    i32 114, label %33
+    i32 4, label %34
   ]
 
-32:                                               ; preds = %31
-  br label %35
-
-33:                                               ; preds = %31
-  br label %35
-
-.fold.split:                                      ; preds = %31
-  %34 = shl nsw i32 %19, 2
-  br label %35
-
-35:                                               ; preds = %31, %.fold.split, %32, %33
-  %.0 = phi i32 [ 68, %32 ], [ 39, %33 ], [ %23, %31 ], [ %34, %.fold.split ]
-  call void @X509_SIG_INFO_set(ptr noundef %0, i32 noundef %23, i32 noundef 912, i32 noundef %.0, i32 noundef %.023) #7
+33:                                               ; preds = %32
   br label %36
 
-36:                                               ; preds = %ossl_rsa_pss_get_param.exit.thread, %17, %35
-  %.024 = phi i32 [ 0, %17 ], [ 1, %35 ], [ 0, %ossl_rsa_pss_get_param.exit.thread ]
-  call void @RSA_PSS_PARAMS_free(ptr noundef %11) #7
+34:                                               ; preds = %32
+  br label %36
+
+.fold.split:                                      ; preds = %32
+  %35 = shl nsw i32 %19, 2
+  br label %36
+
+36:                                               ; preds = %32, %.fold.split, %33, %34
+  %.0 = phi i32 [ 68, %33 ], [ 39, %34 ], [ %23, %32 ], [ %35, %.fold.split ]
+  call void @X509_SIG_INFO_set(ptr noundef %0, i32 noundef %23, i32 noundef 912, i32 noundef %.0, i32 noundef %.023) #7
   br label %37
 
-37:                                               ; preds = %3, %36
-  %.022 = phi i32 [ %.024, %36 ], [ 0, %3 ]
+37:                                               ; preds = %ossl_rsa_pss_get_param.exit.thread, %17, %36
+  %.024 = phi i32 [ 0, %17 ], [ 1, %36 ], [ 0, %ossl_rsa_pss_get_param.exit.thread ]
+  call void @RSA_PSS_PARAMS_free(ptr noundef %11) #7
+  br label %38
+
+38:                                               ; preds = %3, %37
+  %.022 = phi i32 [ %.024, %37 ], [ 0, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

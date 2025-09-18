@@ -223,49 +223,51 @@ define internal range(i32 -2147483648, 1) i32 @query_formats(ptr noundef readonl
   %60 = icmp ne i64 %59, 0
   %61 = icmp eq i32 %.fr60, 8
   %or.cond = and i1 %60, %61
-  br i1 %or.cond, label %70, label %62
+  br i1 %or.cond, label %72, label %62
 
 62:                                               ; preds = %._crit_edge
   %63 = icmp eq i32 %.fr60, 9
   %or.cond3 = and i1 %60, %63
-  br i1 %or.cond3, label %70, label %64
+  br i1 %or.cond3, label %72, label %64
 
 64:                                               ; preds = %62
   %65 = icmp eq i32 %.fr60, 10
   %or.cond5 = and i1 %60, %65
-  br i1 %or.cond5, label %70, label %66
+  br i1 %or.cond5, label %72, label %66
 
 66:                                               ; preds = %64
   %67 = icmp eq i32 %.fr60, 12
   %or.cond7 = and i1 %60, %67
-  br i1 %or.cond7, label %70, label %switch.early.test
+  br i1 %or.cond7, label %72, label %switch.early.test
 
 switch.early.test:                                ; preds = %66
-  %68 = and i32 %.fr60, -2
-  %69 = icmp eq i32 %68, 8
+  %68 = add i32 %.fr60, -8
+  %69 = icmp ult i32 %68, 3
+  %70 = and i32 %.fr60, -2
+  %71 = icmp eq i32 %70, 8
   %out_rgb12_pix_fmts.mux = select i1 %61, ptr @out_yuv8_pix_fmts, ptr @out_yuv9_pix_fmts
-  %out_rgb12_pix_fmts.mux.mux = select i1 %65, ptr @out_yuv10_pix_fmts, ptr @out_yuv12_pix_fmts
-  %out_rgb12_pix_fmts.mux.mux.mux = select i1 %69, ptr %out_rgb12_pix_fmts.mux, ptr %out_rgb12_pix_fmts.mux.mux
+  %out_rgb12_pix_fmts.mux.mux = select i1 %71, ptr %out_rgb12_pix_fmts.mux, ptr @out_yuv10_pix_fmts
+  %out_rgb12_pix_fmts.mux.mux.mux = select i1 %69, ptr %out_rgb12_pix_fmts.mux.mux, ptr @out_yuv12_pix_fmts
   switch i32 %.fr60, label %.loopexit [
-    i32 12, label %70
-    i32 10, label %70
-    i32 9, label %70
-    i32 8, label %70
+    i32 12, label %72
+    i32 10, label %72
+    i32 9, label %72
+    i32 8, label %72
   ]
 
-70:                                               ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %66, %64, %62, %._crit_edge
+72:                                               ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %66, %64, %62, %._crit_edge
   %.050 = phi ptr [ @out_rgb8_pix_fmts, %._crit_edge ], [ @out_rgb9_pix_fmts, %62 ], [ @out_rgb10_pix_fmts, %64 ], [ %out_rgb12_pix_fmts.mux.mux.mux, %switch.early.test ], [ @out_rgb12_pix_fmts, %66 ], [ %out_rgb12_pix_fmts.mux.mux.mux, %switch.early.test ], [ %out_rgb12_pix_fmts.mux.mux.mux, %switch.early.test ], [ %out_rgb12_pix_fmts.mux.mux.mux, %switch.early.test ]
-  %71 = tail call ptr @ff_make_format_list(ptr noundef nonnull %.050) #12
-  %72 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %73 = load ptr, ptr %72, align 8, !tbaa !52
-  %74 = load ptr, ptr %73, align 8, !tbaa !21
-  %75 = getelementptr inbounds nuw i8, ptr %74, i64 120
-  %76 = tail call i32 @ff_formats_ref(ptr noundef %71, ptr noundef nonnull %75) #12
-  %. = tail call i32 @llvm.smin.i32(i32 %76, i32 0)
+  %73 = tail call ptr @ff_make_format_list(ptr noundef nonnull %.050) #12
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %75 = load ptr, ptr %74, align 8, !tbaa !52
+  %76 = load ptr, ptr %75, align 8, !tbaa !21
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 120
+  %78 = tail call i32 @ff_formats_ref(ptr noundef %73, ptr noundef nonnull %77) #12
+  %. = tail call i32 @llvm.smin.i32(i32 %78, i32 0)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph, %56, %switch.early.test, %70, %1, %9, %25
-  %.049 = phi i32 [ %30, %25 ], [ -11, %9 ], [ -11, %1 ], [ %., %70 ], [ -11, %switch.early.test ], [ -11, %56 ], [ -11, %.lr.ph ]
+.loopexit:                                        ; preds = %.lr.ph, %56, %switch.early.test, %72, %1, %9, %25
+  %.049 = phi i32 [ %30, %25 ], [ -11, %9 ], [ -11, %1 ], [ %., %72 ], [ -11, %switch.early.test ], [ -11, %56 ], [ -11, %.lr.ph ]
   ret i32 %.049
 }
 

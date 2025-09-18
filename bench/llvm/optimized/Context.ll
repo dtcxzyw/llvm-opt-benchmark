@@ -1139,8 +1139,8 @@ _ZNK5clang4Type21isSpecificBuiltinTypeEj.exit:    ; preds = %48
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 16
   %82 = load i8, ptr %81, align 16
   %83 = icmp ne i8 %82, 15
-  %.not11.not109 = icmp eq ptr %80, null
-  %.not11.not = or i1 %.not11.not109, %83
+  %.not11.not110 = icmp eq ptr %80, null
+  %.not11.not = or i1 %.not11.not110, %83
   br i1 %.not11.not, label %87, label %84
 
 84:                                               ; preds = %79

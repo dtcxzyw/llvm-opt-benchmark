@@ -4570,35 +4570,35 @@ declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noun
 define internal noundef zeroext i1 @dissect_smb2_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0)
   %6 = icmp ult i32 %5, 4
-  br i1 %6, label %17, label %7
+  br i1 %6, label %18, label %7
 
 7:                                                ; preds = %4
   %8 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
-  %.off = add i8 %8, 4
-  %switch = icmp ult i8 %.off, 3
-  br i1 %switch, label %9, label %17
+  %9 = add i8 %8, 1
+  %or.cond5 = icmp ult i8 %9, -3
+  br i1 %or.cond5, label %18, label %10
 
-9:                                                ; preds = %7
-  %10 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
-  %.not = icmp eq i8 %10, 83
-  br i1 %.not, label %11, label %17
+10:                                               ; preds = %7
+  %11 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
+  %.not = icmp eq i8 %11, 83
+  br i1 %.not, label %12, label %18
 
-11:                                               ; preds = %9
-  %12 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 2)
-  %.not16 = icmp eq i8 %12, 77
-  br i1 %.not16, label %13, label %17
+12:                                               ; preds = %10
+  %13 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 2)
+  %.not16 = icmp eq i8 %13, 77
+  br i1 %.not16, label %14, label %18
 
-13:                                               ; preds = %11
-  %14 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 3)
-  %.not17 = icmp eq i8 %14, 66
-  br i1 %.not17, label %15, label %17
+14:                                               ; preds = %12
+  %15 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 3)
+  %.not17 = icmp eq i8 %15, 66
+  br i1 %.not17, label %16, label %18
 
-15:                                               ; preds = %13
-  %16 = tail call fastcc i32 @dissect_smb2(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext true)
-  br label %17
+16:                                               ; preds = %14
+  %17 = tail call fastcc i32 @dissect_smb2(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext true)
+  br label %18
 
-17:                                               ; preds = %7, %9, %11, %13, %4, %15
-  %.0 = phi i1 [ true, %15 ], [ false, %4 ], [ false, %7 ], [ false, %13 ], [ false, %11 ], [ false, %9 ]
+18:                                               ; preds = %10, %12, %14, %7, %4, %16
+  %.0 = phi i1 [ true, %16 ], [ false, %4 ], [ false, %7 ], [ false, %14 ], [ false, %12 ], [ false, %10 ]
   ret i1 %.0
 }
 

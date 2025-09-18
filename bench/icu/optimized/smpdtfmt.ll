@@ -9634,12 +9634,12 @@ define noundef i32 @_ZNK6icu_7716SimpleDateFormat8subParseERKNS_13UnicodeStringE
 33:                                               ; preds = %30
   %34 = load i32, ptr %2, align 4, !tbaa !12
   %35 = sub nsw i32 0, %34
-  br label %1402
+  br label %1401
 
 36:                                               ; preds = %14
   %37 = landingpad { ptr, i32 }
           cleanup
-  br label %1403
+  br label %1402
 
 38:                                               ; preds = %30
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 496
@@ -9672,7 +9672,7 @@ define noundef i32 @_ZNK6icu_7716SimpleDateFormat8subParseERKNS_13UnicodeStringE
 53:                                               ; preds = %51
   %54 = load i32, ptr %2, align 4, !tbaa !12
   %55 = sub nsw i32 0, %54
-  br label %1402
+  br label %1401
 
 56:                                               ; preds = %51
   %57 = zext i32 %29 to i64
@@ -9696,12 +9696,12 @@ define noundef i32 @_ZNK6icu_7716SimpleDateFormat8subParseERKNS_13UnicodeStringE
 65:                                               ; preds = %56
   %66 = landingpad { ptr, i32 }
           cleanup
-  br label %1401
+  br label %1400
 
 67:                                               ; preds = %61
   %68 = landingpad { ptr, i32 }
           cleanup
-  br label %1400
+  br label %1399
 
 69:                                               ; preds = %61, %60
   %70 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -9745,7 +9745,7 @@ define noundef i32 @_ZNK6icu_7716SimpleDateFormat8subParseERKNS_13UnicodeStringE
 88:                                               ; preds = %85, %82, %.lr.ph
   %89 = landingpad { ptr, i32 }
           cleanup
-  br label %1400
+  br label %1399
 
 90:                                               ; preds = %84, %87
   %91 = icmp ult i32 %81, 65536
@@ -9810,10 +9810,10 @@ _ZNKSt9type_infoeqERKS_.exit.thread958.thread:    ; preds = %_ZNKSt9type_infoeqE
 _ZNKSt9type_infoeqERKS_.exit953:                  ; preds = %_ZNKSt9type_infoeqERKS_.exit.thread958, %_ZNKSt9type_infoeqERKS_.exit.thread958.thread, %101, %121, %_ZNKSt9type_infoeqERKS_.exit
   %127 = phi i1 [ true, %_ZNKSt9type_infoeqERKS_.exit ], [ %126, %121 ], [ true, %101 ], [ true, %_ZNKSt9type_infoeqERKS_.exit.thread958.thread ], [ %118, %_ZNKSt9type_infoeqERKS_.exit.thread958 ]
   switch i32 %29, label %128 [
-    i32 16, label %139
-    i32 15, label %139
-    i32 5, label %139
-    i32 4, label %139
+    i32 16, label %138
+    i32 15, label %138
+    i32 5, label %138
+    i32 4, label %138
   ]
 
 128:                                              ; preds = %_ZNKSt9type_infoeqERKS_.exit953
@@ -9823,2495 +9823,2493 @@ _ZNKSt9type_infoeqERKS_.exit953:                  ; preds = %_ZNKSt9type_infoeqE
   %or.cond221039 = or i1 %129, %131
   %132 = icmp eq i32 %29, 2
   %or.cond1040 = or i1 %132, %or.cond221039
-  %133 = and i32 %29, -2
-  %134 = icmp eq i32 %133, 26
-  %or.cond9341042 = or i1 %134, %or.cond1040
-  %135 = icmp eq i32 %29, 28
-  %or.cond9351043 = or i1 %135, %or.cond9341042
+  %133 = add i32 %29, -26
+  %134 = icmp ult i32 %133, 3
+  %or.cond9351043 = or i1 %134, %or.cond1040
   %or.cond944 = and i1 %130, %or.cond9351043
-  br i1 %or.cond944, label %139, label %switch.early.test
+  br i1 %or.cond944, label %138, label %switch.early.test
 
 switch.early.test:                                ; preds = %128
-  switch i32 %29, label %136 [
-    i32 30, label %139
-    i32 18, label %139
-    i32 1, label %139
+  switch i32 %29, label %135 [
+    i32 30, label %138
+    i32 18, label %138
+    i32 1, label %138
   ]
 
-136:                                              ; preds = %switch.early.test
-  %137 = icmp eq i32 %29, 0
-  %or.cond40 = and i1 %137, %127
-  %138 = icmp eq i32 %29, 8
-  %or.cond42 = or i1 %138, %or.cond40
-  br i1 %or.cond42, label %139, label %.thread964
+135:                                              ; preds = %switch.early.test
+  %136 = icmp eq i32 %29, 0
+  %or.cond40 = and i1 %136, %127
+  %137 = icmp eq i32 %29, 8
+  %or.cond42 = or i1 %137, %or.cond40
+  br i1 %or.cond42, label %138, label %.thread964
 
-139:                                              ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %_ZNKSt9type_infoeqERKS_.exit953, %_ZNKSt9type_infoeqERKS_.exit953, %_ZNKSt9type_infoeqERKS_.exit953, %_ZNKSt9type_infoeqERKS_.exit953, %136, %128
-  br i1 %.not, label %.critedge, label %140
+138:                                              ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %_ZNKSt9type_infoeqERKS_.exit953, %_ZNKSt9type_infoeqERKS_.exit953, %_ZNKSt9type_infoeqERKS_.exit953, %_ZNKSt9type_infoeqERKS_.exit953, %135, %128
+  br i1 %.not, label %.critedge, label %139
 
-140:                                              ; preds = %139
+139:                                              ; preds = %138
   switch i32 %29, label %.critedge [
-    i32 26, label %141
-    i32 2, label %141
+    i32 26, label %140
+    i32 2, label %140
   ]
 
-141:                                              ; preds = %140, %140
+140:                                              ; preds = %139, %139
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
-  %142 = load ptr, ptr %11, align 8, !tbaa !44
-  %143 = getelementptr inbounds nuw i8, ptr %142, i64 184
-  %144 = load ptr, ptr %143, align 8
-  %145 = invoke noundef ptr %144(ptr noundef nonnull align 8 dereferenceable(512) %11, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 4 dereferenceable(4) %21)
-          to label %146 unwind label %168
+  %141 = load ptr, ptr %11, align 8, !tbaa !44
+  %142 = getelementptr inbounds nuw i8, ptr %141, i64 184
+  %143 = load ptr, ptr %142, align 8
+  %144 = invoke noundef ptr %143(ptr noundef nonnull align 8 dereferenceable(512) %11, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 4 dereferenceable(4) %21)
+          to label %145 unwind label %167
 
-146:                                              ; preds = %141
-  %147 = icmp ne ptr %145, null
-  %148 = load i32, ptr %21, align 4
-  %149 = icmp eq i32 %148, 1
-  %or.cond46 = select i1 %147, i1 %149, i1 false
-  %150 = load i32, ptr %27, align 8
-  %151 = icmp sgt i32 %150, %102
-  %or.cond1038 = select i1 %or.cond46, i1 %151, i1 false
-  br i1 %or.cond1038, label %152, label %170
+145:                                              ; preds = %140
+  %146 = icmp ne ptr %144, null
+  %147 = load i32, ptr %21, align 4
+  %148 = icmp eq i32 %147, 1
+  %or.cond46 = select i1 %146, i1 %148, i1 false
+  %149 = load i32, ptr %27, align 8
+  %150 = icmp sgt i32 %149, %102
+  %or.cond1038 = select i1 %or.cond46, i1 %150, i1 false
+  br i1 %or.cond1038, label %151, label %169
 
-152:                                              ; preds = %146
-  %153 = invoke noundef signext i8 @_ZNK6icu_7711Formattable9isNumericEv(ptr noundef nonnull align 8 dereferenceable(112) %145)
-          to label %154 unwind label %168
+151:                                              ; preds = %145
+  %152 = invoke noundef signext i8 @_ZNK6icu_7711Formattable9isNumericEv(ptr noundef nonnull align 8 dereferenceable(112) %144)
+          to label %153 unwind label %167
 
-154:                                              ; preds = %152
-  %.not843 = icmp eq i8 %153, 0
-  br i1 %.not843, label %170, label %155
+153:                                              ; preds = %151
+  %.not843 = icmp eq i8 %152, 0
+  br i1 %.not843, label %169, label %154
 
-155:                                              ; preds = %154
-  %156 = getelementptr inbounds nuw i8, ptr %145, i64 8
-  %157 = load i64, ptr %156, align 8, !tbaa !51
-  %158 = trunc i64 %157 to i32
-  invoke void @_ZN6icu_7711Formattable7setLongEi(ptr noundef nonnull align 8 dereferenceable(112) %15, i32 noundef %158)
-          to label %159 unwind label %168
+154:                                              ; preds = %153
+  %155 = getelementptr inbounds nuw i8, ptr %144, i64 8
+  %156 = load i64, ptr %155, align 8, !tbaa !51
+  %157 = trunc i64 %156 to i32
+  invoke void @_ZN6icu_7711Formattable7setLongEi(ptr noundef nonnull align 8 dereferenceable(112) %15, i32 noundef %157)
+          to label %158 unwind label %167
 
-159:                                              ; preds = %155
+158:                                              ; preds = %154
   invoke void @_ZN6icu_778Calendar3setE19UCalendarDateFieldsi(ptr noundef nonnull align 8 dereferenceable(192) %9, i32 noundef 22, i32 noundef 1)
-          to label %160 unwind label %168
+          to label %159 unwind label %167
 
-160:                                              ; preds = %159
-  %161 = getelementptr inbounds i8, ptr %145, i64 -8
-  %162 = load i64, ptr %161, align 8
-  %163 = icmp eq i64 %162, 0
-  br i1 %163, label %.critedge946, label %.preheader1053.preheader
+159:                                              ; preds = %158
+  %160 = getelementptr inbounds i8, ptr %144, i64 -8
+  %161 = load i64, ptr %160, align 8
+  %162 = icmp eq i64 %161, 0
+  br i1 %162, label %.critedge946, label %.preheader1053.preheader
 
-.preheader1053.preheader:                         ; preds = %160
-  %.idx = mul nsw i64 %162, 112
-  %164 = getelementptr inbounds i8, ptr %145, i64 %.idx
+.preheader1053.preheader:                         ; preds = %159
+  %.idx = mul nsw i64 %161, 112
+  %163 = getelementptr inbounds i8, ptr %144, i64 %.idx
   br label %.preheader1053
 
 .preheader1053:                                   ; preds = %.preheader1053.preheader, %.preheader1053
-  %165 = phi ptr [ %166, %.preheader1053 ], [ %164, %.preheader1053.preheader ]
-  %166 = getelementptr inbounds i8, ptr %165, i64 -112
-  call void @_ZN6icu_7711FormattableD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %166) #23
-  %167 = icmp eq ptr %166, %145
-  br i1 %167, label %.critedge946, label %.preheader1053
+  %164 = phi ptr [ %165, %.preheader1053 ], [ %163, %.preheader1053.preheader ]
+  %165 = getelementptr inbounds i8, ptr %164, i64 -112
+  call void @_ZN6icu_7711FormattableD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %165) #23
+  %166 = icmp eq ptr %165, %144
+  br i1 %166, label %.critedge946, label %.preheader1053
 
-.critedge946:                                     ; preds = %.preheader1053, %160
-  call void @_ZN6icu_777UMemorydaEPv(ptr noundef nonnull %161) #23
+.critedge946:                                     ; preds = %.preheader1053, %159
+  call void @_ZN6icu_777UMemorydaEPv(ptr noundef nonnull %160) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %_ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERNS_13ParsePositionEaPKNS_12NumberFormatE.exit
 
-168:                                              ; preds = %170, %159, %155, %152, %141
-  %169 = landingpad { ptr, i32 }
+167:                                              ; preds = %169, %158, %154, %151, %140
+  %168 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
-  br label %1400
+  br label %1399
 
-170:                                              ; preds = %154, %146
+169:                                              ; preds = %153, %145
   store i32 %102, ptr %27, align 8, !tbaa !189
   invoke void @_ZN6icu_778Calendar3setE19UCalendarDateFieldsi(ptr noundef nonnull align 8 dereferenceable(192) %9, i32 noundef 22, i32 noundef 0)
-          to label %171 unwind label %168
+          to label %170 unwind label %167
 
-171:                                              ; preds = %170
+170:                                              ; preds = %169
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %.critedge
 
-.critedge:                                        ; preds = %140, %139, %171
+.critedge:                                        ; preds = %139, %138, %170
   %.not845 = icmp eq i8 %5, 0
-  br i1 %.not845, label %190, label %172
+  br i1 %.not845, label %189, label %171
 
-172:                                              ; preds = %.critedge
-  %173 = load i32, ptr %2, align 4, !tbaa !12
-  %174 = load i16, ptr %70, align 8, !tbaa !51
-  %175 = icmp slt i16 %174, 0
-  %176 = ashr i16 %174, 5
-  %177 = sext i16 %176 to i32
-  %178 = load i32, ptr %71, align 4
-  %179 = select i1 %175, i32 %178, i32 %177
-  %180 = add nsw i32 %173, %4
-  %181 = icmp sgt i32 %180, %179
-  br i1 %181, label %182, label %186
+171:                                              ; preds = %.critedge
+  %172 = load i32, ptr %2, align 4, !tbaa !12
+  %173 = load i16, ptr %70, align 8, !tbaa !51
+  %174 = icmp slt i16 %173, 0
+  %175 = ashr i16 %173, 5
+  %176 = sext i16 %175 to i32
+  %177 = load i32, ptr %71, align 4
+  %178 = select i1 %174, i32 %177, i32 %176
+  %179 = add nsw i32 %172, %4
+  %180 = icmp sgt i32 %179, %178
+  br i1 %180, label %181, label %185
 
-182:                                              ; preds = %172
-  %183 = sub nsw i32 0, %173
+181:                                              ; preds = %171
+  %182 = sub nsw i32 0, %172
   br label %.thread990
 
-184:                                              ; preds = %190, %186
-  %185 = landingpad { ptr, i32 }
+183:                                              ; preds = %189, %185
+  %184 = landingpad { ptr, i32 }
           cleanup
-  br label %1400
+  br label %1399
 
-186:                                              ; preds = %172
-  %187 = load ptr, ptr %1, align 8, !tbaa !44
-  %188 = getelementptr inbounds nuw i8, ptr %187, i64 24
-  %189 = load ptr, ptr %188, align 8
-  invoke void %189(ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef 0, i32 noundef %180, ptr noundef nonnull align 8 dereferenceable(64) %19)
-          to label %190 unwind label %184
+185:                                              ; preds = %171
+  %186 = load ptr, ptr %1, align 8, !tbaa !44
+  %187 = getelementptr inbounds nuw i8, ptr %186, i64 24
+  %188 = load ptr, ptr %187, align 8
+  invoke void %188(ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef 0, i32 noundef %179, ptr noundef nonnull align 8 dereferenceable(64) %19)
+          to label %189 unwind label %183
 
-190:                                              ; preds = %.critedge, %186
-  %.0737 = phi ptr [ %19, %186 ], [ %1, %.critedge ]
-  %191 = load ptr, ptr %18, align 8, !tbaa !43
-  invoke void @_ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableEiRNS_13ParsePositionEaPKNS_12NumberFormatE(ptr nonnull readnone align 8 poison, ptr noundef nonnull align 8 dereferenceable(64) %.0737, ptr noundef nonnull align 8 dereferenceable(112) %15, i32 noundef -1, ptr noundef nonnull align 8 dereferenceable(16) %17, i8 noundef signext %6, ptr noundef %191)
-          to label %_ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERNS_13ParsePositionEaPKNS_12NumberFormatE.exit unwind label %184
+189:                                              ; preds = %.critedge, %185
+  %.0737 = phi ptr [ %19, %185 ], [ %1, %.critedge ]
+  %190 = load ptr, ptr %18, align 8, !tbaa !43
+  invoke void @_ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableEiRNS_13ParsePositionEaPKNS_12NumberFormatE(ptr nonnull readnone align 8 poison, ptr noundef nonnull align 8 dereferenceable(64) %.0737, ptr noundef nonnull align 8 dereferenceable(112) %15, i32 noundef -1, ptr noundef nonnull align 8 dereferenceable(16) %17, i8 noundef signext %6, ptr noundef %190)
+          to label %_ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERNS_13ParsePositionEaPKNS_12NumberFormatE.exit unwind label %183
 
-_ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERNS_13ParsePositionEaPKNS_12NumberFormatE.exit: ; preds = %190, %.critedge946
-  %192 = load i32, ptr %27, align 8, !tbaa !189
-  %193 = icmp sgt i32 %192, %102
-  br i1 %193, label %194, label %.thread964
+_ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERNS_13ParsePositionEaPKNS_12NumberFormatE.exit: ; preds = %189, %.critedge946
+  %191 = load i32, ptr %27, align 8, !tbaa !189
+  %192 = icmp sgt i32 %191, %102
+  br i1 %192, label %193, label %.thread964
 
-194:                                              ; preds = %_ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERNS_13ParsePositionEaPKNS_12NumberFormatE.exit
-  %195 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %196 = load i64, ptr %195, align 8, !tbaa !51
-  %197 = trunc i64 %196 to i32
-  %198 = icmp slt i32 %197, 0
-  %199 = add nsw i32 %10, 1
-  br i1 %198, label %200, label %207
+193:                                              ; preds = %_ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERNS_13ParsePositionEaPKNS_12NumberFormatE.exit
+  %194 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %195 = load i64, ptr %194, align 8, !tbaa !51
+  %196 = trunc i64 %195 to i32
+  %197 = icmp slt i32 %196, 0
+  %198 = add nsw i32 %10, 1
+  br i1 %197, label %199, label %206
 
-200:                                              ; preds = %194
-  %201 = invoke noundef i32 @_ZNK6icu_7716SimpleDateFormat14checkIntSuffixERKNS_13UnicodeStringEiia(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %192, i32 noundef %199, i8 noundef signext 1)
-          to label %202 unwind label %205
+199:                                              ; preds = %193
+  %200 = invoke noundef i32 @_ZNK6icu_7716SimpleDateFormat14checkIntSuffixERKNS_13UnicodeStringEiia(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %191, i32 noundef %198, i8 noundef signext 1)
+          to label %201 unwind label %204
 
-202:                                              ; preds = %200
-  %203 = load i32, ptr %27, align 8, !tbaa !189
-  %.not846 = icmp eq i32 %201, %203
-  %204 = sub nsw i32 0, %197
-  %spec.select = select i1 %.not846, i32 %197, i32 %204
-  br label %209
+201:                                              ; preds = %199
+  %202 = load i32, ptr %27, align 8, !tbaa !189
+  %.not846 = icmp eq i32 %200, %202
+  %203 = sub nsw i32 0, %196
+  %spec.select = select i1 %.not846, i32 %196, i32 %203
+  br label %208
 
-205:                                              ; preds = %209, %207, %200
-  %206 = landingpad { ptr, i32 }
+204:                                              ; preds = %208, %206, %199
+  %205 = landingpad { ptr, i32 }
           cleanup
-  br label %1400
+  br label %1399
 
-207:                                              ; preds = %194
-  %208 = invoke noundef i32 @_ZNK6icu_7716SimpleDateFormat14checkIntSuffixERKNS_13UnicodeStringEiia(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %192, i32 noundef %199, i8 noundef signext 0)
-          to label %209 unwind label %205
+206:                                              ; preds = %193
+  %207 = invoke noundef i32 @_ZNK6icu_7716SimpleDateFormat14checkIntSuffixERKNS_13UnicodeStringEiia(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %191, i32 noundef %198, i8 noundef signext 0)
+          to label %208 unwind label %204
 
-209:                                              ; preds = %202, %207
-  %.0741 = phi i32 [ %201, %202 ], [ %208, %207 ]
-  %.3654 = phi i32 [ %spec.select, %202 ], [ %197, %207 ]
-  %210 = load ptr, ptr %0, align 8, !tbaa !44
-  %211 = getelementptr inbounds nuw i8, ptr %210, i64 224
-  %212 = load ptr, ptr %211, align 8
-  %213 = invoke noundef signext i8 %212(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %16)
-          to label %214 unwind label %205
+208:                                              ; preds = %201, %206
+  %.0741 = phi i32 [ %200, %201 ], [ %207, %206 ]
+  %.3654 = phi i32 [ %spec.select, %201 ], [ %196, %206 ]
+  %209 = load ptr, ptr %0, align 8, !tbaa !44
+  %210 = getelementptr inbounds nuw i8, ptr %209, i64 224
+  %211 = load ptr, ptr %210, align 8
+  %212 = invoke noundef signext i8 %211(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %16)
+          to label %213 unwind label %204
 
-214:                                              ; preds = %209
-  %.not847 = icmp eq i8 %213, 0
-  br i1 %.not847, label %215, label %.thread960
+213:                                              ; preds = %208
+  %.not847 = icmp eq i8 %212, 0
+  br i1 %.not847, label %214, label %.thread960
 
-215:                                              ; preds = %214
-  %216 = getelementptr inbounds nuw i32, ptr @_ZN6icu_77L15gFieldRangeBiasE, i64 %57
-  %217 = load i32, ptr %216, align 4, !tbaa !12
-  %218 = shl nuw nsw i64 1, %57
-  %219 = and i64 %218, 100663500
-  %.not848 = icmp eq i64 %219, 0
-  br i1 %.not848, label %.thread960, label %220
+214:                                              ; preds = %213
+  %215 = getelementptr inbounds nuw i32, ptr @_ZN6icu_77L15gFieldRangeBiasE, i64 %57
+  %216 = load i32, ptr %215, align 4, !tbaa !12
+  %217 = shl nuw nsw i64 1, %57
+  %218 = and i64 %217, 100663500
+  %.not848 = icmp eq i64 %218, 0
+  br i1 %.not848, label %.thread960, label %219
 
-220:                                              ; preds = %215
-  %221 = load ptr, ptr %9, align 8, !tbaa !44
-  %222 = getelementptr inbounds nuw i8, ptr %221, i64 128
-  %223 = load ptr, ptr %222, align 8
-  %224 = invoke noundef i32 %223(ptr noundef nonnull align 8 dereferenceable(192) %9, i32 noundef %59)
-          to label %225 unwind label %236
+219:                                              ; preds = %214
+  %220 = load ptr, ptr %9, align 8, !tbaa !44
+  %221 = getelementptr inbounds nuw i8, ptr %220, i64 128
+  %222 = load ptr, ptr %221, align 8
+  %223 = invoke noundef i32 %222(ptr noundef nonnull align 8 dereferenceable(192) %9, i32 noundef %59)
+          to label %224 unwind label %235
 
-225:                                              ; preds = %220
-  %226 = add nsw i32 %224, %217
-  %227 = icmp sgt i32 %.3654, %226
-  br i1 %227, label %238, label %228
+224:                                              ; preds = %219
+  %225 = add nsw i32 %223, %216
+  %226 = icmp sgt i32 %.3654, %225
+  br i1 %226, label %237, label %227
 
-228:                                              ; preds = %225
-  %229 = load ptr, ptr %9, align 8, !tbaa !44
-  %230 = getelementptr inbounds nuw i8, ptr %229, i64 112
-  %231 = load ptr, ptr %230, align 8
-  %232 = invoke noundef i32 %231(ptr noundef nonnull align 8 dereferenceable(192) %9, i32 noundef %59)
-          to label %233 unwind label %236
+227:                                              ; preds = %224
+  %228 = load ptr, ptr %9, align 8, !tbaa !44
+  %229 = getelementptr inbounds nuw i8, ptr %228, i64 112
+  %230 = load ptr, ptr %229, align 8
+  %231 = invoke noundef i32 %230(ptr noundef nonnull align 8 dereferenceable(192) %9, i32 noundef %59)
+          to label %232 unwind label %235
 
-233:                                              ; preds = %228
-  %234 = add nsw i32 %232, %217
-  %235 = icmp slt i32 %.3654, %234
-  br i1 %235, label %238, label %.thread960
+232:                                              ; preds = %227
+  %233 = add nsw i32 %231, %216
+  %234 = icmp slt i32 %.3654, %233
+  br i1 %234, label %237, label %.thread960
 
-236:                                              ; preds = %228, %220
-  %237 = landingpad { ptr, i32 }
+235:                                              ; preds = %227, %219
+  %236 = landingpad { ptr, i32 }
           cleanup
-  br label %1400
+  br label %1399
 
-238:                                              ; preds = %225, %233
-  %239 = load i32, ptr %2, align 4, !tbaa !12
-  %240 = sub nsw i32 0, %239
+237:                                              ; preds = %224, %232
+  %238 = load i32, ptr %2, align 4, !tbaa !12
+  %239 = sub nsw i32 0, %238
   br label %.thread990
 
-.thread960:                                       ; preds = %215, %233, %214
+.thread960:                                       ; preds = %214, %232, %213
   store i32 %.0741, ptr %27, align 8, !tbaa !189
   br label %.thread964
 
-.thread964:                                       ; preds = %_ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERNS_13ParsePositionEaPKNS_12NumberFormatE.exit, %.thread960, %136
-  %241 = phi i32 [ %102, %136 ], [ %192, %_ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERNS_13ParsePositionEaPKNS_12NumberFormatE.exit ], [ %.0741, %.thread960 ]
-  %.not890 = phi i1 [ true, %136 ], [ true, %_ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERNS_13ParsePositionEaPKNS_12NumberFormatE.exit ], [ false, %.thread960 ]
-  %.0651 = phi i32 [ 0, %136 ], [ 0, %_ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERNS_13ParsePositionEaPKNS_12NumberFormatE.exit ], [ %.3654, %.thread960 ]
-  switch i32 %29, label %1286 [
-    i32 4, label %242
-    i32 5, label %242
-    i32 15, label %242
-    i32 16, label %242
-    i32 1, label %246
-    i32 18, label %246
-    i32 8, label %246
-    i32 0, label %251
-    i32 30, label %381
-    i32 2, label %413
-    i32 26, label %413
-    i32 19, label %606
-    i32 9, label %609
-    i32 25, label %695
-    i32 14, label %763
-    i32 27, label %817
-    i32 28, label %896
-    i32 17, label %975
-    i32 23, label %994
-    i32 24, label %1015
-    i32 29, label %1034
-    i32 31, label %1054
-    i32 32, label %1073
-    i32 33, label %1093
-    i32 37, label %1113
-    i32 35, label %1164
-    i32 36, label %1224
+.thread964:                                       ; preds = %_ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERNS_13ParsePositionEaPKNS_12NumberFormatE.exit, %.thread960, %135
+  %240 = phi i32 [ %102, %135 ], [ %191, %_ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERNS_13ParsePositionEaPKNS_12NumberFormatE.exit ], [ %.0741, %.thread960 ]
+  %.not890 = phi i1 [ true, %135 ], [ true, %_ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERNS_13ParsePositionEaPKNS_12NumberFormatE.exit ], [ false, %.thread960 ]
+  %.0651 = phi i32 [ 0, %135 ], [ 0, %_ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERNS_13ParsePositionEaPKNS_12NumberFormatE.exit ], [ %.3654, %.thread960 ]
+  switch i32 %29, label %1285 [
+    i32 4, label %241
+    i32 5, label %241
+    i32 15, label %241
+    i32 16, label %241
+    i32 1, label %245
+    i32 18, label %245
+    i32 8, label %245
+    i32 0, label %250
+    i32 30, label %380
+    i32 2, label %412
+    i32 26, label %412
+    i32 19, label %605
+    i32 9, label %608
+    i32 25, label %694
+    i32 14, label %762
+    i32 27, label %816
+    i32 28, label %895
+    i32 17, label %974
+    i32 23, label %993
+    i32 24, label %1014
+    i32 29, label %1033
+    i32 31, label %1053
+    i32 32, label %1072
+    i32 33, label %1092
+    i32 37, label %1112
+    i32 35, label %1163
+    i32 36, label %1223
   ]
 
-242:                                              ; preds = %.thread964, %.thread964, %.thread964, %.thread964
+241:                                              ; preds = %.thread964, %.thread964, %.thread964, %.thread964
   %or.cond48 = icmp ugt i32 %.0651, 24
-  br i1 %or.cond48, label %243, label %246
+  br i1 %or.cond48, label %242, label %245
 
-243:                                              ; preds = %242
-  %244 = load i32, ptr %2, align 4, !tbaa !12
-  %245 = sub nsw i32 0, %244
+242:                                              ; preds = %241
+  %243 = load i32, ptr %2, align 4, !tbaa !12
+  %244 = sub nsw i32 0, %243
   br label %.thread990
 
-246:                                              ; preds = %.thread964, %.thread964, %.thread964, %242
-  br i1 %.not890, label %247, label %250
+245:                                              ; preds = %.thread964, %.thread964, %.thread964, %241
+  br i1 %.not890, label %246, label %249
 
-247:                                              ; preds = %246
-  %248 = load i32, ptr %2, align 4, !tbaa !12
-  %249 = sub nsw i32 0, %248
+246:                                              ; preds = %245
+  %247 = load i32, ptr %2, align 4, !tbaa !12
+  %248 = sub nsw i32 0, %247
   br label %.thread990
 
-250:                                              ; preds = %246
-  switch i32 %29, label %1286 [
-    i32 17, label %975
-    i32 1, label %276
-    i32 18, label %335
-    i32 16, label %814
+249:                                              ; preds = %245
+  switch i32 %29, label %1285 [
+    i32 17, label %974
+    i32 1, label %275
+    i32 18, label %334
+    i32 16, label %813
     i32 2, label %.thread973
-    i32 15, label %806
-    i32 4, label %582
-    i32 5, label %590
-    i32 8, label %593
-    i32 14, label %763
-    i32 9, label %609
+    i32 15, label %805
+    i32 4, label %581
+    i32 5, label %589
+    i32 8, label %592
+    i32 14, label %762
+    i32 9, label %608
   ]
 
-251:                                              ; preds = %.thread964
-  br i1 %127, label %252, label %260
+250:                                              ; preds = %.thread964
+  br i1 %127, label %251, label %259
+
+251:                                              ; preds = %250
+  br i1 %.not890, label %252, label %.thread970
 
 252:                                              ; preds = %251
-  br i1 %.not890, label %253, label %.thread970
-
-253:                                              ; preds = %252
-  %254 = load i32, ptr %2, align 4, !tbaa !12
-  %255 = sub nsw i32 0, %254
+  %253 = load i32, ptr %2, align 4, !tbaa !12
+  %254 = sub nsw i32 0, %253
   br label %.thread990
 
-.thread970:                                       ; preds = %252
+.thread970:                                       ; preds = %251
   invoke void @_ZN6icu_778Calendar3setE19UCalendarDateFieldsi(ptr noundef nonnull align 8 dereferenceable(192) %9, i32 noundef 0, i32 noundef %.0651)
-          to label %256 unwind label %258
+          to label %255 unwind label %257
 
-256:                                              ; preds = %.thread970
-  %257 = load i32, ptr %27, align 8, !tbaa !189
+255:                                              ; preds = %.thread970
+  %256 = load i32, ptr %27, align 8, !tbaa !189
   br label %.thread990
 
-258:                                              ; preds = %.invoke, %.thread1011, %.thread1005, %814, %806, %.thread999, %.thread993, %.loopexit, %593, %590, %582, %435, %407, %396, %378, %360, %358, %355, %352, %349, %343, %335, %321, %301, %299, %296, %293, %290, %284, %276, %.thread970
-  %259 = landingpad { ptr, i32 }
+257:                                              ; preds = %.invoke, %.thread1011, %.thread1005, %813, %805, %.thread999, %.thread993, %.loopexit, %592, %589, %581, %434, %406, %395, %377, %359, %357, %354, %351, %348, %342, %334, %320, %300, %298, %295, %292, %289, %283, %275, %.thread970
+  %258 = landingpad { ptr, i32 }
           cleanup
-  br label %1400
+  br label %1399
 
-260:                                              ; preds = %251
-  %261 = load i32, ptr %2, align 4, !tbaa !12
-  %262 = getelementptr inbounds nuw i8, ptr %0, i64 464
-  %263 = load ptr, ptr %262, align 8, !tbaa !46
-  switch i32 %4, label %265 [
+259:                                              ; preds = %250
+  %260 = load i32, ptr %2, align 4, !tbaa !12
+  %261 = getelementptr inbounds nuw i8, ptr %0, i64 464
+  %262 = load ptr, ptr %261, align 8, !tbaa !46
+  switch i32 %4, label %264 [
     i32 5, label %.invoke
-    i32 4, label %264
+    i32 4, label %263
   ]
 
-264:                                              ; preds = %260
+263:                                              ; preds = %259
   br label %.invoke
 
-265:                                              ; preds = %260
+264:                                              ; preds = %259
   br label %.invoke
 
-.invoke:                                          ; preds = %260, %264, %265
-  %.sink1156 = phi i64 [ 24, %264 ], [ 8, %265 ], [ 40, %260 ]
-  %.sink1155 = phi i64 [ 32, %264 ], [ 16, %265 ], [ 48, %260 ]
-  %266 = getelementptr inbounds nuw i8, ptr %263, i64 %.sink1156
-  %267 = load ptr, ptr %266, align 8, !tbaa !181
-  %268 = getelementptr inbounds nuw i8, ptr %263, i64 %.sink1155
-  %269 = load i32, ptr %268, align 8, !tbaa !12
-  %270 = invoke noundef i32 @_ZNK6icu_7716SimpleDateFormat11matchStringERKNS_13UnicodeStringEi19UCalendarDateFieldsPS2_iS5_RNS_8CalendarE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %261, i32 noundef 0, ptr noundef %267, i32 noundef %269, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(192) %9)
-          to label %271 unwind label %258
+.invoke:                                          ; preds = %259, %263, %264
+  %.sink1156 = phi i64 [ 24, %263 ], [ 8, %264 ], [ 40, %259 ]
+  %.sink1155 = phi i64 [ 32, %263 ], [ 16, %264 ], [ 48, %259 ]
+  %265 = getelementptr inbounds nuw i8, ptr %262, i64 %.sink1156
+  %266 = load ptr, ptr %265, align 8, !tbaa !181
+  %267 = getelementptr inbounds nuw i8, ptr %262, i64 %.sink1155
+  %268 = load i32, ptr %267, align 8, !tbaa !12
+  %269 = invoke noundef i32 @_ZNK6icu_7716SimpleDateFormat11matchStringERKNS_13UnicodeStringEi19UCalendarDateFieldsPS2_iS5_RNS_8CalendarE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %260, i32 noundef 0, ptr noundef %266, i32 noundef %268, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(192) %9)
+          to label %270 unwind label %257
 
-271:                                              ; preds = %.invoke
-  %272 = load i32, ptr %2, align 4, !tbaa !12
-  %273 = sub nsw i32 0, %272
-  %274 = icmp eq i32 %270, %273
-  %275 = sext i1 %274 to i32
-  %spec.select936 = add nsw i32 %270, %275
+270:                                              ; preds = %.invoke
+  %271 = load i32, ptr %2, align 4, !tbaa !12
+  %272 = sub nsw i32 0, %271
+  %273 = icmp eq i32 %269, %272
+  %274 = sext i1 %273 to i32
+  %spec.select936 = add nsw i32 %269, %274
   br label %.thread990
 
-276:                                              ; preds = %250
-  %277 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %278 = invoke noundef signext i8 @_ZNK6icu_7713UnicodeString7compareERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %277, ptr noundef nonnull align 8 dereferenceable(64) %20)
-          to label %279 unwind label %258
+275:                                              ; preds = %249
+  %276 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %277 = invoke noundef signext i8 @_ZNK6icu_7713UnicodeString7compareERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %276, ptr noundef nonnull align 8 dereferenceable(64) %20)
+          to label %278 unwind label %257
 
-279:                                              ; preds = %276
-  %280 = icmp eq i8 %278, 0
-  %281 = icmp slt i32 %.0651, 1000
-  %or.cond50 = select i1 %280, i1 %281, i1 false
-  br i1 %or.cond50, label %282, label %284
+278:                                              ; preds = %275
+  %279 = icmp eq i8 %277, 0
+  %280 = icmp slt i32 %.0651, 1000
+  %or.cond50 = select i1 %279, i1 %280, i1 false
+  br i1 %or.cond50, label %281, label %283
 
-282:                                              ; preds = %279
-  %283 = add nsw i32 %.0651, 5000
-  br label %321
+281:                                              ; preds = %278
+  %282 = add nsw i32 %.0651, 5000
+  br label %320
 
-284:                                              ; preds = %279
-  %285 = load i32, ptr %2, align 4, !tbaa !12
-  %286 = invoke noundef i32 @_ZNK6icu_7713UnicodeString11moveIndex32Eii(ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %285, i32 noundef 2)
-          to label %287 unwind label %258
+283:                                              ; preds = %278
+  %284 = load i32, ptr %2, align 4, !tbaa !12
+  %285 = invoke noundef i32 @_ZNK6icu_7713UnicodeString11moveIndex32Eii(ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %284, i32 noundef 2)
+          to label %286 unwind label %257
 
-287:                                              ; preds = %284
-  %288 = load i32, ptr %27, align 8, !tbaa !189
-  %289 = icmp ne i32 %286, %288
-  %or.cond52 = or i1 %127, %289
-  br i1 %or.cond52, label %321, label %290
+286:                                              ; preds = %283
+  %287 = load i32, ptr %27, align 8, !tbaa !189
+  %288 = icmp ne i32 %285, %287
+  %or.cond52 = or i1 %127, %288
+  br i1 %or.cond52, label %320, label %289
 
-290:                                              ; preds = %287
-  %291 = load i32, ptr %2, align 4, !tbaa !12
-  %292 = invoke noundef i32 @_ZNK6icu_7713UnicodeString8char32AtEi(ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %291)
-          to label %293 unwind label %258
+289:                                              ; preds = %286
+  %290 = load i32, ptr %2, align 4, !tbaa !12
+  %291 = invoke noundef i32 @_ZNK6icu_7713UnicodeString8char32AtEi(ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %290)
+          to label %292 unwind label %257
 
-293:                                              ; preds = %290
-  %294 = invoke signext i8 @u_isdigit_77(i32 noundef %292)
-          to label %295 unwind label %258
+292:                                              ; preds = %289
+  %293 = invoke signext i8 @u_isdigit_77(i32 noundef %291)
+          to label %294 unwind label %257
 
-295:                                              ; preds = %293
-  %.not911 = icmp eq i8 %294, 0
-  br i1 %.not911, label %321, label %296
+294:                                              ; preds = %292
+  %.not911 = icmp eq i8 %293, 0
+  br i1 %.not911, label %320, label %295
 
-296:                                              ; preds = %295
-  %297 = load i32, ptr %2, align 4, !tbaa !12
-  %298 = invoke noundef i32 @_ZNK6icu_7713UnicodeString11moveIndex32Eii(ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %297, i32 noundef 1)
-          to label %299 unwind label %258
+295:                                              ; preds = %294
+  %296 = load i32, ptr %2, align 4, !tbaa !12
+  %297 = invoke noundef i32 @_ZNK6icu_7713UnicodeString11moveIndex32Eii(ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %296, i32 noundef 1)
+          to label %298 unwind label %257
 
-299:                                              ; preds = %296
-  %300 = invoke noundef i32 @_ZNK6icu_7713UnicodeString8char32AtEi(ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %298)
-          to label %301 unwind label %258
+298:                                              ; preds = %295
+  %299 = invoke noundef i32 @_ZNK6icu_7713UnicodeString8char32AtEi(ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %297)
+          to label %300 unwind label %257
 
-301:                                              ; preds = %299
-  %302 = invoke signext i8 @u_isdigit_77(i32 noundef %300)
-          to label %303 unwind label %258
+300:                                              ; preds = %298
+  %301 = invoke signext i8 @u_isdigit_77(i32 noundef %299)
+          to label %302 unwind label %257
 
-303:                                              ; preds = %301
-  %304 = icmp eq i8 %302, 0
-  %305 = icmp sgt i32 %4, 2
-  %or.cond118.not1049 = or i1 %305, %304
-  %306 = getelementptr inbounds nuw i8, ptr %0, i64 512
-  %307 = load i8, ptr %306, align 8
-  %.not912 = icmp eq i8 %307, 0
+302:                                              ; preds = %300
+  %303 = icmp eq i8 %301, 0
+  %304 = icmp sgt i32 %4, 2
+  %or.cond118.not1049 = or i1 %304, %303
+  %305 = getelementptr inbounds nuw i8, ptr %0, i64 512
+  %306 = load i8, ptr %305, align 8
+  %.not912 = icmp eq i8 %306, 0
   %or.cond938 = select i1 %or.cond118.not1049, i1 true, i1 %.not912
-  br i1 %or.cond938, label %321, label %308
+  br i1 %or.cond938, label %320, label %307
 
-308:                                              ; preds = %303
-  %309 = getelementptr inbounds nuw i8, ptr %0, i64 492
-  %310 = load i32, ptr %309, align 4, !tbaa !55
-  %311 = srem i32 %310, 100
-  %312 = icmp eq i32 %.0651, %311
-  %313 = zext i1 %312 to i8
-  store i8 %313, ptr %7, align 1, !tbaa !51
-  %314 = load i32, ptr %309, align 4, !tbaa !55
-  %.fr913 = freeze i32 %314
-  %315 = srem i32 %.fr913, 100
-  %316 = icmp slt i32 %.0651, %311
-  %317 = select i1 %316, i32 100, i32 0
-  %318 = add i32 %.fr913, %.0651
-  %319 = add i32 %318, %317
-  %320 = sub i32 %319, %315
-  br label %321
+307:                                              ; preds = %302
+  %308 = getelementptr inbounds nuw i8, ptr %0, i64 492
+  %309 = load i32, ptr %308, align 4, !tbaa !55
+  %310 = srem i32 %309, 100
+  %311 = icmp eq i32 %.0651, %310
+  %312 = zext i1 %311 to i8
+  store i8 %312, ptr %7, align 1, !tbaa !51
+  %313 = load i32, ptr %308, align 4, !tbaa !55
+  %.fr913 = freeze i32 %313
+  %314 = srem i32 %.fr913, 100
+  %315 = icmp slt i32 %.0651, %310
+  %316 = select i1 %315, i32 100, i32 0
+  %317 = add i32 %.fr913, %.0651
+  %318 = add i32 %317, %316
+  %319 = sub i32 %318, %314
+  br label %320
 
-321:                                              ; preds = %287, %295, %303, %308, %282
-  %.7658 = phi i32 [ %283, %282 ], [ %.0651, %287 ], [ %320, %308 ], [ %.0651, %303 ], [ %.0651, %295 ]
+320:                                              ; preds = %286, %294, %302, %307, %281
+  %.7658 = phi i32 [ %282, %281 ], [ %.0651, %286 ], [ %319, %307 ], [ %.0651, %302 ], [ %.0651, %294 ]
   invoke void @_ZN6icu_778Calendar3setE19UCalendarDateFieldsi(ptr noundef nonnull align 8 dereferenceable(192) %9, i32 noundef 1, i32 noundef %.7658)
-          to label %322 unwind label %258
+          to label %321 unwind label %257
 
-322:                                              ; preds = %321
-  %323 = load i32, ptr %8, align 4, !tbaa !12
-  %324 = icmp sgt i32 %323, -1
-  br i1 %324, label %325, label %333
+321:                                              ; preds = %320
+  %322 = load i32, ptr %8, align 4, !tbaa !12
+  %323 = icmp sgt i32 %322, -1
+  br i1 %323, label %324, label %332
 
-325:                                              ; preds = %322
-  %326 = invoke noundef signext i8 @_ZN6icu_7714HebrewCalendar10isLeapYearEi(i32 noundef %.7658)
-          to label %.invoke1157 unwind label %330
+324:                                              ; preds = %321
+  %325 = invoke noundef signext i8 @_ZN6icu_7714HebrewCalendar10isLeapYearEi(i32 noundef %.7658)
+          to label %.invoke1157 unwind label %329
 
-.invoke1157:                                      ; preds = %325
-  %.not914 = icmp ne i8 %326, 0
+.invoke1157:                                      ; preds = %324
+  %.not914 = icmp ne i8 %325, 0
   %.pre = load i32, ptr %8, align 4, !tbaa !12
-  %327 = icmp slt i32 %.pre, 6
-  %or.cond.not = or i1 %.not914, %327
-  %328 = sext i1 %or.cond.not to i32
-  %329 = add nsw i32 %.pre, %328
-  invoke void @_ZN6icu_778Calendar3setE19UCalendarDateFieldsi(ptr noundef nonnull align 8 dereferenceable(192) %9, i32 noundef 2, i32 noundef %329)
-          to label %332 unwind label %330
+  %326 = icmp slt i32 %.pre, 6
+  %or.cond.not = or i1 %.not914, %326
+  %327 = sext i1 %or.cond.not to i32
+  %328 = add nsw i32 %.pre, %327
+  invoke void @_ZN6icu_778Calendar3setE19UCalendarDateFieldsi(ptr noundef nonnull align 8 dereferenceable(192) %9, i32 noundef 2, i32 noundef %328)
+          to label %331 unwind label %329
 
-330:                                              ; preds = %.invoke1157, %325
-  %331 = landingpad { ptr, i32 }
+329:                                              ; preds = %.invoke1157, %324
+  %330 = landingpad { ptr, i32 }
           cleanup
-  br label %1400
+  br label %1399
 
-332:                                              ; preds = %.invoke1157
+331:                                              ; preds = %.invoke1157
   store i32 -1, ptr %8, align 4, !tbaa !12
-  br label %333
+  br label %332
 
-333:                                              ; preds = %332, %322
-  %334 = load i32, ptr %27, align 8, !tbaa !189
+332:                                              ; preds = %331, %321
+  %333 = load i32, ptr %27, align 8, !tbaa !189
   br label %.thread990
 
-335:                                              ; preds = %250
-  %336 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %337 = invoke noundef signext i8 @_ZNK6icu_7713UnicodeString7compareERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %336, ptr noundef nonnull align 8 dereferenceable(64) %20)
-          to label %338 unwind label %258
+334:                                              ; preds = %249
+  %335 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %336 = invoke noundef signext i8 @_ZNK6icu_7713UnicodeString7compareERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %335, ptr noundef nonnull align 8 dereferenceable(64) %20)
+          to label %337 unwind label %257
 
-338:                                              ; preds = %335
-  %339 = icmp eq i8 %337, 0
-  %340 = icmp slt i32 %.0651, 1000
-  %or.cond54 = select i1 %339, i1 %340, i1 false
-  br i1 %or.cond54, label %341, label %343
+337:                                              ; preds = %334
+  %338 = icmp eq i8 %336, 0
+  %339 = icmp slt i32 %.0651, 1000
+  %or.cond54 = select i1 %338, i1 %339, i1 false
+  br i1 %or.cond54, label %340, label %342
 
-341:                                              ; preds = %338
-  %342 = add nsw i32 %.0651, 5000
-  br label %378
+340:                                              ; preds = %337
+  %341 = add nsw i32 %.0651, 5000
+  br label %377
 
-343:                                              ; preds = %338
-  %344 = load i32, ptr %2, align 4, !tbaa !12
-  %345 = invoke noundef i32 @_ZNK6icu_7713UnicodeString11moveIndex32Eii(ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %344, i32 noundef 2)
-          to label %346 unwind label %258
+342:                                              ; preds = %337
+  %343 = load i32, ptr %2, align 4, !tbaa !12
+  %344 = invoke noundef i32 @_ZNK6icu_7713UnicodeString11moveIndex32Eii(ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %343, i32 noundef 2)
+          to label %345 unwind label %257
 
-346:                                              ; preds = %343
-  %347 = load i32, ptr %27, align 8, !tbaa !189
-  %348 = icmp eq i32 %345, %347
-  br i1 %348, label %349, label %378
+345:                                              ; preds = %342
+  %346 = load i32, ptr %27, align 8, !tbaa !189
+  %347 = icmp eq i32 %344, %346
+  br i1 %347, label %348, label %377
 
-349:                                              ; preds = %346
-  %350 = load i32, ptr %2, align 4, !tbaa !12
-  %351 = invoke noundef i32 @_ZNK6icu_7713UnicodeString8char32AtEi(ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %350)
-          to label %352 unwind label %258
+348:                                              ; preds = %345
+  %349 = load i32, ptr %2, align 4, !tbaa !12
+  %350 = invoke noundef i32 @_ZNK6icu_7713UnicodeString8char32AtEi(ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %349)
+          to label %351 unwind label %257
 
-352:                                              ; preds = %349
-  %353 = invoke signext i8 @u_isdigit_77(i32 noundef %351)
-          to label %354 unwind label %258
+351:                                              ; preds = %348
+  %352 = invoke signext i8 @u_isdigit_77(i32 noundef %350)
+          to label %353 unwind label %257
 
-354:                                              ; preds = %352
-  %.not908 = icmp eq i8 %353, 0
-  br i1 %.not908, label %378, label %355
+353:                                              ; preds = %351
+  %.not908 = icmp eq i8 %352, 0
+  br i1 %.not908, label %377, label %354
 
-355:                                              ; preds = %354
-  %356 = load i32, ptr %2, align 4, !tbaa !12
-  %357 = invoke noundef i32 @_ZNK6icu_7713UnicodeString11moveIndex32Eii(ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %356, i32 noundef 1)
-          to label %358 unwind label %258
+354:                                              ; preds = %353
+  %355 = load i32, ptr %2, align 4, !tbaa !12
+  %356 = invoke noundef i32 @_ZNK6icu_7713UnicodeString11moveIndex32Eii(ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %355, i32 noundef 1)
+          to label %357 unwind label %257
 
-358:                                              ; preds = %355
-  %359 = invoke noundef i32 @_ZNK6icu_7713UnicodeString8char32AtEi(ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %357)
-          to label %360 unwind label %258
+357:                                              ; preds = %354
+  %358 = invoke noundef i32 @_ZNK6icu_7713UnicodeString8char32AtEi(ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %356)
+          to label %359 unwind label %257
 
-360:                                              ; preds = %358
-  %361 = invoke signext i8 @u_isdigit_77(i32 noundef %359)
-          to label %362 unwind label %258
+359:                                              ; preds = %357
+  %360 = invoke signext i8 @u_isdigit_77(i32 noundef %358)
+          to label %361 unwind label %257
 
-362:                                              ; preds = %360
-  %.not909 = icmp eq i8 %361, 0
-  %363 = getelementptr inbounds nuw i8, ptr %0, i64 512
-  %364 = load i8, ptr %363, align 8
-  %.not910 = icmp eq i8 %364, 0
+361:                                              ; preds = %359
+  %.not909 = icmp eq i8 %360, 0
+  %362 = getelementptr inbounds nuw i8, ptr %0, i64 512
+  %363 = load i8, ptr %362, align 8
+  %.not910 = icmp eq i8 %363, 0
   %or.cond940 = select i1 %.not909, i1 true, i1 %.not910
-  br i1 %or.cond940, label %378, label %365
+  br i1 %or.cond940, label %377, label %364
 
-365:                                              ; preds = %362
-  %366 = getelementptr inbounds nuw i8, ptr %0, i64 492
-  %367 = load i32, ptr %366, align 4, !tbaa !55
-  %368 = srem i32 %367, 100
-  %369 = icmp eq i32 %.0651, %368
-  %370 = zext i1 %369 to i8
-  store i8 %370, ptr %7, align 1, !tbaa !51
-  %371 = load i32, ptr %366, align 4, !tbaa !55
-  %.fr = freeze i32 %371
-  %372 = srem i32 %.fr, 100
-  %373 = icmp slt i32 %.0651, %368
-  %374 = select i1 %373, i32 100, i32 0
-  %375 = add i32 %.fr, %.0651
-  %376 = add i32 %375, %374
-  %377 = sub i32 %376, %372
-  br label %378
+364:                                              ; preds = %361
+  %365 = getelementptr inbounds nuw i8, ptr %0, i64 492
+  %366 = load i32, ptr %365, align 4, !tbaa !55
+  %367 = srem i32 %366, 100
+  %368 = icmp eq i32 %.0651, %367
+  %369 = zext i1 %368 to i8
+  store i8 %369, ptr %7, align 1, !tbaa !51
+  %370 = load i32, ptr %365, align 4, !tbaa !55
+  %.fr = freeze i32 %370
+  %371 = srem i32 %.fr, 100
+  %372 = icmp slt i32 %.0651, %367
+  %373 = select i1 %372, i32 100, i32 0
+  %374 = add i32 %.fr, %.0651
+  %375 = add i32 %374, %373
+  %376 = sub i32 %375, %371
+  br label %377
 
-378:                                              ; preds = %346, %354, %362, %365, %341
-  %.8659 = phi i32 [ %342, %341 ], [ %377, %365 ], [ %.0651, %362 ], [ %.0651, %354 ], [ %.0651, %346 ]
+377:                                              ; preds = %345, %353, %361, %364, %340
+  %.8659 = phi i32 [ %341, %340 ], [ %376, %364 ], [ %.0651, %361 ], [ %.0651, %353 ], [ %.0651, %345 ]
   invoke void @_ZN6icu_778Calendar3setE19UCalendarDateFieldsi(ptr noundef nonnull align 8 dereferenceable(192) %9, i32 noundef 17, i32 noundef %.8659)
-          to label %379 unwind label %258
+          to label %378 unwind label %257
 
-379:                                              ; preds = %378
-  %380 = load i32, ptr %27, align 8, !tbaa !189
+378:                                              ; preds = %377
+  %379 = load i32, ptr %27, align 8, !tbaa !189
   br label %.thread990
 
-381:                                              ; preds = %.thread964
-  %382 = getelementptr inbounds nuw i8, ptr %0, i64 464
-  %383 = load ptr, ptr %382, align 8, !tbaa !46
-  %384 = getelementptr inbounds nuw i8, ptr %383, i64 488
-  %385 = load ptr, ptr %384, align 8, !tbaa !97
-  %.not905 = icmp eq ptr %385, null
-  br i1 %.not905, label %395, label %386
+380:                                              ; preds = %.thread964
+  %381 = getelementptr inbounds nuw i8, ptr %0, i64 464
+  %382 = load ptr, ptr %381, align 8, !tbaa !46
+  %383 = getelementptr inbounds nuw i8, ptr %382, i64 488
+  %384 = load ptr, ptr %383, align 8, !tbaa !97
+  %.not905 = icmp eq ptr %384, null
+  br i1 %.not905, label %394, label %385
 
-386:                                              ; preds = %381
-  %387 = load i32, ptr %2, align 4, !tbaa !12
-  %388 = getelementptr inbounds nuw i8, ptr %383, i64 496
-  %389 = load i32, ptr %388, align 8, !tbaa !98
-  %390 = invoke noundef i32 @_ZNK6icu_7716SimpleDateFormat11matchStringERKNS_13UnicodeStringEi19UCalendarDateFieldsPS2_iS5_RNS_8CalendarE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %387, i32 noundef 1, ptr noundef nonnull %385, i32 noundef %389, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(192) %9)
-          to label %391 unwind label %393
+385:                                              ; preds = %380
+  %386 = load i32, ptr %2, align 4, !tbaa !12
+  %387 = getelementptr inbounds nuw i8, ptr %382, i64 496
+  %388 = load i32, ptr %387, align 8, !tbaa !98
+  %389 = invoke noundef i32 @_ZNK6icu_7716SimpleDateFormat11matchStringERKNS_13UnicodeStringEi19UCalendarDateFieldsPS2_iS5_RNS_8CalendarE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %386, i32 noundef 1, ptr noundef nonnull %384, i32 noundef %388, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(192) %9)
+          to label %390 unwind label %392
 
-391:                                              ; preds = %386
-  %392 = icmp slt i32 %390, 1
-  br i1 %392, label %395, label %.thread990
+390:                                              ; preds = %385
+  %391 = icmp slt i32 %389, 1
+  br i1 %391, label %394, label %.thread990
 
-393:                                              ; preds = %386
-  %394 = landingpad { ptr, i32 }
+392:                                              ; preds = %385
+  %393 = landingpad { ptr, i32 }
           cleanup
-  br label %1400
+  br label %1399
 
-395:                                              ; preds = %391, %381
-  br i1 %.not890, label %410, label %396
+394:                                              ; preds = %390, %380
+  br i1 %.not890, label %409, label %395
 
-396:                                              ; preds = %395
-  %397 = load ptr, ptr %0, align 8, !tbaa !44
-  %398 = getelementptr inbounds nuw i8, ptr %397, i64 224
-  %399 = load ptr, ptr %398, align 8
-  %400 = invoke noundef signext i8 %399(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) %16)
-          to label %401 unwind label %258
+395:                                              ; preds = %394
+  %396 = load ptr, ptr %0, align 8, !tbaa !44
+  %397 = getelementptr inbounds nuw i8, ptr %396, i64 224
+  %398 = load ptr, ptr %397, align 8
+  %399 = invoke noundef signext i8 %398(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) %16)
+          to label %400 unwind label %257
 
-401:                                              ; preds = %396
-  %.not907 = icmp eq i8 %400, 0
-  br i1 %.not907, label %402, label %407
+400:                                              ; preds = %395
+  %.not907 = icmp eq i8 %399, 0
+  br i1 %.not907, label %401, label %406
 
-402:                                              ; preds = %401
-  %403 = load ptr, ptr %382, align 8, !tbaa !46
-  %404 = getelementptr inbounds nuw i8, ptr %403, i64 496
-  %405 = load i32, ptr %404, align 8, !tbaa !98
-  %406 = icmp sgt i32 %.0651, %405
-  br i1 %406, label %407, label %410
+401:                                              ; preds = %400
+  %402 = load ptr, ptr %381, align 8, !tbaa !46
+  %403 = getelementptr inbounds nuw i8, ptr %402, i64 496
+  %404 = load i32, ptr %403, align 8, !tbaa !98
+  %405 = icmp sgt i32 %.0651, %404
+  br i1 %405, label %406, label %409
 
-407:                                              ; preds = %402, %401
+406:                                              ; preds = %401, %400
   invoke void @_ZN6icu_778Calendar3setE19UCalendarDateFieldsi(ptr noundef nonnull align 8 dereferenceable(192) %9, i32 noundef 1, i32 noundef %.0651)
-          to label %408 unwind label %258
+          to label %407 unwind label %257
 
-408:                                              ; preds = %407
-  %409 = load i32, ptr %27, align 8, !tbaa !189
+407:                                              ; preds = %406
+  %408 = load i32, ptr %27, align 8, !tbaa !189
   br label %.thread990
 
-410:                                              ; preds = %402, %395
-  %411 = load i32, ptr %2, align 4, !tbaa !12
-  %412 = sub nsw i32 0, %411
+409:                                              ; preds = %401, %394
+  %410 = load i32, ptr %2, align 4, !tbaa !12
+  %411 = sub nsw i32 0, %410
   br label %.thread990
 
-413:                                              ; preds = %.thread964, %.thread964
-  br i1 %.not890, label %439, label %.thread973
+412:                                              ; preds = %.thread964, %.thread964
+  br i1 %.not890, label %438, label %.thread973
 
-.thread973:                                       ; preds = %250, %413
-  %414 = load ptr, ptr %9, align 8, !tbaa !44
-  %415 = getelementptr inbounds i8, ptr %414, i64 -8
-  %416 = load ptr, ptr %415, align 8
-  %417 = call noundef zeroext i1 @_ZNKSt9type_infoeqERKS_(ptr noundef nonnull align 8 dereferenceable(16) %416, ptr noundef nonnull align 8 dereferenceable(16) @_ZTIN6icu_7714HebrewCalendarE) #23
-  br i1 %417, label %418, label %435
+.thread973:                                       ; preds = %249, %412
+  %413 = load ptr, ptr %9, align 8, !tbaa !44
+  %414 = getelementptr inbounds i8, ptr %413, i64 -8
+  %415 = load ptr, ptr %414, align 8
+  %416 = call noundef zeroext i1 @_ZNKSt9type_infoeqERKS_(ptr noundef nonnull align 8 dereferenceable(16) %415, ptr noundef nonnull align 8 dereferenceable(16) @_ZTIN6icu_7714HebrewCalendarE) #23
+  br i1 %416, label %417, label %434
 
-418:                                              ; preds = %.thread973
-  %419 = invoke noundef signext i8 @_ZNK6icu_778Calendar5isSetE19UCalendarDateFields(ptr noundef nonnull align 8 dereferenceable(192) %9, i32 noundef 1)
-          to label %420 unwind label %429
+417:                                              ; preds = %.thread973
+  %418 = invoke noundef signext i8 @_ZNK6icu_778Calendar5isSetE19UCalendarDateFields(ptr noundef nonnull align 8 dereferenceable(192) %9, i32 noundef 1)
+          to label %419 unwind label %428
 
-420:                                              ; preds = %418
-  %.not902 = icmp eq i8 %419, 0
-  br i1 %.not902, label %434, label %421
+419:                                              ; preds = %417
+  %.not902 = icmp eq i8 %418, 0
+  br i1 %.not902, label %433, label %420
 
-421:                                              ; preds = %420
+420:                                              ; preds = %419
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   store i32 0, ptr %22, align 4, !tbaa !13
-  %422 = invoke noundef i32 @_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(192) %9, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) %22)
-          to label %423 unwind label %431
+  %421 = invoke noundef i32 @_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(192) %9, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) %22)
+          to label %422 unwind label %430
 
-423:                                              ; preds = %421
-  %424 = invoke noundef signext i8 @_ZN6icu_7714HebrewCalendar10isLeapYearEi(i32 noundef %422)
-          to label %.invoke1158 unwind label %431
+422:                                              ; preds = %420
+  %423 = invoke noundef signext i8 @_ZN6icu_7714HebrewCalendar10isLeapYearEi(i32 noundef %421)
+          to label %.invoke1158 unwind label %430
 
-.invoke1158:                                      ; preds = %423
-  %425 = icmp ne i8 %424, 0
-  %426 = icmp slt i32 %.0651, 6
-  %or.cond56.not = select i1 %425, i1 true, i1 %426
-  %427 = sext i1 %or.cond56.not to i32
-  %428 = add nsw i32 %.0651, %427
-  invoke void @_ZN6icu_778Calendar3setE19UCalendarDateFieldsi(ptr noundef nonnull align 8 dereferenceable(192) %9, i32 noundef 2, i32 noundef %428)
-          to label %433 unwind label %431
+.invoke1158:                                      ; preds = %422
+  %424 = icmp ne i8 %423, 0
+  %425 = icmp slt i32 %.0651, 6
+  %or.cond56.not = select i1 %424, i1 true, i1 %425
+  %426 = sext i1 %or.cond56.not to i32
+  %427 = add nsw i32 %.0651, %426
+  invoke void @_ZN6icu_778Calendar3setE19UCalendarDateFieldsi(ptr noundef nonnull align 8 dereferenceable(192) %9, i32 noundef 2, i32 noundef %427)
+          to label %432 unwind label %430
 
-429:                                              ; preds = %418
-  %430 = landingpad { ptr, i32 }
+428:                                              ; preds = %417
+  %429 = landingpad { ptr, i32 }
           cleanup
-  br label %1400
+  br label %1399
 
-431:                                              ; preds = %.invoke1158, %423, %421
-  %432 = landingpad { ptr, i32 }
+430:                                              ; preds = %.invoke1158, %422, %420
+  %431 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
-  br label %1400
+  br label %1399
 
-433:                                              ; preds = %.invoke1158
+432:                                              ; preds = %.invoke1158
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
-  br label %437
+  br label %436
 
-434:                                              ; preds = %420
+433:                                              ; preds = %419
   store i32 %.0651, ptr %8, align 4, !tbaa !12
-  br label %437
+  br label %436
 
-435:                                              ; preds = %.thread973
-  %436 = add nsw i32 %.0651, -1
-  invoke void @_ZN6icu_778Calendar3setE19UCalendarDateFieldsi(ptr noundef nonnull align 8 dereferenceable(192) %9, i32 noundef 2, i32 noundef %436)
-          to label %437 unwind label %258
+434:                                              ; preds = %.thread973
+  %435 = add nsw i32 %.0651, -1
+  invoke void @_ZN6icu_778Calendar3setE19UCalendarDateFieldsi(ptr noundef nonnull align 8 dereferenceable(192) %9, i32 noundef 2, i32 noundef %435)
+          to label %436 unwind label %257
 
-437:                                              ; preds = %433, %434, %435
-  %438 = load i32, ptr %27, align 8, !tbaa !189
+436:                                              ; preds = %432, %433, %434
+  %437 = load i32, ptr %27, align 8, !tbaa !189
   br label %.thread990
 
-439:                                              ; preds = %413
-  %440 = getelementptr inbounds nuw i8, ptr %0, i64 464
-  %441 = load ptr, ptr %440, align 8, !tbaa !46
-  %442 = getelementptr inbounds nuw i8, ptr %441, i64 472
-  %443 = load ptr, ptr %442, align 8, !tbaa !99
-  %.not900 = icmp eq ptr %443, null
-  br i1 %.not900, label %453, label %444
+438:                                              ; preds = %412
+  %439 = getelementptr inbounds nuw i8, ptr %0, i64 464
+  %440 = load ptr, ptr %439, align 8, !tbaa !46
+  %441 = getelementptr inbounds nuw i8, ptr %440, i64 472
+  %442 = load ptr, ptr %441, align 8, !tbaa !99
+  %.not900 = icmp eq ptr %442, null
+  br i1 %.not900, label %452, label %443
 
-444:                                              ; preds = %439
-  %445 = getelementptr inbounds nuw i8, ptr %441, i64 480
-  %446 = load i32, ptr %445, align 8, !tbaa !100
-  %447 = icmp sgt i32 %446, 6
-  br i1 %447, label %448, label %453
+443:                                              ; preds = %438
+  %444 = getelementptr inbounds nuw i8, ptr %440, i64 480
+  %445 = load i32, ptr %444, align 8, !tbaa !100
+  %446 = icmp sgt i32 %445, 6
+  br i1 %446, label %447, label %452
 
-448:                                              ; preds = %444
-  %449 = icmp eq i32 %29, 2
-  br i1 %449, label %.thread975, label %.thread980
+447:                                              ; preds = %443
+  %448 = icmp eq i32 %29, 2
+  br i1 %448, label %.thread975, label %.thread980
 
-.thread975:                                       ; preds = %448
-  %450 = getelementptr inbounds nuw i8, ptr %443, i64 64
-  br label %455
+.thread975:                                       ; preds = %447
+  %449 = getelementptr inbounds nuw i8, ptr %442, i64 64
+  br label %454
 
-.thread980:                                       ; preds = %448
-  %451 = getelementptr inbounds nuw i8, ptr %443, i64 192
-  %452 = getelementptr inbounds nuw i8, ptr %443, i64 256
-  br label %512
+.thread980:                                       ; preds = %447
+  %450 = getelementptr inbounds nuw i8, ptr %442, i64 192
+  %451 = getelementptr inbounds nuw i8, ptr %442, i64 256
+  br label %511
 
-453:                                              ; preds = %444, %439
-  %454 = icmp eq i32 %29, 2
-  br i1 %454, label %455, label %512
+452:                                              ; preds = %443, %438
+  %453 = icmp eq i32 %29, 2
+  br i1 %453, label %454, label %511
 
-455:                                              ; preds = %.thread975, %453
-  %.0742979 = phi ptr [ %443, %.thread975 ], [ null, %453 ]
-  %.0743978 = phi ptr [ %450, %.thread975 ], [ null, %453 ]
-  %456 = load ptr, ptr %0, align 8, !tbaa !44
-  %457 = getelementptr inbounds nuw i8, ptr %456, i64 224
-  %458 = load ptr, ptr %457, align 8
-  %459 = invoke noundef signext i8 %458(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef 3, ptr noundef nonnull align 4 dereferenceable(4) %16)
-          to label %460 unwind label %484
+454:                                              ; preds = %.thread975, %452
+  %.0742979 = phi ptr [ %442, %.thread975 ], [ null, %452 ]
+  %.0743978 = phi ptr [ %449, %.thread975 ], [ null, %452 ]
+  %455 = load ptr, ptr %0, align 8, !tbaa !44
+  %456 = getelementptr inbounds nuw i8, ptr %455, i64 224
+  %457 = load ptr, ptr %456, align 8
+  %458 = invoke noundef signext i8 %457(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef 3, ptr noundef nonnull align 4 dereferenceable(4) %16)
+          to label %459 unwind label %483
 
-460:                                              ; preds = %455
-  %461 = icmp ne i8 %459, 0
-  %462 = add i32 %4, -3
-  %463 = icmp ult i32 %462, 2
-  %or.cond60 = and i1 %463, %461
-  br i1 %or.cond60, label %464, label %486
+459:                                              ; preds = %454
+  %460 = icmp ne i8 %458, 0
+  %461 = add i32 %4, -3
+  %462 = icmp ult i32 %461, 2
+  %or.cond60 = and i1 %462, %460
+  br i1 %or.cond60, label %463, label %485
 
-464:                                              ; preds = %460
-  %465 = load ptr, ptr %440, align 8, !tbaa !46
-  %466 = getelementptr inbounds nuw i8, ptr %465, i64 472
-  %467 = load ptr, ptr %466, align 8, !tbaa !99
-  %468 = icmp eq ptr %467, null
-  br i1 %468, label %469, label %486
+463:                                              ; preds = %459
+  %464 = load ptr, ptr %439, align 8, !tbaa !46
+  %465 = getelementptr inbounds nuw i8, ptr %464, i64 472
+  %466 = load ptr, ptr %465, align 8, !tbaa !99
+  %467 = icmp eq ptr %466, null
+  br i1 %467, label %468, label %485
 
-469:                                              ; preds = %464
-  %470 = getelementptr inbounds nuw i8, ptr %465, i64 64
-  %471 = load i32, ptr %470, align 8, !tbaa !106
-  %472 = getelementptr inbounds nuw i8, ptr %465, i64 80
-  %473 = load i32, ptr %472, align 8, !tbaa !110
-  %474 = icmp eq i32 %471, %473
-  br i1 %474, label %475, label %486
+468:                                              ; preds = %463
+  %469 = getelementptr inbounds nuw i8, ptr %464, i64 64
+  %470 = load i32, ptr %469, align 8, !tbaa !106
+  %471 = getelementptr inbounds nuw i8, ptr %464, i64 80
+  %472 = load i32, ptr %471, align 8, !tbaa !110
+  %473 = icmp eq i32 %470, %472
+  br i1 %473, label %474, label %485
 
-475:                                              ; preds = %469
-  %476 = load i32, ptr %2, align 4, !tbaa !12
-  %477 = getelementptr inbounds nuw i8, ptr %465, i64 56
-  %478 = load ptr, ptr %477, align 8, !tbaa !105
-  %479 = getelementptr inbounds nuw i8, ptr %465, i64 72
-  %480 = load ptr, ptr %479, align 8, !tbaa !109
-  %481 = invoke noundef i32 @_ZNK6icu_7716SimpleDateFormat22matchAlphaMonthStringsERKNS_13UnicodeStringEiPS2_S4_iRNS_8CalendarE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %476, ptr noundef %478, ptr noundef %480, i32 noundef %471, ptr noundef nonnull align 8 dereferenceable(192) %9)
-          to label %482 unwind label %484
+474:                                              ; preds = %468
+  %475 = load i32, ptr %2, align 4, !tbaa !12
+  %476 = getelementptr inbounds nuw i8, ptr %464, i64 56
+  %477 = load ptr, ptr %476, align 8, !tbaa !105
+  %478 = getelementptr inbounds nuw i8, ptr %464, i64 72
+  %479 = load ptr, ptr %478, align 8, !tbaa !109
+  %480 = invoke noundef i32 @_ZNK6icu_7716SimpleDateFormat22matchAlphaMonthStringsERKNS_13UnicodeStringEiPS2_S4_iRNS_8CalendarE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %475, ptr noundef %477, ptr noundef %479, i32 noundef %470, ptr noundef nonnull align 8 dereferenceable(192) %9)
+          to label %481 unwind label %483
 
-482:                                              ; preds = %475
-  %483 = icmp sgt i32 %481, 0
-  br i1 %483, label %.thread990, label %486
+481:                                              ; preds = %474
+  %482 = icmp sgt i32 %480, 0
+  br i1 %482, label %.thread990, label %485
 
-484:                                              ; preds = %.invoke1159, %.thread986, %559, %549, %541, %532, %512, %504, %494, %486, %475, %455
-  %485 = landingpad { ptr, i32 }
+483:                                              ; preds = %.invoke1159, %.thread986, %558, %548, %540, %531, %511, %503, %493, %485, %474, %454
+  %484 = landingpad { ptr, i32 }
           cleanup
-  br label %1400
+  br label %1399
 
-486:                                              ; preds = %482, %469, %464, %460
-  %.0744 = phi i32 [ %481, %482 ], [ 0, %469 ], [ 0, %464 ], [ 0, %460 ]
-  %487 = load ptr, ptr %0, align 8, !tbaa !44
-  %488 = getelementptr inbounds nuw i8, ptr %487, i64 224
-  %489 = load ptr, ptr %488, align 8
-  %490 = invoke noundef signext i8 %489(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef 3, ptr noundef nonnull align 4 dereferenceable(4) %16)
-          to label %491 unwind label %484
+485:                                              ; preds = %481, %468, %463, %459
+  %.0744 = phi i32 [ %480, %481 ], [ 0, %468 ], [ 0, %463 ], [ 0, %459 ]
+  %486 = load ptr, ptr %0, align 8, !tbaa !44
+  %487 = getelementptr inbounds nuw i8, ptr %486, i64 224
+  %488 = load ptr, ptr %487, align 8
+  %489 = invoke noundef signext i8 %488(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef 3, ptr noundef nonnull align 4 dereferenceable(4) %16)
+          to label %490 unwind label %483
 
-491:                                              ; preds = %486
-  %492 = icmp ne i8 %490, 0
-  %493 = icmp eq i32 %4, 4
-  %or.cond62 = or i1 %493, %492
-  br i1 %or.cond62, label %494, label %504
+490:                                              ; preds = %485
+  %491 = icmp ne i8 %489, 0
+  %492 = icmp eq i32 %4, 4
+  %or.cond62 = or i1 %492, %491
+  br i1 %or.cond62, label %493, label %503
 
-494:                                              ; preds = %491
-  %495 = load i32, ptr %2, align 4, !tbaa !12
-  %496 = load ptr, ptr %440, align 8, !tbaa !46
-  %497 = getelementptr inbounds nuw i8, ptr %496, i64 56
-  %498 = load ptr, ptr %497, align 8, !tbaa !105
-  %499 = getelementptr inbounds nuw i8, ptr %496, i64 64
-  %500 = load i32, ptr %499, align 8, !tbaa !106
-  %501 = invoke noundef i32 @_ZNK6icu_7716SimpleDateFormat11matchStringERKNS_13UnicodeStringEi19UCalendarDateFieldsPS2_iS5_RNS_8CalendarE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %495, i32 noundef 2, ptr noundef %498, i32 noundef %500, ptr noundef %.0742979, ptr noundef nonnull align 8 dereferenceable(192) %9)
-          to label %502 unwind label %484
+493:                                              ; preds = %490
+  %494 = load i32, ptr %2, align 4, !tbaa !12
+  %495 = load ptr, ptr %439, align 8, !tbaa !46
+  %496 = getelementptr inbounds nuw i8, ptr %495, i64 56
+  %497 = load ptr, ptr %496, align 8, !tbaa !105
+  %498 = getelementptr inbounds nuw i8, ptr %495, i64 64
+  %499 = load i32, ptr %498, align 8, !tbaa !106
+  %500 = invoke noundef i32 @_ZNK6icu_7716SimpleDateFormat11matchStringERKNS_13UnicodeStringEi19UCalendarDateFieldsPS2_iS5_RNS_8CalendarE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %494, i32 noundef 2, ptr noundef %497, i32 noundef %499, ptr noundef %.0742979, ptr noundef nonnull align 8 dereferenceable(192) %9)
+          to label %501 unwind label %483
 
-502:                                              ; preds = %494
-  %503 = icmp sgt i32 %501, 0
-  br i1 %503, label %.thread990, label %504
+501:                                              ; preds = %493
+  %502 = icmp sgt i32 %500, 0
+  br i1 %502, label %.thread990, label %503
 
-504:                                              ; preds = %502, %491
-  %.1745 = phi i32 [ %501, %502 ], [ %.0744, %491 ]
-  %505 = load ptr, ptr %0, align 8, !tbaa !44
-  %506 = getelementptr inbounds nuw i8, ptr %505, i64 224
-  %507 = load ptr, ptr %506, align 8
-  %508 = invoke noundef signext i8 %507(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef 3, ptr noundef nonnull align 4 dereferenceable(4) %16)
-          to label %509 unwind label %484
+503:                                              ; preds = %501, %490
+  %.1745 = phi i32 [ %500, %501 ], [ %.0744, %490 ]
+  %504 = load ptr, ptr %0, align 8, !tbaa !44
+  %505 = getelementptr inbounds nuw i8, ptr %504, i64 224
+  %506 = load ptr, ptr %505, align 8
+  %507 = invoke noundef signext i8 %506(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef 3, ptr noundef nonnull align 4 dereferenceable(4) %16)
+          to label %508 unwind label %483
 
-509:                                              ; preds = %504
-  %510 = icmp ne i8 %508, 0
-  %511 = icmp eq i32 %4, 3
-  %or.cond64 = or i1 %511, %510
+508:                                              ; preds = %503
+  %509 = icmp ne i8 %507, 0
+  %510 = icmp eq i32 %4, 3
+  %or.cond64 = or i1 %510, %509
   br i1 %or.cond64, label %.invoke1159, label %.thread986
 
-512:                                              ; preds = %.thread980, %453
-  %.0742984 = phi ptr [ %451, %.thread980 ], [ null, %453 ]
-  %.0743983 = phi ptr [ %452, %.thread980 ], [ null, %453 ]
-  %513 = load ptr, ptr %0, align 8, !tbaa !44
-  %514 = getelementptr inbounds nuw i8, ptr %513, i64 224
-  %515 = load ptr, ptr %514, align 8
-  %516 = invoke noundef signext i8 %515(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef 3, ptr noundef nonnull align 4 dereferenceable(4) %16)
-          to label %517 unwind label %484
+511:                                              ; preds = %.thread980, %452
+  %.0742984 = phi ptr [ %450, %.thread980 ], [ null, %452 ]
+  %.0743983 = phi ptr [ %451, %.thread980 ], [ null, %452 ]
+  %512 = load ptr, ptr %0, align 8, !tbaa !44
+  %513 = getelementptr inbounds nuw i8, ptr %512, i64 224
+  %514 = load ptr, ptr %513, align 8
+  %515 = invoke noundef signext i8 %514(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef 3, ptr noundef nonnull align 4 dereferenceable(4) %16)
+          to label %516 unwind label %483
 
-517:                                              ; preds = %512
-  %518 = icmp ne i8 %516, 0
-  %519 = add i32 %4, -3
-  %520 = icmp ult i32 %519, 2
-  %or.cond68 = and i1 %520, %518
-  br i1 %or.cond68, label %521, label %541
+516:                                              ; preds = %511
+  %517 = icmp ne i8 %515, 0
+  %518 = add i32 %4, -3
+  %519 = icmp ult i32 %518, 2
+  %or.cond68 = and i1 %519, %517
+  br i1 %or.cond68, label %520, label %540
 
-521:                                              ; preds = %517
-  %522 = load ptr, ptr %440, align 8, !tbaa !46
-  %523 = getelementptr inbounds nuw i8, ptr %522, i64 472
-  %524 = load ptr, ptr %523, align 8, !tbaa !99
-  %525 = icmp eq ptr %524, null
-  br i1 %525, label %526, label %541
+520:                                              ; preds = %516
+  %521 = load ptr, ptr %439, align 8, !tbaa !46
+  %522 = getelementptr inbounds nuw i8, ptr %521, i64 472
+  %523 = load ptr, ptr %522, align 8, !tbaa !99
+  %524 = icmp eq ptr %523, null
+  br i1 %524, label %525, label %540
 
-526:                                              ; preds = %521
-  %527 = getelementptr inbounds nuw i8, ptr %522, i64 112
-  %528 = load i32, ptr %527, align 8, !tbaa !108
-  %529 = getelementptr inbounds nuw i8, ptr %522, i64 128
-  %530 = load i32, ptr %529, align 8, !tbaa !112
-  %531 = icmp eq i32 %528, %530
-  br i1 %531, label %532, label %541
+525:                                              ; preds = %520
+  %526 = getelementptr inbounds nuw i8, ptr %521, i64 112
+  %527 = load i32, ptr %526, align 8, !tbaa !108
+  %528 = getelementptr inbounds nuw i8, ptr %521, i64 128
+  %529 = load i32, ptr %528, align 8, !tbaa !112
+  %530 = icmp eq i32 %527, %529
+  br i1 %530, label %531, label %540
 
-532:                                              ; preds = %526
-  %533 = load i32, ptr %2, align 4, !tbaa !12
-  %534 = getelementptr inbounds nuw i8, ptr %522, i64 104
-  %535 = load ptr, ptr %534, align 8, !tbaa !107
-  %536 = getelementptr inbounds nuw i8, ptr %522, i64 120
-  %537 = load ptr, ptr %536, align 8, !tbaa !111
-  %538 = invoke noundef i32 @_ZNK6icu_7716SimpleDateFormat22matchAlphaMonthStringsERKNS_13UnicodeStringEiPS2_S4_iRNS_8CalendarE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %533, ptr noundef %535, ptr noundef %537, i32 noundef %528, ptr noundef nonnull align 8 dereferenceable(192) %9)
-          to label %539 unwind label %484
+531:                                              ; preds = %525
+  %532 = load i32, ptr %2, align 4, !tbaa !12
+  %533 = getelementptr inbounds nuw i8, ptr %521, i64 104
+  %534 = load ptr, ptr %533, align 8, !tbaa !107
+  %535 = getelementptr inbounds nuw i8, ptr %521, i64 120
+  %536 = load ptr, ptr %535, align 8, !tbaa !111
+  %537 = invoke noundef i32 @_ZNK6icu_7716SimpleDateFormat22matchAlphaMonthStringsERKNS_13UnicodeStringEiPS2_S4_iRNS_8CalendarE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %532, ptr noundef %534, ptr noundef %536, i32 noundef %527, ptr noundef nonnull align 8 dereferenceable(192) %9)
+          to label %538 unwind label %483
 
-539:                                              ; preds = %532
-  %540 = icmp sgt i32 %538, 0
-  br i1 %540, label %.thread990, label %541
+538:                                              ; preds = %531
+  %539 = icmp sgt i32 %537, 0
+  br i1 %539, label %.thread990, label %540
 
-541:                                              ; preds = %539, %526, %521, %517
-  %.3747 = phi i32 [ %538, %539 ], [ 0, %526 ], [ 0, %521 ], [ 0, %517 ]
-  %542 = load ptr, ptr %0, align 8, !tbaa !44
-  %543 = getelementptr inbounds nuw i8, ptr %542, i64 224
-  %544 = load ptr, ptr %543, align 8
-  %545 = invoke noundef signext i8 %544(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef 3, ptr noundef nonnull align 4 dereferenceable(4) %16)
-          to label %546 unwind label %484
+540:                                              ; preds = %538, %525, %520, %516
+  %.3747 = phi i32 [ %537, %538 ], [ 0, %525 ], [ 0, %520 ], [ 0, %516 ]
+  %541 = load ptr, ptr %0, align 8, !tbaa !44
+  %542 = getelementptr inbounds nuw i8, ptr %541, i64 224
+  %543 = load ptr, ptr %542, align 8
+  %544 = invoke noundef signext i8 %543(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef 3, ptr noundef nonnull align 4 dereferenceable(4) %16)
+          to label %545 unwind label %483
 
-546:                                              ; preds = %541
-  %547 = icmp ne i8 %545, 0
-  %548 = icmp eq i32 %4, 4
-  %or.cond70 = or i1 %548, %547
-  br i1 %or.cond70, label %549, label %559
+545:                                              ; preds = %540
+  %546 = icmp ne i8 %544, 0
+  %547 = icmp eq i32 %4, 4
+  %or.cond70 = or i1 %547, %546
+  br i1 %or.cond70, label %548, label %558
 
-549:                                              ; preds = %546
-  %550 = load i32, ptr %2, align 4, !tbaa !12
-  %551 = load ptr, ptr %440, align 8, !tbaa !46
-  %552 = getelementptr inbounds nuw i8, ptr %551, i64 104
-  %553 = load ptr, ptr %552, align 8, !tbaa !107
-  %554 = getelementptr inbounds nuw i8, ptr %551, i64 112
-  %555 = load i32, ptr %554, align 8, !tbaa !108
-  %556 = invoke noundef i32 @_ZNK6icu_7716SimpleDateFormat11matchStringERKNS_13UnicodeStringEi19UCalendarDateFieldsPS2_iS5_RNS_8CalendarE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %550, i32 noundef 2, ptr noundef %553, i32 noundef %555, ptr noundef %.0742984, ptr noundef nonnull align 8 dereferenceable(192) %9)
-          to label %557 unwind label %484
+548:                                              ; preds = %545
+  %549 = load i32, ptr %2, align 4, !tbaa !12
+  %550 = load ptr, ptr %439, align 8, !tbaa !46
+  %551 = getelementptr inbounds nuw i8, ptr %550, i64 104
+  %552 = load ptr, ptr %551, align 8, !tbaa !107
+  %553 = getelementptr inbounds nuw i8, ptr %550, i64 112
+  %554 = load i32, ptr %553, align 8, !tbaa !108
+  %555 = invoke noundef i32 @_ZNK6icu_7716SimpleDateFormat11matchStringERKNS_13UnicodeStringEi19UCalendarDateFieldsPS2_iS5_RNS_8CalendarE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %549, i32 noundef 2, ptr noundef %552, i32 noundef %554, ptr noundef %.0742984, ptr noundef nonnull align 8 dereferenceable(192) %9)
+          to label %556 unwind label %483
 
-557:                                              ; preds = %549
-  %558 = icmp sgt i32 %556, 0
-  br i1 %558, label %.thread990, label %559
+556:                                              ; preds = %548
+  %557 = icmp sgt i32 %555, 0
+  br i1 %557, label %.thread990, label %558
 
-559:                                              ; preds = %557, %546
-  %.4748 = phi i32 [ %556, %557 ], [ %.3747, %546 ]
-  %560 = load ptr, ptr %0, align 8, !tbaa !44
-  %561 = getelementptr inbounds nuw i8, ptr %560, i64 224
-  %562 = load ptr, ptr %561, align 8
-  %563 = invoke noundef signext i8 %562(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef 3, ptr noundef nonnull align 4 dereferenceable(4) %16)
-          to label %564 unwind label %484
+558:                                              ; preds = %556, %545
+  %.4748 = phi i32 [ %555, %556 ], [ %.3747, %545 ]
+  %559 = load ptr, ptr %0, align 8, !tbaa !44
+  %560 = getelementptr inbounds nuw i8, ptr %559, i64 224
+  %561 = load ptr, ptr %560, align 8
+  %562 = invoke noundef signext i8 %561(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef 3, ptr noundef nonnull align 4 dereferenceable(4) %16)
+          to label %563 unwind label %483
 
-564:                                              ; preds = %559
-  %565 = icmp ne i8 %563, 0
-  %566 = icmp eq i32 %4, 3
-  %or.cond72 = or i1 %566, %565
+563:                                              ; preds = %558
+  %564 = icmp ne i8 %562, 0
+  %565 = icmp eq i32 %4, 3
+  %or.cond72 = or i1 %565, %564
   br i1 %or.cond72, label %.invoke1159, label %.thread986
 
-.invoke1159:                                      ; preds = %564, %509
-  %.sink1163 = phi i64 [ 72, %509 ], [ 120, %564 ]
-  %.sink1161 = phi i64 [ 80, %509 ], [ 128, %564 ]
-  %567 = phi ptr [ %.0743978, %509 ], [ %.0743983, %564 ]
-  %568 = load i32, ptr %2, align 4, !tbaa !12
-  %569 = load ptr, ptr %440, align 8, !tbaa !46
-  %570 = getelementptr inbounds nuw i8, ptr %569, i64 %.sink1163
-  %571 = load ptr, ptr %570, align 8, !tbaa !181
-  %572 = getelementptr inbounds nuw i8, ptr %569, i64 %.sink1161
-  %573 = load i32, ptr %572, align 8, !tbaa !12
-  %574 = invoke noundef i32 @_ZNK6icu_7716SimpleDateFormat11matchStringERKNS_13UnicodeStringEi19UCalendarDateFieldsPS2_iS5_RNS_8CalendarE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %568, i32 noundef 2, ptr noundef %571, i32 noundef %573, ptr noundef %567, ptr noundef nonnull align 8 dereferenceable(192) %9)
-          to label %575 unwind label %484
+.invoke1159:                                      ; preds = %563, %508
+  %.sink1163 = phi i64 [ 72, %508 ], [ 120, %563 ]
+  %.sink1161 = phi i64 [ 80, %508 ], [ 128, %563 ]
+  %566 = phi ptr [ %.0743978, %508 ], [ %.0743983, %563 ]
+  %567 = load i32, ptr %2, align 4, !tbaa !12
+  %568 = load ptr, ptr %439, align 8, !tbaa !46
+  %569 = getelementptr inbounds nuw i8, ptr %568, i64 %.sink1163
+  %570 = load ptr, ptr %569, align 8, !tbaa !181
+  %571 = getelementptr inbounds nuw i8, ptr %568, i64 %.sink1161
+  %572 = load i32, ptr %571, align 8, !tbaa !12
+  %573 = invoke noundef i32 @_ZNK6icu_7716SimpleDateFormat11matchStringERKNS_13UnicodeStringEi19UCalendarDateFieldsPS2_iS5_RNS_8CalendarE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %567, i32 noundef 2, ptr noundef %570, i32 noundef %572, ptr noundef %566, ptr noundef nonnull align 8 dereferenceable(192) %9)
+          to label %574 unwind label %483
 
-575:                                              ; preds = %.invoke1159
-  %576 = icmp sgt i32 %574, 0
-  br i1 %576, label %.thread990, label %.thread986
+574:                                              ; preds = %.invoke1159
+  %575 = icmp sgt i32 %573, 0
+  br i1 %575, label %.thread990, label %.thread986
 
-.thread986:                                       ; preds = %564, %509, %575
-  %.2746988 = phi i32 [ %574, %575 ], [ %.4748, %564 ], [ %.1745, %509 ]
-  %577 = load ptr, ptr %0, align 8, !tbaa !44
-  %578 = getelementptr inbounds nuw i8, ptr %577, i64 224
-  %579 = load ptr, ptr %578, align 8
-  %580 = invoke noundef signext i8 %579(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) %16)
-          to label %581 unwind label %484
+.thread986:                                       ; preds = %563, %508, %574
+  %.2746988 = phi i32 [ %573, %574 ], [ %.4748, %563 ], [ %.1745, %508 ]
+  %576 = load ptr, ptr %0, align 8, !tbaa !44
+  %577 = getelementptr inbounds nuw i8, ptr %576, i64 224
+  %578 = load ptr, ptr %577, align 8
+  %579 = invoke noundef signext i8 %578(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) %16)
+          to label %580 unwind label %483
 
-581:                                              ; preds = %.thread986
-  %.not901.not = icmp eq i8 %580, 0
-  br i1 %.not901.not, label %.thread990, label %1286
+580:                                              ; preds = %.thread986
+  %.not901.not = icmp eq i8 %579, 0
+  br i1 %.not901.not, label %.thread990, label %1285
 
-582:                                              ; preds = %250
-  %583 = load ptr, ptr %9, align 8, !tbaa !44
-  %584 = getelementptr inbounds nuw i8, ptr %583, i64 128
-  %585 = load ptr, ptr %584, align 8
-  %586 = invoke noundef i32 %585(ptr noundef nonnull align 8 dereferenceable(192) %9, i32 noundef 11)
-          to label %587 unwind label %258
+581:                                              ; preds = %249
+  %582 = load ptr, ptr %9, align 8, !tbaa !44
+  %583 = getelementptr inbounds nuw i8, ptr %582, i64 128
+  %584 = load ptr, ptr %583, align 8
+  %585 = invoke noundef i32 %584(ptr noundef nonnull align 8 dereferenceable(192) %9, i32 noundef 11)
+          to label %586 unwind label %257
 
-587:                                              ; preds = %582
-  %588 = add nsw i32 %586, 1
-  %589 = icmp eq i32 %.0651, %588
-  %spec.select941 = select i1 %589, i32 0, i32 %.0651
-  br label %590
+586:                                              ; preds = %581
+  %587 = add nsw i32 %585, 1
+  %588 = icmp eq i32 %.0651, %587
+  %spec.select941 = select i1 %588, i32 0, i32 %.0651
+  br label %589
 
-590:                                              ; preds = %587, %250
-  %.5656 = phi i32 [ %.0651, %250 ], [ %spec.select941, %587 ]
+589:                                              ; preds = %586, %249
+  %.5656 = phi i32 [ %.0651, %249 ], [ %spec.select941, %586 ]
   invoke void @_ZN6icu_778Calendar3setE19UCalendarDateFieldsi(ptr noundef nonnull align 8 dereferenceable(192) %9, i32 noundef 11, i32 noundef %.5656)
-          to label %591 unwind label %258
+          to label %590 unwind label %257
 
-591:                                              ; preds = %590
-  %592 = load i32, ptr %27, align 8, !tbaa !189
+590:                                              ; preds = %589
+  %591 = load i32, ptr %27, align 8, !tbaa !189
   br label %.thread990
 
-593:                                              ; preds = %250
-  %594 = load i32, ptr %2, align 4, !tbaa !12
-  %595 = invoke noundef i32 @_ZNK6icu_7716SimpleDateFormat11countDigitsERKNS_13UnicodeStringEii(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %594, i32 noundef %241)
-          to label %596 unwind label %258
+592:                                              ; preds = %249
+  %593 = load i32, ptr %2, align 4, !tbaa !12
+  %594 = invoke noundef i32 @_ZNK6icu_7716SimpleDateFormat11countDigitsERKNS_13UnicodeStringEii(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %593, i32 noundef %240)
+          to label %595 unwind label %257
 
-596:                                              ; preds = %593
-  %597 = icmp slt i32 %595, 3
-  br i1 %597, label %.preheader, label %.preheader1051
+595:                                              ; preds = %592
+  %596 = icmp slt i32 %594, 3
+  br i1 %596, label %.preheader, label %.preheader1051
 
-.preheader1051:                                   ; preds = %596
-  %.not1070 = icmp eq i32 %595, 3
+.preheader1051:                                   ; preds = %595
+  %.not1070 = icmp eq i32 %594, 3
   br i1 %.not1070, label %._crit_edge1066, label %.lr.ph1065
 
-.preheader:                                       ; preds = %596, %.preheader
-  %.96601069 = phi i32 [ %598, %.preheader ], [ %.0651, %596 ]
-  %.06621068 = phi i32 [ %599, %.preheader ], [ %595, %596 ]
-  %598 = mul nsw i32 %.96601069, 10
-  %599 = add i32 %.06621068, 1
-  %exitcond.not = icmp eq i32 %599, 3
+.preheader:                                       ; preds = %595, %.preheader
+  %.96601069 = phi i32 [ %597, %.preheader ], [ %.0651, %595 ]
+  %.06621068 = phi i32 [ %598, %.preheader ], [ %594, %595 ]
+  %597 = mul nsw i32 %.96601069, 10
+  %598 = add i32 %.06621068, 1
+  %exitcond.not = icmp eq i32 %598, 3
   br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !199
 
 .lr.ph1065:                                       ; preds = %.preheader1051, %.lr.ph1065
-  %.16631064 = phi i32 [ %601, %.lr.ph1065 ], [ %595, %.preheader1051 ]
-  %.07501063 = phi i32 [ %600, %.lr.ph1065 ], [ 1, %.preheader1051 ]
-  %600 = mul nuw nsw i32 %.07501063, 10
-  %601 = add nsw i32 %.16631064, -1
-  %602 = icmp samesign ugt i32 %.16631064, 4
-  br i1 %602, label %.lr.ph1065, label %._crit_edge1066, !llvm.loop !200
+  %.16631064 = phi i32 [ %600, %.lr.ph1065 ], [ %594, %.preheader1051 ]
+  %.07501063 = phi i32 [ %599, %.lr.ph1065 ], [ 1, %.preheader1051 ]
+  %599 = mul nuw nsw i32 %.07501063, 10
+  %600 = add nsw i32 %.16631064, -1
+  %601 = icmp samesign ugt i32 %.16631064, 4
+  br i1 %601, label %.lr.ph1065, label %._crit_edge1066, !llvm.loop !200
 
 ._crit_edge1066:                                  ; preds = %.lr.ph1065, %.preheader1051
-  %.0750.lcssa = phi i32 [ 1, %.preheader1051 ], [ %600, %.lr.ph1065 ]
-  %603 = sdiv i32 %.0651, %.0750.lcssa
+  %.0750.lcssa = phi i32 [ 1, %.preheader1051 ], [ %599, %.lr.ph1065 ]
+  %602 = sdiv i32 %.0651, %.0750.lcssa
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %._crit_edge1066
-  %.10661 = phi i32 [ %603, %._crit_edge1066 ], [ %598, %.preheader ]
+  %.10661 = phi i32 [ %602, %._crit_edge1066 ], [ %597, %.preheader ]
   invoke void @_ZN6icu_778Calendar3setE19UCalendarDateFieldsi(ptr noundef nonnull align 8 dereferenceable(192) %9, i32 noundef 14, i32 noundef %.10661)
-          to label %604 unwind label %258
+          to label %603 unwind label %257
 
-604:                                              ; preds = %.loopexit
-  %605 = load i32, ptr %27, align 8, !tbaa !189
+603:                                              ; preds = %.loopexit
+  %604 = load i32, ptr %27, align 8, !tbaa !189
   br label %.thread990
 
-606:                                              ; preds = %.thread964
-  br i1 %.not890, label %609, label %.thread993
+605:                                              ; preds = %.thread964
+  br i1 %.not890, label %608, label %.thread993
 
-.thread993:                                       ; preds = %606
+.thread993:                                       ; preds = %605
   invoke void @_ZN6icu_778Calendar3setE19UCalendarDateFieldsi(ptr noundef nonnull align 8 dereferenceable(192) %9, i32 noundef 18, i32 noundef %.0651)
-          to label %607 unwind label %258
+          to label %606 unwind label %257
 
-607:                                              ; preds = %.thread993
-  %608 = load i32, ptr %27, align 8, !tbaa !189
+606:                                              ; preds = %.thread993
+  %607 = load i32, ptr %27, align 8, !tbaa !189
   br label %.thread990
 
-609:                                              ; preds = %.thread964, %606, %250
-  %610 = load ptr, ptr %0, align 8, !tbaa !44
-  %611 = getelementptr inbounds nuw i8, ptr %610, i64 224
-  %612 = load ptr, ptr %611, align 8
-  %613 = invoke noundef signext i8 %612(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef 3, ptr noundef nonnull align 4 dereferenceable(4) %16)
-          to label %614 unwind label %628
+608:                                              ; preds = %.thread964, %605, %249
+  %609 = load ptr, ptr %0, align 8, !tbaa !44
+  %610 = getelementptr inbounds nuw i8, ptr %609, i64 224
+  %611 = load ptr, ptr %610, align 8
+  %612 = invoke noundef signext i8 %611(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef 3, ptr noundef nonnull align 4 dereferenceable(4) %16)
+          to label %613 unwind label %627
 
-614:                                              ; preds = %609
-  %615 = icmp ne i8 %613, 0
-  %616 = icmp eq i32 %4, 4
-  %or.cond74 = or i1 %616, %615
-  br i1 %or.cond74, label %617, label %630
+613:                                              ; preds = %608
+  %614 = icmp ne i8 %612, 0
+  %615 = icmp eq i32 %4, 4
+  %or.cond74 = or i1 %615, %614
+  br i1 %or.cond74, label %616, label %629
 
-617:                                              ; preds = %614
-  %618 = load i32, ptr %2, align 4, !tbaa !12
-  %619 = getelementptr inbounds nuw i8, ptr %0, i64 464
-  %620 = load ptr, ptr %619, align 8, !tbaa !46
-  %621 = getelementptr inbounds nuw i8, ptr %620, i64 152
-  %622 = load ptr, ptr %621, align 8, !tbaa !115
-  %623 = getelementptr inbounds nuw i8, ptr %620, i64 160
-  %624 = load i32, ptr %623, align 8, !tbaa !116
-  %625 = invoke noundef i32 @_ZNK6icu_7716SimpleDateFormat11matchStringERKNS_13UnicodeStringEi19UCalendarDateFieldsPS2_iS5_RNS_8CalendarE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %618, i32 noundef 7, ptr noundef %622, i32 noundef %624, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(192) %9)
-          to label %626 unwind label %628
+616:                                              ; preds = %613
+  %617 = load i32, ptr %2, align 4, !tbaa !12
+  %618 = getelementptr inbounds nuw i8, ptr %0, i64 464
+  %619 = load ptr, ptr %618, align 8, !tbaa !46
+  %620 = getelementptr inbounds nuw i8, ptr %619, i64 152
+  %621 = load ptr, ptr %620, align 8, !tbaa !115
+  %622 = getelementptr inbounds nuw i8, ptr %619, i64 160
+  %623 = load i32, ptr %622, align 8, !tbaa !116
+  %624 = invoke noundef i32 @_ZNK6icu_7716SimpleDateFormat11matchStringERKNS_13UnicodeStringEi19UCalendarDateFieldsPS2_iS5_RNS_8CalendarE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %617, i32 noundef 7, ptr noundef %621, i32 noundef %623, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(192) %9)
+          to label %625 unwind label %627
 
-626:                                              ; preds = %617
-  %627 = icmp sgt i32 %625, 0
-  br i1 %627, label %.thread990, label %630
+625:                                              ; preds = %616
+  %626 = icmp sgt i32 %624, 0
+  br i1 %626, label %.thread990, label %629
 
-628:                                              ; preds = %687, %676, %668, %657, %649, %638, %630, %617, %609
-  %629 = landingpad { ptr, i32 }
+627:                                              ; preds = %686, %675, %667, %656, %648, %637, %629, %616, %608
+  %628 = landingpad { ptr, i32 }
           cleanup
-  br label %1400
+  br label %1399
 
-630:                                              ; preds = %626, %614
-  %.0751 = phi i32 [ %625, %626 ], [ 0, %614 ]
-  %631 = load ptr, ptr %0, align 8, !tbaa !44
-  %632 = getelementptr inbounds nuw i8, ptr %631, i64 224
-  %633 = load ptr, ptr %632, align 8
-  %634 = invoke noundef signext i8 %633(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef 3, ptr noundef nonnull align 4 dereferenceable(4) %16)
-          to label %635 unwind label %628
+629:                                              ; preds = %625, %613
+  %.0751 = phi i32 [ %624, %625 ], [ 0, %613 ]
+  %630 = load ptr, ptr %0, align 8, !tbaa !44
+  %631 = getelementptr inbounds nuw i8, ptr %630, i64 224
+  %632 = load ptr, ptr %631, align 8
+  %633 = invoke noundef signext i8 %632(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef 3, ptr noundef nonnull align 4 dereferenceable(4) %16)
+          to label %634 unwind label %627
 
-635:                                              ; preds = %630
-  %636 = icmp ne i8 %634, 0
-  %637 = icmp eq i32 %4, 3
-  %or.cond76 = or i1 %637, %636
-  br i1 %or.cond76, label %638, label %649
+634:                                              ; preds = %629
+  %635 = icmp ne i8 %633, 0
+  %636 = icmp eq i32 %4, 3
+  %or.cond76 = or i1 %636, %635
+  br i1 %or.cond76, label %637, label %648
 
-638:                                              ; preds = %635
-  %639 = load i32, ptr %2, align 4, !tbaa !12
-  %640 = getelementptr inbounds nuw i8, ptr %0, i64 464
-  %641 = load ptr, ptr %640, align 8, !tbaa !46
-  %642 = getelementptr inbounds nuw i8, ptr %641, i64 168
-  %643 = load ptr, ptr %642, align 8, !tbaa !119
-  %644 = getelementptr inbounds nuw i8, ptr %641, i64 176
-  %645 = load i32, ptr %644, align 8, !tbaa !120
-  %646 = invoke noundef i32 @_ZNK6icu_7716SimpleDateFormat11matchStringERKNS_13UnicodeStringEi19UCalendarDateFieldsPS2_iS5_RNS_8CalendarE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %639, i32 noundef 7, ptr noundef %643, i32 noundef %645, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(192) %9)
-          to label %647 unwind label %628
+637:                                              ; preds = %634
+  %638 = load i32, ptr %2, align 4, !tbaa !12
+  %639 = getelementptr inbounds nuw i8, ptr %0, i64 464
+  %640 = load ptr, ptr %639, align 8, !tbaa !46
+  %641 = getelementptr inbounds nuw i8, ptr %640, i64 168
+  %642 = load ptr, ptr %641, align 8, !tbaa !119
+  %643 = getelementptr inbounds nuw i8, ptr %640, i64 176
+  %644 = load i32, ptr %643, align 8, !tbaa !120
+  %645 = invoke noundef i32 @_ZNK6icu_7716SimpleDateFormat11matchStringERKNS_13UnicodeStringEi19UCalendarDateFieldsPS2_iS5_RNS_8CalendarE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %638, i32 noundef 7, ptr noundef %642, i32 noundef %644, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(192) %9)
+          to label %646 unwind label %627
 
-647:                                              ; preds = %638
-  %648 = icmp sgt i32 %646, 0
-  br i1 %648, label %.thread990, label %649
+646:                                              ; preds = %637
+  %647 = icmp sgt i32 %645, 0
+  br i1 %647, label %.thread990, label %648
 
-649:                                              ; preds = %647, %635
-  %.1752 = phi i32 [ %646, %647 ], [ %.0751, %635 ]
-  %650 = load ptr, ptr %0, align 8, !tbaa !44
-  %651 = getelementptr inbounds nuw i8, ptr %650, i64 224
-  %652 = load ptr, ptr %651, align 8
-  %653 = invoke noundef signext i8 %652(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef 3, ptr noundef nonnull align 4 dereferenceable(4) %16)
-          to label %654 unwind label %628
+648:                                              ; preds = %646, %634
+  %.1752 = phi i32 [ %645, %646 ], [ %.0751, %634 ]
+  %649 = load ptr, ptr %0, align 8, !tbaa !44
+  %650 = getelementptr inbounds nuw i8, ptr %649, i64 224
+  %651 = load ptr, ptr %650, align 8
+  %652 = invoke noundef signext i8 %651(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef 3, ptr noundef nonnull align 4 dereferenceable(4) %16)
+          to label %653 unwind label %627
 
-654:                                              ; preds = %649
-  %655 = icmp ne i8 %653, 0
-  %656 = icmp eq i32 %4, 6
-  %or.cond78 = or i1 %656, %655
-  br i1 %or.cond78, label %657, label %668
+653:                                              ; preds = %648
+  %654 = icmp ne i8 %652, 0
+  %655 = icmp eq i32 %4, 6
+  %or.cond78 = or i1 %655, %654
+  br i1 %or.cond78, label %656, label %667
 
-657:                                              ; preds = %654
-  %658 = load i32, ptr %2, align 4, !tbaa !12
-  %659 = getelementptr inbounds nuw i8, ptr %0, i64 464
-  %660 = load ptr, ptr %659, align 8, !tbaa !46
-  %661 = getelementptr inbounds nuw i8, ptr %660, i64 184
-  %662 = load ptr, ptr %661, align 8, !tbaa !117
-  %663 = getelementptr inbounds nuw i8, ptr %660, i64 192
-  %664 = load i32, ptr %663, align 8, !tbaa !118
-  %665 = invoke noundef i32 @_ZNK6icu_7716SimpleDateFormat11matchStringERKNS_13UnicodeStringEi19UCalendarDateFieldsPS2_iS5_RNS_8CalendarE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %658, i32 noundef 7, ptr noundef %662, i32 noundef %664, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(192) %9)
-          to label %666 unwind label %628
+656:                                              ; preds = %653
+  %657 = load i32, ptr %2, align 4, !tbaa !12
+  %658 = getelementptr inbounds nuw i8, ptr %0, i64 464
+  %659 = load ptr, ptr %658, align 8, !tbaa !46
+  %660 = getelementptr inbounds nuw i8, ptr %659, i64 184
+  %661 = load ptr, ptr %660, align 8, !tbaa !117
+  %662 = getelementptr inbounds nuw i8, ptr %659, i64 192
+  %663 = load i32, ptr %662, align 8, !tbaa !118
+  %664 = invoke noundef i32 @_ZNK6icu_7716SimpleDateFormat11matchStringERKNS_13UnicodeStringEi19UCalendarDateFieldsPS2_iS5_RNS_8CalendarE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %657, i32 noundef 7, ptr noundef %661, i32 noundef %663, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(192) %9)
+          to label %665 unwind label %627
 
-666:                                              ; preds = %657
-  %667 = icmp sgt i32 %665, 0
-  br i1 %667, label %.thread990, label %668
+665:                                              ; preds = %656
+  %666 = icmp sgt i32 %664, 0
+  br i1 %666, label %.thread990, label %667
 
-668:                                              ; preds = %666, %654
-  %.2753 = phi i32 [ %665, %666 ], [ %.1752, %654 ]
-  %669 = load ptr, ptr %0, align 8, !tbaa !44
-  %670 = getelementptr inbounds nuw i8, ptr %669, i64 224
-  %671 = load ptr, ptr %670, align 8
-  %672 = invoke noundef signext i8 %671(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef 3, ptr noundef nonnull align 4 dereferenceable(4) %16)
-          to label %673 unwind label %628
+667:                                              ; preds = %665, %653
+  %.2753 = phi i32 [ %664, %665 ], [ %.1752, %653 ]
+  %668 = load ptr, ptr %0, align 8, !tbaa !44
+  %669 = getelementptr inbounds nuw i8, ptr %668, i64 224
+  %670 = load ptr, ptr %669, align 8
+  %671 = invoke noundef signext i8 %670(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef 3, ptr noundef nonnull align 4 dereferenceable(4) %16)
+          to label %672 unwind label %627
 
-673:                                              ; preds = %668
-  %674 = icmp ne i8 %672, 0
-  %675 = icmp eq i32 %4, 5
-  %or.cond80 = or i1 %675, %674
-  br i1 %or.cond80, label %676, label %687
+672:                                              ; preds = %667
+  %673 = icmp ne i8 %671, 0
+  %674 = icmp eq i32 %4, 5
+  %or.cond80 = or i1 %674, %673
+  br i1 %or.cond80, label %675, label %686
 
-676:                                              ; preds = %673
-  %677 = load i32, ptr %2, align 4, !tbaa !12
-  %678 = getelementptr inbounds nuw i8, ptr %0, i64 464
-  %679 = load ptr, ptr %678, align 8, !tbaa !46
-  %680 = getelementptr inbounds nuw i8, ptr %679, i64 200
-  %681 = load ptr, ptr %680, align 8, !tbaa !113
-  %682 = getelementptr inbounds nuw i8, ptr %679, i64 208
-  %683 = load i32, ptr %682, align 8, !tbaa !114
-  %684 = invoke noundef i32 @_ZNK6icu_7716SimpleDateFormat11matchStringERKNS_13UnicodeStringEi19UCalendarDateFieldsPS2_iS5_RNS_8CalendarE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %677, i32 noundef 7, ptr noundef %681, i32 noundef %683, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(192) %9)
-          to label %685 unwind label %628
+675:                                              ; preds = %672
+  %676 = load i32, ptr %2, align 4, !tbaa !12
+  %677 = getelementptr inbounds nuw i8, ptr %0, i64 464
+  %678 = load ptr, ptr %677, align 8, !tbaa !46
+  %679 = getelementptr inbounds nuw i8, ptr %678, i64 200
+  %680 = load ptr, ptr %679, align 8, !tbaa !113
+  %681 = getelementptr inbounds nuw i8, ptr %678, i64 208
+  %682 = load i32, ptr %681, align 8, !tbaa !114
+  %683 = invoke noundef i32 @_ZNK6icu_7716SimpleDateFormat11matchStringERKNS_13UnicodeStringEi19UCalendarDateFieldsPS2_iS5_RNS_8CalendarE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %676, i32 noundef 7, ptr noundef %680, i32 noundef %682, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(192) %9)
+          to label %684 unwind label %627
 
-685:                                              ; preds = %676
-  %686 = icmp sgt i32 %684, 0
-  br i1 %686, label %.thread990, label %687
+684:                                              ; preds = %675
+  %685 = icmp sgt i32 %683, 0
+  br i1 %685, label %.thread990, label %686
 
-687:                                              ; preds = %685, %673
-  %.3754 = phi i32 [ %684, %685 ], [ %.2753, %673 ]
-  %688 = load ptr, ptr %0, align 8, !tbaa !44
-  %689 = getelementptr inbounds nuw i8, ptr %688, i64 224
-  %690 = load ptr, ptr %689, align 8
-  %691 = invoke noundef signext i8 %690(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) %16)
-          to label %692 unwind label %628
+686:                                              ; preds = %684, %672
+  %.3754 = phi i32 [ %683, %684 ], [ %.2753, %672 ]
+  %687 = load ptr, ptr %0, align 8, !tbaa !44
+  %688 = getelementptr inbounds nuw i8, ptr %687, i64 224
+  %689 = load ptr, ptr %688, align 8
+  %690 = invoke noundef signext i8 %689(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) %16)
+          to label %691 unwind label %627
 
-692:                                              ; preds = %687
-  %693 = icmp ne i8 %691, 0
-  %694 = icmp ne i32 %29, 9
-  %or.cond82.not = and i1 %694, %693
-  br i1 %or.cond82.not, label %1286, label %.thread990
+691:                                              ; preds = %686
+  %692 = icmp ne i8 %690, 0
+  %693 = icmp ne i32 %29, 9
+  %or.cond82.not = and i1 %693, %692
+  br i1 %or.cond82.not, label %1285, label %.thread990
 
-695:                                              ; preds = %.thread964
-  br i1 %.not890, label %698, label %.thread999
+694:                                              ; preds = %.thread964
+  br i1 %.not890, label %697, label %.thread999
 
-.thread999:                                       ; preds = %695
+.thread999:                                       ; preds = %694
   invoke void @_ZN6icu_778Calendar3setE19UCalendarDateFieldsi(ptr noundef nonnull align 8 dereferenceable(192) %9, i32 noundef 18, i32 noundef %.0651)
-          to label %696 unwind label %258
+          to label %695 unwind label %257
 
-696:                                              ; preds = %.thread999
-  %697 = load i32, ptr %27, align 8, !tbaa !189
+695:                                              ; preds = %.thread999
+  %696 = load i32, ptr %27, align 8, !tbaa !189
   br label %.thread990
 
-698:                                              ; preds = %695
-  %699 = load ptr, ptr %0, align 8, !tbaa !44
-  %700 = getelementptr inbounds nuw i8, ptr %699, i64 224
-  %701 = load ptr, ptr %700, align 8
-  %702 = invoke noundef signext i8 %701(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef 3, ptr noundef nonnull align 4 dereferenceable(4) %16)
-          to label %703 unwind label %717
+697:                                              ; preds = %694
+  %698 = load ptr, ptr %0, align 8, !tbaa !44
+  %699 = getelementptr inbounds nuw i8, ptr %698, i64 224
+  %700 = load ptr, ptr %699, align 8
+  %701 = invoke noundef signext i8 %700(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef 3, ptr noundef nonnull align 4 dereferenceable(4) %16)
+          to label %702 unwind label %716
 
-703:                                              ; preds = %698
-  %704 = icmp ne i8 %702, 0
-  %705 = icmp eq i32 %4, 4
-  %or.cond84 = or i1 %705, %704
-  br i1 %or.cond84, label %706, label %719
+702:                                              ; preds = %697
+  %703 = icmp ne i8 %701, 0
+  %704 = icmp eq i32 %4, 4
+  %or.cond84 = or i1 %704, %703
+  br i1 %or.cond84, label %705, label %718
 
-706:                                              ; preds = %703
-  %707 = load i32, ptr %2, align 4, !tbaa !12
-  %708 = getelementptr inbounds nuw i8, ptr %0, i64 464
-  %709 = load ptr, ptr %708, align 8, !tbaa !46
-  %710 = getelementptr inbounds nuw i8, ptr %709, i64 216
-  %711 = load ptr, ptr %710, align 8, !tbaa !123
-  %712 = getelementptr inbounds nuw i8, ptr %709, i64 224
-  %713 = load i32, ptr %712, align 8, !tbaa !124
-  %714 = invoke noundef i32 @_ZNK6icu_7716SimpleDateFormat11matchStringERKNS_13UnicodeStringEi19UCalendarDateFieldsPS2_iS5_RNS_8CalendarE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %707, i32 noundef 7, ptr noundef %711, i32 noundef %713, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(192) %9)
-          to label %715 unwind label %717
+705:                                              ; preds = %702
+  %706 = load i32, ptr %2, align 4, !tbaa !12
+  %707 = getelementptr inbounds nuw i8, ptr %0, i64 464
+  %708 = load ptr, ptr %707, align 8, !tbaa !46
+  %709 = getelementptr inbounds nuw i8, ptr %708, i64 216
+  %710 = load ptr, ptr %709, align 8, !tbaa !123
+  %711 = getelementptr inbounds nuw i8, ptr %708, i64 224
+  %712 = load i32, ptr %711, align 8, !tbaa !124
+  %713 = invoke noundef i32 @_ZNK6icu_7716SimpleDateFormat11matchStringERKNS_13UnicodeStringEi19UCalendarDateFieldsPS2_iS5_RNS_8CalendarE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %706, i32 noundef 7, ptr noundef %710, i32 noundef %712, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(192) %9)
+          to label %714 unwind label %716
 
-715:                                              ; preds = %706
-  %716 = icmp sgt i32 %714, 0
-  br i1 %716, label %.thread990, label %719
+714:                                              ; preds = %705
+  %715 = icmp sgt i32 %713, 0
+  br i1 %715, label %.thread990, label %718
 
-717:                                              ; preds = %757, %746, %738, %727, %719, %706, %698
-  %718 = landingpad { ptr, i32 }
+716:                                              ; preds = %756, %745, %737, %726, %718, %705, %697
+  %717 = landingpad { ptr, i32 }
           cleanup
-  br label %1400
+  br label %1399
 
-719:                                              ; preds = %715, %703
-  %.0755 = phi i32 [ %714, %715 ], [ 0, %703 ]
-  %720 = load ptr, ptr %0, align 8, !tbaa !44
-  %721 = getelementptr inbounds nuw i8, ptr %720, i64 224
-  %722 = load ptr, ptr %721, align 8
-  %723 = invoke noundef signext i8 %722(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef 3, ptr noundef nonnull align 4 dereferenceable(4) %16)
-          to label %724 unwind label %717
+718:                                              ; preds = %714, %702
+  %.0755 = phi i32 [ %713, %714 ], [ 0, %702 ]
+  %719 = load ptr, ptr %0, align 8, !tbaa !44
+  %720 = getelementptr inbounds nuw i8, ptr %719, i64 224
+  %721 = load ptr, ptr %720, align 8
+  %722 = invoke noundef signext i8 %721(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef 3, ptr noundef nonnull align 4 dereferenceable(4) %16)
+          to label %723 unwind label %716
 
-724:                                              ; preds = %719
-  %725 = icmp ne i8 %723, 0
-  %726 = icmp eq i32 %4, 3
-  %or.cond86 = or i1 %726, %725
-  br i1 %or.cond86, label %727, label %738
+723:                                              ; preds = %718
+  %724 = icmp ne i8 %722, 0
+  %725 = icmp eq i32 %4, 3
+  %or.cond86 = or i1 %725, %724
+  br i1 %or.cond86, label %726, label %737
 
-727:                                              ; preds = %724
-  %728 = load i32, ptr %2, align 4, !tbaa !12
-  %729 = getelementptr inbounds nuw i8, ptr %0, i64 464
-  %730 = load ptr, ptr %729, align 8, !tbaa !46
-  %731 = getelementptr inbounds nuw i8, ptr %730, i64 232
-  %732 = load ptr, ptr %731, align 8, !tbaa !127
-  %733 = getelementptr inbounds nuw i8, ptr %730, i64 240
-  %734 = load i32, ptr %733, align 8, !tbaa !128
-  %735 = invoke noundef i32 @_ZNK6icu_7716SimpleDateFormat11matchStringERKNS_13UnicodeStringEi19UCalendarDateFieldsPS2_iS5_RNS_8CalendarE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %728, i32 noundef 7, ptr noundef %732, i32 noundef %734, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(192) %9)
-          to label %736 unwind label %717
+726:                                              ; preds = %723
+  %727 = load i32, ptr %2, align 4, !tbaa !12
+  %728 = getelementptr inbounds nuw i8, ptr %0, i64 464
+  %729 = load ptr, ptr %728, align 8, !tbaa !46
+  %730 = getelementptr inbounds nuw i8, ptr %729, i64 232
+  %731 = load ptr, ptr %730, align 8, !tbaa !127
+  %732 = getelementptr inbounds nuw i8, ptr %729, i64 240
+  %733 = load i32, ptr %732, align 8, !tbaa !128
+  %734 = invoke noundef i32 @_ZNK6icu_7716SimpleDateFormat11matchStringERKNS_13UnicodeStringEi19UCalendarDateFieldsPS2_iS5_RNS_8CalendarE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %727, i32 noundef 7, ptr noundef %731, i32 noundef %733, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(192) %9)
+          to label %735 unwind label %716
 
-736:                                              ; preds = %727
-  %737 = icmp sgt i32 %735, 0
-  br i1 %737, label %.thread990, label %738
+735:                                              ; preds = %726
+  %736 = icmp sgt i32 %734, 0
+  br i1 %736, label %.thread990, label %737
 
-738:                                              ; preds = %736, %724
-  %.1756 = phi i32 [ %735, %736 ], [ %.0755, %724 ]
-  %739 = load ptr, ptr %0, align 8, !tbaa !44
-  %740 = getelementptr inbounds nuw i8, ptr %739, i64 224
-  %741 = load ptr, ptr %740, align 8
-  %742 = invoke noundef signext i8 %741(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef 3, ptr noundef nonnull align 4 dereferenceable(4) %16)
-          to label %743 unwind label %717
+737:                                              ; preds = %735, %723
+  %.1756 = phi i32 [ %734, %735 ], [ %.0755, %723 ]
+  %738 = load ptr, ptr %0, align 8, !tbaa !44
+  %739 = getelementptr inbounds nuw i8, ptr %738, i64 224
+  %740 = load ptr, ptr %739, align 8
+  %741 = invoke noundef signext i8 %740(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef 3, ptr noundef nonnull align 4 dereferenceable(4) %16)
+          to label %742 unwind label %716
 
-743:                                              ; preds = %738
-  %744 = icmp ne i8 %742, 0
-  %745 = icmp eq i32 %4, 6
-  %or.cond88 = or i1 %745, %744
-  br i1 %or.cond88, label %746, label %757
+742:                                              ; preds = %737
+  %743 = icmp ne i8 %741, 0
+  %744 = icmp eq i32 %4, 6
+  %or.cond88 = or i1 %744, %743
+  br i1 %or.cond88, label %745, label %756
 
-746:                                              ; preds = %743
-  %747 = load i32, ptr %2, align 4, !tbaa !12
-  %748 = getelementptr inbounds nuw i8, ptr %0, i64 464
-  %749 = load ptr, ptr %748, align 8, !tbaa !46
-  %750 = getelementptr inbounds nuw i8, ptr %749, i64 248
-  %751 = load ptr, ptr %750, align 8, !tbaa !125
-  %752 = getelementptr inbounds nuw i8, ptr %749, i64 256
-  %753 = load i32, ptr %752, align 8, !tbaa !126
-  %754 = invoke noundef i32 @_ZNK6icu_7716SimpleDateFormat11matchStringERKNS_13UnicodeStringEi19UCalendarDateFieldsPS2_iS5_RNS_8CalendarE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %747, i32 noundef 7, ptr noundef %751, i32 noundef %753, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(192) %9)
-          to label %755 unwind label %717
+745:                                              ; preds = %742
+  %746 = load i32, ptr %2, align 4, !tbaa !12
+  %747 = getelementptr inbounds nuw i8, ptr %0, i64 464
+  %748 = load ptr, ptr %747, align 8, !tbaa !46
+  %749 = getelementptr inbounds nuw i8, ptr %748, i64 248
+  %750 = load ptr, ptr %749, align 8, !tbaa !125
+  %751 = getelementptr inbounds nuw i8, ptr %748, i64 256
+  %752 = load i32, ptr %751, align 8, !tbaa !126
+  %753 = invoke noundef i32 @_ZNK6icu_7716SimpleDateFormat11matchStringERKNS_13UnicodeStringEi19UCalendarDateFieldsPS2_iS5_RNS_8CalendarE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %746, i32 noundef 7, ptr noundef %750, i32 noundef %752, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(192) %9)
+          to label %754 unwind label %716
 
-755:                                              ; preds = %746
-  %756 = icmp sgt i32 %754, 0
-  br i1 %756, label %.thread990, label %757
+754:                                              ; preds = %745
+  %755 = icmp sgt i32 %753, 0
+  br i1 %755, label %.thread990, label %756
 
-757:                                              ; preds = %755, %743
-  %.2757 = phi i32 [ %754, %755 ], [ %.1756, %743 ]
-  %758 = load ptr, ptr %0, align 8, !tbaa !44
-  %759 = getelementptr inbounds nuw i8, ptr %758, i64 224
-  %760 = load ptr, ptr %759, align 8
-  %761 = invoke noundef signext i8 %760(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) %16)
-          to label %762 unwind label %717
+756:                                              ; preds = %754, %742
+  %.2757 = phi i32 [ %753, %754 ], [ %.1756, %742 ]
+  %757 = load ptr, ptr %0, align 8, !tbaa !44
+  %758 = getelementptr inbounds nuw i8, ptr %757, i64 224
+  %759 = load ptr, ptr %758, align 8
+  %760 = invoke noundef signext i8 %759(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) %16)
+          to label %761 unwind label %716
 
-762:                                              ; preds = %757
-  %.not897.not = icmp eq i8 %761, 0
-  br i1 %.not897.not, label %.thread990, label %1286
+761:                                              ; preds = %756
+  %.not897.not = icmp eq i8 %760, 0
+  br i1 %.not897.not, label %.thread990, label %1285
 
-763:                                              ; preds = %250, %.thread964
-  %764 = load ptr, ptr %0, align 8, !tbaa !44
-  %765 = getelementptr inbounds nuw i8, ptr %764, i64 224
-  %766 = load ptr, ptr %765, align 8
-  %767 = invoke noundef signext i8 %766(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef 3, ptr noundef nonnull align 4 dereferenceable(4) %16)
-          to label %768 unwind label %782
+762:                                              ; preds = %249, %.thread964
+  %763 = load ptr, ptr %0, align 8, !tbaa !44
+  %764 = getelementptr inbounds nuw i8, ptr %763, i64 224
+  %765 = load ptr, ptr %764, align 8
+  %766 = invoke noundef signext i8 %765(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef 3, ptr noundef nonnull align 4 dereferenceable(4) %16)
+          to label %767 unwind label %781
 
-768:                                              ; preds = %763
-  %769 = icmp ne i8 %767, 0
-  %770 = icmp slt i32 %4, 5
-  %or.cond90 = or i1 %770, %769
-  br i1 %or.cond90, label %771, label %784
+767:                                              ; preds = %762
+  %768 = icmp ne i8 %766, 0
+  %769 = icmp slt i32 %4, 5
+  %or.cond90 = or i1 %769, %768
+  br i1 %or.cond90, label %770, label %783
 
-771:                                              ; preds = %768
-  %772 = load i32, ptr %2, align 4, !tbaa !12
-  %773 = getelementptr inbounds nuw i8, ptr %0, i64 464
-  %774 = load ptr, ptr %773, align 8, !tbaa !46
-  %775 = getelementptr inbounds nuw i8, ptr %774, i64 280
-  %776 = load ptr, ptr %775, align 8, !tbaa !129
-  %777 = getelementptr inbounds nuw i8, ptr %774, i64 288
-  %778 = load i32, ptr %777, align 8, !tbaa !130
-  %779 = invoke noundef i32 @_ZNK6icu_7716SimpleDateFormat11matchStringERKNS_13UnicodeStringEi19UCalendarDateFieldsPS2_iS5_RNS_8CalendarE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %772, i32 noundef 9, ptr noundef %776, i32 noundef %778, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(192) %9)
-          to label %780 unwind label %782
+770:                                              ; preds = %767
+  %771 = load i32, ptr %2, align 4, !tbaa !12
+  %772 = getelementptr inbounds nuw i8, ptr %0, i64 464
+  %773 = load ptr, ptr %772, align 8, !tbaa !46
+  %774 = getelementptr inbounds nuw i8, ptr %773, i64 280
+  %775 = load ptr, ptr %774, align 8, !tbaa !129
+  %776 = getelementptr inbounds nuw i8, ptr %773, i64 288
+  %777 = load i32, ptr %776, align 8, !tbaa !130
+  %778 = invoke noundef i32 @_ZNK6icu_7716SimpleDateFormat11matchStringERKNS_13UnicodeStringEi19UCalendarDateFieldsPS2_iS5_RNS_8CalendarE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %771, i32 noundef 9, ptr noundef %775, i32 noundef %777, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(192) %9)
+          to label %779 unwind label %781
 
-780:                                              ; preds = %771
-  %781 = icmp sgt i32 %779, 0
-  br i1 %781, label %.thread990, label %784
+779:                                              ; preds = %770
+  %780 = icmp sgt i32 %778, 0
+  br i1 %780, label %.thread990, label %783
 
-782:                                              ; preds = %792, %784, %771, %763
-  %783 = landingpad { ptr, i32 }
+781:                                              ; preds = %791, %783, %770, %762
+  %782 = landingpad { ptr, i32 }
           cleanup
-  br label %1400
+  br label %1399
 
-784:                                              ; preds = %780, %768
-  %785 = load ptr, ptr %0, align 8, !tbaa !44
-  %786 = getelementptr inbounds nuw i8, ptr %785, i64 224
-  %787 = load ptr, ptr %786, align 8
-  %788 = invoke noundef signext i8 %787(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef 3, ptr noundef nonnull align 4 dereferenceable(4) %16)
-          to label %789 unwind label %782
+783:                                              ; preds = %779, %767
+  %784 = load ptr, ptr %0, align 8, !tbaa !44
+  %785 = getelementptr inbounds nuw i8, ptr %784, i64 224
+  %786 = load ptr, ptr %785, align 8
+  %787 = invoke noundef signext i8 %786(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef 3, ptr noundef nonnull align 4 dereferenceable(4) %16)
+          to label %788 unwind label %781
 
-789:                                              ; preds = %784
-  %790 = icmp ne i8 %788, 0
-  %791 = icmp sgt i32 %4, 4
-  %or.cond92 = or i1 %791, %790
-  br i1 %or.cond92, label %792, label %803
+788:                                              ; preds = %783
+  %789 = icmp ne i8 %787, 0
+  %790 = icmp sgt i32 %4, 4
+  %or.cond92 = or i1 %790, %789
+  br i1 %or.cond92, label %791, label %802
 
-792:                                              ; preds = %789
-  %793 = load i32, ptr %2, align 4, !tbaa !12
-  %794 = getelementptr inbounds nuw i8, ptr %0, i64 464
-  %795 = load ptr, ptr %794, align 8, !tbaa !46
-  %796 = getelementptr inbounds nuw i8, ptr %795, i64 296
-  %797 = load ptr, ptr %796, align 8, !tbaa !131
-  %798 = getelementptr inbounds nuw i8, ptr %795, i64 304
-  %799 = load i32, ptr %798, align 8, !tbaa !132
-  %800 = invoke noundef i32 @_ZNK6icu_7716SimpleDateFormat11matchStringERKNS_13UnicodeStringEi19UCalendarDateFieldsPS2_iS5_RNS_8CalendarE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %793, i32 noundef 9, ptr noundef %797, i32 noundef %799, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(192) %9)
-          to label %801 unwind label %782
+791:                                              ; preds = %788
+  %792 = load i32, ptr %2, align 4, !tbaa !12
+  %793 = getelementptr inbounds nuw i8, ptr %0, i64 464
+  %794 = load ptr, ptr %793, align 8, !tbaa !46
+  %795 = getelementptr inbounds nuw i8, ptr %794, i64 296
+  %796 = load ptr, ptr %795, align 8, !tbaa !131
+  %797 = getelementptr inbounds nuw i8, ptr %794, i64 304
+  %798 = load i32, ptr %797, align 8, !tbaa !132
+  %799 = invoke noundef i32 @_ZNK6icu_7716SimpleDateFormat11matchStringERKNS_13UnicodeStringEi19UCalendarDateFieldsPS2_iS5_RNS_8CalendarE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %792, i32 noundef 9, ptr noundef %796, i32 noundef %798, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(192) %9)
+          to label %800 unwind label %781
 
-801:                                              ; preds = %792
-  %802 = icmp sgt i32 %800, 0
-  br i1 %802, label %.thread990, label %803
+800:                                              ; preds = %791
+  %801 = icmp sgt i32 %799, 0
+  br i1 %801, label %.thread990, label %802
 
-803:                                              ; preds = %801, %789
-  %804 = load i32, ptr %2, align 4, !tbaa !12
-  %805 = sub nsw i32 0, %804
+802:                                              ; preds = %800, %788
+  %803 = load i32, ptr %2, align 4, !tbaa !12
+  %804 = sub nsw i32 0, %803
   br label %.thread990
 
-806:                                              ; preds = %250
-  %807 = load ptr, ptr %9, align 8, !tbaa !44
-  %808 = getelementptr inbounds nuw i8, ptr %807, i64 160
-  %809 = load ptr, ptr %808, align 8
-  %810 = invoke noundef i32 %809(ptr noundef nonnull align 8 dereferenceable(192) %9, i32 noundef 10)
-          to label %811 unwind label %258
+805:                                              ; preds = %249
+  %806 = load ptr, ptr %9, align 8, !tbaa !44
+  %807 = getelementptr inbounds nuw i8, ptr %806, i64 160
+  %808 = load ptr, ptr %807, align 8
+  %809 = invoke noundef i32 %808(ptr noundef nonnull align 8 dereferenceable(192) %9, i32 noundef 10)
+          to label %810 unwind label %257
 
-811:                                              ; preds = %806
-  %812 = add nsw i32 %810, 1
-  %813 = icmp eq i32 %.0651, %812
-  %spec.select943 = select i1 %813, i32 0, i32 %.0651
-  br label %814
+810:                                              ; preds = %805
+  %811 = add nsw i32 %809, 1
+  %812 = icmp eq i32 %.0651, %811
+  %spec.select943 = select i1 %812, i32 0, i32 %.0651
+  br label %813
 
-814:                                              ; preds = %250, %811
-  %.6657 = phi i32 [ %.0651, %250 ], [ %spec.select943, %811 ]
+813:                                              ; preds = %249, %810
+  %.6657 = phi i32 [ %.0651, %249 ], [ %spec.select943, %810 ]
   invoke void @_ZN6icu_778Calendar3setE19UCalendarDateFieldsi(ptr noundef nonnull align 8 dereferenceable(192) %9, i32 noundef 10, i32 noundef %.6657)
-          to label %815 unwind label %258
+          to label %814 unwind label %257
 
-815:                                              ; preds = %814
-  %816 = load i32, ptr %27, align 8, !tbaa !189
+814:                                              ; preds = %813
+  %815 = load i32, ptr %27, align 8, !tbaa !189
   br label %.thread990
 
-817:                                              ; preds = %.thread964
-  br i1 %.not890, label %822, label %.thread1005
+816:                                              ; preds = %.thread964
+  br i1 %.not890, label %821, label %.thread1005
 
-.thread1005:                                      ; preds = %817
-  %818 = mul i32 %.0651, 3
-  %819 = add i32 %818, -3
-  invoke void @_ZN6icu_778Calendar3setE19UCalendarDateFieldsi(ptr noundef nonnull align 8 dereferenceable(192) %9, i32 noundef 2, i32 noundef %819)
-          to label %820 unwind label %258
+.thread1005:                                      ; preds = %816
+  %817 = mul i32 %.0651, 3
+  %818 = add i32 %817, -3
+  invoke void @_ZN6icu_778Calendar3setE19UCalendarDateFieldsi(ptr noundef nonnull align 8 dereferenceable(192) %9, i32 noundef 2, i32 noundef %818)
+          to label %819 unwind label %257
 
-820:                                              ; preds = %.thread1005
-  %821 = load i32, ptr %27, align 8, !tbaa !189
+819:                                              ; preds = %.thread1005
+  %820 = load i32, ptr %27, align 8, !tbaa !189
   br label %.thread990
 
-822:                                              ; preds = %817
-  %823 = load ptr, ptr %0, align 8, !tbaa !44
-  %824 = getelementptr inbounds nuw i8, ptr %823, i64 224
-  %825 = load ptr, ptr %824, align 8
-  %826 = invoke noundef signext i8 %825(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef 3, ptr noundef nonnull align 4 dereferenceable(4) %16)
-          to label %827 unwind label %841
+821:                                              ; preds = %816
+  %822 = load ptr, ptr %0, align 8, !tbaa !44
+  %823 = getelementptr inbounds nuw i8, ptr %822, i64 224
+  %824 = load ptr, ptr %823, align 8
+  %825 = invoke noundef signext i8 %824(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef 3, ptr noundef nonnull align 4 dereferenceable(4) %16)
+          to label %826 unwind label %840
 
-827:                                              ; preds = %822
-  %828 = icmp ne i8 %826, 0
-  %829 = icmp eq i32 %4, 4
-  %or.cond94 = or i1 %829, %828
-  br i1 %or.cond94, label %830, label %843
+826:                                              ; preds = %821
+  %827 = icmp ne i8 %825, 0
+  %828 = icmp eq i32 %4, 4
+  %or.cond94 = or i1 %828, %827
+  br i1 %or.cond94, label %829, label %842
 
-830:                                              ; preds = %827
-  %831 = load i32, ptr %2, align 4, !tbaa !12
-  %832 = getelementptr inbounds nuw i8, ptr %0, i64 464
-  %833 = load ptr, ptr %832, align 8, !tbaa !46
-  %834 = getelementptr inbounds nuw i8, ptr %833, i64 376
-  %835 = load ptr, ptr %834, align 8, !tbaa !135
-  %836 = getelementptr inbounds nuw i8, ptr %833, i64 384
-  %837 = load i32, ptr %836, align 8, !tbaa !136
-  %838 = invoke noundef i32 @_ZNK6icu_7716SimpleDateFormat18matchQuarterStringERKNS_13UnicodeStringEi19UCalendarDateFieldsPS2_iRNS_8CalendarE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %831, i32 noundef 2, ptr noundef %835, i32 noundef %837, ptr noundef nonnull align 8 dereferenceable(192) %9)
-          to label %839 unwind label %841
+829:                                              ; preds = %826
+  %830 = load i32, ptr %2, align 4, !tbaa !12
+  %831 = getelementptr inbounds nuw i8, ptr %0, i64 464
+  %832 = load ptr, ptr %831, align 8, !tbaa !46
+  %833 = getelementptr inbounds nuw i8, ptr %832, i64 376
+  %834 = load ptr, ptr %833, align 8, !tbaa !135
+  %835 = getelementptr inbounds nuw i8, ptr %832, i64 384
+  %836 = load i32, ptr %835, align 8, !tbaa !136
+  %837 = invoke noundef i32 @_ZNK6icu_7716SimpleDateFormat18matchQuarterStringERKNS_13UnicodeStringEi19UCalendarDateFieldsPS2_iRNS_8CalendarE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %830, i32 noundef 2, ptr noundef %834, i32 noundef %836, ptr noundef nonnull align 8 dereferenceable(192) %9)
+          to label %838 unwind label %840
 
-839:                                              ; preds = %830
-  %840 = icmp sgt i32 %838, 0
-  br i1 %840, label %.thread990, label %843
+838:                                              ; preds = %829
+  %839 = icmp sgt i32 %837, 0
+  br i1 %839, label %.thread990, label %842
 
-841:                                              ; preds = %887, %881, %870, %862, %851, %843, %830, %822
-  %842 = landingpad { ptr, i32 }
+840:                                              ; preds = %886, %880, %869, %861, %850, %842, %829, %821
+  %841 = landingpad { ptr, i32 }
           cleanup
-  br label %1400
+  br label %1399
 
-843:                                              ; preds = %839, %827
-  %.0758 = phi i32 [ %838, %839 ], [ 0, %827 ]
-  %844 = load ptr, ptr %0, align 8, !tbaa !44
-  %845 = getelementptr inbounds nuw i8, ptr %844, i64 224
-  %846 = load ptr, ptr %845, align 8
-  %847 = invoke noundef signext i8 %846(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef 3, ptr noundef nonnull align 4 dereferenceable(4) %16)
-          to label %848 unwind label %841
+842:                                              ; preds = %838, %826
+  %.0758 = phi i32 [ %837, %838 ], [ 0, %826 ]
+  %843 = load ptr, ptr %0, align 8, !tbaa !44
+  %844 = getelementptr inbounds nuw i8, ptr %843, i64 224
+  %845 = load ptr, ptr %844, align 8
+  %846 = invoke noundef signext i8 %845(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef 3, ptr noundef nonnull align 4 dereferenceable(4) %16)
+          to label %847 unwind label %840
 
-848:                                              ; preds = %843
-  %849 = icmp ne i8 %847, 0
-  %850 = icmp eq i32 %4, 3
-  %or.cond96 = or i1 %850, %849
-  br i1 %or.cond96, label %851, label %862
+847:                                              ; preds = %842
+  %848 = icmp ne i8 %846, 0
+  %849 = icmp eq i32 %4, 3
+  %or.cond96 = or i1 %849, %848
+  br i1 %or.cond96, label %850, label %861
 
-851:                                              ; preds = %848
-  %852 = load i32, ptr %2, align 4, !tbaa !12
-  %853 = getelementptr inbounds nuw i8, ptr %0, i64 464
-  %854 = load ptr, ptr %853, align 8, !tbaa !46
-  %855 = getelementptr inbounds nuw i8, ptr %854, i64 392
-  %856 = load ptr, ptr %855, align 8, !tbaa !137
-  %857 = getelementptr inbounds nuw i8, ptr %854, i64 400
-  %858 = load i32, ptr %857, align 8, !tbaa !138
-  %859 = invoke noundef i32 @_ZNK6icu_7716SimpleDateFormat18matchQuarterStringERKNS_13UnicodeStringEi19UCalendarDateFieldsPS2_iRNS_8CalendarE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %852, i32 noundef 2, ptr noundef %856, i32 noundef %858, ptr noundef nonnull align 8 dereferenceable(192) %9)
-          to label %860 unwind label %841
+850:                                              ; preds = %847
+  %851 = load i32, ptr %2, align 4, !tbaa !12
+  %852 = getelementptr inbounds nuw i8, ptr %0, i64 464
+  %853 = load ptr, ptr %852, align 8, !tbaa !46
+  %854 = getelementptr inbounds nuw i8, ptr %853, i64 392
+  %855 = load ptr, ptr %854, align 8, !tbaa !137
+  %856 = getelementptr inbounds nuw i8, ptr %853, i64 400
+  %857 = load i32, ptr %856, align 8, !tbaa !138
+  %858 = invoke noundef i32 @_ZNK6icu_7716SimpleDateFormat18matchQuarterStringERKNS_13UnicodeStringEi19UCalendarDateFieldsPS2_iRNS_8CalendarE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %851, i32 noundef 2, ptr noundef %855, i32 noundef %857, ptr noundef nonnull align 8 dereferenceable(192) %9)
+          to label %859 unwind label %840
 
-860:                                              ; preds = %851
-  %861 = icmp sgt i32 %859, 0
-  br i1 %861, label %.thread990, label %862
+859:                                              ; preds = %850
+  %860 = icmp sgt i32 %858, 0
+  br i1 %860, label %.thread990, label %861
 
-862:                                              ; preds = %860, %848
-  %.1759 = phi i32 [ %859, %860 ], [ %.0758, %848 ]
-  %863 = load ptr, ptr %0, align 8, !tbaa !44
-  %864 = getelementptr inbounds nuw i8, ptr %863, i64 224
-  %865 = load ptr, ptr %864, align 8
-  %866 = invoke noundef signext i8 %865(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef 3, ptr noundef nonnull align 4 dereferenceable(4) %16)
-          to label %867 unwind label %841
+861:                                              ; preds = %859, %847
+  %.1759 = phi i32 [ %858, %859 ], [ %.0758, %847 ]
+  %862 = load ptr, ptr %0, align 8, !tbaa !44
+  %863 = getelementptr inbounds nuw i8, ptr %862, i64 224
+  %864 = load ptr, ptr %863, align 8
+  %865 = invoke noundef signext i8 %864(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef 3, ptr noundef nonnull align 4 dereferenceable(4) %16)
+          to label %866 unwind label %840
 
-867:                                              ; preds = %862
-  %868 = icmp ne i8 %866, 0
-  %869 = icmp eq i32 %4, 5
-  %or.cond98 = or i1 %869, %868
-  br i1 %or.cond98, label %870, label %881
+866:                                              ; preds = %861
+  %867 = icmp ne i8 %865, 0
+  %868 = icmp eq i32 %4, 5
+  %or.cond98 = or i1 %868, %867
+  br i1 %or.cond98, label %869, label %880
 
-870:                                              ; preds = %867
-  %871 = load i32, ptr %2, align 4, !tbaa !12
-  %872 = getelementptr inbounds nuw i8, ptr %0, i64 464
-  %873 = load ptr, ptr %872, align 8, !tbaa !46
-  %874 = getelementptr inbounds nuw i8, ptr %873, i64 408
-  %875 = load ptr, ptr %874, align 8, !tbaa !133
-  %876 = getelementptr inbounds nuw i8, ptr %873, i64 416
-  %877 = load i32, ptr %876, align 8, !tbaa !134
-  %878 = invoke noundef i32 @_ZNK6icu_7716SimpleDateFormat18matchQuarterStringERKNS_13UnicodeStringEi19UCalendarDateFieldsPS2_iRNS_8CalendarE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %871, i32 noundef 2, ptr noundef %875, i32 noundef %877, ptr noundef nonnull align 8 dereferenceable(192) %9)
-          to label %879 unwind label %841
+869:                                              ; preds = %866
+  %870 = load i32, ptr %2, align 4, !tbaa !12
+  %871 = getelementptr inbounds nuw i8, ptr %0, i64 464
+  %872 = load ptr, ptr %871, align 8, !tbaa !46
+  %873 = getelementptr inbounds nuw i8, ptr %872, i64 408
+  %874 = load ptr, ptr %873, align 8, !tbaa !133
+  %875 = getelementptr inbounds nuw i8, ptr %872, i64 416
+  %876 = load i32, ptr %875, align 8, !tbaa !134
+  %877 = invoke noundef i32 @_ZNK6icu_7716SimpleDateFormat18matchQuarterStringERKNS_13UnicodeStringEi19UCalendarDateFieldsPS2_iRNS_8CalendarE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %870, i32 noundef 2, ptr noundef %874, i32 noundef %876, ptr noundef nonnull align 8 dereferenceable(192) %9)
+          to label %878 unwind label %840
 
-879:                                              ; preds = %870
-  %880 = icmp sgt i32 %878, 0
-  br i1 %880, label %.thread990, label %881
+878:                                              ; preds = %869
+  %879 = icmp sgt i32 %877, 0
+  br i1 %879, label %.thread990, label %880
 
-881:                                              ; preds = %879, %867
-  %.2760 = phi i32 [ %878, %879 ], [ %.1759, %867 ]
-  %882 = load ptr, ptr %0, align 8, !tbaa !44
-  %883 = getelementptr inbounds nuw i8, ptr %882, i64 224
-  %884 = load ptr, ptr %883, align 8
-  %885 = invoke noundef signext i8 %884(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) %16)
-          to label %886 unwind label %841
+880:                                              ; preds = %878, %866
+  %.2760 = phi i32 [ %877, %878 ], [ %.1759, %866 ]
+  %881 = load ptr, ptr %0, align 8, !tbaa !44
+  %882 = getelementptr inbounds nuw i8, ptr %881, i64 224
+  %883 = load ptr, ptr %882, align 8
+  %884 = invoke noundef signext i8 %883(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) %16)
+          to label %885 unwind label %840
 
-886:                                              ; preds = %881
-  %.not894 = icmp eq i8 %885, 0
-  br i1 %.not894, label %.thread990, label %887
+885:                                              ; preds = %880
+  %.not894 = icmp eq i8 %884, 0
+  br i1 %.not894, label %.thread990, label %886
 
-887:                                              ; preds = %886
-  %888 = load ptr, ptr %0, align 8, !tbaa !44
-  %889 = getelementptr inbounds nuw i8, ptr %888, i64 224
-  %890 = load ptr, ptr %889, align 8
-  %891 = invoke noundef signext i8 %890(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef 3, ptr noundef nonnull align 4 dereferenceable(4) %16)
-          to label %892 unwind label %841
+886:                                              ; preds = %885
+  %887 = load ptr, ptr %0, align 8, !tbaa !44
+  %888 = getelementptr inbounds nuw i8, ptr %887, i64 224
+  %889 = load ptr, ptr %888, align 8
+  %890 = invoke noundef signext i8 %889(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef 3, ptr noundef nonnull align 4 dereferenceable(4) %16)
+          to label %891 unwind label %840
 
-892:                                              ; preds = %887
-  %.not895 = icmp eq i8 %891, 0
-  br i1 %.not895, label %893, label %1286
+891:                                              ; preds = %886
+  %.not895 = icmp eq i8 %890, 0
+  br i1 %.not895, label %892, label %1285
 
-893:                                              ; preds = %892
-  %894 = load i32, ptr %2, align 4, !tbaa !12
-  %895 = sub nsw i32 0, %894
+892:                                              ; preds = %891
+  %893 = load i32, ptr %2, align 4, !tbaa !12
+  %894 = sub nsw i32 0, %893
   br label %.thread990
 
-896:                                              ; preds = %.thread964
-  br i1 %.not890, label %901, label %.thread1011
+895:                                              ; preds = %.thread964
+  br i1 %.not890, label %900, label %.thread1011
 
-.thread1011:                                      ; preds = %896
-  %897 = mul i32 %.0651, 3
-  %898 = add i32 %897, -3
-  invoke void @_ZN6icu_778Calendar3setE19UCalendarDateFieldsi(ptr noundef nonnull align 8 dereferenceable(192) %9, i32 noundef 2, i32 noundef %898)
-          to label %899 unwind label %258
+.thread1011:                                      ; preds = %895
+  %896 = mul i32 %.0651, 3
+  %897 = add i32 %896, -3
+  invoke void @_ZN6icu_778Calendar3setE19UCalendarDateFieldsi(ptr noundef nonnull align 8 dereferenceable(192) %9, i32 noundef 2, i32 noundef %897)
+          to label %898 unwind label %257
 
-899:                                              ; preds = %.thread1011
-  %900 = load i32, ptr %27, align 8, !tbaa !189
+898:                                              ; preds = %.thread1011
+  %899 = load i32, ptr %27, align 8, !tbaa !189
   br label %.thread990
 
-901:                                              ; preds = %896
-  %902 = load ptr, ptr %0, align 8, !tbaa !44
-  %903 = getelementptr inbounds nuw i8, ptr %902, i64 224
-  %904 = load ptr, ptr %903, align 8
-  %905 = invoke noundef signext i8 %904(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef 3, ptr noundef nonnull align 4 dereferenceable(4) %16)
-          to label %906 unwind label %920
+900:                                              ; preds = %895
+  %901 = load ptr, ptr %0, align 8, !tbaa !44
+  %902 = getelementptr inbounds nuw i8, ptr %901, i64 224
+  %903 = load ptr, ptr %902, align 8
+  %904 = invoke noundef signext i8 %903(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef 3, ptr noundef nonnull align 4 dereferenceable(4) %16)
+          to label %905 unwind label %919
 
-906:                                              ; preds = %901
-  %907 = icmp ne i8 %905, 0
-  %908 = icmp eq i32 %4, 4
-  %or.cond100 = or i1 %908, %907
-  br i1 %or.cond100, label %909, label %922
+905:                                              ; preds = %900
+  %906 = icmp ne i8 %904, 0
+  %907 = icmp eq i32 %4, 4
+  %or.cond100 = or i1 %907, %906
+  br i1 %or.cond100, label %908, label %921
 
-909:                                              ; preds = %906
-  %910 = load i32, ptr %2, align 4, !tbaa !12
-  %911 = getelementptr inbounds nuw i8, ptr %0, i64 464
-  %912 = load ptr, ptr %911, align 8, !tbaa !46
-  %913 = getelementptr inbounds nuw i8, ptr %912, i64 424
-  %914 = load ptr, ptr %913, align 8, !tbaa !141
-  %915 = getelementptr inbounds nuw i8, ptr %912, i64 432
-  %916 = load i32, ptr %915, align 8, !tbaa !142
-  %917 = invoke noundef i32 @_ZNK6icu_7716SimpleDateFormat18matchQuarterStringERKNS_13UnicodeStringEi19UCalendarDateFieldsPS2_iRNS_8CalendarE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %910, i32 noundef 2, ptr noundef %914, i32 noundef %916, ptr noundef nonnull align 8 dereferenceable(192) %9)
-          to label %918 unwind label %920
+908:                                              ; preds = %905
+  %909 = load i32, ptr %2, align 4, !tbaa !12
+  %910 = getelementptr inbounds nuw i8, ptr %0, i64 464
+  %911 = load ptr, ptr %910, align 8, !tbaa !46
+  %912 = getelementptr inbounds nuw i8, ptr %911, i64 424
+  %913 = load ptr, ptr %912, align 8, !tbaa !141
+  %914 = getelementptr inbounds nuw i8, ptr %911, i64 432
+  %915 = load i32, ptr %914, align 8, !tbaa !142
+  %916 = invoke noundef i32 @_ZNK6icu_7716SimpleDateFormat18matchQuarterStringERKNS_13UnicodeStringEi19UCalendarDateFieldsPS2_iRNS_8CalendarE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %909, i32 noundef 2, ptr noundef %913, i32 noundef %915, ptr noundef nonnull align 8 dereferenceable(192) %9)
+          to label %917 unwind label %919
 
-918:                                              ; preds = %909
-  %919 = icmp sgt i32 %917, 0
-  br i1 %919, label %.thread990, label %922
+917:                                              ; preds = %908
+  %918 = icmp sgt i32 %916, 0
+  br i1 %918, label %.thread990, label %921
 
-920:                                              ; preds = %966, %960, %949, %941, %930, %922, %909, %901
-  %921 = landingpad { ptr, i32 }
+919:                                              ; preds = %965, %959, %948, %940, %929, %921, %908, %900
+  %920 = landingpad { ptr, i32 }
           cleanup
-  br label %1400
+  br label %1399
 
-922:                                              ; preds = %918, %906
-  %.0761 = phi i32 [ %917, %918 ], [ 0, %906 ]
-  %923 = load ptr, ptr %0, align 8, !tbaa !44
-  %924 = getelementptr inbounds nuw i8, ptr %923, i64 224
-  %925 = load ptr, ptr %924, align 8
-  %926 = invoke noundef signext i8 %925(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef 3, ptr noundef nonnull align 4 dereferenceable(4) %16)
-          to label %927 unwind label %920
+921:                                              ; preds = %917, %905
+  %.0761 = phi i32 [ %916, %917 ], [ 0, %905 ]
+  %922 = load ptr, ptr %0, align 8, !tbaa !44
+  %923 = getelementptr inbounds nuw i8, ptr %922, i64 224
+  %924 = load ptr, ptr %923, align 8
+  %925 = invoke noundef signext i8 %924(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef 3, ptr noundef nonnull align 4 dereferenceable(4) %16)
+          to label %926 unwind label %919
 
-927:                                              ; preds = %922
-  %928 = icmp ne i8 %926, 0
-  %929 = icmp eq i32 %4, 3
-  %or.cond102 = or i1 %929, %928
-  br i1 %or.cond102, label %930, label %941
+926:                                              ; preds = %921
+  %927 = icmp ne i8 %925, 0
+  %928 = icmp eq i32 %4, 3
+  %or.cond102 = or i1 %928, %927
+  br i1 %or.cond102, label %929, label %940
 
-930:                                              ; preds = %927
-  %931 = load i32, ptr %2, align 4, !tbaa !12
-  %932 = getelementptr inbounds nuw i8, ptr %0, i64 464
-  %933 = load ptr, ptr %932, align 8, !tbaa !46
-  %934 = getelementptr inbounds nuw i8, ptr %933, i64 440
-  %935 = load ptr, ptr %934, align 8, !tbaa !143
-  %936 = getelementptr inbounds nuw i8, ptr %933, i64 448
-  %937 = load i32, ptr %936, align 8, !tbaa !144
-  %938 = invoke noundef i32 @_ZNK6icu_7716SimpleDateFormat18matchQuarterStringERKNS_13UnicodeStringEi19UCalendarDateFieldsPS2_iRNS_8CalendarE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %931, i32 noundef 2, ptr noundef %935, i32 noundef %937, ptr noundef nonnull align 8 dereferenceable(192) %9)
-          to label %939 unwind label %920
+929:                                              ; preds = %926
+  %930 = load i32, ptr %2, align 4, !tbaa !12
+  %931 = getelementptr inbounds nuw i8, ptr %0, i64 464
+  %932 = load ptr, ptr %931, align 8, !tbaa !46
+  %933 = getelementptr inbounds nuw i8, ptr %932, i64 440
+  %934 = load ptr, ptr %933, align 8, !tbaa !143
+  %935 = getelementptr inbounds nuw i8, ptr %932, i64 448
+  %936 = load i32, ptr %935, align 8, !tbaa !144
+  %937 = invoke noundef i32 @_ZNK6icu_7716SimpleDateFormat18matchQuarterStringERKNS_13UnicodeStringEi19UCalendarDateFieldsPS2_iRNS_8CalendarE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %930, i32 noundef 2, ptr noundef %934, i32 noundef %936, ptr noundef nonnull align 8 dereferenceable(192) %9)
+          to label %938 unwind label %919
 
-939:                                              ; preds = %930
-  %940 = icmp sgt i32 %938, 0
-  br i1 %940, label %.thread990, label %941
+938:                                              ; preds = %929
+  %939 = icmp sgt i32 %937, 0
+  br i1 %939, label %.thread990, label %940
 
-941:                                              ; preds = %939, %927
-  %.1762 = phi i32 [ %938, %939 ], [ %.0761, %927 ]
-  %942 = load ptr, ptr %0, align 8, !tbaa !44
-  %943 = getelementptr inbounds nuw i8, ptr %942, i64 224
-  %944 = load ptr, ptr %943, align 8
-  %945 = invoke noundef signext i8 %944(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef 3, ptr noundef nonnull align 4 dereferenceable(4) %16)
-          to label %946 unwind label %920
+940:                                              ; preds = %938, %926
+  %.1762 = phi i32 [ %937, %938 ], [ %.0761, %926 ]
+  %941 = load ptr, ptr %0, align 8, !tbaa !44
+  %942 = getelementptr inbounds nuw i8, ptr %941, i64 224
+  %943 = load ptr, ptr %942, align 8
+  %944 = invoke noundef signext i8 %943(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef 3, ptr noundef nonnull align 4 dereferenceable(4) %16)
+          to label %945 unwind label %919
 
-946:                                              ; preds = %941
-  %947 = icmp ne i8 %945, 0
-  %948 = icmp eq i32 %4, 5
-  %or.cond104 = or i1 %948, %947
-  br i1 %or.cond104, label %949, label %960
+945:                                              ; preds = %940
+  %946 = icmp ne i8 %944, 0
+  %947 = icmp eq i32 %4, 5
+  %or.cond104 = or i1 %947, %946
+  br i1 %or.cond104, label %948, label %959
 
-949:                                              ; preds = %946
-  %950 = load i32, ptr %2, align 4, !tbaa !12
-  %951 = getelementptr inbounds nuw i8, ptr %0, i64 464
-  %952 = load ptr, ptr %951, align 8, !tbaa !46
-  %953 = getelementptr inbounds nuw i8, ptr %952, i64 456
-  %954 = load ptr, ptr %953, align 8, !tbaa !139
-  %955 = getelementptr inbounds nuw i8, ptr %952, i64 464
-  %956 = load i32, ptr %955, align 8, !tbaa !140
-  %957 = invoke noundef i32 @_ZNK6icu_7716SimpleDateFormat18matchQuarterStringERKNS_13UnicodeStringEi19UCalendarDateFieldsPS2_iRNS_8CalendarE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %950, i32 noundef 2, ptr noundef %954, i32 noundef %956, ptr noundef nonnull align 8 dereferenceable(192) %9)
-          to label %958 unwind label %920
+948:                                              ; preds = %945
+  %949 = load i32, ptr %2, align 4, !tbaa !12
+  %950 = getelementptr inbounds nuw i8, ptr %0, i64 464
+  %951 = load ptr, ptr %950, align 8, !tbaa !46
+  %952 = getelementptr inbounds nuw i8, ptr %951, i64 456
+  %953 = load ptr, ptr %952, align 8, !tbaa !139
+  %954 = getelementptr inbounds nuw i8, ptr %951, i64 464
+  %955 = load i32, ptr %954, align 8, !tbaa !140
+  %956 = invoke noundef i32 @_ZNK6icu_7716SimpleDateFormat18matchQuarterStringERKNS_13UnicodeStringEi19UCalendarDateFieldsPS2_iRNS_8CalendarE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %949, i32 noundef 2, ptr noundef %953, i32 noundef %955, ptr noundef nonnull align 8 dereferenceable(192) %9)
+          to label %957 unwind label %919
 
-958:                                              ; preds = %949
-  %959 = icmp sgt i32 %957, 0
-  br i1 %959, label %.thread990, label %960
+957:                                              ; preds = %948
+  %958 = icmp sgt i32 %956, 0
+  br i1 %958, label %.thread990, label %959
 
-960:                                              ; preds = %958, %946
-  %.2763 = phi i32 [ %957, %958 ], [ %.1762, %946 ]
-  %961 = load ptr, ptr %0, align 8, !tbaa !44
-  %962 = getelementptr inbounds nuw i8, ptr %961, i64 224
-  %963 = load ptr, ptr %962, align 8
-  %964 = invoke noundef signext i8 %963(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) %16)
-          to label %965 unwind label %920
+959:                                              ; preds = %957, %945
+  %.2763 = phi i32 [ %956, %957 ], [ %.1762, %945 ]
+  %960 = load ptr, ptr %0, align 8, !tbaa !44
+  %961 = getelementptr inbounds nuw i8, ptr %960, i64 224
+  %962 = load ptr, ptr %961, align 8
+  %963 = invoke noundef signext i8 %962(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) %16)
+          to label %964 unwind label %919
 
-965:                                              ; preds = %960
-  %.not891 = icmp eq i8 %964, 0
-  br i1 %.not891, label %.thread990, label %966
+964:                                              ; preds = %959
+  %.not891 = icmp eq i8 %963, 0
+  br i1 %.not891, label %.thread990, label %965
 
-966:                                              ; preds = %965
-  %967 = load ptr, ptr %0, align 8, !tbaa !44
-  %968 = getelementptr inbounds nuw i8, ptr %967, i64 224
-  %969 = load ptr, ptr %968, align 8
-  %970 = invoke noundef signext i8 %969(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef 3, ptr noundef nonnull align 4 dereferenceable(4) %16)
-          to label %971 unwind label %920
+965:                                              ; preds = %964
+  %966 = load ptr, ptr %0, align 8, !tbaa !44
+  %967 = getelementptr inbounds nuw i8, ptr %966, i64 224
+  %968 = load ptr, ptr %967, align 8
+  %969 = invoke noundef signext i8 %968(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef 3, ptr noundef nonnull align 4 dereferenceable(4) %16)
+          to label %970 unwind label %919
 
-971:                                              ; preds = %966
-  %.not892 = icmp eq i8 %970, 0
-  br i1 %.not892, label %972, label %1286
+970:                                              ; preds = %965
+  %.not892 = icmp eq i8 %969, 0
+  br i1 %.not892, label %971, label %1285
 
-972:                                              ; preds = %971
-  %973 = load i32, ptr %2, align 4, !tbaa !12
-  %974 = sub nsw i32 0, %973
+971:                                              ; preds = %970
+  %972 = load i32, ptr %2, align 4, !tbaa !12
+  %973 = sub nsw i32 0, %972
   br label %.thread990
 
-975:                                              ; preds = %250, %.thread964
-  %976 = icmp slt i32 %4, 4
-  %977 = select i1 %976, i32 4, i32 3
-  %978 = invoke noundef ptr @_ZNK6icu_7716SimpleDateFormat8tzFormatER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull align 4 dereferenceable(4) %16)
-          to label %979 unwind label %986
+974:                                              ; preds = %249, %.thread964
+  %975 = icmp slt i32 %4, 4
+  %976 = select i1 %975, i32 4, i32 3
+  %977 = invoke noundef ptr @_ZNK6icu_7716SimpleDateFormat8tzFormatER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull align 4 dereferenceable(4) %16)
+          to label %978 unwind label %985
 
-979:                                              ; preds = %975
-  %980 = load i32, ptr %16, align 4, !tbaa !13
-  %981 = icmp sgt i32 %980, 0
-  br i1 %981, label %.thread1017, label %982
+978:                                              ; preds = %974
+  %979 = load i32, ptr %16, align 4, !tbaa !13
+  %980 = icmp sgt i32 %979, 0
+  br i1 %980, label %.thread1017, label %981
 
-982:                                              ; preds = %979
-  %983 = invoke noundef ptr @_ZNK6icu_7714TimeZoneFormat5parseE20UTimeZoneFormatStyleRKNS_13UnicodeStringERNS_13ParsePositionEP23UTimeZoneFormatTimeType(ptr noundef nonnull align 8 dereferenceable(1024) %978, i32 noundef %977, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef %12)
-          to label %984 unwind label %988
+981:                                              ; preds = %978
+  %982 = invoke noundef ptr @_ZNK6icu_7714TimeZoneFormat5parseE20UTimeZoneFormatStyleRKNS_13UnicodeStringERNS_13ParsePositionEP23UTimeZoneFormatTimeType(ptr noundef nonnull align 8 dereferenceable(1024) %977, i32 noundef %976, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef %12)
+          to label %983 unwind label %987
 
-984:                                              ; preds = %982
-  %.not887 = icmp eq ptr %983, null
-  br i1 %.not887, label %.thread1017, label %985
+983:                                              ; preds = %981
+  %.not887 = icmp eq ptr %982, null
+  br i1 %.not887, label %.thread1017, label %984
 
-985:                                              ; preds = %984
-  invoke void @_ZN6icu_778Calendar13adoptTimeZoneEPNS_8TimeZoneE(ptr noundef nonnull align 8 dereferenceable(192) %9, ptr noundef nonnull %983)
-          to label %990 unwind label %988
+984:                                              ; preds = %983
+  invoke void @_ZN6icu_778Calendar13adoptTimeZoneEPNS_8TimeZoneE(ptr noundef nonnull align 8 dereferenceable(192) %9, ptr noundef nonnull %982)
+          to label %989 unwind label %987
 
-986:                                              ; preds = %975
-  %987 = landingpad { ptr, i32 }
+985:                                              ; preds = %974
+  %986 = landingpad { ptr, i32 }
           cleanup
-  br label %1400
+  br label %1399
 
-988:                                              ; preds = %985, %982
-  %989 = landingpad { ptr, i32 }
+987:                                              ; preds = %984, %981
+  %988 = landingpad { ptr, i32 }
           cleanup
-  br label %1400
+  br label %1399
 
-990:                                              ; preds = %985
-  %991 = load i32, ptr %27, align 8, !tbaa !189
+989:                                              ; preds = %984
+  %990 = load i32, ptr %27, align 8, !tbaa !189
   br label %.thread990
 
-.thread1017:                                      ; preds = %984, %979
-  %992 = load i32, ptr %2, align 4, !tbaa !12
-  %993 = sub nsw i32 0, %992
+.thread1017:                                      ; preds = %983, %978
+  %991 = load i32, ptr %2, align 4, !tbaa !12
+  %992 = sub nsw i32 0, %991
   br label %.thread990
 
-994:                                              ; preds = %.thread964
-  %995 = icmp slt i32 %4, 4
-  %996 = icmp eq i32 %4, 5
-  %997 = select i1 %996, i32 15, i32 5
-  %998 = select i1 %995, i32 12, i32 %997
-  %999 = invoke noundef ptr @_ZNK6icu_7716SimpleDateFormat8tzFormatER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull align 4 dereferenceable(4) %16)
-          to label %1000 unwind label %1007
+993:                                              ; preds = %.thread964
+  %994 = icmp slt i32 %4, 4
+  %995 = icmp eq i32 %4, 5
+  %996 = select i1 %995, i32 15, i32 5
+  %997 = select i1 %994, i32 12, i32 %996
+  %998 = invoke noundef ptr @_ZNK6icu_7716SimpleDateFormat8tzFormatER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull align 4 dereferenceable(4) %16)
+          to label %999 unwind label %1006
 
-1000:                                             ; preds = %994
-  %1001 = load i32, ptr %16, align 4, !tbaa !13
-  %1002 = icmp sgt i32 %1001, 0
-  br i1 %1002, label %.thread1019, label %1003
+999:                                              ; preds = %993
+  %1000 = load i32, ptr %16, align 4, !tbaa !13
+  %1001 = icmp sgt i32 %1000, 0
+  br i1 %1001, label %.thread1019, label %1002
 
-1003:                                             ; preds = %1000
-  %1004 = invoke noundef ptr @_ZNK6icu_7714TimeZoneFormat5parseE20UTimeZoneFormatStyleRKNS_13UnicodeStringERNS_13ParsePositionEP23UTimeZoneFormatTimeType(ptr noundef nonnull align 8 dereferenceable(1024) %999, i32 noundef %998, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef %12)
-          to label %1005 unwind label %1009
+1002:                                             ; preds = %999
+  %1003 = invoke noundef ptr @_ZNK6icu_7714TimeZoneFormat5parseE20UTimeZoneFormatStyleRKNS_13UnicodeStringERNS_13ParsePositionEP23UTimeZoneFormatTimeType(ptr noundef nonnull align 8 dereferenceable(1024) %998, i32 noundef %997, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef %12)
+          to label %1004 unwind label %1008
 
-1005:                                             ; preds = %1003
-  %.not883 = icmp eq ptr %1004, null
-  br i1 %.not883, label %.thread1019, label %1006
+1004:                                             ; preds = %1002
+  %.not883 = icmp eq ptr %1003, null
+  br i1 %.not883, label %.thread1019, label %1005
 
-1006:                                             ; preds = %1005
-  invoke void @_ZN6icu_778Calendar13adoptTimeZoneEPNS_8TimeZoneE(ptr noundef nonnull align 8 dereferenceable(192) %9, ptr noundef nonnull %1004)
-          to label %1011 unwind label %1009
+1005:                                             ; preds = %1004
+  invoke void @_ZN6icu_778Calendar13adoptTimeZoneEPNS_8TimeZoneE(ptr noundef nonnull align 8 dereferenceable(192) %9, ptr noundef nonnull %1003)
+          to label %1010 unwind label %1008
 
-1007:                                             ; preds = %994
-  %1008 = landingpad { ptr, i32 }
+1006:                                             ; preds = %993
+  %1007 = landingpad { ptr, i32 }
           cleanup
-  br label %1400
+  br label %1399
 
-1009:                                             ; preds = %1006, %1003
-  %1010 = landingpad { ptr, i32 }
+1008:                                             ; preds = %1005, %1002
+  %1009 = landingpad { ptr, i32 }
           cleanup
-  br label %1400
+  br label %1399
 
-1011:                                             ; preds = %1006
-  %1012 = load i32, ptr %27, align 8, !tbaa !189
+1010:                                             ; preds = %1005
+  %1011 = load i32, ptr %27, align 8, !tbaa !189
   br label %.thread990
 
-.thread1019:                                      ; preds = %1005, %1000
-  %1013 = load i32, ptr %2, align 4, !tbaa !12
-  %1014 = sub nsw i32 0, %1013
+.thread1019:                                      ; preds = %1004, %999
+  %1012 = load i32, ptr %2, align 4, !tbaa !12
+  %1013 = sub nsw i32 0, %1012
   br label %.thread990
 
-1015:                                             ; preds = %.thread964
-  %1016 = icmp slt i32 %4, 4
-  %1017 = select i1 %1016, i32 2, i32 1
-  %1018 = invoke noundef ptr @_ZNK6icu_7716SimpleDateFormat8tzFormatER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull align 4 dereferenceable(4) %16)
-          to label %1019 unwind label %1026
+1014:                                             ; preds = %.thread964
+  %1015 = icmp slt i32 %4, 4
+  %1016 = select i1 %1015, i32 2, i32 1
+  %1017 = invoke noundef ptr @_ZNK6icu_7716SimpleDateFormat8tzFormatER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull align 4 dereferenceable(4) %16)
+          to label %1018 unwind label %1025
 
-1019:                                             ; preds = %1015
-  %1020 = load i32, ptr %16, align 4, !tbaa !13
-  %1021 = icmp sgt i32 %1020, 0
-  br i1 %1021, label %.thread1021, label %1022
+1018:                                             ; preds = %1014
+  %1019 = load i32, ptr %16, align 4, !tbaa !13
+  %1020 = icmp sgt i32 %1019, 0
+  br i1 %1020, label %.thread1021, label %1021
 
-1022:                                             ; preds = %1019
-  %1023 = invoke noundef ptr @_ZNK6icu_7714TimeZoneFormat5parseE20UTimeZoneFormatStyleRKNS_13UnicodeStringERNS_13ParsePositionEP23UTimeZoneFormatTimeType(ptr noundef nonnull align 8 dereferenceable(1024) %1018, i32 noundef %1017, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef %12)
-          to label %1024 unwind label %1028
+1021:                                             ; preds = %1018
+  %1022 = invoke noundef ptr @_ZNK6icu_7714TimeZoneFormat5parseE20UTimeZoneFormatStyleRKNS_13UnicodeStringERNS_13ParsePositionEP23UTimeZoneFormatTimeType(ptr noundef nonnull align 8 dereferenceable(1024) %1017, i32 noundef %1016, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef %12)
+          to label %1023 unwind label %1027
 
-1024:                                             ; preds = %1022
-  %.not879 = icmp eq ptr %1023, null
-  br i1 %.not879, label %.thread1021, label %1025
+1023:                                             ; preds = %1021
+  %.not879 = icmp eq ptr %1022, null
+  br i1 %.not879, label %.thread1021, label %1024
 
-1025:                                             ; preds = %1024
-  invoke void @_ZN6icu_778Calendar13adoptTimeZoneEPNS_8TimeZoneE(ptr noundef nonnull align 8 dereferenceable(192) %9, ptr noundef nonnull %1023)
-          to label %1030 unwind label %1028
+1024:                                             ; preds = %1023
+  invoke void @_ZN6icu_778Calendar13adoptTimeZoneEPNS_8TimeZoneE(ptr noundef nonnull align 8 dereferenceable(192) %9, ptr noundef nonnull %1022)
+          to label %1029 unwind label %1027
 
-1026:                                             ; preds = %1015
-  %1027 = landingpad { ptr, i32 }
+1025:                                             ; preds = %1014
+  %1026 = landingpad { ptr, i32 }
           cleanup
-  br label %1400
+  br label %1399
 
-1028:                                             ; preds = %1025, %1022
-  %1029 = landingpad { ptr, i32 }
+1027:                                             ; preds = %1024, %1021
+  %1028 = landingpad { ptr, i32 }
           cleanup
-  br label %1400
+  br label %1399
 
-1030:                                             ; preds = %1025
-  %1031 = load i32, ptr %27, align 8, !tbaa !189
+1029:                                             ; preds = %1024
+  %1030 = load i32, ptr %27, align 8, !tbaa !189
   br label %.thread990
 
-.thread1021:                                      ; preds = %1024, %1019
-  %1032 = load i32, ptr %2, align 4, !tbaa !12
-  %1033 = sub nsw i32 0, %1032
+.thread1021:                                      ; preds = %1023, %1018
+  %1031 = load i32, ptr %2, align 4, !tbaa !12
+  %1032 = sub nsw i32 0, %1031
   br label %.thread990
 
-1034:                                             ; preds = %.thread964
+1033:                                             ; preds = %.thread964
   %switch.tableidx = add i32 %4, -1
-  %1035 = icmp ult i32 %switch.tableidx, 3
-  br i1 %1035, label %switch.lookup, label %1037
+  %1034 = icmp ult i32 %switch.tableidx, 3
+  br i1 %1034, label %switch.lookup, label %1036
 
-switch.lookup:                                    ; preds = %1034
-  %1036 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK6icu_7716SimpleDateFormat8subParseERKNS_13UnicodeStringERiDsiaaPaS4_RNS_8CalendarEiPNS_13MessageFormatEP23UTimeZoneFormatTimeTypePi, i64 %1036
+switch.lookup:                                    ; preds = %1033
+  %1035 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK6icu_7716SimpleDateFormat8subParseERKNS_13UnicodeStringERiDsiaaPaS4_RNS_8CalendarEiPNS_13MessageFormatEP23UTimeZoneFormatTimeTypePi, i64 %1035
   %switch.load = load i32, ptr %switch.gep, align 4
-  br label %1037
+  br label %1036
 
-1037:                                             ; preds = %1034, %switch.lookup
-  %.0749 = phi i32 [ %switch.load, %switch.lookup ], [ 0, %1034 ]
-  %1038 = invoke noundef ptr @_ZNK6icu_7716SimpleDateFormat8tzFormatER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull align 4 dereferenceable(4) %16)
-          to label %1039 unwind label %1046
+1036:                                             ; preds = %1033, %switch.lookup
+  %.0749 = phi i32 [ %switch.load, %switch.lookup ], [ 0, %1033 ]
+  %1037 = invoke noundef ptr @_ZNK6icu_7716SimpleDateFormat8tzFormatER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull align 4 dereferenceable(4) %16)
+          to label %1038 unwind label %1045
 
-1039:                                             ; preds = %1037
-  %1040 = load i32, ptr %16, align 4, !tbaa !13
-  %1041 = icmp sgt i32 %1040, 0
-  br i1 %1041, label %.thread1023, label %1042
+1038:                                             ; preds = %1036
+  %1039 = load i32, ptr %16, align 4, !tbaa !13
+  %1040 = icmp sgt i32 %1039, 0
+  br i1 %1040, label %.thread1023, label %1041
 
-1042:                                             ; preds = %1039
-  %1043 = invoke noundef ptr @_ZNK6icu_7714TimeZoneFormat5parseE20UTimeZoneFormatStyleRKNS_13UnicodeStringERNS_13ParsePositionEP23UTimeZoneFormatTimeType(ptr noundef nonnull align 8 dereferenceable(1024) %1038, i32 noundef %.0749, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef %12)
-          to label %1044 unwind label %1048
+1041:                                             ; preds = %1038
+  %1042 = invoke noundef ptr @_ZNK6icu_7714TimeZoneFormat5parseE20UTimeZoneFormatStyleRKNS_13UnicodeStringERNS_13ParsePositionEP23UTimeZoneFormatTimeType(ptr noundef nonnull align 8 dereferenceable(1024) %1037, i32 noundef %.0749, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef %12)
+          to label %1043 unwind label %1047
 
-1044:                                             ; preds = %1042
-  %.not875 = icmp eq ptr %1043, null
-  br i1 %.not875, label %.thread1023, label %1045
+1043:                                             ; preds = %1041
+  %.not875 = icmp eq ptr %1042, null
+  br i1 %.not875, label %.thread1023, label %1044
 
-1045:                                             ; preds = %1044
-  invoke void @_ZN6icu_778Calendar13adoptTimeZoneEPNS_8TimeZoneE(ptr noundef nonnull align 8 dereferenceable(192) %9, ptr noundef nonnull %1043)
-          to label %1050 unwind label %1048
+1044:                                             ; preds = %1043
+  invoke void @_ZN6icu_778Calendar13adoptTimeZoneEPNS_8TimeZoneE(ptr noundef nonnull align 8 dereferenceable(192) %9, ptr noundef nonnull %1042)
+          to label %1049 unwind label %1047
 
-1046:                                             ; preds = %1037
-  %1047 = landingpad { ptr, i32 }
+1045:                                             ; preds = %1036
+  %1046 = landingpad { ptr, i32 }
           cleanup
-  br label %1400
+  br label %1399
 
-1048:                                             ; preds = %1045, %1042
-  %1049 = landingpad { ptr, i32 }
+1047:                                             ; preds = %1044, %1041
+  %1048 = landingpad { ptr, i32 }
           cleanup
-  br label %1400
+  br label %1399
 
-1050:                                             ; preds = %1045
-  %1051 = load i32, ptr %27, align 8, !tbaa !189
+1049:                                             ; preds = %1044
+  %1050 = load i32, ptr %27, align 8, !tbaa !189
   br label %.thread990
 
-.thread1023:                                      ; preds = %1044, %1039
-  %1052 = load i32, ptr %2, align 4, !tbaa !12
-  %1053 = sub nsw i32 0, %1052
+.thread1023:                                      ; preds = %1043, %1038
+  %1051 = load i32, ptr %2, align 4, !tbaa !12
+  %1052 = sub nsw i32 0, %1051
   br label %.thread990
 
-1054:                                             ; preds = %.thread964
-  %1055 = icmp slt i32 %4, 4
-  %1056 = select i1 %1055, i32 6, i32 5
-  %1057 = invoke noundef ptr @_ZNK6icu_7716SimpleDateFormat8tzFormatER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull align 4 dereferenceable(4) %16)
-          to label %1058 unwind label %1065
+1053:                                             ; preds = %.thread964
+  %1054 = icmp slt i32 %4, 4
+  %1055 = select i1 %1054, i32 6, i32 5
+  %1056 = invoke noundef ptr @_ZNK6icu_7716SimpleDateFormat8tzFormatER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull align 4 dereferenceable(4) %16)
+          to label %1057 unwind label %1064
 
-1058:                                             ; preds = %1054
-  %1059 = load i32, ptr %16, align 4, !tbaa !13
-  %1060 = icmp sgt i32 %1059, 0
-  br i1 %1060, label %.thread1025, label %1061
+1057:                                             ; preds = %1053
+  %1058 = load i32, ptr %16, align 4, !tbaa !13
+  %1059 = icmp sgt i32 %1058, 0
+  br i1 %1059, label %.thread1025, label %1060
 
-1061:                                             ; preds = %1058
-  %1062 = invoke noundef ptr @_ZNK6icu_7714TimeZoneFormat5parseE20UTimeZoneFormatStyleRKNS_13UnicodeStringERNS_13ParsePositionEP23UTimeZoneFormatTimeType(ptr noundef nonnull align 8 dereferenceable(1024) %1057, i32 noundef %1056, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef %12)
-          to label %1063 unwind label %1067
+1060:                                             ; preds = %1057
+  %1061 = invoke noundef ptr @_ZNK6icu_7714TimeZoneFormat5parseE20UTimeZoneFormatStyleRKNS_13UnicodeStringERNS_13ParsePositionEP23UTimeZoneFormatTimeType(ptr noundef nonnull align 8 dereferenceable(1024) %1056, i32 noundef %1055, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef %12)
+          to label %1062 unwind label %1066
 
-1063:                                             ; preds = %1061
-  %.not871 = icmp eq ptr %1062, null
-  br i1 %.not871, label %.thread1025, label %1064
+1062:                                             ; preds = %1060
+  %.not871 = icmp eq ptr %1061, null
+  br i1 %.not871, label %.thread1025, label %1063
 
-1064:                                             ; preds = %1063
-  invoke void @_ZN6icu_778Calendar13adoptTimeZoneEPNS_8TimeZoneE(ptr noundef nonnull align 8 dereferenceable(192) %9, ptr noundef nonnull %1062)
-          to label %1069 unwind label %1067
+1063:                                             ; preds = %1062
+  invoke void @_ZN6icu_778Calendar13adoptTimeZoneEPNS_8TimeZoneE(ptr noundef nonnull align 8 dereferenceable(192) %9, ptr noundef nonnull %1061)
+          to label %1068 unwind label %1066
 
-1065:                                             ; preds = %1054
-  %1066 = landingpad { ptr, i32 }
+1064:                                             ; preds = %1053
+  %1065 = landingpad { ptr, i32 }
           cleanup
-  br label %1400
+  br label %1399
 
-1067:                                             ; preds = %1064, %1061
-  %1068 = landingpad { ptr, i32 }
+1066:                                             ; preds = %1063, %1060
+  %1067 = landingpad { ptr, i32 }
           cleanup
-  br label %1400
+  br label %1399
 
-1069:                                             ; preds = %1064
-  %1070 = load i32, ptr %27, align 8, !tbaa !189
+1068:                                             ; preds = %1063
+  %1069 = load i32, ptr %27, align 8, !tbaa !189
   br label %.thread990
 
-.thread1025:                                      ; preds = %1063, %1058
-  %1071 = load i32, ptr %2, align 4, !tbaa !12
-  %1072 = sub nsw i32 0, %1071
+.thread1025:                                      ; preds = %1062, %1057
+  %1070 = load i32, ptr %2, align 4, !tbaa !12
+  %1071 = sub nsw i32 0, %1070
   br label %.thread990
 
-1073:                                             ; preds = %.thread964
+1072:                                             ; preds = %.thread964
   %switch.tableidx1173 = add i32 %4, -1
-  %1074 = icmp ult i32 %switch.tableidx1173, 4
-  br i1 %1074, label %switch.lookup1174, label %1076
+  %1073 = icmp ult i32 %switch.tableidx1173, 4
+  br i1 %1073, label %switch.lookup1174, label %1075
 
-switch.lookup1174:                                ; preds = %1073
-  %1075 = zext nneg i32 %switch.tableidx1173 to i64
-  %switch.gep1175 = getelementptr inbounds nuw i32, ptr @switch.table._ZNK6icu_7716SimpleDateFormat8subParseERKNS_13UnicodeStringERiDsiaaPaS4_RNS_8CalendarEiPNS_13MessageFormatEP23UTimeZoneFormatTimeTypePi.1, i64 %1075
+switch.lookup1174:                                ; preds = %1072
+  %1074 = zext nneg i32 %switch.tableidx1173 to i64
+  %switch.gep1175 = getelementptr inbounds nuw i32, ptr @switch.table._ZNK6icu_7716SimpleDateFormat8subParseERKNS_13UnicodeStringERiDsiaaPaS4_RNS_8CalendarEiPNS_13MessageFormatEP23UTimeZoneFormatTimeTypePi.1, i64 %1074
   %switch.load1176 = load i32, ptr %switch.gep1175, align 4
-  br label %1076
+  br label %1075
 
-1076:                                             ; preds = %1073, %switch.lookup1174
-  %.0738 = phi i32 [ %switch.load1176, %switch.lookup1174 ], [ 15, %1073 ]
-  %1077 = invoke noundef ptr @_ZNK6icu_7716SimpleDateFormat8tzFormatER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull align 4 dereferenceable(4) %16)
-          to label %1078 unwind label %1085
+1075:                                             ; preds = %1072, %switch.lookup1174
+  %.0738 = phi i32 [ %switch.load1176, %switch.lookup1174 ], [ 15, %1072 ]
+  %1076 = invoke noundef ptr @_ZNK6icu_7716SimpleDateFormat8tzFormatER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull align 4 dereferenceable(4) %16)
+          to label %1077 unwind label %1084
 
-1078:                                             ; preds = %1076
-  %1079 = load i32, ptr %16, align 4, !tbaa !13
-  %1080 = icmp sgt i32 %1079, 0
-  br i1 %1080, label %.thread1027, label %1081
+1077:                                             ; preds = %1075
+  %1078 = load i32, ptr %16, align 4, !tbaa !13
+  %1079 = icmp sgt i32 %1078, 0
+  br i1 %1079, label %.thread1027, label %1080
 
-1081:                                             ; preds = %1078
-  %1082 = invoke noundef ptr @_ZNK6icu_7714TimeZoneFormat5parseE20UTimeZoneFormatStyleRKNS_13UnicodeStringERNS_13ParsePositionEP23UTimeZoneFormatTimeType(ptr noundef nonnull align 8 dereferenceable(1024) %1077, i32 noundef %.0738, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef %12)
-          to label %1083 unwind label %1087
+1080:                                             ; preds = %1077
+  %1081 = invoke noundef ptr @_ZNK6icu_7714TimeZoneFormat5parseE20UTimeZoneFormatStyleRKNS_13UnicodeStringERNS_13ParsePositionEP23UTimeZoneFormatTimeType(ptr noundef nonnull align 8 dereferenceable(1024) %1076, i32 noundef %.0738, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef %12)
+          to label %1082 unwind label %1086
 
-1083:                                             ; preds = %1081
-  %.not867 = icmp eq ptr %1082, null
-  br i1 %.not867, label %.thread1027, label %1084
+1082:                                             ; preds = %1080
+  %.not867 = icmp eq ptr %1081, null
+  br i1 %.not867, label %.thread1027, label %1083
 
-1084:                                             ; preds = %1083
-  invoke void @_ZN6icu_778Calendar13adoptTimeZoneEPNS_8TimeZoneE(ptr noundef nonnull align 8 dereferenceable(192) %9, ptr noundef nonnull %1082)
-          to label %1089 unwind label %1087
+1083:                                             ; preds = %1082
+  invoke void @_ZN6icu_778Calendar13adoptTimeZoneEPNS_8TimeZoneE(ptr noundef nonnull align 8 dereferenceable(192) %9, ptr noundef nonnull %1081)
+          to label %1088 unwind label %1086
 
-1085:                                             ; preds = %1076
-  %1086 = landingpad { ptr, i32 }
+1084:                                             ; preds = %1075
+  %1085 = landingpad { ptr, i32 }
           cleanup
-  br label %1400
+  br label %1399
 
-1087:                                             ; preds = %1084, %1081
-  %1088 = landingpad { ptr, i32 }
+1086:                                             ; preds = %1083, %1080
+  %1087 = landingpad { ptr, i32 }
           cleanup
-  br label %1400
+  br label %1399
 
-1089:                                             ; preds = %1084
-  %1090 = load i32, ptr %27, align 8, !tbaa !189
+1088:                                             ; preds = %1083
+  %1089 = load i32, ptr %27, align 8, !tbaa !189
   br label %.thread990
 
-.thread1027:                                      ; preds = %1083, %1078
-  %1091 = load i32, ptr %2, align 4, !tbaa !12
-  %1092 = sub nsw i32 0, %1091
+.thread1027:                                      ; preds = %1082, %1077
+  %1090 = load i32, ptr %2, align 4, !tbaa !12
+  %1091 = sub nsw i32 0, %1090
   br label %.thread990
 
-1093:                                             ; preds = %.thread964
+1092:                                             ; preds = %.thread964
   %switch.tableidx1177 = add i32 %4, -1
-  %1094 = icmp ult i32 %switch.tableidx1177, 4
-  br i1 %1094, label %switch.lookup1178, label %1096
+  %1093 = icmp ult i32 %switch.tableidx1177, 4
+  br i1 %1093, label %switch.lookup1178, label %1095
 
-switch.lookup1178:                                ; preds = %1093
-  %1095 = zext nneg i32 %switch.tableidx1177 to i64
-  %switch.gep1179 = getelementptr inbounds nuw i32, ptr @switch.table._ZNK6icu_7716SimpleDateFormat8subParseERKNS_13UnicodeStringERiDsiaaPaS4_RNS_8CalendarEiPNS_13MessageFormatEP23UTimeZoneFormatTimeTypePi.2, i64 %1095
+switch.lookup1178:                                ; preds = %1092
+  %1094 = zext nneg i32 %switch.tableidx1177 to i64
+  %switch.gep1179 = getelementptr inbounds nuw i32, ptr @switch.table._ZNK6icu_7716SimpleDateFormat8subParseERKNS_13UnicodeStringERiDsiaaPaS4_RNS_8CalendarEiPNS_13MessageFormatEP23UTimeZoneFormatTimeTypePi.2, i64 %1094
   %switch.load1180 = load i32, ptr %switch.gep1179, align 4
-  br label %1096
+  br label %1095
 
-1096:                                             ; preds = %1093, %switch.lookup1178
-  %.0718 = phi i32 [ %switch.load1180, %switch.lookup1178 ], [ 16, %1093 ]
-  %1097 = invoke noundef ptr @_ZNK6icu_7716SimpleDateFormat8tzFormatER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull align 4 dereferenceable(4) %16)
-          to label %1098 unwind label %1105
+1095:                                             ; preds = %1092, %switch.lookup1178
+  %.0718 = phi i32 [ %switch.load1180, %switch.lookup1178 ], [ 16, %1092 ]
+  %1096 = invoke noundef ptr @_ZNK6icu_7716SimpleDateFormat8tzFormatER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull align 4 dereferenceable(4) %16)
+          to label %1097 unwind label %1104
 
-1098:                                             ; preds = %1096
-  %1099 = load i32, ptr %16, align 4, !tbaa !13
-  %1100 = icmp sgt i32 %1099, 0
-  br i1 %1100, label %.thread1029, label %1101
+1097:                                             ; preds = %1095
+  %1098 = load i32, ptr %16, align 4, !tbaa !13
+  %1099 = icmp sgt i32 %1098, 0
+  br i1 %1099, label %.thread1029, label %1100
 
-1101:                                             ; preds = %1098
-  %1102 = invoke noundef ptr @_ZNK6icu_7714TimeZoneFormat5parseE20UTimeZoneFormatStyleRKNS_13UnicodeStringERNS_13ParsePositionEP23UTimeZoneFormatTimeType(ptr noundef nonnull align 8 dereferenceable(1024) %1097, i32 noundef %.0718, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef %12)
-          to label %1103 unwind label %1107
+1100:                                             ; preds = %1097
+  %1101 = invoke noundef ptr @_ZNK6icu_7714TimeZoneFormat5parseE20UTimeZoneFormatStyleRKNS_13UnicodeStringERNS_13ParsePositionEP23UTimeZoneFormatTimeType(ptr noundef nonnull align 8 dereferenceable(1024) %1096, i32 noundef %.0718, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef %12)
+          to label %1102 unwind label %1106
 
-1103:                                             ; preds = %1101
-  %.not863 = icmp eq ptr %1102, null
-  br i1 %.not863, label %.thread1029, label %1104
+1102:                                             ; preds = %1100
+  %.not863 = icmp eq ptr %1101, null
+  br i1 %.not863, label %.thread1029, label %1103
 
-1104:                                             ; preds = %1103
-  invoke void @_ZN6icu_778Calendar13adoptTimeZoneEPNS_8TimeZoneE(ptr noundef nonnull align 8 dereferenceable(192) %9, ptr noundef nonnull %1102)
-          to label %1109 unwind label %1107
+1103:                                             ; preds = %1102
+  invoke void @_ZN6icu_778Calendar13adoptTimeZoneEPNS_8TimeZoneE(ptr noundef nonnull align 8 dereferenceable(192) %9, ptr noundef nonnull %1101)
+          to label %1108 unwind label %1106
 
-1105:                                             ; preds = %1096
-  %1106 = landingpad { ptr, i32 }
+1104:                                             ; preds = %1095
+  %1105 = landingpad { ptr, i32 }
           cleanup
-  br label %1400
+  br label %1399
 
-1107:                                             ; preds = %1104, %1101
-  %1108 = landingpad { ptr, i32 }
+1106:                                             ; preds = %1103, %1100
+  %1107 = landingpad { ptr, i32 }
           cleanup
-  br label %1400
+  br label %1399
 
-1109:                                             ; preds = %1104
-  %1110 = load i32, ptr %27, align 8, !tbaa !189
+1108:                                             ; preds = %1103
+  %1109 = load i32, ptr %27, align 8, !tbaa !189
   br label %.thread990
 
-.thread1029:                                      ; preds = %1103, %1098
-  %1111 = load i32, ptr %2, align 4, !tbaa !12
-  %1112 = sub nsw i32 0, %1111
+.thread1029:                                      ; preds = %1102, %1097
+  %1110 = load i32, ptr %2, align 4, !tbaa !12
+  %1111 = sub nsw i32 0, %1110
   br label %.thread990
 
-1113:                                             ; preds = %.thread964
+1112:                                             ; preds = %.thread964
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
-  br label %1114
+  br label %1113
 
-1114:                                             ; preds = %1113, %1114
-  %.idx855 = phi i64 [ 0, %1113 ], [ %.add, %1114 ]
+1113:                                             ; preds = %1112, %1113
+  %.idx855 = phi i64 [ 0, %1112 ], [ %.add, %1113 ]
   %.ptr = getelementptr inbounds nuw i8, ptr %23, i64 %.idx855
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %.ptr, align 16, !tbaa !44
-  %1115 = getelementptr inbounds nuw i8, ptr %.ptr, i64 8
-  store i16 2, ptr %1115, align 8, !tbaa !51
+  %1114 = getelementptr inbounds nuw i8, ptr %.ptr, i64 8
+  store i16 2, ptr %1114, align 8, !tbaa !51
   %.add = add nuw nsw i64 %.idx855, 64
-  %1116 = icmp eq i64 %.add, 192
-  br i1 %1116, label %1117, label %1114
+  %1115 = icmp eq i64 %.add, 192
+  br i1 %1115, label %1116, label %1113
 
-1117:                                             ; preds = %1114
-  %1118 = getelementptr inbounds nuw i8, ptr %23, i64 192
-  %1119 = getelementptr inbounds nuw i8, ptr %0, i64 464
-  %1120 = load ptr, ptr %1119, align 8, !tbaa !46
-  %1121 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7717DateFormatSymbols22getTimeSeparatorStringERNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(976) %1120, ptr noundef nonnull align 8 dereferenceable(64) %23)
-          to label %1122 unwind label %1129
+1116:                                             ; preds = %1113
+  %1117 = getelementptr inbounds nuw i8, ptr %23, i64 192
+  %1118 = getelementptr inbounds nuw i8, ptr %0, i64 464
+  %1119 = load ptr, ptr %1118, align 8, !tbaa !46
+  %1120 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7717DateFormatSymbols22getTimeSeparatorStringERNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(976) %1119, ptr noundef nonnull align 8 dereferenceable(64) %23)
+          to label %1121 unwind label %1128
 
-1122:                                             ; preds = %1117
+1121:                                             ; preds = %1116
   store ptr @_ZZNK6icu_7716SimpleDateFormat8subParseERKNS_13UnicodeStringERiDsiaaPaS4_RNS_8CalendarEiPNS_13MessageFormatEP23UTimeZoneFormatTimeTypePiE7def_sep, ptr %24, align 8, !tbaa !63
-  %1123 = invoke noundef signext i8 @_ZNK6icu_7713UnicodeString7compareENS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %23, ptr noundef nonnull %24, i32 noundef 1)
-          to label %1124 unwind label %1131
+  %1122 = invoke noundef signext i8 @_ZNK6icu_7713UnicodeString7compareENS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %23, ptr noundef nonnull %24, i32 noundef 1)
+          to label %1123 unwind label %1130
 
-1124:                                             ; preds = %1122
-  %.not857 = icmp eq i8 %1123, 0
-  %1125 = load ptr, ptr %24, align 8, !tbaa !63
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %1125) #23, !srcloc !65
-  br i1 %.not857, label %1134, label %1126
+1123:                                             ; preds = %1121
+  %.not857 = icmp eq i8 %1122, 0
+  %1124 = load ptr, ptr %24, align 8, !tbaa !63
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %1124) #23, !srcloc !65
+  br i1 %.not857, label %1133, label %1125
 
-1126:                                             ; preds = %1124
-  %1127 = getelementptr inbounds nuw i8, ptr %23, i64 64
-  %1128 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString5setToEDs(ptr noundef nonnull align 8 dereferenceable(64) %1127, i16 noundef zeroext 58)
-          to label %1134 unwind label %1129
+1125:                                             ; preds = %1123
+  %1126 = getelementptr inbounds nuw i8, ptr %23, i64 64
+  %1127 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString5setToEDs(ptr noundef nonnull align 8 dereferenceable(64) %1126, i16 noundef zeroext 58)
+          to label %1133 unwind label %1128
 
-1129:                                             ; preds = %.thread1032, %1144, %1134, %1126, %1117
-  %1130 = landingpad { ptr, i32 }
+1128:                                             ; preds = %.thread1032, %1143, %1133, %1125, %1116
+  %1129 = landingpad { ptr, i32 }
           cleanup
-  br label %1158
+  br label %1157
 
-1131:                                             ; preds = %1122
-  %1132 = landingpad { ptr, i32 }
+1130:                                             ; preds = %1121
+  %1131 = landingpad { ptr, i32 }
           cleanup
-  %1133 = load ptr, ptr %24, align 8, !tbaa !63
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %1133) #23, !srcloc !65
-  br label %1158
+  %1132 = load ptr, ptr %24, align 8, !tbaa !63
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %1132) #23, !srcloc !65
+  br label %1157
 
-1134:                                             ; preds = %1126, %1124
-  %.0690 = phi i32 [ 2, %1126 ], [ 1, %1124 ]
-  %1135 = load ptr, ptr %0, align 8, !tbaa !44
-  %1136 = getelementptr inbounds nuw i8, ptr %1135, i64 96
-  %1137 = load ptr, ptr %1136, align 8
-  %1138 = invoke noundef signext i8 %1137(ptr noundef nonnull align 8 dereferenceable(48) %0)
-          to label %1139 unwind label %1129
+1133:                                             ; preds = %1125, %1123
+  %.0690 = phi i32 [ 2, %1125 ], [ 1, %1123 ]
+  %1134 = load ptr, ptr %0, align 8, !tbaa !44
+  %1135 = getelementptr inbounds nuw i8, ptr %1134, i64 96
+  %1136 = load ptr, ptr %1135, align 8
+  %1137 = invoke noundef signext i8 %1136(ptr noundef nonnull align 8 dereferenceable(48) %0)
+          to label %1138 unwind label %1128
 
-1139:                                             ; preds = %1134
-  %.not858.not = icmp eq i8 %1138, 0
-  br i1 %.not858.not, label %.thread1032, label %1140
+1138:                                             ; preds = %1133
+  %.not858.not = icmp eq i8 %1137, 0
+  br i1 %.not858.not, label %.thread1032, label %1139
 
-1140:                                             ; preds = %1139
+1139:                                             ; preds = %1138
   store ptr @_ZZNK6icu_7716SimpleDateFormat8subParseERKNS_13UnicodeStringERiDsiaaPaS4_RNS_8CalendarEiPNS_13MessageFormatEP23UTimeZoneFormatTimeTypePiE7alt_sep, ptr %25, align 8, !tbaa !63
-  %1141 = invoke noundef signext i8 @_ZNK6icu_7713UnicodeString7compareENS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %23, ptr noundef nonnull %25, i32 noundef 1)
-          to label %1142 unwind label %1149
+  %1140 = invoke noundef signext i8 @_ZNK6icu_7713UnicodeString7compareENS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %23, ptr noundef nonnull %25, i32 noundef 1)
+          to label %1141 unwind label %1148
 
-1142:                                             ; preds = %1140
-  %.not1044 = icmp eq i8 %1141, 0
-  %1143 = load ptr, ptr %25, align 8, !tbaa !63
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %1143) #23, !srcloc !65
-  br i1 %.not1044, label %.thread1032, label %1144
+1141:                                             ; preds = %1139
+  %.not1044 = icmp eq i8 %1140, 0
+  %1142 = load ptr, ptr %25, align 8, !tbaa !63
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %1142) #23, !srcloc !65
+  br i1 %.not1044, label %.thread1032, label %1143
 
-1144:                                             ; preds = %1142
-  %1145 = add nuw nsw i32 %.0690, 1
-  %1146 = zext nneg i32 %.0690 to i64
-  %1147 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %23, i64 %1146
-  %1148 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString5setToEDs(ptr noundef nonnull align 8 dereferenceable(64) %1147, i16 noundef zeroext 46)
-          to label %.thread1032 unwind label %1129
+1143:                                             ; preds = %1141
+  %1144 = add nuw nsw i32 %.0690, 1
+  %1145 = zext nneg i32 %.0690 to i64
+  %1146 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %23, i64 %1145
+  %1147 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString5setToEDs(ptr noundef nonnull align 8 dereferenceable(64) %1146, i16 noundef zeroext 46)
+          to label %.thread1032 unwind label %1128
 
-1149:                                             ; preds = %1140
-  %1150 = landingpad { ptr, i32 }
+1148:                                             ; preds = %1139
+  %1149 = landingpad { ptr, i32 }
           cleanup
-  %1151 = load ptr, ptr %25, align 8, !tbaa !63
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %1151) #23, !srcloc !65
-  br label %1158
+  %1150 = load ptr, ptr %25, align 8, !tbaa !63
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %1150) #23, !srcloc !65
+  br label %1157
 
-.thread1032:                                      ; preds = %1139, %1144, %1142
-  %.1691 = phi i32 [ %1145, %1144 ], [ %.0690, %1142 ], [ %.0690, %1139 ]
-  %1152 = load i32, ptr %2, align 4, !tbaa !12
-  %1153 = invoke noundef i32 @_ZNK6icu_7716SimpleDateFormat11matchStringERKNS_13UnicodeStringEi19UCalendarDateFieldsPS2_iS5_RNS_8CalendarE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %1152, i32 noundef 24, ptr noundef nonnull %23, i32 noundef %.1691, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(192) %9)
-          to label %.preheader1052 unwind label %1129
+.thread1032:                                      ; preds = %1138, %1143, %1141
+  %.1691 = phi i32 [ %1144, %1143 ], [ %.0690, %1141 ], [ %.0690, %1138 ]
+  %1151 = load i32, ptr %2, align 4, !tbaa !12
+  %1152 = invoke noundef i32 @_ZNK6icu_7716SimpleDateFormat11matchStringERKNS_13UnicodeStringEi19UCalendarDateFieldsPS2_iS5_RNS_8CalendarE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %1151, i32 noundef 24, ptr noundef nonnull %23, i32 noundef %.1691, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(192) %9)
+          to label %.preheader1052 unwind label %1128
 
 .preheader1052:                                   ; preds = %.thread1032, %.preheader1052
-  %1154 = phi ptr [ %1155, %.preheader1052 ], [ %1118, %.thread1032 ]
-  %1155 = getelementptr inbounds i8, ptr %1154, i64 -64
-  call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %1155) #23
-  %1156 = icmp eq ptr %1155, %23
-  br i1 %1156, label %1157, label %.preheader1052
+  %1153 = phi ptr [ %1154, %.preheader1052 ], [ %1117, %.thread1032 ]
+  %1154 = getelementptr inbounds i8, ptr %1153, i64 -64
+  call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %1154) #23
+  %1155 = icmp eq ptr %1154, %23
+  br i1 %1155, label %1156, label %.preheader1052
 
-1157:                                             ; preds = %.preheader1052
+1156:                                             ; preds = %.preheader1052
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %.thread990
 
-1158:                                             ; preds = %1149, %1131, %1129
-  %.pn859 = phi { ptr, i32 } [ %1130, %1129 ], [ %1150, %1149 ], [ %1132, %1131 ]
-  br label %1159
+1157:                                             ; preds = %1148, %1130, %1128
+  %.pn859 = phi { ptr, i32 } [ %1129, %1128 ], [ %1149, %1148 ], [ %1131, %1130 ]
+  br label %1158
 
-1159:                                             ; preds = %1159, %1158
-  %1160 = phi ptr [ %1118, %1158 ], [ %1161, %1159 ]
-  %1161 = getelementptr inbounds i8, ptr %1160, i64 -64
-  call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %1161) #23
-  %1162 = icmp eq ptr %1161, %23
-  br i1 %1162, label %1163, label %1159
+1158:                                             ; preds = %1158, %1157
+  %1159 = phi ptr [ %1117, %1157 ], [ %1160, %1158 ]
+  %1160 = getelementptr inbounds i8, ptr %1159, i64 -64
+  call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %1160) #23
+  %1161 = icmp eq ptr %1160, %23
+  br i1 %1161, label %1162, label %1158
 
-1163:                                             ; preds = %1159
+1162:                                             ; preds = %1158
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
-  br label %1400
+  br label %1399
 
-1164:                                             ; preds = %.thread964
-  %1165 = invoke noundef i32 @_ZNK6icu_7716SimpleDateFormat8subParseERKNS_13UnicodeStringERiDsiaaPaS4_RNS_8CalendarEiPNS_13MessageFormatEP23UTimeZoneFormatTimeTypePi(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 4 dereferenceable(4) %2, i16 noundef zeroext 97, i32 noundef %4, i8 noundef signext %5, i8 noundef signext %6, ptr noundef %7, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 8 dereferenceable(192) %9, i32 noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef null)
-          to label %1166 unwind label %1168
+1163:                                             ; preds = %.thread964
+  %1164 = invoke noundef i32 @_ZNK6icu_7716SimpleDateFormat8subParseERKNS_13UnicodeStringERiDsiaaPaS4_RNS_8CalendarEiPNS_13MessageFormatEP23UTimeZoneFormatTimeTypePi(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 4 dereferenceable(4) %2, i16 noundef zeroext 97, i32 noundef %4, i8 noundef signext %5, i8 noundef signext %6, ptr noundef %7, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 8 dereferenceable(192) %9, i32 noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef null)
+          to label %1165 unwind label %1167
 
-1166:                                             ; preds = %1164
-  %1167 = icmp sgt i32 %1165, 0
-  br i1 %1167, label %.thread990, label %1170
+1165:                                             ; preds = %1163
+  %1166 = icmp sgt i32 %1164, 0
+  br i1 %1166, label %.thread990, label %1169
 
-1168:                                             ; preds = %1164
-  %1169 = landingpad { ptr, i32 }
+1167:                                             ; preds = %1163
+  %1168 = landingpad { ptr, i32 }
           cleanup
-  br label %1400
+  br label %1399
 
-1170:                                             ; preds = %1166
-  %1171 = load ptr, ptr %0, align 8, !tbaa !44
-  %1172 = getelementptr inbounds nuw i8, ptr %1171, i64 224
-  %1173 = load ptr, ptr %1172, align 8
-  %1174 = invoke noundef signext i8 %1173(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef 3, ptr noundef nonnull align 4 dereferenceable(4) %16)
-          to label %1175 unwind label %1187
+1169:                                             ; preds = %1165
+  %1170 = load ptr, ptr %0, align 8, !tbaa !44
+  %1171 = getelementptr inbounds nuw i8, ptr %1170, i64 224
+  %1172 = load ptr, ptr %1171, align 8
+  %1173 = invoke noundef signext i8 %1172(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef 3, ptr noundef nonnull align 4 dereferenceable(4) %16)
+          to label %1174 unwind label %1186
 
-1175:                                             ; preds = %1170
-  %1176 = icmp ne i8 %1174, 0
-  %1177 = icmp eq i32 %4, 3
-  %or.cond106 = or i1 %1177, %1176
-  br i1 %or.cond106, label %1178, label %1189
+1174:                                             ; preds = %1169
+  %1175 = icmp ne i8 %1173, 0
+  %1176 = icmp eq i32 %4, 3
+  %or.cond106 = or i1 %1176, %1175
+  br i1 %or.cond106, label %1177, label %1188
 
-1178:                                             ; preds = %1175
-  %1179 = load i32, ptr %2, align 4, !tbaa !12
-  %1180 = getelementptr inbounds nuw i8, ptr %0, i64 464
-  %1181 = load ptr, ptr %1180, align 8, !tbaa !46
-  %1182 = getelementptr inbounds nuw i8, ptr %1181, i64 864
-  %1183 = load ptr, ptr %1182, align 8, !tbaa !145
-  %1184 = invoke noundef i32 @_ZNK6icu_7716SimpleDateFormat21matchDayPeriodStringsERKNS_13UnicodeStringEiPS2_iRi(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %1179, ptr noundef %1183, i32 noundef 2, ptr noundef nonnull align 4 dereferenceable(4) %13)
-          to label %1185 unwind label %1187
+1177:                                             ; preds = %1174
+  %1178 = load i32, ptr %2, align 4, !tbaa !12
+  %1179 = getelementptr inbounds nuw i8, ptr %0, i64 464
+  %1180 = load ptr, ptr %1179, align 8, !tbaa !46
+  %1181 = getelementptr inbounds nuw i8, ptr %1180, i64 864
+  %1182 = load ptr, ptr %1181, align 8, !tbaa !145
+  %1183 = invoke noundef i32 @_ZNK6icu_7716SimpleDateFormat21matchDayPeriodStringsERKNS_13UnicodeStringEiPS2_iRi(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %1178, ptr noundef %1182, i32 noundef 2, ptr noundef nonnull align 4 dereferenceable(4) %13)
+          to label %1184 unwind label %1186
 
-1185:                                             ; preds = %1178
-  %1186 = icmp sgt i32 %1184, 0
-  br i1 %1186, label %.thread990, label %1189
+1184:                                             ; preds = %1177
+  %1185 = icmp sgt i32 %1183, 0
+  br i1 %1185, label %.thread990, label %1188
 
-1187:                                             ; preds = %1212, %1206, %1197, %1189, %1178, %1170
-  %1188 = landingpad { ptr, i32 }
+1186:                                             ; preds = %1211, %1205, %1196, %1188, %1177, %1169
+  %1187 = landingpad { ptr, i32 }
           cleanup
-  br label %1400
+  br label %1399
 
-1189:                                             ; preds = %1185, %1175
-  %1190 = load ptr, ptr %0, align 8, !tbaa !44
-  %1191 = getelementptr inbounds nuw i8, ptr %1190, i64 224
-  %1192 = load ptr, ptr %1191, align 8
-  %1193 = invoke noundef signext i8 %1192(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef 3, ptr noundef nonnull align 4 dereferenceable(4) %16)
-          to label %1194 unwind label %1187
+1188:                                             ; preds = %1184, %1174
+  %1189 = load ptr, ptr %0, align 8, !tbaa !44
+  %1190 = getelementptr inbounds nuw i8, ptr %1189, i64 224
+  %1191 = load ptr, ptr %1190, align 8
+  %1192 = invoke noundef signext i8 %1191(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef 3, ptr noundef nonnull align 4 dereferenceable(4) %16)
+          to label %1193 unwind label %1186
 
-1194:                                             ; preds = %1189
-  %1195 = icmp ne i8 %1193, 0
-  %1196 = icmp eq i32 %4, 5
-  %or.cond108 = or i1 %1196, %1195
-  br i1 %or.cond108, label %1197, label %1206
+1193:                                             ; preds = %1188
+  %1194 = icmp ne i8 %1192, 0
+  %1195 = icmp eq i32 %4, 5
+  %or.cond108 = or i1 %1195, %1194
+  br i1 %or.cond108, label %1196, label %1205
 
-1197:                                             ; preds = %1194
-  %1198 = load i32, ptr %2, align 4, !tbaa !12
-  %1199 = getelementptr inbounds nuw i8, ptr %0, i64 464
-  %1200 = load ptr, ptr %1199, align 8, !tbaa !46
-  %1201 = getelementptr inbounds nuw i8, ptr %1200, i64 896
-  %1202 = load ptr, ptr %1201, align 8, !tbaa !147
-  %1203 = invoke noundef i32 @_ZNK6icu_7716SimpleDateFormat21matchDayPeriodStringsERKNS_13UnicodeStringEiPS2_iRi(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %1198, ptr noundef %1202, i32 noundef 2, ptr noundef nonnull align 4 dereferenceable(4) %13)
-          to label %1204 unwind label %1187
+1196:                                             ; preds = %1193
+  %1197 = load i32, ptr %2, align 4, !tbaa !12
+  %1198 = getelementptr inbounds nuw i8, ptr %0, i64 464
+  %1199 = load ptr, ptr %1198, align 8, !tbaa !46
+  %1200 = getelementptr inbounds nuw i8, ptr %1199, i64 896
+  %1201 = load ptr, ptr %1200, align 8, !tbaa !147
+  %1202 = invoke noundef i32 @_ZNK6icu_7716SimpleDateFormat21matchDayPeriodStringsERKNS_13UnicodeStringEiPS2_iRi(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %1197, ptr noundef %1201, i32 noundef 2, ptr noundef nonnull align 4 dereferenceable(4) %13)
+          to label %1203 unwind label %1186
 
-1204:                                             ; preds = %1197
-  %1205 = icmp sgt i32 %1203, 0
-  br i1 %1205, label %.thread990, label %1206
+1203:                                             ; preds = %1196
+  %1204 = icmp sgt i32 %1202, 0
+  br i1 %1204, label %.thread990, label %1205
 
-1206:                                             ; preds = %1204, %1194
-  %1207 = load ptr, ptr %0, align 8, !tbaa !44
-  %1208 = getelementptr inbounds nuw i8, ptr %1207, i64 224
-  %1209 = load ptr, ptr %1208, align 8
-  %1210 = invoke noundef signext i8 %1209(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef 3, ptr noundef nonnull align 4 dereferenceable(4) %16)
-          to label %1211 unwind label %1187
+1205:                                             ; preds = %1203, %1193
+  %1206 = load ptr, ptr %0, align 8, !tbaa !44
+  %1207 = getelementptr inbounds nuw i8, ptr %1206, i64 224
+  %1208 = load ptr, ptr %1207, align 8
+  %1209 = invoke noundef signext i8 %1208(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef 3, ptr noundef nonnull align 4 dereferenceable(4) %16)
+          to label %1210 unwind label %1186
 
-1211:                                             ; preds = %1206
-  %.not852 = icmp eq i8 %1210, 0
-  br i1 %.not852, label %1221, label %1212
+1210:                                             ; preds = %1205
+  %.not852 = icmp eq i8 %1209, 0
+  br i1 %.not852, label %1220, label %1211
 
-1212:                                             ; preds = %1211
-  %1213 = load i32, ptr %2, align 4, !tbaa !12
-  %1214 = getelementptr inbounds nuw i8, ptr %0, i64 464
-  %1215 = load ptr, ptr %1214, align 8, !tbaa !46
-  %1216 = getelementptr inbounds nuw i8, ptr %1215, i64 880
-  %1217 = load ptr, ptr %1216, align 8, !tbaa !146
-  %1218 = invoke noundef i32 @_ZNK6icu_7716SimpleDateFormat21matchDayPeriodStringsERKNS_13UnicodeStringEiPS2_iRi(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %1213, ptr noundef %1217, i32 noundef 2, ptr noundef nonnull align 4 dereferenceable(4) %13)
-          to label %1219 unwind label %1187
+1211:                                             ; preds = %1210
+  %1212 = load i32, ptr %2, align 4, !tbaa !12
+  %1213 = getelementptr inbounds nuw i8, ptr %0, i64 464
+  %1214 = load ptr, ptr %1213, align 8, !tbaa !46
+  %1215 = getelementptr inbounds nuw i8, ptr %1214, i64 880
+  %1216 = load ptr, ptr %1215, align 8, !tbaa !146
+  %1217 = invoke noundef i32 @_ZNK6icu_7716SimpleDateFormat21matchDayPeriodStringsERKNS_13UnicodeStringEiPS2_iRi(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %1212, ptr noundef %1216, i32 noundef 2, ptr noundef nonnull align 4 dereferenceable(4) %13)
+          to label %1218 unwind label %1186
 
-1219:                                             ; preds = %1212
-  %1220 = icmp sgt i32 %1218, 0
-  br i1 %1220, label %.thread990, label %1221
+1218:                                             ; preds = %1211
+  %1219 = icmp sgt i32 %1217, 0
+  br i1 %1219, label %.thread990, label %1220
 
-1221:                                             ; preds = %1219, %1211
-  %1222 = load i32, ptr %2, align 4, !tbaa !12
-  %1223 = sub nsw i32 0, %1222
+1220:                                             ; preds = %1218, %1210
+  %1221 = load i32, ptr %2, align 4, !tbaa !12
+  %1222 = sub nsw i32 0, %1221
   br label %.thread990
 
-1224:                                             ; preds = %.thread964
-  %1225 = load ptr, ptr %0, align 8, !tbaa !44
-  %1226 = getelementptr inbounds nuw i8, ptr %1225, i64 224
-  %1227 = load ptr, ptr %1226, align 8
-  %1228 = invoke noundef signext i8 %1227(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef 3, ptr noundef nonnull align 4 dereferenceable(4) %16)
-          to label %1229 unwind label %1243
+1223:                                             ; preds = %.thread964
+  %1224 = load ptr, ptr %0, align 8, !tbaa !44
+  %1225 = getelementptr inbounds nuw i8, ptr %1224, i64 224
+  %1226 = load ptr, ptr %1225, align 8
+  %1227 = invoke noundef signext i8 %1226(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef 3, ptr noundef nonnull align 4 dereferenceable(4) %16)
+          to label %1228 unwind label %1242
 
-1229:                                             ; preds = %1224
-  %1230 = icmp ne i8 %1228, 0
-  %1231 = icmp eq i32 %4, 3
-  %or.cond110 = or i1 %1231, %1230
-  br i1 %or.cond110, label %1232, label %1245
+1228:                                             ; preds = %1223
+  %1229 = icmp ne i8 %1227, 0
+  %1230 = icmp eq i32 %4, 3
+  %or.cond110 = or i1 %1230, %1229
+  br i1 %or.cond110, label %1231, label %1244
 
-1232:                                             ; preds = %1229
-  %1233 = load i32, ptr %2, align 4, !tbaa !12
-  %1234 = getelementptr inbounds nuw i8, ptr %0, i64 464
-  %1235 = load ptr, ptr %1234, align 8, !tbaa !46
-  %1236 = getelementptr inbounds nuw i8, ptr %1235, i64 864
-  %1237 = load ptr, ptr %1236, align 8, !tbaa !145
-  %1238 = getelementptr inbounds nuw i8, ptr %1235, i64 872
-  %1239 = load i32, ptr %1238, align 8, !tbaa !201
-  %1240 = invoke noundef i32 @_ZNK6icu_7716SimpleDateFormat21matchDayPeriodStringsERKNS_13UnicodeStringEiPS2_iRi(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %1233, ptr noundef %1237, i32 noundef %1239, ptr noundef nonnull align 4 dereferenceable(4) %13)
-          to label %1241 unwind label %1243
+1231:                                             ; preds = %1228
+  %1232 = load i32, ptr %2, align 4, !tbaa !12
+  %1233 = getelementptr inbounds nuw i8, ptr %0, i64 464
+  %1234 = load ptr, ptr %1233, align 8, !tbaa !46
+  %1235 = getelementptr inbounds nuw i8, ptr %1234, i64 864
+  %1236 = load ptr, ptr %1235, align 8, !tbaa !145
+  %1237 = getelementptr inbounds nuw i8, ptr %1234, i64 872
+  %1238 = load i32, ptr %1237, align 8, !tbaa !201
+  %1239 = invoke noundef i32 @_ZNK6icu_7716SimpleDateFormat21matchDayPeriodStringsERKNS_13UnicodeStringEiPS2_iRi(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %1232, ptr noundef %1236, i32 noundef %1238, ptr noundef nonnull align 4 dereferenceable(4) %13)
+          to label %1240 unwind label %1242
 
-1241:                                             ; preds = %1232
-  %1242 = icmp sgt i32 %1240, 0
-  br i1 %1242, label %.thread990, label %1245
+1240:                                             ; preds = %1231
+  %1241 = icmp sgt i32 %1239, 0
+  br i1 %1241, label %.thread990, label %1244
 
-1243:                                             ; preds = %1272, %1264, %1253, %1245, %1232, %1224
-  %1244 = landingpad { ptr, i32 }
+1242:                                             ; preds = %1271, %1263, %1252, %1244, %1231, %1223
+  %1243 = landingpad { ptr, i32 }
           cleanup
-  br label %1400
+  br label %1399
 
-1245:                                             ; preds = %1241, %1229
-  %1246 = load ptr, ptr %0, align 8, !tbaa !44
-  %1247 = getelementptr inbounds nuw i8, ptr %1246, i64 224
-  %1248 = load ptr, ptr %1247, align 8
-  %1249 = invoke noundef signext i8 %1248(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef 3, ptr noundef nonnull align 4 dereferenceable(4) %16)
-          to label %1250 unwind label %1243
+1244:                                             ; preds = %1240, %1228
+  %1245 = load ptr, ptr %0, align 8, !tbaa !44
+  %1246 = getelementptr inbounds nuw i8, ptr %1245, i64 224
+  %1247 = load ptr, ptr %1246, align 8
+  %1248 = invoke noundef signext i8 %1247(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef 3, ptr noundef nonnull align 4 dereferenceable(4) %16)
+          to label %1249 unwind label %1242
 
-1250:                                             ; preds = %1245
-  %1251 = icmp ne i8 %1249, 0
-  %1252 = icmp eq i32 %4, 5
-  %or.cond112 = or i1 %1252, %1251
-  br i1 %or.cond112, label %1253, label %1264
+1249:                                             ; preds = %1244
+  %1250 = icmp ne i8 %1248, 0
+  %1251 = icmp eq i32 %4, 5
+  %or.cond112 = or i1 %1251, %1250
+  br i1 %or.cond112, label %1252, label %1263
 
-1253:                                             ; preds = %1250
-  %1254 = load i32, ptr %2, align 4, !tbaa !12
-  %1255 = getelementptr inbounds nuw i8, ptr %0, i64 464
-  %1256 = load ptr, ptr %1255, align 8, !tbaa !46
-  %1257 = getelementptr inbounds nuw i8, ptr %1256, i64 896
-  %1258 = load ptr, ptr %1257, align 8, !tbaa !147
-  %1259 = getelementptr inbounds nuw i8, ptr %1256, i64 904
-  %1260 = load i32, ptr %1259, align 8, !tbaa !202
-  %1261 = invoke noundef i32 @_ZNK6icu_7716SimpleDateFormat21matchDayPeriodStringsERKNS_13UnicodeStringEiPS2_iRi(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %1254, ptr noundef %1258, i32 noundef %1260, ptr noundef nonnull align 4 dereferenceable(4) %13)
-          to label %1262 unwind label %1243
+1252:                                             ; preds = %1249
+  %1253 = load i32, ptr %2, align 4, !tbaa !12
+  %1254 = getelementptr inbounds nuw i8, ptr %0, i64 464
+  %1255 = load ptr, ptr %1254, align 8, !tbaa !46
+  %1256 = getelementptr inbounds nuw i8, ptr %1255, i64 896
+  %1257 = load ptr, ptr %1256, align 8, !tbaa !147
+  %1258 = getelementptr inbounds nuw i8, ptr %1255, i64 904
+  %1259 = load i32, ptr %1258, align 8, !tbaa !202
+  %1260 = invoke noundef i32 @_ZNK6icu_7716SimpleDateFormat21matchDayPeriodStringsERKNS_13UnicodeStringEiPS2_iRi(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %1253, ptr noundef %1257, i32 noundef %1259, ptr noundef nonnull align 4 dereferenceable(4) %13)
+          to label %1261 unwind label %1242
 
-1262:                                             ; preds = %1253
-  %1263 = icmp sgt i32 %1261, 0
-  br i1 %1263, label %.thread990, label %1264
+1261:                                             ; preds = %1252
+  %1262 = icmp sgt i32 %1260, 0
+  br i1 %1262, label %.thread990, label %1263
 
-1264:                                             ; preds = %1262, %1250
-  %1265 = load ptr, ptr %0, align 8, !tbaa !44
-  %1266 = getelementptr inbounds nuw i8, ptr %1265, i64 224
-  %1267 = load ptr, ptr %1266, align 8
-  %1268 = invoke noundef signext i8 %1267(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef 3, ptr noundef nonnull align 4 dereferenceable(4) %16)
-          to label %1269 unwind label %1243
+1263:                                             ; preds = %1261, %1249
+  %1264 = load ptr, ptr %0, align 8, !tbaa !44
+  %1265 = getelementptr inbounds nuw i8, ptr %1264, i64 224
+  %1266 = load ptr, ptr %1265, align 8
+  %1267 = invoke noundef signext i8 %1266(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef 3, ptr noundef nonnull align 4 dereferenceable(4) %16)
+          to label %1268 unwind label %1242
 
-1269:                                             ; preds = %1264
-  %1270 = icmp ne i8 %1268, 0
-  %1271 = icmp eq i32 %4, 4
-  %or.cond114 = or i1 %1271, %1270
-  br i1 %or.cond114, label %1272, label %1283
+1268:                                             ; preds = %1263
+  %1269 = icmp ne i8 %1267, 0
+  %1270 = icmp eq i32 %4, 4
+  %or.cond114 = or i1 %1270, %1269
+  br i1 %or.cond114, label %1271, label %1282
 
-1272:                                             ; preds = %1269
-  %1273 = load i32, ptr %2, align 4, !tbaa !12
-  %1274 = getelementptr inbounds nuw i8, ptr %0, i64 464
-  %1275 = load ptr, ptr %1274, align 8, !tbaa !46
-  %1276 = getelementptr inbounds nuw i8, ptr %1275, i64 880
-  %1277 = load ptr, ptr %1276, align 8, !tbaa !146
-  %1278 = getelementptr inbounds nuw i8, ptr %1275, i64 888
-  %1279 = load i32, ptr %1278, align 8, !tbaa !203
-  %1280 = invoke noundef i32 @_ZNK6icu_7716SimpleDateFormat21matchDayPeriodStringsERKNS_13UnicodeStringEiPS2_iRi(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %1273, ptr noundef %1277, i32 noundef %1279, ptr noundef nonnull align 4 dereferenceable(4) %13)
-          to label %1281 unwind label %1243
+1271:                                             ; preds = %1268
+  %1272 = load i32, ptr %2, align 4, !tbaa !12
+  %1273 = getelementptr inbounds nuw i8, ptr %0, i64 464
+  %1274 = load ptr, ptr %1273, align 8, !tbaa !46
+  %1275 = getelementptr inbounds nuw i8, ptr %1274, i64 880
+  %1276 = load ptr, ptr %1275, align 8, !tbaa !146
+  %1277 = getelementptr inbounds nuw i8, ptr %1274, i64 888
+  %1278 = load i32, ptr %1277, align 8, !tbaa !203
+  %1279 = invoke noundef i32 @_ZNK6icu_7716SimpleDateFormat21matchDayPeriodStringsERKNS_13UnicodeStringEiPS2_iRi(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %1272, ptr noundef %1276, i32 noundef %1278, ptr noundef nonnull align 4 dereferenceable(4) %13)
+          to label %1280 unwind label %1242
 
-1281:                                             ; preds = %1272
-  %1282 = icmp sgt i32 %1280, 0
-  br i1 %1282, label %.thread990, label %1283
+1280:                                             ; preds = %1271
+  %1281 = icmp sgt i32 %1279, 0
+  br i1 %1281, label %.thread990, label %1282
 
-1283:                                             ; preds = %1281, %1269
-  %1284 = load i32, ptr %2, align 4, !tbaa !12
-  %1285 = sub nsw i32 0, %1284
+1282:                                             ; preds = %1280, %1268
+  %1283 = load i32, ptr %2, align 4, !tbaa !12
+  %1284 = sub nsw i32 0, %1283
   br label %.thread990
 
-1286:                                             ; preds = %971, %892, %.thread964, %250, %762, %692, %581
-  %1287 = load i32, ptr %27, align 8, !tbaa !189
+1285:                                             ; preds = %970, %891, %.thread964, %249, %761, %691, %580
+  %1286 = load i32, ptr %27, align 8, !tbaa !189
   %.not916 = icmp eq i8 %5, 0
-  br i1 %.not916, label %1306, label %1288
+  br i1 %.not916, label %1305, label %1287
 
-1288:                                             ; preds = %1286
-  %1289 = load i32, ptr %2, align 4, !tbaa !12
-  %1290 = load i16, ptr %70, align 8, !tbaa !51
-  %1291 = icmp slt i16 %1290, 0
-  %1292 = ashr i16 %1290, 5
-  %1293 = sext i16 %1292 to i32
-  %1294 = load i32, ptr %71, align 4
-  %1295 = select i1 %1291, i32 %1294, i32 %1293
-  %1296 = add nsw i32 %1289, %4
-  %1297 = icmp sgt i32 %1296, %1295
-  br i1 %1297, label %1298, label %1302
+1287:                                             ; preds = %1285
+  %1288 = load i32, ptr %2, align 4, !tbaa !12
+  %1289 = load i16, ptr %70, align 8, !tbaa !51
+  %1290 = icmp slt i16 %1289, 0
+  %1291 = ashr i16 %1289, 5
+  %1292 = sext i16 %1291 to i32
+  %1293 = load i32, ptr %71, align 4
+  %1294 = select i1 %1290, i32 %1293, i32 %1292
+  %1295 = add nsw i32 %1288, %4
+  %1296 = icmp sgt i32 %1295, %1294
+  br i1 %1296, label %1297, label %1301
 
-1298:                                             ; preds = %1288
-  %1299 = sub nsw i32 0, %1289
+1297:                                             ; preds = %1287
+  %1298 = sub nsw i32 0, %1288
   br label %.thread990
 
-1300:                                             ; preds = %1306, %1308, %1302
-  %1301 = landingpad { ptr, i32 }
+1299:                                             ; preds = %1305, %1307, %1301
+  %1300 = landingpad { ptr, i32 }
           cleanup
-  br label %1400
+  br label %1399
 
-1302:                                             ; preds = %1288
-  %1303 = load ptr, ptr %1, align 8, !tbaa !44
-  %1304 = getelementptr inbounds nuw i8, ptr %1303, i64 24
-  %1305 = load ptr, ptr %1304, align 8
-  invoke void %1305(ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef 0, i32 noundef %1296, ptr noundef nonnull align 8 dereferenceable(64) %19)
-          to label %1306 unwind label %1300
+1301:                                             ; preds = %1287
+  %1302 = load ptr, ptr %1, align 8, !tbaa !44
+  %1303 = getelementptr inbounds nuw i8, ptr %1302, i64 24
+  %1304 = load ptr, ptr %1303, align 8
+  invoke void %1304(ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef 0, i32 noundef %1295, ptr noundef nonnull align 8 dereferenceable(64) %19)
+          to label %1305 unwind label %1299
 
-1306:                                             ; preds = %1286, %1302
-  %.0664 = phi ptr [ %19, %1302 ], [ %1, %1286 ]
-  %1307 = load ptr, ptr %18, align 8, !tbaa !43
-  invoke void @_ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableEiRNS_13ParsePositionEaPKNS_12NumberFormatE(ptr nonnull readnone align 8 poison, ptr noundef nonnull align 8 dereferenceable(64) %.0664, ptr noundef nonnull align 8 dereferenceable(112) %15, i32 noundef -1, ptr noundef nonnull align 8 dereferenceable(16) %17, i8 noundef signext %6, ptr noundef %1307)
-          to label %_ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERNS_13ParsePositionEaPKNS_12NumberFormatE.exit954 unwind label %1300
+1305:                                             ; preds = %1285, %1301
+  %.0664 = phi ptr [ %19, %1301 ], [ %1, %1285 ]
+  %1306 = load ptr, ptr %18, align 8, !tbaa !43
+  invoke void @_ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableEiRNS_13ParsePositionEaPKNS_12NumberFormatE(ptr nonnull readnone align 8 poison, ptr noundef nonnull align 8 dereferenceable(64) %.0664, ptr noundef nonnull align 8 dereferenceable(112) %15, i32 noundef -1, ptr noundef nonnull align 8 dereferenceable(16) %17, i8 noundef signext %6, ptr noundef %1306)
+          to label %_ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERNS_13ParsePositionEaPKNS_12NumberFormatE.exit954 unwind label %1299
 
-_ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERNS_13ParsePositionEaPKNS_12NumberFormatE.exit954: ; preds = %1306
-  br i1 %.not916, label %_ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERNS_13ParsePositionEaPKNS_12NumberFormatE.exit954._crit_edge, label %1308
+_ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERNS_13ParsePositionEaPKNS_12NumberFormatE.exit954: ; preds = %1305
+  br i1 %.not916, label %_ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERNS_13ParsePositionEaPKNS_12NumberFormatE.exit954._crit_edge, label %1307
 
 _ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERNS_13ParsePositionEaPKNS_12NumberFormatE.exit954._crit_edge: ; preds = %_ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERNS_13ParsePositionEaPKNS_12NumberFormatE.exit954
   %.pre1073 = load i32, ptr %27, align 8, !tbaa !189
-  br label %1320
+  br label %1319
 
-1308:                                             ; preds = %_ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERNS_13ParsePositionEaPKNS_12NumberFormatE.exit954
-  %1309 = load ptr, ptr %0, align 8, !tbaa !44
-  %1310 = getelementptr inbounds nuw i8, ptr %1309, i64 96
-  %1311 = load ptr, ptr %1310, align 8
-  %1312 = invoke noundef signext i8 %1311(ptr noundef nonnull align 8 dereferenceable(48) %0)
-          to label %1313 unwind label %1300
+1307:                                             ; preds = %_ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERNS_13ParsePositionEaPKNS_12NumberFormatE.exit954
+  %1308 = load ptr, ptr %0, align 8, !tbaa !44
+  %1309 = getelementptr inbounds nuw i8, ptr %1308, i64 96
+  %1310 = load ptr, ptr %1309, align 8
+  %1311 = invoke noundef signext i8 %1310(ptr noundef nonnull align 8 dereferenceable(48) %0)
+          to label %1312 unwind label %1299
 
-1313:                                             ; preds = %1308
-  %.not917 = icmp eq i8 %1312, 0
+1312:                                             ; preds = %1307
+  %.not917 = icmp eq i8 %1311, 0
   %.pre1074 = load i32, ptr %27, align 8, !tbaa !189
-  br i1 %.not917, label %1314, label %1320
+  br i1 %.not917, label %1313, label %1319
 
-1314:                                             ; preds = %1313
-  %1315 = load i32, ptr %2, align 4, !tbaa !12
-  %1316 = add nsw i32 %1315, %4
-  %1317 = icmp slt i32 %.pre1074, %1316
-  br i1 %1317, label %1318, label %1320
+1313:                                             ; preds = %1312
+  %1314 = load i32, ptr %2, align 4, !tbaa !12
+  %1315 = add nsw i32 %1314, %4
+  %1316 = icmp slt i32 %.pre1074, %1315
+  br i1 %1316, label %1317, label %1319
 
-1318:                                             ; preds = %1314
-  %1319 = sub nsw i32 0, %1315
+1317:                                             ; preds = %1313
+  %1318 = sub nsw i32 0, %1314
   br label %.thread990
 
-1320:                                             ; preds = %_ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERNS_13ParsePositionEaPKNS_12NumberFormatE.exit954._crit_edge, %1314, %1313
-  %1321 = phi i32 [ %.pre1073, %_ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERNS_13ParsePositionEaPKNS_12NumberFormatE.exit954._crit_edge ], [ %.pre1074, %1314 ], [ %.pre1074, %1313 ]
-  %.not918 = icmp eq i32 %1321, %1287
-  br i1 %.not918, label %1397, label %1322
+1319:                                             ; preds = %_ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERNS_13ParsePositionEaPKNS_12NumberFormatE.exit954._crit_edge, %1313, %1312
+  %1320 = phi i32 [ %.pre1073, %_ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERNS_13ParsePositionEaPKNS_12NumberFormatE.exit954._crit_edge ], [ %.pre1074, %1313 ], [ %.pre1074, %1312 ]
+  %.not918 = icmp eq i32 %1320, %1286
+  br i1 %.not918, label %1396, label %1321
 
-1322:                                             ; preds = %1320
-  %1323 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %1324 = load i64, ptr %1323, align 8, !tbaa !51
-  %1325 = trunc i64 %1324 to i32
-  %1326 = load ptr, ptr %0, align 8, !tbaa !44
-  %1327 = getelementptr inbounds nuw i8, ptr %1326, i64 224
-  %1328 = load ptr, ptr %1327, align 8
-  %1329 = invoke noundef signext i8 %1328(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) %16)
-          to label %1330 unwind label %1352
+1321:                                             ; preds = %1319
+  %1322 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %1323 = load i64, ptr %1322, align 8, !tbaa !51
+  %1324 = trunc i64 %1323 to i32
+  %1325 = load ptr, ptr %0, align 8, !tbaa !44
+  %1326 = getelementptr inbounds nuw i8, ptr %1325, i64 224
+  %1327 = load ptr, ptr %1326, align 8
+  %1328 = invoke noundef signext i8 %1327(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) %16)
+          to label %1329 unwind label %1351
 
-1330:                                             ; preds = %1322
-  %.not919 = icmp eq i8 %1329, 0
-  br i1 %.not919, label %1331, label %.thread1034
+1329:                                             ; preds = %1321
+  %.not919 = icmp eq i8 %1328, 0
+  br i1 %.not919, label %1330, label %.thread1034
 
-1331:                                             ; preds = %1330
-  %1332 = getelementptr inbounds nuw i32, ptr @_ZN6icu_77L15gFieldRangeBiasE, i64 %57
-  %1333 = load i32, ptr %1332, align 4, !tbaa !12
-  %1334 = shl nuw i64 1, %57
-  %1335 = and i64 %1334, 100663500
-  %.not920 = icmp eq i64 %1335, 0
-  br i1 %.not920, label %.thread1034, label %1336
+1330:                                             ; preds = %1329
+  %1331 = getelementptr inbounds nuw i32, ptr @_ZN6icu_77L15gFieldRangeBiasE, i64 %57
+  %1332 = load i32, ptr %1331, align 4, !tbaa !12
+  %1333 = shl nuw i64 1, %57
+  %1334 = and i64 %1333, 100663500
+  %.not920 = icmp eq i64 %1334, 0
+  br i1 %.not920, label %.thread1034, label %1335
 
-1336:                                             ; preds = %1331
-  %1337 = load ptr, ptr %9, align 8, !tbaa !44
-  %1338 = getelementptr inbounds nuw i8, ptr %1337, i64 128
-  %1339 = load ptr, ptr %1338, align 8
-  %1340 = invoke noundef i32 %1339(ptr noundef nonnull align 8 dereferenceable(192) %9, i32 noundef %59)
-          to label %1341 unwind label %1354
+1335:                                             ; preds = %1330
+  %1336 = load ptr, ptr %9, align 8, !tbaa !44
+  %1337 = getelementptr inbounds nuw i8, ptr %1336, i64 128
+  %1338 = load ptr, ptr %1337, align 8
+  %1339 = invoke noundef i32 %1338(ptr noundef nonnull align 8 dereferenceable(192) %9, i32 noundef %59)
+          to label %1340 unwind label %1353
 
-1341:                                             ; preds = %1336
-  %1342 = add nsw i32 %1340, %1333
-  %1343 = icmp slt i32 %1342, %1325
-  br i1 %1343, label %1356, label %1344
+1340:                                             ; preds = %1335
+  %1341 = add nsw i32 %1339, %1332
+  %1342 = icmp slt i32 %1341, %1324
+  br i1 %1342, label %1355, label %1343
 
-1344:                                             ; preds = %1341
-  %1345 = load ptr, ptr %9, align 8, !tbaa !44
-  %1346 = getelementptr inbounds nuw i8, ptr %1345, i64 112
-  %1347 = load ptr, ptr %1346, align 8
-  %1348 = invoke noundef i32 %1347(ptr noundef nonnull align 8 dereferenceable(192) %9, i32 noundef %59)
-          to label %1349 unwind label %1354
+1343:                                             ; preds = %1340
+  %1344 = load ptr, ptr %9, align 8, !tbaa !44
+  %1345 = getelementptr inbounds nuw i8, ptr %1344, i64 112
+  %1346 = load ptr, ptr %1345, align 8
+  %1347 = invoke noundef i32 %1346(ptr noundef nonnull align 8 dereferenceable(192) %9, i32 noundef %59)
+          to label %1348 unwind label %1353
 
-1349:                                             ; preds = %1344
-  %1350 = add nsw i32 %1348, %1333
-  %1351 = icmp sgt i32 %1350, %1325
-  br i1 %1351, label %1356, label %.thread1034
+1348:                                             ; preds = %1343
+  %1349 = add nsw i32 %1347, %1332
+  %1350 = icmp sgt i32 %1349, %1324
+  br i1 %1350, label %1355, label %.thread1034
 
-1352:                                             ; preds = %.invoke1164, %1388, %1322
-  %1353 = landingpad { ptr, i32 }
+1351:                                             ; preds = %.invoke1164, %1387, %1321
+  %1352 = landingpad { ptr, i32 }
           cleanup
-  br label %1400
+  br label %1399
 
-1354:                                             ; preds = %1344, %1336
-  %1355 = landingpad { ptr, i32 }
+1353:                                             ; preds = %1343, %1335
+  %1354 = landingpad { ptr, i32 }
           cleanup
-  br label %1400
+  br label %1399
 
-1356:                                             ; preds = %1341, %1349
-  %1357 = load i32, ptr %2, align 4, !tbaa !12
-  %1358 = sub nsw i32 0, %1357
+1355:                                             ; preds = %1340, %1348
+  %1356 = load i32, ptr %2, align 4, !tbaa !12
+  %1357 = sub nsw i32 0, %1356
   br label %.thread990
 
-.thread1034:                                      ; preds = %1331, %1349, %1330
-  switch i32 %29, label %1392 [
-    i32 2, label %1359
-    i32 26, label %1383
+.thread1034:                                      ; preds = %1330, %1348, %1329
+  switch i32 %29, label %1391 [
+    i32 2, label %1358
+    i32 26, label %1382
     i32 19, label %.invoke1164
     i32 25, label %.invoke1164
-    i32 27, label %1385
-    i32 28, label %1385
-    i32 34, label %1388
+    i32 27, label %1384
+    i32 28, label %1384
+    i32 34, label %1387
   ]
 
-1359:                                             ; preds = %.thread1034
-  %1360 = load ptr, ptr %9, align 8, !tbaa !44
-  %1361 = getelementptr inbounds i8, ptr %1360, i64 -8
-  %1362 = load ptr, ptr %1361, align 8
-  %1363 = call noundef zeroext i1 @_ZNKSt9type_infoeqERKS_(ptr noundef nonnull align 8 dereferenceable(16) %1362, ptr noundef nonnull align 8 dereferenceable(16) @_ZTIN6icu_7714HebrewCalendarE) #23
-  br i1 %1363, label %1364, label %1381
+1358:                                             ; preds = %.thread1034
+  %1359 = load ptr, ptr %9, align 8, !tbaa !44
+  %1360 = getelementptr inbounds i8, ptr %1359, i64 -8
+  %1361 = load ptr, ptr %1360, align 8
+  %1362 = call noundef zeroext i1 @_ZNKSt9type_infoeqERKS_(ptr noundef nonnull align 8 dereferenceable(16) %1361, ptr noundef nonnull align 8 dereferenceable(16) @_ZTIN6icu_7714HebrewCalendarE) #23
+  br i1 %1362, label %1363, label %1380
 
-1364:                                             ; preds = %1359
-  %1365 = invoke noundef signext i8 @_ZNK6icu_778Calendar5isSetE19UCalendarDateFields(ptr noundef nonnull align 8 dereferenceable(192) %9, i32 noundef 1)
-          to label %1366 unwind label %1375
+1363:                                             ; preds = %1358
+  %1364 = invoke noundef signext i8 @_ZNK6icu_778Calendar5isSetE19UCalendarDateFields(ptr noundef nonnull align 8 dereferenceable(192) %9, i32 noundef 1)
+          to label %1365 unwind label %1374
 
-1366:                                             ; preds = %1364
-  %.not921 = icmp eq i8 %1365, 0
-  br i1 %.not921, label %1380, label %1367
+1365:                                             ; preds = %1363
+  %.not921 = icmp eq i8 %1364, 0
+  br i1 %.not921, label %1379, label %1366
 
-1367:                                             ; preds = %1366
+1366:                                             ; preds = %1365
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
   store i32 0, ptr %26, align 4, !tbaa !13
-  %1368 = invoke noundef i32 @_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(192) %9, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) %26)
-          to label %1369 unwind label %1377
+  %1367 = invoke noundef i32 @_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(192) %9, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) %26)
+          to label %1368 unwind label %1376
 
-1369:                                             ; preds = %1367
-  %1370 = invoke noundef signext i8 @_ZN6icu_7714HebrewCalendar10isLeapYearEi(i32 noundef %1368)
-          to label %.invoke1165 unwind label %1377
+1368:                                             ; preds = %1366
+  %1369 = invoke noundef signext i8 @_ZN6icu_7714HebrewCalendar10isLeapYearEi(i32 noundef %1367)
+          to label %.invoke1165 unwind label %1376
 
-.invoke1165:                                      ; preds = %1369
-  %1371 = icmp ne i8 %1370, 0
-  %1372 = icmp slt i32 %1325, 6
-  %or.cond116.not = or i1 %1372, %1371
-  %1373 = sext i1 %or.cond116.not to i32
-  %1374 = add nsw i32 %1325, %1373
-  invoke void @_ZN6icu_778Calendar3setE19UCalendarDateFieldsi(ptr noundef nonnull align 8 dereferenceable(192) %9, i32 noundef 2, i32 noundef %1374)
-          to label %1379 unwind label %1377
+.invoke1165:                                      ; preds = %1368
+  %1370 = icmp ne i8 %1369, 0
+  %1371 = icmp slt i32 %1324, 6
+  %or.cond116.not = or i1 %1371, %1370
+  %1372 = sext i1 %or.cond116.not to i32
+  %1373 = add nsw i32 %1324, %1372
+  invoke void @_ZN6icu_778Calendar3setE19UCalendarDateFieldsi(ptr noundef nonnull align 8 dereferenceable(192) %9, i32 noundef 2, i32 noundef %1373)
+          to label %1378 unwind label %1376
 
-1375:                                             ; preds = %1364
-  %1376 = landingpad { ptr, i32 }
+1374:                                             ; preds = %1363
+  %1375 = landingpad { ptr, i32 }
           cleanup
-  br label %1400
+  br label %1399
 
-1377:                                             ; preds = %.invoke1165, %1369, %1367
-  %1378 = landingpad { ptr, i32 }
+1376:                                             ; preds = %.invoke1165, %1368, %1366
+  %1377 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
-  br label %1400
+  br label %1399
 
-1379:                                             ; preds = %.invoke1165
+1378:                                             ; preds = %.invoke1165
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
-  br label %1395
+  br label %1394
 
-1380:                                             ; preds = %1366
-  store i32 %1325, ptr %8, align 4, !tbaa !12
-  br label %1395
+1379:                                             ; preds = %1365
+  store i32 %1324, ptr %8, align 4, !tbaa !12
+  br label %1394
 
-1381:                                             ; preds = %1359
-  %1382 = add nsw i32 %1325, -1
+1380:                                             ; preds = %1358
+  %1381 = add nsw i32 %1324, -1
   br label %.invoke1164
 
-1383:                                             ; preds = %.thread1034
-  %1384 = add nsw i32 %1325, -1
+1382:                                             ; preds = %.thread1034
+  %1383 = add nsw i32 %1324, -1
   br label %.invoke1164
 
-1385:                                             ; preds = %.thread1034, %.thread1034
-  %1386 = mul i32 %1325, 3
-  %1387 = add i32 %1386, -3
+1384:                                             ; preds = %.thread1034, %.thread1034
+  %1385 = mul i32 %1324, 3
+  %1386 = add i32 %1385, -3
   br label %.invoke1164
 
-1388:                                             ; preds = %.thread1034
-  %1389 = load ptr, ptr %9, align 8, !tbaa !44
-  %1390 = getelementptr inbounds nuw i8, ptr %1389, i64 440
-  %1391 = load ptr, ptr %1390, align 8
-  invoke void %1391(ptr noundef nonnull align 8 dereferenceable(192) %9, i32 noundef %1325)
-          to label %1395 unwind label %1352
+1387:                                             ; preds = %.thread1034
+  %1388 = load ptr, ptr %9, align 8, !tbaa !44
+  %1389 = getelementptr inbounds nuw i8, ptr %1388, i64 440
+  %1390 = load ptr, ptr %1389, align 8
+  invoke void %1390(ptr noundef nonnull align 8 dereferenceable(192) %9, i32 noundef %1324)
+          to label %1394 unwind label %1351
 
-1392:                                             ; preds = %.thread1034
+1391:                                             ; preds = %.thread1034
   br label %.invoke1164
 
-.invoke1164:                                      ; preds = %.thread1034, %.thread1034, %1381, %1383, %1385, %1392
-  %1393 = phi i32 [ %59, %1392 ], [ 2, %1385 ], [ 2, %1383 ], [ 2, %1381 ], [ 18, %.thread1034 ], [ 18, %.thread1034 ]
-  %1394 = phi i32 [ %1325, %1392 ], [ %1387, %1385 ], [ %1384, %1383 ], [ %1382, %1381 ], [ %1325, %.thread1034 ], [ %1325, %.thread1034 ]
-  invoke void @_ZN6icu_778Calendar3setE19UCalendarDateFieldsi(ptr noundef nonnull align 8 dereferenceable(192) %9, i32 noundef %1393, i32 noundef %1394)
-          to label %1395 unwind label %1352
+.invoke1164:                                      ; preds = %.thread1034, %.thread1034, %1380, %1382, %1384, %1391
+  %1392 = phi i32 [ %59, %1391 ], [ 2, %1384 ], [ 2, %1382 ], [ 2, %1380 ], [ 18, %.thread1034 ], [ 18, %.thread1034 ]
+  %1393 = phi i32 [ %1324, %1391 ], [ %1386, %1384 ], [ %1383, %1382 ], [ %1381, %1380 ], [ %1324, %.thread1034 ], [ %1324, %.thread1034 ]
+  invoke void @_ZN6icu_778Calendar3setE19UCalendarDateFieldsi(ptr noundef nonnull align 8 dereferenceable(192) %9, i32 noundef %1392, i32 noundef %1393)
+          to label %1394 unwind label %1351
 
-1395:                                             ; preds = %.invoke1164, %1379, %1380, %1388
-  %1396 = load i32, ptr %27, align 8, !tbaa !189
+1394:                                             ; preds = %.invoke1164, %1378, %1379, %1387
+  %1395 = load i32, ptr %27, align 8, !tbaa !189
   br label %.thread990
 
-1397:                                             ; preds = %1320
-  %1398 = load i32, ptr %2, align 4, !tbaa !12
-  %1399 = sub nsw i32 0, %1398
+1396:                                             ; preds = %1319
+  %1397 = load i32, ptr %2, align 4, !tbaa !12
+  %1398 = sub nsw i32 0, %1397
   br label %.thread990
 
-.thread990:                                       ; preds = %965, %958, %939, %918, %972, %886, %879, %860, %839, %893, %755, %736, %715, %685, %666, %647, %626, %575, %557, %539, %502, %482, %1356, %1109, %1089, %1069, %1050, %1030, %1011, %990, %182, %238, %243, %247, %253, %256, %271, %333, %379, %408, %410, %437, %591, %604, %607, %696, %815, %820, %899, %1157, %762, %692, %581, %391, %801, %780, %803, %.thread1017, %.thread1019, %.thread1021, %.thread1023, %.thread1025, %.thread1027, %.thread1029, %1221, %1185, %1204, %1219, %1166, %1281, %1262, %1241, %1283, %1395, %1397, %1318, %1298, %._crit_edge
-  %.1 = phi i32 [ %79, %._crit_edge ], [ %257, %256 ], [ %255, %253 ], [ %spec.select936, %271 ], [ %334, %333 ], [ %380, %379 ], [ %409, %408 ], [ %412, %410 ], [ %390, %391 ], [ %438, %437 ], [ %.2746988, %581 ], [ %592, %591 ], [ %605, %604 ], [ %608, %607 ], [ %.3754, %692 ], [ %697, %696 ], [ %.2757, %762 ], [ %816, %815 ], [ %821, %820 ], [ %900, %899 ], [ %1153, %1157 ], [ %245, %243 ], [ %249, %247 ], [ %805, %803 ], [ %779, %780 ], [ %800, %801 ], [ %993, %.thread1017 ], [ %991, %990 ], [ %1014, %.thread1019 ], [ %1012, %1011 ], [ %1033, %.thread1021 ], [ %1031, %1030 ], [ %1053, %.thread1023 ], [ %1051, %1050 ], [ %1072, %.thread1025 ], [ %1070, %1069 ], [ %1092, %.thread1027 ], [ %1090, %1089 ], [ %1112, %.thread1029 ], [ %1110, %1109 ], [ %1165, %1166 ], [ %1223, %1221 ], [ %1184, %1185 ], [ %1203, %1204 ], [ %1218, %1219 ], [ %1285, %1283 ], [ %1240, %1241 ], [ %1261, %1262 ], [ %1280, %1281 ], [ %1299, %1298 ], [ %1399, %1397 ], [ %1319, %1318 ], [ %1396, %1395 ], [ %1358, %1356 ], [ %183, %182 ], [ %240, %238 ], [ %574, %575 ], [ %556, %557 ], [ %538, %539 ], [ %501, %502 ], [ %481, %482 ], [ %684, %685 ], [ %665, %666 ], [ %646, %647 ], [ %625, %626 ], [ %754, %755 ], [ %735, %736 ], [ %714, %715 ], [ %.2760, %886 ], [ %878, %879 ], [ %859, %860 ], [ %838, %839 ], [ %895, %893 ], [ %.2763, %965 ], [ %957, %958 ], [ %938, %939 ], [ %917, %918 ], [ %974, %972 ]
+.thread990:                                       ; preds = %964, %957, %938, %917, %971, %885, %878, %859, %838, %892, %754, %735, %714, %684, %665, %646, %625, %574, %556, %538, %501, %481, %1355, %1108, %1088, %1068, %1049, %1029, %1010, %989, %181, %237, %242, %246, %252, %255, %270, %332, %378, %407, %409, %436, %590, %603, %606, %695, %814, %819, %898, %1156, %761, %691, %580, %390, %800, %779, %802, %.thread1017, %.thread1019, %.thread1021, %.thread1023, %.thread1025, %.thread1027, %.thread1029, %1220, %1184, %1203, %1218, %1165, %1280, %1261, %1240, %1282, %1394, %1396, %1317, %1297, %._crit_edge
+  %.1 = phi i32 [ %79, %._crit_edge ], [ %256, %255 ], [ %254, %252 ], [ %spec.select936, %270 ], [ %333, %332 ], [ %379, %378 ], [ %408, %407 ], [ %411, %409 ], [ %389, %390 ], [ %437, %436 ], [ %.2746988, %580 ], [ %591, %590 ], [ %604, %603 ], [ %607, %606 ], [ %.3754, %691 ], [ %696, %695 ], [ %.2757, %761 ], [ %815, %814 ], [ %820, %819 ], [ %899, %898 ], [ %1152, %1156 ], [ %244, %242 ], [ %248, %246 ], [ %804, %802 ], [ %778, %779 ], [ %799, %800 ], [ %992, %.thread1017 ], [ %990, %989 ], [ %1013, %.thread1019 ], [ %1011, %1010 ], [ %1032, %.thread1021 ], [ %1030, %1029 ], [ %1052, %.thread1023 ], [ %1050, %1049 ], [ %1071, %.thread1025 ], [ %1069, %1068 ], [ %1091, %.thread1027 ], [ %1089, %1088 ], [ %1111, %.thread1029 ], [ %1109, %1108 ], [ %1164, %1165 ], [ %1222, %1220 ], [ %1183, %1184 ], [ %1202, %1203 ], [ %1217, %1218 ], [ %1284, %1282 ], [ %1239, %1240 ], [ %1260, %1261 ], [ %1279, %1280 ], [ %1298, %1297 ], [ %1398, %1396 ], [ %1318, %1317 ], [ %1395, %1394 ], [ %1357, %1355 ], [ %182, %181 ], [ %239, %237 ], [ %573, %574 ], [ %555, %556 ], [ %537, %538 ], [ %500, %501 ], [ %480, %481 ], [ %683, %684 ], [ %664, %665 ], [ %645, %646 ], [ %624, %625 ], [ %753, %754 ], [ %734, %735 ], [ %713, %714 ], [ %.2760, %885 ], [ %877, %878 ], [ %858, %859 ], [ %837, %838 ], [ %894, %892 ], [ %.2763, %964 ], [ %956, %957 ], [ %937, %938 ], [ %916, %917 ], [ %973, %971 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %20) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
-  br label %1402
-
-1400:                                             ; preds = %258, %330, %393, %484, %628, %717, %782, %841, %920, %1163, %1243, %205, %236, %184, %168, %431, %429, %988, %986, %1009, %1007, %1028, %1026, %1048, %1046, %1067, %1065, %1087, %1085, %1107, %1105, %1187, %1168, %1352, %1354, %1377, %1375, %1300, %88, %67
-  %.pn924.pn.pn.pn = phi { ptr, i32 } [ %89, %88 ], [ %68, %67 ], [ %259, %258 ], [ %331, %330 ], [ %394, %393 ], [ %485, %484 ], [ %629, %628 ], [ %718, %717 ], [ %783, %782 ], [ %842, %841 ], [ %921, %920 ], [ %.pn859, %1163 ], [ %1244, %1243 ], [ %185, %184 ], [ %169, %168 ], [ %237, %236 ], [ %206, %205 ], [ %432, %431 ], [ %430, %429 ], [ %989, %988 ], [ %987, %986 ], [ %1010, %1009 ], [ %1008, %1007 ], [ %1029, %1028 ], [ %1027, %1026 ], [ %1049, %1048 ], [ %1047, %1046 ], [ %1068, %1067 ], [ %1066, %1065 ], [ %1088, %1087 ], [ %1086, %1085 ], [ %1108, %1107 ], [ %1106, %1105 ], [ %1188, %1187 ], [ %1169, %1168 ], [ %1301, %1300 ], [ %1353, %1352 ], [ %1355, %1354 ], [ %1378, %1377 ], [ %1376, %1375 ]
-  call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %20) #23
   br label %1401
 
-1401:                                             ; preds = %1400, %65
-  %.pn924.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn924.pn.pn.pn, %1400 ], [ %66, %65 ]
+1399:                                             ; preds = %257, %329, %392, %483, %627, %716, %781, %840, %919, %1162, %1242, %204, %235, %183, %167, %430, %428, %987, %985, %1008, %1006, %1027, %1025, %1047, %1045, %1066, %1064, %1086, %1084, %1106, %1104, %1186, %1167, %1351, %1353, %1376, %1374, %1299, %88, %67
+  %.pn924.pn.pn.pn = phi { ptr, i32 } [ %89, %88 ], [ %68, %67 ], [ %258, %257 ], [ %330, %329 ], [ %393, %392 ], [ %484, %483 ], [ %628, %627 ], [ %717, %716 ], [ %782, %781 ], [ %841, %840 ], [ %920, %919 ], [ %.pn859, %1162 ], [ %1243, %1242 ], [ %184, %183 ], [ %168, %167 ], [ %236, %235 ], [ %205, %204 ], [ %431, %430 ], [ %429, %428 ], [ %988, %987 ], [ %986, %985 ], [ %1009, %1008 ], [ %1007, %1006 ], [ %1028, %1027 ], [ %1026, %1025 ], [ %1048, %1047 ], [ %1046, %1045 ], [ %1067, %1066 ], [ %1065, %1064 ], [ %1087, %1086 ], [ %1085, %1084 ], [ %1107, %1106 ], [ %1105, %1104 ], [ %1187, %1186 ], [ %1168, %1167 ], [ %1300, %1299 ], [ %1352, %1351 ], [ %1354, %1353 ], [ %1377, %1376 ], [ %1375, %1374 ]
+  call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %20) #23
+  br label %1400
+
+1400:                                             ; preds = %1399, %65
+  %.pn924.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn924.pn.pn.pn, %1399 ], [ %66, %65 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %19) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  br label %1403
+  br label %1402
 
-1402:                                             ; preds = %.thread990, %53, %33
+1401:                                             ; preds = %.thread990, %53, %33
   %.0 = phi i32 [ %35, %33 ], [ %55, %53 ], [ %.1, %.thread990 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %19) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
@@ -12323,8 +12321,8 @@ _ZNK6icu_7716SimpleDateFormat8parseIntERKNS_13UnicodeStringERNS_11FormattableERN
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret i32 %.0
 
-1403:                                             ; preds = %1401, %36
-  %.pn924.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn924.pn.pn.pn.pn, %1401 ], [ %37, %36 ]
+1402:                                             ; preds = %1400, %36
+  %.pn924.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn924.pn.pn.pn.pn, %1400 ], [ %37, %36 ]
   call void @_ZN6icu_7713ParsePositionD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %17) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
@@ -14936,42 +14934,42 @@ define void @_ZN6icu_7716SimpleDateFormat10setContextE15UDisplayContextR10UError
   tail call void @_ZN6icu_7710DateFormat10setContextE15UDisplayContextR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2)
   %4 = load i32, ptr %2, align 4, !tbaa !13
   %5 = icmp sgt i32 %4, 0
-  br i1 %5, label %22, label %6
+  br i1 %5, label %23, label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %8 = load ptr, ptr %7, align 8, !tbaa !50
   %9 = icmp eq ptr %8, null
-  %.off = add i32 %1, -258
-  %switch = icmp ult i32 %.off, 3
-  %or.cond = and i1 %switch, %9
-  br i1 %or.cond, label %10, label %22
+  %10 = add i32 %1, -258
+  %or.cond3 = icmp ult i32 %10, 3
+  %or.cond = and i1 %or.cond3, %9
+  br i1 %or.cond, label %11, label %23
 
-10:                                               ; preds = %6
+11:                                               ; preds = %6
   store i32 0, ptr %2, align 4, !tbaa !13
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %12 = tail call noundef ptr @_ZN6icu_7713BreakIterator22createSentenceInstanceERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(217) %11, ptr noundef nonnull align 4 dereferenceable(4) %2)
-  store ptr %12, ptr %7, align 8, !tbaa !50
-  %13 = load i32, ptr %2, align 4, !tbaa !13
-  %14 = icmp slt i32 %13, 1
-  br i1 %14, label %22, label %15
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 240
+  %13 = tail call noundef ptr @_ZN6icu_7713BreakIterator22createSentenceInstanceERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(217) %12, ptr noundef nonnull align 4 dereferenceable(4) %2)
+  store ptr %13, ptr %7, align 8, !tbaa !50
+  %14 = load i32, ptr %2, align 4, !tbaa !13
+  %15 = icmp slt i32 %14, 1
+  br i1 %15, label %23, label %16
 
-15:                                               ; preds = %10
-  %16 = icmp eq ptr %12, null
-  br i1 %16, label %21, label %17
+16:                                               ; preds = %11
+  %17 = icmp eq ptr %13, null
+  br i1 %17, label %22, label %18
 
-17:                                               ; preds = %15
-  %18 = load ptr, ptr %12, align 8, !tbaa !44
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %20 = load ptr, ptr %19, align 8
-  tail call void %20(ptr noundef nonnull align 8 dereferenceable(32) %12) #23
-  br label %21
-
-21:                                               ; preds = %17, %15
-  store ptr null, ptr %7, align 8, !tbaa !50
+18:                                               ; preds = %16
+  %19 = load ptr, ptr %13, align 8, !tbaa !44
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %21 = load ptr, ptr %20, align 8
+  tail call void %21(ptr noundef nonnull align 8 dereferenceable(32) %13) #23
   br label %22
 
-22:                                               ; preds = %6, %21, %10, %3
+22:                                               ; preds = %18, %16
+  store ptr null, ptr %7, align 8, !tbaa !50
+  br label %23
+
+23:                                               ; preds = %6, %22, %11, %3
   ret void
 }
 

@@ -2253,7 +2253,7 @@ dissect_dmp_envelope.exit:                        ; preds = %40, %108, %425
 428:                                              ; preds = %dissect_dmp_envelope.exit
   %429 = load ptr, ptr %9, align 8
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %429, i32 noundef 25, ptr noundef nonnull @.str.577, i32 noundef %426)
-  br label %907
+  br label %908
 
 430:                                              ; preds = %dissect_dmp_envelope.exit
   %431 = load i8, ptr getelementptr inbounds nuw (i8, ptr @dmp, i64 62), align 2, !range !11, !noundef !12
@@ -3144,44 +3144,44 @@ dmp_add_seq_ack_analysis.exit:                    ; preds = %544, %546, %552, %p
 
 890:                                              ; preds = %.sink.split, %883
   %891 = load i32, ptr getelementptr inbounds nuw (i8, ptr @dmp, i64 16), align 8
-  %.off = add i32 %891, -2
-  %switch = icmp ult i32 %.off, 3
-  br i1 %switch, label %.sink.split196, label %897
+  %892 = add i32 %891, -2
+  %or.cond30 = icmp ult i32 %892, 3
+  br i1 %or.cond30, label %.sink.split196, label %898
 
 .sink.split196:                                   ; preds = %890
-  %892 = load i8, ptr @dmp_align, align 1, !range !11, !noundef !12
-  %893 = trunc nuw i8 %892 to i1
-  %.not31 = xor i1 %893, true
+  %893 = load i8, ptr @dmp_align, align 1, !range !11, !noundef !12
+  %894 = trunc nuw i8 %893 to i1
+  %.not31 = xor i1 %894, true
   %or.cond33 = or i1 %.089117, %.not31
-  %894 = load ptr, ptr %9, align 8
-  %895 = load i16, ptr getelementptr inbounds nuw (i8, ptr @dmp, i64 60), align 4
-  %896 = zext i16 %895 to i32
+  %895 = load ptr, ptr %9, align 8
+  %896 = load i16, ptr getelementptr inbounds nuw (i8, ptr @dmp, i64 60), align 4
+  %897 = zext i16 %896 to i32
   %.str.585..str.584 = select i1 %or.cond33, ptr @.str.585, ptr @.str.584
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %894, i32 noundef 25, ptr noundef nonnull %.str.585..str.584, i32 noundef %896)
-  br label %897
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %895, i32 noundef 25, ptr noundef nonnull %.str.585..str.584, i32 noundef %897)
+  br label %898
 
-897:                                              ; preds = %.sink.split196, %890
-  %898 = load i32, ptr getelementptr inbounds nuw (i8, ptr @dmp, i64 12), align 4
-  %.not102 = icmp eq i32 %898, 0
+898:                                              ; preds = %.sink.split196, %890
+  %899 = load i32, ptr getelementptr inbounds nuw (i8, ptr @dmp, i64 12), align 4
+  %.not102 = icmp eq i32 %899, 0
   %brmerge = select i1 %.not102, i1 true, i1 %.093
-  br i1 %brmerge, label %901, label %899
+  br i1 %brmerge, label %902, label %900
 
-899:                                              ; preds = %897
-  %900 = load ptr, ptr %9, align 8
-  call void @col_append_str(ptr noundef %900, i32 noundef 25, ptr noundef nonnull @.str.586)
-  br label %901
+900:                                              ; preds = %898
+  %901 = load ptr, ptr %9, align 8
+  call void @col_append_str(ptr noundef %901, i32 noundef 25, ptr noundef nonnull @.str.586)
+  br label %902
 
-901:                                              ; preds = %897, %899
-  %902 = load i32, ptr @dmp, align 8
-  %903 = load i32, ptr getelementptr inbounds nuw (i8, ptr @dmp, i64 4), align 4
-  %904 = icmp eq i32 %903, 13
-  %905 = select i1 %904, ptr @.str.588, ptr @.str.576
-  %906 = call fastcc ptr @msg_type_to_str()
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %13, ptr noundef nonnull @.str.587, i32 noundef %902, ptr noundef nonnull %905, ptr noundef %906)
-  br label %907
+902:                                              ; preds = %898, %900
+  %903 = load i32, ptr @dmp, align 8
+  %904 = load i32, ptr getelementptr inbounds nuw (i8, ptr @dmp, i64 4), align 4
+  %905 = icmp eq i32 %904, 13
+  %906 = select i1 %905, ptr @.str.588, ptr @.str.576
+  %907 = call fastcc ptr @msg_type_to_str()
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %13, ptr noundef nonnull @.str.587, i32 noundef %903, ptr noundef nonnull %906, ptr noundef %907)
+  br label %908
 
-907:                                              ; preds = %901, %428
-  %.091 = phi i32 [ 0, %428 ], [ %.2, %901 ]
+908:                                              ; preds = %902, %428
+  %.091 = phi i32 [ 0, %428 ], [ %.2, %902 ]
   ret i32 %.091
 }
 

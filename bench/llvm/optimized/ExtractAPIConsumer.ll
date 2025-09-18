@@ -100642,8 +100642,8 @@ _ZN4llvm23SmallVectorTemplateBaseIPKN5clang10extractapi9APIRecordELb1EE9push_bac
   %188 = getelementptr inbounds nuw i8, ptr %187, i64 356
   %189 = load i32, ptr %188, align 4, !tbaa !1108
   %190 = add i32 %189, -18
-  %switch.selectcmp.i.i.i.i.i.i.i.i.i = icmp ult i32 %190, 4
-  %spec.select.i.i = select i1 %switch.selectcmp.i.i.i.i.i.i.i.i.i, ptr %187, ptr null
+  %spec.select.i.i.i.i.i.i.i.i.i = icmp ult i32 %190, 4
+  %spec.select.i.i = select i1 %spec.select.i.i.i.i.i.i.i.i.i, ptr %187, ptr null
   br label %191
 
 191:                                              ; preds = %167, %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang10extractapi9APIRecordELb1EE9push_backES5_.exit, %184

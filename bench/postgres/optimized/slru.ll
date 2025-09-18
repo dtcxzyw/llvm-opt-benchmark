@@ -1882,18 +1882,13 @@ define dso_local noundef zeroext i1 @SlruScanDirectory(ptr noundef %0, ptr nound
   %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #18
   %.val = load i8, ptr %7, align 2, !range !4, !noundef !5
   %12 = trunc nuw i8 %.val to i1
-  br i1 %12, label %13, label %SlruCorrectSegmentFilenameLength.exit
+  %13 = icmp eq i64 %11, 15
+  %14 = add i64 %11, -4
+  %spec.select.i = icmp ult i64 %14, 3
+  %.0.i = select i1 %12, i1 %13, i1 %spec.select.i
+  br i1 %.0.i, label %15, label %26
 
-13:                                               ; preds = %8
-  %14 = icmp eq i64 %11, 15
-  br i1 %14, label %15, label %26
-
-SlruCorrectSegmentFilenameLength.exit:            ; preds = %8
-  %.off = add i64 %11, -4
-  %switch = icmp ult i64 %.off, 3
-  br i1 %switch, label %15, label %26
-
-15:                                               ; preds = %SlruCorrectSegmentFilenameLength.exit, %13
+15:                                               ; preds = %8
   %16 = tail call i64 @strspn(ptr noundef nonnull %10, ptr noundef nonnull @.str.3) #18
   %17 = icmp eq i64 %16, %11
   br i1 %17, label %18, label %26
@@ -1913,7 +1908,7 @@ SlruCorrectSegmentFilenameLength.exit:            ; preds = %8
   %25 = tail call zeroext i1 %1(ptr noundef nonnull %0, ptr noundef nonnull %10, i64 noundef %20, ptr noundef %2) #15
   br i1 %25, label %.thread, label %26
 
-26:                                               ; preds = %SlruCorrectSegmentFilenameLength.exit, %24, %13, %15
+26:                                               ; preds = %24, %8, %15
   %27 = tail call ptr @ReadDir(ptr noundef %5, ptr noundef nonnull %4) #15
   %.not.not = icmp eq ptr %27, null
   br i1 %.not.not, label %.thread, label %8

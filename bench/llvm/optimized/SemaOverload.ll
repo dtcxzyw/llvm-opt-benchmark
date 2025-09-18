@@ -112560,7 +112560,7 @@ define linkonce_odr hidden noundef i32 @_ZNK5clang17OverloadCandidate12getNumPar
   %3 = load i16, ptr %2, align 8
   %4 = and i16 %3, 4
   %.not = icmp eq i16 %4, 0
-  br i1 %.not, label %47, label %5
+  br i1 %.not, label %51, label %5
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -112588,69 +112588,69 @@ _ZNK5clang17CXXConversionDecl17getConversionTypeEv.exit: ; preds = %5, %15
   %19 = inttoptr i64 %18 to ptr
   %20 = load ptr, ptr %19, align 16, !tbaa !17
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %.sroa.0.0.copyload.i.i.i.i.i8 = load i64, ptr %21, align 8, !tbaa !23
-  %22 = and i64 %.sroa.0.0.copyload.i.i.i.i.i8, -16
+  %.sroa.0.0.copyload.i.i.i.i.i7 = load i64, ptr %21, align 8, !tbaa !23
+  %22 = and i64 %.sroa.0.0.copyload.i.i.i.i.i7, -16
   %23 = inttoptr i64 %22 to ptr
   %24 = load ptr, ptr %23, align 16, !tbaa !17
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load i8, ptr %25, align 16
-  %.off9 = add i8 %26, -41
-  %switch10 = icmp ult i8 %.off9, 3
-  br i1 %switch10, label %.lr.ph, label %._crit_edge
+  %27 = add i8 %26, -41
+  %28 = icmp ult i8 %27, 3
+  br i1 %28, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZNK5clang17CXXConversionDecl17getConversionTypeEv.exit, %.lr.ph
-  %27 = phi ptr [ %31, %.lr.ph ], [ %20, %_ZNK5clang17CXXConversionDecl17getConversionTypeEv.exit ]
-  %28 = tail call i64 @_ZNK5clang4Type14getPointeeTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %27) #30
-  %29 = and i64 %28, -16
-  %30 = inttoptr i64 %29 to ptr
-  %31 = load ptr, ptr %30, align 16, !tbaa !17
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %.sroa.0.0.copyload.i.i.i.i.i = load i64, ptr %32, align 8, !tbaa !23
-  %33 = and i64 %.sroa.0.0.copyload.i.i.i.i.i, -16
-  %34 = inttoptr i64 %33 to ptr
-  %35 = load ptr, ptr %34, align 16, !tbaa !17
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
-  %37 = load i8, ptr %36, align 16
-  %.off = add i8 %37, -41
-  %switch = icmp ult i8 %.off, 3
-  br i1 %switch, label %.lr.ph, label %._crit_edge, !llvm.loop !2456
+  %29 = phi ptr [ %33, %.lr.ph ], [ %20, %_ZNK5clang17CXXConversionDecl17getConversionTypeEv.exit ]
+  %30 = tail call i64 @_ZNK5clang4Type14getPointeeTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %29) #30
+  %31 = and i64 %30, -16
+  %32 = inttoptr i64 %31 to ptr
+  %33 = load ptr, ptr %32, align 16, !tbaa !17
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
+  %.sroa.0.0.copyload.i.i.i.i.i = load i64, ptr %34, align 8, !tbaa !23
+  %35 = and i64 %.sroa.0.0.copyload.i.i.i.i.i, -16
+  %36 = inttoptr i64 %35 to ptr
+  %37 = load ptr, ptr %36, align 16, !tbaa !17
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
+  %39 = load i8, ptr %38, align 16
+  %40 = add i8 %39, -41
+  %41 = icmp ult i8 %40, 3
+  br i1 %41, label %.lr.ph, label %._crit_edge, !llvm.loop !2456
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZNK5clang17CXXConversionDecl17getConversionTypeEv.exit
-  %.lcssa = phi ptr [ %20, %_ZNK5clang17CXXConversionDecl17getConversionTypeEv.exit ], [ %31, %.lr.ph ]
-  %38 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 16
-  %39 = load i8, ptr %38, align 16
-  %.not.i = icmp eq i8 %39, 26
-  br i1 %.not.i, label %_ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit, label %40
+  %.lcssa = phi ptr [ %20, %_ZNK5clang17CXXConversionDecl17getConversionTypeEv.exit ], [ %33, %.lr.ph ]
+  %42 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 16
+  %43 = load i8, ptr %42, align 16
+  %.not.i = icmp eq i8 %43, 26
+  br i1 %.not.i, label %_ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit, label %44
 
-40:                                               ; preds = %._crit_edge
-  %41 = tail call noundef ptr @_ZNK5clang4Type27getUnqualifiedDesugaredTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %.lcssa) #30
+44:                                               ; preds = %._crit_edge
+  %45 = tail call noundef ptr @_ZNK5clang4Type27getUnqualifiedDesugaredTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %.lcssa) #30
   br label %_ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit
 
-_ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit: ; preds = %._crit_edge, %40
-  %.1.i = phi ptr [ %41, %40 ], [ %.lcssa, %._crit_edge ]
-  %42 = getelementptr inbounds nuw i8, ptr %.1.i, i64 16
-  %43 = load i64, ptr %42, align 16
-  %44 = lshr i64 %43, 38
-  %45 = trunc nuw nsw i64 %44 to i32
-  %46 = and i32 %45, 65535
-  br label %54
+_ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit: ; preds = %._crit_edge, %44
+  %.1.i = phi ptr [ %45, %44 ], [ %.lcssa, %._crit_edge ]
+  %46 = getelementptr inbounds nuw i8, ptr %.1.i, i64 16
+  %47 = load i64, ptr %46, align 16
+  %48 = lshr i64 %47, 38
+  %49 = trunc nuw nsw i64 %48 to i32
+  %50 = and i32 %49, 65535
+  br label %58
 
-47:                                               ; preds = %1
-  %48 = load ptr, ptr %0, align 8, !tbaa !1491
-  %.not2 = icmp eq ptr %48, null
-  br i1 %.not2, label %51, label %49
+51:                                               ; preds = %1
+  %52 = load ptr, ptr %0, align 8, !tbaa !1491
+  %.not2 = icmp eq ptr %52, null
+  br i1 %.not2, label %55, label %53
 
-49:                                               ; preds = %47
-  %50 = tail call noundef i32 @_ZNK5clang12FunctionDecl12getNumParamsEv(ptr noundef nonnull align 8 dereferenceable(168) %48) #30
-  br label %54
+53:                                               ; preds = %51
+  %54 = tail call noundef i32 @_ZNK5clang12FunctionDecl12getNumParamsEv(ptr noundef nonnull align 8 dereferenceable(168) %52) #30
+  br label %58
 
-51:                                               ; preds = %47
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  %53 = load i32, ptr %52, align 4, !tbaa !1656
-  br label %54
+55:                                               ; preds = %51
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 108
+  %57 = load i32, ptr %56, align 4, !tbaa !1656
+  br label %58
 
-54:                                               ; preds = %51, %49, %_ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit
-  %.0 = phi i32 [ %46, %_ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit ], [ %50, %49 ], [ %53, %51 ]
+58:                                               ; preds = %55, %53, %_ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit
+  %.0 = phi i32 [ %50, %_ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit ], [ %54, %53 ], [ %57, %55 ]
   ret i32 %.0
 }
 

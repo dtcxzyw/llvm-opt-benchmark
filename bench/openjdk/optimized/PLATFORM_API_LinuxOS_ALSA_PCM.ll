@@ -834,27 +834,31 @@ setStartThreshold.exit:                           ; preds = %2, %10
   %29 = tail call i32 @snd_pcm_nonblock(ptr noundef %28, i32 noundef 1) #8
   %30 = load ptr, ptr %0, align 8
   %31 = tail call i32 @snd_pcm_state(ptr noundef %30) #8
-  switch i32 %31, label %switch.edge [
+  switch i32 %31, label %36 [
+    i32 7, label %32
     i32 4, label %32
     i32 3, label %32
     i32 2, label %32
-    i32 7, label %32
   ]
 
 32:                                               ; preds = %25, %25, %25, %25
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i16 1, ptr %33, align 8
   %.not35 = icmp eq i32 %1, 0
-  br i1 %.not35, label %34, label %switch.edge
+  br i1 %.not35, label %34, label %36
 
 34:                                               ; preds = %32
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 50
   store i16 0, ptr %35, align 2
-  br label %switch.edge
+  br label %36
 
-switch.edge:                                      ; preds = %25, %32, %34
-  %36 = phi i32 [ 1, %32 ], [ 1, %34 ], [ 0, %25 ]
-  ret i32 %36
+36:                                               ; preds = %25, %32, %34
+  %37 = add i32 %31, -2
+  %or.cond5 = icmp ult i32 %37, 3
+  %38 = icmp eq i32 %31, 7
+  %39 = or i1 %38, %or.cond5
+  %40 = zext i1 %39 to i32
+  ret i32 %40
 }
 
 declare i32 @snd_pcm_state(ptr noundef) local_unnamed_addr #1

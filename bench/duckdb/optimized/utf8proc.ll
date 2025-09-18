@@ -1221,88 +1221,88 @@ switch.early.test209:                             ; preds = %63
 74:                                               ; preds = %71, %49
   %75 = and i32 %.tr230244302, 8192
   %.not199 = icmp ne i32 %75, 0
-  %.off = add i16 %36, -6
-  %switch = icmp ult i16 %.off, 3
-  %or.cond213 = select i1 %.not199, i1 %switch, i1 false
-  br i1 %or.cond213, label %.thread216, label %76
+  %76 = add i16 %36, -6
+  %or.cond38 = icmp ult i16 %76, 3
+  %or.cond212 = select i1 %.not199, i1 %or.cond38, i1 false
+  br i1 %or.cond212, label %.thread216, label %77
 
-76:                                               ; preds = %74
-  %77 = and i32 %.tr230244302, 1024
-  %.not200 = icmp eq i32 %77, 0
-  br i1 %.not200, label %83, label %78
+77:                                               ; preds = %74
+  %78 = and i32 %.tr230244302, 1024
+  %.not200 = icmp eq i32 %78, 0
+  br i1 %.not200, label %84, label %79
 
-78:                                               ; preds = %76
-  %79 = getelementptr inbounds nuw i8, ptr %35, i64 10
-  %80 = load i16, ptr %79, align 2, !tbaa !15
-  %.not201 = icmp eq i16 %80, -1
-  br i1 %.not201, label %83, label %81
+79:                                               ; preds = %77
+  %80 = getelementptr inbounds nuw i8, ptr %35, i64 10
+  %81 = load i16, ptr %80, align 2, !tbaa !15
+  %.not201 = icmp eq i16 %81, -1
+  br i1 %.not201, label %84, label %82
 
-81:                                               ; preds = %78
-  %82 = tail call fastcc noundef i64 @_ZN6duckdbL30seqindex_write_char_decomposedEtPilNS_17utf8proc_option_tES0_(i16 noundef zeroext %80, ptr noundef %1, i64 noundef %2, i32 noundef %.tr230244302, ptr noundef %4)
+82:                                               ; preds = %79
+  %83 = tail call fastcc noundef i64 @_ZN6duckdbL30seqindex_write_char_decomposedEtPilNS_17utf8proc_option_tES0_(i16 noundef zeroext %81, ptr noundef %1, i64 noundef %2, i32 noundef %.tr230244302, ptr noundef %4)
   br label %.thread216
 
-83:                                               ; preds = %78, %76
-  br i1 %.not304, label %84, label %93
+84:                                               ; preds = %79, %77
+  br i1 %.not304, label %85, label %94
 
-84:                                               ; preds = %83
-  %85 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  %86 = load i16, ptr %85, align 4, !tbaa !16
-  %.not202 = icmp eq i16 %86, -1
-  br i1 %.not202, label %93, label %87
+85:                                               ; preds = %84
+  %86 = getelementptr inbounds nuw i8, ptr %35, i64 8
+  %87 = load i16, ptr %86, align 4, !tbaa !16
+  %.not202 = icmp eq i16 %87, -1
+  br i1 %.not202, label %94, label %88
 
-87:                                               ; preds = %84
-  %88 = getelementptr inbounds nuw i8, ptr %35, i64 6
-  %89 = load i16, ptr %88, align 2, !tbaa !17
-  %.not203 = icmp ne i16 %89, 0
-  %90 = and i32 %.tr230244302, 4
-  %.not204 = icmp eq i32 %90, 0
-  %or.cond212 = and i1 %.not204, %.not203
-  br i1 %or.cond212, label %93, label %91
+88:                                               ; preds = %85
+  %89 = getelementptr inbounds nuw i8, ptr %35, i64 6
+  %90 = load i16, ptr %89, align 2, !tbaa !17
+  %.not203 = icmp ne i16 %90, 0
+  %91 = and i32 %.tr230244302, 4
+  %.not204 = icmp eq i32 %91, 0
+  %or.cond213 = and i1 %.not204, %.not203
+  br i1 %or.cond213, label %94, label %92
 
-91:                                               ; preds = %87
-  %92 = tail call fastcc noundef i64 @_ZN6duckdbL30seqindex_write_char_decomposedEtPilNS_17utf8proc_option_tES0_(i16 noundef zeroext %86, ptr noundef %1, i64 noundef %2, i32 noundef %.tr230244302, ptr noundef %4)
+92:                                               ; preds = %88
+  %93 = tail call fastcc noundef i64 @_ZN6duckdbL30seqindex_write_char_decomposedEtPilNS_17utf8proc_option_tES0_(i16 noundef zeroext %87, ptr noundef %1, i64 noundef %2, i32 noundef %.tr230244302, ptr noundef %4)
   br label %.thread216
 
-93:                                               ; preds = %87, %84, %83
-  %94 = and i32 %.tr230244302, 2048
-  %.not205 = icmp eq i32 %94, 0
-  br i1 %.not205, label %.critedge, label %95
+94:                                               ; preds = %88, %85, %84
+  %95 = and i32 %.tr230244302, 2048
+  %.not205 = icmp eq i32 %95, 0
+  br i1 %.not205, label %.critedge, label %96
 
-95:                                               ; preds = %93
-  %96 = getelementptr inbounds nuw i8, ptr %35, i64 20
-  %97 = load i16, ptr %96, align 4
-  %98 = lshr i16 %97, 8
-  %99 = and i16 %98, 63
-  %100 = zext nneg i16 %99 to i32
-  %101 = lshr i16 %97, 14
-  %102 = zext nneg i16 %101 to i32
-  %103 = tail call fastcc noundef zeroext i1 @_ZN6duckdbL23grapheme_break_extendedEiiiiPi(i32 noundef 0, i32 noundef %100, i32 noundef 0, i32 noundef %102, ptr noundef %4)
-  br i1 %103, label %104, label %.critedge
+96:                                               ; preds = %94
+  %97 = getelementptr inbounds nuw i8, ptr %35, i64 20
+  %98 = load i16, ptr %97, align 4
+  %99 = lshr i16 %98, 8
+  %100 = and i16 %99, 63
+  %101 = zext nneg i16 %100 to i32
+  %102 = lshr i16 %98, 14
+  %103 = zext nneg i16 %102 to i32
+  %104 = tail call fastcc noundef zeroext i1 @_ZN6duckdbL23grapheme_break_extendedEiiiiPi(i32 noundef 0, i32 noundef %101, i32 noundef 0, i32 noundef %103, ptr noundef %4)
+  br i1 %104, label %105, label %.critedge
 
-104:                                              ; preds = %95
-  %105 = icmp sgt i64 %2, 0
-  br i1 %105, label %106, label %.thread216
+105:                                              ; preds = %96
+  %106 = icmp sgt i64 %2, 0
+  br i1 %106, label %107, label %.thread216
 
-106:                                              ; preds = %104
+107:                                              ; preds = %105
   store i32 -1, ptr %1, align 4, !tbaa !3
   %.not226 = icmp eq i64 %2, 1
-  br i1 %.not226, label %.thread216, label %107
+  br i1 %.not226, label %.thread216, label %108
 
-107:                                              ; preds = %106
-  %108 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i32 %.tr243303, ptr %108, align 4, !tbaa !3
+108:                                              ; preds = %107
+  %109 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  store i32 %.tr243303, ptr %109, align 4, !tbaa !3
   br label %.thread216
 
-.critedge:                                        ; preds = %95, %93
-  %109 = icmp sgt i64 %2, 0
-  br i1 %109, label %110, label %.thread216
+.critedge:                                        ; preds = %96, %94
+  %110 = icmp sgt i64 %2, 0
+  br i1 %110, label %111, label %.thread216
 
-110:                                              ; preds = %.critedge
+111:                                              ; preds = %.critedge
   store i32 %.tr243303, ptr %1, align 4, !tbaa !3
   br label %.thread216
 
-.thread216:                                       ; preds = %34, %42, %46, %5, %.thread, %104, %107, %106, %74, %.critedge, %110, %._crit_edge, %31, %29, %91, %81
-  %.0 = phi i64 [ %82, %81 ], [ %92, %91 ], [ 2, %._crit_edge ], [ 3, %31 ], [ 3, %29 ], [ 1, %110 ], [ 1, %.critedge ], [ 0, %74 ], [ 2, %106 ], [ 2, %107 ], [ 2, %104 ], [ %spec.select, %.thread ], [ -4, %5 ], [ 0, %46 ], [ 0, %42 ], [ -4, %34 ]
+.thread216:                                       ; preds = %34, %42, %46, %5, %.thread, %105, %108, %107, %.critedge, %111, %74, %._crit_edge, %31, %29, %92, %82
+  %.0 = phi i64 [ %83, %82 ], [ %93, %92 ], [ 2, %._crit_edge ], [ 3, %31 ], [ 3, %29 ], [ 0, %74 ], [ 1, %111 ], [ 1, %.critedge ], [ 2, %107 ], [ 2, %108 ], [ 2, %105 ], [ %spec.select, %.thread ], [ -4, %5 ], [ 0, %46 ], [ 0, %42 ], [ -4, %34 ]
   ret i64 %.0
 }
 

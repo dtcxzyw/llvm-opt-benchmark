@@ -290,8 +290,8 @@ _ZN5clang11OMPChildren10getRawStmtEv.exit:        ; preds = %.preheader.i, %1
   %.128.i.i.i = phi ptr [ %.0.i.i.i.i, %31 ], [ %.02759.i.i.i, %.preheader.i.i.i ]
   %29 = load i16, ptr %.128.i.i.i, align 8
   %30 = and i16 %29, 508
-  %switch.selectcmp.i.i.i.i.i.i.i.i.not.i.i.i = icmp eq i16 %30, 188
-  br i1 %switch.selectcmp.i.i.i.i.i.i.i.i.not.i.i.i, label %31, label %select.unfold.i.i.i
+  %spec.select.i.i.i.i.i.i.i.i.not.i.i.i = icmp eq i16 %30, 188
+  br i1 %spec.select.i.i.i.i.i.i.i.i.not.i.i.i, label %31, label %select.unfold.i.i.i
 
 31:                                               ; preds = %28
   %32 = getelementptr inbounds nuw i8, ptr %.128.i.i.i, i64 24
@@ -756,8 +756,8 @@ define dso_local noundef zeroext i1 @_ZN5clang21OMPLoopBasedDirective13doForAllL
   %.128 = phi ptr [ %.0.i, %13 ], [ %.02759, %.preheader ]
   %11 = load i16, ptr %.128, align 8
   %12 = and i16 %11, 508
-  %switch.selectcmp.i.i.i.i.i.i.i.i.not = icmp eq i16 %12, 188
-  br i1 %switch.selectcmp.i.i.i.i.i.i.i.i.not, label %13, label %select.unfold
+  %spec.select.i.i.i.i.i.i.i.i.not = icmp eq i16 %12, 188
+  br i1 %spec.select.i.i.i.i.i.i.i.i.not, label %13, label %select.unfold
 
 13:                                               ; preds = %10
   %14 = load ptr, ptr %5, align 8, !tbaa !47
@@ -849,8 +849,8 @@ define dso_local void @_ZN5clang21OMPLoopBasedDirective19doForAllLoopsBodiesEPNS
   %.128.i.i = phi ptr [ %.0.i.i.i, %11 ], [ %.02759.i.i, %.preheader.i.i ]
   %9 = load i16, ptr %.128.i.i, align 8
   %10 = and i16 %9, 508
-  %switch.selectcmp.i.i.i.i.i.i.i.i.not.i.i = icmp eq i16 %10, 188
-  br i1 %switch.selectcmp.i.i.i.i.i.i.i.i.not.i.i, label %11, label %select.unfold.i.i
+  %spec.select.i.i.i.i.i.i.i.i.not.i.i = icmp eq i16 %10, 188
+  br i1 %spec.select.i.i.i.i.i.i.i.i.not.i.i, label %11, label %select.unfold.i.i
 
 11:                                               ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %.128.i.i, i64 24

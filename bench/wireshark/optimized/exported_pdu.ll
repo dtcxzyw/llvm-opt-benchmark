@@ -297,100 +297,100 @@ define noalias noundef ptr @export_pdu_create_tags(ptr noundef %0, ptr noundef r
   unreachable
 
 6:                                                ; preds = %4
-  %.off = add i16 %2, -12
-  %switch = icmp ult i16 %.off, 3
-  br i1 %switch, label %8, label %7
+  %7 = add i16 %2, -12
+  %or.cond5 = icmp ult i16 %7, 3
+  br i1 %or.cond5, label %9, label %8
 
-7:                                                ; preds = %6
+8:                                                ; preds = %6
   tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 227, ptr noundef nonnull @.str.3) #15
   unreachable
 
-8:                                                ; preds = %6
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 408
-  %10 = load ptr, ptr %9, align 8
-  %11 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %10, i64 noundef 32) #16
-  %12 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #17
-  %13 = trunc i64 %12 to i32
-  %14 = add i32 %13, 3
-  %15 = and i32 %14, -4
-  %16 = add i32 %15, 4
-  %17 = load ptr, ptr %3, align 8
-  %.not5860 = icmp eq ptr %17, null
+9:                                                ; preds = %6
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 408
+  %11 = load ptr, ptr %10, align 8
+  %12 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %11, i64 noundef 32) #16
+  %13 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #17
+  %14 = trunc i64 %13 to i32
+  %15 = add i32 %14, 3
+  %16 = and i32 %15, -4
+  %17 = add i32 %16, 4
+  %18 = load ptr, ptr %3, align 8
+  %.not5860 = icmp eq ptr %18, null
   br i1 %.not5860, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %8, %.lr.ph
-  %18 = phi ptr [ %25, %.lr.ph ], [ %17, %8 ]
-  %.05262 = phi ptr [ %24, %.lr.ph ], [ %3, %8 ]
-  %.05461 = phi i32 [ %23, %.lr.ph ], [ %16, %8 ]
-  %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  %21 = load ptr, ptr %20, align 8
-  %22 = tail call i32 %19(ptr noundef %0, ptr noundef %21)
-  %23 = add i32 %22, %.05461
-  %24 = getelementptr i8, ptr %.05262, i64 8
-  %25 = load ptr, ptr %24, align 8
-  %.not58 = icmp eq ptr %25, null
+.lr.ph:                                           ; preds = %9, %.lr.ph
+  %19 = phi ptr [ %26, %.lr.ph ], [ %18, %9 ]
+  %.05262 = phi ptr [ %25, %.lr.ph ], [ %3, %9 ]
+  %.05461 = phi i32 [ %24, %.lr.ph ], [ %17, %9 ]
+  %20 = load ptr, ptr %19, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %22 = load ptr, ptr %21, align 8
+  %23 = tail call i32 %20(ptr noundef %0, ptr noundef %22)
+  %24 = add i32 %23, %.05461
+  %25 = getelementptr i8, ptr %.05262, i64 8
+  %26 = load ptr, ptr %25, align 8
+  %.not58 = icmp eq ptr %26, null
   br i1 %.not58, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
-._crit_edge:                                      ; preds = %.lr.ph, %8
-  %.054.lcssa = phi i32 [ %16, %8 ], [ %23, %.lr.ph ]
-  %26 = add i32 %.054.lcssa, 4
-  %27 = load ptr, ptr %9, align 8
-  %28 = sext i32 %26 to i64
-  %29 = tail call noalias ptr @wmem_alloc0(ptr noundef %27, i64 noundef %28) #16
-  %30 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store ptr %29, ptr %30, align 8
-  store i32 %26, ptr %11, align 8
-  store i8 0, ptr %29, align 1
-  %31 = trunc nuw nsw i16 %2 to i8
-  %32 = getelementptr i8, ptr %29, i64 1
-  store i8 %31, ptr %32, align 1
-  %33 = getelementptr i8, ptr %29, i64 2
-  %34 = lshr i32 %14, 8
-  %35 = trunc i32 %34 to i8
-  store i8 %35, ptr %33, align 1
-  %36 = trunc i32 %15 to i8
-  %37 = getelementptr i8, ptr %29, i64 3
-  store i8 %36, ptr %37, align 1
-  %38 = getelementptr i8, ptr %29, i64 4
-  %sext = shl i64 %12, 32
-  %39 = ashr exact i64 %sext, 32
-  %40 = add nsw i64 %28, -4
-  %41 = icmp ugt i32 %.054.lcssa, -5
-  %42 = select i1 %41, i64 0, i64 %40
-  %43 = icmp ne i64 %42, -1
-  tail call void @llvm.assume(i1 %43)
-  %44 = tail call ptr @__memcpy_chk(ptr noundef %38, ptr noundef nonnull %1, i64 noundef range(i64 -2147483648, 2147483648) %39, i64 noundef %42) #14, !alias.scope !8
-  %45 = load ptr, ptr %3, align 8
-  %.not5963 = icmp eq ptr %45, null
+._crit_edge:                                      ; preds = %.lr.ph, %9
+  %.054.lcssa = phi i32 [ %17, %9 ], [ %24, %.lr.ph ]
+  %27 = add i32 %.054.lcssa, 4
+  %28 = load ptr, ptr %10, align 8
+  %29 = sext i32 %27 to i64
+  %30 = tail call noalias ptr @wmem_alloc0(ptr noundef %28, i64 noundef %29) #16
+  %31 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store ptr %30, ptr %31, align 8
+  store i32 %27, ptr %12, align 8
+  store i8 0, ptr %30, align 1
+  %32 = trunc nuw nsw i16 %2 to i8
+  %33 = getelementptr i8, ptr %30, i64 1
+  store i8 %32, ptr %33, align 1
+  %34 = getelementptr i8, ptr %30, i64 2
+  %35 = lshr i32 %15, 8
+  %36 = trunc i32 %35 to i8
+  store i8 %36, ptr %34, align 1
+  %37 = trunc i32 %16 to i8
+  %38 = getelementptr i8, ptr %30, i64 3
+  store i8 %37, ptr %38, align 1
+  %39 = getelementptr i8, ptr %30, i64 4
+  %sext = shl i64 %13, 32
+  %40 = ashr exact i64 %sext, 32
+  %41 = add nsw i64 %29, -4
+  %42 = icmp ugt i32 %.054.lcssa, -5
+  %43 = select i1 %42, i64 0, i64 %41
+  %44 = icmp ne i64 %43, -1
+  tail call void @llvm.assume(i1 %44)
+  %45 = tail call ptr @__memcpy_chk(ptr noundef %39, ptr noundef nonnull %1, i64 noundef range(i64 -2147483648, 2147483648) %40, i64 noundef %43) #14, !alias.scope !8
+  %46 = load ptr, ptr %3, align 8
+  %.not5963 = icmp eq ptr %46, null
   br i1 %.not5963, label %._crit_edge69, label %.lr.ph68.preheader
 
 .lr.ph68.preheader:                               ; preds = %._crit_edge
-  %46 = sub i32 %.054.lcssa, %15
-  %47 = sext i32 %16 to i64
-  %48 = getelementptr i8, ptr %29, i64 %47
+  %47 = sub i32 %.054.lcssa, %16
+  %48 = sext i32 %17 to i64
+  %49 = getelementptr i8, ptr %30, i64 %48
   br label %.lr.ph68
 
 .lr.ph68:                                         ; preds = %.lr.ph68.preheader, %.lr.ph68
-  %49 = phi ptr [ %59, %.lr.ph68 ], [ %45, %.lr.ph68.preheader ]
-  %.066 = phi ptr [ %56, %.lr.ph68 ], [ %48, %.lr.ph68.preheader ]
-  %.165 = phi ptr [ %58, %.lr.ph68 ], [ %3, %.lr.ph68.preheader ]
-  %.05364 = phi i32 [ %57, %.lr.ph68 ], [ %46, %.lr.ph68.preheader ]
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds nuw i8, ptr %49, i64 16
-  %53 = load ptr, ptr %52, align 8
-  %54 = tail call i32 %51(ptr noundef %0, ptr noundef %53, ptr noundef %.066, i32 noundef %.05364)
-  %55 = sext i32 %54 to i64
-  %56 = getelementptr i8, ptr %.066, i64 %55
-  %57 = sub i32 %.05364, %54
-  %58 = getelementptr i8, ptr %.165, i64 8
-  %59 = load ptr, ptr %58, align 8
-  %.not59 = icmp eq ptr %59, null
+  %50 = phi ptr [ %60, %.lr.ph68 ], [ %46, %.lr.ph68.preheader ]
+  %.066 = phi ptr [ %57, %.lr.ph68 ], [ %49, %.lr.ph68.preheader ]
+  %.165 = phi ptr [ %59, %.lr.ph68 ], [ %3, %.lr.ph68.preheader ]
+  %.05364 = phi i32 [ %58, %.lr.ph68 ], [ %47, %.lr.ph68.preheader ]
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  %52 = load ptr, ptr %51, align 8
+  %53 = getelementptr inbounds nuw i8, ptr %50, i64 16
+  %54 = load ptr, ptr %53, align 8
+  %55 = tail call i32 %52(ptr noundef %0, ptr noundef %54, ptr noundef %.066, i32 noundef %.05364)
+  %56 = sext i32 %55 to i64
+  %57 = getelementptr i8, ptr %.066, i64 %56
+  %58 = sub i32 %.05364, %55
+  %59 = getelementptr i8, ptr %.165, i64 8
+  %60 = load ptr, ptr %59, align 8
+  %.not59 = icmp eq ptr %60, null
   br i1 %.not59, label %._crit_edge69, label %.lr.ph68, !llvm.loop !12
 
 ._crit_edge69:                                    ; preds = %.lr.ph68, %._crit_edge
-  ret ptr %11
+  ret ptr %12
 }
 
 ; Function Attrs: noreturn null_pointer_is_valid

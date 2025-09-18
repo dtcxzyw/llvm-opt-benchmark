@@ -29037,22 +29037,22 @@ declare void @_ZN5clang10SemaOpenMP28ActOnOpenMPEndDeclareVariantEv(ptr noundef 
 define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6Parser25MaybeParseCXX11AttributesERNS_16ParsedAttributesEb(ptr noundef nonnull align 8 dereferenceable(2936) %0, ptr noundef nonnull align 8 dereferenceable(144) %1, i1 noundef zeroext %2) local_unnamed_addr #0 comdat align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i16, ptr %4, align 8, !tbaa !764
-  %.off.i.i.i = add i16 %5, -402
-  %switch.i.i.i = icmp ult i16 %.off.i.i.i, 9
-  br i1 %switch.i.i.i, label %_ZN5clang6Parser32isAllowedCXX11AttributeSpecifierEbb.exit.thread, label %_ZN5clang6Parser32isAllowedCXX11AttributeSpecifierEbb.exit
+  %6 = add i16 %5, -402
+  %spec.select.i.i.i = icmp ult i16 %6, 9
+  br i1 %spec.select.i.i.i, label %_ZN5clang6Parser32isAllowedCXX11AttributeSpecifierEbb.exit.thread, label %_ZN5clang6Parser32isAllowedCXX11AttributeSpecifierEbb.exit
 
 _ZN5clang6Parser32isAllowedCXX11AttributeSpecifierEbb.exit: ; preds = %3
-  %6 = tail call noundef i32 @_ZN5clang6Parser25isCXX11AttributeSpecifierEbb(ptr noundef nonnull align 8 dereferenceable(2936) %0, i1 noundef zeroext false, i1 noundef zeroext %2) #19
-  %.not = icmp eq i32 %6, 0
-  br i1 %.not, label %7, label %_ZN5clang6Parser32isAllowedCXX11AttributeSpecifierEbb.exit.thread
+  %7 = tail call noundef i32 @_ZN5clang6Parser25isCXX11AttributeSpecifierEbb(ptr noundef nonnull align 8 dereferenceable(2936) %0, i1 noundef zeroext false, i1 noundef zeroext %2) #19
+  %.not = icmp eq i32 %7, 0
+  br i1 %.not, label %8, label %_ZN5clang6Parser32isAllowedCXX11AttributeSpecifierEbb.exit.thread
 
 _ZN5clang6Parser32isAllowedCXX11AttributeSpecifierEbb.exit.thread: ; preds = %3, %_ZN5clang6Parser32isAllowedCXX11AttributeSpecifierEbb.exit
   tail call void @_ZN5clang6Parser20ParseCXX11AttributesERNS_16ParsedAttributesE(ptr noundef nonnull align 8 dereferenceable(2936) %0, ptr noundef nonnull align 8 dereferenceable(144) %1) #19
-  br label %7
+  br label %8
 
-7:                                                ; preds = %_ZN5clang6Parser32isAllowedCXX11AttributeSpecifierEbb.exit, %_ZN5clang6Parser32isAllowedCXX11AttributeSpecifierEbb.exit.thread
-  %8 = phi i1 [ false, %_ZN5clang6Parser32isAllowedCXX11AttributeSpecifierEbb.exit ], [ true, %_ZN5clang6Parser32isAllowedCXX11AttributeSpecifierEbb.exit.thread ]
-  ret i1 %8
+8:                                                ; preds = %_ZN5clang6Parser32isAllowedCXX11AttributeSpecifierEbb.exit, %_ZN5clang6Parser32isAllowedCXX11AttributeSpecifierEbb.exit.thread
+  %9 = phi i1 [ false, %_ZN5clang6Parser32isAllowedCXX11AttributeSpecifierEbb.exit ], [ true, %_ZN5clang6Parser32isAllowedCXX11AttributeSpecifierEbb.exit.thread ]
+  ret i1 %9
 }
 
 declare ptr @_ZN5clang6Parser24ParseExternalDeclarationERNS_16ParsedAttributesES2_PNS_15ParsingDeclSpecE(ptr noundef nonnull align 8 dereferenceable(2936), ptr noundef nonnull align 8 dereferenceable(144), ptr noundef nonnull align 8 dereferenceable(144), ptr noundef) local_unnamed_addr #1

@@ -945,12 +945,10 @@ lor.lhs.false17:                                  ; preds = %lor.lhs.false
 
 lor.lhs.false21:                                  ; preds = %lor.lhs.false17
   %cmp24 = icmp ne i32 %call4, 12
-  %2 = and i32 %sub.i, -2
-  %or.cond334 = icmp ne i32 %2, 24
-  %cmp30 = icmp ne i32 %sub.i, 26
-  %or.cond2835.not38 = and i1 %cmp30, %or.cond334
+  %2 = add i32 %sub.i, -27
+  %or.cond2835 = icmp ult i32 %2, -3
   %cmp34 = icmp ne i32 %sub.i, 31
-  %or.cond2936.not37 = and i1 %cmp34, %or.cond2835.not38
+  %or.cond2936.not37 = and i1 %cmp34, %or.cond2835
   %or.cond30.not = or i1 %or.cond2936.not37, %cmp24
   br label %cleanup
 

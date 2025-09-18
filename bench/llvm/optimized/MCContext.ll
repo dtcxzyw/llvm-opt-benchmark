@@ -9789,7 +9789,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 86:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %87 = getelementptr inbounds nuw i8, ptr %.sroa.012.0.i, i64 88
   %88 = load ptr, ptr %87, align 8, !tbaa !682
-  br label %184
+  br label %180
 
 89:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %90 = getelementptr inbounds nuw i8, ptr %.sroa.012.0.i, i64 32
@@ -9883,90 +9883,79 @@ _ZN4llvm24SpecificBumpPtrAllocatorINS_13MCSectionWasmEE8AllocateEm.exit: ; preds
   store i32 0, ptr %137, align 8, !tbaa !690
   %138 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 172
   store i8 0, ptr %138, align 4, !tbaa !691
-  %139 = and i8 %.sroa.0.0.extract.trunc.i, -4
-  switch i8 %139, label %140 [
-    i8 8, label %_ZN4llvm13MCSectionWasmC2ENS_9StringRefENS_11SectionKindEjPKNS_12MCSymbolWasmEjPNS_8MCSymbolE.exit
-    i8 4, label %_ZN4llvm13MCSectionWasmC2ENS_9StringRefENS_11SectionKindEjPKNS_12MCSymbolWasmEjPNS_8MCSymbolE.exit
-  ]
+  %139 = add i8 %.sroa.0.0.extract.trunc.i, -4
+  %narrow.i = icmp ult i8 %139, 17
+  %140 = zext i1 %narrow.i to i8
+  %141 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 173
+  store i8 %140, ptr %141, align 1, !tbaa !692
+  %142 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 174
+  %143 = icmp eq i8 %.sroa.0.0.extract.trunc.i, 0
+  %144 = zext i1 %143 to i8
+  store i8 %144, ptr %142, align 2, !tbaa !693
+  %145 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 176
+  store i32 %3, ptr %145, align 8, !tbaa !694
+  %146 = getelementptr inbounds nuw i8, ptr %.sroa.012.0.i, i64 88
+  store ptr %.0.i.i.i.i.i, ptr %146, align 8, !tbaa !682
+  %147 = getelementptr inbounds nuw i8, ptr %0, i64 288
+  %148 = getelementptr inbounds nuw i8, ptr %0, i64 368
+  %149 = load i64, ptr %148, align 8, !tbaa !262
+  %150 = add i64 %149, 208
+  store i64 %150, ptr %148, align 8, !tbaa !262
+  %151 = load ptr, ptr %147, align 8, !tbaa !263
+  %152 = ptrtoint ptr %151 to i64
+  %153 = add i64 %152, 7
+  %154 = and i64 %153, -8
+  %155 = add i64 %154, 208
+  %156 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  %157 = load ptr, ptr %156, align 8, !tbaa !264
+  %158 = ptrtoint ptr %157 to i64
+  %.not.i.i.i.i39 = icmp ule i64 %155, %158
+  %159 = icmp ne ptr %151, null
+  %160 = and i1 %159, %.not.i.i.i.i39
+  br i1 %160, label %161, label %164, !prof !311
 
-140:                                              ; preds = %_ZN4llvm24SpecificBumpPtrAllocatorINS_13MCSectionWasmEE8AllocateEm.exit
-  %141 = add i8 %.sroa.0.0.extract.trunc.i, -12
-  %142 = icmp ult i8 %141, 9
-  %143 = zext i1 %142 to i8
-  br label %_ZN4llvm13MCSectionWasmC2ENS_9StringRefENS_11SectionKindEjPKNS_12MCSymbolWasmEjPNS_8MCSymbolE.exit
-
-_ZN4llvm13MCSectionWasmC2ENS_9StringRefENS_11SectionKindEjPKNS_12MCSymbolWasmEjPNS_8MCSymbolE.exit: ; preds = %_ZN4llvm24SpecificBumpPtrAllocatorINS_13MCSectionWasmEE8AllocateEm.exit, %_ZN4llvm24SpecificBumpPtrAllocatorINS_13MCSectionWasmEE8AllocateEm.exit, %140
-  %144 = phi i8 [ 1, %_ZN4llvm24SpecificBumpPtrAllocatorINS_13MCSectionWasmEE8AllocateEm.exit ], [ %143, %140 ], [ 1, %_ZN4llvm24SpecificBumpPtrAllocatorINS_13MCSectionWasmEE8AllocateEm.exit ]
-  %145 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 173
-  store i8 %144, ptr %145, align 1, !tbaa !692
-  %146 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 174
-  %147 = icmp eq i8 %.sroa.0.0.extract.trunc.i, 0
-  %148 = zext i1 %147 to i8
-  store i8 %148, ptr %146, align 2, !tbaa !693
-  %149 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 176
-  store i32 %3, ptr %149, align 8, !tbaa !694
-  %150 = getelementptr inbounds nuw i8, ptr %.sroa.012.0.i, i64 88
-  store ptr %.0.i.i.i.i.i, ptr %150, align 8, !tbaa !682
-  %151 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  %152 = getelementptr inbounds nuw i8, ptr %0, i64 368
-  %153 = load i64, ptr %152, align 8, !tbaa !262
-  %154 = add i64 %153, 208
-  store i64 %154, ptr %152, align 8, !tbaa !262
-  %155 = load ptr, ptr %151, align 8, !tbaa !263
-  %156 = ptrtoint ptr %155 to i64
-  %157 = add i64 %156, 7
-  %158 = and i64 %157, -8
-  %159 = add i64 %158, 208
-  %160 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %161 = load ptr, ptr %160, align 8, !tbaa !264
-  %162 = ptrtoint ptr %161 to i64
-  %.not.i.i.i.i39 = icmp ule i64 %159, %162
-  %163 = icmp ne ptr %155, null
-  %164 = and i1 %163, %.not.i.i.i.i39
-  br i1 %164, label %165, label %168, !prof !311
-
-165:                                              ; preds = %_ZN4llvm13MCSectionWasmC2ENS_9StringRefENS_11SectionKindEjPKNS_12MCSymbolWasmEjPNS_8MCSymbolE.exit
-  %166 = inttoptr i64 %159 to ptr
-  store ptr %166, ptr %151, align 8, !tbaa !263
-  %167 = inttoptr i64 %158 to ptr
+161:                                              ; preds = %_ZN4llvm24SpecificBumpPtrAllocatorINS_13MCSectionWasmEE8AllocateEm.exit
+  %162 = inttoptr i64 %155 to ptr
+  store ptr %162, ptr %147, align 8, !tbaa !263
+  %163 = inttoptr i64 %154 to ptr
   br label %_ZN4llvm9MCContext20allocInitialFragmentERNS_9MCSectionE.exit
 
-168:                                              ; preds = %_ZN4llvm13MCSectionWasmC2ENS_9StringRefENS_11SectionKindEjPKNS_12MCSymbolWasmEjPNS_8MCSymbolE.exit
-  %169 = call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %151, i64 noundef 208, i64 noundef 208, i8 3)
+164:                                              ; preds = %_ZN4llvm24SpecificBumpPtrAllocatorINS_13MCSectionWasmEE8AllocateEm.exit
+  %165 = call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %147, i64 noundef 208, i64 noundef 208, i8 3)
   br label %_ZN4llvm9MCContext20allocInitialFragmentERNS_9MCSectionE.exit
 
-_ZN4llvm9MCContext20allocInitialFragmentERNS_9MCSectionE.exit: ; preds = %165, %168
-  %.0.i.i.i.i = phi ptr [ %167, %165 ], [ %169, %168 ]
+_ZN4llvm9MCContext20allocInitialFragmentERNS_9MCSectionE.exit: ; preds = %161, %164
+  %.0.i.i.i.i = phi ptr [ %163, %161 ], [ %165, %164 ]
   call void @_ZN4llvm10MCFragmentC2ENS0_12FragmentTypeEb(ptr noundef nonnull align 8 dereferenceable(208) %.0.i.i.i.i, i8 noundef zeroext 1, i1 noundef zeroext false) #22
-  %170 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 30
-  store i8 0, ptr %170, align 2, !tbaa !312
-  %171 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
-  store ptr null, ptr %171, align 8, !tbaa !317
-  %172 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
-  %173 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 64
-  store ptr %173, ptr %172, align 8, !tbaa !188
-  %174 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
-  store i64 0, ptr %174, align 8, !tbaa !189
-  %175 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
-  store i64 32, ptr %175, align 8, !tbaa !190
-  %176 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 96
-  %177 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 112
-  store ptr %177, ptr %176, align 8, !tbaa !179
-  %178 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 104
-  store i32 0, ptr %178, align 8, !tbaa !180
-  %179 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 108
-  store i32 4, ptr %179, align 4, !tbaa !181
-  %180 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
-  store ptr %.0.i.i.i.i.i, ptr %180, align 8, !tbaa !318
-  %181 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 8
-  %182 = load ptr, ptr %181, align 8, !tbaa !319
-  store ptr %.0.i.i.i.i, ptr %182, align 8, !tbaa !332
-  %183 = getelementptr inbounds nuw i8, ptr %182, i64 8
-  store ptr %.0.i.i.i.i, ptr %183, align 8, !tbaa !334
+  %166 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 30
+  store i8 0, ptr %166, align 2, !tbaa !312
+  %167 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
+  store ptr null, ptr %167, align 8, !tbaa !317
+  %168 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
+  %169 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 64
+  store ptr %169, ptr %168, align 8, !tbaa !188
+  %170 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
+  store i64 0, ptr %170, align 8, !tbaa !189
+  %171 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
+  store i64 32, ptr %171, align 8, !tbaa !190
+  %172 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 96
+  %173 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 112
+  store ptr %173, ptr %172, align 8, !tbaa !179
+  %174 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 104
+  store i32 0, ptr %174, align 8, !tbaa !180
+  %175 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 108
+  store i32 4, ptr %175, align 4, !tbaa !181
+  %176 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
+  store ptr %.0.i.i.i.i.i, ptr %176, align 8, !tbaa !318
+  %177 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 8
+  %178 = load ptr, ptr %177, align 8, !tbaa !319
+  store ptr %.0.i.i.i.i, ptr %178, align 8, !tbaa !332
+  %179 = getelementptr inbounds nuw i8, ptr %178, i64 8
+  store ptr %.0.i.i.i.i, ptr %179, align 8, !tbaa !334
   store ptr %.0.i.i.i.i, ptr %97, align 8, !tbaa !346
-  br label %184
+  br label %180
 
-184:                                              ; preds = %_ZN4llvm9MCContext20allocInitialFragmentERNS_9MCSectionE.exit, %86
+180:                                              ; preds = %_ZN4llvm9MCContext20allocInitialFragmentERNS_9MCSectionE.exit, %86
   %.0 = phi ptr [ %.0.i.i.i.i.i, %_ZN4llvm9MCContext20allocInitialFragmentERNS_9MCSectionE.exit ], [ %88, %86 ]
   ret ptr %.0
 }

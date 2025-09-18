@@ -5702,24 +5702,24 @@ define internal void @_blendif_options_callback(ptr noundef %0, ptr noundef read
   %5 = load i32, ptr %4, align 4, !tbaa !184
   %.off = add i32 %5, -1
   %switch = icmp ult i32 %.off, 2
-  br i1 %switch, label %6, label %80
+  br i1 %switch, label %6, label %81
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 776
   %8 = load ptr, ptr %7, align 8, !tbaa !6
   %.not61 = icmp eq ptr %8, null
-  br i1 %.not61, label %80, label %9
+  br i1 %.not61, label %81, label %9
 
 9:                                                ; preds = %6
   %10 = load i32, ptr %8, align 8, !tbaa !141
   %.not62 = icmp eq i32 %10, 0
-  br i1 %.not62, label %80, label %11
+  br i1 %.not62, label %81, label %11
 
 11:                                               ; preds = %9
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %13 = load i32, ptr %12, align 8, !tbaa !142
   %.not63 = icmp eq i32 %13, 0
-  br i1 %.not63, label %80, label %14
+  br i1 %.not63, label %81, label %14
 
 14:                                               ; preds = %11
   %15 = tail call ptr @gtk_menu_new() #17
@@ -5730,113 +5730,113 @@ define internal void @_blendif_options_callback(ptr noundef %0, ptr noundef read
   %20 = load ptr, ptr %19, align 8, !tbaa !71
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %22 = load i32, ptr %21, align 4, !tbaa !213
-  %.off65 = add i32 %18, -2
-  %switch66 = icmp ult i32 %.off65, 3
-  br i1 %switch66, label %23, label %75
+  %23 = add i32 %18, -2
+  %or.cond3 = icmp ult i32 %23, 3
+  br i1 %or.cond3, label %24, label %76
 
-23:                                               ; preds = %14
-  %24 = icmp eq i32 %18, 2
-  %25 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.216, i32 noundef 5) #17
-  %26 = tail call ptr @gtk_menu_item_new_with_label(ptr noundef %25) #17
-  %27 = tail call ptr @g_type_check_instance_cast(ptr noundef %26, i64 noundef 80) #17
-  tail call void @g_object_set_data_full(ptr noundef %27, ptr noundef nonnull @.str.217, ptr noundef null, ptr noundef null) #17
-  %28 = tail call ptr @g_type_check_instance_cast(ptr noundef %26, i64 noundef 80) #17
-  %29 = tail call i64 @g_signal_connect_data(ptr noundef %28, ptr noundef nonnull @.str.218, ptr noundef nonnull @_blendif_select_colorspace, ptr noundef nonnull %2, ptr noundef null, i32 noundef 0) #17
-  %30 = tail call i64 @gtk_menu_shell_get_type() #18
-  %31 = tail call ptr @g_type_check_instance_cast(ptr noundef %17, i64 noundef %30) #17
-  tail call void @gtk_menu_shell_append(ptr noundef %31, ptr noundef %26) #17
-  br i1 %24, label %32, label %44
+24:                                               ; preds = %14
+  %25 = icmp eq i32 %18, 2
+  %26 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.216, i32 noundef 5) #17
+  %27 = tail call ptr @gtk_menu_item_new_with_label(ptr noundef %26) #17
+  %28 = tail call ptr @g_type_check_instance_cast(ptr noundef %27, i64 noundef 80) #17
+  tail call void @g_object_set_data_full(ptr noundef %28, ptr noundef nonnull @.str.217, ptr noundef null, ptr noundef null) #17
+  %29 = tail call ptr @g_type_check_instance_cast(ptr noundef %27, i64 noundef 80) #17
+  %30 = tail call i64 @g_signal_connect_data(ptr noundef %29, ptr noundef nonnull @.str.218, ptr noundef nonnull @_blendif_select_colorspace, ptr noundef nonnull %2, ptr noundef null, i32 noundef 0) #17
+  %31 = tail call i64 @gtk_menu_shell_get_type() #18
+  %32 = tail call ptr @g_type_check_instance_cast(ptr noundef %17, i64 noundef %31) #17
+  tail call void @gtk_menu_shell_append(ptr noundef %32, ptr noundef %27) #17
+  br i1 %25, label %33, label %45
 
-32:                                               ; preds = %23
-  %33 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.41, i32 noundef 5) #17
-  %34 = tail call ptr @gtk_check_menu_item_new_with_label(ptr noundef %33) #17
-  tail call void @dt_gui_add_class(ptr noundef %34, ptr noundef nonnull @.str.112) #17
-  %35 = icmp eq i32 %22, 2
-  br i1 %35, label %36, label %39
+33:                                               ; preds = %24
+  %34 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.41, i32 noundef 5) #17
+  %35 = tail call ptr @gtk_check_menu_item_new_with_label(ptr noundef %34) #17
+  tail call void @dt_gui_add_class(ptr noundef %35, ptr noundef nonnull @.str.112) #17
+  %36 = icmp eq i32 %22, 2
+  br i1 %36, label %37, label %40
 
-36:                                               ; preds = %32
-  %37 = tail call i64 @gtk_check_menu_item_get_type() #18
-  %38 = tail call ptr @g_type_check_instance_cast(ptr noundef %34, i64 noundef %37) #17
-  tail call void @gtk_check_menu_item_set_active(ptr noundef %38, i32 noundef 1) #17
-  tail call void @dt_gui_add_class(ptr noundef %34, ptr noundef nonnull @.str.219) #17
-  br label %39
+37:                                               ; preds = %33
+  %38 = tail call i64 @gtk_check_menu_item_get_type() #18
+  %39 = tail call ptr @g_type_check_instance_cast(ptr noundef %35, i64 noundef %38) #17
+  tail call void @gtk_check_menu_item_set_active(ptr noundef %39, i32 noundef 1) #17
+  tail call void @dt_gui_add_class(ptr noundef %35, ptr noundef nonnull @.str.219) #17
+  br label %40
 
-39:                                               ; preds = %36, %32
-  %40 = tail call ptr @g_type_check_instance_cast(ptr noundef %34, i64 noundef 80) #17
-  tail call void @g_object_set_data_full(ptr noundef %40, ptr noundef nonnull @.str.217, ptr noundef nonnull inttoptr (i64 2 to ptr), ptr noundef null) #17
-  %41 = tail call ptr @g_type_check_instance_cast(ptr noundef %34, i64 noundef 80) #17
-  %42 = tail call i64 @g_signal_connect_data(ptr noundef %41, ptr noundef nonnull @.str.218, ptr noundef nonnull @_blendif_select_colorspace, ptr noundef nonnull %2, ptr noundef null, i32 noundef 0) #17
-  %43 = tail call ptr @g_type_check_instance_cast(ptr noundef %17, i64 noundef %30) #17
-  tail call void @gtk_menu_shell_append(ptr noundef %43, ptr noundef %34) #17
-  br label %44
+40:                                               ; preds = %37, %33
+  %41 = tail call ptr @g_type_check_instance_cast(ptr noundef %35, i64 noundef 80) #17
+  tail call void @g_object_set_data_full(ptr noundef %41, ptr noundef nonnull @.str.217, ptr noundef nonnull inttoptr (i64 2 to ptr), ptr noundef null) #17
+  %42 = tail call ptr @g_type_check_instance_cast(ptr noundef %35, i64 noundef 80) #17
+  %43 = tail call i64 @g_signal_connect_data(ptr noundef %42, ptr noundef nonnull @.str.218, ptr noundef nonnull @_blendif_select_colorspace, ptr noundef nonnull %2, ptr noundef null, i32 noundef 0) #17
+  %44 = tail call ptr @g_type_check_instance_cast(ptr noundef %17, i64 noundef %31) #17
+  tail call void @gtk_menu_shell_append(ptr noundef %44, ptr noundef %35) #17
+  br label %45
 
-44:                                               ; preds = %39, %23
-  %45 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.42, i32 noundef 5) #17
-  %46 = tail call ptr @gtk_check_menu_item_new_with_label(ptr noundef %45) #17
-  tail call void @dt_gui_add_class(ptr noundef %46, ptr noundef nonnull @.str.112) #17
-  %47 = icmp eq i32 %22, 3
-  br i1 %47, label %48, label %51
+45:                                               ; preds = %40, %24
+  %46 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.42, i32 noundef 5) #17
+  %47 = tail call ptr @gtk_check_menu_item_new_with_label(ptr noundef %46) #17
+  tail call void @dt_gui_add_class(ptr noundef %47, ptr noundef nonnull @.str.112) #17
+  %48 = icmp eq i32 %22, 3
+  br i1 %48, label %49, label %52
 
-48:                                               ; preds = %44
-  %49 = tail call i64 @gtk_check_menu_item_get_type() #18
-  %50 = tail call ptr @g_type_check_instance_cast(ptr noundef %46, i64 noundef %49) #17
-  tail call void @gtk_check_menu_item_set_active(ptr noundef %50, i32 noundef 1) #17
-  tail call void @dt_gui_add_class(ptr noundef %46, ptr noundef nonnull @.str.219) #17
-  br label %51
+49:                                               ; preds = %45
+  %50 = tail call i64 @gtk_check_menu_item_get_type() #18
+  %51 = tail call ptr @g_type_check_instance_cast(ptr noundef %47, i64 noundef %50) #17
+  tail call void @gtk_check_menu_item_set_active(ptr noundef %51, i32 noundef 1) #17
+  tail call void @dt_gui_add_class(ptr noundef %47, ptr noundef nonnull @.str.219) #17
+  br label %52
 
-51:                                               ; preds = %48, %44
-  %52 = tail call ptr @g_type_check_instance_cast(ptr noundef %46, i64 noundef 80) #17
-  tail call void @g_object_set_data_full(ptr noundef %52, ptr noundef nonnull @.str.217, ptr noundef nonnull inttoptr (i64 3 to ptr), ptr noundef null) #17
-  %53 = tail call ptr @g_type_check_instance_cast(ptr noundef %46, i64 noundef 80) #17
-  %54 = tail call i64 @g_signal_connect_data(ptr noundef %53, ptr noundef nonnull @.str.218, ptr noundef nonnull @_blendif_select_colorspace, ptr noundef nonnull %2, ptr noundef null, i32 noundef 0) #17
-  %55 = tail call ptr @g_type_check_instance_cast(ptr noundef %17, i64 noundef %30) #17
-  tail call void @gtk_menu_shell_append(ptr noundef %55, ptr noundef %46) #17
-  %56 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.43, i32 noundef 5) #17
-  %57 = tail call ptr @gtk_check_menu_item_new_with_label(ptr noundef %56) #17
-  tail call void @dt_gui_add_class(ptr noundef %57, ptr noundef nonnull @.str.112) #17
-  %58 = icmp eq i32 %22, 4
-  br i1 %58, label %59, label %.sink.split
+52:                                               ; preds = %49, %45
+  %53 = tail call ptr @g_type_check_instance_cast(ptr noundef %47, i64 noundef 80) #17
+  tail call void @g_object_set_data_full(ptr noundef %53, ptr noundef nonnull @.str.217, ptr noundef nonnull inttoptr (i64 3 to ptr), ptr noundef null) #17
+  %54 = tail call ptr @g_type_check_instance_cast(ptr noundef %47, i64 noundef 80) #17
+  %55 = tail call i64 @g_signal_connect_data(ptr noundef %54, ptr noundef nonnull @.str.218, ptr noundef nonnull @_blendif_select_colorspace, ptr noundef nonnull %2, ptr noundef null, i32 noundef 0) #17
+  %56 = tail call ptr @g_type_check_instance_cast(ptr noundef %17, i64 noundef %31) #17
+  tail call void @gtk_menu_shell_append(ptr noundef %56, ptr noundef %47) #17
+  %57 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.43, i32 noundef 5) #17
+  %58 = tail call ptr @gtk_check_menu_item_new_with_label(ptr noundef %57) #17
+  tail call void @dt_gui_add_class(ptr noundef %58, ptr noundef nonnull @.str.112) #17
+  %59 = icmp eq i32 %22, 4
+  br i1 %59, label %60, label %.sink.split
 
-59:                                               ; preds = %51
-  %60 = tail call i64 @gtk_check_menu_item_get_type() #18
-  %61 = tail call ptr @g_type_check_instance_cast(ptr noundef %57, i64 noundef %60) #17
-  tail call void @gtk_check_menu_item_set_active(ptr noundef %61, i32 noundef 1) #17
-  tail call void @dt_gui_add_class(ptr noundef %57, ptr noundef nonnull @.str.219) #17
+60:                                               ; preds = %52
+  %61 = tail call i64 @gtk_check_menu_item_get_type() #18
+  %62 = tail call ptr @g_type_check_instance_cast(ptr noundef %58, i64 noundef %61) #17
+  tail call void @gtk_check_menu_item_set_active(ptr noundef %62, i32 noundef 1) #17
+  tail call void @dt_gui_add_class(ptr noundef %58, ptr noundef nonnull @.str.219) #17
   br label %.sink.split
 
-.sink.split:                                      ; preds = %59, %51
-  %62 = tail call ptr @g_type_check_instance_cast(ptr noundef %57, i64 noundef 80) #17
-  tail call void @g_object_set_data_full(ptr noundef %62, ptr noundef nonnull @.str.217, ptr noundef nonnull inttoptr (i64 4 to ptr), ptr noundef null) #17
-  %63 = tail call ptr @g_type_check_instance_cast(ptr noundef %57, i64 noundef 80) #17
-  %64 = tail call i64 @g_signal_connect_data(ptr noundef %63, ptr noundef nonnull @.str.218, ptr noundef nonnull @_blendif_select_colorspace, ptr noundef nonnull %2, ptr noundef null, i32 noundef 0) #17
-  %65 = tail call ptr @g_type_check_instance_cast(ptr noundef %17, i64 noundef %30) #17
-  tail call void @gtk_menu_shell_append(ptr noundef %65, ptr noundef %57) #17
-  %66 = tail call ptr @g_type_check_instance_cast(ptr noundef %17, i64 noundef %30) #17
-  %67 = tail call ptr @gtk_separator_menu_item_new() #17
-  tail call void @gtk_menu_shell_append(ptr noundef %66, ptr noundef %67) #17
-  %68 = getelementptr inbounds nuw i8, ptr %8, i64 480
-  %69 = load i32, ptr %68, align 8, !tbaa !73
-  %.not64 = icmp eq i32 %69, 0
+.sink.split:                                      ; preds = %60, %52
+  %63 = tail call ptr @g_type_check_instance_cast(ptr noundef %58, i64 noundef 80) #17
+  tail call void @g_object_set_data_full(ptr noundef %63, ptr noundef nonnull @.str.217, ptr noundef nonnull inttoptr (i64 4 to ptr), ptr noundef null) #17
+  %64 = tail call ptr @g_type_check_instance_cast(ptr noundef %58, i64 noundef 80) #17
+  %65 = tail call i64 @g_signal_connect_data(ptr noundef %64, ptr noundef nonnull @.str.218, ptr noundef nonnull @_blendif_select_colorspace, ptr noundef nonnull %2, ptr noundef null, i32 noundef 0) #17
+  %66 = tail call ptr @g_type_check_instance_cast(ptr noundef %17, i64 noundef %31) #17
+  tail call void @gtk_menu_shell_append(ptr noundef %66, ptr noundef %58) #17
+  %67 = tail call ptr @g_type_check_instance_cast(ptr noundef %17, i64 noundef %31) #17
+  %68 = tail call ptr @gtk_separator_menu_item_new() #17
+  tail call void @gtk_menu_shell_append(ptr noundef %67, ptr noundef %68) #17
+  %69 = getelementptr inbounds nuw i8, ptr %8, i64 480
+  %70 = load i32, ptr %69, align 8, !tbaa !73
+  %.not64 = icmp eq i32 %70, 0
   %.str.221..str.220 = select i1 %.not64, ptr @.str.221, ptr @.str.220
   %_blendif_show_output_channels._blendif_hide_output_channels = select i1 %.not64, ptr @_blendif_show_output_channels, ptr @_blendif_hide_output_channels
-  %70 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %.str.221..str.220, i32 noundef 5) #17
-  %71 = tail call ptr @gtk_menu_item_new_with_label(ptr noundef %70) #17
-  %72 = tail call ptr @g_type_check_instance_cast(ptr noundef %71, i64 noundef 80) #17
-  %73 = tail call i64 @g_signal_connect_data(ptr noundef %72, ptr noundef nonnull @.str.218, ptr noundef nonnull %_blendif_show_output_channels._blendif_hide_output_channels, ptr noundef nonnull %2, ptr noundef null, i32 noundef 0) #17
-  %74 = tail call ptr @g_type_check_instance_cast(ptr noundef %17, i64 noundef %30) #17
-  tail call void @gtk_menu_shell_append(ptr noundef %74, ptr noundef %71) #17
-  br label %75
+  %71 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %.str.221..str.220, i32 noundef 5) #17
+  %72 = tail call ptr @gtk_menu_item_new_with_label(ptr noundef %71) #17
+  %73 = tail call ptr @g_type_check_instance_cast(ptr noundef %72, i64 noundef 80) #17
+  %74 = tail call i64 @g_signal_connect_data(ptr noundef %73, ptr noundef nonnull @.str.218, ptr noundef nonnull %_blendif_show_output_channels._blendif_hide_output_channels, ptr noundef nonnull %2, ptr noundef null, i32 noundef 0) #17
+  %75 = tail call ptr @g_type_check_instance_cast(ptr noundef %17, i64 noundef %31) #17
+  tail call void @gtk_menu_shell_append(ptr noundef %75, ptr noundef %72) #17
+  br label %76
 
-75:                                               ; preds = %.sink.split, %14
-  %76 = tail call i64 @gtk_widget_get_type() #18
-  %77 = tail call ptr @g_type_check_instance_cast(ptr noundef %0, i64 noundef %76) #17
-  tail call void @dt_gui_menu_popup(ptr noundef %17, ptr noundef %77, i32 noundef 9, i32 noundef 3) #17
-  %78 = tail call i64 @dtgtk_button_get_type() #17
-  %79 = tail call ptr @g_type_check_instance_cast(ptr noundef %0, i64 noundef %78) #17
-  tail call void @dtgtk_button_set_active(ptr noundef %79, i32 noundef 0) #17
-  br label %80
+76:                                               ; preds = %.sink.split, %14
+  %77 = tail call i64 @gtk_widget_get_type() #18
+  %78 = tail call ptr @g_type_check_instance_cast(ptr noundef %0, i64 noundef %77) #17
+  tail call void @dt_gui_menu_popup(ptr noundef %17, ptr noundef %78, i32 noundef 9, i32 noundef 3) #17
+  %79 = tail call i64 @dtgtk_button_get_type() #17
+  %80 = tail call ptr @g_type_check_instance_cast(ptr noundef %0, i64 noundef %79) #17
+  tail call void @dtgtk_button_set_active(ptr noundef %80, i32 noundef 0) #17
+  br label %81
 
-80:                                               ; preds = %3, %75, %11, %9, %6
+81:                                               ; preds = %3, %76, %11, %9, %6
   ret void
 }
 

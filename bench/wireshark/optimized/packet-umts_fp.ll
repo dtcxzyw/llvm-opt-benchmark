@@ -1432,7 +1432,7 @@ heur_dissect_fp_fach2.exit:                       ; preds = %171, %206
 247:                                              ; preds = %244
   %248 = getelementptr inbounds nuw i8, ptr %246, i64 8
   %249 = load i32, ptr %248, align 8
-  switch i32 %249, label %313 [
+  switch i32 %249, label %311 [
     i32 1, label %heur_dissect_fp_rach.exit
     i32 0, label %250
   ]
@@ -1441,11 +1441,11 @@ heur_dissect_fp_fach2.exit:                       ; preds = %171, %206
   %.077.i = phi ptr [ null, %244 ], [ null, %237 ], [ %246, %247 ]
   %251 = tail call i32 @tvb_captured_length(ptr noundef %0)
   %252 = icmp ult i32 %251, 6
-  br i1 %252, label %313, label %253
+  br i1 %252, label %311, label %253
 
 253:                                              ; preds = %250
   %254 = tail call i32 @tvb_reported_length(ptr noundef %0)
-  switch i32 %254, label %313 [
+  switch i32 %254, label %311 [
     i32 52, label %255
     i32 28, label %255
   ]
@@ -1455,13 +1455,13 @@ heur_dissect_fp_fach2.exit:                       ; preds = %171, %206
   %257 = load i32, ptr @proto_fp, align 4
   %258 = tail call ptr @p_get_proto_data(ptr noundef %256, ptr noundef %1, i32 noundef %257, i32 noundef 0)
   %.not84.i60 = icmp eq ptr %258, null
-  br i1 %.not84.i60, label %259, label %313
+  br i1 %.not84.i60, label %259, label %311
 
 259:                                              ; preds = %255
   %260 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
   %261 = and i8 %260, 1
   %.not85.i62 = icmp eq i8 %261, 0
-  br i1 %.not85.i62, label %262, label %313
+  br i1 %.not85.i62, label %262, label %311
 
 262:                                              ; preds = %259
   %263 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 2)
@@ -1469,537 +1469,534 @@ heur_dissect_fp_fach2.exit:                       ; preds = %171, %206
   %265 = icmp eq i32 %254, 28
   %266 = icmp ne i8 %264, 0
   %or.cond4.i63 = select i1 %265, i1 %266, i1 false
-  br i1 %or.cond4.i63, label %313, label %267
+  br i1 %or.cond4.i63, label %311, label %267
 
 267:                                              ; preds = %262
   %268 = icmp eq i32 %254, 52
   %269 = icmp ne i8 %264, 1
   %or.cond7.i64 = select i1 %268, i1 %269, i1 false
-  br i1 %or.cond7.i64, label %313, label %270
+  br i1 %or.cond7.i64, label %311, label %270
 
 270:                                              ; preds = %267
   %271 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 4)
-  %272 = icmp ugt i8 %271, 63
-  %.mask.i65 = and i8 %271, -64
-  %273 = icmp ne i8 %.mask.i65, 64
-  %or.cond10.i = and i1 %272, %273
-  br i1 %or.cond10.i, label %313, label %274
+  %or.cond10.i = icmp slt i8 %271, 0
+  br i1 %or.cond10.i, label %311, label %272
 
-274:                                              ; preds = %270
-  %275 = tail call fastcc zeroext i1 @check_header_crc_for_heur(ptr noundef %0, i16 noundef zeroext 4)
-  br i1 %275, label %276, label %313
+272:                                              ; preds = %270
+  %273 = tail call fastcc zeroext i1 @check_header_crc_for_heur(ptr noundef %0, i16 noundef zeroext 4)
+  br i1 %273, label %274, label %311
+
+274:                                              ; preds = %272
+  %275 = tail call fastcc zeroext i1 @check_payload_crc_for_heur(ptr noundef %0, i16 noundef zeroext 4)
+  br i1 %275, label %276, label %311
 
 276:                                              ; preds = %274
-  %277 = tail call fastcc zeroext i1 @check_payload_crc_for_heur(ptr noundef %0, i16 noundef zeroext 4)
-  br i1 %277, label %278, label %313
+  %.not86.i65 = icmp eq ptr %.077.i, null
+  br i1 %.not86.i65, label %277, label %280
 
-278:                                              ; preds = %276
-  %.not86.i66 = icmp eq ptr %.077.i, null
-  br i1 %.not86.i66, label %279, label %282
+277:                                              ; preds = %276
+  %278 = tail call ptr @wmem_file_scope()
+  %279 = tail call noalias dereferenceable_or_null(132696) ptr @wmem_alloc0(ptr noundef %278, i64 noundef 132696) #12
+  tail call fastcc void @set_both_sides_umts_fp_conv_data(ptr noundef %1, ptr noundef %279)
+  br label %280
 
-279:                                              ; preds = %278
-  %280 = tail call ptr @wmem_file_scope()
-  %281 = tail call noalias dereferenceable_or_null(132696) ptr @wmem_alloc0(ptr noundef %280, i64 noundef 132696) #12
-  tail call fastcc void @set_both_sides_umts_fp_conv_data(ptr noundef %1, ptr noundef %281)
-  br label %282
-
-282:                                              ; preds = %279, %278
-  %.1.i67 = phi ptr [ %.077.i, %278 ], [ %281, %279 ]
-  store i32 0, ptr %.1.i67, align 8
-  %283 = getelementptr inbounds nuw i8, ptr %.1.i67, i64 4
-  store i32 1, ptr %283, align 4
-  %284 = load i32, ptr %5, align 4
-  %285 = getelementptr inbounds nuw i8, ptr %.1.i67, i64 16
-  store i32 %284, ptr %285, align 8
-  %286 = getelementptr inbounds nuw i8, ptr %.1.i67, i64 20
-  store i32 %284, ptr %286, align 4
-  %287 = getelementptr inbounds nuw i8, ptr %.1.i67, i64 132684
-  store i8 1, ptr %287, align 4
-  %288 = tail call fastcc i32 @generate_ue_id_for_heur(ptr noundef %1)
-  %289 = getelementptr inbounds nuw i8, ptr %.1.i67, i64 56
-  store i32 %288, ptr %289, align 8
-  %290 = getelementptr inbounds nuw i8, ptr %.1.i67, i64 12
-  store i32 3, ptr %290, align 4
-  %291 = tail call ptr @wmem_file_scope()
-  %292 = getelementptr inbounds nuw i8, ptr %.1.i67, i64 24
-  %293 = getelementptr inbounds nuw i8, ptr %1, i64 232
-  tail call fastcc void @copy_address_wmem(ptr noundef %291, ptr noundef nonnull %292, ptr noundef nonnull %293)
-  %294 = load i32, ptr %12, align 8
-  %295 = trunc i32 %294 to i16
-  %296 = getelementptr inbounds nuw i8, ptr %.1.i67, i64 48
-  store i16 %295, ptr %296, align 8
-  %297 = getelementptr inbounds nuw i8, ptr %.1.i67, i64 8
-  store i32 1, ptr %297, align 8
-  %298 = getelementptr inbounds nuw i8, ptr %.1.i67, i64 72
+280:                                              ; preds = %277, %276
+  %.1.i66 = phi ptr [ %.077.i, %276 ], [ %279, %277 ]
+  store i32 0, ptr %.1.i66, align 8
+  %281 = getelementptr inbounds nuw i8, ptr %.1.i66, i64 4
+  store i32 1, ptr %281, align 4
+  %282 = load i32, ptr %5, align 4
+  %283 = getelementptr inbounds nuw i8, ptr %.1.i66, i64 16
+  store i32 %282, ptr %283, align 8
+  %284 = getelementptr inbounds nuw i8, ptr %.1.i66, i64 20
+  store i32 %282, ptr %284, align 4
+  %285 = getelementptr inbounds nuw i8, ptr %.1.i66, i64 132684
+  store i8 1, ptr %285, align 4
+  %286 = tail call fastcc i32 @generate_ue_id_for_heur(ptr noundef %1)
+  %287 = getelementptr inbounds nuw i8, ptr %.1.i66, i64 56
+  store i32 %286, ptr %287, align 8
+  %288 = getelementptr inbounds nuw i8, ptr %.1.i66, i64 12
+  store i32 3, ptr %288, align 4
+  %289 = tail call ptr @wmem_file_scope()
+  %290 = getelementptr inbounds nuw i8, ptr %.1.i66, i64 24
+  %291 = getelementptr inbounds nuw i8, ptr %1, i64 232
+  tail call fastcc void @copy_address_wmem(ptr noundef %289, ptr noundef nonnull %290, ptr noundef nonnull %291)
+  %292 = load i32, ptr %12, align 8
+  %293 = trunc i32 %292 to i16
+  %294 = getelementptr inbounds nuw i8, ptr %.1.i66, i64 48
+  store i16 %293, ptr %294, align 8
+  %295 = getelementptr inbounds nuw i8, ptr %.1.i66, i64 8
+  store i32 1, ptr %295, align 8
+  %296 = getelementptr inbounds nuw i8, ptr %.1.i66, i64 72
+  store i32 1, ptr %296, align 8
+  %297 = getelementptr inbounds nuw i8, ptr %.1.i66, i64 588
+  store i32 0, ptr %297, align 4
+  %298 = getelementptr inbounds nuw i8, ptr %.1.i66, i64 848
   store i32 1, ptr %298, align 8
-  %299 = getelementptr inbounds nuw i8, ptr %.1.i67, i64 588
-  store i32 0, ptr %299, align 4
-  %300 = getelementptr inbounds nuw i8, ptr %.1.i67, i64 848
-  store i32 1, ptr %300, align 8
-  %301 = getelementptr i8, ptr %.1.i67, i64 852
-  store i32 1, ptr %301, align 4
-  %302 = getelementptr inbounds nuw i8, ptr %.1.i67, i64 592
-  store i32 168, ptr %302, align 8
-  %303 = getelementptr i8, ptr %.1.i67, i64 596
-  store i32 360, ptr %303, align 4
-  %304 = tail call ptr @wmem_file_scope()
-  %305 = tail call noalias dereferenceable_or_null(8) ptr @wmem_alloc0(ptr noundef %304, i64 noundef 8) #12
-  %306 = tail call ptr @wmem_epan_scope()
-  %307 = tail call ptr @wmem_file_scope()
-  %308 = tail call noalias ptr @wmem_tree_new_autoreset(ptr noundef %306, ptr noundef %307)
-  store ptr %308, ptr %305, align 8
-  %309 = getelementptr inbounds nuw i8, ptr %.1.i67, i64 64
-  store ptr %305, ptr %309, align 8
-  %310 = tail call ptr @find_or_create_conversation(ptr noundef %1)
+  %299 = getelementptr i8, ptr %.1.i66, i64 852
+  store i32 1, ptr %299, align 4
+  %300 = getelementptr inbounds nuw i8, ptr %.1.i66, i64 592
+  store i32 168, ptr %300, align 8
+  %301 = getelementptr i8, ptr %.1.i66, i64 596
+  store i32 360, ptr %301, align 4
+  %302 = tail call ptr @wmem_file_scope()
+  %303 = tail call noalias dereferenceable_or_null(8) ptr @wmem_alloc0(ptr noundef %302, i64 noundef 8) #12
+  %304 = tail call ptr @wmem_epan_scope()
+  %305 = tail call ptr @wmem_file_scope()
+  %306 = tail call noalias ptr @wmem_tree_new_autoreset(ptr noundef %304, ptr noundef %305)
+  store ptr %306, ptr %303, align 8
+  %307 = getelementptr inbounds nuw i8, ptr %.1.i66, i64 64
+  store ptr %303, ptr %307, align 8
+  %308 = tail call ptr @find_or_create_conversation(ptr noundef %1)
   br label %heur_dissect_fp_rach.exit
 
-heur_dissect_fp_rach.exit:                        ; preds = %247, %282
-  %.sink.i69 = phi ptr [ %310, %282 ], [ %243, %247 ]
-  %311 = load ptr, ptr @fp_handle, align 8
-  tail call void @conversation_set_dissector(ptr noundef %.sink.i69, ptr noundef %311)
-  %312 = tail call fastcc i32 @dissect_fp_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef null)
+heur_dissect_fp_rach.exit:                        ; preds = %247, %280
+  %.sink.i68 = phi ptr [ %308, %280 ], [ %243, %247 ]
+  %309 = load ptr, ptr @fp_handle, align 8
+  tail call void @conversation_set_dissector(ptr noundef %.sink.i68, ptr noundef %309)
+  %310 = tail call fastcc i32 @dissect_fp_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef null)
   br label %heur_dissect_fp_dcch_over_dch.exit
 
-313:                                              ; preds = %247, %250, %253, %255, %259, %262, %267, %270, %274, %276
-  %314 = load i32, ptr %5, align 4
-  %315 = load i32, ptr %9, align 8
-  %316 = tail call i32 @conversation_pt_to_conversation_type(i32 noundef %315)
-  %317 = load i32, ptr %12, align 8
-  %318 = load i32, ptr %14, align 4
-  %319 = tail call ptr @find_conversation(i32 noundef %314, ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef %316, i32 noundef %317, i32 noundef %318, i32 noundef 65536)
-  %.not.i70 = icmp eq ptr %319, null
-  br i1 %.not.i70, label %339, label %320
+311:                                              ; preds = %247, %250, %253, %255, %259, %262, %267, %270, %272, %274
+  %312 = load i32, ptr %5, align 4
+  %313 = load i32, ptr %9, align 8
+  %314 = tail call i32 @conversation_pt_to_conversation_type(i32 noundef %313)
+  %315 = load i32, ptr %12, align 8
+  %316 = load i32, ptr %14, align 4
+  %317 = tail call ptr @find_conversation(i32 noundef %312, ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef %314, i32 noundef %315, i32 noundef %316, i32 noundef 65536)
+  %.not.i69 = icmp eq ptr %317, null
+  br i1 %.not.i69, label %337, label %318
 
-320:                                              ; preds = %313
-  %321 = load i32, ptr @proto_fp, align 4
-  %322 = tail call ptr @conversation_get_proto_data(ptr noundef nonnull %319, i32 noundef %321)
-  %.not134.i = icmp eq ptr %322, null
-  br i1 %.not134.i, label %339, label %323
+318:                                              ; preds = %311
+  %319 = load i32, ptr @proto_fp, align 4
+  %320 = tail call ptr @conversation_get_proto_data(ptr noundef nonnull %317, i32 noundef %319)
+  %.not134.i = icmp eq ptr %320, null
+  br i1 %.not134.i, label %337, label %321
 
-323:                                              ; preds = %320
-  %324 = getelementptr inbounds nuw i8, ptr %322, i64 64
-  %325 = load ptr, ptr %324, align 8
-  %326 = getelementptr inbounds nuw i8, ptr %322, i64 8
-  %327 = load i32, ptr %326, align 8
-  %328 = icmp eq i32 %327, 9
-  %329 = icmp ne ptr %325, null
-  %or.cond.i71 = select i1 %328, i1 %329, i1 false
-  br i1 %or.cond.i71, label %330, label %338
+321:                                              ; preds = %318
+  %322 = getelementptr inbounds nuw i8, ptr %320, i64 64
+  %323 = load ptr, ptr %322, align 8
+  %324 = getelementptr inbounds nuw i8, ptr %320, i64 8
+  %325 = load i32, ptr %324, align 8
+  %326 = icmp eq i32 %325, 9
+  %327 = icmp ne ptr %323, null
+  %or.cond.i70 = select i1 %326, i1 %327, i1 false
+  br i1 %or.cond.i70, label %328, label %336
 
-330:                                              ; preds = %323
-  %331 = load i32, ptr %325, align 8
-  %332 = icmp ne i32 %331, 0
-  %333 = zext i1 %332 to i8
-  %334 = getelementptr i8, ptr %322, i64 1112
-  %335 = load i32, ptr %334, align 4
-  %336 = icmp ne i32 %335, 0
-  %337 = zext i1 %336 to i8
-  %or.cond3.i = select i1 %332, i1 %336, i1 false
-  br i1 %or.cond3.i, label %heur_dissect_fp_pch.exit, label %339
+328:                                              ; preds = %321
+  %329 = load i32, ptr %323, align 8
+  %330 = icmp ne i32 %329, 0
+  %331 = zext i1 %330 to i8
+  %332 = getelementptr i8, ptr %320, i64 1112
+  %333 = load i32, ptr %332, align 4
+  %334 = icmp ne i32 %333, 0
+  %335 = zext i1 %334 to i8
+  %or.cond3.i = select i1 %330, i1 %334, i1 false
+  br i1 %or.cond3.i, label %heur_dissect_fp_pch.exit, label %337
 
-338:                                              ; preds = %323
-  %.not135.i = icmp eq i32 %327, 0
-  br i1 %.not135.i, label %339, label %426
+336:                                              ; preds = %321
+  %.not135.i = icmp eq i32 %325, 0
+  br i1 %.not135.i, label %337, label %424
 
-339:                                              ; preds = %338, %330, %320, %313
-  %.0130.i = phi i1 [ true, %330 ], [ false, %338 ], [ false, %320 ], [ false, %313 ]
-  %.0128.i = phi ptr [ %325, %330 ], [ %325, %338 ], [ null, %320 ], [ null, %313 ]
-  %.0126.i = phi i8 [ %337, %330 ], [ 0, %338 ], [ 0, %320 ], [ 0, %313 ]
-  %.0123.i = phi i8 [ %333, %330 ], [ 0, %338 ], [ 0, %320 ], [ 0, %313 ]
-  %.0121.i = phi ptr [ %322, %330 ], [ %322, %338 ], [ null, %320 ], [ null, %313 ]
-  %340 = tail call i32 @tvb_captured_length(ptr noundef %0)
-  %341 = icmp ult i32 %340, 6
-  br i1 %341, label %426, label %342
+337:                                              ; preds = %336, %328, %318, %311
+  %.0130.i = phi i1 [ true, %328 ], [ false, %336 ], [ false, %318 ], [ false, %311 ]
+  %.0128.i = phi ptr [ %323, %328 ], [ %323, %336 ], [ null, %318 ], [ null, %311 ]
+  %.0126.i = phi i8 [ %335, %328 ], [ 0, %336 ], [ 0, %318 ], [ 0, %311 ]
+  %.0123.i = phi i8 [ %331, %328 ], [ 0, %336 ], [ 0, %318 ], [ 0, %311 ]
+  %.0121.i = phi ptr [ %320, %328 ], [ %320, %336 ], [ null, %318 ], [ null, %311 ]
+  %338 = tail call i32 @tvb_captured_length(ptr noundef %0)
+  %339 = icmp ult i32 %338, 6
+  br i1 %339, label %424, label %340
 
-342:                                              ; preds = %339
-  %343 = tail call ptr @wmem_file_scope()
-  %344 = load i32, ptr @proto_fp, align 4
-  %345 = tail call ptr @p_get_proto_data(ptr noundef %343, ptr noundef %1, i32 noundef %344, i32 noundef 0)
-  %.not136.i = icmp eq ptr %345, null
-  br i1 %.not136.i, label %346, label %426
+340:                                              ; preds = %337
+  %341 = tail call ptr @wmem_file_scope()
+  %342 = load i32, ptr @proto_fp, align 4
+  %343 = tail call ptr @p_get_proto_data(ptr noundef %341, ptr noundef %1, i32 noundef %342, i32 noundef 0)
+  %.not136.i = icmp eq ptr %343, null
+  br i1 %.not136.i, label %344, label %424
 
-346:                                              ; preds = %342
-  %347 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
-  %348 = and i8 %347, 1
-  %.not137.i = icmp eq i8 %348, 0
-  br i1 %.not137.i, label %349, label %426
+344:                                              ; preds = %340
+  %345 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
+  %346 = and i8 %345, 1
+  %.not137.i = icmp eq i8 %346, 0
+  br i1 %.not137.i, label %347, label %424
 
-349:                                              ; preds = %346
-  %350 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 2)
-  %351 = and i8 %350, 14
-  %.not138.i = icmp eq i8 %351, 0
-  br i1 %.not138.i, label %352, label %426
+347:                                              ; preds = %344
+  %348 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 2)
+  %349 = and i8 %348, 14
+  %.not138.i = icmp eq i8 %349, 0
+  br i1 %.not138.i, label %350, label %424
 
-352:                                              ; preds = %349
-  %353 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 3)
-  %354 = and i8 %353, 31
-  %355 = icmp ne i8 %354, 0
-  %356 = icmp ne i8 %354, 1
-  %or.cond6.i = icmp samesign ugt i8 %354, 1
-  br i1 %or.cond6.i, label %426, label %357
+350:                                              ; preds = %347
+  %351 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 3)
+  %352 = and i8 %351, 31
+  %353 = icmp ne i8 %352, 0
+  %354 = icmp ne i8 %352, 1
+  %or.cond6.i = icmp samesign ugt i8 %352, 1
+  br i1 %or.cond6.i, label %424, label %355
 
-357:                                              ; preds = %352
-  %358 = tail call fastcc zeroext i1 @check_header_crc_for_heur(ptr noundef %0, i16 noundef zeroext 4)
-  br i1 %358, label %359, label %426
+355:                                              ; preds = %350
+  %356 = tail call fastcc zeroext i1 @check_header_crc_for_heur(ptr noundef %0, i16 noundef zeroext 4)
+  br i1 %356, label %357, label %424
+
+357:                                              ; preds = %355
+  %358 = tail call fastcc zeroext i1 @check_payload_crc_for_heur(ptr noundef %0, i16 noundef zeroext 4)
+  br i1 %358, label %359, label %424
 
 359:                                              ; preds = %357
-  %360 = tail call fastcc zeroext i1 @check_payload_crc_for_heur(ptr noundef %0, i16 noundef zeroext 4)
-  br i1 %360, label %361, label %426
+  %360 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %361 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 2)
+  %362 = and i8 %361, 1
+  %.not139.i = icmp eq i8 %362, 0
+  br i1 %.not139.i, label %403, label %363
 
-361:                                              ; preds = %359
-  %362 = tail call i32 @tvb_reported_length(ptr noundef %0)
-  %363 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 2)
-  %364 = and i8 %363, 1
-  %.not139.i = icmp eq i8 %364, 0
-  br i1 %.not139.i, label %405, label %365
+363:                                              ; preds = %359
+  %364 = trunc nuw i8 %.0123.i to i1
+  %or.cond8.i = select i1 %353, i1 true, i1 %364
+  br i1 %or.cond8.i, label %385, label %365
 
-365:                                              ; preds = %361
-  %366 = trunc nuw i8 %.0123.i to i1
-  %or.cond8.i = select i1 %355, i1 true, i1 %366
-  br i1 %or.cond8.i, label %387, label %367
+365:                                              ; preds = %363
+  %366 = trunc i32 %360 to i8
+  switch i8 %366, label %424 [
+    i8 9, label %.thread.i
+    i8 11, label %367
+    i8 15, label %368
+    i8 24, label %369
+  ]
 
 367:                                              ; preds = %365
-  %368 = trunc i32 %362 to i8
-  switch i8 %368, label %426 [
-    i8 9, label %.thread.i
-    i8 11, label %369
-    i8 15, label %370
-    i8 24, label %371
-  ]
-
-369:                                              ; preds = %367
   br label %.thread.i
 
-370:                                              ; preds = %367
+368:                                              ; preds = %365
   br label %.thread.i
 
-371:                                              ; preds = %367
-  %372 = trunc nuw i8 %.0126.i to i1
-  br i1 %372, label %.thread.i, label %373
+369:                                              ; preds = %365
+  %370 = trunc nuw i8 %.0126.i to i1
+  br i1 %370, label %.thread.i, label %371
 
-373:                                              ; preds = %371
-  %374 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 2)
-  %375 = icmp ult i8 %374, 16
-  br i1 %375, label %376, label %.thread.i
+371:                                              ; preds = %369
+  %372 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 2)
+  %373 = icmp ult i8 %372, 16
+  br i1 %373, label %374, label %.thread.i
 
-376:                                              ; preds = %373
-  %377 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 3)
-  %378 = icmp eq i8 %377, 0
-  br i1 %378, label %426, label %.thread.i
+374:                                              ; preds = %371
+  %375 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 3)
+  %376 = icmp eq i8 %375, 0
+  br i1 %376, label %424, label %.thread.i
 
-.thread.i:                                        ; preds = %376, %373, %371, %370, %369, %367
-  %.03.i = phi i32 [ 144, %373 ], [ 144, %376 ], [ 144, %371 ], [ 18, %367 ], [ 72, %370 ], [ 36, %369 ]
+.thread.i:                                        ; preds = %374, %371, %369, %368, %367, %365
+  %.03.i = phi i32 [ 144, %371 ], [ 144, %374 ], [ 144, %369 ], [ 18, %365 ], [ 72, %368 ], [ 36, %367 ]
   %.not141.i = icmp eq ptr %.0121.i, null
-  br i1 %.not141.i, label %379, label %382
+  br i1 %.not141.i, label %377, label %380
 
-379:                                              ; preds = %.thread.i
-  %380 = tail call ptr @wmem_file_scope()
-  %381 = tail call noalias dereferenceable_or_null(132696) ptr @wmem_alloc0(ptr noundef %380, i64 noundef 132696) #12
-  tail call fastcc void @set_both_sides_umts_fp_conv_data(ptr noundef %1, ptr noundef %381)
-  br label %382
+377:                                              ; preds = %.thread.i
+  %378 = tail call ptr @wmem_file_scope()
+  %379 = tail call noalias dereferenceable_or_null(132696) ptr @wmem_alloc0(ptr noundef %378, i64 noundef 132696) #12
+  tail call fastcc void @set_both_sides_umts_fp_conv_data(ptr noundef %1, ptr noundef %379)
+  br label %380
 
-382:                                              ; preds = %379, %.thread.i
-  %.1122.i = phi ptr [ %.0121.i, %.thread.i ], [ %381, %379 ]
-  br i1 %.0130.i, label %386, label %383
+380:                                              ; preds = %377, %.thread.i
+  %.1122.i = phi ptr [ %.0121.i, %.thread.i ], [ %379, %377 ]
+  br i1 %.0130.i, label %384, label %381
 
-383:                                              ; preds = %382
+381:                                              ; preds = %380
   tail call fastcc void @fill_pch_conversation_info_for_heur(ptr noundef %.1122.i, ptr noundef %1)
-  %384 = getelementptr inbounds nuw i8, ptr %.1122.i, i64 64
-  %385 = load ptr, ptr %384, align 8
-  br label %386
+  %382 = getelementptr inbounds nuw i8, ptr %.1122.i, i64 64
+  %383 = load ptr, ptr %382, align 8
+  br label %384
 
-386:                                              ; preds = %383, %382
-  %.1129.i = phi ptr [ %.0128.i, %382 ], [ %385, %383 ]
+384:                                              ; preds = %381, %380
+  %.1129.i = phi ptr [ %.0128.i, %380 ], [ %383, %381 ]
   store i32 %.03.i, ptr %.1129.i, align 8
-  br label %419
+  br label %417
 
-387:                                              ; preds = %365
-  %388 = trunc nuw i8 %.0126.i to i1
-  %or.cond12.i = select i1 %356, i1 true, i1 %388
+385:                                              ; preds = %363
+  %386 = trunc nuw i8 %.0126.i to i1
+  %or.cond12.i = select i1 %354, i1 true, i1 %386
   %or.cond12.not.i = xor i1 %or.cond12.i, true
-  %or.cond14.i = select i1 %or.cond12.not.i, i1 %366, i1 false
-  br i1 %or.cond14.i, label %389, label %419
+  %or.cond14.i = select i1 %or.cond12.not.i, i1 %364, i1 false
+  br i1 %or.cond14.i, label %387, label %417
 
-389:                                              ; preds = %387
-  %390 = load i32, ptr %.0128.i, align 8
-  %391 = add i32 %390, 7
-  %392 = sdiv i32 %391, 8
+387:                                              ; preds = %385
+  %388 = load i32, ptr %.0128.i, align 8
+  %389 = add i32 %388, 7
+  %390 = sdiv i32 %389, 8
   %.not142.i = icmp eq ptr %.0121.i, null
-  br i1 %.not142.i, label %393, label %396
+  br i1 %.not142.i, label %391, label %394
 
-393:                                              ; preds = %389
-  %394 = tail call ptr @wmem_file_scope()
-  %395 = tail call noalias dereferenceable_or_null(132696) ptr @wmem_alloc0(ptr noundef %394, i64 noundef 132696) #12
-  tail call fastcc void @set_both_sides_umts_fp_conv_data(ptr noundef %1, ptr noundef %395)
+391:                                              ; preds = %387
+  %392 = tail call ptr @wmem_file_scope()
+  %393 = tail call noalias dereferenceable_or_null(132696) ptr @wmem_alloc0(ptr noundef %392, i64 noundef 132696) #12
+  tail call fastcc void @set_both_sides_umts_fp_conv_data(ptr noundef %1, ptr noundef %393)
+  br label %394
+
+394:                                              ; preds = %391, %387
+  %.2.i = phi ptr [ %.0121.i, %387 ], [ %393, %391 ]
+  br i1 %.0130.i, label %396, label %395
+
+395:                                              ; preds = %394
+  tail call fastcc void @fill_pch_conversation_info_for_heur(ptr noundef %.2.i, ptr noundef %1)
   br label %396
 
-396:                                              ; preds = %393, %389
-  %.2.i = phi ptr [ %.0121.i, %389 ], [ %395, %393 ]
-  br i1 %.0130.i, label %398, label %397
-
-397:                                              ; preds = %396
-  tail call fastcc void @fill_pch_conversation_info_for_heur(ptr noundef %.2.i, ptr noundef %1)
-  br label %398
-
-398:                                              ; preds = %397, %396
-  %399 = and i32 %392, 255
-  %.neg14.i = add i32 %362, -6
-  %400 = sub i32 %.neg14.i, %399
-  %trunc.i = trunc i32 %400 to i16
-  switch i16 %trunc.i, label %426 [
-    i16 30, label %401
-    i16 10, label %401
+396:                                              ; preds = %395, %394
+  %397 = and i32 %390, 255
+  %.neg14.i = add i32 %360, -6
+  %398 = sub i32 %.neg14.i, %397
+  %trunc.i = trunc i32 %398 to i16
+  switch i16 %trunc.i, label %424 [
+    i16 30, label %399
+    i16 10, label %399
   ]
 
-401:                                              ; preds = %398, %398
-  %402 = shl i32 %400, 3
-  %403 = and i32 %402, 524280
-  %404 = getelementptr i8, ptr %.2.i, i64 1112
-  store i32 %403, ptr %404, align 4
-  br label %419
+399:                                              ; preds = %396, %396
+  %400 = shl i32 %398, 3
+  %401 = and i32 %400, 524280
+  %402 = getelementptr i8, ptr %.2.i, i64 1112
+  store i32 %401, ptr %402, align 4
+  br label %417
 
-405:                                              ; preds = %361
-  %406 = trunc nuw i8 %.0126.i to i1
-  %or.cond19.i = select i1 %356, i1 true, i1 %406
-  br i1 %or.cond19.i, label %419, label %407
+403:                                              ; preds = %359
+  %404 = trunc nuw i8 %.0126.i to i1
+  %or.cond19.i = select i1 %354, i1 true, i1 %404
+  br i1 %or.cond19.i, label %417, label %405
 
-407:                                              ; preds = %405
+405:                                              ; preds = %403
   %.not140.i = icmp eq ptr %.0121.i, null
-  br i1 %.not140.i, label %408, label %411
+  br i1 %.not140.i, label %406, label %409
 
-408:                                              ; preds = %407
-  %409 = tail call ptr @wmem_file_scope()
-  %410 = tail call noalias dereferenceable_or_null(132696) ptr @wmem_alloc0(ptr noundef %409, i64 noundef 132696) #12
-  tail call fastcc void @set_both_sides_umts_fp_conv_data(ptr noundef %1, ptr noundef %410)
+406:                                              ; preds = %405
+  %407 = tail call ptr @wmem_file_scope()
+  %408 = tail call noalias dereferenceable_or_null(132696) ptr @wmem_alloc0(ptr noundef %407, i64 noundef 132696) #12
+  tail call fastcc void @set_both_sides_umts_fp_conv_data(ptr noundef %1, ptr noundef %408)
+  br label %409
+
+409:                                              ; preds = %406, %405
+  %.3.i = phi ptr [ %.0121.i, %405 ], [ %408, %406 ]
+  br i1 %.0130.i, label %411, label %410
+
+410:                                              ; preds = %409
+  tail call fastcc void @fill_pch_conversation_info_for_heur(ptr noundef %.3.i, ptr noundef %1)
   br label %411
 
-411:                                              ; preds = %408, %407
-  %.3.i = phi ptr [ %.0121.i, %407 ], [ %410, %408 ]
-  br i1 %.0130.i, label %413, label %412
-
-412:                                              ; preds = %411
-  tail call fastcc void @fill_pch_conversation_info_for_heur(ptr noundef %.3.i, ptr noundef %1)
-  br label %413
-
-413:                                              ; preds = %412, %411
-  %trunc13.i = trunc i32 %362 to i16
-  switch i16 %trunc13.i, label %426 [
-    i16 36, label %414
-    i16 16, label %414
+411:                                              ; preds = %410, %409
+  %trunc13.i = trunc i32 %360 to i16
+  switch i16 %trunc13.i, label %424 [
+    i16 36, label %412
+    i16 16, label %412
   ]
 
-414:                                              ; preds = %413, %413
-  %415 = shl i32 %362, 3
-  %416 = add i32 %415, 524240
-  %417 = and i32 %416, 524272
-  %418 = getelementptr i8, ptr %.3.i, i64 1112
-  store i32 %417, ptr %418, align 4
+412:                                              ; preds = %411, %411
+  %413 = shl i32 %360, 3
+  %414 = add i32 %413, 524240
+  %415 = and i32 %414, 524272
+  %416 = getelementptr i8, ptr %.3.i, i64 1112
+  store i32 %415, ptr %416, align 4
   tail call fastcc void @set_both_sides_umts_fp_conv_data(ptr noundef %1, ptr noundef %.3.i)
-  br label %419
+  br label %417
 
-419:                                              ; preds = %414, %405, %401, %387, %386
-  %.1127.i = phi i8 [ 1, %401 ], [ %.0126.i, %387 ], [ %.0126.i, %386 ], [ %.0126.i, %405 ], [ 1, %414 ]
-  %.2125.i = phi i8 [ 1, %401 ], [ %.0123.i, %387 ], [ 1, %386 ], [ %.0123.i, %405 ], [ %.0123.i, %414 ]
-  %420 = trunc nuw i8 %.2125.i to i1
-  %421 = trunc nuw i8 %.1127.i to i1
-  %or.cond24.i = select i1 %420, i1 %421, i1 false
-  br i1 %or.cond24.i, label %422, label %426
+417:                                              ; preds = %412, %403, %399, %385, %384
+  %.1127.i = phi i8 [ 1, %399 ], [ %.0126.i, %385 ], [ %.0126.i, %384 ], [ %.0126.i, %403 ], [ 1, %412 ]
+  %.2125.i = phi i8 [ 1, %399 ], [ %.0123.i, %385 ], [ 1, %384 ], [ %.0123.i, %403 ], [ %.0123.i, %412 ]
+  %418 = trunc nuw i8 %.2125.i to i1
+  %419 = trunc nuw i8 %.1127.i to i1
+  %or.cond24.i = select i1 %418, i1 %419, i1 false
+  br i1 %or.cond24.i, label %420, label %424
 
-422:                                              ; preds = %419
-  %423 = tail call ptr @find_or_create_conversation(ptr noundef %1)
-  %424 = load ptr, ptr @fp_handle, align 8
-  tail call void @conversation_set_dissector(ptr noundef %423, ptr noundef %424)
+420:                                              ; preds = %417
+  %421 = tail call ptr @find_or_create_conversation(ptr noundef %1)
+  %422 = load ptr, ptr @fp_handle, align 8
+  tail call void @conversation_set_dissector(ptr noundef %421, ptr noundef %422)
   br label %heur_dissect_fp_pch.exit
 
-heur_dissect_fp_pch.exit:                         ; preds = %330, %422
-  %425 = tail call fastcc i32 @dissect_fp_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef null)
+heur_dissect_fp_pch.exit:                         ; preds = %328, %420
+  %423 = tail call fastcc i32 @dissect_fp_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef null)
   br label %heur_dissect_fp_dcch_over_dch.exit
 
-426:                                              ; preds = %338, %339, %342, %346, %349, %352, %357, %359, %419, %367, %376, %398, %413
-  %427 = load i32, ptr %5, align 4
-  %428 = load i32, ptr %9, align 8
-  %429 = tail call i32 @conversation_pt_to_conversation_type(i32 noundef %428)
-  %430 = load i32, ptr %12, align 8
-  %431 = load i32, ptr %14, align 4
-  %432 = tail call ptr @find_conversation(i32 noundef %427, ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef %429, i32 noundef %430, i32 noundef %431, i32 noundef 65536)
-  %.not.i72 = icmp eq ptr %432, null
-  br i1 %.not.i72, label %444, label %433
+424:                                              ; preds = %336, %337, %340, %344, %347, %350, %355, %357, %417, %365, %374, %396, %411
+  %425 = load i32, ptr %5, align 4
+  %426 = load i32, ptr %9, align 8
+  %427 = tail call i32 @conversation_pt_to_conversation_type(i32 noundef %426)
+  %428 = load i32, ptr %12, align 8
+  %429 = load i32, ptr %14, align 4
+  %430 = tail call ptr @find_conversation(i32 noundef %425, ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef %427, i32 noundef %428, i32 noundef %429, i32 noundef 65536)
+  %.not.i71 = icmp eq ptr %430, null
+  br i1 %.not.i71, label %442, label %431
 
-433:                                              ; preds = %426
-  %434 = load i32, ptr @proto_fp, align 4
-  %435 = tail call ptr @conversation_get_proto_data(ptr noundef nonnull %432, i32 noundef %434)
-  %.not99.i73 = icmp eq ptr %435, null
-  br i1 %.not99.i73, label %444, label %436
+431:                                              ; preds = %424
+  %432 = load i32, ptr @proto_fp, align 4
+  %433 = tail call ptr @conversation_get_proto_data(ptr noundef nonnull %430, i32 noundef %432)
+  %.not99.i72 = icmp eq ptr %433, null
+  br i1 %.not99.i72, label %442, label %434
 
-436:                                              ; preds = %433
-  %437 = getelementptr inbounds nuw i8, ptr %435, i64 8
-  %438 = load i32, ptr %437, align 8
-  switch i32 %438, label %.loopexit [
-    i32 13, label %439
-    i32 0, label %444
+434:                                              ; preds = %431
+  %435 = getelementptr inbounds nuw i8, ptr %433, i64 8
+  %436 = load i32, ptr %435, align 8
+  switch i32 %436, label %.loopexit [
+    i32 13, label %437
+    i32 0, label %442
   ]
 
-439:                                              ; preds = %436
-  %440 = getelementptr inbounds nuw i8, ptr %435, i64 64
-  %441 = load ptr, ptr %440, align 8
-  %442 = load i32, ptr %441, align 4
-  %443 = icmp eq i32 %442, 1
-  br i1 %443, label %heur_dissect_fp_hsdsch_type_1.exit, label %.loopexit
+437:                                              ; preds = %434
+  %438 = getelementptr inbounds nuw i8, ptr %433, i64 64
+  %439 = load ptr, ptr %438, align 8
+  %440 = load i32, ptr %439, align 4
+  %441 = icmp eq i32 %440, 1
+  br i1 %441, label %heur_dissect_fp_hsdsch_type_1.exit, label %.loopexit
 
-444:                                              ; preds = %436, %433, %426
-  %.090.i = phi ptr [ null, %433 ], [ null, %426 ], [ %435, %436 ]
-  %445 = tail call ptr @wmem_file_scope()
-  %446 = load i32, ptr @proto_fp, align 4
-  %447 = tail call ptr @p_get_proto_data(ptr noundef %445, ptr noundef %1, i32 noundef %446, i32 noundef 0)
-  %.not101.i74 = icmp eq ptr %447, null
-  br i1 %.not101.i74, label %448, label %.loopexit
+442:                                              ; preds = %434, %431, %424
+  %.090.i = phi ptr [ null, %431 ], [ null, %424 ], [ %433, %434 ]
+  %443 = tail call ptr @wmem_file_scope()
+  %444 = load i32, ptr @proto_fp, align 4
+  %445 = tail call ptr @p_get_proto_data(ptr noundef %443, ptr noundef %1, i32 noundef %444, i32 noundef 0)
+  %.not101.i73 = icmp eq ptr %445, null
+  br i1 %.not101.i73, label %446, label %.loopexit
 
-448:                                              ; preds = %444
-  %449 = tail call i32 @tvb_reported_length(ptr noundef %0)
-  %450 = icmp ult i32 %449, 11
-  br i1 %450, label %.loopexit, label %451
+446:                                              ; preds = %442
+  %447 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %448 = icmp ult i32 %447, 11
+  br i1 %448, label %.loopexit, label %449
 
-451:                                              ; preds = %448
-  %452 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
-  %453 = and i8 %452, 1
-  %.not102.i = icmp eq i8 %453, 0
-  br i1 %.not102.i, label %454, label %.loopexit
+449:                                              ; preds = %446
+  %450 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
+  %451 = and i8 %450, 1
+  %.not102.i = icmp eq i8 %451, 0
+  br i1 %.not102.i, label %452, label %.loopexit
 
-454:                                              ; preds = %451
-  %455 = tail call i32 @tvb_reported_length(ptr noundef %0)
-  %456 = icmp ult i32 %455, 55
-  br i1 %456, label %.loopexit, label %457
+452:                                              ; preds = %449
+  %453 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %454 = icmp ult i32 %453, 55
+  br i1 %454, label %.loopexit, label %455
 
-457:                                              ; preds = %454
-  %458 = tail call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef 2, i32 noundef 0)
-  %459 = lshr i16 %458, 3
-  %460 = zext nneg i16 %459 to i32
-  switch i16 %459, label %.loopexit [
-    i16 656, label %461
-    i16 336, label %461
+455:                                              ; preds = %452
+  %456 = tail call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef 2, i32 noundef 0)
+  %457 = lshr i16 %456, 3
+  %458 = zext nneg i16 %457 to i32
+  switch i16 %457, label %.loopexit [
+    i16 656, label %459
+    i16 336, label %459
   ]
 
-461:                                              ; preds = %457, %457
-  %462 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 4)
-  %463 = zext i8 %462 to i32
-  %464 = icmp eq i8 %462, 0
-  br i1 %464, label %.loopexit, label %465
+459:                                              ; preds = %455, %455
+  %460 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 4)
+  %461 = zext i8 %460 to i32
+  %462 = icmp eq i8 %460, 0
+  br i1 %462, label %.loopexit, label %463
 
-465:                                              ; preds = %461
-  %466 = icmp eq i16 %459, 336
-  %467 = icmp ugt i8 %462, 32
-  %or.cond5.i = and i1 %466, %467
-  br i1 %or.cond5.i, label %.loopexit, label %468
+463:                                              ; preds = %459
+  %464 = icmp eq i16 %457, 336
+  %465 = icmp ugt i8 %460, 32
+  %or.cond5.i = and i1 %464, %465
+  br i1 %or.cond5.i, label %.loopexit, label %466
 
-468:                                              ; preds = %465
-  %469 = icmp eq i16 %459, 656
-  %470 = icmp ugt i8 %462, 17
-  %or.cond8.i76 = and i1 %469, %470
-  br i1 %or.cond8.i76, label %.loopexit, label %471
+466:                                              ; preds = %463
+  %467 = icmp eq i16 %457, 656
+  %468 = icmp ugt i8 %460, 17
+  %or.cond8.i75 = and i1 %467, %468
+  br i1 %or.cond8.i75, label %.loopexit, label %469
 
-471:                                              ; preds = %468
-  %472 = mul nuw nsw i32 %463, %460
-  %473 = lshr exact i32 %472, 3
-  %474 = add nuw nsw i32 %473, 9
-  %475 = icmp ugt i32 %474, %449
-  %476 = icmp ugt i32 %474, %455
-  %or.cond.i77 = or i1 %475, %476
-  br i1 %or.cond.i77, label %.loopexit, label %477
+469:                                              ; preds = %466
+  %470 = mul nuw nsw i32 %461, %458
+  %471 = lshr exact i32 %470, 3
+  %472 = add nuw nsw i32 %471, 9
+  %473 = icmp ugt i32 %472, %447
+  %474 = icmp ugt i32 %472, %453
+  %or.cond.i76 = or i1 %473, %474
+  br i1 %or.cond.i76, label %.loopexit, label %475
 
-477:                                              ; preds = %471
-  %478 = lshr i16 %458, 6
-  %479 = zext nneg i16 %478 to i32
-  br label %480
+475:                                              ; preds = %469
+  %476 = lshr i16 %456, 6
+  %477 = zext nneg i16 %476 to i32
+  br label %478
 
-480:                                              ; preds = %482, %477
-  %.03.i78 = phi i32 [ 0, %477 ], [ %484, %482 ]
-  %.0922.i = phi i32 [ 7, %477 ], [ %483, %482 ]
-  %481 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.0922.i)
-  %.not103.i79 = icmp ult i8 %481, 16
-  br i1 %.not103.i79, label %482, label %.loopexit
+478:                                              ; preds = %480, %475
+  %.03.i77 = phi i32 [ 0, %475 ], [ %482, %480 ]
+  %.0922.i = phi i32 [ 7, %475 ], [ %481, %480 ]
+  %479 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.0922.i)
+  %.not103.i78 = icmp ult i8 %479, 16
+  br i1 %.not103.i78, label %480, label %.loopexit
 
-482:                                              ; preds = %480
-  %483 = add nuw nsw i32 %.0922.i, %479
-  %484 = add nuw nsw i32 %.03.i78, 1
-  %exitcond.not.i = icmp eq i32 %484, %463
-  br i1 %exitcond.not.i, label %.critedge.i, label %480, !llvm.loop !6
+480:                                              ; preds = %478
+  %481 = add nuw nsw i32 %.0922.i, %477
+  %482 = add nuw nsw i32 %.03.i77, 1
+  %exitcond.not.i = icmp eq i32 %482, %461
+  br i1 %exitcond.not.i, label %.critedge.i, label %478, !llvm.loop !6
 
-.critedge.i:                                      ; preds = %482
-  %485 = tail call fastcc zeroext i1 @check_header_crc_for_heur(ptr noundef %0, i16 noundef zeroext 7)
+.critedge.i:                                      ; preds = %480
+  %483 = tail call fastcc zeroext i1 @check_header_crc_for_heur(ptr noundef %0, i16 noundef zeroext 7)
+  br i1 %483, label %484, label %.loopexit
+
+484:                                              ; preds = %.critedge.i
+  %485 = tail call fastcc zeroext i1 @check_payload_crc_for_heur(ptr noundef %0, i16 noundef zeroext 7)
   br i1 %485, label %486, label %.loopexit
 
-486:                                              ; preds = %.critedge.i
-  %487 = tail call fastcc zeroext i1 @check_payload_crc_for_heur(ptr noundef %0, i16 noundef zeroext 7)
-  br i1 %487, label %488, label %.loopexit
-
-488:                                              ; preds = %486
+486:                                              ; preds = %484
   %.not105.i = icmp eq ptr %.090.i, null
-  br i1 %.not105.i, label %489, label %492
+  br i1 %.not105.i, label %487, label %490
 
-489:                                              ; preds = %488
-  %490 = tail call ptr @wmem_file_scope()
-  %491 = tail call noalias dereferenceable_or_null(132696) ptr @wmem_alloc0(ptr noundef %490, i64 noundef 132696) #12
-  tail call fastcc void @set_both_sides_umts_fp_conv_data(ptr noundef %1, ptr noundef %491)
-  br label %492
+487:                                              ; preds = %486
+  %488 = tail call ptr @wmem_file_scope()
+  %489 = tail call noalias dereferenceable_or_null(132696) ptr @wmem_alloc0(ptr noundef %488, i64 noundef 132696) #12
+  tail call fastcc void @set_both_sides_umts_fp_conv_data(ptr noundef %1, ptr noundef %489)
+  br label %490
 
-492:                                              ; preds = %489, %488
-  %.191.i = phi ptr [ %.090.i, %488 ], [ %491, %489 ]
+490:                                              ; preds = %487, %486
+  %.191.i = phi ptr [ %.090.i, %486 ], [ %489, %487 ]
   store i32 0, ptr %.191.i, align 8
-  %493 = getelementptr inbounds nuw i8, ptr %.191.i, i64 4
-  store i32 1, ptr %493, align 4
-  %494 = load i32, ptr %5, align 4
-  %495 = getelementptr inbounds nuw i8, ptr %.191.i, i64 16
-  store i32 %494, ptr %495, align 8
-  %496 = getelementptr inbounds nuw i8, ptr %.191.i, i64 20
-  store i32 %494, ptr %496, align 4
-  %497 = getelementptr inbounds nuw i8, ptr %.191.i, i64 132684
-  store i8 1, ptr %497, align 4
-  %498 = tail call fastcc i32 @generate_ue_id_for_heur(ptr noundef %1)
-  %499 = getelementptr inbounds nuw i8, ptr %.191.i, i64 56
-  store i32 %498, ptr %499, align 8
-  %500 = getelementptr inbounds nuw i8, ptr %.191.i, i64 12
-  store i32 3, ptr %500, align 4
-  %501 = tail call ptr @wmem_file_scope()
-  %502 = getelementptr inbounds nuw i8, ptr %.191.i, i64 24
-  %503 = getelementptr inbounds nuw i8, ptr %1, i64 208
-  tail call fastcc void @copy_address_wmem(ptr noundef %501, ptr noundef nonnull %502, ptr noundef nonnull %503)
-  %504 = load i32, ptr %14, align 4
-  %505 = trunc i32 %504 to i16
-  %506 = getelementptr inbounds nuw i8, ptr %.191.i, i64 48
-  store i16 %505, ptr %506, align 8
-  %507 = getelementptr inbounds nuw i8, ptr %.191.i, i64 8
-  store i32 13, ptr %507, align 8
-  %508 = tail call ptr @wmem_file_scope()
-  %509 = tail call noalias dereferenceable_or_null(12) ptr @wmem_alloc0(ptr noundef %508, i64 noundef 12) #12
-  store i32 1, ptr %509, align 4
-  %510 = getelementptr inbounds nuw i8, ptr %509, i64 5
-  store i8 0, ptr %510, align 1
-  %511 = getelementptr inbounds nuw i8, ptr %.191.i, i64 64
-  store ptr %509, ptr %511, align 8
-  %512 = tail call ptr @find_or_create_conversation(ptr noundef %1)
+  %491 = getelementptr inbounds nuw i8, ptr %.191.i, i64 4
+  store i32 1, ptr %491, align 4
+  %492 = load i32, ptr %5, align 4
+  %493 = getelementptr inbounds nuw i8, ptr %.191.i, i64 16
+  store i32 %492, ptr %493, align 8
+  %494 = getelementptr inbounds nuw i8, ptr %.191.i, i64 20
+  store i32 %492, ptr %494, align 4
+  %495 = getelementptr inbounds nuw i8, ptr %.191.i, i64 132684
+  store i8 1, ptr %495, align 4
+  %496 = tail call fastcc i32 @generate_ue_id_for_heur(ptr noundef %1)
+  %497 = getelementptr inbounds nuw i8, ptr %.191.i, i64 56
+  store i32 %496, ptr %497, align 8
+  %498 = getelementptr inbounds nuw i8, ptr %.191.i, i64 12
+  store i32 3, ptr %498, align 4
+  %499 = tail call ptr @wmem_file_scope()
+  %500 = getelementptr inbounds nuw i8, ptr %.191.i, i64 24
+  %501 = getelementptr inbounds nuw i8, ptr %1, i64 208
+  tail call fastcc void @copy_address_wmem(ptr noundef %499, ptr noundef nonnull %500, ptr noundef nonnull %501)
+  %502 = load i32, ptr %14, align 4
+  %503 = trunc i32 %502 to i16
+  %504 = getelementptr inbounds nuw i8, ptr %.191.i, i64 48
+  store i16 %503, ptr %504, align 8
+  %505 = getelementptr inbounds nuw i8, ptr %.191.i, i64 8
+  store i32 13, ptr %505, align 8
+  %506 = tail call ptr @wmem_file_scope()
+  %507 = tail call noalias dereferenceable_or_null(12) ptr @wmem_alloc0(ptr noundef %506, i64 noundef 12) #12
+  store i32 1, ptr %507, align 4
+  %508 = getelementptr inbounds nuw i8, ptr %507, i64 5
+  store i8 0, ptr %508, align 1
+  %509 = getelementptr inbounds nuw i8, ptr %.191.i, i64 64
+  store ptr %507, ptr %509, align 8
+  %510 = tail call ptr @find_or_create_conversation(ptr noundef %1)
   br label %heur_dissect_fp_hsdsch_type_1.exit
 
-heur_dissect_fp_hsdsch_type_1.exit:               ; preds = %439, %492
-  %.sink.i80 = phi ptr [ %512, %492 ], [ %432, %439 ]
-  %513 = load ptr, ptr @fp_handle, align 8
-  tail call void @conversation_set_dissector(ptr noundef %.sink.i80, ptr noundef %513)
-  %514 = tail call fastcc i32 @dissect_fp_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef null)
+heur_dissect_fp_hsdsch_type_1.exit:               ; preds = %437, %490
+  %.sink.i79 = phi ptr [ %510, %490 ], [ %430, %437 ]
+  %511 = load ptr, ptr @fp_handle, align 8
+  tail call void @conversation_set_dissector(ptr noundef %.sink.i79, ptr noundef %511)
+  %512 = tail call fastcc i32 @dissect_fp_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef null)
   br label %heur_dissect_fp_dcch_over_dch.exit
 
-.loopexit:                                        ; preds = %480, %444, %448, %451, %454, %457, %461, %468, %465, %471, %.critedge.i, %486, %439, %436
-  %515 = tail call fastcc zeroext i1 @heur_dissect_fp_hsdsch_type_2(ptr noundef %0, ptr noundef %1, ptr noundef %2)
+.loopexit:                                        ; preds = %478, %442, %446, %449, %452, %455, %459, %466, %463, %469, %.critedge.i, %484, %437, %434
+  %513 = tail call fastcc zeroext i1 @heur_dissect_fp_hsdsch_type_2(ptr noundef %0, ptr noundef %1, ptr noundef %2)
+  br i1 %513, label %heur_dissect_fp_dcch_over_dch.exit, label %514
+
+514:                                              ; preds = %.loopexit
+  %515 = tail call fastcc zeroext i1 @heur_dissect_fp_edch_type_1(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   br i1 %515, label %heur_dissect_fp_dcch_over_dch.exit, label %516
 
-516:                                              ; preds = %.loopexit
-  %517 = tail call fastcc zeroext i1 @heur_dissect_fp_edch_type_1(ptr noundef %0, ptr noundef %1, ptr noundef %2)
-  br i1 %517, label %heur_dissect_fp_dcch_over_dch.exit, label %518
-
-518:                                              ; preds = %516
-  %519 = tail call fastcc zeroext i1 @heur_dissect_fp_unknown_format(ptr noundef %0, ptr noundef %1, ptr noundef %2)
+516:                                              ; preds = %514
+  %517 = tail call fastcc zeroext i1 @heur_dissect_fp_unknown_format(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   br label %heur_dissect_fp_dcch_over_dch.exit
 
-heur_dissect_fp_dcch_over_dch.exit:               ; preds = %heur_dissect_fp_hsdsch_type_1.exit, %heur_dissect_fp_pch.exit, %heur_dissect_fp_rach.exit, %heur_dissect_fp_fach2.exit, %heur_dissect_fp_fach1.exit, %66, %23, %518, %516, %.loopexit
-  %.0 = phi i1 [ true, %heur_dissect_fp_fach1.exit ], [ true, %heur_dissect_fp_fach2.exit ], [ true, %heur_dissect_fp_rach.exit ], [ true, %heur_dissect_fp_pch.exit ], [ true, %heur_dissect_fp_hsdsch_type_1.exit ], [ true, %.loopexit ], [ true, %516 ], [ %519, %518 ], [ true, %23 ], [ true, %66 ]
+heur_dissect_fp_dcch_over_dch.exit:               ; preds = %heur_dissect_fp_hsdsch_type_1.exit, %heur_dissect_fp_pch.exit, %heur_dissect_fp_rach.exit, %heur_dissect_fp_fach2.exit, %heur_dissect_fp_fach1.exit, %66, %23, %516, %514, %.loopexit
+  %.0 = phi i1 [ true, %heur_dissect_fp_fach1.exit ], [ true, %heur_dissect_fp_fach2.exit ], [ true, %heur_dissect_fp_rach.exit ], [ true, %heur_dissect_fp_pch.exit ], [ true, %heur_dissect_fp_hsdsch_type_1.exit ], [ true, %.loopexit ], [ true, %514 ], [ %517, %516 ], [ true, %23 ], [ true, %66 ]
   ret i1 %.0
 }
 

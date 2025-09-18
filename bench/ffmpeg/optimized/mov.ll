@@ -9506,7 +9506,7 @@ define internal range(i32 -2147483648, 1) i32 @mov_read_ftyp(ptr noundef capture
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %6, i8 0, i64 5, i1 false)
   %7 = call i32 @ffio_read_size(ptr noundef %1, ptr noundef nonnull %6, i32 noundef 4) #16
   %8 = icmp slt i32 %7, 0
-  br i1 %8, label %48, label %9
+  br i1 %8, label %49, label %9
 
 9:                                                ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -9520,11 +9520,11 @@ define internal range(i32 -2147483648, 1) i32 @mov_read_ftyp(ptr noundef capture
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 272
   %16 = load i32, ptr %15, align 8, !tbaa !128
   %17 = icmp sgt i32 %16, 0
-  br i1 %17, label %48, label %18
+  br i1 %17, label %49, label %18
 
 18:                                               ; preds = %14
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %11, i32 noundef 48, ptr noundef nonnull @.str.82) #16
-  br label %48
+  br label %49
 
 19:                                               ; preds = %9
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %6, ptr noundef nonnull dereferenceable(5) @.str.26, i64 5)
@@ -9548,43 +9548,44 @@ define internal range(i32 -2147483648, 1) i32 @mov_read_ftyp(ptr noundef capture
   %30 = call i32 @av_dict_set_int(ptr noundef nonnull %28, ptr noundef nonnull @.str.85, i64 noundef %29, i32 noundef 0) #16
   %31 = trunc i64 %3 to i32
   %32 = add i32 %31, -8
-  %or.cond = icmp ugt i32 %32, 2147483646
-  br i1 %or.cond, label %48, label %33
+  %33 = add i32 %31, 2147483641
+  %or.cond = icmp ult i32 %33, -2147483647
+  br i1 %or.cond, label %49, label %34
 
-33:                                               ; preds = %22
-  %34 = add i64 %3, 4294967289
-  %35 = and i64 %34, 4294967295
-  %36 = call noalias ptr @av_malloc(i64 noundef %35) #16
-  store ptr %36, ptr %5, align 8, !tbaa !123
-  %.not28 = icmp eq ptr %36, null
-  br i1 %.not28, label %48, label %37
+34:                                               ; preds = %22
+  %35 = add i64 %3, 4294967289
+  %36 = and i64 %35, 4294967295
+  %37 = call noalias ptr @av_malloc(i64 noundef %36) #16
+  store ptr %37, ptr %5, align 8, !tbaa !123
+  %.not28 = icmp eq ptr %37, null
+  br i1 %.not28, label %49, label %38
 
-37:                                               ; preds = %33
-  %38 = call i32 @ffio_read_size(ptr noundef %1, ptr noundef nonnull %36, i32 noundef %32) #16
-  %39 = icmp slt i32 %38, 0
-  br i1 %39, label %40, label %41
+38:                                               ; preds = %34
+  %39 = call i32 @ffio_read_size(ptr noundef %1, ptr noundef nonnull %37, i32 noundef %32) #16
+  %40 = icmp slt i32 %39, 0
+  br i1 %40, label %41, label %42
 
-40:                                               ; preds = %37
+41:                                               ; preds = %38
   call void @av_freep(ptr noundef nonnull %5) #16
-  br label %48
+  br label %49
 
-41:                                               ; preds = %37
-  %42 = zext nneg i32 %32 to i64
-  %43 = getelementptr inbounds nuw i8, ptr %36, i64 %42
-  store i8 0, ptr %43, align 1, !tbaa !82
-  %44 = load ptr, ptr %10, align 8, !tbaa !4
-  %45 = getelementptr inbounds nuw i8, ptr %44, i64 192
-  %46 = call i32 @av_dict_set(ptr noundef nonnull %45, ptr noundef nonnull @.str.23, ptr noundef nonnull %36, i32 noundef 8) #16
+42:                                               ; preds = %38
+  %43 = zext nneg i32 %32 to i64
+  %44 = getelementptr inbounds nuw i8, ptr %37, i64 %43
+  store i8 0, ptr %44, align 1, !tbaa !82
+  %45 = load ptr, ptr %10, align 8, !tbaa !4
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 192
+  %47 = call i32 @av_dict_set(ptr noundef nonnull %46, ptr noundef nonnull @.str.23, ptr noundef nonnull %37, i32 noundef 8) #16
   %bcmp29 = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %6, ptr noundef nonnull dereferenceable(5) @.str.86, i64 5)
   %.not30 = icmp eq i32 %bcmp29, 0
-  br i1 %.not30, label %47, label %48
+  br i1 %.not30, label %48, label %49
 
-47:                                               ; preds = %41
+48:                                               ; preds = %42
   call fastcc void @mov_aaxc_crypto(ptr noundef nonnull %0)
-  br label %48
+  br label %49
 
-48:                                               ; preds = %41, %47, %33, %22, %14, %4, %40, %18
-  %.0 = phi i32 [ 0, %18 ], [ %38, %40 ], [ %7, %4 ], [ -1094995529, %14 ], [ -1094995529, %22 ], [ -12, %33 ], [ 0, %47 ], [ 0, %41 ]
+49:                                               ; preds = %42, %48, %34, %22, %14, %4, %41, %18
+  %.0 = phi i32 [ 0, %18 ], [ %39, %41 ], [ %7, %4 ], [ -1094995529, %14 ], [ -1094995529, %22 ], [ -12, %34 ], [ 0, %48 ], [ 0, %42 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0

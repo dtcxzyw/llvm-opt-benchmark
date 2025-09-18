@@ -1269,76 +1269,76 @@ define linkonce_odr void @_ZN5draco26CreateMeshPredictionSchemeINS_11MeshEncoder
   %20 = load ptr, ptr %19, align 8
   %21 = tail call noundef i32 %20(ptr noundef nonnull align 8 dereferenceable(128) %1)
   %22 = icmp eq i32 %21, 1
-  %.off = add i32 %2, -1
-  %switch = icmp ult i32 %.off, 6
-  %or.cond = and i1 %switch, %22
-  br i1 %or.cond, label %23, label %.critedge58.sink.split
+  %23 = add i32 %2, -1
+  %or.cond11 = icmp ult i32 %23, 6
+  %or.cond = and i1 %or.cond11, %22
+  br i1 %or.cond, label %24, label %.critedge58.sink.split
 
-23:                                               ; preds = %6
-  %24 = load ptr, ptr %1, align 8, !tbaa !63
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 104
-  %26 = load ptr, ptr %25, align 8
-  %27 = tail call noundef ptr %26(ptr noundef nonnull align 8 dereferenceable(128) %1)
-  %28 = load ptr, ptr %1, align 8, !tbaa !63
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 120
-  %30 = load ptr, ptr %29, align 8
-  %31 = tail call noundef ptr %30(ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %3)
-  %32 = icmp eq ptr %27, null
-  %33 = icmp eq ptr %31, null
-  %or.cond13 = or i1 %32, %33
-  br i1 %or.cond13, label %.critedge58.sink.split, label %34
+24:                                               ; preds = %6
+  %25 = load ptr, ptr %1, align 8, !tbaa !63
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 104
+  %27 = load ptr, ptr %26, align 8
+  %28 = tail call noundef ptr %27(ptr noundef nonnull align 8 dereferenceable(128) %1)
+  %29 = load ptr, ptr %1, align 8, !tbaa !63
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 120
+  %31 = load ptr, ptr %30, align 8
+  %32 = tail call noundef ptr %31(ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %3)
+  %33 = icmp eq ptr %28, null
+  %34 = icmp eq ptr %32, null
+  %or.cond13 = or i1 %33, %34
+  br i1 %or.cond13, label %.critedge58.sink.split, label %35
 
-34:                                               ; preds = %23
-  %35 = load ptr, ptr %1, align 8, !tbaa !63
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 112
-  %37 = load ptr, ptr %36, align 8
-  %38 = tail call noundef ptr %37(ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %3)
-  %.not = icmp eq ptr %38, null
-  %39 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %40 = getelementptr inbounds nuw i8, ptr %31, i64 24
-  br i1 %.not, label %47, label %41
+35:                                               ; preds = %24
+  %36 = load ptr, ptr %1, align 8, !tbaa !63
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 112
+  %38 = load ptr, ptr %37, align 8
+  %39 = tail call noundef ptr %38(ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %3)
+  %.not = icmp eq ptr %39, null
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  %41 = getelementptr inbounds nuw i8, ptr %32, i64 24
+  br i1 %.not, label %48, label %42
 
-41:                                               ; preds = %34
+42:                                               ; preds = %35
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %42 = load ptr, ptr %39, align 8, !tbaa !113
-  store ptr %42, ptr %7, align 8, !tbaa !116
-  %43 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %38, ptr %43, align 8, !tbaa !121
-  %44 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store ptr %31, ptr %44, align 8, !tbaa !122
-  %45 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr %40, ptr %45, align 8, !tbaa !123
+  %43 = load ptr, ptr %40, align 8, !tbaa !113
+  store ptr %43, ptr %7, align 8, !tbaa !116
+  %44 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store ptr %39, ptr %44, align 8, !tbaa !121
+  %45 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  store ptr %32, ptr %45, align 8, !tbaa !122
+  %46 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  store ptr %41, ptr %46, align 8, !tbaa !123
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_ZN5draco34MeshPredictionSchemeEncoderFactoryIiEclINS_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEEESt10unique_ptrINS_23PredictionSchemeEncoderIiT_EESt14default_deleteISB_EENS_22PredictionSchemeMethodEPKNS_14PointAttributeERKSA_RKT0_t(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.64") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %8, i32 noundef %2, ptr noundef %17, ptr noundef nonnull align 4 dereferenceable(20) %4, ptr noundef nonnull align 8 dereferenceable(32) %7, i16 noundef zeroext %5)
-  %46 = load ptr, ptr %0, align 8, !tbaa !85
-  %.not62 = icmp eq ptr %46, null
+  %47 = load ptr, ptr %0, align 8, !tbaa !85
+  %.not62 = icmp eq ptr %47, null
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %.not62, label %.critedge58.sink.split, label %.critedge58
 
-47:                                               ; preds = %34
+48:                                               ; preds = %35
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %48 = load ptr, ptr %39, align 8, !tbaa !113
-  store ptr %48, ptr %9, align 8, !tbaa !124
-  %49 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store ptr %27, ptr %49, align 8, !tbaa !127
-  %50 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store ptr %31, ptr %50, align 8, !tbaa !128
-  %51 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store ptr %40, ptr %51, align 8, !tbaa !129
+  %49 = load ptr, ptr %40, align 8, !tbaa !113
+  store ptr %49, ptr %9, align 8, !tbaa !124
+  %50 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store ptr %28, ptr %50, align 8, !tbaa !127
+  %51 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  store ptr %32, ptr %51, align 8, !tbaa !128
+  %52 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  store ptr %41, ptr %52, align 8, !tbaa !129
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZN5draco34MeshPredictionSchemeEncoderFactoryIiEclINS_62PredictionSchemeNormalOctahedronCanonicalizedEncodingTransformIiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEEEESt10unique_ptrINS_23PredictionSchemeEncoderIiT_EESt14default_deleteISB_EENS_22PredictionSchemeMethodEPKNS_14PointAttributeERKSA_RKT0_t(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.64") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %10, i32 noundef %2, ptr noundef %17, ptr noundef nonnull align 4 dereferenceable(20) %4, ptr noundef nonnull align 8 dereferenceable(32) %9, i16 noundef zeroext %5)
-  %52 = load ptr, ptr %0, align 8, !tbaa !85
-  %.not63 = icmp eq ptr %52, null
+  %53 = load ptr, ptr %0, align 8, !tbaa !85
+  %.not63 = icmp eq ptr %53, null
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br i1 %.not63, label %.critedge58.sink.split, label %.critedge58
 
-.critedge58.sink.split:                           ; preds = %6, %41, %47, %23
+.critedge58.sink.split:                           ; preds = %6, %42, %48, %24
   store ptr null, ptr %0, align 8, !tbaa !130
   br label %.critedge58
 
-.critedge58:                                      ; preds = %.critedge58.sink.split, %47, %41
+.critedge58:                                      ; preds = %.critedge58.sink.split, %48, %42
   ret void
 }
 

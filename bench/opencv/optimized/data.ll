@@ -595,28 +595,28 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i19
 90:                                               ; preds = %84
   %91 = load i32, ptr %1, align 8, !tbaa !47, !noalias !44
   %92 = and i32 %91, 4095
-  %.off.i = add nsw i32 %92, -4
-  %switch.i = icmp ult i32 %.off.i, 3
-  br i1 %switch.i, label %94, label %93
+  %93 = add nsw i32 %92, -4
+  %or.cond3.i = icmp ult i32 %93, 3
+  br i1 %or.cond3.i, label %95, label %94
 
-93:                                               ; preds = %90
+94:                                               ; preds = %90
   call void @_ZN2cv6detail20check_failed_MatTypeEiRKNS0_12CheckContextE(i32 noundef %92, ptr noundef nonnull align 8 dereferenceable(48) @_ZZN2cv2ml9TrainData12getSubMatrixERKNS_3MatES4_iE15__cv_check__105) #32, !noalias !44
   unreachable
 
-94:                                               ; preds = %90
-  %95 = and i32 %91, 4094
-  %or.cond.i = icmp eq i32 %95, 4
-  br i1 %or.cond.i, label %96, label %97
+95:                                               ; preds = %90
+  %96 = and i32 %91, 4094
+  %or.cond.i = icmp eq i32 %96, 4
+  br i1 %or.cond.i, label %97, label %98
 
-96:                                               ; preds = %94
+97:                                               ; preds = %95
   call void @_ZN2cv2ml16getSubMatrixImplIiEENS_3MatERKS2_S4_i(ptr dead_on_unwind writable sret(%"class.cv::Mat") align 8 %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %2, i32 noundef %87)
   br label %_ZN2cv2ml9TrainData12getSubMatrixERKNS_3MatES4_i.exit
 
-97:                                               ; preds = %94
+98:                                               ; preds = %95
   call void @_ZN2cv2ml16getSubMatrixImplIdEENS_3MatERKS2_S4_i(ptr dead_on_unwind writable sret(%"class.cv::Mat") align 8 %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %2, i32 noundef %87)
   br label %_ZN2cv2ml9TrainData12getSubMatrixERKNS_3MatES4_i.exit
 
-_ZN2cv2ml9TrainData12getSubMatrixERKNS_3MatES4_i.exit: ; preds = %89, %96, %97
+_ZN2cv2ml9TrainData12getSubMatrixERKNS_3MatES4_i.exit: ; preds = %89, %97, %98
   ret void
 }
 
@@ -639,33 +639,33 @@ define void @_ZN2cv2ml9TrainData12getSubMatrixERKNS_3MatES4_i(ptr dead_on_unwind
 
 6:                                                ; preds = %4
   tail call void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %1)
-  br label %15
+  br label %16
 
 7:                                                ; preds = %4
   %8 = load i32, ptr %1, align 8, !tbaa !47
   %9 = and i32 %8, 4095
-  %.off = add nsw i32 %9, -4
-  %switch = icmp ult i32 %.off, 3
-  br i1 %switch, label %11, label %10
+  %10 = add nsw i32 %9, -4
+  %or.cond3 = icmp ult i32 %10, 3
+  br i1 %or.cond3, label %12, label %11
 
-10:                                               ; preds = %7
+11:                                               ; preds = %7
   tail call void @_ZN2cv6detail20check_failed_MatTypeEiRKNS0_12CheckContextE(i32 noundef %9, ptr noundef nonnull align 8 dereferenceable(48) @_ZZN2cv2ml9TrainData12getSubMatrixERKNS_3MatES4_iE15__cv_check__105) #32
   unreachable
 
-11:                                               ; preds = %7
-  %12 = and i32 %8, 4094
-  %or.cond = icmp eq i32 %12, 4
-  br i1 %or.cond, label %13, label %14
+12:                                               ; preds = %7
+  %13 = and i32 %8, 4094
+  %or.cond = icmp eq i32 %13, 4
+  br i1 %or.cond, label %14, label %15
 
-13:                                               ; preds = %11
+14:                                               ; preds = %12
   tail call void @_ZN2cv2ml16getSubMatrixImplIiEENS_3MatERKS2_S4_i(ptr dead_on_unwind writable sret(%"class.cv::Mat") align 8 %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %2, i32 noundef %3)
-  br label %15
+  br label %16
 
-14:                                               ; preds = %11
+15:                                               ; preds = %12
   tail call void @_ZN2cv2ml16getSubMatrixImplIdEENS_3MatERKS2_S4_i(ptr dead_on_unwind writable sret(%"class.cv::Mat") align 8 %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %2, i32 noundef %3)
-  br label %15
+  br label %16
 
-15:                                               ; preds = %13, %14, %6
+16:                                               ; preds = %14, %15, %6
   ret void
 }
 
@@ -11479,53 +11479,53 @@ define linkonce_odr hidden void @_ZNK2cv2ml13TrainDataImpl17getTrainResponsesEv(
   %8 = select i1 %6, ptr %7, ptr %5
   call void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %3, ptr noundef nonnull align 8 dereferenceable(96) %8)
   %9 = invoke noundef zeroext i1 @_ZNK2cv3Mat5emptyEv(ptr noundef nonnull align 8 dereferenceable(96) %3)
-          to label %.noexc unwind label %19
+          to label %.noexc unwind label %20
 
 .noexc:                                           ; preds = %2
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %.noexc
   invoke void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %4)
-          to label %_ZN2cv2ml9TrainData12getSubMatrixERKNS_3MatES4_i.exit unwind label %19
+          to label %_ZN2cv2ml9TrainData12getSubMatrixERKNS_3MatES4_i.exit unwind label %20
 
 11:                                               ; preds = %.noexc
   %12 = load i32, ptr %4, align 8, !tbaa !47, !noalias !260
   %13 = and i32 %12, 4095
-  %.off.i = add nsw i32 %13, -4
-  %switch.i = icmp ult i32 %.off.i, 3
-  br i1 %switch.i, label %15, label %14
-
-14:                                               ; preds = %11
-  invoke void @_ZN2cv6detail20check_failed_MatTypeEiRKNS0_12CheckContextE(i32 noundef %13, ptr noundef nonnull align 8 dereferenceable(48) @_ZZN2cv2ml9TrainData12getSubMatrixERKNS_3MatES4_iE15__cv_check__105) #32
-          to label %.noexc3 unwind label %19
-
-.noexc3:                                          ; preds = %14
-  unreachable
+  %14 = add nsw i32 %13, -4
+  %or.cond3.i = icmp ult i32 %14, 3
+  br i1 %or.cond3.i, label %16, label %15
 
 15:                                               ; preds = %11
-  %16 = and i32 %12, 4094
-  %or.cond.i = icmp eq i32 %16, 4
-  br i1 %or.cond.i, label %17, label %18
+  invoke void @_ZN2cv6detail20check_failed_MatTypeEiRKNS0_12CheckContextE(i32 noundef %13, ptr noundef nonnull align 8 dereferenceable(48) @_ZZN2cv2ml9TrainData12getSubMatrixERKNS_3MatES4_iE15__cv_check__105) #32
+          to label %.noexc3 unwind label %20
 
-17:                                               ; preds = %15
+.noexc3:                                          ; preds = %15
+  unreachable
+
+16:                                               ; preds = %11
+  %17 = and i32 %12, 4094
+  %or.cond.i = icmp eq i32 %17, 4
+  br i1 %or.cond.i, label %18, label %19
+
+18:                                               ; preds = %16
   invoke void @_ZN2cv2ml16getSubMatrixImplIiEENS_3MatERKS2_S4_i(ptr dead_on_unwind writable sret(%"class.cv::Mat") align 8 %0, ptr noundef nonnull align 8 dereferenceable(96) %4, ptr noundef nonnull align 8 dereferenceable(96) %3, i32 noundef 0)
-          to label %_ZN2cv2ml9TrainData12getSubMatrixERKNS_3MatES4_i.exit unwind label %19
+          to label %_ZN2cv2ml9TrainData12getSubMatrixERKNS_3MatES4_i.exit unwind label %20
 
-18:                                               ; preds = %15
+19:                                               ; preds = %16
   invoke void @_ZN2cv2ml16getSubMatrixImplIdEENS_3MatERKS2_S4_i(ptr dead_on_unwind writable sret(%"class.cv::Mat") align 8 %0, ptr noundef nonnull align 8 dereferenceable(96) %4, ptr noundef nonnull align 8 dereferenceable(96) %3, i32 noundef 0)
-          to label %_ZN2cv2ml9TrainData12getSubMatrixERKNS_3MatES4_i.exit unwind label %19
+          to label %_ZN2cv2ml9TrainData12getSubMatrixERKNS_3MatES4_i.exit unwind label %20
 
-_ZN2cv2ml9TrainData12getSubMatrixERKNS_3MatES4_i.exit: ; preds = %10, %17, %18
+_ZN2cv2ml9TrainData12getSubMatrixERKNS_3MatES4_i.exit: ; preds = %10, %18, %19
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
-19:                                               ; preds = %18, %17, %14, %10, %2
-  %20 = landingpad { ptr, i32 }
+20:                                               ; preds = %19, %18, %15, %10, %2
+  %21 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  resume { ptr, i32 } %20
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -11539,53 +11539,53 @@ define linkonce_odr hidden void @_ZNK2cv2ml13TrainDataImpl24getTrainNormCatRespo
   %8 = select i1 %6, ptr %7, ptr %5
   call void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %3, ptr noundef nonnull align 8 dereferenceable(96) %8)
   %9 = invoke noundef zeroext i1 @_ZNK2cv3Mat5emptyEv(ptr noundef nonnull align 8 dereferenceable(96) %3)
-          to label %.noexc unwind label %19
+          to label %.noexc unwind label %20
 
 .noexc:                                           ; preds = %2
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %.noexc
   invoke void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %4)
-          to label %_ZN2cv2ml9TrainData12getSubMatrixERKNS_3MatES4_i.exit unwind label %19
+          to label %_ZN2cv2ml9TrainData12getSubMatrixERKNS_3MatES4_i.exit unwind label %20
 
 11:                                               ; preds = %.noexc
   %12 = load i32, ptr %4, align 8, !tbaa !47, !noalias !266
   %13 = and i32 %12, 4095
-  %.off.i = add nsw i32 %13, -4
-  %switch.i = icmp ult i32 %.off.i, 3
-  br i1 %switch.i, label %15, label %14
-
-14:                                               ; preds = %11
-  invoke void @_ZN2cv6detail20check_failed_MatTypeEiRKNS0_12CheckContextE(i32 noundef %13, ptr noundef nonnull align 8 dereferenceable(48) @_ZZN2cv2ml9TrainData12getSubMatrixERKNS_3MatES4_iE15__cv_check__105) #32
-          to label %.noexc3 unwind label %19
-
-.noexc3:                                          ; preds = %14
-  unreachable
+  %14 = add nsw i32 %13, -4
+  %or.cond3.i = icmp ult i32 %14, 3
+  br i1 %or.cond3.i, label %16, label %15
 
 15:                                               ; preds = %11
-  %16 = and i32 %12, 4094
-  %or.cond.i = icmp eq i32 %16, 4
-  br i1 %or.cond.i, label %17, label %18
+  invoke void @_ZN2cv6detail20check_failed_MatTypeEiRKNS0_12CheckContextE(i32 noundef %13, ptr noundef nonnull align 8 dereferenceable(48) @_ZZN2cv2ml9TrainData12getSubMatrixERKNS_3MatES4_iE15__cv_check__105) #32
+          to label %.noexc3 unwind label %20
 
-17:                                               ; preds = %15
+.noexc3:                                          ; preds = %15
+  unreachable
+
+16:                                               ; preds = %11
+  %17 = and i32 %12, 4094
+  %or.cond.i = icmp eq i32 %17, 4
+  br i1 %or.cond.i, label %18, label %19
+
+18:                                               ; preds = %16
   invoke void @_ZN2cv2ml16getSubMatrixImplIiEENS_3MatERKS2_S4_i(ptr dead_on_unwind writable sret(%"class.cv::Mat") align 8 %0, ptr noundef nonnull align 8 dereferenceable(96) %4, ptr noundef nonnull align 8 dereferenceable(96) %3, i32 noundef 0)
-          to label %_ZN2cv2ml9TrainData12getSubMatrixERKNS_3MatES4_i.exit unwind label %19
+          to label %_ZN2cv2ml9TrainData12getSubMatrixERKNS_3MatES4_i.exit unwind label %20
 
-18:                                               ; preds = %15
+19:                                               ; preds = %16
   invoke void @_ZN2cv2ml16getSubMatrixImplIdEENS_3MatERKS2_S4_i(ptr dead_on_unwind writable sret(%"class.cv::Mat") align 8 %0, ptr noundef nonnull align 8 dereferenceable(96) %4, ptr noundef nonnull align 8 dereferenceable(96) %3, i32 noundef 0)
-          to label %_ZN2cv2ml9TrainData12getSubMatrixERKNS_3MatES4_i.exit unwind label %19
+          to label %_ZN2cv2ml9TrainData12getSubMatrixERKNS_3MatES4_i.exit unwind label %20
 
-_ZN2cv2ml9TrainData12getSubMatrixERKNS_3MatES4_i.exit: ; preds = %10, %17, %18
+_ZN2cv2ml9TrainData12getSubMatrixERKNS_3MatES4_i.exit: ; preds = %10, %18, %19
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
-19:                                               ; preds = %18, %17, %14, %10, %2
-  %20 = landingpad { ptr, i32 }
+20:                                               ; preds = %19, %18, %15, %10, %2
+  %21 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  resume { ptr, i32 } %20
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -11595,7 +11595,7 @@ define linkonce_odr hidden void @_ZNK2cv2ml13TrainDataImpl16getTestResponsesEv(p
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 888
   call void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %3, ptr noundef nonnull align 8 dereferenceable(96) %4)
   %5 = invoke noundef zeroext i1 @_ZNK2cv3Mat5emptyEv(ptr noundef nonnull align 8 dereferenceable(96) %3)
-          to label %6 unwind label %20
+          to label %6 unwind label %21
 
 6:                                                ; preds = %2
   br i1 %5, label %7, label %8
@@ -11607,53 +11607,53 @@ define linkonce_odr hidden void @_ZNK2cv2ml13TrainDataImpl16getTestResponsesEv(p
 8:                                                ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 504
   %10 = invoke noundef zeroext i1 @_ZNK2cv3Mat5emptyEv(ptr noundef nonnull align 8 dereferenceable(96) %3)
-          to label %.noexc unwind label %20
+          to label %.noexc unwind label %21
 
 .noexc:                                           ; preds = %8
   br i1 %10, label %11, label %12
 
 11:                                               ; preds = %.noexc
   invoke void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %9)
-          to label %_ZN2cv2ml9TrainData12getSubMatrixERKNS_3MatES4_i.exit unwind label %20
+          to label %_ZN2cv2ml9TrainData12getSubMatrixERKNS_3MatES4_i.exit unwind label %21
 
 12:                                               ; preds = %.noexc
   %13 = load i32, ptr %9, align 8, !tbaa !47, !noalias !269
   %14 = and i32 %13, 4095
-  %.off.i = add nsw i32 %14, -4
-  %switch.i = icmp ult i32 %.off.i, 3
-  br i1 %switch.i, label %16, label %15
-
-15:                                               ; preds = %12
-  invoke void @_ZN2cv6detail20check_failed_MatTypeEiRKNS0_12CheckContextE(i32 noundef %14, ptr noundef nonnull align 8 dereferenceable(48) @_ZZN2cv2ml9TrainData12getSubMatrixERKNS_3MatES4_iE15__cv_check__105) #32
-          to label %.noexc3 unwind label %20
-
-.noexc3:                                          ; preds = %15
-  unreachable
+  %15 = add nsw i32 %14, -4
+  %or.cond3.i = icmp ult i32 %15, 3
+  br i1 %or.cond3.i, label %17, label %16
 
 16:                                               ; preds = %12
-  %17 = and i32 %13, 4094
-  %or.cond.i = icmp eq i32 %17, 4
-  br i1 %or.cond.i, label %18, label %19
+  invoke void @_ZN2cv6detail20check_failed_MatTypeEiRKNS0_12CheckContextE(i32 noundef %14, ptr noundef nonnull align 8 dereferenceable(48) @_ZZN2cv2ml9TrainData12getSubMatrixERKNS_3MatES4_iE15__cv_check__105) #32
+          to label %.noexc3 unwind label %21
 
-18:                                               ; preds = %16
+.noexc3:                                          ; preds = %16
+  unreachable
+
+17:                                               ; preds = %12
+  %18 = and i32 %13, 4094
+  %or.cond.i = icmp eq i32 %18, 4
+  br i1 %or.cond.i, label %19, label %20
+
+19:                                               ; preds = %17
   invoke void @_ZN2cv2ml16getSubMatrixImplIiEENS_3MatERKS2_S4_i(ptr dead_on_unwind writable sret(%"class.cv::Mat") align 8 %0, ptr noundef nonnull align 8 dereferenceable(96) %9, ptr noundef nonnull align 8 dereferenceable(96) %3, i32 noundef 0)
-          to label %_ZN2cv2ml9TrainData12getSubMatrixERKNS_3MatES4_i.exit unwind label %20
+          to label %_ZN2cv2ml9TrainData12getSubMatrixERKNS_3MatES4_i.exit unwind label %21
 
-19:                                               ; preds = %16
+20:                                               ; preds = %17
   invoke void @_ZN2cv2ml16getSubMatrixImplIdEENS_3MatERKS2_S4_i(ptr dead_on_unwind writable sret(%"class.cv::Mat") align 8 %0, ptr noundef nonnull align 8 dereferenceable(96) %9, ptr noundef nonnull align 8 dereferenceable(96) %3, i32 noundef 0)
-          to label %_ZN2cv2ml9TrainData12getSubMatrixERKNS_3MatES4_i.exit unwind label %20
+          to label %_ZN2cv2ml9TrainData12getSubMatrixERKNS_3MatES4_i.exit unwind label %21
 
-_ZN2cv2ml9TrainData12getSubMatrixERKNS_3MatES4_i.exit: ; preds = %11, %18, %19, %7
+_ZN2cv2ml9TrainData12getSubMatrixERKNS_3MatES4_i.exit: ; preds = %11, %19, %20, %7
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
-20:                                               ; preds = %19, %18, %15, %11, %8, %2
-  %21 = landingpad { ptr, i32 }
+21:                                               ; preds = %20, %19, %16, %11, %8, %2
+  %22 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  resume { ptr, i32 } %21
+  resume { ptr, i32 } %22
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -11663,7 +11663,7 @@ define linkonce_odr hidden void @_ZNK2cv2ml13TrainDataImpl23getTestNormCatRespon
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 888
   call void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %3, ptr noundef nonnull align 8 dereferenceable(96) %4)
   %5 = invoke noundef zeroext i1 @_ZNK2cv3Mat5emptyEv(ptr noundef nonnull align 8 dereferenceable(96) %3)
-          to label %6 unwind label %20
+          to label %6 unwind label %21
 
 6:                                                ; preds = %2
   br i1 %5, label %7, label %8
@@ -11675,53 +11675,53 @@ define linkonce_odr hidden void @_ZNK2cv2ml13TrainDataImpl23getTestNormCatRespon
 8:                                                ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 1272
   %10 = invoke noundef zeroext i1 @_ZNK2cv3Mat5emptyEv(ptr noundef nonnull align 8 dereferenceable(96) %3)
-          to label %.noexc unwind label %20
+          to label %.noexc unwind label %21
 
 .noexc:                                           ; preds = %8
   br i1 %10, label %11, label %12
 
 11:                                               ; preds = %.noexc
   invoke void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %9)
-          to label %_ZN2cv2ml9TrainData12getSubMatrixERKNS_3MatES4_i.exit unwind label %20
+          to label %_ZN2cv2ml9TrainData12getSubMatrixERKNS_3MatES4_i.exit unwind label %21
 
 12:                                               ; preds = %.noexc
   %13 = load i32, ptr %9, align 8, !tbaa !47, !noalias !272
   %14 = and i32 %13, 4095
-  %.off.i = add nsw i32 %14, -4
-  %switch.i = icmp ult i32 %.off.i, 3
-  br i1 %switch.i, label %16, label %15
-
-15:                                               ; preds = %12
-  invoke void @_ZN2cv6detail20check_failed_MatTypeEiRKNS0_12CheckContextE(i32 noundef %14, ptr noundef nonnull align 8 dereferenceable(48) @_ZZN2cv2ml9TrainData12getSubMatrixERKNS_3MatES4_iE15__cv_check__105) #32
-          to label %.noexc3 unwind label %20
-
-.noexc3:                                          ; preds = %15
-  unreachable
+  %15 = add nsw i32 %14, -4
+  %or.cond3.i = icmp ult i32 %15, 3
+  br i1 %or.cond3.i, label %17, label %16
 
 16:                                               ; preds = %12
-  %17 = and i32 %13, 4094
-  %or.cond.i = icmp eq i32 %17, 4
-  br i1 %or.cond.i, label %18, label %19
+  invoke void @_ZN2cv6detail20check_failed_MatTypeEiRKNS0_12CheckContextE(i32 noundef %14, ptr noundef nonnull align 8 dereferenceable(48) @_ZZN2cv2ml9TrainData12getSubMatrixERKNS_3MatES4_iE15__cv_check__105) #32
+          to label %.noexc3 unwind label %21
 
-18:                                               ; preds = %16
+.noexc3:                                          ; preds = %16
+  unreachable
+
+17:                                               ; preds = %12
+  %18 = and i32 %13, 4094
+  %or.cond.i = icmp eq i32 %18, 4
+  br i1 %or.cond.i, label %19, label %20
+
+19:                                               ; preds = %17
   invoke void @_ZN2cv2ml16getSubMatrixImplIiEENS_3MatERKS2_S4_i(ptr dead_on_unwind writable sret(%"class.cv::Mat") align 8 %0, ptr noundef nonnull align 8 dereferenceable(96) %9, ptr noundef nonnull align 8 dereferenceable(96) %3, i32 noundef 0)
-          to label %_ZN2cv2ml9TrainData12getSubMatrixERKNS_3MatES4_i.exit unwind label %20
+          to label %_ZN2cv2ml9TrainData12getSubMatrixERKNS_3MatES4_i.exit unwind label %21
 
-19:                                               ; preds = %16
+20:                                               ; preds = %17
   invoke void @_ZN2cv2ml16getSubMatrixImplIdEENS_3MatERKS2_S4_i(ptr dead_on_unwind writable sret(%"class.cv::Mat") align 8 %0, ptr noundef nonnull align 8 dereferenceable(96) %9, ptr noundef nonnull align 8 dereferenceable(96) %3, i32 noundef 0)
-          to label %_ZN2cv2ml9TrainData12getSubMatrixERKNS_3MatES4_i.exit unwind label %20
+          to label %_ZN2cv2ml9TrainData12getSubMatrixERKNS_3MatES4_i.exit unwind label %21
 
-_ZN2cv2ml9TrainData12getSubMatrixERKNS_3MatES4_i.exit: ; preds = %11, %18, %19, %7
+_ZN2cv2ml9TrainData12getSubMatrixERKNS_3MatES4_i.exit: ; preds = %11, %19, %20, %7
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
-20:                                               ; preds = %19, %18, %15, %11, %8, %2
-  %21 = landingpad { ptr, i32 }
+21:                                               ; preds = %20, %19, %16, %11, %8, %2
+  %22 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  resume { ptr, i32 } %21
+  resume { ptr, i32 } %22
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -13247,7 +13247,7 @@ define linkonce_odr hidden void @_ZNK2cv2ml13TrainDataImpl14getTestSamplesEv(ptr
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 888
   call void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %3, ptr noundef nonnull align 8 dereferenceable(96) %4)
   %5 = invoke noundef zeroext i1 @_ZNK2cv3Mat5emptyEv(ptr noundef nonnull align 8 dereferenceable(96) %3)
-          to label %6 unwind label %22
+          to label %6 unwind label %23
 
 6:                                                ; preds = %2
   br i1 %5, label %7, label %8
@@ -13261,53 +13261,53 @@ define linkonce_odr hidden void @_ZNK2cv2ml13TrainDataImpl14getTestSamplesEv(ptr
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %11 = load i32, ptr %10, align 8, !tbaa !139
   %12 = invoke noundef zeroext i1 @_ZNK2cv3Mat5emptyEv(ptr noundef nonnull align 8 dereferenceable(96) %3)
-          to label %.noexc unwind label %22
+          to label %.noexc unwind label %23
 
 .noexc:                                           ; preds = %8
   br i1 %12, label %13, label %14
 
 13:                                               ; preds = %.noexc
   invoke void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %9)
-          to label %_ZN2cv2ml9TrainData12getSubMatrixERKNS_3MatES4_i.exit unwind label %22
+          to label %_ZN2cv2ml9TrainData12getSubMatrixERKNS_3MatES4_i.exit unwind label %23
 
 14:                                               ; preds = %.noexc
   %15 = load i32, ptr %9, align 8, !tbaa !47, !noalias !290
   %16 = and i32 %15, 4095
-  %.off.i = add nsw i32 %16, -4
-  %switch.i = icmp ult i32 %.off.i, 3
-  br i1 %switch.i, label %18, label %17
-
-17:                                               ; preds = %14
-  invoke void @_ZN2cv6detail20check_failed_MatTypeEiRKNS0_12CheckContextE(i32 noundef %16, ptr noundef nonnull align 8 dereferenceable(48) @_ZZN2cv2ml9TrainData12getSubMatrixERKNS_3MatES4_iE15__cv_check__105) #32
-          to label %.noexc3 unwind label %22
-
-.noexc3:                                          ; preds = %17
-  unreachable
+  %17 = add nsw i32 %16, -4
+  %or.cond3.i = icmp ult i32 %17, 3
+  br i1 %or.cond3.i, label %19, label %18
 
 18:                                               ; preds = %14
-  %19 = and i32 %15, 4094
-  %or.cond.i = icmp eq i32 %19, 4
-  br i1 %or.cond.i, label %20, label %21
+  invoke void @_ZN2cv6detail20check_failed_MatTypeEiRKNS0_12CheckContextE(i32 noundef %16, ptr noundef nonnull align 8 dereferenceable(48) @_ZZN2cv2ml9TrainData12getSubMatrixERKNS_3MatES4_iE15__cv_check__105) #32
+          to label %.noexc3 unwind label %23
 
-20:                                               ; preds = %18
+.noexc3:                                          ; preds = %18
+  unreachable
+
+19:                                               ; preds = %14
+  %20 = and i32 %15, 4094
+  %or.cond.i = icmp eq i32 %20, 4
+  br i1 %or.cond.i, label %21, label %22
+
+21:                                               ; preds = %19
   invoke void @_ZN2cv2ml16getSubMatrixImplIiEENS_3MatERKS2_S4_i(ptr dead_on_unwind writable sret(%"class.cv::Mat") align 8 %0, ptr noundef nonnull align 8 dereferenceable(96) %9, ptr noundef nonnull align 8 dereferenceable(96) %3, i32 noundef %11)
-          to label %_ZN2cv2ml9TrainData12getSubMatrixERKNS_3MatES4_i.exit unwind label %22
+          to label %_ZN2cv2ml9TrainData12getSubMatrixERKNS_3MatES4_i.exit unwind label %23
 
-21:                                               ; preds = %18
+22:                                               ; preds = %19
   invoke void @_ZN2cv2ml16getSubMatrixImplIdEENS_3MatERKS2_S4_i(ptr dead_on_unwind writable sret(%"class.cv::Mat") align 8 %0, ptr noundef nonnull align 8 dereferenceable(96) %9, ptr noundef nonnull align 8 dereferenceable(96) %3, i32 noundef %11)
-          to label %_ZN2cv2ml9TrainData12getSubMatrixERKNS_3MatES4_i.exit unwind label %22
+          to label %_ZN2cv2ml9TrainData12getSubMatrixERKNS_3MatES4_i.exit unwind label %23
 
-_ZN2cv2ml9TrainData12getSubMatrixERKNS_3MatES4_i.exit: ; preds = %13, %20, %21, %7
+_ZN2cv2ml9TrainData12getSubMatrixERKNS_3MatES4_i.exit: ; preds = %13, %21, %22, %7
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
-22:                                               ; preds = %21, %20, %17, %13, %8, %2
-  %23 = landingpad { ptr, i32 }
+23:                                               ; preds = %22, %21, %18, %13, %8, %2
+  %24 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  resume { ptr, i32 } %23
+  resume { ptr, i32 } %24
 }
 
 ; Function Attrs: mustprogress uwtable

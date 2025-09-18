@@ -22239,8 +22239,8 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer18PromoteIntOp_BR_CCEPNS_6
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 88
   %13 = load i32, ptr %12, align 8, !tbaa !280
   %14 = add i32 %13, -18
-  %switch.selectcmp.i.i = icmp ult i32 %14, 4
-  br i1 %switch.selectcmp.i.i, label %15, label %18
+  %spec.select.i.i = icmp ult i32 %14, 4
+  br i1 %spec.select.i.i, label %15, label %18
 
 15:                                               ; preds = %3
   %.sroa.08.0.copyload.i = load ptr, ptr %4, align 8
@@ -23825,8 +23825,8 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer22PromoteIntOp_SELECT_CCEP
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 88
   %12 = load i32, ptr %11, align 8, !tbaa !280
   %13 = add i32 %12, -18
-  %switch.selectcmp.i.i = icmp ult i32 %13, 4
-  br i1 %switch.selectcmp.i.i, label %14, label %17
+  %spec.select.i.i = icmp ult i32 %13, 4
+  br i1 %spec.select.i.i, label %14, label %17
 
 14:                                               ; preds = %3
   %.sroa.08.0.copyload.i = load ptr, ptr %4, align 8, !tbaa !34
@@ -23888,8 +23888,8 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer18PromoteIntOp_SETCCEPNS_6
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 88
   %12 = load i32, ptr %11, align 8, !tbaa !280
   %13 = add i32 %12, -18
-  %switch.selectcmp.i.i = icmp ult i32 %13, 4
-  br i1 %switch.selectcmp.i.i, label %14, label %17
+  %spec.select.i.i = icmp ult i32 %13, 4
+  br i1 %spec.select.i.i, label %14, label %17
 
 14:                                               ; preds = %3
   %.sroa.08.0.copyload.i = load ptr, ptr %4, align 8, !tbaa !34
@@ -28613,8 +28613,8 @@ declare noundef i32 @_ZNK4llvm12SelectionDAG25ComputeMaxSignificantBitsENS_7SDVa
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4llvm16DAGTypeLegalizer20PromoteSetCCOperandsERNS_7SDValueES2_NS_3ISD8CondCodeE(ptr noundef nonnull align 8 dereferenceable(2512) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(12) %1, ptr noundef nonnull align 8 captures(none) dereferenceable(12) %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = add i32 %3, -18
-  %switch.selectcmp.i = icmp ult i32 %5, 4
-  br i1 %switch.selectcmp.i, label %6, label %9
+  %spec.select.i = icmp ult i32 %5, 4
+  br i1 %spec.select.i, label %6, label %9
 
 6:                                                ; preds = %4
   %.sroa.08.0.copyload = load ptr, ptr %1, align 8, !tbaa !34

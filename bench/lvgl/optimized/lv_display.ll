@@ -1691,13 +1691,13 @@ define void @lv_screen_load_anim(ptr noundef %0, i32 noundef %1, i32 noundef %2,
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 800
   %10 = load ptr, ptr %9, align 8, !tbaa !63
   %11 = icmp eq ptr %10, %0
-  br i1 %11, label %145, label %12
+  br i1 %11, label %146, label %12
 
 12:                                               ; preds = %5
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 824
   %14 = load ptr, ptr %13, align 8, !tbaa !90
   %15 = icmp eq ptr %14, %0
-  br i1 %15, label %145, label %16
+  br i1 %15, label %146, label %16
 
 16:                                               ; preds = %12
   %.not = icmp eq ptr %14, null
@@ -1739,48 +1739,48 @@ define void @lv_screen_load_anim(ptr noundef %0, i32 noundef %1, i32 noundef %2,
 
 33:                                               ; preds = %32, %28, %25
   store ptr null, ptr %26, align 8, !tbaa !89
-  %.off.i = add i32 %1, -10
-  %switch.i = icmp ult i32 %.off.i, 5
-  %34 = zext i1 %switch.i to i8
-  %35 = getelementptr inbounds nuw i8, ptr %8, i64 836
-  %36 = load i8, ptr %35, align 4
-  %37 = and i8 %36, -4
-  %38 = select i1 %4, i8 2, i8 0
-  %39 = or disjoint i8 %38, %34
-  %40 = or disjoint i8 %39, %37
-  store i8 %40, ptr %35, align 4
-  %41 = tail call zeroext i1 @lv_anim_delete(ptr noundef %0, ptr noundef null) #13
-  %42 = icmp ne ptr %.0, null
-  br i1 %42, label %44, label %43
-
-43:                                               ; preds = %33
-  tail call void @lv_obj_set_pos(ptr noundef %0, i32 noundef 0, i32 noundef 0) #13
-  br label %47
+  %34 = add i32 %1, -10
+  %spec.select.i = icmp ult i32 %34, 5
+  %35 = zext i1 %spec.select.i to i8
+  %36 = getelementptr inbounds nuw i8, ptr %8, i64 836
+  %37 = load i8, ptr %36, align 4
+  %38 = and i8 %37, -4
+  %39 = select i1 %4, i8 2, i8 0
+  %40 = or disjoint i8 %39, %35
+  %41 = or disjoint i8 %40, %38
+  store i8 %41, ptr %36, align 4
+  %42 = tail call zeroext i1 @lv_anim_delete(ptr noundef %0, ptr noundef null) #13
+  %43 = icmp ne ptr %.0, null
+  br i1 %43, label %45, label %44
 
 44:                                               ; preds = %33
-  %45 = tail call zeroext i1 @lv_anim_delete(ptr noundef nonnull %.0, ptr noundef null) #13
+  tail call void @lv_obj_set_pos(ptr noundef %0, i32 noundef 0, i32 noundef 0) #13
+  br label %48
+
+45:                                               ; preds = %33
+  %46 = tail call zeroext i1 @lv_anim_delete(ptr noundef nonnull %.0, ptr noundef null) #13
   tail call void @lv_obj_set_pos(ptr noundef %0, i32 noundef 0, i32 noundef 0) #13
   tail call void @lv_obj_set_pos(ptr noundef nonnull %.0, i32 noundef 0, i32 noundef 0) #13
-  %46 = tail call zeroext i1 @lv_obj_remove_local_style_prop(ptr noundef %0, i8 noundef zeroext 95, i32 noundef 0) #13
-  br label %47
+  %47 = tail call zeroext i1 @lv_obj_remove_local_style_prop(ptr noundef %0, i8 noundef zeroext 95, i32 noundef 0) #13
+  br label %48
 
-47:                                               ; preds = %43, %44
-  %.sink = phi ptr [ %0, %43 ], [ %.0, %44 ]
-  %48 = tail call zeroext i1 @lv_obj_remove_local_style_prop(ptr noundef %.sink, i8 noundef zeroext 95, i32 noundef 0) #13
-  %49 = or i32 %3, %2
-  %or.cond = icmp eq i32 %49, 0
-  br i1 %or.cond, label %50, label %52
+48:                                               ; preds = %44, %45
+  %.sink = phi ptr [ %0, %44 ], [ %.0, %45 ]
+  %49 = tail call zeroext i1 @lv_obj_remove_local_style_prop(ptr noundef %.sink, i8 noundef zeroext 95, i32 noundef 0) #13
+  %50 = or i32 %3, %2
+  %or.cond = icmp eq i32 %50, 0
+  br i1 %or.cond, label %51, label %53
 
-50:                                               ; preds = %47
+51:                                               ; preds = %48
   tail call fastcc void @scr_load_internal(ptr noundef %0)
-  %or.cond3 = and i1 %4, %42
-  br i1 %or.cond3, label %51, label %145
+  %or.cond3 = and i1 %4, %43
+  br i1 %or.cond3, label %52, label %146
 
-51:                                               ; preds = %50
+52:                                               ; preds = %51
   tail call void @lv_obj_delete(ptr noundef nonnull %.0) #13
-  br label %145
+  br label %146
 
-52:                                               ; preds = %47
+53:                                               ; preds = %48
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @lv_anim_init(ptr noundef nonnull %6) #13
   call void @lv_anim_set_var(ptr noundef nonnull %6, ptr noundef %0) #13
@@ -1793,8 +1793,8 @@ define void @lv_screen_load_anim(ptr noundef %0, i32 noundef %1, i32 noundef %2,
   call void @lv_anim_set_var(ptr noundef nonnull %7, ptr noundef %.0) #13
   call void @lv_anim_set_duration(ptr noundef nonnull %7, i32 noundef %2) #13
   call void @lv_anim_set_delay(ptr noundef nonnull %7, i32 noundef %3) #13
-  switch i32 %1, label %140 [
-    i32 0, label %53
+  switch i32 %1, label %141 [
+    i32 0, label %54
     i32 1, label %.thread.i
     i32 2, label %.thread.i81
     i32 3, label %.thread.i85
@@ -1803,357 +1803,357 @@ define void @lv_screen_load_anim(ptr noundef %0, i32 noundef %1, i32 noundef %2,
     i32 6, label %.thread.i100
     i32 7, label %.thread.i108
     i32 8, label %.thread.i116
-    i32 9, label %116
-    i32 10, label %117
+    i32 9, label %117
+    i32 10, label %118
     i32 11, label %.thread.i124
     i32 12, label %.thread.i128
     i32 13, label %.thread.i132
     i32 14, label %.thread.i136
   ]
 
-53:                                               ; preds = %52
+54:                                               ; preds = %53
   call void @lv_anim_set_exec_cb(ptr noundef nonnull %6, ptr noundef nonnull @set_x_anim) #13
   call void @lv_anim_set_values(ptr noundef nonnull %6, i32 noundef 0, i32 noundef 0) #13
-  br label %140
+  br label %141
 
-.thread.i:                                        ; preds = %52
+.thread.i:                                        ; preds = %53
   call void @lv_anim_set_exec_cb(ptr noundef nonnull %6, ptr noundef nonnull @set_x_anim) #13
-  %54 = getelementptr inbounds nuw i8, ptr %8, i64 888
-  %55 = load i8, ptr %54, align 8
-  %56 = and i8 %55, 7
-  switch i8 %56, label %lv_display_get_horizontal_resolution.exit [
-    i8 1, label %57
-    i8 3, label %57
+  %55 = getelementptr inbounds nuw i8, ptr %8, i64 888
+  %56 = load i8, ptr %55, align 8
+  %57 = and i8 %56, 7
+  switch i8 %57, label %lv_display_get_horizontal_resolution.exit [
+    i8 1, label %58
+    i8 3, label %58
   ]
 
-57:                                               ; preds = %.thread.i, %.thread.i
-  %58 = getelementptr inbounds nuw i8, ptr %8, i64 4
+58:                                               ; preds = %.thread.i, %.thread.i
+  %59 = getelementptr inbounds nuw i8, ptr %8, i64 4
   br label %lv_display_get_horizontal_resolution.exit
 
-lv_display_get_horizontal_resolution.exit:        ; preds = %.thread.i, %57
-  %.05.i.in = phi ptr [ %58, %57 ], [ %8, %.thread.i ]
+lv_display_get_horizontal_resolution.exit:        ; preds = %.thread.i, %58
+  %.05.i.in = phi ptr [ %59, %58 ], [ %8, %.thread.i ]
   %.05.i = load i32, ptr %.05.i.in, align 4, !tbaa !78
   call void @lv_anim_set_values(ptr noundef nonnull %6, i32 noundef %.05.i, i32 noundef 0) #13
-  br label %140
+  br label %141
 
-.thread.i81:                                      ; preds = %52
+.thread.i81:                                      ; preds = %53
   call void @lv_anim_set_exec_cb(ptr noundef nonnull %6, ptr noundef nonnull @set_x_anim) #13
-  %59 = getelementptr inbounds nuw i8, ptr %8, i64 888
-  %60 = load i8, ptr %59, align 8
-  %61 = and i8 %60, 7
-  switch i8 %61, label %lv_display_get_horizontal_resolution.exit84 [
-    i8 1, label %62
-    i8 3, label %62
+  %60 = getelementptr inbounds nuw i8, ptr %8, i64 888
+  %61 = load i8, ptr %60, align 8
+  %62 = and i8 %61, 7
+  switch i8 %62, label %lv_display_get_horizontal_resolution.exit84 [
+    i8 1, label %63
+    i8 3, label %63
   ]
 
-62:                                               ; preds = %.thread.i81, %.thread.i81
-  %63 = getelementptr inbounds nuw i8, ptr %8, i64 4
+63:                                               ; preds = %.thread.i81, %.thread.i81
+  %64 = getelementptr inbounds nuw i8, ptr %8, i64 4
   br label %lv_display_get_horizontal_resolution.exit84
 
-lv_display_get_horizontal_resolution.exit84:      ; preds = %.thread.i81, %62
-  %.05.i83.in = phi ptr [ %63, %62 ], [ %8, %.thread.i81 ]
+lv_display_get_horizontal_resolution.exit84:      ; preds = %.thread.i81, %63
+  %.05.i83.in = phi ptr [ %64, %63 ], [ %8, %.thread.i81 ]
   %.05.i83 = load i32, ptr %.05.i83.in, align 4, !tbaa !78
-  %64 = sub nsw i32 0, %.05.i83
-  call void @lv_anim_set_values(ptr noundef nonnull %6, i32 noundef %64, i32 noundef 0) #13
-  br label %140
+  %65 = sub nsw i32 0, %.05.i83
+  call void @lv_anim_set_values(ptr noundef nonnull %6, i32 noundef %65, i32 noundef 0) #13
+  br label %141
 
-.thread.i85:                                      ; preds = %52
+.thread.i85:                                      ; preds = %53
   call void @lv_anim_set_exec_cb(ptr noundef nonnull %6, ptr noundef nonnull @set_y_anim) #13
-  %65 = getelementptr inbounds nuw i8, ptr %8, i64 888
-  %66 = load i8, ptr %65, align 8
-  %67 = and i8 %66, 7
-  switch i8 %67, label %68 [
+  %66 = getelementptr inbounds nuw i8, ptr %8, i64 888
+  %67 = load i8, ptr %66, align 8
+  %68 = and i8 %67, 7
+  switch i8 %68, label %69 [
     i8 1, label %lv_display_get_vertical_resolution.exit
     i8 3, label %lv_display_get_vertical_resolution.exit
   ]
 
-68:                                               ; preds = %.thread.i85
-  %69 = getelementptr inbounds nuw i8, ptr %8, i64 4
+69:                                               ; preds = %.thread.i85
+  %70 = getelementptr inbounds nuw i8, ptr %8, i64 4
   br label %lv_display_get_vertical_resolution.exit
 
-lv_display_get_vertical_resolution.exit:          ; preds = %.thread.i85, %.thread.i85, %68
-  %.05.i87.in = phi ptr [ %69, %68 ], [ %8, %.thread.i85 ], [ %8, %.thread.i85 ]
+lv_display_get_vertical_resolution.exit:          ; preds = %.thread.i85, %.thread.i85, %69
+  %.05.i87.in = phi ptr [ %70, %69 ], [ %8, %.thread.i85 ], [ %8, %.thread.i85 ]
   %.05.i87 = load i32, ptr %.05.i87.in, align 4, !tbaa !78
   call void @lv_anim_set_values(ptr noundef nonnull %6, i32 noundef %.05.i87, i32 noundef 0) #13
-  br label %140
+  br label %141
 
-.thread.i88:                                      ; preds = %52
+.thread.i88:                                      ; preds = %53
   call void @lv_anim_set_exec_cb(ptr noundef nonnull %6, ptr noundef nonnull @set_y_anim) #13
-  %70 = getelementptr inbounds nuw i8, ptr %8, i64 888
-  %71 = load i8, ptr %70, align 8
-  %72 = and i8 %71, 7
-  switch i8 %72, label %73 [
+  %71 = getelementptr inbounds nuw i8, ptr %8, i64 888
+  %72 = load i8, ptr %71, align 8
+  %73 = and i8 %72, 7
+  switch i8 %73, label %74 [
     i8 1, label %lv_display_get_vertical_resolution.exit91
     i8 3, label %lv_display_get_vertical_resolution.exit91
   ]
 
-73:                                               ; preds = %.thread.i88
-  %74 = getelementptr inbounds nuw i8, ptr %8, i64 4
+74:                                               ; preds = %.thread.i88
+  %75 = getelementptr inbounds nuw i8, ptr %8, i64 4
   br label %lv_display_get_vertical_resolution.exit91
 
-lv_display_get_vertical_resolution.exit91:        ; preds = %.thread.i88, %.thread.i88, %73
-  %.05.i90.in = phi ptr [ %74, %73 ], [ %8, %.thread.i88 ], [ %8, %.thread.i88 ]
+lv_display_get_vertical_resolution.exit91:        ; preds = %.thread.i88, %.thread.i88, %74
+  %.05.i90.in = phi ptr [ %75, %74 ], [ %8, %.thread.i88 ], [ %8, %.thread.i88 ]
   %.05.i90 = load i32, ptr %.05.i90.in, align 4, !tbaa !78
-  %75 = sub nsw i32 0, %.05.i90
-  call void @lv_anim_set_values(ptr noundef nonnull %6, i32 noundef %75, i32 noundef 0) #13
-  br label %140
+  %76 = sub nsw i32 0, %.05.i90
+  call void @lv_anim_set_values(ptr noundef nonnull %6, i32 noundef %76, i32 noundef 0) #13
+  br label %141
 
-.thread.i92:                                      ; preds = %52
+.thread.i92:                                      ; preds = %53
   call void @lv_anim_set_exec_cb(ptr noundef nonnull %6, ptr noundef nonnull @set_x_anim) #13
-  %76 = getelementptr inbounds nuw i8, ptr %8, i64 888
-  %77 = load i8, ptr %76, align 8
-  %78 = and i8 %77, 7
-  switch i8 %78, label %.thread.i96 [
-    i8 1, label %79
-    i8 3, label %79
+  %77 = getelementptr inbounds nuw i8, ptr %8, i64 888
+  %78 = load i8, ptr %77, align 8
+  %79 = and i8 %78, 7
+  switch i8 %79, label %.thread.i96 [
+    i8 1, label %80
+    i8 3, label %80
   ]
 
-79:                                               ; preds = %.thread.i92, %.thread.i92
-  %80 = getelementptr inbounds nuw i8, ptr %8, i64 4
+80:                                               ; preds = %.thread.i92, %.thread.i92
+  %81 = getelementptr inbounds nuw i8, ptr %8, i64 4
   br label %.thread.i96
 
-.thread.i96:                                      ; preds = %.thread.i92, %79
-  %.05.i94.in = phi ptr [ %80, %79 ], [ %8, %.thread.i92 ]
+.thread.i96:                                      ; preds = %.thread.i92, %80
+  %.05.i94.in = phi ptr [ %81, %80 ], [ %8, %.thread.i92 ]
   %.05.i94 = load i32, ptr %.05.i94.in, align 4, !tbaa !78
   call void @lv_anim_set_values(ptr noundef nonnull %6, i32 noundef %.05.i94, i32 noundef 0) #13
   call void @lv_anim_set_exec_cb(ptr noundef nonnull %7, ptr noundef nonnull @set_x_anim) #13
-  %81 = load i8, ptr %76, align 8
-  %82 = and i8 %81, 7
-  switch i8 %82, label %lv_display_get_horizontal_resolution.exit99 [
-    i8 1, label %83
-    i8 3, label %83
+  %82 = load i8, ptr %77, align 8
+  %83 = and i8 %82, 7
+  switch i8 %83, label %lv_display_get_horizontal_resolution.exit99 [
+    i8 1, label %84
+    i8 3, label %84
   ]
 
-83:                                               ; preds = %.thread.i96, %.thread.i96
-  %84 = getelementptr inbounds nuw i8, ptr %8, i64 4
+84:                                               ; preds = %.thread.i96, %.thread.i96
+  %85 = getelementptr inbounds nuw i8, ptr %8, i64 4
   br label %lv_display_get_horizontal_resolution.exit99
 
-lv_display_get_horizontal_resolution.exit99:      ; preds = %.thread.i96, %83
-  %.05.i98.in = phi ptr [ %84, %83 ], [ %8, %.thread.i96 ]
+lv_display_get_horizontal_resolution.exit99:      ; preds = %.thread.i96, %84
+  %.05.i98.in = phi ptr [ %85, %84 ], [ %8, %.thread.i96 ]
   %.05.i98 = load i32, ptr %.05.i98.in, align 4, !tbaa !78
-  %85 = sub nsw i32 0, %.05.i98
-  call void @lv_anim_set_values(ptr noundef nonnull %7, i32 noundef 0, i32 noundef %85) #13
-  br label %140
+  %86 = sub nsw i32 0, %.05.i98
+  call void @lv_anim_set_values(ptr noundef nonnull %7, i32 noundef 0, i32 noundef %86) #13
+  br label %141
 
-.thread.i100:                                     ; preds = %52
+.thread.i100:                                     ; preds = %53
   call void @lv_anim_set_exec_cb(ptr noundef nonnull %6, ptr noundef nonnull @set_x_anim) #13
-  %86 = getelementptr inbounds nuw i8, ptr %8, i64 888
-  %87 = load i8, ptr %86, align 8
-  %88 = and i8 %87, 7
-  switch i8 %88, label %.thread.i104 [
-    i8 1, label %89
-    i8 3, label %89
+  %87 = getelementptr inbounds nuw i8, ptr %8, i64 888
+  %88 = load i8, ptr %87, align 8
+  %89 = and i8 %88, 7
+  switch i8 %89, label %.thread.i104 [
+    i8 1, label %90
+    i8 3, label %90
   ]
 
-89:                                               ; preds = %.thread.i100, %.thread.i100
-  %90 = getelementptr inbounds nuw i8, ptr %8, i64 4
+90:                                               ; preds = %.thread.i100, %.thread.i100
+  %91 = getelementptr inbounds nuw i8, ptr %8, i64 4
   br label %.thread.i104
 
-.thread.i104:                                     ; preds = %.thread.i100, %89
-  %.05.i102.in = phi ptr [ %90, %89 ], [ %8, %.thread.i100 ]
+.thread.i104:                                     ; preds = %.thread.i100, %90
+  %.05.i102.in = phi ptr [ %91, %90 ], [ %8, %.thread.i100 ]
   %.05.i102 = load i32, ptr %.05.i102.in, align 4, !tbaa !78
-  %91 = sub nsw i32 0, %.05.i102
-  call void @lv_anim_set_values(ptr noundef nonnull %6, i32 noundef %91, i32 noundef 0) #13
+  %92 = sub nsw i32 0, %.05.i102
+  call void @lv_anim_set_values(ptr noundef nonnull %6, i32 noundef %92, i32 noundef 0) #13
   call void @lv_anim_set_exec_cb(ptr noundef nonnull %7, ptr noundef nonnull @set_x_anim) #13
-  %92 = load i8, ptr %86, align 8
-  %93 = and i8 %92, 7
-  switch i8 %93, label %lv_display_get_horizontal_resolution.exit107 [
-    i8 1, label %94
-    i8 3, label %94
+  %93 = load i8, ptr %87, align 8
+  %94 = and i8 %93, 7
+  switch i8 %94, label %lv_display_get_horizontal_resolution.exit107 [
+    i8 1, label %95
+    i8 3, label %95
   ]
 
-94:                                               ; preds = %.thread.i104, %.thread.i104
-  %95 = getelementptr inbounds nuw i8, ptr %8, i64 4
+95:                                               ; preds = %.thread.i104, %.thread.i104
+  %96 = getelementptr inbounds nuw i8, ptr %8, i64 4
   br label %lv_display_get_horizontal_resolution.exit107
 
-lv_display_get_horizontal_resolution.exit107:     ; preds = %.thread.i104, %94
-  %.05.i106.in = phi ptr [ %95, %94 ], [ %8, %.thread.i104 ]
+lv_display_get_horizontal_resolution.exit107:     ; preds = %.thread.i104, %95
+  %.05.i106.in = phi ptr [ %96, %95 ], [ %8, %.thread.i104 ]
   %.05.i106 = load i32, ptr %.05.i106.in, align 4, !tbaa !78
   call void @lv_anim_set_values(ptr noundef nonnull %7, i32 noundef 0, i32 noundef %.05.i106) #13
-  br label %140
+  br label %141
 
-.thread.i108:                                     ; preds = %52
+.thread.i108:                                     ; preds = %53
   call void @lv_anim_set_exec_cb(ptr noundef nonnull %6, ptr noundef nonnull @set_y_anim) #13
-  %96 = getelementptr inbounds nuw i8, ptr %8, i64 888
-  %97 = load i8, ptr %96, align 8
-  %98 = and i8 %97, 7
-  switch i8 %98, label %99 [
+  %97 = getelementptr inbounds nuw i8, ptr %8, i64 888
+  %98 = load i8, ptr %97, align 8
+  %99 = and i8 %98, 7
+  switch i8 %99, label %100 [
     i8 1, label %.thread.i112
     i8 3, label %.thread.i112
   ]
 
-99:                                               ; preds = %.thread.i108
-  %100 = getelementptr inbounds nuw i8, ptr %8, i64 4
+100:                                              ; preds = %.thread.i108
+  %101 = getelementptr inbounds nuw i8, ptr %8, i64 4
   br label %.thread.i112
 
-.thread.i112:                                     ; preds = %.thread.i108, %.thread.i108, %99
-  %.05.i110.in = phi ptr [ %100, %99 ], [ %8, %.thread.i108 ], [ %8, %.thread.i108 ]
+.thread.i112:                                     ; preds = %.thread.i108, %.thread.i108, %100
+  %.05.i110.in = phi ptr [ %101, %100 ], [ %8, %.thread.i108 ], [ %8, %.thread.i108 ]
   %.05.i110 = load i32, ptr %.05.i110.in, align 4, !tbaa !78
   call void @lv_anim_set_values(ptr noundef nonnull %6, i32 noundef %.05.i110, i32 noundef 0) #13
   call void @lv_anim_set_exec_cb(ptr noundef nonnull %7, ptr noundef nonnull @set_y_anim) #13
-  %101 = load i8, ptr %96, align 8
-  %102 = and i8 %101, 7
-  switch i8 %102, label %103 [
+  %102 = load i8, ptr %97, align 8
+  %103 = and i8 %102, 7
+  switch i8 %103, label %104 [
     i8 1, label %lv_display_get_vertical_resolution.exit115
     i8 3, label %lv_display_get_vertical_resolution.exit115
   ]
 
-103:                                              ; preds = %.thread.i112
-  %104 = getelementptr inbounds nuw i8, ptr %8, i64 4
+104:                                              ; preds = %.thread.i112
+  %105 = getelementptr inbounds nuw i8, ptr %8, i64 4
   br label %lv_display_get_vertical_resolution.exit115
 
-lv_display_get_vertical_resolution.exit115:       ; preds = %.thread.i112, %.thread.i112, %103
-  %.05.i114.in = phi ptr [ %104, %103 ], [ %8, %.thread.i112 ], [ %8, %.thread.i112 ]
+lv_display_get_vertical_resolution.exit115:       ; preds = %.thread.i112, %.thread.i112, %104
+  %.05.i114.in = phi ptr [ %105, %104 ], [ %8, %.thread.i112 ], [ %8, %.thread.i112 ]
   %.05.i114 = load i32, ptr %.05.i114.in, align 4, !tbaa !78
-  %105 = sub nsw i32 0, %.05.i114
-  call void @lv_anim_set_values(ptr noundef nonnull %7, i32 noundef 0, i32 noundef %105) #13
-  br label %140
+  %106 = sub nsw i32 0, %.05.i114
+  call void @lv_anim_set_values(ptr noundef nonnull %7, i32 noundef 0, i32 noundef %106) #13
+  br label %141
 
-.thread.i116:                                     ; preds = %52
+.thread.i116:                                     ; preds = %53
   call void @lv_anim_set_exec_cb(ptr noundef nonnull %6, ptr noundef nonnull @set_y_anim) #13
-  %106 = getelementptr inbounds nuw i8, ptr %8, i64 888
-  %107 = load i8, ptr %106, align 8
-  %108 = and i8 %107, 7
-  switch i8 %108, label %109 [
+  %107 = getelementptr inbounds nuw i8, ptr %8, i64 888
+  %108 = load i8, ptr %107, align 8
+  %109 = and i8 %108, 7
+  switch i8 %109, label %110 [
     i8 1, label %.thread.i120
     i8 3, label %.thread.i120
   ]
 
-109:                                              ; preds = %.thread.i116
-  %110 = getelementptr inbounds nuw i8, ptr %8, i64 4
+110:                                              ; preds = %.thread.i116
+  %111 = getelementptr inbounds nuw i8, ptr %8, i64 4
   br label %.thread.i120
 
-.thread.i120:                                     ; preds = %.thread.i116, %.thread.i116, %109
-  %.05.i118.in = phi ptr [ %110, %109 ], [ %8, %.thread.i116 ], [ %8, %.thread.i116 ]
+.thread.i120:                                     ; preds = %.thread.i116, %.thread.i116, %110
+  %.05.i118.in = phi ptr [ %111, %110 ], [ %8, %.thread.i116 ], [ %8, %.thread.i116 ]
   %.05.i118 = load i32, ptr %.05.i118.in, align 4, !tbaa !78
-  %111 = sub nsw i32 0, %.05.i118
-  call void @lv_anim_set_values(ptr noundef nonnull %6, i32 noundef %111, i32 noundef 0) #13
+  %112 = sub nsw i32 0, %.05.i118
+  call void @lv_anim_set_values(ptr noundef nonnull %6, i32 noundef %112, i32 noundef 0) #13
   call void @lv_anim_set_exec_cb(ptr noundef nonnull %7, ptr noundef nonnull @set_y_anim) #13
-  %112 = load i8, ptr %106, align 8
-  %113 = and i8 %112, 7
-  switch i8 %113, label %114 [
+  %113 = load i8, ptr %107, align 8
+  %114 = and i8 %113, 7
+  switch i8 %114, label %115 [
     i8 1, label %lv_display_get_vertical_resolution.exit123
     i8 3, label %lv_display_get_vertical_resolution.exit123
   ]
 
-114:                                              ; preds = %.thread.i120
-  %115 = getelementptr inbounds nuw i8, ptr %8, i64 4
+115:                                              ; preds = %.thread.i120
+  %116 = getelementptr inbounds nuw i8, ptr %8, i64 4
   br label %lv_display_get_vertical_resolution.exit123
 
-lv_display_get_vertical_resolution.exit123:       ; preds = %.thread.i120, %.thread.i120, %114
-  %.05.i122.in = phi ptr [ %115, %114 ], [ %8, %.thread.i120 ], [ %8, %.thread.i120 ]
+lv_display_get_vertical_resolution.exit123:       ; preds = %.thread.i120, %.thread.i120, %115
+  %.05.i122.in = phi ptr [ %116, %115 ], [ %8, %.thread.i120 ], [ %8, %.thread.i120 ]
   %.05.i122 = load i32, ptr %.05.i122.in, align 4, !tbaa !78
   call void @lv_anim_set_values(ptr noundef nonnull %7, i32 noundef 0, i32 noundef %.05.i122) #13
-  br label %140
+  br label %141
 
-116:                                              ; preds = %52
+117:                                              ; preds = %53
   call void @lv_anim_set_exec_cb(ptr noundef nonnull %6, ptr noundef nonnull @opa_scale_anim) #13
   call void @lv_anim_set_values(ptr noundef nonnull %6, i32 noundef 0, i32 noundef 255) #13
-  br label %140
+  br label %141
 
-117:                                              ; preds = %52
+118:                                              ; preds = %53
   call void @lv_anim_set_exec_cb(ptr noundef nonnull %7, ptr noundef nonnull @opa_scale_anim) #13
   call void @lv_anim_set_values(ptr noundef nonnull %7, i32 noundef 255, i32 noundef 0) #13
-  br label %140
+  br label %141
 
-.thread.i124:                                     ; preds = %52
+.thread.i124:                                     ; preds = %53
   call void @lv_anim_set_exec_cb(ptr noundef nonnull %7, ptr noundef nonnull @set_x_anim) #13
-  %118 = getelementptr inbounds nuw i8, ptr %8, i64 888
-  %119 = load i8, ptr %118, align 8
-  %120 = and i8 %119, 7
-  switch i8 %120, label %lv_display_get_horizontal_resolution.exit127 [
-    i8 1, label %121
-    i8 3, label %121
+  %119 = getelementptr inbounds nuw i8, ptr %8, i64 888
+  %120 = load i8, ptr %119, align 8
+  %121 = and i8 %120, 7
+  switch i8 %121, label %lv_display_get_horizontal_resolution.exit127 [
+    i8 1, label %122
+    i8 3, label %122
   ]
 
-121:                                              ; preds = %.thread.i124, %.thread.i124
-  %122 = getelementptr inbounds nuw i8, ptr %8, i64 4
+122:                                              ; preds = %.thread.i124, %.thread.i124
+  %123 = getelementptr inbounds nuw i8, ptr %8, i64 4
   br label %lv_display_get_horizontal_resolution.exit127
 
-lv_display_get_horizontal_resolution.exit127:     ; preds = %.thread.i124, %121
-  %.05.i126.in = phi ptr [ %122, %121 ], [ %8, %.thread.i124 ]
+lv_display_get_horizontal_resolution.exit127:     ; preds = %.thread.i124, %122
+  %.05.i126.in = phi ptr [ %123, %122 ], [ %8, %.thread.i124 ]
   %.05.i126 = load i32, ptr %.05.i126.in, align 4, !tbaa !78
-  %123 = sub nsw i32 0, %.05.i126
-  call void @lv_anim_set_values(ptr noundef nonnull %7, i32 noundef 0, i32 noundef %123) #13
-  br label %140
+  %124 = sub nsw i32 0, %.05.i126
+  call void @lv_anim_set_values(ptr noundef nonnull %7, i32 noundef 0, i32 noundef %124) #13
+  br label %141
 
-.thread.i128:                                     ; preds = %52
+.thread.i128:                                     ; preds = %53
   call void @lv_anim_set_exec_cb(ptr noundef nonnull %7, ptr noundef nonnull @set_x_anim) #13
-  %124 = getelementptr inbounds nuw i8, ptr %8, i64 888
-  %125 = load i8, ptr %124, align 8
-  %126 = and i8 %125, 7
-  switch i8 %126, label %lv_display_get_horizontal_resolution.exit131 [
-    i8 1, label %127
-    i8 3, label %127
+  %125 = getelementptr inbounds nuw i8, ptr %8, i64 888
+  %126 = load i8, ptr %125, align 8
+  %127 = and i8 %126, 7
+  switch i8 %127, label %lv_display_get_horizontal_resolution.exit131 [
+    i8 1, label %128
+    i8 3, label %128
   ]
 
-127:                                              ; preds = %.thread.i128, %.thread.i128
-  %128 = getelementptr inbounds nuw i8, ptr %8, i64 4
+128:                                              ; preds = %.thread.i128, %.thread.i128
+  %129 = getelementptr inbounds nuw i8, ptr %8, i64 4
   br label %lv_display_get_horizontal_resolution.exit131
 
-lv_display_get_horizontal_resolution.exit131:     ; preds = %.thread.i128, %127
-  %.05.i130.in = phi ptr [ %128, %127 ], [ %8, %.thread.i128 ]
+lv_display_get_horizontal_resolution.exit131:     ; preds = %.thread.i128, %128
+  %.05.i130.in = phi ptr [ %129, %128 ], [ %8, %.thread.i128 ]
   %.05.i130 = load i32, ptr %.05.i130.in, align 4, !tbaa !78
   call void @lv_anim_set_values(ptr noundef nonnull %7, i32 noundef 0, i32 noundef %.05.i130) #13
-  br label %140
+  br label %141
 
-.thread.i132:                                     ; preds = %52
+.thread.i132:                                     ; preds = %53
   call void @lv_anim_set_exec_cb(ptr noundef nonnull %7, ptr noundef nonnull @set_y_anim) #13
-  %129 = getelementptr inbounds nuw i8, ptr %8, i64 888
-  %130 = load i8, ptr %129, align 8
-  %131 = and i8 %130, 7
-  switch i8 %131, label %132 [
+  %130 = getelementptr inbounds nuw i8, ptr %8, i64 888
+  %131 = load i8, ptr %130, align 8
+  %132 = and i8 %131, 7
+  switch i8 %132, label %133 [
     i8 1, label %lv_display_get_vertical_resolution.exit135
     i8 3, label %lv_display_get_vertical_resolution.exit135
   ]
 
-132:                                              ; preds = %.thread.i132
-  %133 = getelementptr inbounds nuw i8, ptr %8, i64 4
+133:                                              ; preds = %.thread.i132
+  %134 = getelementptr inbounds nuw i8, ptr %8, i64 4
   br label %lv_display_get_vertical_resolution.exit135
 
-lv_display_get_vertical_resolution.exit135:       ; preds = %.thread.i132, %.thread.i132, %132
-  %.05.i134.in = phi ptr [ %133, %132 ], [ %8, %.thread.i132 ], [ %8, %.thread.i132 ]
+lv_display_get_vertical_resolution.exit135:       ; preds = %.thread.i132, %.thread.i132, %133
+  %.05.i134.in = phi ptr [ %134, %133 ], [ %8, %.thread.i132 ], [ %8, %.thread.i132 ]
   %.05.i134 = load i32, ptr %.05.i134.in, align 4, !tbaa !78
-  %134 = sub nsw i32 0, %.05.i134
-  call void @lv_anim_set_values(ptr noundef nonnull %7, i32 noundef 0, i32 noundef %134) #13
-  br label %140
+  %135 = sub nsw i32 0, %.05.i134
+  call void @lv_anim_set_values(ptr noundef nonnull %7, i32 noundef 0, i32 noundef %135) #13
+  br label %141
 
-.thread.i136:                                     ; preds = %52
+.thread.i136:                                     ; preds = %53
   call void @lv_anim_set_exec_cb(ptr noundef nonnull %7, ptr noundef nonnull @set_y_anim) #13
-  %135 = getelementptr inbounds nuw i8, ptr %8, i64 888
-  %136 = load i8, ptr %135, align 8
-  %137 = and i8 %136, 7
-  switch i8 %137, label %138 [
+  %136 = getelementptr inbounds nuw i8, ptr %8, i64 888
+  %137 = load i8, ptr %136, align 8
+  %138 = and i8 %137, 7
+  switch i8 %138, label %139 [
     i8 1, label %lv_display_get_vertical_resolution.exit139
     i8 3, label %lv_display_get_vertical_resolution.exit139
   ]
 
-138:                                              ; preds = %.thread.i136
-  %139 = getelementptr inbounds nuw i8, ptr %8, i64 4
+139:                                              ; preds = %.thread.i136
+  %140 = getelementptr inbounds nuw i8, ptr %8, i64 4
   br label %lv_display_get_vertical_resolution.exit139
 
-lv_display_get_vertical_resolution.exit139:       ; preds = %.thread.i136, %.thread.i136, %138
-  %.05.i138.in = phi ptr [ %139, %138 ], [ %8, %.thread.i136 ], [ %8, %.thread.i136 ]
+lv_display_get_vertical_resolution.exit139:       ; preds = %.thread.i136, %.thread.i136, %139
+  %.05.i138.in = phi ptr [ %140, %139 ], [ %8, %.thread.i136 ], [ %8, %.thread.i136 ]
   %.05.i138 = load i32, ptr %.05.i138.in, align 4, !tbaa !78
   call void @lv_anim_set_values(ptr noundef nonnull %7, i32 noundef 0, i32 noundef %.05.i138) #13
-  br label %140
+  br label %141
 
-140:                                              ; preds = %lv_display_get_vertical_resolution.exit139, %lv_display_get_vertical_resolution.exit135, %lv_display_get_horizontal_resolution.exit131, %lv_display_get_horizontal_resolution.exit127, %117, %116, %lv_display_get_vertical_resolution.exit123, %lv_display_get_vertical_resolution.exit115, %lv_display_get_horizontal_resolution.exit107, %lv_display_get_horizontal_resolution.exit99, %lv_display_get_vertical_resolution.exit91, %lv_display_get_vertical_resolution.exit, %lv_display_get_horizontal_resolution.exit84, %lv_display_get_horizontal_resolution.exit, %53, %52
-  br i1 %42, label %141, label %.critedge80
+141:                                              ; preds = %lv_display_get_vertical_resolution.exit139, %lv_display_get_vertical_resolution.exit135, %lv_display_get_horizontal_resolution.exit131, %lv_display_get_horizontal_resolution.exit127, %118, %117, %lv_display_get_vertical_resolution.exit123, %lv_display_get_vertical_resolution.exit115, %lv_display_get_horizontal_resolution.exit107, %lv_display_get_horizontal_resolution.exit99, %lv_display_get_vertical_resolution.exit91, %lv_display_get_vertical_resolution.exit, %lv_display_get_horizontal_resolution.exit84, %lv_display_get_horizontal_resolution.exit, %54, %53
+  br i1 %43, label %142, label %.critedge80
 
-141:                                              ; preds = %140
-  %142 = call i32 @lv_obj_send_event(ptr noundef nonnull %.0, i32 noundef 45, ptr noundef null) #13
-  %143 = call ptr @lv_anim_start(ptr noundef nonnull %6) #13
+142:                                              ; preds = %141
+  %143 = call i32 @lv_obj_send_event(ptr noundef nonnull %.0, i32 noundef 45, ptr noundef null) #13
+  %144 = call ptr @lv_anim_start(ptr noundef nonnull %6) #13
   br label %.critedge80
 
-.critedge80:                                      ; preds = %140, %141
-  %.sink144 = phi ptr [ %7, %141 ], [ %6, %140 ]
-  %144 = call ptr @lv_anim_start(ptr noundef nonnull %.sink144) #13
+.critedge80:                                      ; preds = %141, %142
+  %.sink144 = phi ptr [ %7, %142 ], [ %6, %141 ]
+  %145 = call ptr @lv_anim_start(ptr noundef nonnull %.sink144) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %145
+  br label %146
 
-145:                                              ; preds = %50, %51, %5, %12, %.critedge80
+146:                                              ; preds = %51, %52, %5, %12, %.critedge80
   ret void
 }
 

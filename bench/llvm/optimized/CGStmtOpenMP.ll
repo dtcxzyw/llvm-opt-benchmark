@@ -18100,8 +18100,8 @@ _ZN5clang7CodeGen15CodeGenFunction12LexicalScopeC2ERS1_NS_11SourceRangeE.exit: ;
   %70 = phi ptr [ %92, %.critedge ], [ %8, %.critedge.preheader ]
   %71 = phi i16 [ %93, %.critedge ], [ %9, %.critedge.preheader ]
   %72 = and i16 %71, 508
-  %switch.selectcmp.i.i.i.i.i.i.i.i.not = icmp eq i16 %72, 188
-  br i1 %switch.selectcmp.i.i.i.i.i.i.i.i.not, label %73, label %75
+  %spec.select.i.i.i.i.i.i.i.i.not = icmp eq i16 %72, 188
+  br i1 %spec.select.i.i.i.i.i.i.i.i.not, label %73, label %75
 
 73:                                               ; preds = %.lr.ph107
   %74 = tail call noundef ptr @_ZNK5clang30OMPLoopTransformationDirective18getTransformedStmtEv(ptr noundef nonnull align 8 dereferenceable(40) %70) #22

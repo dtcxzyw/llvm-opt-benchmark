@@ -12463,555 +12463,555 @@ define noundef ptr @LoadImageColors(ptr noundef readonly byval(%struct.Image) al
   br label %.loopexit
 
 17:                                               ; preds = %8
-  %.off = add i32 %14, -8
-  %switch = icmp ult i32 %.off, 3
-  br i1 %switch, label %.sink.split, label %18
+  %18 = add i32 %14, -8
+  %or.cond8 = icmp ult i32 %18, 3
+  br i1 %or.cond8, label %.sink.split, label %19
 
-18:                                               ; preds = %17
-  %19 = icmp sgt i32 %14, 10
-  br i1 %19, label %.sink.split, label %20
+19:                                               ; preds = %17
+  %20 = icmp sgt i32 %14, 10
+  br i1 %20, label %.sink.split, label %21
 
-.sink.split:                                      ; preds = %18, %17
-  %.str.72.sink = phi ptr [ @.str.72, %17 ], [ @.str.73, %18 ]
+.sink.split:                                      ; preds = %19, %17
+  %.str.72.sink = phi ptr [ @.str.72, %17 ], [ @.str.73, %19 ]
   tail call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull %.str.72.sink) #54
-  br label %20
+  br label %21
 
-20:                                               ; preds = %.sink.split, %18
-  %21 = icmp sgt i32 %9, 0
-  br i1 %21, label %.lr.ph, label %.loopexit
+21:                                               ; preds = %.sink.split, %19
+  %22 = icmp sgt i32 %9, 0
+  br i1 %22, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %20
-  %22 = load ptr, ptr %0, align 8
+.lr.ph:                                           ; preds = %21
+  %23 = load ptr, ptr %0, align 8
   %wide.trip.count = zext nneg i32 %9 to i64
-  br label %23
+  br label %24
 
-23:                                               ; preds = %.lr.ph, %428
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %428 ]
-  %.0175195 = phi i32 [ 0, %.lr.ph ], [ %.1, %428 ]
-  switch i32 %14, label %428 [
-    i32 1, label %24
-    i32 2, label %32
-    i32 5, label %44
-    i32 3, label %61
-    i32 6, label %75
-    i32 7, label %94
-    i32 4, label %109
-    i32 8, label %122
-    i32 9, label %133
-    i32 10, label %152
-    i32 11, label %175
-    i32 12, label %211
-    i32 13, label %305
+24:                                               ; preds = %.lr.ph, %429
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %429 ]
+  %.0175195 = phi i32 [ 0, %.lr.ph ], [ %.1, %429 ]
+  switch i32 %14, label %429 [
+    i32 1, label %25
+    i32 2, label %33
+    i32 5, label %45
+    i32 3, label %62
+    i32 6, label %76
+    i32 7, label %95
+    i32 4, label %110
+    i32 8, label %123
+    i32 9, label %134
+    i32 10, label %153
+    i32 11, label %176
+    i32 12, label %212
+    i32 13, label %306
   ]
 
-24:                                               ; preds = %23
-  %25 = getelementptr inbounds nuw i8, ptr %22, i64 %indvars.iv
-  %26 = load i8, ptr %25, align 1
-  %27 = getelementptr inbounds nuw %struct.Color, ptr %12, i64 %indvars.iv
-  store i8 %26, ptr %27, align 1
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 1
-  store i8 %26, ptr %28, align 1
-  %29 = load i8, ptr %25, align 1
-  %30 = getelementptr inbounds nuw i8, ptr %27, i64 2
-  store i8 %29, ptr %30, align 1
-  %31 = getelementptr inbounds nuw i8, ptr %27, i64 3
-  store i8 -1, ptr %31, align 1
-  br label %428
+25:                                               ; preds = %24
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 %indvars.iv
+  %27 = load i8, ptr %26, align 1
+  %28 = getelementptr inbounds nuw %struct.Color, ptr %12, i64 %indvars.iv
+  store i8 %27, ptr %28, align 1
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 1
+  store i8 %27, ptr %29, align 1
+  %30 = load i8, ptr %26, align 1
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 2
+  store i8 %30, ptr %31, align 1
+  %32 = getelementptr inbounds nuw i8, ptr %28, i64 3
+  store i8 -1, ptr %32, align 1
+  br label %429
 
-32:                                               ; preds = %23
-  %33 = sext i32 %.0175195 to i64
-  %34 = getelementptr inbounds i8, ptr %22, i64 %33
-  %35 = load i8, ptr %34, align 1
-  %36 = getelementptr inbounds nuw %struct.Color, ptr %12, i64 %indvars.iv
-  store i8 %35, ptr %36, align 1
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 1
-  store i8 %35, ptr %37, align 1
-  %38 = load i8, ptr %34, align 1
-  %39 = getelementptr inbounds nuw i8, ptr %36, i64 2
-  store i8 %38, ptr %39, align 1
-  %40 = getelementptr i8, ptr %34, i64 1
-  %41 = load i8, ptr %40, align 1
-  %42 = getelementptr inbounds nuw i8, ptr %36, i64 3
-  store i8 %41, ptr %42, align 1
-  %43 = add nsw i32 %.0175195, 2
-  br label %428
+33:                                               ; preds = %24
+  %34 = sext i32 %.0175195 to i64
+  %35 = getelementptr inbounds i8, ptr %23, i64 %34
+  %36 = load i8, ptr %35, align 1
+  %37 = getelementptr inbounds nuw %struct.Color, ptr %12, i64 %indvars.iv
+  store i8 %36, ptr %37, align 1
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 1
+  store i8 %36, ptr %38, align 1
+  %39 = load i8, ptr %35, align 1
+  %40 = getelementptr inbounds nuw i8, ptr %37, i64 2
+  store i8 %39, ptr %40, align 1
+  %41 = getelementptr i8, ptr %35, i64 1
+  %42 = load i8, ptr %41, align 1
+  %43 = getelementptr inbounds nuw i8, ptr %37, i64 3
+  store i8 %42, ptr %43, align 1
+  %44 = add nsw i32 %.0175195, 2
+  br label %429
 
-44:                                               ; preds = %23
-  %45 = getelementptr inbounds nuw i16, ptr %22, i64 %indvars.iv
-  %46 = load i16, ptr %45, align 2
-  %47 = lshr i16 %46, 8
-  %48 = trunc nuw i16 %47 to i8
-  %49 = and i8 %48, -8
-  %50 = getelementptr inbounds nuw %struct.Color, ptr %12, i64 %indvars.iv
-  store i8 %49, ptr %50, align 1
-  %51 = lshr i16 %46, 3
-  %52 = trunc i16 %51 to i8
-  %53 = and i8 %52, -8
-  %54 = getelementptr inbounds nuw i8, ptr %50, i64 1
-  store i8 %53, ptr %54, align 1
-  %.tr179 = trunc i16 %46 to i8
-  %55 = shl i8 %.tr179, 2
-  %56 = and i8 %55, -8
-  %57 = getelementptr inbounds nuw i8, ptr %50, i64 2
-  store i8 %56, ptr %57, align 1
-  %58 = and i8 %.tr179, 1
-  %59 = sub nsw i8 0, %58
-  %60 = getelementptr inbounds nuw i8, ptr %50, i64 3
-  store i8 %59, ptr %60, align 1
-  br label %428
+45:                                               ; preds = %24
+  %46 = getelementptr inbounds nuw i16, ptr %23, i64 %indvars.iv
+  %47 = load i16, ptr %46, align 2
+  %48 = lshr i16 %47, 8
+  %49 = trunc nuw i16 %48 to i8
+  %50 = and i8 %49, -8
+  %51 = getelementptr inbounds nuw %struct.Color, ptr %12, i64 %indvars.iv
+  store i8 %50, ptr %51, align 1
+  %52 = lshr i16 %47, 3
+  %53 = trunc i16 %52 to i8
+  %54 = and i8 %53, -8
+  %55 = getelementptr inbounds nuw i8, ptr %51, i64 1
+  store i8 %54, ptr %55, align 1
+  %.tr179 = trunc i16 %47 to i8
+  %56 = shl i8 %.tr179, 2
+  %57 = and i8 %56, -8
+  %58 = getelementptr inbounds nuw i8, ptr %51, i64 2
+  store i8 %57, ptr %58, align 1
+  %59 = and i8 %.tr179, 1
+  %60 = sub nsw i8 0, %59
+  %61 = getelementptr inbounds nuw i8, ptr %51, i64 3
+  store i8 %60, ptr %61, align 1
+  br label %429
 
-61:                                               ; preds = %23
-  %62 = getelementptr inbounds nuw i16, ptr %22, i64 %indvars.iv
-  %63 = load i16, ptr %62, align 2
-  %64 = lshr i16 %63, 8
-  %65 = trunc nuw i16 %64 to i8
-  %66 = and i8 %65, -8
-  %67 = getelementptr inbounds nuw %struct.Color, ptr %12, i64 %indvars.iv
-  store i8 %66, ptr %67, align 1
-  %68 = lshr i16 %63, 3
-  %69 = trunc i16 %68 to i8
-  %70 = and i8 %69, -4
-  %71 = getelementptr inbounds nuw i8, ptr %67, i64 1
-  store i8 %70, ptr %71, align 1
-  %.tr = trunc i16 %63 to i8
-  %72 = shl i8 %.tr, 3
-  %73 = getelementptr inbounds nuw i8, ptr %67, i64 2
-  store i8 %72, ptr %73, align 1
-  %74 = getelementptr inbounds nuw i8, ptr %67, i64 3
-  store i8 -1, ptr %74, align 1
-  br label %428
+62:                                               ; preds = %24
+  %63 = getelementptr inbounds nuw i16, ptr %23, i64 %indvars.iv
+  %64 = load i16, ptr %63, align 2
+  %65 = lshr i16 %64, 8
+  %66 = trunc nuw i16 %65 to i8
+  %67 = and i8 %66, -8
+  %68 = getelementptr inbounds nuw %struct.Color, ptr %12, i64 %indvars.iv
+  store i8 %67, ptr %68, align 1
+  %69 = lshr i16 %64, 3
+  %70 = trunc i16 %69 to i8
+  %71 = and i8 %70, -4
+  %72 = getelementptr inbounds nuw i8, ptr %68, i64 1
+  store i8 %71, ptr %72, align 1
+  %.tr = trunc i16 %64 to i8
+  %73 = shl i8 %.tr, 3
+  %74 = getelementptr inbounds nuw i8, ptr %68, i64 2
+  store i8 %73, ptr %74, align 1
+  %75 = getelementptr inbounds nuw i8, ptr %68, i64 3
+  store i8 -1, ptr %75, align 1
+  br label %429
 
-75:                                               ; preds = %23
-  %76 = getelementptr inbounds nuw i16, ptr %22, i64 %indvars.iv
-  %77 = load i16, ptr %76, align 2
-  %78 = lshr i16 %77, 12
-  %79 = trunc nuw nsw i16 %78 to i8
-  %80 = mul nuw i8 %79, 17
-  %81 = getelementptr inbounds nuw %struct.Color, ptr %12, i64 %indvars.iv
-  store i8 %80, ptr %81, align 1
-  %82 = lshr i16 %77, 8
-  %83 = trunc nuw i16 %82 to i8
-  %84 = and i8 %83, 15
-  %85 = mul nuw i8 %84, 17
-  %86 = getelementptr inbounds nuw i8, ptr %81, i64 1
-  store i8 %85, ptr %86, align 1
-  %87 = trunc i16 %77 to i8
-  %88 = lshr i8 %87, 4
-  %89 = mul nuw i8 %88, 17
-  %90 = getelementptr inbounds nuw i8, ptr %81, i64 2
-  store i8 %89, ptr %90, align 1
-  %91 = and i8 %87, 15
-  %92 = mul nuw i8 %91, 17
-  %93 = getelementptr inbounds nuw i8, ptr %81, i64 3
-  store i8 %92, ptr %93, align 1
-  br label %428
+76:                                               ; preds = %24
+  %77 = getelementptr inbounds nuw i16, ptr %23, i64 %indvars.iv
+  %78 = load i16, ptr %77, align 2
+  %79 = lshr i16 %78, 12
+  %80 = trunc nuw nsw i16 %79 to i8
+  %81 = mul nuw i8 %80, 17
+  %82 = getelementptr inbounds nuw %struct.Color, ptr %12, i64 %indvars.iv
+  store i8 %81, ptr %82, align 1
+  %83 = lshr i16 %78, 8
+  %84 = trunc nuw i16 %83 to i8
+  %85 = and i8 %84, 15
+  %86 = mul nuw i8 %85, 17
+  %87 = getelementptr inbounds nuw i8, ptr %82, i64 1
+  store i8 %86, ptr %87, align 1
+  %88 = trunc i16 %78 to i8
+  %89 = lshr i8 %88, 4
+  %90 = mul nuw i8 %89, 17
+  %91 = getelementptr inbounds nuw i8, ptr %82, i64 2
+  store i8 %90, ptr %91, align 1
+  %92 = and i8 %88, 15
+  %93 = mul nuw i8 %92, 17
+  %94 = getelementptr inbounds nuw i8, ptr %82, i64 3
+  store i8 %93, ptr %94, align 1
+  br label %429
 
-94:                                               ; preds = %23
-  %95 = sext i32 %.0175195 to i64
-  %96 = getelementptr inbounds i8, ptr %22, i64 %95
-  %97 = load i8, ptr %96, align 1
-  %98 = getelementptr inbounds nuw %struct.Color, ptr %12, i64 %indvars.iv
-  store i8 %97, ptr %98, align 1
-  %99 = getelementptr i8, ptr %96, i64 1
-  %100 = load i8, ptr %99, align 1
-  %101 = getelementptr inbounds nuw i8, ptr %98, i64 1
-  store i8 %100, ptr %101, align 1
-  %102 = getelementptr i8, ptr %96, i64 2
-  %103 = load i8, ptr %102, align 1
-  %104 = getelementptr inbounds nuw i8, ptr %98, i64 2
-  store i8 %103, ptr %104, align 1
-  %105 = getelementptr i8, ptr %96, i64 3
-  %106 = load i8, ptr %105, align 1
-  %107 = getelementptr inbounds nuw i8, ptr %98, i64 3
-  store i8 %106, ptr %107, align 1
-  %108 = add nsw i32 %.0175195, 4
-  br label %428
+95:                                               ; preds = %24
+  %96 = sext i32 %.0175195 to i64
+  %97 = getelementptr inbounds i8, ptr %23, i64 %96
+  %98 = load i8, ptr %97, align 1
+  %99 = getelementptr inbounds nuw %struct.Color, ptr %12, i64 %indvars.iv
+  store i8 %98, ptr %99, align 1
+  %100 = getelementptr i8, ptr %97, i64 1
+  %101 = load i8, ptr %100, align 1
+  %102 = getelementptr inbounds nuw i8, ptr %99, i64 1
+  store i8 %101, ptr %102, align 1
+  %103 = getelementptr i8, ptr %97, i64 2
+  %104 = load i8, ptr %103, align 1
+  %105 = getelementptr inbounds nuw i8, ptr %99, i64 2
+  store i8 %104, ptr %105, align 1
+  %106 = getelementptr i8, ptr %97, i64 3
+  %107 = load i8, ptr %106, align 1
+  %108 = getelementptr inbounds nuw i8, ptr %99, i64 3
+  store i8 %107, ptr %108, align 1
+  %109 = add nsw i32 %.0175195, 4
+  br label %429
 
-109:                                              ; preds = %23
-  %110 = sext i32 %.0175195 to i64
-  %111 = getelementptr inbounds i8, ptr %22, i64 %110
-  %112 = load i8, ptr %111, align 1
-  %113 = getelementptr inbounds nuw %struct.Color, ptr %12, i64 %indvars.iv
-  store i8 %112, ptr %113, align 1
-  %114 = getelementptr i8, ptr %111, i64 1
-  %115 = load i8, ptr %114, align 1
-  %116 = getelementptr inbounds nuw i8, ptr %113, i64 1
-  store i8 %115, ptr %116, align 1
-  %117 = getelementptr i8, ptr %111, i64 2
-  %118 = load i8, ptr %117, align 1
-  %119 = getelementptr inbounds nuw i8, ptr %113, i64 2
-  store i8 %118, ptr %119, align 1
-  %120 = getelementptr inbounds nuw i8, ptr %113, i64 3
-  store i8 -1, ptr %120, align 1
-  %121 = add nsw i32 %.0175195, 3
-  br label %428
+110:                                              ; preds = %24
+  %111 = sext i32 %.0175195 to i64
+  %112 = getelementptr inbounds i8, ptr %23, i64 %111
+  %113 = load i8, ptr %112, align 1
+  %114 = getelementptr inbounds nuw %struct.Color, ptr %12, i64 %indvars.iv
+  store i8 %113, ptr %114, align 1
+  %115 = getelementptr i8, ptr %112, i64 1
+  %116 = load i8, ptr %115, align 1
+  %117 = getelementptr inbounds nuw i8, ptr %114, i64 1
+  store i8 %116, ptr %117, align 1
+  %118 = getelementptr i8, ptr %112, i64 2
+  %119 = load i8, ptr %118, align 1
+  %120 = getelementptr inbounds nuw i8, ptr %114, i64 2
+  store i8 %119, ptr %120, align 1
+  %121 = getelementptr inbounds nuw i8, ptr %114, i64 3
+  store i8 -1, ptr %121, align 1
+  %122 = add nsw i32 %.0175195, 3
+  br label %429
 
-122:                                              ; preds = %23
-  %123 = sext i32 %.0175195 to i64
-  %124 = getelementptr inbounds float, ptr %22, i64 %123
-  %125 = load float, ptr %124, align 4
-  %126 = fmul float %125, 2.550000e+02
-  %127 = fptoui float %126 to i8
-  %128 = getelementptr inbounds nuw %struct.Color, ptr %12, i64 %indvars.iv
-  store i8 %127, ptr %128, align 1
-  %129 = getelementptr inbounds nuw i8, ptr %128, i64 1
-  store i8 0, ptr %129, align 1
-  %130 = getelementptr inbounds nuw i8, ptr %128, i64 2
+123:                                              ; preds = %24
+  %124 = sext i32 %.0175195 to i64
+  %125 = getelementptr inbounds float, ptr %23, i64 %124
+  %126 = load float, ptr %125, align 4
+  %127 = fmul float %126, 2.550000e+02
+  %128 = fptoui float %127 to i8
+  %129 = getelementptr inbounds nuw %struct.Color, ptr %12, i64 %indvars.iv
+  store i8 %128, ptr %129, align 1
+  %130 = getelementptr inbounds nuw i8, ptr %129, i64 1
   store i8 0, ptr %130, align 1
-  %131 = getelementptr inbounds nuw i8, ptr %128, i64 3
-  store i8 -1, ptr %131, align 1
-  %132 = add nsw i32 %.0175195, 1
-  br label %428
+  %131 = getelementptr inbounds nuw i8, ptr %129, i64 2
+  store i8 0, ptr %131, align 1
+  %132 = getelementptr inbounds nuw i8, ptr %129, i64 3
+  store i8 -1, ptr %132, align 1
+  %133 = add nsw i32 %.0175195, 1
+  br label %429
 
-133:                                              ; preds = %23
-  %134 = sext i32 %.0175195 to i64
-  %135 = getelementptr inbounds float, ptr %22, i64 %134
-  %136 = load float, ptr %135, align 4
-  %137 = fmul float %136, 2.550000e+02
-  %138 = fptoui float %137 to i8
-  %139 = getelementptr inbounds nuw %struct.Color, ptr %12, i64 %indvars.iv
-  store i8 %138, ptr %139, align 1
-  %140 = getelementptr i8, ptr %135, i64 4
-  %141 = load float, ptr %140, align 4
-  %142 = fmul float %141, 2.550000e+02
-  %143 = fptoui float %142 to i8
-  %144 = getelementptr inbounds nuw i8, ptr %139, i64 1
-  store i8 %143, ptr %144, align 1
-  %145 = getelementptr i8, ptr %135, i64 8
-  %146 = load float, ptr %145, align 4
-  %147 = fmul float %146, 2.550000e+02
-  %148 = fptoui float %147 to i8
-  %149 = getelementptr inbounds nuw i8, ptr %139, i64 2
-  store i8 %148, ptr %149, align 1
-  %150 = getelementptr inbounds nuw i8, ptr %139, i64 3
-  store i8 -1, ptr %150, align 1
-  %151 = add nsw i32 %.0175195, 3
-  br label %428
+134:                                              ; preds = %24
+  %135 = sext i32 %.0175195 to i64
+  %136 = getelementptr inbounds float, ptr %23, i64 %135
+  %137 = load float, ptr %136, align 4
+  %138 = fmul float %137, 2.550000e+02
+  %139 = fptoui float %138 to i8
+  %140 = getelementptr inbounds nuw %struct.Color, ptr %12, i64 %indvars.iv
+  store i8 %139, ptr %140, align 1
+  %141 = getelementptr i8, ptr %136, i64 4
+  %142 = load float, ptr %141, align 4
+  %143 = fmul float %142, 2.550000e+02
+  %144 = fptoui float %143 to i8
+  %145 = getelementptr inbounds nuw i8, ptr %140, i64 1
+  store i8 %144, ptr %145, align 1
+  %146 = getelementptr i8, ptr %136, i64 8
+  %147 = load float, ptr %146, align 4
+  %148 = fmul float %147, 2.550000e+02
+  %149 = fptoui float %148 to i8
+  %150 = getelementptr inbounds nuw i8, ptr %140, i64 2
+  store i8 %149, ptr %150, align 1
+  %151 = getelementptr inbounds nuw i8, ptr %140, i64 3
+  store i8 -1, ptr %151, align 1
+  %152 = add nsw i32 %.0175195, 3
+  br label %429
 
-152:                                              ; preds = %23
-  %153 = sext i32 %.0175195 to i64
-  %154 = getelementptr inbounds float, ptr %22, i64 %153
-  %155 = load float, ptr %154, align 4
-  %156 = fmul float %155, 2.550000e+02
-  %157 = fptoui float %156 to i8
-  %158 = getelementptr inbounds nuw %struct.Color, ptr %12, i64 %indvars.iv
-  store i8 %157, ptr %158, align 1
-  %159 = getelementptr i8, ptr %154, i64 4
-  %160 = load float, ptr %159, align 4
-  %161 = fmul float %160, 2.550000e+02
-  %162 = fptoui float %161 to i8
-  %163 = getelementptr inbounds nuw i8, ptr %158, i64 1
-  store i8 %162, ptr %163, align 1
-  %164 = getelementptr i8, ptr %154, i64 8
-  %165 = load float, ptr %164, align 4
-  %166 = fmul float %165, 2.550000e+02
-  %167 = fptoui float %166 to i8
-  %168 = getelementptr inbounds nuw i8, ptr %158, i64 2
-  store i8 %167, ptr %168, align 1
-  %169 = getelementptr i8, ptr %154, i64 12
-  %170 = load float, ptr %169, align 4
-  %171 = fmul float %170, 2.550000e+02
-  %172 = fptoui float %171 to i8
-  %173 = getelementptr inbounds nuw i8, ptr %158, i64 3
-  store i8 %172, ptr %173, align 1
-  %174 = add nsw i32 %.0175195, 4
-  br label %428
+153:                                              ; preds = %24
+  %154 = sext i32 %.0175195 to i64
+  %155 = getelementptr inbounds float, ptr %23, i64 %154
+  %156 = load float, ptr %155, align 4
+  %157 = fmul float %156, 2.550000e+02
+  %158 = fptoui float %157 to i8
+  %159 = getelementptr inbounds nuw %struct.Color, ptr %12, i64 %indvars.iv
+  store i8 %158, ptr %159, align 1
+  %160 = getelementptr i8, ptr %155, i64 4
+  %161 = load float, ptr %160, align 4
+  %162 = fmul float %161, 2.550000e+02
+  %163 = fptoui float %162 to i8
+  %164 = getelementptr inbounds nuw i8, ptr %159, i64 1
+  store i8 %163, ptr %164, align 1
+  %165 = getelementptr i8, ptr %155, i64 8
+  %166 = load float, ptr %165, align 4
+  %167 = fmul float %166, 2.550000e+02
+  %168 = fptoui float %167 to i8
+  %169 = getelementptr inbounds nuw i8, ptr %159, i64 2
+  store i8 %168, ptr %169, align 1
+  %170 = getelementptr i8, ptr %155, i64 12
+  %171 = load float, ptr %170, align 4
+  %172 = fmul float %171, 2.550000e+02
+  %173 = fptoui float %172 to i8
+  %174 = getelementptr inbounds nuw i8, ptr %159, i64 3
+  store i8 %173, ptr %174, align 1
+  %175 = add nsw i32 %.0175195, 4
+  br label %429
 
-175:                                              ; preds = %23
-  %176 = sext i32 %.0175195 to i64
-  %177 = getelementptr inbounds i16, ptr %22, i64 %176
-  %178 = load i16, ptr %177, align 2
-  %179 = zext i16 %178 to i32
-  %180 = lshr i32 %179, 10
-  %181 = and i32 %180, 31
-  %182 = shl nuw nsw i32 %179, 13
-  %183 = and i32 %182, 8380416
-  %184 = uitofp nneg i32 %183 to float
-  %185 = bitcast float %184 to i32
-  %186 = lshr i32 %185, 23
-  %.signext.i = sext i16 %178 to i32
-  %187 = and i32 %.signext.i, -2147483648
-  %.not.i = icmp eq i32 %181, 0
-  %188 = shl nuw nsw i32 %181, 23
-  %189 = add nuw nsw i32 %188, 939524096
-  %190 = or disjoint i32 %189, %183
-  %191 = select i1 %.not.i, i32 0, i32 %190
-  %192 = or disjoint i32 %191, %187
-  %193 = icmp ne i32 %183, 0
-  %194 = and i1 %.not.i, %193
-  %195 = and i32 %185, 2139095040
-  %196 = add nsw i32 %195, -310378496
-  %197 = sub nsw i32 150, %186
-  %198 = shl i32 %182, %197
-  %199 = and i32 %198, 8380416
-  %200 = or disjoint i32 %199, %196
-  %201 = select i1 %194, i32 %200, i32 0
-  %202 = or i32 %192, %201
-  %203 = bitcast i32 %202 to float
-  %204 = fmul float %203, 2.550000e+02
-  %205 = fptoui float %204 to i8
-  %206 = getelementptr inbounds nuw %struct.Color, ptr %12, i64 %indvars.iv
-  store i8 %205, ptr %206, align 1
-  %207 = getelementptr inbounds nuw i8, ptr %206, i64 1
-  store i8 0, ptr %207, align 1
-  %208 = getelementptr inbounds nuw i8, ptr %206, i64 2
+176:                                              ; preds = %24
+  %177 = sext i32 %.0175195 to i64
+  %178 = getelementptr inbounds i16, ptr %23, i64 %177
+  %179 = load i16, ptr %178, align 2
+  %180 = zext i16 %179 to i32
+  %181 = lshr i32 %180, 10
+  %182 = and i32 %181, 31
+  %183 = shl nuw nsw i32 %180, 13
+  %184 = and i32 %183, 8380416
+  %185 = uitofp nneg i32 %184 to float
+  %186 = bitcast float %185 to i32
+  %187 = lshr i32 %186, 23
+  %.signext.i = sext i16 %179 to i32
+  %188 = and i32 %.signext.i, -2147483648
+  %.not.i = icmp eq i32 %182, 0
+  %189 = shl nuw nsw i32 %182, 23
+  %190 = add nuw nsw i32 %189, 939524096
+  %191 = or disjoint i32 %190, %184
+  %192 = select i1 %.not.i, i32 0, i32 %191
+  %193 = or disjoint i32 %192, %188
+  %194 = icmp ne i32 %184, 0
+  %195 = and i1 %.not.i, %194
+  %196 = and i32 %186, 2139095040
+  %197 = add nsw i32 %196, -310378496
+  %198 = sub nsw i32 150, %187
+  %199 = shl i32 %183, %198
+  %200 = and i32 %199, 8380416
+  %201 = or disjoint i32 %200, %197
+  %202 = select i1 %195, i32 %201, i32 0
+  %203 = or i32 %193, %202
+  %204 = bitcast i32 %203 to float
+  %205 = fmul float %204, 2.550000e+02
+  %206 = fptoui float %205 to i8
+  %207 = getelementptr inbounds nuw %struct.Color, ptr %12, i64 %indvars.iv
+  store i8 %206, ptr %207, align 1
+  %208 = getelementptr inbounds nuw i8, ptr %207, i64 1
   store i8 0, ptr %208, align 1
-  %209 = getelementptr inbounds nuw i8, ptr %206, i64 3
-  store i8 -1, ptr %209, align 1
-  %210 = add nsw i32 %.0175195, 1
-  br label %428
+  %209 = getelementptr inbounds nuw i8, ptr %207, i64 2
+  store i8 0, ptr %209, align 1
+  %210 = getelementptr inbounds nuw i8, ptr %207, i64 3
+  store i8 -1, ptr %210, align 1
+  %211 = add nsw i32 %.0175195, 1
+  br label %429
 
-211:                                              ; preds = %23
-  %212 = sext i32 %.0175195 to i64
-  %213 = getelementptr inbounds i16, ptr %22, i64 %212
-  %214 = load i16, ptr %213, align 2
-  %215 = zext i16 %214 to i32
-  %216 = lshr i32 %215, 10
-  %217 = and i32 %216, 31
-  %218 = shl nuw nsw i32 %215, 13
-  %219 = and i32 %218, 8380416
-  %220 = uitofp nneg i32 %219 to float
-  %221 = bitcast float %220 to i32
-  %222 = lshr i32 %221, 23
-  %.signext.i180 = sext i16 %214 to i32
-  %223 = and i32 %.signext.i180, -2147483648
-  %.not.i181 = icmp eq i32 %217, 0
-  %224 = shl nuw nsw i32 %217, 23
-  %225 = add nuw nsw i32 %224, 939524096
-  %226 = or disjoint i32 %225, %219
-  %227 = select i1 %.not.i181, i32 0, i32 %226
-  %228 = or disjoint i32 %227, %223
-  %229 = icmp ne i32 %219, 0
-  %230 = and i1 %.not.i181, %229
-  %231 = and i32 %221, 2139095040
-  %232 = add nsw i32 %231, -310378496
-  %233 = sub nsw i32 150, %222
-  %234 = shl i32 %218, %233
-  %235 = and i32 %234, 8380416
-  %236 = or disjoint i32 %235, %232
-  %237 = select i1 %230, i32 %236, i32 0
-  %238 = or i32 %228, %237
-  %239 = bitcast i32 %238 to float
-  %240 = fmul float %239, 2.550000e+02
-  %241 = fptoui float %240 to i8
-  %242 = getelementptr inbounds nuw %struct.Color, ptr %12, i64 %indvars.iv
-  store i8 %241, ptr %242, align 1
-  %243 = getelementptr i8, ptr %213, i64 2
-  %244 = load i16, ptr %243, align 2
-  %245 = zext i16 %244 to i32
-  %246 = lshr i32 %245, 10
-  %247 = and i32 %246, 31
-  %248 = shl nuw nsw i32 %245, 13
-  %249 = and i32 %248, 8380416
-  %250 = uitofp nneg i32 %249 to float
-  %251 = bitcast float %250 to i32
-  %252 = lshr i32 %251, 23
-  %.signext.i182 = sext i16 %244 to i32
-  %253 = and i32 %.signext.i182, -2147483648
-  %.not.i183 = icmp eq i32 %247, 0
-  %254 = shl nuw nsw i32 %247, 23
-  %255 = add nuw nsw i32 %254, 939524096
-  %256 = or disjoint i32 %255, %249
-  %257 = select i1 %.not.i183, i32 0, i32 %256
-  %258 = or disjoint i32 %257, %253
-  %259 = icmp ne i32 %249, 0
-  %260 = and i1 %.not.i183, %259
-  %261 = and i32 %251, 2139095040
-  %262 = add nsw i32 %261, -310378496
-  %263 = sub nsw i32 150, %252
-  %264 = shl i32 %248, %263
-  %265 = and i32 %264, 8380416
-  %266 = or disjoint i32 %265, %262
-  %267 = select i1 %260, i32 %266, i32 0
-  %268 = or i32 %258, %267
-  %269 = bitcast i32 %268 to float
-  %270 = fmul float %269, 2.550000e+02
-  %271 = fptoui float %270 to i8
-  %272 = getelementptr inbounds nuw i8, ptr %242, i64 1
-  store i8 %271, ptr %272, align 1
-  %273 = getelementptr i8, ptr %213, i64 4
-  %274 = load i16, ptr %273, align 2
-  %275 = zext i16 %274 to i32
-  %276 = lshr i32 %275, 10
-  %277 = and i32 %276, 31
-  %278 = shl nuw nsw i32 %275, 13
-  %279 = and i32 %278, 8380416
-  %280 = uitofp nneg i32 %279 to float
-  %281 = bitcast float %280 to i32
-  %282 = lshr i32 %281, 23
-  %.signext.i184 = sext i16 %274 to i32
-  %283 = and i32 %.signext.i184, -2147483648
-  %.not.i185 = icmp eq i32 %277, 0
-  %284 = shl nuw nsw i32 %277, 23
-  %285 = add nuw nsw i32 %284, 939524096
-  %286 = or disjoint i32 %285, %279
-  %287 = select i1 %.not.i185, i32 0, i32 %286
-  %288 = or disjoint i32 %287, %283
-  %289 = icmp ne i32 %279, 0
-  %290 = and i1 %.not.i185, %289
-  %291 = and i32 %281, 2139095040
-  %292 = add nsw i32 %291, -310378496
-  %293 = sub nsw i32 150, %282
-  %294 = shl i32 %278, %293
-  %295 = and i32 %294, 8380416
-  %296 = or disjoint i32 %295, %292
-  %297 = select i1 %290, i32 %296, i32 0
-  %298 = or i32 %288, %297
-  %299 = bitcast i32 %298 to float
-  %300 = fmul float %299, 2.550000e+02
-  %301 = fptoui float %300 to i8
-  %302 = getelementptr inbounds nuw i8, ptr %242, i64 2
-  store i8 %301, ptr %302, align 1
-  %303 = getelementptr inbounds nuw i8, ptr %242, i64 3
-  store i8 -1, ptr %303, align 1
-  %304 = add nsw i32 %.0175195, 3
-  br label %428
+212:                                              ; preds = %24
+  %213 = sext i32 %.0175195 to i64
+  %214 = getelementptr inbounds i16, ptr %23, i64 %213
+  %215 = load i16, ptr %214, align 2
+  %216 = zext i16 %215 to i32
+  %217 = lshr i32 %216, 10
+  %218 = and i32 %217, 31
+  %219 = shl nuw nsw i32 %216, 13
+  %220 = and i32 %219, 8380416
+  %221 = uitofp nneg i32 %220 to float
+  %222 = bitcast float %221 to i32
+  %223 = lshr i32 %222, 23
+  %.signext.i180 = sext i16 %215 to i32
+  %224 = and i32 %.signext.i180, -2147483648
+  %.not.i181 = icmp eq i32 %218, 0
+  %225 = shl nuw nsw i32 %218, 23
+  %226 = add nuw nsw i32 %225, 939524096
+  %227 = or disjoint i32 %226, %220
+  %228 = select i1 %.not.i181, i32 0, i32 %227
+  %229 = or disjoint i32 %228, %224
+  %230 = icmp ne i32 %220, 0
+  %231 = and i1 %.not.i181, %230
+  %232 = and i32 %222, 2139095040
+  %233 = add nsw i32 %232, -310378496
+  %234 = sub nsw i32 150, %223
+  %235 = shl i32 %219, %234
+  %236 = and i32 %235, 8380416
+  %237 = or disjoint i32 %236, %233
+  %238 = select i1 %231, i32 %237, i32 0
+  %239 = or i32 %229, %238
+  %240 = bitcast i32 %239 to float
+  %241 = fmul float %240, 2.550000e+02
+  %242 = fptoui float %241 to i8
+  %243 = getelementptr inbounds nuw %struct.Color, ptr %12, i64 %indvars.iv
+  store i8 %242, ptr %243, align 1
+  %244 = getelementptr i8, ptr %214, i64 2
+  %245 = load i16, ptr %244, align 2
+  %246 = zext i16 %245 to i32
+  %247 = lshr i32 %246, 10
+  %248 = and i32 %247, 31
+  %249 = shl nuw nsw i32 %246, 13
+  %250 = and i32 %249, 8380416
+  %251 = uitofp nneg i32 %250 to float
+  %252 = bitcast float %251 to i32
+  %253 = lshr i32 %252, 23
+  %.signext.i182 = sext i16 %245 to i32
+  %254 = and i32 %.signext.i182, -2147483648
+  %.not.i183 = icmp eq i32 %248, 0
+  %255 = shl nuw nsw i32 %248, 23
+  %256 = add nuw nsw i32 %255, 939524096
+  %257 = or disjoint i32 %256, %250
+  %258 = select i1 %.not.i183, i32 0, i32 %257
+  %259 = or disjoint i32 %258, %254
+  %260 = icmp ne i32 %250, 0
+  %261 = and i1 %.not.i183, %260
+  %262 = and i32 %252, 2139095040
+  %263 = add nsw i32 %262, -310378496
+  %264 = sub nsw i32 150, %253
+  %265 = shl i32 %249, %264
+  %266 = and i32 %265, 8380416
+  %267 = or disjoint i32 %266, %263
+  %268 = select i1 %261, i32 %267, i32 0
+  %269 = or i32 %259, %268
+  %270 = bitcast i32 %269 to float
+  %271 = fmul float %270, 2.550000e+02
+  %272 = fptoui float %271 to i8
+  %273 = getelementptr inbounds nuw i8, ptr %243, i64 1
+  store i8 %272, ptr %273, align 1
+  %274 = getelementptr i8, ptr %214, i64 4
+  %275 = load i16, ptr %274, align 2
+  %276 = zext i16 %275 to i32
+  %277 = lshr i32 %276, 10
+  %278 = and i32 %277, 31
+  %279 = shl nuw nsw i32 %276, 13
+  %280 = and i32 %279, 8380416
+  %281 = uitofp nneg i32 %280 to float
+  %282 = bitcast float %281 to i32
+  %283 = lshr i32 %282, 23
+  %.signext.i184 = sext i16 %275 to i32
+  %284 = and i32 %.signext.i184, -2147483648
+  %.not.i185 = icmp eq i32 %278, 0
+  %285 = shl nuw nsw i32 %278, 23
+  %286 = add nuw nsw i32 %285, 939524096
+  %287 = or disjoint i32 %286, %280
+  %288 = select i1 %.not.i185, i32 0, i32 %287
+  %289 = or disjoint i32 %288, %284
+  %290 = icmp ne i32 %280, 0
+  %291 = and i1 %.not.i185, %290
+  %292 = and i32 %282, 2139095040
+  %293 = add nsw i32 %292, -310378496
+  %294 = sub nsw i32 150, %283
+  %295 = shl i32 %279, %294
+  %296 = and i32 %295, 8380416
+  %297 = or disjoint i32 %296, %293
+  %298 = select i1 %291, i32 %297, i32 0
+  %299 = or i32 %289, %298
+  %300 = bitcast i32 %299 to float
+  %301 = fmul float %300, 2.550000e+02
+  %302 = fptoui float %301 to i8
+  %303 = getelementptr inbounds nuw i8, ptr %243, i64 2
+  store i8 %302, ptr %303, align 1
+  %304 = getelementptr inbounds nuw i8, ptr %243, i64 3
+  store i8 -1, ptr %304, align 1
+  %305 = add nsw i32 %.0175195, 3
+  br label %429
 
-305:                                              ; preds = %23
-  %306 = sext i32 %.0175195 to i64
-  %307 = getelementptr inbounds i16, ptr %22, i64 %306
-  %308 = load i16, ptr %307, align 2
-  %309 = zext i16 %308 to i32
-  %310 = lshr i32 %309, 10
-  %311 = and i32 %310, 31
-  %312 = shl nuw nsw i32 %309, 13
-  %313 = and i32 %312, 8380416
-  %314 = uitofp nneg i32 %313 to float
-  %315 = bitcast float %314 to i32
-  %316 = lshr i32 %315, 23
-  %.signext.i186 = sext i16 %308 to i32
-  %317 = and i32 %.signext.i186, -2147483648
-  %.not.i187 = icmp eq i32 %311, 0
-  %318 = shl nuw nsw i32 %311, 23
-  %319 = add nuw nsw i32 %318, 939524096
-  %320 = or disjoint i32 %319, %313
-  %321 = select i1 %.not.i187, i32 0, i32 %320
-  %322 = or disjoint i32 %321, %317
-  %323 = icmp ne i32 %313, 0
-  %324 = and i1 %.not.i187, %323
-  %325 = and i32 %315, 2139095040
-  %326 = add nsw i32 %325, -310378496
-  %327 = sub nsw i32 150, %316
-  %328 = shl i32 %312, %327
-  %329 = and i32 %328, 8380416
-  %330 = or disjoint i32 %329, %326
-  %331 = select i1 %324, i32 %330, i32 0
-  %332 = or i32 %322, %331
-  %333 = bitcast i32 %332 to float
-  %334 = fmul float %333, 2.550000e+02
-  %335 = fptoui float %334 to i8
-  %336 = getelementptr inbounds nuw %struct.Color, ptr %12, i64 %indvars.iv
-  store i8 %335, ptr %336, align 1
-  %337 = getelementptr i8, ptr %307, i64 2
-  %338 = load i16, ptr %337, align 2
-  %339 = zext i16 %338 to i32
-  %340 = lshr i32 %339, 10
-  %341 = and i32 %340, 31
-  %342 = shl nuw nsw i32 %339, 13
-  %343 = and i32 %342, 8380416
-  %344 = uitofp nneg i32 %343 to float
-  %345 = bitcast float %344 to i32
-  %346 = lshr i32 %345, 23
-  %.signext.i188 = sext i16 %338 to i32
-  %347 = and i32 %.signext.i188, -2147483648
-  %.not.i189 = icmp eq i32 %341, 0
-  %348 = shl nuw nsw i32 %341, 23
-  %349 = add nuw nsw i32 %348, 939524096
-  %350 = or disjoint i32 %349, %343
-  %351 = select i1 %.not.i189, i32 0, i32 %350
-  %352 = or disjoint i32 %351, %347
-  %353 = icmp ne i32 %343, 0
-  %354 = and i1 %.not.i189, %353
-  %355 = and i32 %345, 2139095040
-  %356 = add nsw i32 %355, -310378496
-  %357 = sub nsw i32 150, %346
-  %358 = shl i32 %342, %357
-  %359 = and i32 %358, 8380416
-  %360 = or disjoint i32 %359, %356
-  %361 = select i1 %354, i32 %360, i32 0
-  %362 = or i32 %352, %361
-  %363 = bitcast i32 %362 to float
-  %364 = fmul float %363, 2.550000e+02
-  %365 = fptoui float %364 to i8
-  %366 = getelementptr inbounds nuw i8, ptr %336, i64 1
-  store i8 %365, ptr %366, align 1
-  %367 = getelementptr i8, ptr %307, i64 4
-  %368 = load i16, ptr %367, align 2
-  %369 = zext i16 %368 to i32
-  %370 = lshr i32 %369, 10
-  %371 = and i32 %370, 31
-  %372 = shl nuw nsw i32 %369, 13
-  %373 = and i32 %372, 8380416
-  %374 = uitofp nneg i32 %373 to float
-  %375 = bitcast float %374 to i32
-  %376 = lshr i32 %375, 23
-  %.signext.i190 = sext i16 %368 to i32
-  %377 = and i32 %.signext.i190, -2147483648
-  %.not.i191 = icmp eq i32 %371, 0
-  %378 = shl nuw nsw i32 %371, 23
-  %379 = add nuw nsw i32 %378, 939524096
-  %380 = or disjoint i32 %379, %373
-  %381 = select i1 %.not.i191, i32 0, i32 %380
-  %382 = or disjoint i32 %381, %377
-  %383 = icmp ne i32 %373, 0
-  %384 = and i1 %.not.i191, %383
-  %385 = and i32 %375, 2139095040
-  %386 = add nsw i32 %385, -310378496
-  %387 = sub nsw i32 150, %376
-  %388 = shl i32 %372, %387
-  %389 = and i32 %388, 8380416
-  %390 = or disjoint i32 %389, %386
-  %391 = select i1 %384, i32 %390, i32 0
-  %392 = or i32 %382, %391
-  %393 = bitcast i32 %392 to float
-  %394 = fmul float %393, 2.550000e+02
-  %395 = fptoui float %394 to i8
-  %396 = getelementptr inbounds nuw i8, ptr %336, i64 2
-  store i8 %395, ptr %396, align 1
-  %397 = getelementptr i8, ptr %307, i64 6
-  %398 = load i16, ptr %397, align 2
-  %399 = zext i16 %398 to i32
-  %400 = lshr i32 %399, 10
-  %401 = and i32 %400, 31
-  %402 = shl nuw nsw i32 %399, 13
-  %403 = and i32 %402, 8380416
-  %404 = uitofp nneg i32 %403 to float
-  %405 = bitcast float %404 to i32
-  %406 = lshr i32 %405, 23
-  %.signext.i192 = sext i16 %398 to i32
-  %407 = and i32 %.signext.i192, -2147483648
-  %.not.i193 = icmp eq i32 %401, 0
-  %408 = shl nuw nsw i32 %401, 23
-  %409 = add nuw nsw i32 %408, 939524096
-  %410 = or disjoint i32 %409, %403
-  %411 = select i1 %.not.i193, i32 0, i32 %410
-  %412 = or disjoint i32 %411, %407
-  %413 = icmp ne i32 %403, 0
-  %414 = and i1 %.not.i193, %413
-  %415 = and i32 %405, 2139095040
-  %416 = add nsw i32 %415, -310378496
-  %417 = sub nsw i32 150, %406
-  %418 = shl i32 %402, %417
-  %419 = and i32 %418, 8380416
-  %420 = or disjoint i32 %419, %416
-  %421 = select i1 %414, i32 %420, i32 0
-  %422 = or i32 %412, %421
-  %423 = bitcast i32 %422 to float
-  %424 = fmul float %423, 2.550000e+02
-  %425 = fptoui float %424 to i8
-  %426 = getelementptr inbounds nuw i8, ptr %336, i64 3
-  store i8 %425, ptr %426, align 1
-  %427 = add nsw i32 %.0175195, 4
-  br label %428
+306:                                              ; preds = %24
+  %307 = sext i32 %.0175195 to i64
+  %308 = getelementptr inbounds i16, ptr %23, i64 %307
+  %309 = load i16, ptr %308, align 2
+  %310 = zext i16 %309 to i32
+  %311 = lshr i32 %310, 10
+  %312 = and i32 %311, 31
+  %313 = shl nuw nsw i32 %310, 13
+  %314 = and i32 %313, 8380416
+  %315 = uitofp nneg i32 %314 to float
+  %316 = bitcast float %315 to i32
+  %317 = lshr i32 %316, 23
+  %.signext.i186 = sext i16 %309 to i32
+  %318 = and i32 %.signext.i186, -2147483648
+  %.not.i187 = icmp eq i32 %312, 0
+  %319 = shl nuw nsw i32 %312, 23
+  %320 = add nuw nsw i32 %319, 939524096
+  %321 = or disjoint i32 %320, %314
+  %322 = select i1 %.not.i187, i32 0, i32 %321
+  %323 = or disjoint i32 %322, %318
+  %324 = icmp ne i32 %314, 0
+  %325 = and i1 %.not.i187, %324
+  %326 = and i32 %316, 2139095040
+  %327 = add nsw i32 %326, -310378496
+  %328 = sub nsw i32 150, %317
+  %329 = shl i32 %313, %328
+  %330 = and i32 %329, 8380416
+  %331 = or disjoint i32 %330, %327
+  %332 = select i1 %325, i32 %331, i32 0
+  %333 = or i32 %323, %332
+  %334 = bitcast i32 %333 to float
+  %335 = fmul float %334, 2.550000e+02
+  %336 = fptoui float %335 to i8
+  %337 = getelementptr inbounds nuw %struct.Color, ptr %12, i64 %indvars.iv
+  store i8 %336, ptr %337, align 1
+  %338 = getelementptr i8, ptr %308, i64 2
+  %339 = load i16, ptr %338, align 2
+  %340 = zext i16 %339 to i32
+  %341 = lshr i32 %340, 10
+  %342 = and i32 %341, 31
+  %343 = shl nuw nsw i32 %340, 13
+  %344 = and i32 %343, 8380416
+  %345 = uitofp nneg i32 %344 to float
+  %346 = bitcast float %345 to i32
+  %347 = lshr i32 %346, 23
+  %.signext.i188 = sext i16 %339 to i32
+  %348 = and i32 %.signext.i188, -2147483648
+  %.not.i189 = icmp eq i32 %342, 0
+  %349 = shl nuw nsw i32 %342, 23
+  %350 = add nuw nsw i32 %349, 939524096
+  %351 = or disjoint i32 %350, %344
+  %352 = select i1 %.not.i189, i32 0, i32 %351
+  %353 = or disjoint i32 %352, %348
+  %354 = icmp ne i32 %344, 0
+  %355 = and i1 %.not.i189, %354
+  %356 = and i32 %346, 2139095040
+  %357 = add nsw i32 %356, -310378496
+  %358 = sub nsw i32 150, %347
+  %359 = shl i32 %343, %358
+  %360 = and i32 %359, 8380416
+  %361 = or disjoint i32 %360, %357
+  %362 = select i1 %355, i32 %361, i32 0
+  %363 = or i32 %353, %362
+  %364 = bitcast i32 %363 to float
+  %365 = fmul float %364, 2.550000e+02
+  %366 = fptoui float %365 to i8
+  %367 = getelementptr inbounds nuw i8, ptr %337, i64 1
+  store i8 %366, ptr %367, align 1
+  %368 = getelementptr i8, ptr %308, i64 4
+  %369 = load i16, ptr %368, align 2
+  %370 = zext i16 %369 to i32
+  %371 = lshr i32 %370, 10
+  %372 = and i32 %371, 31
+  %373 = shl nuw nsw i32 %370, 13
+  %374 = and i32 %373, 8380416
+  %375 = uitofp nneg i32 %374 to float
+  %376 = bitcast float %375 to i32
+  %377 = lshr i32 %376, 23
+  %.signext.i190 = sext i16 %369 to i32
+  %378 = and i32 %.signext.i190, -2147483648
+  %.not.i191 = icmp eq i32 %372, 0
+  %379 = shl nuw nsw i32 %372, 23
+  %380 = add nuw nsw i32 %379, 939524096
+  %381 = or disjoint i32 %380, %374
+  %382 = select i1 %.not.i191, i32 0, i32 %381
+  %383 = or disjoint i32 %382, %378
+  %384 = icmp ne i32 %374, 0
+  %385 = and i1 %.not.i191, %384
+  %386 = and i32 %376, 2139095040
+  %387 = add nsw i32 %386, -310378496
+  %388 = sub nsw i32 150, %377
+  %389 = shl i32 %373, %388
+  %390 = and i32 %389, 8380416
+  %391 = or disjoint i32 %390, %387
+  %392 = select i1 %385, i32 %391, i32 0
+  %393 = or i32 %383, %392
+  %394 = bitcast i32 %393 to float
+  %395 = fmul float %394, 2.550000e+02
+  %396 = fptoui float %395 to i8
+  %397 = getelementptr inbounds nuw i8, ptr %337, i64 2
+  store i8 %396, ptr %397, align 1
+  %398 = getelementptr i8, ptr %308, i64 6
+  %399 = load i16, ptr %398, align 2
+  %400 = zext i16 %399 to i32
+  %401 = lshr i32 %400, 10
+  %402 = and i32 %401, 31
+  %403 = shl nuw nsw i32 %400, 13
+  %404 = and i32 %403, 8380416
+  %405 = uitofp nneg i32 %404 to float
+  %406 = bitcast float %405 to i32
+  %407 = lshr i32 %406, 23
+  %.signext.i192 = sext i16 %399 to i32
+  %408 = and i32 %.signext.i192, -2147483648
+  %.not.i193 = icmp eq i32 %402, 0
+  %409 = shl nuw nsw i32 %402, 23
+  %410 = add nuw nsw i32 %409, 939524096
+  %411 = or disjoint i32 %410, %404
+  %412 = select i1 %.not.i193, i32 0, i32 %411
+  %413 = or disjoint i32 %412, %408
+  %414 = icmp ne i32 %404, 0
+  %415 = and i1 %.not.i193, %414
+  %416 = and i32 %406, 2139095040
+  %417 = add nsw i32 %416, -310378496
+  %418 = sub nsw i32 150, %407
+  %419 = shl i32 %403, %418
+  %420 = and i32 %419, 8380416
+  %421 = or disjoint i32 %420, %417
+  %422 = select i1 %415, i32 %421, i32 0
+  %423 = or i32 %413, %422
+  %424 = bitcast i32 %423 to float
+  %425 = fmul float %424, 2.550000e+02
+  %426 = fptoui float %425 to i8
+  %427 = getelementptr inbounds nuw i8, ptr %337, i64 3
+  store i8 %426, ptr %427, align 1
+  %428 = add nsw i32 %.0175195, 4
+  br label %429
 
-428:                                              ; preds = %24, %32, %44, %61, %75, %94, %109, %122, %133, %152, %175, %211, %305, %23
-  %.1 = phi i32 [ %.0175195, %23 ], [ %.0175195, %24 ], [ %43, %32 ], [ %.0175195, %44 ], [ %.0175195, %61 ], [ %.0175195, %75 ], [ %108, %94 ], [ %121, %109 ], [ %132, %122 ], [ %151, %133 ], [ %174, %152 ], [ %210, %175 ], [ %304, %211 ], [ %427, %305 ]
+429:                                              ; preds = %25, %33, %45, %62, %76, %95, %110, %123, %134, %153, %176, %212, %306, %24
+  %.1 = phi i32 [ %.0175195, %24 ], [ %.0175195, %25 ], [ %44, %33 ], [ %.0175195, %45 ], [ %.0175195, %62 ], [ %.0175195, %76 ], [ %109, %95 ], [ %122, %110 ], [ %133, %123 ], [ %152, %134 ], [ %175, %153 ], [ %211, %176 ], [ %305, %212 ], [ %428, %306 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %23
+  br i1 %exitcond.not, label %.loopexit, label %24
 
-.loopexit:                                        ; preds = %428, %20, %16, %1
-  %.0 = phi ptr [ null, %1 ], [ %12, %16 ], [ %12, %20 ], [ %12, %428 ]
+.loopexit:                                        ; preds = %429, %21, %16, %1
+  %.0 = phi ptr [ null, %1 ], [ %12, %16 ], [ %12, %21 ], [ %12, %429 ]
   ret ptr %.0
 }
 

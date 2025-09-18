@@ -18,55 +18,55 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4Luau7CodeGen3X6415jumpOnNumberCmpERNS1_18AssemblyBuilderX64ENS1_11RegisterX64ENS1_10OperandX64ES5_NS0_11IrConditionERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(252) %0, i8 %1, i64 %2, i64 %3, i8 noundef zeroext %4, ptr noundef nonnull align 4 dereferenceable(8) %5) local_unnamed_addr #0 {
-  %.off = add i8 %4, -6
-  %switch = icmp ult i8 %.off, 4
-  %spec.select = select i1 %switch, i64 %2, i64 %3
-  %spec.select60 = select i1 %switch, i64 %3, i64 %2
-  %7 = and i64 %spec.select, 255
-  %8 = icmp eq i64 %7, 0
-  br i1 %8, label %10, label %9
+  %7 = add i8 %4, -6
+  %or.cond5 = icmp ult i8 %7, 4
+  %spec.select = select i1 %or.cond5, i64 %2, i64 %3
+  %spec.select60 = select i1 %or.cond5, i64 %3, i64 %2
+  %8 = and i64 %spec.select, 255
+  %9 = icmp eq i64 %8, 0
+  br i1 %9, label %11, label %10
 
-9:                                                ; preds = %6
+10:                                               ; preds = %6
   %.sroa.333.0.insert.ext = zext i8 %1 to i64
   %.sroa.333.0.insert.shift = shl nuw nsw i64 %.sroa.333.0.insert.ext, 16
   %.sroa.232.0.insert.insert = or disjoint i64 %.sroa.333.0.insert.shift, 268468224
   tail call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX646vmovsdENS1_10OperandX64ES3_(ptr noundef nonnull align 8 dereferenceable(252) %0, i64 %.sroa.232.0.insert.insert, i64 %spec.select)
-  br label %10
+  br label %11
 
-10:                                               ; preds = %6, %9
-  %.sroa.232.0.insert.insert.sink = phi i64 [ %.sroa.232.0.insert.insert, %9 ], [ %spec.select, %6 ]
+11:                                               ; preds = %6, %10
+  %.sroa.232.0.insert.insert.sink = phi i64 [ %.sroa.232.0.insert.insert, %10 ], [ %spec.select, %6 ]
   tail call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX648vucomisdENS1_10OperandX64ES3_(ptr noundef nonnull align 8 dereferenceable(252) %0, i64 %.sroa.232.0.insert.insert.sink, i64 %spec.select60)
-  switch i8 %4, label %15 [
+  switch i8 %4, label %16 [
     i8 5, label %.sink.split
     i8 9, label %.sink.split
-    i8 4, label %11
-    i8 8, label %11
-    i8 3, label %12
-    i8 7, label %12
-    i8 2, label %13
-    i8 6, label %13
-    i8 1, label %14
+    i8 4, label %12
+    i8 8, label %12
+    i8 3, label %13
+    i8 7, label %13
+    i8 2, label %14
+    i8 6, label %14
+    i8 1, label %15
   ]
 
-11:                                               ; preds = %10, %10
+12:                                               ; preds = %11, %11
   br label %.sink.split
 
-12:                                               ; preds = %10, %10
+13:                                               ; preds = %11, %11
   br label %.sink.split
 
-13:                                               ; preds = %10, %10
+14:                                               ; preds = %11, %11
   br label %.sink.split
 
-14:                                               ; preds = %10
+15:                                               ; preds = %11
   tail call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX643jccENS0_12ConditionX64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(252) %0, i8 noundef zeroext 23, ptr noundef nonnull align 4 dereferenceable(8) %5)
   br label %.sink.split
 
-.sink.split:                                      ; preds = %10, %10, %11, %12, %13, %14
-  %.sink = phi i8 [ 24, %14 ], [ 6, %13 ], [ 15, %12 ], [ 7, %11 ], [ 16, %10 ], [ 16, %10 ]
+.sink.split:                                      ; preds = %11, %11, %12, %13, %14, %15
+  %.sink = phi i8 [ 24, %15 ], [ 6, %14 ], [ 15, %13 ], [ 7, %12 ], [ 16, %11 ], [ 16, %11 ]
   tail call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX643jccENS0_12ConditionX64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(252) %0, i8 noundef zeroext %.sink, ptr noundef nonnull align 4 dereferenceable(8) %5)
-  br label %15
+  br label %16
 
-15:                                               ; preds = %.sink.split, %10
+16:                                               ; preds = %.sink.split, %11
   ret void
 }
 

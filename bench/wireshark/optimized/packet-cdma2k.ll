@@ -2590,8 +2590,8 @@ cdma2k_message_REGISTRATION.exit:                 ; preds = %369, %380, %403, %4
 508:                                              ; preds = %.sink.split.i, %479
   %.2.i169 = phi i16 [ %495, %479 ], [ %507, %.sink.split.i ]
   %509 = and i8 %486, -4
-  %switch.i = icmp eq i8 %509, 16
-  br i1 %switch.i, label %510, label %.thread2.i
+  %or.cond11.i = icmp eq i8 %509, 16
+  br i1 %or.cond11.i, label %510, label %.thread2.i
 
 510:                                              ; preds = %508
   %511 = icmp eq i8 %486, 19

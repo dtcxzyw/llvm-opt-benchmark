@@ -7024,51 +7024,33 @@ define hidden noundef zeroext i1 @_ZN7Matcher22is_short_branch_offsetEiii(ptr no
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef zeroext i1 @_ZN7Matcher15can_be_java_argEi(i32 noundef %0) local_unnamed_addr #4 align 2 {
-  switch i32 %0, label %2 [
-    i32 176, label %switch.edge
-    i32 161, label %switch.edge
-    i32 160, label %switch.edge
-    i32 145, label %switch.edge
-    i32 144, label %switch.edge
-    i32 129, label %switch.edge
-    i32 128, label %switch.edge
-    i32 113, label %switch.edge
-    i32 112, label %switch.edge
-    i32 97, label %switch.edge
-    i32 96, label %switch.edge
-    i32 81, label %switch.edge
-    i32 80, label %switch.edge
-    i32 65, label %switch.edge
-    i32 64, label %switch.edge
-    i32 19, label %switch.edge
-    i32 18, label %switch.edge
-    i32 17, label %switch.edge
-    i32 16, label %switch.edge
-    i32 15, label %switch.edge
-    i32 14, label %switch.edge
-    i32 11, label %switch.edge
-    i32 10, label %switch.edge
-    i32 9, label %switch.edge
-    i32 8, label %switch.edge
-    i32 7, label %switch.edge
-    i32 6, label %switch.edge
-    i32 5, label %switch.edge
-    i32 4, label %switch.edge
-    i32 177, label %switch.edge
-  ]
-
-2:                                                ; preds = %1
-  br label %switch.edge
-
-switch.edge:                                      ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %2
-  %3 = phi i1 [ true, %1 ], [ false, %2 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ]
-  ret i1 %3
+  %2 = add i32 %0, -14
+  %or.cond9 = icmp ult i32 %2, 6
+  %3 = add i32 %0, -4
+  %4 = icmp ult i32 %3, 8
+  %or.cond25 = or i1 %or.cond9, %4
+  %5 = and i32 %0, -50
+  %6 = icmp eq i32 %5, 64
+  %or.cond41 = or i1 %6, %or.cond25
+  %7 = and i32 %0, -50
+  %8 = icmp eq i32 %7, 128
+  %spec.select = or i1 %8, %or.cond41
+  ret i1 %spec.select
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef zeroext i1 @_ZN7Matcher16is_spillable_argEi(i32 noundef %0) local_unnamed_addr #4 align 2 {
-  %2 = tail call noundef zeroext i1 @_ZN7Matcher15can_be_java_argEi(i32 noundef %0)
-  ret i1 %2
+  %2 = add i32 %0, -14
+  %or.cond9.i = icmp ult i32 %2, 6
+  %3 = add i32 %0, -4
+  %4 = icmp ult i32 %3, 8
+  %or.cond25.i = or i1 %or.cond9.i, %4
+  %5 = and i32 %0, -50
+  %6 = icmp eq i32 %5, 64
+  %or.cond41.i = or i1 %6, %or.cond25.i
+  %7 = icmp eq i32 %5, 128
+  %spec.select.i = or i1 %7, %or.cond41.i
+  ret i1 %spec.select.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

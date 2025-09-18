@@ -603,24 +603,24 @@ _gui_is_set.exit:                                 ; preds = %275, %267, %263
 308:                                              ; preds = %dt_draw_paint_to_pixbuf.exit125
   %309 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.21, i32 noundef 5) #10
   call void (ptr, ...) @dt_control_log(ptr noundef %309) #10
-  br label %315
+  br label %316
 
 310:                                              ; preds = %310, %301
   %311 = call ptr @g_type_check_instance_cast(ptr noundef %20, i64 noundef %19) #10
   %312 = call i32 @gtk_dialog_run(ptr noundef %311) #10
-  %.off = add i32 %312, 6
-  %switch = icmp ult i32 %.off, 3
-  br i1 %switch, label %313, label %310
+  %313 = add i32 %312, 6
+  %or.cond3 = icmp ult i32 %313, 3
+  br i1 %or.cond3, label %314, label %310
 
-313:                                              ; preds = %310
-  %314 = call ptr @g_type_check_instance_cast(ptr noundef %20, i64 noundef %40) #10
-  call void @gtk_widget_destroy(ptr noundef %314) #10
+314:                                              ; preds = %310
+  %315 = call ptr @g_type_check_instance_cast(ptr noundef %20, i64 noundef %40) #10
+  call void @gtk_widget_destroy(ptr noundef %315) #10
   call void @g_object_unref(ptr noundef %149) #10
   call void @g_object_unref(ptr noundef %201) #10
-  br label %315
+  br label %316
 
-315:                                              ; preds = %313, %308
-  %.0 = phi i32 [ %312, %313 ], [ -6, %308 ]
+316:                                              ; preds = %314, %308
+  %.0 = phi i32 [ %312, %314 ], [ -6, %308 ]
   ret i32 %.0
 }
 

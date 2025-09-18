@@ -1999,20 +1999,20 @@ _ZNK5clang4Decl7getAttrINS_14CapabilityAttrEEEPT_v.exit53: ; preds = %.lr.ph.i.i
   %88 = load ptr, ptr %87, align 16, !tbaa !352
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 16
   %90 = load i8, ptr %89, align 16
-  %.off = add i8 %90, -41
-  %switch = icmp ult i8 %.off, 3
-  br i1 %switch, label %91, label %.critedge39
+  %91 = add i8 %90, -41
+  %92 = icmp ult i8 %91, 3
+  br i1 %92, label %93, label %.critedge39
 
-91:                                               ; preds = %83
-  %92 = tail call i64 @_ZNK5clang4Type14getPointeeTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %84) #18
-  %93 = tail call fastcc { ptr, i64 } @_ZL18ClassifyDiagnosticN5clang8QualTypeE(i64 %92)
-  %94 = extractvalue { ptr, i64 } %93, 0
-  %95 = extractvalue { ptr, i64 } %93, 1
+93:                                               ; preds = %83
+  %94 = tail call i64 @_ZNK5clang4Type14getPointeeTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %84) #18
+  %95 = tail call fastcc { ptr, i64 } @_ZL18ClassifyDiagnosticN5clang8QualTypeE(i64 %94)
+  %96 = extractvalue { ptr, i64 } %95, 0
+  %97 = extractvalue { ptr, i64 } %95, 1
   br label %.critedge39
 
-.critedge39:                                      ; preds = %29, %66, %48, %12, %14, %_ZN5clangneENS_22specific_attr_iteratorINS_14CapabilityAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i, %18, %51, %_ZN5clangneENS_22specific_attr_iteratorINS_14CapabilityAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i50, %55, %83, %91, %_ZNK5clang4Decl7getAttrINS_14CapabilityAttrEEEPT_v.exit, %_ZNK5clang4Decl7getAttrINS_14CapabilityAttrEEEPT_v.exit53
-  %.sroa.061.1 = phi ptr [ %94, %91 ], [ %.val42, %_ZNK5clang4Decl7getAttrINS_14CapabilityAttrEEEPT_v.exit53 ], [ %.val40, %_ZNK5clang4Decl7getAttrINS_14CapabilityAttrEEEPT_v.exit ], [ @.str.7, %83 ], [ @.str.7, %55 ], [ @.str.7, %_ZN5clangneENS_22specific_attr_iteratorINS_14CapabilityAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i50 ], [ @.str.7, %51 ], [ @.str.7, %18 ], [ @.str.7, %_ZN5clangneENS_22specific_attr_iteratorINS_14CapabilityAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i ], [ @.str.7, %14 ], [ @.str.7, %12 ], [ @.str.7, %48 ], [ @.str.7, %66 ], [ @.str.7, %29 ]
-  %.sroa.5.1 = phi i64 [ %95, %91 ], [ %82, %_ZNK5clang4Decl7getAttrINS_14CapabilityAttrEEEPT_v.exit53 ], [ %45, %_ZNK5clang4Decl7getAttrINS_14CapabilityAttrEEEPT_v.exit ], [ 5, %83 ], [ 5, %55 ], [ 5, %_ZN5clangneENS_22specific_attr_iteratorINS_14CapabilityAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i50 ], [ 5, %51 ], [ 5, %18 ], [ 5, %_ZN5clangneENS_22specific_attr_iteratorINS_14CapabilityAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i ], [ 5, %14 ], [ 5, %12 ], [ 5, %48 ], [ 5, %66 ], [ 5, %29 ]
+.critedge39:                                      ; preds = %29, %66, %48, %12, %83, %14, %_ZN5clangneENS_22specific_attr_iteratorINS_14CapabilityAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i, %18, %51, %_ZN5clangneENS_22specific_attr_iteratorINS_14CapabilityAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i50, %55, %93, %_ZNK5clang4Decl7getAttrINS_14CapabilityAttrEEEPT_v.exit, %_ZNK5clang4Decl7getAttrINS_14CapabilityAttrEEEPT_v.exit53
+  %.sroa.061.1 = phi ptr [ %96, %93 ], [ %.val42, %_ZNK5clang4Decl7getAttrINS_14CapabilityAttrEEEPT_v.exit53 ], [ %.val40, %_ZNK5clang4Decl7getAttrINS_14CapabilityAttrEEEPT_v.exit ], [ @.str.7, %55 ], [ @.str.7, %_ZN5clangneENS_22specific_attr_iteratorINS_14CapabilityAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i50 ], [ @.str.7, %51 ], [ @.str.7, %18 ], [ @.str.7, %_ZN5clangneENS_22specific_attr_iteratorINS_14CapabilityAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i ], [ @.str.7, %14 ], [ @.str.7, %83 ], [ @.str.7, %12 ], [ @.str.7, %48 ], [ @.str.7, %66 ], [ @.str.7, %29 ]
+  %.sroa.5.1 = phi i64 [ %97, %93 ], [ %82, %_ZNK5clang4Decl7getAttrINS_14CapabilityAttrEEEPT_v.exit53 ], [ %45, %_ZNK5clang4Decl7getAttrINS_14CapabilityAttrEEEPT_v.exit ], [ 5, %55 ], [ 5, %_ZN5clangneENS_22specific_attr_iteratorINS_14CapabilityAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i50 ], [ 5, %51 ], [ 5, %18 ], [ 5, %_ZN5clangneENS_22specific_attr_iteratorINS_14CapabilityAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i ], [ 5, %14 ], [ 5, %83 ], [ 5, %12 ], [ 5, %48 ], [ 5, %66 ], [ 5, %29 ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.061.1, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.5.1, 1
   ret { ptr, i64 } %.fca.1.insert

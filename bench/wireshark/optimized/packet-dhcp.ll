@@ -8047,189 +8047,187 @@ define internal noundef zeroext i1 @dissect_alcatel_lucent_vendor_info_heur(ptr 
 
 7:                                                ; preds = %4
   %8 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
-  switch i8 %8, label %test_encapsulated_vendor_options.exit [
-    i8 67, label %9
-    i8 66, label %9
-    i8 65, label %9
-    i8 64, label %9
-    i8 58, label %9
-  ]
+  %9 = icmp eq i8 %8, 58
+  %10 = and i8 %8, -4
+  %11 = icmp eq i8 %10, 64
+  %or.cond11 = or i1 %9, %11
+  br i1 %or.cond11, label %12, label %test_encapsulated_vendor_options.exit
 
-9:                                                ; preds = %7, %7, %7, %7, %7
-  %10 = tail call i32 @tvb_reported_length(ptr noundef %0)
-  %11 = icmp sgt i32 %10, 0
-  br i1 %11, label %.lr.ph.split.i, label %.loopexit
+12:                                               ; preds = %7
+  %13 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %14 = icmp sgt i32 %13, 0
+  br i1 %14, label %.lr.ph.split.i, label %.loopexit
 
-.lr.ph.split.i:                                   ; preds = %9, %.backedge.i
-  %.02535.i = phi i32 [ %.025.be.i, %.backedge.i ], [ 0, %9 ]
-  %12 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.02535.i)
-  %13 = add nsw i32 %.02535.i, 1
-  switch i8 %12, label %15 [
+.lr.ph.split.i:                                   ; preds = %12, %.backedge.i
+  %.02535.i = phi i32 [ %.025.be.i, %.backedge.i ], [ 0, %12 ]
+  %15 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.02535.i)
+  %16 = add nsw i32 %.02535.i, 1
+  switch i8 %15, label %18 [
     i8 0, label %.backedge.i
     i8 -1, label %.loopexit
   ]
 
 .backedge.i:                                      ; preds = %.critedge.i, %.lr.ph.split.i
-  %.025.be.i = phi i32 [ %13, %.lr.ph.split.i ], [ %24, %.critedge.i ]
-  %14 = icmp slt i32 %.025.be.i, %10
-  br i1 %14, label %.lr.ph.split.i, label %.loopexit, !llvm.loop !21
+  %.025.be.i = phi i32 [ %16, %.lr.ph.split.i ], [ %27, %.critedge.i ]
+  %17 = icmp slt i32 %.025.be.i, %13
+  br i1 %17, label %.lr.ph.split.i, label %.loopexit, !llvm.loop !21
 
-15:                                               ; preds = %.lr.ph.split.i
-  %.not.i = icmp slt i32 %13, %10
-  br i1 %.not.i, label %16, label %test_encapsulated_vendor_options.exit
+18:                                               ; preds = %.lr.ph.split.i
+  %.not.i = icmp slt i32 %16, %13
+  br i1 %.not.i, label %19, label %test_encapsulated_vendor_options.exit
 
-16:                                               ; preds = %15
-  %17 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %13)
-  %switch.tableidx = add i8 %12, -58
-  %18 = icmp ult i8 %switch.tableidx, 9
-  br i1 %18, label %switch.hole_check, label %get_alcatel_suboption_len.exit.thread
+19:                                               ; preds = %18
+  %20 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %16)
+  %switch.tableidx = add i8 %15, -58
+  %21 = icmp ult i8 %switch.tableidx, 9
+  br i1 %21, label %switch.hole_check, label %get_alcatel_suboption_len.exit.thread
 
-get_alcatel_suboption_len.exit.thread:            ; preds = %switch.hole_check, %16
-  %19 = zext i8 %17 to i32
+get_alcatel_suboption_len.exit.thread:            ; preds = %switch.hole_check, %19
+  %22 = zext i8 %20 to i32
   br label %.critedge.i
 
-switch.hole_check:                                ; preds = %16
+switch.hole_check:                                ; preds = %19
   %switch.maskindex = zext nneg i8 %switch.tableidx to i16
   %switch.shifted = lshr i16 449, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
   br i1 %switch.lobit, label %switch.lookup, label %get_alcatel_suboption_len.exit.thread
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %20 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.dissect_alcatel_lucent_vendor_info_heur.2, i64 %20
+  %23 = zext nneg i8 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.dissect_alcatel_lucent_vendor_info_heur.2, i64 %23
   %switch.load = load i32, ptr %switch.gep, align 4
-  %21 = zext i8 %17 to i32
-  %.not34.i = icmp eq i32 %switch.load, %21
+  %24 = zext i8 %20 to i32
+  %.not34.i = icmp eq i32 %switch.load, %24
   br i1 %.not34.i, label %.critedge.i, label %test_encapsulated_vendor_options.exit
 
 .critedge.i:                                      ; preds = %get_alcatel_suboption_len.exit.thread, %switch.lookup
-  %22 = phi i32 [ %19, %get_alcatel_suboption_len.exit.thread ], [ %switch.load, %switch.lookup ]
-  %23 = add nsw i32 %.02535.i, 2
-  %24 = add i32 %23, %22
-  %25 = icmp sgt i32 %24, %10
-  br i1 %25, label %test_encapsulated_vendor_options.exit, label %.backedge.i
+  %25 = phi i32 [ %22, %get_alcatel_suboption_len.exit.thread ], [ %switch.load, %switch.lookup ]
+  %26 = add nsw i32 %.02535.i, 2
+  %27 = add i32 %26, %25
+  %28 = icmp sgt i32 %27, %13
+  br i1 %28, label %test_encapsulated_vendor_options.exit, label %.backedge.i
 
-.loopexit:                                        ; preds = %.backedge.i, %.lr.ph.split.i, %9
+.loopexit:                                        ; preds = %.backedge.i, %.lr.ph.split.i, %12
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.2279)
-  %26 = load i32, ptr @ett_dhcp_option, align 4
-  %27 = tail call ptr @proto_item_add_subtree(ptr noundef %2, i32 noundef %26)
-  %28 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0)
-  %29 = icmp sgt i32 %28, 0
-  br i1 %29, label %.lr.ph, label %test_encapsulated_vendor_options.exit
+  %29 = load i32, ptr @ett_dhcp_option, align 4
+  %30 = tail call ptr @proto_item_add_subtree(ptr noundef %2, i32 noundef %29)
+  %31 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0)
+  %32 = icmp sgt i32 %31, 0
+  br i1 %32, label %.lr.ph, label %test_encapsulated_vendor_options.exit
 
 .lr.ph:                                           ; preds = %.loopexit, %dissect_vendor_alcatel_suboption.exit
   %.03241 = phi i32 [ %.0.i, %dissect_vendor_alcatel_suboption.exit ], [ 0, %.loopexit ]
-  %30 = tail call i32 @tvb_reported_length(ptr noundef %0)
-  %31 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.03241)
-  %32 = add i32 %.03241, 1
-  %33 = zext i8 %31 to i32
-  switch i8 %31, label %40 [
-    i8 0, label %34
-    i8 -1, label %37
+  %33 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %34 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.03241)
+  %35 = add i32 %.03241, 1
+  %36 = zext i8 %34 to i32
+  switch i8 %34, label %43 [
+    i8 0, label %37
+    i8 -1, label %40
   ]
 
-34:                                               ; preds = %.lr.ph
-  %35 = load i32, ptr @hf_dhcp_option43_alcatel_padding, align 4
-  %36 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %35, ptr noundef %0, i32 noundef %.03241, i32 noundef 1, i32 noundef 0)
-  br label %dissect_vendor_alcatel_suboption.exit
-
 37:                                               ; preds = %.lr.ph
-  %38 = load i32, ptr @hf_dhcp_option43_alcatel_end, align 4
-  %39 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %38, ptr noundef %0, i32 noundef %.03241, i32 noundef 1, i32 noundef 0)
+  %38 = load i32, ptr @hf_dhcp_option43_alcatel_padding, align 4
+  %39 = tail call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %38, ptr noundef %0, i32 noundef %.03241, i32 noundef 1, i32 noundef 0)
   br label %dissect_vendor_alcatel_suboption.exit
 
 40:                                               ; preds = %.lr.ph
-  %.not.i33 = icmp slt i32 %32, %30
-  br i1 %.not.i33, label %43, label %41
-
-41:                                               ; preds = %40
-  %42 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @ei_dhcp_missing_subopt_length, ptr noundef nonnull @.str.2051, i32 noundef %33)
+  %41 = load i32, ptr @hf_dhcp_option43_alcatel_end, align 4
+  %42 = tail call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %41, ptr noundef %0, i32 noundef %.03241, i32 noundef 1, i32 noundef 0)
   br label %dissect_vendor_alcatel_suboption.exit
 
-43:                                               ; preds = %40
-  %44 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %32)
-  %45 = load i32, ptr @hf_dhcp_option43_alcatel_suboption, align 4
-  %46 = zext i8 %44 to i32
-  %47 = add nuw nsw i32 %46, 2
-  %48 = tail call ptr @val_to_str_const(i32 noundef %33, ptr noundef nonnull @option43_alcatel_suboption_vals, ptr noundef nonnull @.str.482)
-  %49 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %27, i32 noundef %45, ptr noundef %0, i32 noundef %.03241, i32 noundef %47, i32 noundef %33, ptr noundef nonnull @.str.2025, i32 noundef %33, ptr noundef %48)
-  %50 = load i32, ptr @ett_dhcp_option43_suboption, align 4
-  %51 = tail call ptr @proto_item_add_subtree(ptr noundef %49, i32 noundef %50)
-  %52 = load i32, ptr @hf_dhcp_suboption_length, align 4
-  %53 = tail call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %52, ptr noundef %0, i32 noundef %32, i32 noundef 1, i32 noundef 0)
-  %54 = add i32 %.03241, 2
-  %55 = add i32 %54, %46
-  %56 = icmp sgt i32 %55, %30
-  br i1 %56, label %57, label %59
+43:                                               ; preds = %.lr.ph
+  %.not.i33 = icmp slt i32 %35, %33
+  br i1 %.not.i33, label %46, label %44
 
-57:                                               ; preds = %43
-  %58 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %49, ptr noundef nonnull @ei_dhcp_missing_subopt_value, ptr noundef nonnull @.str.2052, i32 noundef %33)
+44:                                               ; preds = %43
+  %45 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @ei_dhcp_missing_subopt_length, ptr noundef nonnull @.str.2051, i32 noundef %36)
   br label %dissect_vendor_alcatel_suboption.exit
 
-59:                                               ; preds = %43
-  switch i8 %31, label %65 [
+46:                                               ; preds = %43
+  %47 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %35)
+  %48 = load i32, ptr @hf_dhcp_option43_alcatel_suboption, align 4
+  %49 = zext i8 %47 to i32
+  %50 = add nuw nsw i32 %49, 2
+  %51 = tail call ptr @val_to_str_const(i32 noundef %36, ptr noundef nonnull @option43_alcatel_suboption_vals, ptr noundef nonnull @.str.482)
+  %52 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %30, i32 noundef %48, ptr noundef %0, i32 noundef %.03241, i32 noundef %50, i32 noundef %36, ptr noundef nonnull @.str.2025, i32 noundef %36, ptr noundef %51)
+  %53 = load i32, ptr @ett_dhcp_option43_suboption, align 4
+  %54 = tail call ptr @proto_item_add_subtree(ptr noundef %52, i32 noundef %53)
+  %55 = load i32, ptr @hf_dhcp_suboption_length, align 4
+  %56 = tail call ptr @proto_tree_add_item(ptr noundef %54, i32 noundef %55, ptr noundef %0, i32 noundef %35, i32 noundef 1, i32 noundef 0)
+  %57 = add i32 %.03241, 2
+  %58 = add i32 %57, %49
+  %59 = icmp sgt i32 %58, %33
+  br i1 %59, label %60, label %62
+
+60:                                               ; preds = %46
+  %61 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %52, ptr noundef nonnull @ei_dhcp_missing_subopt_value, ptr noundef nonnull @.str.2052, i32 noundef %36)
+  br label %dissect_vendor_alcatel_suboption.exit
+
+62:                                               ; preds = %46
+  switch i8 %34, label %68 [
     i8 58, label %get_alcatel_suboption_len.exit.i
-    i8 64, label %60
-    i8 65, label %60
-    i8 66, label %61
-    i8 67, label %69
+    i8 64, label %63
+    i8 65, label %63
+    i8 66, label %64
+    i8 67, label %72
   ]
 
-60:                                               ; preds = %59, %59
+63:                                               ; preds = %62, %62
   br label %get_alcatel_suboption_len.exit.i
 
-61:                                               ; preds = %59
+64:                                               ; preds = %62
   br label %get_alcatel_suboption_len.exit.i
 
-get_alcatel_suboption_len.exit.i:                 ; preds = %61, %60, %59
-  %.0.i.i = phi i32 [ 4, %60 ], [ 1, %61 ], [ 2, %59 ]
-  %.not79.i = icmp eq i32 %.0.i.i, %46
-  br i1 %.not79.i, label %get_alcatel_suboption_len.exit.thread.i, label %62
+get_alcatel_suboption_len.exit.i:                 ; preds = %64, %63, %62
+  %.0.i.i = phi i32 [ 4, %63 ], [ 1, %64 ], [ 2, %62 ]
+  %.not79.i = icmp eq i32 %.0.i.i, %49
+  br i1 %.not79.i, label %get_alcatel_suboption_len.exit.thread.i, label %65
 
-62:                                               ; preds = %get_alcatel_suboption_len.exit.i
-  %63 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %49, ptr noundef nonnull @ei_dhcp_bad_length, ptr noundef nonnull @.str.2280, i32 noundef %.0.i.i)
+65:                                               ; preds = %get_alcatel_suboption_len.exit.i
+  %66 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %52, ptr noundef nonnull @ei_dhcp_bad_length, ptr noundef nonnull @.str.2280, i32 noundef %.0.i.i)
   br label %dissect_vendor_alcatel_suboption.exit
 
 get_alcatel_suboption_len.exit.thread.i:          ; preds = %get_alcatel_suboption_len.exit.i
-  %switch.tableidx50 = add i8 %31, -58
-  %64 = icmp ult i8 %switch.tableidx50, 9
-  br i1 %64, label %switch.hole_check52, label %65
+  %switch.tableidx50 = add i8 %34, -58
+  %67 = icmp ult i8 %switch.tableidx50, 9
+  br i1 %67, label %switch.hole_check52, label %68
 
-65:                                               ; preds = %switch.hole_check52, %get_alcatel_suboption_len.exit.thread.i, %59
-  %66 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %49, ptr noundef nonnull @ei_dhcp_subopt_unknown_type, ptr noundef nonnull @.str.2281, i32 noundef %33)
+68:                                               ; preds = %switch.hole_check52, %get_alcatel_suboption_len.exit.thread.i, %62
+  %69 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %52, ptr noundef nonnull @ei_dhcp_subopt_unknown_type, ptr noundef nonnull @.str.2281, i32 noundef %36)
   br label %dissect_vendor_alcatel_suboption.exit
 
 switch.hole_check52:                              ; preds = %get_alcatel_suboption_len.exit.thread.i
   %switch.maskindex54 = zext nneg i8 %switch.tableidx50 to i16
   %switch.shifted55 = lshr i16 449, %switch.maskindex54
   %switch.lobit56 = trunc i16 %switch.shifted55 to i1
-  br i1 %switch.lobit56, label %switch.lookup53, label %65
+  br i1 %switch.lobit56, label %switch.lookup53, label %68
 
 switch.lookup53:                                  ; preds = %switch.hole_check52
-  %67 = zext nneg i8 %switch.tableidx50 to i64
-  %switch.gep57 = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_alcatel_lucent_vendor_info_heur.1, i64 %67
+  %70 = zext nneg i8 %switch.tableidx50 to i64
+  %switch.gep57 = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_alcatel_lucent_vendor_info_heur.1, i64 %70
   %switch.load58 = load ptr, ptr %switch.gep57, align 8
-  %68 = zext nneg i8 %switch.tableidx50 to i64
-  %switch.gep59 = getelementptr inbounds nuw i32, ptr @switch.table.dissect_alcatel_lucent_vendor_info_heur.2, i64 %68
+  %71 = zext nneg i8 %switch.tableidx50 to i64
+  %switch.gep59 = getelementptr inbounds nuw i32, ptr @switch.table.dissect_alcatel_lucent_vendor_info_heur.2, i64 %71
   %switch.load60 = load i32, ptr %switch.gep59, align 4
-  br label %69
+  br label %72
 
-69:                                               ; preds = %switch.lookup53, %59
-  %hf_dhcp_option43_alcatel_sip_url.sink.i = phi ptr [ @hf_dhcp_option43_alcatel_sip_url, %59 ], [ %switch.load58, %switch.lookup53 ]
-  %.sink86.i = phi i32 [ %46, %59 ], [ %switch.load60, %switch.lookup53 ]
-  %70 = load i32, ptr %hf_dhcp_option43_alcatel_sip_url.sink.i, align 4
-  %71 = tail call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %70, ptr noundef %0, i32 noundef %54, i32 noundef %.sink86.i, i32 noundef 0)
-  %72 = add i32 %47, %.03241
+72:                                               ; preds = %switch.lookup53, %62
+  %hf_dhcp_option43_alcatel_sip_url.sink.i = phi ptr [ @hf_dhcp_option43_alcatel_sip_url, %62 ], [ %switch.load58, %switch.lookup53 ]
+  %.sink86.i = phi i32 [ %49, %62 ], [ %switch.load60, %switch.lookup53 ]
+  %73 = load i32, ptr %hf_dhcp_option43_alcatel_sip_url.sink.i, align 4
+  %74 = tail call ptr @proto_tree_add_item(ptr noundef %54, i32 noundef %73, ptr noundef %0, i32 noundef %57, i32 noundef %.sink86.i, i32 noundef 0)
+  %75 = add i32 %50, %.03241
   br label %dissect_vendor_alcatel_suboption.exit
 
-dissect_vendor_alcatel_suboption.exit:            ; preds = %34, %37, %41, %57, %62, %65, %69
-  %.0.i = phi i32 [ %32, %34 ], [ %30, %37 ], [ %30, %41 ], [ %30, %57 ], [ %30, %62 ], [ %30, %65 ], [ %72, %69 ]
-  %73 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0.i)
-  %74 = icmp sgt i32 %73, 0
-  br i1 %74, label %.lr.ph, label %test_encapsulated_vendor_options.exit, !llvm.loop !54
+dissect_vendor_alcatel_suboption.exit:            ; preds = %37, %40, %44, %60, %65, %68, %72
+  %.0.i = phi i32 [ %35, %37 ], [ %33, %40 ], [ %33, %44 ], [ %33, %60 ], [ %33, %65 ], [ %33, %68 ], [ %75, %72 ]
+  %76 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0.i)
+  %77 = icmp sgt i32 %76, 0
+  br i1 %77, label %.lr.ph, label %test_encapsulated_vendor_options.exit, !llvm.loop !54
 
-test_encapsulated_vendor_options.exit:            ; preds = %.critedge.i, %switch.lookup, %15, %dissect_vendor_alcatel_suboption.exit, %.loopexit, %7, %4
-  %.0 = phi i1 [ false, %4 ], [ false, %7 ], [ true, %.loopexit ], [ true, %dissect_vendor_alcatel_suboption.exit ], [ false, %15 ], [ false, %switch.lookup ], [ false, %.critedge.i ]
+test_encapsulated_vendor_options.exit:            ; preds = %.critedge.i, %switch.lookup, %18, %dissect_vendor_alcatel_suboption.exit, %.loopexit, %7, %4
+  %.0 = phi i1 [ false, %4 ], [ false, %7 ], [ true, %.loopexit ], [ true, %dissect_vendor_alcatel_suboption.exit ], [ false, %18 ], [ false, %switch.lookup ], [ false, %.critedge.i ]
   ret i1 %.0
 }
 

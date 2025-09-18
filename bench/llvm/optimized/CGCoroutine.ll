@@ -4245,13 +4245,13 @@ _ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.thread3.i: ; preds = %
   %37 = lshr i64 %36, 54
   %38 = trunc nuw nsw i64 %37 to i32
   %39 = and i32 %38, 15
-  %.off.i = add nsw i32 %39, -4
-  %switch.i = icmp ult i32 %.off.i, 5
-  br i1 %switch.i, label %_ZL16FunctionCanThrowPKN5clang12FunctionDeclE.exit, label %.critedge.thread
+  %40 = add nsw i32 %39, -4
+  %41 = icmp ult i32 %40, 5
+  br i1 %41, label %_ZL16FunctionCanThrowPKN5clang12FunctionDeclE.exit, label %.critedge.thread
 
 _ZL16FunctionCanThrowPKN5clang12FunctionDeclE.exit: ; preds = %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.thread3.i
-  %40 = tail call noundef i32 @_ZNK5clang17FunctionProtoType8canThrowEv(ptr noundef nonnull align 16 dereferenceable(48) %.1.i6.i) #17
-  %.not = icmp eq i32 %40, 0
+  %42 = tail call noundef i32 @_ZNK5clang17FunctionProtoType8canThrowEv(ptr noundef nonnull align 16 dereferenceable(48) %.1.i6.i) #17
+  %.not = icmp eq i32 %42, 0
   br i1 %.not, label %_ZL16FunctionCanThrowPKN5clang12FunctionDeclE.exit..critedge_crit_edge, label %.critedge.thread
 
 _ZL16FunctionCanThrowPKN5clang12FunctionDeclE.exit..critedge_crit_edge: ; preds = %_ZL16FunctionCanThrowPKN5clang12FunctionDeclE.exit
@@ -4259,131 +4259,131 @@ _ZL16FunctionCanThrowPKN5clang12FunctionDeclE.exit..critedge_crit_edge: ; preds 
   br label %.critedge
 
 .critedge:                                        ; preds = %_ZL16FunctionCanThrowPKN5clang12FunctionDeclE.exit..critedge_crit_edge, %1
-  %41 = phi i16 [ %.pre, %_ZL16FunctionCanThrowPKN5clang12FunctionDeclE.exit..critedge_crit_edge ], [ %4, %1 ]
-  %42 = and i16 %41, 511
-  %.not60 = icmp eq i16 %42, 118
-  br i1 %.not60, label %43, label %68
+  %43 = phi i16 [ %.pre, %_ZL16FunctionCanThrowPKN5clang12FunctionDeclE.exit..critedge_crit_edge ], [ %4, %1 ]
+  %44 = and i16 %43, 511
+  %.not58 = icmp eq i16 %44, 118
+  br i1 %.not58, label %45, label %72
 
-43:                                               ; preds = %.critedge
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %45 = load ptr, ptr %44, align 8, !tbaa !1265
-  %46 = load ptr, ptr %45, align 8, !tbaa !1268
-  %47 = getelementptr i8, ptr %46, i64 48
-  %.val34 = load i64, ptr %47, align 8, !tbaa !30
-  %48 = and i64 %.val34, -16
-  %49 = inttoptr i64 %48 to ptr
-  %50 = load ptr, ptr %49, align 16, !tbaa !652
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
-  %52 = load i8, ptr %51, align 16
-  %.not.i.i36 = icmp eq i8 %52, 26
-  br i1 %.not.i.i36, label %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.thread3.i41, label %53
+45:                                               ; preds = %.critedge
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %47 = load ptr, ptr %46, align 8, !tbaa !1265
+  %48 = load ptr, ptr %47, align 8, !tbaa !1268
+  %49 = getelementptr i8, ptr %48, i64 48
+  %.val34 = load i64, ptr %49, align 8, !tbaa !30
+  %50 = and i64 %.val34, -16
+  %51 = inttoptr i64 %50 to ptr
+  %52 = load ptr, ptr %51, align 16, !tbaa !652
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
+  %54 = load i8, ptr %53, align 16
+  %.not.i.i36 = icmp eq i8 %54, 26
+  br i1 %.not.i.i36, label %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.thread3.i41, label %55
 
-53:                                               ; preds = %43
-  %54 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  %.sroa.0.0.copyload.i.i.i.i.i37 = load i64, ptr %54, align 8, !tbaa !30
-  %55 = and i64 %.sroa.0.0.copyload.i.i.i.i.i37, -16
-  %56 = inttoptr i64 %55 to ptr
-  %57 = load ptr, ptr %56, align 16, !tbaa !652
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 16
-  %59 = load i8, ptr %58, align 16
-  %60 = icmp eq i8 %59, 26
-  br i1 %60, label %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.i39, label %.critedge.thread
+55:                                               ; preds = %45
+  %56 = getelementptr inbounds nuw i8, ptr %52, i64 8
+  %.sroa.0.0.copyload.i.i.i.i.i37 = load i64, ptr %56, align 8, !tbaa !30
+  %57 = and i64 %.sroa.0.0.copyload.i.i.i.i.i37, -16
+  %58 = inttoptr i64 %57 to ptr
+  %59 = load ptr, ptr %58, align 16, !tbaa !652
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
+  %61 = load i8, ptr %60, align 16
+  %62 = icmp eq i8 %61, 26
+  br i1 %62, label %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.i39, label %.critedge.thread
 
-_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.i39: ; preds = %53
-  %61 = tail call noundef ptr @_ZNK5clang4Type27getUnqualifiedDesugaredTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %50) #17
-  %.not.i40 = icmp eq ptr %61, null
+_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.i39: ; preds = %55
+  %63 = tail call noundef ptr @_ZNK5clang4Type27getUnqualifiedDesugaredTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %52) #17
+  %.not.i40 = icmp eq ptr %63, null
   br i1 %.not.i40, label %.critedge.thread, label %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.thread3.i41
 
-_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.thread3.i41: ; preds = %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.i39, %43
-  %.1.i6.i42 = phi ptr [ %61, %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.i39 ], [ %50, %43 ]
-  %62 = getelementptr inbounds nuw i8, ptr %.1.i6.i42, i64 16
-  %63 = load i64, ptr %62, align 16
-  %64 = lshr i64 %63, 54
-  %65 = trunc nuw nsw i64 %64 to i32
-  %66 = and i32 %65, 15
-  %.off.i43 = add nsw i32 %66, -4
-  %switch.i44 = icmp ult i32 %.off.i43, 5
-  br i1 %switch.i44, label %_ZL16FunctionCanThrowPKN5clang12FunctionDeclE.exit45, label %.critedge.thread
+_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.thread3.i41: ; preds = %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.i39, %45
+  %.1.i6.i42 = phi ptr [ %63, %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.i39 ], [ %52, %45 ]
+  %64 = getelementptr inbounds nuw i8, ptr %.1.i6.i42, i64 16
+  %65 = load i64, ptr %64, align 16
+  %66 = lshr i64 %65, 54
+  %67 = trunc nuw nsw i64 %66 to i32
+  %68 = and i32 %67, 15
+  %69 = add nsw i32 %68, -4
+  %70 = icmp ult i32 %69, 5
+  br i1 %70, label %_ZL16FunctionCanThrowPKN5clang12FunctionDeclE.exit43, label %.critedge.thread
 
-_ZL16FunctionCanThrowPKN5clang12FunctionDeclE.exit45: ; preds = %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.thread3.i41
-  %67 = tail call noundef i32 @_ZNK5clang17FunctionProtoType8canThrowEv(ptr noundef nonnull align 16 dereferenceable(48) %.1.i6.i42) #17
-  %.not61 = icmp eq i32 %67, 0
-  br i1 %.not61, label %68, label %.critedge.thread
+_ZL16FunctionCanThrowPKN5clang12FunctionDeclE.exit43: ; preds = %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.thread3.i41
+  %71 = tail call noundef i32 @_ZNK5clang17FunctionProtoType8canThrowEv(ptr noundef nonnull align 16 dereferenceable(48) %.1.i6.i42) #17
+  %.not59 = icmp eq i32 %71, 0
+  br i1 %.not59, label %72, label %.critedge.thread
 
-68:                                               ; preds = %_ZL16FunctionCanThrowPKN5clang12FunctionDeclE.exit45, %.critedge
+72:                                               ; preds = %_ZL16FunctionCanThrowPKN5clang12FunctionDeclE.exit43, %.critedge
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !1271
   call void @_ZN5clang4Stmt8childrenEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::iterator_range.1221") align 8 %2, ptr noundef nonnull align 8 dereferenceable(8) %0) #17, !noalias !1271
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
-  %69 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %.sroa.448.24.copyload = load ptr, ptr %69, align 8
+  %73 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %.sroa.446.24.copyload = load ptr, ptr %73, align 8
   %.sroa.6.24..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 32
   %.sroa.6.24.copyload = load i64, ptr %.sroa.6.24..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !1271
-  %70 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %71 = load ptr, ptr %3, align 8, !tbaa !30
-  %72 = icmp ne ptr %71, %.sroa.448.24.copyload
-  %73 = load i64, ptr %70, align 8
-  %74 = icmp ne i64 %73, %.sroa.6.24.copyload
-  %.not3.i.not.not66 = select i1 %72, i1 true, i1 %74
-  br i1 %.not3.i.not.not66, label %.lr.ph, label %._crit_edge
+  %74 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %75 = load ptr, ptr %3, align 8, !tbaa !30
+  %76 = icmp ne ptr %75, %.sroa.446.24.copyload
+  %77 = load i64, ptr %74, align 8
+  %78 = icmp ne i64 %77, %.sroa.6.24.copyload
+  %.not3.i.not.not64 = select i1 %76, i1 true, i1 %78
+  br i1 %.not3.i.not.not64, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %68, %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit
-  %75 = phi i64 [ %95, %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit ], [ %73, %68 ]
-  %76 = phi ptr [ %93, %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit ], [ %71, %68 ]
-  %77 = and i64 %75, 3
-  %78 = icmp eq i64 %77, 0
-  br i1 %78, label %_ZNK5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEdeEv.exit, label %79
+.lr.ph:                                           ; preds = %72, %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit
+  %79 = phi i64 [ %99, %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit ], [ %77, %72 ]
+  %80 = phi ptr [ %97, %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit ], [ %75, %72 ]
+  %81 = and i64 %79, 3
+  %82 = icmp eq i64 %81, 0
+  br i1 %82, label %_ZNK5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEdeEv.exit, label %83
 
-79:                                               ; preds = %.lr.ph
-  %80 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5clang16StmtIteratorBase11GetDeclExprEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #17
+83:                                               ; preds = %.lr.ph
+  %84 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5clang16StmtIteratorBase11GetDeclExprEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #17
   br label %_ZNK5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEdeEv.exit
 
-_ZNK5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEdeEv.exit: ; preds = %.lr.ph, %79
-  %.in.i = phi ptr [ %80, %79 ], [ %76, %.lr.ph ]
-  %81 = load ptr, ptr %.in.i, align 8, !tbaa !31
-  %82 = call fastcc noundef zeroext i1 @_ZL12StmtCanThrowPKN5clang4StmtE(ptr noundef %81)
-  br i1 %82, label %._crit_edge, label %83
+_ZNK5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEdeEv.exit: ; preds = %.lr.ph, %83
+  %.in.i = phi ptr [ %84, %83 ], [ %80, %.lr.ph ]
+  %85 = load ptr, ptr %.in.i, align 8, !tbaa !31
+  %86 = call fastcc noundef zeroext i1 @_ZL12StmtCanThrowPKN5clang4StmtE(ptr noundef %85)
+  br i1 %86, label %._crit_edge, label %87
 
-83:                                               ; preds = %_ZNK5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEdeEv.exit
-  %84 = load i64, ptr %70, align 8, !tbaa !1274
-  %85 = and i64 %84, 3
-  %86 = icmp eq i64 %85, 0
-  br i1 %86, label %87, label %90
+87:                                               ; preds = %_ZNK5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEdeEv.exit
+  %88 = load i64, ptr %74, align 8, !tbaa !1274
+  %89 = and i64 %88, 3
+  %90 = icmp eq i64 %89, 0
+  br i1 %90, label %91, label %94
 
-87:                                               ; preds = %83
-  %88 = load ptr, ptr %3, align 8, !tbaa !30
-  %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
-  store ptr %89, ptr %3, align 8, !tbaa !30
+91:                                               ; preds = %87
+  %92 = load ptr, ptr %3, align 8, !tbaa !30
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
+  store ptr %93, ptr %3, align 8, !tbaa !30
   br label %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit
 
-90:                                               ; preds = %83
-  %.not.i46 = icmp ult i64 %84, 4
-  br i1 %.not.i46, label %92, label %91
+94:                                               ; preds = %87
+  %.not.i44 = icmp ult i64 %88, 4
+  br i1 %.not.i44, label %96, label %95
 
-91:                                               ; preds = %90
+95:                                               ; preds = %94
   call void @_ZN5clang16StmtIteratorBase6NextVAEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #17
   br label %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit
 
-92:                                               ; preds = %90
+96:                                               ; preds = %94
   call void @_ZN5clang16StmtIteratorBase8NextDeclEb(ptr noundef nonnull align 8 dereferenceable(24) %3, i1 noundef zeroext true) #17
   br label %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit
 
-_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit: ; preds = %87, %91, %92
-  %93 = load ptr, ptr %3, align 8, !tbaa !30
-  %94 = icmp ne ptr %93, %.sroa.448.24.copyload
-  %95 = load i64, ptr %70, align 8
-  %96 = icmp ne i64 %95, %.sroa.6.24.copyload
-  %.not3.i.not.not = select i1 %94, i1 true, i1 %96
+_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit: ; preds = %91, %95, %96
+  %97 = load ptr, ptr %3, align 8, !tbaa !30
+  %98 = icmp ne ptr %97, %.sroa.446.24.copyload
+  %99 = load i64, ptr %74, align 8
+  %100 = icmp ne i64 %99, %.sroa.6.24.copyload
+  %.not3.i.not.not = select i1 %98, i1 true, i1 %100
   br i1 %.not3.i.not.not, label %.lr.ph, label %._crit_edge
 
-._crit_edge:                                      ; preds = %_ZNK5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEdeEv.exit, %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit, %68
-  %.not3.i.not.not.lcssa = phi i1 [ false, %68 ], [ %82, %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit ], [ %82, %_ZNK5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEdeEv.exit ]
+._crit_edge:                                      ; preds = %_ZNK5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEdeEv.exit, %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit, %72
+  %.not3.i.not.not.lcssa = phi i1 [ false, %72 ], [ %86, %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit ], [ %86, %_ZNK5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEdeEv.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.critedge.thread
 
-.critedge.thread:                                 ; preds = %53, %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.thread3.i41, %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.i39, %_ZL16FunctionCanThrowPKN5clang12FunctionDeclE.exit45, %26, %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.thread3.i, %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.i, %7, %14, %_ZL16FunctionCanThrowPKN5clang12FunctionDeclE.exit, %._crit_edge
-  %.3 = phi i1 [ %.not3.i.not.not.lcssa, %._crit_edge ], [ true, %_ZL16FunctionCanThrowPKN5clang12FunctionDeclE.exit ], [ true, %14 ], [ true, %7 ], [ true, %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.i ], [ true, %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.thread3.i ], [ true, %26 ], [ true, %_ZL16FunctionCanThrowPKN5clang12FunctionDeclE.exit45 ], [ true, %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.i39 ], [ true, %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.thread3.i41 ], [ true, %53 ]
+.critedge.thread:                                 ; preds = %55, %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.thread3.i41, %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.i39, %_ZL16FunctionCanThrowPKN5clang12FunctionDeclE.exit43, %26, %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.thread3.i, %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.i, %7, %14, %_ZL16FunctionCanThrowPKN5clang12FunctionDeclE.exit, %._crit_edge
+  %.3 = phi i1 [ %.not3.i.not.not.lcssa, %._crit_edge ], [ true, %_ZL16FunctionCanThrowPKN5clang12FunctionDeclE.exit ], [ true, %14 ], [ true, %7 ], [ true, %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.i ], [ true, %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.thread3.i ], [ true, %26 ], [ true, %_ZL16FunctionCanThrowPKN5clang12FunctionDeclE.exit43 ], [ true, %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.i39 ], [ true, %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.thread3.i41 ], [ true, %55 ]
   ret i1 %.3
 }
 

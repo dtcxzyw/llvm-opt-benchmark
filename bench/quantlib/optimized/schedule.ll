@@ -7978,9 +7978,9 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %rule.off = add i32 %rule, -6
-  %switch = icmp ult i32 %rule.off, 4
-  br i1 %switch, label %if.then10, label %if.end19
+  %2 = add i32 %rule, -6
+  %or.cond2 = icmp ult i32 %2, 4
+  br i1 %or.cond2, label %if.then10, label %if.end19
 
 if.then10:                                        ; preds = %if.end
   %call11 = call noundef i32 @_ZNK8QuantLib4Date5monthEv(ptr noundef nonnull align 8 dereferenceable(8) %retval)
@@ -7997,9 +7997,9 @@ if.then13:                                        ; preds = %if.then10
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp15)
   br label %if.end19
 
-if.end19:                                         ; preds = %if.end, %if.then10, %if.then13
-  %2 = load i64, ptr %retval, align 8
-  ret i64 %2
+if.end19:                                         ; preds = %if.then10, %if.then13, %if.end
+  %3 = load i64, ptr %retval, align 8
+  ret i64 %3
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -8024,9 +8024,9 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %rule.off = add i32 %rule, -6
-  %switch = icmp ult i32 %rule.off, 4
-  br i1 %switch, label %if.then10, label %if.end19
+  %2 = add i32 %rule, -6
+  %or.cond2 = icmp ult i32 %2, 4
+  br i1 %or.cond2, label %if.then10, label %if.end19
 
 if.then10:                                        ; preds = %if.end
   %call11 = call noundef i32 @_ZNK8QuantLib4Date5monthEv(ptr noundef nonnull align 8 dereferenceable(8) %retval)
@@ -8044,9 +8044,9 @@ if.then13:                                        ; preds = %if.then10
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp15)
   br label %if.end19
 
-if.end19:                                         ; preds = %if.end, %if.then10, %if.then13
-  %2 = load i64, ptr %retval, align 8
-  ret i64 %2
+if.end19:                                         ; preds = %if.then10, %if.then13, %if.end
+  %3 = load i64, ptr %retval, align 8
+  ret i64 %3
 }
 
 declare i64 @_ZN8QuantLib4Date10nthWeekdayEmNS_7WeekdayENS_5MonthEi(i64 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #5

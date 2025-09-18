@@ -1669,9 +1669,8 @@ land.lhs.true795:                                 ; preds = %lor.lhs.false793
 lor.lhs.false803:                                 ; preds = %lor.lhs.false793
   %75 = icmp ult i32 %48, 8
   %or.cond449 = and i1 %cmp34126012721297, %75
-  %76 = and i32 %call4, -2
-  %or.cond4551229 = icmp eq i32 %76, 2010
-  %77 = or i1 %cmp461301, %or.cond4551229
+  %76 = add i32 %call4, -2010
+  %77 = icmp ult i32 %76, 3
   %78 = and i1 %49, %77
   %or.cond12061230 = or i1 %or.cond449, %78
   %or.cond1207 = and i1 %cmp792, %or.cond12061230
@@ -1717,8 +1716,8 @@ lor.lhs.false907:                                 ; preds = %lor.lhs.false899
   br i1 %cmp102, label %land.lhs.true909, label %lor.lhs.false921
 
 land.lhs.true909:                                 ; preds = %lor.lhs.false907
-  %84 = icmp eq i32 %42, 6
-  %85 = or i1 %43, %84
+  %84 = and i32 %sub.i, -4
+  %85 = icmp eq i32 %84, 4
   %or.cond531 = or i1 %cmp, %85
   %or.cond533 = and i1 %cmp792, %or.cond531
   br i1 %or.cond533, label %cleanup, label %lor.lhs.false937

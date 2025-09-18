@@ -5231,21 +5231,21 @@ define hidden void @_ZN14ShenandoahHeap6verifyE12VerifyOption(ptr noundef nonnul
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %23 = load ptr, ptr %22, align 8
   %24 = tail call noundef i32 %23(ptr noundef nonnull align 8 dereferenceable(16) %18) #26
-  %.off.i = add i32 %24, -53
-  %switch.i = icmp ult i32 %.off.i, 7
+  %25 = add i32 %24, -53
+  %spec.select.i = icmp ult i32 %25, 7
   br label %_ZN19ShenandoahSafepoint26is_at_shenandoah_safepointEv.exit
 
 _ZN19ShenandoahSafepoint26is_at_shenandoah_safepointEv.exit: ; preds = %12, %20
-  %.0.i = phi i1 [ true, %12 ], [ %switch.i, %20 ]
-  %25 = load i8, ptr @ShenandoahVerify, align 1
-  %26 = trunc i8 %25 to i1
-  %or.cond = select i1 %.0.i, i1 %26, i1 false
+  %.0.i = phi i1 [ %spec.select.i, %20 ], [ true, %12 ]
+  %26 = load i8, ptr @ShenandoahVerify, align 1
+  %27 = trunc i8 %26 to i1
+  %or.cond = select i1 %.0.i, i1 %27, i1 false
   br i1 %or.cond, label %_ZN14ShenandoahHeap8verifierEv.exit, label %_ZN19ShenandoahSafepoint26is_at_shenandoah_safepointEv.exit.thread
 
 _ZN14ShenandoahHeap8verifierEv.exit:              ; preds = %_ZN19ShenandoahSafepoint26is_at_shenandoah_safepointEv.exit
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 1672
-  %28 = load ptr, ptr %27, align 8
-  tail call void @_ZN18ShenandoahVerifier14verify_genericE12VerifyOption(ptr noundef nonnull align 8 dereferenceable(16) %28, i32 noundef %1) #26
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 1672
+  %29 = load ptr, ptr %28, align 8
+  tail call void @_ZN18ShenandoahVerifier14verify_genericE12VerifyOption(ptr noundef nonnull align 8 dereferenceable(16) %29, i32 noundef %1) #26
   br label %_ZN19ShenandoahSafepoint26is_at_shenandoah_safepointEv.exit.thread
 
 _ZN19ShenandoahSafepoint26is_at_shenandoah_safepointEv.exit.thread: ; preds = %17, %5, %2, %_ZN14ShenandoahHeap8verifierEv.exit, %_ZN19ShenandoahSafepoint26is_at_shenandoah_safepointEv.exit

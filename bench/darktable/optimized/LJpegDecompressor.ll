@@ -131,10 +131,10 @@ define hidden void @_ZN8rawspeed17LJpegDecompressorC2ENS_8RawImageENS_12iRectang
   %32 = zext i8 %30 to i32
   br label %.thread52.invoke
 
-33:                                               ; preds = %.thread52.invoke, %.invoke, %101
+33:                                               ; preds = %.thread52.invoke, %.invoke, %99
   %34 = landingpad { ptr, i32 }
           cleanup
-  br label %163
+  br label %161
 
 35:                                               ; preds = %9
   %36 = getelementptr inbounds nuw i8, ptr %28, i64 584
@@ -240,169 +240,167 @@ define hidden void @_ZN8rawspeed17LJpegDecompressorC2ENS_8RawImageENS_12iRectang
 
 93:                                               ; preds = %86
   %94 = icmp eq i32 %87, 2
-  %95 = and i32 %87, -2
-  %96 = icmp eq i32 %95, 2
-  %97 = icmp eq i32 %87, 4
-  %98 = or i1 %97, %96
-  %or.cond57 = select i1 %98, i1 %91, i1 false
-  %99 = icmp eq i32 %90, 2
-  %100 = select i1 %94, i1 %99, i1 false
-  %or.cond59 = select i1 %or.cond57, i1 true, i1 %100
-  br i1 %or.cond59, label %.critedge, label %101
+  %95 = add i32 %87, -2
+  %96 = icmp ult i32 %95, 3
+  %or.cond57 = select i1 %96, i1 %91, i1 false
+  %97 = icmp eq i32 %90, 2
+  %98 = select i1 %94, i1 %97, i1 false
+  %or.cond59 = select i1 %or.cond57, i1 true, i1 %98
+  br i1 %or.cond59, label %.critedge, label %99
 
-101:                                              ; preds = %93
+99:                                               ; preds = %93
   invoke void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKcz(ptr noundef nonnull @.str.11, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed17LJpegDecompressorC2ENS_8RawImageENS_12iRectangle2DENS0_5FrameESt6vectorINS0_18PerComponentRecipeESaIS5_EEiNS_10Array1DRefIKhEE, i32 noundef %87, i32 noundef %90) #12
-          to label %102 unwind label %33
+          to label %100 unwind label %33
 
-102:                                              ; preds = %101
+100:                                              ; preds = %99
   unreachable
 
 .critedge:                                        ; preds = %93, %86
-  %103 = load ptr, ptr %19, align 8, !tbaa !23
-  %104 = load ptr, ptr %17, align 8, !tbaa !20
-  %105 = ptrtoint ptr %103 to i64
-  %106 = ptrtoint ptr %104 to i64
-  %107 = sub i64 %105, %106
-  %108 = ashr exact i64 %107, 4
-  %109 = zext nneg i32 %87 to i64
-  %110 = zext nneg i32 %90 to i64
-  %111 = mul nuw nsw i64 %110, %109
-  %.not35 = icmp eq i64 %108, %111
+  %101 = load ptr, ptr %19, align 8, !tbaa !23
+  %102 = load ptr, ptr %17, align 8, !tbaa !20
+  %103 = ptrtoint ptr %101 to i64
+  %104 = ptrtoint ptr %102 to i64
+  %105 = sub i64 %103, %104
+  %106 = ashr exact i64 %105, 4
+  %107 = zext nneg i32 %87 to i64
+  %108 = zext nneg i32 %90 to i64
+  %109 = mul nuw nsw i64 %108, %107
+  %.not35 = icmp eq i64 %106, %109
   br i1 %.not35, label %.preheader, label %.invoke
 
 .preheader:                                       ; preds = %.critedge
-  %112 = icmp eq ptr %104, %103
-  br i1 %112, label %._crit_edge, label %.lr.ph
+  %110 = icmp eq ptr %102, %101
+  br i1 %110, label %._crit_edge, label %.lr.ph
 
-113:                                              ; preds = %.lr.ph
-  %114 = getelementptr inbounds nuw i8, ptr %.sroa.039.062, i64 16
-  %115 = icmp eq ptr %114, %103
-  br i1 %115, label %._crit_edge, label %.lr.ph
+111:                                              ; preds = %.lr.ph
+  %112 = getelementptr inbounds nuw i8, ptr %.sroa.039.062, i64 16
+  %113 = icmp eq ptr %112, %101
+  br i1 %113, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %113, %.preheader
-  %116 = icmp slt i32 %7, 1
-  br i1 %116, label %.invoke, label %124
+._crit_edge:                                      ; preds = %111, %.preheader
+  %114 = icmp slt i32 %7, 1
+  br i1 %114, label %.invoke, label %122
 
-.lr.ph:                                           ; preds = %.preheader, %113
-  %.sroa.039.062 = phi ptr [ %114, %113 ], [ %104, %.preheader ]
-  %117 = load ptr, ptr %.sroa.039.062, align 8, !tbaa !109
-  %118 = load i8, ptr %117, align 8, !tbaa !113, !range !126, !noundef !127
-  %119 = trunc nuw i8 %118 to i1
-  br i1 %119, label %113, label %120
+.lr.ph:                                           ; preds = %.preheader, %111
+  %.sroa.039.062 = phi ptr [ %112, %111 ], [ %102, %.preheader ]
+  %115 = load ptr, ptr %.sroa.039.062, align 8, !tbaa !109
+  %116 = load i8, ptr %115, align 8, !tbaa !113, !range !126, !noundef !127
+  %117 = trunc nuw i8 %116 to i1
+  br i1 %117, label %111, label %118
 
-120:                                              ; preds = %.lr.ph
+118:                                              ; preds = %.lr.ph
   invoke void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKcz(ptr noundef nonnull @.str.13, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed17LJpegDecompressorC2ENS_8RawImageENS_12iRectangle2DENS0_5FrameESt6vectorINS0_18PerComponentRecipeESaIS5_EEiNS_10Array1DRefIKhEE) #12
-          to label %121 unwind label %122
+          to label %119 unwind label %120
 
-121:                                              ; preds = %120
+119:                                              ; preds = %118
   unreachable
 
-122:                                              ; preds = %120
-  %123 = landingpad { ptr, i32 }
+120:                                              ; preds = %118
+  %121 = landingpad { ptr, i32 }
           cleanup
-  br label %163
+  br label %161
 
-124:                                              ; preds = %._crit_edge
-  %125 = sext i32 %87 to i64
-  %126 = zext nneg i32 %80 to i64
-  %127 = mul nsw i64 %125, %126
-  %128 = icmp sgt i64 %127, 2147483647
-  %129 = sext i32 %90 to i64
-  %130 = zext nneg i32 %83 to i64
-  %131 = mul nsw i64 %130, %129
-  %132 = icmp sgt i64 %131, 2147483647
-  %or.cond83 = select i1 %128, i1 true, i1 %132
-  br i1 %or.cond83, label %.invoke, label %133
+122:                                              ; preds = %._crit_edge
+  %123 = sext i32 %87 to i64
+  %124 = zext nneg i32 %80 to i64
+  %125 = mul nsw i64 %123, %124
+  %126 = icmp sgt i64 %125, 2147483647
+  %127 = sext i32 %90 to i64
+  %128 = zext nneg i32 %83 to i64
+  %129 = mul nsw i64 %128, %127
+  %130 = icmp sgt i64 %129, 2147483647
+  %or.cond83 = select i1 %126, i1 true, i1 %130
+  br i1 %or.cond83, label %.invoke, label %131
 
-133:                                              ; preds = %124
-  %134 = zext i32 %37 to i64
-  %135 = zext nneg i32 %58 to i64
-  %136 = mul nuw nsw i64 %135, %134
-  %137 = icmp samesign ugt i64 %136, 2147483647
-  br i1 %137, label %.invoke, label %138
+131:                                              ; preds = %122
+  %132 = zext i32 %37 to i64
+  %133 = zext nneg i32 %58 to i64
+  %134 = mul nuw nsw i64 %133, %132
+  %135 = icmp samesign ugt i64 %134, 2147483647
+  br i1 %135, label %.invoke, label %136
 
-138:                                              ; preds = %133
-  %139 = icmp slt i32 %58, %87
-  %140 = icmp slt i32 %61, %90
-  %or.cond60 = or i1 %139, %140
-  br i1 %or.cond60, label %.invoke, label %141
+136:                                              ; preds = %131
+  %137 = icmp slt i32 %58, %87
+  %138 = icmp slt i32 %61, %90
+  %or.cond60 = or i1 %137, %138
+  br i1 %or.cond60, label %.invoke, label %139
 
-141:                                              ; preds = %138
-  %142 = srem i32 %61, %90
-  %.not36 = icmp eq i32 %142, 0
-  br i1 %.not36, label %144, label %.invoke
+139:                                              ; preds = %136
+  %140 = srem i32 %61, %90
+  %.not36 = icmp eq i32 %140, 0
+  br i1 %.not36, label %142, label %.invoke
 
-.invoke:                                          ; preds = %141, %138, %133, %124, %._crit_edge, %.critedge, %79, %76, %73, %71, %69, %66, %64, %57, %49
-  %143 = phi ptr [ @.str.2, %49 ], [ @.str.3, %57 ], [ @.str.4, %64 ], [ @.str.5, %66 ], [ @.str.6, %69 ], [ @.str.7, %71 ], [ @.str.8, %73 ], [ @.str.9, %76 ], [ @.str.10, %79 ], [ @.str.12, %.critedge ], [ @.str.14, %._crit_edge ], [ @.str.15, %124 ], [ @.str.16, %133 ], [ @.str.17, %138 ], [ @.str.18, %141 ]
-  invoke void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKcz(ptr noundef nonnull %143, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed17LJpegDecompressorC2ENS_8RawImageENS_12iRectangle2DENS0_5FrameESt6vectorINS0_18PerComponentRecipeESaIS5_EEiNS_10Array1DRefIKhEE) #12
+.invoke:                                          ; preds = %139, %136, %131, %122, %._crit_edge, %.critedge, %79, %76, %73, %71, %69, %66, %64, %57, %49
+  %141 = phi ptr [ @.str.2, %49 ], [ @.str.3, %57 ], [ @.str.4, %64 ], [ @.str.5, %66 ], [ @.str.6, %69 ], [ @.str.7, %71 ], [ @.str.8, %73 ], [ @.str.9, %76 ], [ @.str.10, %79 ], [ @.str.12, %.critedge ], [ @.str.14, %._crit_edge ], [ @.str.15, %122 ], [ @.str.16, %131 ], [ @.str.17, %136 ], [ @.str.18, %139 ]
+  invoke void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKcz(ptr noundef nonnull %141, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed17LJpegDecompressorC2ENS_8RawImageENS_12iRectangle2DENS0_5FrameESt6vectorINS0_18PerComponentRecipeESaIS5_EEiNS_10Array1DRefIKhEE) #12
           to label %.cont unwind label %33
 
 .cont:                                            ; preds = %.invoke
   unreachable
 
-144:                                              ; preds = %141
-  %145 = mul nsw i32 %58, %37
+142:                                              ; preds = %139
+  %143 = mul nsw i32 %58, %37
   %.not.i = icmp eq i32 %37, 0
   br i1 %.not.i, label %.critedge61, label %_ZN8rawspeed19roundUpDivisionSafeEmm.exit
 
-_ZN8rawspeed19roundUpDivisionSafeEmm.exit:        ; preds = %144
-  %146 = sext i32 %145 to i64
-  %147 = add nsw i64 %146, -1
-  %148 = udiv i64 %147, %125
-  %149 = trunc i64 %148 to i32
-  %150 = add i32 %149, 1
-  %151 = icmp slt i32 %80, %150
-  br i1 %151, label %_ZN8rawspeed19roundUpDivisionSafeEmm.exit._crit_edge, label %.critedge61
+_ZN8rawspeed19roundUpDivisionSafeEmm.exit:        ; preds = %142
+  %144 = sext i32 %143 to i64
+  %145 = add nsw i64 %144, -1
+  %146 = udiv i64 %145, %123
+  %147 = trunc i64 %146 to i32
+  %148 = add i32 %147, 1
+  %149 = icmp slt i32 %80, %148
+  br i1 %149, label %_ZN8rawspeed19roundUpDivisionSafeEmm.exit._crit_edge, label %.critedge61
 
 _ZN8rawspeed19roundUpDivisionSafeEmm.exit._crit_edge: ; preds = %_ZN8rawspeed19roundUpDivisionSafeEmm.exit
   %.pre = mul nsw i32 %87, %80
   %.pre63 = mul nsw i32 %83, %90
-  br label %156
+  br label %154
 
-.critedge61:                                      ; preds = %144, %_ZN8rawspeed19roundUpDivisionSafeEmm.exit
-  %152 = mul nsw i32 %83, %90
-  %153 = icmp slt i32 %152, %61
-  %154 = mul nsw i32 %87, %80
-  %155 = icmp slt i32 %154, %145
-  %or.cond = select i1 %153, i1 true, i1 %155
-  br i1 %or.cond, label %156, label %160
+.critedge61:                                      ; preds = %142, %_ZN8rawspeed19roundUpDivisionSafeEmm.exit
+  %150 = mul nsw i32 %83, %90
+  %151 = icmp slt i32 %150, %61
+  %152 = mul nsw i32 %87, %80
+  %153 = icmp slt i32 %152, %143
+  %or.cond = select i1 %151, i1 true, i1 %153
+  br i1 %or.cond, label %154, label %158
 
-156:                                              ; preds = %_ZN8rawspeed19roundUpDivisionSafeEmm.exit._crit_edge, %.critedge61
-  %.pre-phi64 = phi i32 [ %.pre63, %_ZN8rawspeed19roundUpDivisionSafeEmm.exit._crit_edge ], [ %152, %.critedge61 ]
-  %.pre-phi = phi i32 [ %.pre, %_ZN8rawspeed19roundUpDivisionSafeEmm.exit._crit_edge ], [ %154, %.critedge61 ]
-  invoke void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKcz(ptr noundef nonnull @.str.19, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed17LJpegDecompressorC2ENS_8RawImageENS_12iRectangle2DENS0_5FrameESt6vectorINS0_18PerComponentRecipeESaIS5_EEiNS_10Array1DRefIKhEE, i32 noundef %.pre-phi, i32 noundef %.pre-phi64, i32 noundef %145, i32 noundef %61) #12
-          to label %157 unwind label %158
+154:                                              ; preds = %_ZN8rawspeed19roundUpDivisionSafeEmm.exit._crit_edge, %.critedge61
+  %.pre-phi64 = phi i32 [ %.pre63, %_ZN8rawspeed19roundUpDivisionSafeEmm.exit._crit_edge ], [ %150, %.critedge61 ]
+  %.pre-phi = phi i32 [ %.pre, %_ZN8rawspeed19roundUpDivisionSafeEmm.exit._crit_edge ], [ %152, %.critedge61 ]
+  invoke void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKcz(ptr noundef nonnull @.str.19, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed17LJpegDecompressorC2ENS_8RawImageENS_12iRectangle2DENS0_5FrameESt6vectorINS0_18PerComponentRecipeESaIS5_EEiNS_10Array1DRefIKhEE, i32 noundef %.pre-phi, i32 noundef %.pre-phi64, i32 noundef %143, i32 noundef %61) #12
+          to label %155 unwind label %156
 
-157:                                              ; preds = %156
+155:                                              ; preds = %154
   unreachable
 
-158:                                              ; preds = %156
-  %159 = landingpad { ptr, i32 }
+156:                                              ; preds = %154
+  %157 = landingpad { ptr, i32 }
           cleanup
-  br label %163
+  br label %161
 
-160:                                              ; preds = %.critedge61
-  %161 = sdiv i32 %145, %87
-  store i32 %161, ptr %26, align 4, !tbaa !36
-  %162 = srem i32 %145, %87
-  store i32 %162, ptr %27, align 8, !tbaa !37
+158:                                              ; preds = %.critedge61
+  %159 = sdiv i32 %143, %87
+  store i32 %159, ptr %26, align 4, !tbaa !36
+  %160 = srem i32 %143, %87
+  store i32 %160, ptr %27, align 8, !tbaa !37
   ret void
 
-163:                                              ; preds = %158, %122, %33
-  %.pn = phi { ptr, i32 } [ %34, %33 ], [ %123, %122 ], [ %159, %158 ]
-  %164 = load ptr, ptr %17, align 8, !tbaa !20
-  %.not.i.i.i = icmp eq ptr %164, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIN8rawspeed17LJpegDecompressor18PerComponentRecipeESaIS2_EED2Ev.exit, label %165
+161:                                              ; preds = %156, %120, %33
+  %.pn = phi { ptr, i32 } [ %34, %33 ], [ %121, %120 ], [ %157, %156 ]
+  %162 = load ptr, ptr %17, align 8, !tbaa !20
+  %.not.i.i.i = icmp eq ptr %162, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIN8rawspeed17LJpegDecompressor18PerComponentRecipeESaIS2_EED2Ev.exit, label %163
 
-165:                                              ; preds = %163
-  %166 = load ptr, ptr %22, align 8, !tbaa !24
-  %167 = ptrtoint ptr %166 to i64
-  %168 = ptrtoint ptr %164 to i64
-  %169 = sub i64 %167, %168
-  tail call void @_ZdlPvm(ptr noundef nonnull %164, i64 noundef %169) #19
+163:                                              ; preds = %161
+  %164 = load ptr, ptr %22, align 8, !tbaa !24
+  %165 = ptrtoint ptr %164 to i64
+  %166 = ptrtoint ptr %162 to i64
+  %167 = sub i64 %165, %166
+  tail call void @_ZdlPvm(ptr noundef nonnull %162, i64 noundef %167) #19
   br label %_ZNSt6vectorIN8rawspeed17LJpegDecompressor18PerComponentRecipeESaIS2_EED2Ev.exit
 
-_ZNSt6vectorIN8rawspeed17LJpegDecompressor18PerComponentRecipeESaIS2_EED2Ev.exit: ; preds = %163, %165
+_ZNSt6vectorIN8rawspeed17LJpegDecompressor18PerComponentRecipeESaIS2_EED2Ev.exit: ; preds = %161, %163
   tail call void @_ZN8rawspeed8RawImageD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #20
   resume { ptr, i32 } %.pn
 }

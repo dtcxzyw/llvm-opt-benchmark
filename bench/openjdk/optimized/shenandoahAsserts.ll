@@ -1325,20 +1325,20 @@ _ZN19ShenandoahSafepoint26is_at_shenandoah_safepointEv.exit: ; preds = %19
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %24 = load ptr, ptr %23, align 8
   %25 = tail call noundef i32 %24(ptr noundef nonnull align 8 dereferenceable(16) %20) #10
-  %.off.i = add i32 %25, -53
-  %switch.i = icmp ult i32 %.off.i, 7
-  br i1 %switch.i, label %_ZN19ShenandoahSafepoint26is_at_shenandoah_safepointEv.exit.thread4, label %_ZN19ShenandoahSafepoint26is_at_shenandoah_safepointEv.exit.thread
+  %26 = add i32 %25, -53
+  %spec.select.i = icmp ult i32 %26, 7
+  br i1 %spec.select.i, label %_ZN19ShenandoahSafepoint26is_at_shenandoah_safepointEv.exit.thread4, label %_ZN19ShenandoahSafepoint26is_at_shenandoah_safepointEv.exit.thread
 
 _ZN19ShenandoahSafepoint26is_at_shenandoah_safepointEv.exit.thread: ; preds = %19, %7, %3, %_ZN19ShenandoahSafepoint26is_at_shenandoah_safepointEv.exit
-  %26 = tail call noundef zeroext i1 @_ZNK5Mutex13owned_by_selfEv(ptr noundef nonnull align 8 dereferenceable(104) %0) #10
-  br i1 %26, label %_ZN19ShenandoahSafepoint26is_at_shenandoah_safepointEv.exit.thread4, label %27
+  %27 = tail call noundef zeroext i1 @_ZNK5Mutex13owned_by_selfEv(ptr noundef nonnull align 8 dereferenceable(104) %0) #10
+  br i1 %27, label %_ZN19ShenandoahSafepoint26is_at_shenandoah_safepointEv.exit.thread4, label %28
 
-27:                                               ; preds = %_ZN19ShenandoahSafepoint26is_at_shenandoah_safepointEv.exit.thread
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %29 = load ptr, ptr %28, align 8
-  call void (ptr, ptr, ...) @_ZN12FormatBufferILm8192EEC2EPKcz(ptr noundef nonnull align 8 dereferenceable(8200) %4, ptr noundef nonnull @.str.60, ptr noundef %29)
-  %30 = load ptr, ptr %4, align 8
-  call void @_Z15report_vm_errorPKciS0_(ptr noundef %1, i32 noundef %2, ptr noundef %30) #12
+28:                                               ; preds = %_ZN19ShenandoahSafepoint26is_at_shenandoah_safepointEv.exit.thread
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %30 = load ptr, ptr %29, align 8
+  call void (ptr, ptr, ...) @_ZN12FormatBufferILm8192EEC2EPKcz(ptr noundef nonnull align 8 dereferenceable(8200) %4, ptr noundef nonnull @.str.60, ptr noundef %30)
+  %31 = load ptr, ptr %4, align 8
+  call void @_Z15report_vm_errorPKciS0_(ptr noundef %1, i32 noundef %2, ptr noundef %31) #12
   unreachable
 
 _ZN19ShenandoahSafepoint26is_at_shenandoah_safepointEv.exit.thread4: ; preds = %14, %_ZN19ShenandoahSafepoint26is_at_shenandoah_safepointEv.exit.thread, %_ZN19ShenandoahSafepoint26is_at_shenandoah_safepointEv.exit
